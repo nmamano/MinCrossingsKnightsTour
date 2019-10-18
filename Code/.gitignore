@@ -1,0 +1,10 @@
+*.swp
+BitToPath
+CornerPathFinding
+Merger
+SymmetricPathFinding
+SymmetricBitToPath
+TourFinder
+Tests
+Finished*
+Expanded*
