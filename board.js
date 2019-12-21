@@ -1,4 +1,6 @@
-// Made by Nil Mamano
+//credits for the base of the interaction-handling logic:
+//https://dzone.com/articles/gentle-introduction-making
+//rest by Nil M.
 
 //X grows to the right and Y grows upwards(?)
 var canvasSize = document.getElementById('canvas1').offsetWidth-2;
