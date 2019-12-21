@@ -1,5 +1,5 @@
 # Interactive demo:
-nmamano.github.io/MinCrossingsKnightsTour/index.html
+https://nmamano.github.io/MinCrossingsKnightsTour/index.html
 
 This repo contains an interactive demo in java script of our algorithm from the paper:
 
