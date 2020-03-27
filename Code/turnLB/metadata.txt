@@ -1,0 +1,44 @@
+Num nodes: 181404
+Estimated num edges: 871240165
+Estimated density: 0.0264755
+
+Node weight distribution:
+3: 98
+4: 2222
+5: 18137
+6: 56634
+7: 64810
+8: 31926
+9: 6995
+10: 582
+
+Edge weight distribution:
+0: 217979 (0.217979)
+1: 392367 (0.392367)
+2: 277153 (0.277153)
+3: 95928 (0.095928)
+4: 15552 (0.015552)
+5: 1000 (0.001)
+6: 21 (2.1e-05)
+
+Total number cycles of len 1: 4130
+Weight distribution:
+5: 90
+6: 685
+7: 1224
+8: 1167
+9: 707
+10: 194
+11: 50
+12: 13
+
+Total number cycles of len 2 of total node weight <=7: 392
+Weight distribution:
+11: 90
+12: 138
+13: 90
+14: 44
+15: 22
+16: 8
+
+Outdegrees of weight-3 nodes: 1574 to 17660
