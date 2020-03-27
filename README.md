@@ -1,4 +1,4 @@
-This repo contains an [interactive demo](https://nmamano.github.io/MinCrossingsKnightsTour/index.html) of our algorithm for finding knight tours with a small number of turns and crossings.
+This repo contains an **[interactive demo](https://nmamano.github.io/MinCrossingsKnightsTour/index.html)** of our algorithm for finding knight tours with a small number of turns and crossings.
 
 [![Illustration](20x20.PNG "20x20")](https://nmamano.github.io/MinCrossingsKnightsTour/index.html)
 
