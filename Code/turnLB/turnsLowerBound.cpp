@@ -3,7 +3,7 @@
 #include <string>
 #include <random>
 #include <chrono> //random seed
-
+#include <unordered_map>
 using namespace std;
 
 bool contains(const vector<int>& v, int val) {
@@ -101,26 +101,43 @@ struct Node {
       res+="| "+at(i,0).toStr()+at(i,1).toStr()+"\n";
     return res;
   }
-  static string ggSegment(int x0, int y0, int x1, int y1) {
-    return "\"Segment(Point({"+to_string(x0)+","+to_string(y0)+"}),Point({"+to_string(x1)+","+to_string(y1)+"}))\"\n";
+  static string drawApiSquare(double x0, double y0, double width, bool bg) {
+    string sx0 = to_string(x0), sy0 = to_string(y0);
+    if (!bg) return "rectangle("+sx0+","+sy0+","+to_string(x0+width)+
+                    ","+to_string(y0-width)+",1,black)\n";
+    return "filled_rectangle("+sx0+","+sy0+","+to_string(x0+width)+
+                    ","+to_string(y0-width)+",1,black,gray)\n";
   }
-  string toGeoGebra(int yb) const {
+  static string drawApiSegment(double x0, double y0, double x1, double y1) {
+    string sx0 = to_string(x0), sy0 = to_string(y0), sx1 = to_string(x1), sy1 = to_string(y1);
+    return "segment("+sx0+","+sy0+","+sx1+","+sy1+",3,black)\n";
+  }
+  static string drawApiRect(double x0, double y0, double x1, double y1) {
+    string sx0 = to_string(x0), sy0 = to_string(y0), sx1 = to_string(x1), sy1 = to_string(y1);
+    return "rectangle("+sx0+","+sy0+","+sx1+","+sy1+",2,black)\n";
+  }
+  string toDrawAPI(double yTop) const {
     string res = "";
-    yb *= -6;
-    res+=ggSegment(0,0+yb,4,0+yb)+ggSegment(4,0+yb,4,-6+yb)+ggSegment(4,-6+yb,0,-6+yb)+ggSegment(0,-6+yb,0,0+yb);
-    res+=ggSegment(2,0+yb,2,-6+yb)+ggSegment(0,-2+yb,4,-2+yb)+ggSegment(0,-4+yb,4,-4+yb);
+    int w = 5;
+    res += drawApiRect(0,yTop,2*w,yTop-3*w);
+    res += drawApiSquare(0,yTop,w,false);
+    res += drawApiSquare(w,yTop,w,false);
+    res += drawApiSquare(0,yTop-w,w,false);
+    res += drawApiSquare(w,yTop-w,w,false);
+    res += drawApiSquare(0,yTop-2*w,w,false);
+    res += drawApiSquare(w,yTop-2*w,w,false);
+
+    double hw = (double)w/2.0;
     for (int i = 0; i < NR; i++) {
       for (int j = 0; j < NC; j++) {
         for (Move move : cells[i][j].getMoves()) {
           Pos des = addMove({i,j}, move);
-          int x0 = j+1, y0 = -i-1, x1 = des.j+1, y1 = -des.i-1; 
-          res+=ggSegment(2*x0-1,2*y0+1+yb,2*x1-1,2*y1+1+yb);
+          res += drawApiSegment(hw+j*w, yTop-hw-i*w, hw+des.j*w, yTop-hw-des.i*w);
         }
       }
     }
     return res;
   }
-  //Execute[A1:A60]
 };
 
 /* an adjacency list representation of a set of knight moves
@@ -193,29 +210,27 @@ struct MoveGraph {
     addEdgesFromNode(bot, false);
   }
   bool isValid() { return allNodeCellsHaveDeg(2) and hasValidDegrees() and not hasClosedCycles(); }
+  int degree(int idx) const { return adjList[idx].size(); }
   bool allNodeCellsHaveDeg(int deg) {
     for (auto idx : nodeIndices())
-      if ((int) adjList[idx].size() != deg) return false;
+      if (degree(idx) != deg) return false;
     return true;    
   }
   //no degree >= 3, at least 2 nodes with degree 1, even number with deg 1
   bool hasValidDegrees() {
     int deg1Count = 0;
     int degSum = 0;
-    for (auto& l : adjList) {
-      int s = l.size();
-      if (s > 2) return false;
-      if (s == 1) deg1Count++;
-      degSum += s;
+    for (int idx = 0; idx < numNodes(); idx++) {
+      int d = degree(idx);
+      if (d > 2) return false;
+      if (d == 1) deg1Count++;
+      degSum += d;
     }
     return degSum%2 == 0 and deg1Count%2 == 0 and deg1Count>0;
   }
   int numNodesWithDeg(int deg) {
     int count = 0;
-    for (auto& l : adjList) {
-      int s = l.size();
-      if (s == deg) count++;
-    }
+    for (int i = 0; i < numNodes(); i++) if (degree(i) == deg) count++;
     return count;
   }
   int numNonNodeCellsWithDeg(int deg) {
@@ -231,7 +246,7 @@ struct MoveGraph {
   bool hasClosedCycles() {
     vector<bool> seen(numNodes(), false);
     for (int i = 0; i < numNodes(); i++) {
-      if (adjList[i].size() > 0 and !seen[i]) {
+      if (degree(i) > 0 and !seen[i]) {
         vector<pair<int,int>> stk;
         stk.push_back({i, -1});
         seen[i] = true;
@@ -404,11 +419,11 @@ void printOneNodeCycleDistr(const vector<Node>& nodes) {
       int w = nodeWeight(node) + edgeWeight(node, node) + dist2Weight(node, node);
       while ((int)wToCount.size() <= w) wToCount.push_back(0); 
       wToCount[w]++;
-      // if (w == 4 or w == 12) {
-      //   cout<<node.toStr()<<endl;
-      //   cout<<node.toGeoGebra(0)<<node.toGeoGebra(1)<<endl;
-      //   cout<<endl;
-      // }
+      if (w == 5) {
+        cout<<node.toStr()<<endl;
+        cout<<node.toDrawAPI(75)<<node.toDrawAPI(60)<<node.toDrawAPI(45)<<node.toDrawAPI(30)<<endl;
+        cout<<endl;
+      }
     }
   }
   cout<<"Total number cycles of len 1: "<<numCycles<<endl;
@@ -442,7 +457,7 @@ void printTwoNodeCycleDistr(const vector<Node>& nodes) {
           cout<<nodeWeight(top)<<" "<<nodeWeight(bot)<<" "<<edgeWeight(top,bot)<<" "<<edgeWeight(bot, top)
                     <<" "<<dist2Weight(top,top)<<" "<<dist2Weight(bot,bot)<<endl;
           cout<<top.toStr()<<endl<<bot.toStr()<<endl;
-          cout<<top.toGeoGebra(0)<<bot.toGeoGebra(1)<<top.toGeoGebra(2)<<endl;
+          cout<<top.toDrawAPI(75)<<bot.toDrawAPI(60)<<top.toDrawAPI(45)<<bot.toDrawAPI(30)<<endl;
         }
       }
     }
@@ -473,6 +488,55 @@ void printDegreeDistr(const vector<Node>& subset, const vector<Node>& nodes) {
   cout<<endl;  
 }
 
+unsigned long long nodeSignature(const Node& node) {
+  MoveGraph G(node);
+  unsigned long long res = 0;
+  for (int i : G.nonNodeIndices()) {
+    res = res<<2;
+    res += G.degree(i);
+  }
+  return res;
+}
+
+void printNodeSignatureStats(const vector<Node>& nodes) {
+  unordered_map<unsigned long long,int> counts;
+  unordered_map<unsigned long long,vector<Node>> pools;
+  counts.reserve(1640000);
+  for (const Node& node : nodes) {
+    auto sig = nodeSignature(node);
+    counts[sig]++;
+    pools[sig].push_back(node);
+  } 
+  cout <<"Number different signatures"<<endl;
+  cout <<counts.size()<<endl;
+  vector<int> dis;
+  for (const Node& node : nodes) {
+    auto sig = nodeSignature(node);
+    int poolSize = counts[sig];
+    while ((int)dis.size() <= poolSize) dis.push_back(0);
+    dis[poolSize]++;
+  }
+  cout<<endl<<"Number of nodes with signature shared among i nodes:"<<endl;
+  for (size_t i = 0; i < dis.size(); i++) {
+    if(dis[i]!=0)cout<<i<<": "<<dis[i]<<endl;
+  }
+
+  for (auto kv : pools) {
+    vector<Node> pool = kv.second;
+    if (pool.size()==5) {
+      cout<<"group of 5:"<<endl;
+      for (auto node : pool) {
+        cout<<node.toStr();
+        cout<<node.toDrawAPI(60);
+        cout<<endl;
+      }
+    }
+  }
+  cout<<endl;  
+}
+
+
+
 int main() {
   vector<Node> nodes = genAllValidNodes();
 
@@ -487,16 +551,18 @@ int main() {
   // printNodeWeightDistr(nodes);
   // printEstimatedEgdeWeightDistr(nodes);
 
-  // cout<<"look at some nodes: "<<endl;
+  cout<<"look at some nodes: "<<endl;
   // cout<<nodes[0].toStr()<<endl;
-  // cout<<nodes[0].toGeoGebra()<<endl;
+  cout<<nodes[0].toDrawAPI(30)<<endl;
   // for (int i = 0; i < 10; i++) {
   //   cout<<nodes[i].toStr()<<endl;
   // }
 
   printOneNodeCycleDistr(nodes);
-  printTwoNodeCycleDistr(nodes);
+  // printTwoNodeCycleDistr(nodes);
 
   // printDegreeDistr(nodesWithWeightAtMost(3, nodes), nodes);
+
+  // printNodeSignatureStats(nodes);
 }
 
