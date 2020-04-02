@@ -1,8 +1,29 @@
-Num nodes: 181404
-Estimated num edges: 871240165
-Estimated density: 0.0264755
+
+Before/after prunning nodes with same signature
+
+Num nodes:
+BEFORE: 181404
+AFTER:  163946
+
+Estimated num edges:
+BEFORE: 871240165
+AFTER:  694349577
+
+Estimated space for adjList (node ids) (1 int per edge)
+4*694349577/2^30 = 2.6GB
+
+Estimate space for adjList (dists) (3 bits per edge)
+
+Estimated space for adj matrix (3 bits per edge)
+(3/8)*163946*163946/2^30 = 9.3GB
+
+Estimated density:
+BEFORE: 0.0264755
+AFTER:  0.0258331
 
 Node weight distribution:
+
+BEFORE:
 3: 98
 4: 2222
 5: 18137
@@ -12,7 +33,19 @@ Node weight distribution:
 9: 6995
 10: 582
 
-Edge weight distribution:
+AFTER:
+3: 75
+4: 1728
+5: 14675
+6: 48788
+7: 60076
+8: 31066
+9: 6957
+10: 581
+
+
+Edge weight distribution (estimated):
+BEFORE:
 0: 217979 (0.217979)
 1: 392367 (0.392367)
 2: 277153 (0.277153)
@@ -21,8 +54,22 @@ Edge weight distribution:
 5: 1000 (0.001)
 6: 21 (2.1e-05)
 
-Total number cycles of len 1: 4130
-Weight distribution:
+AFTER:
+0: 236794 (0.236794)
+1: 398040 (0.39804)
+2: 265263 (0.265263)
+3: 85565 (0.085565)
+4: 13395 (0.013395)
+5: 922 (0.000922)
+6: 21 (2.1e-05)
+
+
+Total number cycles of len 1:
+BEFORE: 4130
+AFTER:  3689
+
+Weight distribution of cycles of len 1:
+BEFORE:
 5: 90
 6: 685
 7: 1224
@@ -32,13 +79,59 @@ Weight distribution:
 11: 50
 12: 13
 
-Total number cycles of len 2 of total node weight <=7: 392
-Weight distribution:
-11: 90
-12: 138
-13: 90
-14: 44
-15: 22
-16: 8
+AFTER:
+5: 82
+6: 601
+7: 1070
+8: 1042
+9: 646
+10: 185
+11: 50
+12: 13
 
-Outdegrees of weight-3 nodes: 1574 to 17660
+Number of nodes at the given distance from a random node (does not include dist2 weights):
+BEFORE:
+12: 7
+13: 163
+14: 1148
+15: 3368
+16: 4505
+17: 3486
+18: 2778
+19: 7663
+20: 21072
+21: 36075
+22: 38941
+23: 27307
+24: 13287
+25: 6838
+26: 6761
+27: 5230
+28: 2176
+29: 519
+
+AFTER (different node):
+10: 2
+11: 49
+12: 266
+13: 690
+14: 934
+15: 745
+16: 1351
+17: 6433
+18: 17829
+19: 28721
+20: 32126
+21: 26937
+22: 17756
+23: 11312
+24: 8985
+25: 6407
+26: 2719
+27: 553
+
+
+Min/max in/outdegrees of weight-3 nodes: 
+BEFORE: Indegrees: 1574 to 17660. Outdegrees: 1574 to 17660
+AFTER:  Indegrees: 1380 to 15321. Outdegrees: 1377 to 15321
+
