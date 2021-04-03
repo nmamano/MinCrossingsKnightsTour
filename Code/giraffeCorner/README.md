@@ -1,17 +1,16 @@
 ## About
 Algorithm for knight's tour that generalizes the Hausdorff heuristic in the following ways:
-- A normal knight jumps 1 squre in one dimension and 2 in the other. We allow to change 1 and 2 to other values
+- A normal knight jumps 1 squre in one dimension and 2 in the other. We allow to change the 1 and 2 to other values
 - A chess board usually has a square shape. We allow it to be any rectangle and to have "blocked cells" that cannot be visited
-- A knight's tour usually has a single knight. We allow it to have any number of "knights". We only need to specify the starting and ending positions of all the "knights".
+- A knight's tour usually has a single knight. We allow it to have any number of "knights". We only need to specify the starting and ending positions of all the "knights" (any starting  position can be matched to any ending position).
 
-This code was used in the paper
-"Taming the Knight's Tour: Minimizing Turns and Crossings,"
-(available online at https://arxiv.org/pdf/1904.02824.pdf)
-to find a valid "giraffe corner" (see Figure 18)
+This code was used in the paper "Taming the Knight's Tour: Minimizing Turns and Crossings," (available online at https://arxiv.org/pdf/1904.02824.pdf) to find a valid "giraffe corner" (Figure 18).
 
 ## Usage
 Example of how to compile and run it with one of the tests:
+
 `$ g++ -Ofast -march=native giraffeCorner.cpp`
+
 `$ ./a.exe <test2 2&>out`
 
 ## Example output for test2
