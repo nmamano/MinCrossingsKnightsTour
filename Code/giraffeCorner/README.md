@@ -1,0 +1,229 @@
+## About
+Algorithm for knight's tour that generalizes the Hausdorff heuristic in the following ways:
+- A normal knight jumps 1 squre in one dimension and 2 in the other. We allow to change 1 and 2 to other values
+- A chess board usually has a square shape. We allow it to be any rectangle and to have "blocked cells" that cannot be visited
+- A knight's tour usually has a single knight. We allow it to have any number of "knights". We only need to specify the starting and ending positions of all the "knights".
+
+This code was used in the paper
+"Taming the Knight's Tour: Minimizing Turns and Crossings,"
+(available online at https://arxiv.org/pdf/1904.02824.pdf)
+to find a valid "giraffe corner" (see Figure 18)
+
+## Usage
+Example of how to compile and run it with one of the tests:
+`$ g++ -Ofast -march=native giraffeCorner.cpp`
+`$ ./a.exe <test2 2&>out`
+
+## Example output for test2
+```
+ATTEMPT 1
+iteration: ..................................................
+..................................................
+.............
+FAIL!
+move-vector for (1,4)-leaper: (1,4) (1,-4) (-1,4) (-1,-4) (4,1) (4,-1) (-4,1) (-4,-1) 
+open paths
+3-S(0,0 -> 5,5) 5-E(1,0 -> 9,8) 4-S(2,0 -> 3,4) 11-E(3,0 -> 13,4) 
+8-E(0,1 -> 2,6) 14-S(1,1 -> 8,5) 14-E(2,1 -> 8,8) 7-S(3,1 -> 9,3) 
+20-S(0,2 -> 11,4) 1-E(1,2 -> 1,2) 1-E(3,2 -> 3,2) 27-E(0,3 -> 6,5) 
+7-S(1,3 -> 4,8) 4-S(3,3 -> 12,7) 
+closed paths
+18-C(2,2 -> 2,3) 
+grid:
+XXXXXXXXXXXXXXXXXXXX
+XXXXX.X.XXXXXXXXXXXX
+XEXEXXXXX.X.XXXXXXXX
+XXXXX.X.XSXXX.X.XXXX
+X.XSXXXX..XSXEXXXXXX
+XXXX.SEXSXXX.XXXXXXX
+.XEXXXXX.X.X.X.XXXXX
+.XXX.X.X.X.XSX.X.X.X
+.X.XSXXXEE.X.X.XXXXX
+XXXXX.XXXXXXX.XXXXXX
+X.XXXXXXX.X.XXXXXXXX
+
+path visualization:
+aAbBXXXXXXXXXXXXXXXX
+CcDda.b.XXXXXXXXXXXX
+eE0FCdDd0.B.XXXXXXXX
+Gf0g0.B.CdDg0.0.XXXX
+A.BbBfDg..GecBGe0eGe
+cece.aGbcfce.DGecBGG
+.eC0dedD.D.B.G.GGDG0
+.Gf0.A.C.G.Dg0.0.G.G
+.A.BfGfDDA.C.G.Ge0eG
+ecece.0CfcecD.0GBcGG
+e.0CedecD.0.BcGGDG0G
+
+ATTEMPT 2
+iteration: ..................................................
+..................................................
+.......................
+FAIL!
+move-vector for (1,4)-leaper: (1,4) (1,-4) (-1,4) (-1,-4) (4,1) (4,-1) (-4,1) (-4,-1) 
+open paths
+4-S(0,0 -> 9,6) 13-S(1,1 -> 13,7) 14-E(2,1 -> 13,3) 13-S(0,2 -> 11,5) 
+3-E(1,2 -> 9,2) 5-S(2,2 -> 10,10) 11-E(3,2 -> 12,9) 20-E(0,3 -> 16,8) 
+4-E(2,3 -> 8,2) 12-S(3,3 -> 16,7) 
+closed paths
+20-C(1,3 -> 1,0) 18-C(3,1 -> 3,0) 20-C(2,0 -> 0,1) 
+grid:
+XXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXX
+XXXXXXXXEEX.XXXXXXXX
+XXXXXXX.XXXXXEX.XXXX
+XXXXXXXXXXX.X.XXX.X.
+XXXXXXXXXXXSX.X.X.XX
+XXXXXXX.XSXXXXXXX.X.
+XXXXXXXX.XXXXS.XSXXX
+XXXXXXXXXX.X.XXXEX.X
+XXXXXXXXXXXXEX.X.XXX
+XXXXXXXX.XSXXXXX.X.X
+
+path visualization:
+a021XXXXXXXXXXXXXXXX
+2bA1aB22XXXXXXXXXXXX
+cBdC2eA1EB1.XXXXXXXX
+D0EeEC1.2eAebA1.XXXX
+0C1210be0C1.2.AD0.0.
+bcbc1a2220bc0.1.A.AD
+1cCd2ce.1a20eDDDA.A.
+2D0EC0C2.DebAb.0eDDD
+C0C12D0bC0.2.DDDD0.0
+cbcbc1d20ecbC1.A.ADD
+c1d2cecb.1d20eDD.A.A
+
+ATTEMPT 3
+iteration: ..................................................
+..................................................
+..............
+FAIL!
+move-vector for (1,4)-leaper: (1,4) (1,-4) (-1,4) (-1,-4) (4,1) (4,-1) (-4,1) (-4,-1) 
+open paths
+4-S(0,0 -> 9,4) 11-E(1,0 -> 7,6) 15-S(2,0 -> 15,5) 14-E(3,0 -> 17,9) 
+11-E(0,1 -> 12,7) 15-S(1,1 -> 17,5) 5-S(3,1 -> 8,6) 12-S(0,2 -> 8,7) 
+5-E(1,2 -> 9,10) 5-E(3,2 -> 11,10) 10-E(0,3 -> 15,9) 3-S(3,3 -> 11,3) 
+closed paths
+12-C(1,3 -> 2,3) 22-C(2,2 -> 2,1) 
+grid:
+XXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXX
+XXXXXXXXX.X.XXXXXXXX
+XXXXX.X.XXXSX.X.XXXX
+XXXXXXX.XSX.X.X.X.X.
+XXX.XXXXX.X.X..SXSX.
+XXXXXXXESX.XXXXXXX.X
+XXXX.X.XSXXXEX.X.XXX
+XXXXXXXX.X.X.XXX.X.X
+XX.XXXXXXX.XXX.EXE.X
+XXXXXX.XXEXEXX.XXXX.
+
+path visualization:
+aAbBXXXXXXXXXXXXXXXX
+Cc1daBbBXXXXXXXXXXXX
+eD1ECc1fA.b.XXXXXXXX
+F00fA.A.Cc1fB.b.XXXX
+AeAeFc0.BaC.C.1.B.b.
+ccd.BaBbF.0.B..bFcB.
+DeE1e1cAd1.bF101Cb.b
+eF00.A.Ae101Cb.b.101
+eAeAeF00.C.C.101.b.b
+cc.deD1EcF.B1C.FcB.B
+eD1Ecc.d1D1EcF.B1Cb.
+
+ATTEMPT 4
+iteration: ..................................................
+..................................................
+................................
+FAIL!
+move-vector for (1,4)-leaper: (1,4) (1,-4) (-1,4) (-1,-4) (4,1) (4,-1) (-4,1) (-4,-1) 
+open paths
+16-S(0,0 -> 16,5) 6-S(2,0 -> 6,7) 7-E(3,0 -> 11,8) 22-S(1,1 -> 11,4) 
+1-E(3,2 -> 3,2) 15-E(0,3 -> 1,10) 11-S(1,3 -> 12,8) 14-E(2,3 -> 4,6) 
+closed paths
+20-C(0,2 -> 2,1) 8-C(3,3 -> 1,2) 12-C(3,1 -> 1,0) 34-C(2,2 -> 0,1) 
+grid:
+XXXXXXXXXXXXXXXXXXXX
+XXXXXXX.XXXXXXXXXXXX
+XXXEXXXXXXX.XXXXXXXX
+XXXXXXX.XXXXXXX.XXXX
+XXXXXXXXXXXS.XXXXXXX
+XXXXXXXX.XXXXXXXSXXX
+.X.XEXXXXXXX.XXXXXXX
+XXXXXXSX.XXXXXXX.XXX
+XXXXXXXXXXXESXXXXXXX
+XXXXXXX.XXXXXXXXXXXX
+XEX.XXXXXXX.XXXXXXXX
+
+path visualization:
+a2bAXXXXXXXXXXXXXXXX
+3c02a2b.XXXXXXXXXXXX
+013B3c02D30.XXXXXXXX
+CdD1D1A.3cCcD30.XXXX
+20A0AaC1Db2c.dCa3c3c
+caca2b20.aDaDc3cadC3
+.0.3D0c02030.3a3Cc33
+dC1D12bA.3cDc033.3a3
+020AdC1D12bAd3a3c3c3
+dcac0C3.dDaDcC33da3C
+0C3.dD0c0C3.da3CcC33
+
+ATTEMPT 5
+iteration: ..................................................
+..................................................
+............................................
+completed paths in 144 iterations
+SUCCESS!
+move-vector for (1,4)-leaper: (1,4) (1,-4) (-1,4) (-1,-4) (4,1) (4,-1) (-4,1) (-4,-1) 
+open paths
+closed paths
+12-C(3,3 -> 2,1) 26-C(1,3 -> 0,1) 22-C(3,1 -> 3,0) 28-C(0,2 -> 2,3) 
+8-C(2,0 -> 1,2) 32-C(2,2 -> 1,0) 30-C(0,0 -> 0,3) 22-C(1,1 -> 3,2) 
+grid:
+XXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXX
+
+path visualization:
+6542XXXXXXXXXXXXXXXX
+17026745XXXXXXXXXXXX
+345712023735XXXXXXXX
+6130342512623735XXXX
+56242160165622653336
+70707654551513662565
+73751020737551216363
+16136542512173635121
+65421611656251213363
+07073757515136365256
+37570107375752163636
+
+solution:
+A: (3,7) (7,6) (3,5) (7,4) (6,0) (2,1) (1,5) (0,1) (4,0) (5,4) (6,8) (2,9) 
+B: (1,7) (2,3) (6,2) (5,6) (4,2) (0,3) (4,4) (5,0) (9,1) (10,5) (11,1) (12,5) (8,6) (7,2) (11,3) (15,2) (19,3) (15,4) (14,0) (13,4) (17,3) (13,2) (9,3) (8,7) (4,8) (0,9) 
+C: (3,9) (7,8) (11,7) (10,3) (6,4) (5,8) (9,7) (13,6) (14,2) (18,3) (14,4) (13,0) (17,1) (16,5) (12,6) (11,2) (7,3) (6,7) (2,6) (3,2) (4,6) (3,10) 
+D: (0,8) (1,4) (0,0) (4,1) (8,0) (9,4) (10,8) (14,7) (18,6) (19,2) (15,3) (19,4) (18,0) (14,1) (13,5) (17,6) (16,2) (12,1) (16,0) (17,4) (13,3) (17,2) (16,6) (12,7) (8,8) (4,7) (3,3) (2,7) 
+E: (2,10) (6,9) (7,5) (3,6) (2,2) (6,3) (5,7) (1,8) 
+F: (2,8) (3,4) (2,0) (6,1) (10,0) (11,4) (12,0) (16,1) (17,5) (18,1) (19,5) (15,6) (11,5) (10,1) (9,5) (8,1) (12,2) (16,3) (15,7) (11,8) (7,7) (8,3) (12,4) (8,5) (7,9) (6,5) (10,6) (9,2) (5,3) (1,2) (0,6) (1,10) 
+G: (0,10) (4,9) (5,5) (1,6) (0,2) (4,3) (8,2) (9,6) (10,2) (11,6) (15,5) (19,6) (18,2) (14,3) (18,4) (19,0) (15,1) (14,5) (13,1) (17,0) (16,4) (15,0) (19,1) (18,5) (14,6) (10,7) (6,6) (5,2) (1,3) (0,7) 
+H: (1,9) (0,5) (1,1) (2,5) (3,1) (7,0) (8,4) (12,3) (13,7) (9,8) (5,9) (4,5) (0,4) (1,0) (5,1) (9,0) (10,4) (11,0) (7,1) (3,0) (2,4) (3,8) 
+GFECXXXXXXXXXXXXXXXX
+BHACghefXXXXXXXXXXXX
+DEFHbcacdhdfXXXXXXXX
+GBDAdecfbcgcdhdfXXXX
+fgcecbgabgfgccgfdddg
+hahahgfeffbfbdggcfgf
+hdhfbacahdhffbcbgdgd
+bgbdgfecfbcbhdgdfbcb
+gfecbgbbgfgcfbcbddgd
+ahahdhfhfbfbdgdgfcfg
+dhfhabahdhfhfcbgdgdg
+
+```
