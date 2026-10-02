@@ -210,6 +210,8 @@ def pairs(M):
     return [[u,v] for u,v in sorted(M.items()) if u<v]
 
 def main():
+    from check_fold_margins import main as check_margins
+    check_margins()
     from fractions import Fraction
     report={'date':'2026-10-02','size_step':24,'matching_period':48,'residues':[]}
     for n0 in range(96,120,2):

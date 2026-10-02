@@ -172,9 +172,9 @@ This is not a lower bound. A different layout could do better.
 
 The proof has five steps:
 
-1. Each knight move owns a small tile. The tiles almost cover the board exactly once. This gives the old `4n`.
+1. Each knight move owns a small tile. Their total area exceeds the area between the board's cells by `2n-1`. This gives the tile bound `4n-2`.
 2. Colour the board like a chess board. The colours define a charge that only a badly tiled spot can change.
-3. Each corner of the board forces a charge on about `n/2` nested paths around it.
+3. At each corner, a nested path is charged when both of its end rows pass the endpoint test. There are about `n/2` candidate paths per corner.
 4. Each charged path needs two badly tiled quarter squares, and those cost crossings. That gives `5n`, but only if the rows next to the sides of the board look normal.
 5. A tour can make some rows abnormal and lose some charged paths. Over the full side scans, `b` abnormal rows require at least `b - O(1)` extra crossings. Balancing the two bounds gives `14n/3 - O(1)`.
 
@@ -222,7 +222,7 @@ A quarter is _bad_ if it is not covered exactly once.
 
 To beat `4n`, we need to show that a tour can't avoid bad quarters away from the sides of the board.
 
-The tool is a charge. Colour the cells black and white, like a chess board. Along any path through the centres of the unit squares, we can measure how the tour's moves cross the path, counted with colours and signs, modulo 3. The exact rule is in the [details](#details).
+The tool is a charge. Colour the cells black and white, like a chess board. Orient both the tour moves and all unit grid edges from black to white. Along a path through unit-square centres, add their signed crossings from the path's left side to its right side, modulo 3. The exact rule is in the [details](#details).
 
 This measurement has two properties:
 
@@ -322,32 +322,14 @@ In the fold construction, the corridors add `4n/3 + O(1)` crossings and the arch
 
 ## Details
 
-This section is for readers who want to check the proofs. The full proofs, with every finite check, are in the companion notes. {/* TODO (Nil): link the companion proofs (w-turnstheory/PROOF_fold.md and PROOF_crossings_lower.md, to be typeset). */}
+[Code and certificate data](https://github.com/nmamano/knights-tour-bounds) are available in the public source repository.
 
-**The fold tours for every n.** The construction uses a fixed placement rule and twelve saved sets of thirteen finite patches, one set for each even residue of n modulo 24. The patches cover the physical corners, side midpoints, ends of the reversed U-turn intervals, and centre. After straight field paths are suppressed, there are four corner blocks and four side blocks, each initially six line labels wide. A +24 step adds twelve line labels, or two primitive blocks, at each of these eight positions. The line-label and coordinate-shift calculation preserves every outside connection. Each corner block has an idempotent complete port matching, including any paths that return to the same cut, and composition creates no hidden cycle. A side block permutes four strands in a cycle of order four. Thus +24 alternates between two side matchings, both of which close into one tour with each saved outside matching; +48 restores the matching. Local crossing counts give exactly 152=120+32 extra crossings per +24, from boundary and corridor regions. A standalone checker rebuilds all 36 saved tours and checks the complete block and outside matchings. The geometric insertion argument extends these finite checks to every even n>=96.
+The [full-proof appendix](#appendix-full-proofs) contains both arguments, including every finite certificate and its check command:
 
-**The lower bound, step by step.**
+- [A. The fold construction](#proof-fold): exact placement, insertion for every even `n >= 96`, complete path matchings, and the count `X <= 19n/3 + 142`.
+- [B. The lower bound](#proof-crossings-lower): the tile bound `4n - 2`, the corner charge, the exact endpoint test, strip stability, and `X >= 14n/3 - 407` for every closed tour with even `n >= 32`.
 
-**Tiles.** The tile of the move `(0,0)-(2,1)` has corners `(0,0), (1,0), (2,1), (1,1)`. A computer check of all 1,292 nearby pairs of moves confirms that two tiles overlap exactly when the moves cross, and then in one or two quarters. With `m_t` the number of tiles on quarter `t`, the area count is `sum (m_t - 1)_+ = 8n - 4 + G`, where `G` is the number of uncovered quarters. Since `(m - 1)_+` is at most the number of pairs among `m` tiles, `8n - 4 + G <= 2X`. Writing `E = X - 4n + 2` for the excess, `G <= 2E`.
-
-**The charge.** Orient every move from black to white. For a step of a dual path, count the oriented moves that cross it from left to right, minus those from right to left, and add `+1` or `-1` for the unit grid edge it crosses, by the colour of the cell on its left. Modulo 3, this equals the colour sign times `m+ + m- + 1`, where `m+` and `m-` cover the two quarters next to the step. So a step next to two quarters covered once adds `3 = 0 (mod 3)`. Around the boundary of any set of cells, the total is `6 x (sum of colour signs) = 0 (mod 3)`, because every cell has degree 2.
-
-**The corner charge.** In each orientation, the endpoint test sums eight signed coefficients modulo 3 and excludes one specified crossing pair. A normal row passes both orientations. The outside part of the box boundary then has total `1 (mod 3)`, so the inside path has `-1`. This is a short exact computation, checked by computer for both orientations.
-
-**From bad quarters to crossings.** Let `B` be the union, over the four sides, of crossing pairs whose two moves are incident to that side's outermost column. The width-one strip certificate and the corner duplicate count give `|B| >= 4n - 24`. The endpoint tests ensure that their tile overlaps avoid every unit square on the retained corner paths. With `L` charged paths: `2L <= 2E + 2(X - |B|) <= 4E + 44`.
-
-**Abnormal rows.** The strip of the two outer columns, with two more columns for partial neighbours, has 82,516 states in the base cell scan. The certificate augments these states with the test edges seen during the current row. On this augmented graph, an integer potential in `[-29,0]` proves `X_side - n >= b_side - 29/4`. Two independent programs check it, and an exact critical-cycle computation shows that the rate 1 is sharp.
-
-**Putting it together.** `L >= 2n - 60 - b`, `b <= E + 1131`, and `2L <= 4E + 44` give `4n <= 6E + 2426`, so `X >= 14n/3 - 407`.
-
-**What is checked, and how.**
-
-- The `4n - 2` tile bound is checked in Lean 4 with Mathlib (`KT.ClosedTour.four_mul_sub_two_le_numCrossings`, standard axioms only).
-- The `19n/3` construction and its all-size proof were audited by an independent reviewer with separately written code.
-- The consolidated `14n/3` proof and its finite certificates were independently audited. The mathematical bound passed.
-- The post and all sixteen figures were reviewed on 2026-10-02. The review lists factual text and caption corrections to apply before release. {/* TODO: remove this bullet after the corrections are checked. */}
-
-{/* TODO (Nil): links to code and data. */}
+The appendices are collapsed by default. Open the relevant proof to read its definitions, finite checks, and all-size argument.
 
 ## Open questions
 
@@ -356,3 +338,368 @@ How far can we close the gap between the leading coefficients `14/3` and `19/3`?
 Possible routes to a better lower bound include more defects per path, wider side windows, stronger endpoint tests, or a tighter crossing budget.
 
 {/* TODO (Nil): credits. */}
+
+## Appendix: full proofs
+
+[Code and certificate data](https://github.com/nmamano/knights-tour-bounds) are available in the public source repository.
+
+The two proofs below include their finite certificates and the commands to check them. Run every command from the research project root. The geometric arguments explain why the finite checks cover every board size; testing a list of tours alone would not suffice.
+
+<details id="proof-fold">
+<summary>A. Full proof: tours with at most <code>19n/3 + 142</code> crossings</summary>
+
+**Theorem.** Every even `n>=96` has a closed knight's tour with `X<=19n/3+O(1)`. The certificate also gives `X<=19n/3+142`. Crossings mean unordered pairs of edges whose relative interiors intersect properly; a shared endpoint does not count.
+
+The certificate is `check_fold_proof.py`. It uses only the Python standard library, the twelve `w-integrator/corners/FOLD24_base_n*.json` files, and the `36` saved `w-integrator/tours/FOLD24_n*.json` tours. It imports neither `kt/board.py` nor any solver. Complete port lists and matchings, including the outside matching, are in `w-turnstheory/fold_proof_checks.json`, which the command generates.
+
+The all-size proof replaces long paths by their endpoint matchings. A `+24` step switches between two matchings; `+48` restores the matching. Both states give one cycle. This finite two-state argument covers every size.
+
+### A.1. Exact placement rules
+
+Choose the unique even `n0` in `{96,98,...,118}` with `n=n0+24k`, `k>=0`. Use its saved base file. Coordinates are integer pairs `(x,y)` in `[0,n-1]` squared, with `y` increasing upwards. Write `h=n/2` and `R(x,y)=(n-1-y,x)`.
+
+Use rotation index `r=0,1,2,3` on the bottom-left, bottom-right, top-right, and top-left quadrants, respectively. The left and bottom halves have coordinates less than `h`; the other halves have coordinates at least `h`. Rotating back means applying `R^(-r)`.
+
+**Definition.** In each quadrant, rotate coordinates back to the bottom-left frame. At `p=(x,y)` in that frame, choose out-direction `(2,1)` when `y>x+1`, and `(-1,-2)` otherwise. Rotate this direction back to the board. Add the undirected edge from each cell to its chosen neighbour when that neighbour is on the board.
+
+Next, in the four rotated left-edge frames, scan `y=0,...,n-1`. If `(0,y)` has degree one and its neighbour is `(2,y+s)`, `s` in `{-1,1}`, try to add the edge from `(0,y)` to `(1,y+2s)`. Reverse `s` before this operation when
+
+`h-floor(n/4) <= y < h.`
+
+Add the edge only when the second cell is on the board, also has degree one, and the edge is absent. These are the cheap and reversed U-turns. The order is rotations `0,1,2,3`, then increasing `y`, as in the checker.
+
+Overwrite the two neighbours at each cell `R^r(x,x+j)`, where
+
+`r=0,1,2,3;  j=0,1,2;  11 <= x < h-11,`
+
+with the saved template entry `(r,(x-8) mod 6,j)`, rotating its two move vectors by `r`. These four diagonal corridors have period six.
+
+Finally, overwrite the cells of the thirteen saved finite components. A component contains a base offset `o` and a map from relative cells `q` to two move vectors. Put `q` at `o+q+k*A`, with `A` in the following table. Keep its move vectors unchanged. The rows are in the JSON component order.
+
+| Components | Translation `A` per `+24` |
+| --- | --- |
+| Four ends of reversed U-turn intervals | `(0,6)`, `(6,24)`, `(18,0)`, `(24,18)` |
+| Four physical corners | `(0,0)`, `(0,24)`, `(24,0)`, `(24,24)` |
+| Four side midpoints | `(0,12)`, `(12,0)`, `(12,24)`, `(24,12)` |
+| Centre | `(12,12)` |
+
+This is a definition for every `k`, with no solve and no component-selection heuristic. **Finite check:** at `k=0,1,2` it reproduces all `36` saved tours exactly. The checker verifies reciprocal legal knight edges and degree two at every cell.
+
+**Finite checks for this section:**
+
+```sh
+python3 w-turnstheory/check_fold_proof.py
+```
+
+### A.2. Growth becomes insertion in a graph of paths
+
+**Proof.** Retain the boundary cells of depths zero and one, the diagonal corridors, and all thirteen finite components. Suppress paths through the remaining field cells. In one triangle such a path is straight. It can bend at an axis fold before it returns to retained cells. It cannot cross a diagonal fold without meeting the retained corridor: the corridor contains the three integer transverse positions `y-x=0,1,2`, while a knight step changes `y-x` by at most three. The finite components cover the corridor ends and the central junction. Thus each suppressed piece crosses at most one axis fold. A complete path in the reduced graph can still cross many triangles; the matchings below keep all its connections.
+
+In a bottom-left triangle the constant line label is `2y-x` for direction `(2,1)`, and `2x-y` for direction `(-1,-2)`. The parity of `x`, respectively `y`, also stays fixed. In a left-side chevron the common label is
+
+`c = 2y-x` below the horizontal midline,
+
+`c = 2(n-y)-x` above it. (1)
+
+For example, an edge from `(x,h-1)` to `(x+2,h)` has label `2h-2-x` on both sides. The directions on its two arms are `(2,1)` and `(-2,1)`. The other three chevrons are rotations of this one. These formulas cover all four diagonal folds and all four axis folds.
+
+Use these two block types, with integer half-open label intervals:
+
+| Type | Region and label | Base interval |
+| --- | --- | --- |
+| Corner | bottom-left quadrant, `c=max(2x-y,2y-x)` | `24 <= c < 30` |
+| Side | left half-board, `c=2 min(y,n-y)-x` | `h+16 <= c < h+22` |
+
+Rotate each block four ways. The eight blocks are disjoint. For size `n=n0+24k`, replace their width `6` by width `6+12k`. Keep the corner lower cut at `24` and the side lower cut at `h+16`. Each knight edge changes either label by at most five, so no edge jumps across a whole six-label block.
+
+Here is the explicit map of the reduced graph outside these growing blocks. Along each edge frame, the five retained pieces, in order from one physical corner to the other, shift by
+
+`0, 6k, 12k, 18k, 24k`
+
+in their edge coordinate; their depths do not change. These pieces are separated by the two corner blocks and the two arms of the side block. On each diagonal corridor, the piece before the corner block stays fixed; the piece after it translates by `(12k,12k)` in its quadrant frame. All finite components have exactly the translations in Section `A.1`.
+
+The map preserves every retained move and corridor phase: `12k` is a multiple of six. It also preserves each suppressed field connection. To see this directly, solve `2y-x=c` or `2x-y=c` at the two ends of a straight arm, retaining the parity just stated. A corner arm has the same increment `12k` in its line label at both ends. For an outer side arm, `(1)` increases by `12k` at both ends: the lower end shifts `6k` and the upper end shifts `18k` while `n` shifts `24k`. For the inner side arms, both ends of `(1)` increase by `24k`. These increments preserve parity. At the fold the two formulas in `(1)` agree. The lengths of the arms can change, but their ends cannot change.
+
+The same calculation at the fixed-component ports uses their translations from Section `A.1`. Put `h0=n0/2`. The corner upper cut is `30+12k = h-(h0-30) <= h-18`. The side upper cut is `h+22+12k = n-(h0-22) <= n-26`. In a corner block, `max(2x-y,2y-x) >= max(x,y)`, so the block stays away from the quadrant axes. In a left-side block, the lower cut `h+16` implies `x <= h-16`, so this block stays away from the diagonal corridor. The rotated bounds are the same. For each copied component cell, the board coordinates and cut labels are affine functions of `k`. Each required separation from a forbidden block is nonnegative at `k=0` and has nonnegative coefficient of `k`. Thus each separation stays nonnegative for every `k >= 0`. The component shapes stay fixed, but some separations increase. A field piece cannot hide a cycle: its straight arms are monotone, and a chevron has monotone `y` through its single axis fold. Every such piece ends at retained cells. This also accounts for the new cells in the growing triangle interiors, whose number is quadratic in `n`.
+
+Consequently the reduced graph for `n0+24k` is exactly the base outside graph with each of the eight blocks replaced by `1+2k` primitive blocks. This is a geometric insertion identity, not an inference from several successful board sizes. **Finite checks** verify the complete outside matching at `k=0,1,2`, the cut margins through the explicit block extraction, and the block phase after translation by six labels.
+
+**Finite checks for this section:**
+
+```sh
+python3 w-turnstheory/check_fold_margins.py
+python3 w-turnstheory/check_fold_proof.py
+```
+
+### A.3. Complete block matchings and the two states
+
+A port is an edge cut by a block boundary. Trace every path inside the block and pair its two ports. Also check that every block cell occurs in one of those paths. Write `Li` and `Ri` for port `i` at the lower and upper cuts.
+
+To number ports, rotate the block to its bottom-left or left reference frame. Write a cut edge as `(u,v)` with the label of `u` less than the label of `v`. Its name is `(tag, depth(u), depth(v), label(u)-cut, label(v)-cut)`. Sort names lexicographically and number them from zero, separately at each cut. For a corner, use tag `L` if both endpoint x coordinates are at most two, otherwise `B` if both endpoint y coordinates are at most two, and otherwise `D`. The corresponding depths are x, y, and `y-x`. For a side, use tag `lo` if the lower-label endpoint has `y<h`, and `hi` otherwise; its depth is x. The complete sorted lists are in `w-turnstheory/fold_proof_checks.json`.
+
+**Finite check.** There are just three matching types:
+
+| Block type | Full matching, including returns |
+| --- | --- |
+| Corner, four ports per cut | `L0-R0`, `L1-R1`, `L2-R2`, `L3-R3` |
+| Corner, six ports per cut | `L0-R5`, `L1-R1`, `L2-L5`, `L3-R3`, `L4-R4`, `R0-R2` |
+| Side, four ports per cut | `L0-R1`, `L1-R2`, `L2-R3`, `L3-R0` |
+
+For the six-port corner, both possible phase lists have the same matching. They differ only in the offsets of diagonal port `4`. The checker records that difference; it does not identify ports only by a path count.
+
+**Proof from the table.** Every corner matching `M` is idempotent, with no closed component on composition. In the six-port case, the first copy's `R0-R2` return joins the second copy's `L2-L5` return into the continuing `L0-R5` path; the three other through paths and the two outer returns persist. Thus `M^j=M` for every `j>=1`. The side matching is the permutation `rho=[1,2,3,0]`, of order four. It has no return path and composition cannot create a hidden closed component. Hence after `1+2k` primitive blocks, the side matching is `rho` for even `k` and `rho` cubed for odd `k`.
+
+The outside graph is fixed by Section `A.2`. **Finite check:** for each of the twelve base files, its union with either of these two block states has one cycle. The checker verifies this both on the finite matching graphs and on the full tours at `n0` and `n0+24`, and records the complete outside matching. It traces every outside cell, so an extra component with no port cannot be missed. The composition checks also account for every intermediate port. Therefore both states give a single cycle for all `k`, proving the one-cycle claim for all `n`.
+
+A `+24` step adds two primitive side blocks and switches `rho` with `rho` cubed. A `+48` step adds four and restores the matching. Step `12` cannot replace step `24`: it gives the other powers, and the `n0=100` completion at `n=112` has three cycles. The checker verifies this failure as well.
+
+**Finite checks for this section:**
+
+```sh
+python3 w-turnstheory/check_fold_proof.py
+```
+
+### A.4. Crossings are local
+
+**Proof.** Pure straight fields and their free folds have no proper crossings. At an axis fold, use the integer coordinate normal to that axis. At a diagonal fold, use `y-x` in its local frame. Each relevant field edge changes that coordinate by one unit in the same direction on both sides of the fold. Within each open unit slab all field edges are parallel. Edges in different slabs have disjoint interiors in that coordinate and can meet on a slab boundary only at endpoints. Thus the free fold has no proper crossing. Therefore only the boundary bands, diagonal corridors, and fixed neighbourhoods of the finite components can contribute crossings.
+
+A crossing depends on two knight edges within bounded distance. Away from the fixed components, the local boundary pattern repeats when its label increases by six; the corridor pattern repeats under `(x,y)->(x+6,y+6)`. The inserted blocks preserve these phases at both joins. All remaining crossing neighbourhoods are translated copies of base neighbourhoods.
+
+**Finite local count:** assign a crossing to the least label among its four endpoints. In one six-label interval the counts are:
+
+| Primitive block | Boundary crossings | Corridor crossings | Total |
+| --- | ---: | ---: | ---: |
+| Each corner block | `6` | `4` | `10` |
+| Each side block | `9` | `0` | `9` |
+
+The checker counts proper intersections by exact integer orientation tests, including pairs whose edges extend across a cut. It checks each phase and the enlarged intervals. The intervals have fixed joins, so these local counts prove the exact increment for every `k`:
+
+`X(n+24)-X(n) = 4*2*10 + 4*2*9 = 152`
+
+`= 120 boundary + 32 corridor.`
+
+For `n=n0+24k` this proves
+
+`X(n)=X(n0)+152k=(19/3)n + [X(n0)-(19/3)n0].`
+
+There are only twelve base sizes, so the bracket is `O(1)`. The checker also verifies that its maximum is `142`. This proves the theorem.
+
+**Finite checks for this section:**
+
+```sh
+python3 w-turnstheory/check_fold_proof.py
+```
+
+### A.5. Reproduction and scope of the finite certificate
+
+Run from the project root:
+
+```sh
+python3 w-turnstheory/check_fold_proof.py
+```
+
+The check passed on `2026-10-02`. It rebuilt and compared all `36` saved tours; checked legal reciprocal degree-two edges and one cycle; extracted all block paths and all outside paths; checked both corner return matchings, the side permutation, and their compositions; counted the local crossings and all full-board crossings; and checked the `step-12` failures. It writes `w-turnstheory/fold_proof_checks.json` and prints its checks to standard output. It also checks the affine component margins and writes `w-turnstheory/fold_margin_checks.json`. The coordinate and line-label argument in Section `A.2` is the all-n part of the proof. Finite testing alone would not establish that part.
+
+</details>
+
+<details id="proof-crossings-lower">
+<summary>B. Full proof: every tour has at least <code>14n/3 - 407</code> crossings, including the <code>4n - 2</code> tile bound</summary>
+
+For every even `n>=32`, every closed knight's tour on an `n` by `n` board has at least `14n/3-O(1)` proper crossing pairs. The certificate also gives the explicit bound `14n/3-407`. The proof uses exact local geometry and finite strip potentials; it uses no solver.
+
+This proof uses the strip stability lemma in B.5 as a computer-certified input. The named Python checker constructs the finite graph and checks every integer potential inequality; it does not assume an unverified solver answer. Lean proves `KT.ClosedTour.four_mul_sub_two_le_numCrossings` without a stability hypothesis. The stronger Lean theorem `KT.ClosedTour.fourteen_mul_le_of_stability` takes the explicit hypothesis `card(badRows) <= X - 4n + 2 + C` and concludes `14n <= 3X + C + 132`. With `C=1131`, that statement gives `X >= 14n/3 - 421`. The sharper constant 407 in this appendix follows from the argument and Python certificates below; it is not the constant in that Lean theorem.
+
+With the project's Lean toolchain and dependencies installed, the following command checks the theorem statements and prints their axioms:
+
+`cd ktlean && lake env lean Axioms.lean`
+
+### B.1. Tiles turn crossings into an area budget
+
+Put the cell centres at `V={0,...,n-1}` squared, with `x` increasing to the right and `y` increasing upwards. A knight edge has coordinate differences of absolute values `1` and `2`. The tour `H` is a connected simple degree-two graph on `V`, with `n` squared edges. Count unordered pairs of edges whose relative interiors cross properly; a shared endpoint does not count. Write `X` for this count. Put `chi(x,y)=(-1)^(x+y)`; black means `chi=1` and white means `chi=-1`.
+
+For each tour edge `e`, form its **tile**: the parallelogram whose long diagonal is `e` and whose short diagonal is the unit grid edge with the same midpoint. For `(0,0)--(2,1)`, its vertices are `(0,0),(1,0),(2,1),(1,1)`. It has area one and stays in the endpoint box of `e`, hence inside `D=[0,n-1]` squared. Divide each unit square by both diagonals into four open quarter triangles. Each tile consists of four such quarters.
+
+**Finite geometric lemma.** Two distinct tiles overlap in positive area exactly when their knight edges cross properly. Their overlap then has one or two quarters. Tiles at a shared edge endpoint have no area overlap. The exact checker fixes one endpoint at zero, tests the four unoriented knight directions, and places the second edge in the sufficient box `[-4,4]` squared. A tile has coordinate span at most two.
+
+Let `m_t` be the tile multiplicity at quarter `t`. A quarter is **bad** if `m_t` is not one. Let `G` count uncovered quarters. Since there are `4n^2` tile incidences and `4(n-1)^2` quarters in `D`,
+
+`sum_t (m_t-1)_+ = 8n-4+G <= 2X.`
+
+The inequality uses `(m-1)_+<=binomial(m,2)` and the geometric lemma. Set `E=X-4n+2`. Thus `E>=0` and `G<=2E`. In particular, `X >= 4n - 2`. This area argument also applies to a spanning 2-factor; it does not use connectivity.
+
+Let `B` be any set of crossing pairs whose tile overlaps avoid a set `U` of quarters inside `D`. Every multiply covered quarter in `U` belongs to a crossing pair outside `B`, and each pair covers at most two common quarters. Therefore
+
+`bad(U) <= 2E+2(X-|B|). (1)`
+
+**Finite checks for this section:**
+
+```sh
+python3 w-turnstheory/check_knight_tiles.py
+```
+
+### B.2. A nonzero colour flux forces two bad quarters
+
+The centres of the unit squares of `D` and their unit steps form the **internal dual grid**. Every counted path lies in this grid. Longer segments below mean sequences of unit steps; an integral means a sum of signed step fluxes. Auxiliary loops can extend half a unit outside `D`.
+
+Orient knight edges from black to white. For a directed dual step `s`, let `phi_H(s)` be their signed flux from its left to its right. If the crossed unit grid edge is `ab`, with `a` on the left, let `m_+,m_-` be the multiplicities of its two adjacent quarters and let `g` count selected tiles whose short diagonal is `ab`.
+
+**Finite flux lemma.** For every selected edge set,
+
+`phi_H(s)=chi(a)(m_++m_--3g).`
+
+This is linear in selected edges. The checker tests one edge at a time in every relative position that can contribute. Add the flux of all unit grid edges, also oriented black to white. This gives the integer flux `omega`, whose residue satisfies
+
+`omega(s)=chi(a)(m_++m_-+1) mod 3. (2)`
+
+For any finite set `A` of board cells, orient its dual boundary with `A` on the left. A knight segment crosses three dual grid lines at parameters `1/4,1/2,3/4`. Replace it by the three unit lattice steps in those same coordinate directions: for displacement `(a,b)` with `|a|=2` these are `(sign(a),0)`, `(0,sign(b))`, `(sign(a),0)`; transpose when `|b|=2`. For the knight edge with endpoints `p` and `q`, its signed boundary flux is `chi(p)(1_A(p)-1_A(q))`, by telescoping. Summing knight edges and unit grid edges gives
+
+`integral_(boundary A) omega`
+
+`= sum_(v in A) chi(v)(deg_H(v)+4)=6 sum_(v in A) chi(v). (3)`
+
+Thus `omega` has zero circulation modulo three on internal dual loops. Call a path **charged** if its total flux is nonzero modulo three. Such a path has a step with nonzero flux, so `(2)` forces a bad adjacent quarter.
+
+Each tile occupies two adjacent quarters in each square it visits. Hence the four multiplicities in a square, in cyclic order, satisfy `m_0-m_1+m_2-m_3=0`. One bad quarter therefore forces a second bad quarter in the same square. Its centre is a vertex of the charged path. Vertex-disjoint charged paths give distinct such squares. If `U` contains all whole squares centred on `L` such paths, then
+
+`2L <= bad(U). (4)`
+
+**Finite checks for this section:**
+
+```sh
+python3 w-turnstheory/check_knight_tiles.py
+python3 w-turnstheory/check_square_defects.py
+```
+
+### B.3. A local endpoint test forces a corner charge
+
+Fix side coordinates (inward distance, scan row): use `(x,y)`, `(n-1-x,y)`, `(y,x)`, `(n-1-y,x)` for the left, right, bottom, top sides, respectively. Each side uses one scan direction at both corners.
+
+At scan row `R`, translate the row coordinate by `-R`. Let `F` be the sum of these coefficients over selected edges:
+
+| Edge | Coefficient |
+| --- | ---: |
+| `(0,-1)--(1,1)` | `-1` |
+| `(0,0)--(1,-2)` | `-1` |
+| `(0,0)--(2,-1)` | `-1` |
+| `(0,1)--(1,-1)` | `+1` |
+| `(0,1)--(2,0)` | `+1` |
+| `(0,2)--(1,0)` | `-1` |
+| `(1,0)--(2,2)` | `-1` |
+| `(1,1)--(2,-1)` | `-1` |
+
+The **up test** passes if `F=2` modulo three and the edges `(0,0)--(2,1)`, `(0,1)--(2,0)` are not both selected. Reflect the whole test by `y -> -y` to obtain the **down test**. The **joint test** requires both.
+
+Use the bottom-left corner and `12<=R<=n/2-4`. Enclose the cells `A_R={0,...,R}` squared by their counterclockwise dual boundary. Retain its internal right-and-top path
+
+`gamma_R: (R+1/2,3/2) -> (R+1/2,R+1/2) -> (3/2,R+1/2).`
+
+The complementary path `Q_R` consists of two top end steps, the outside left and bottom sides at coordinate `-1/2`, and two right end steps. No tour edge crosses the outside sides. Their unit-grid flux is `2 sum_(j=0)^R (-1)^j=1+(-1)^R`. The grid flux on each pair of end steps is zero.
+
+**Finite endpoint lemma.** Divide the tour flux through the two top end steps by `chi(0,R)=(-1)^R`. The result is `F+deg_H(0,R)=F+2`. The checker enumerates the eight possible contributing knight edges; subtracting the coefficient list for `F` leaves exactly the four possible edges incident to `(0,R)`, each with coefficient one. This proves the identity for arbitrary selected edges. Transpose coordinates and reverse the dual directions for the right end.
+
+If both up tests pass, each end contributes `(-1)^R` modulo three. Hence
+
+`integral_(Q_R) omega = 1+(-1)^R+2(-1)^R = 1 mod 3.`
+
+By `(3)`, `gamma_R` is charged. Reflections give the other corners; the joint test supplies the required orientation at either end of each side. Only `gamma_R` enters the area count. No outside quarter is counted.
+
+**Finite checks for this section:**
+
+```sh
+python3 w-turnstheory/check_corner_box.py
+```
+
+### B.4. Boundary crossings avoid the path squares
+
+For each side `sigma`, let `B_sigma` be all crossing pairs among edges incident to its outermost column. Let `B` be their union.
+
+**Finite boundary lemma.** `|B_sigma|>=n-1`. Keep exactly the edges incident to column `0`. They form a forest: a proper subgraph of a Hamiltonian cycle cannot contain a cycle. Scan this width-one strip with degree two in column `0` and degree at most two in columns `1,2`. The finite scan is defined in Section `B.5`. Its `330-state` graph has an integer potential `p`, with `p(start)=0` and `min p=-3`, satisfying `3w-1+p(u)-p(v)>=0` on every transition. Summing over `3n` transitions proves the claim. Adjacent sides share only a bounded corner region. Thus
+
+`|B| >= 4n-O(1). (5)`
+
+**Finite overlap lemma.** Positive-area overlap of tiles of two edges incident to column `0` can enter `[1,2] x [j,j+1]` only for the pair
+
+`(0,j)--(2,j+1), (0,j+1)--(2,j). (6)`
+
+No such overlap enters a square with left coordinate at least two. The checker tests all `20` crossing configurations up to vertical translation. The only path square at depth one is the endpoint square, where `j=R`. The up test excludes `(6)`; the down test excludes its reflected version at the other end of a side. All other squares are farther inside. Consequently overlaps from `B` avoid the whole-square union `U` of retained paths. From `(1)`, `(4)`, and `(5)`,
+
+`2L <= 4E+O(1). (7)`
+
+**Finite checks for this section:**
+
+```sh
+python3 w-turnstheory/check_col0_squares.py
+```
+
+### B.5. Strip stability pays for failed endpoint tests
+
+Keep all edges incident to columns `0` or `1` of a side. Their other endpoints lie in columns `0` through `3`. This again is a forest. Its boundary columns have degree two and its other columns have degree at most two.
+
+Scan in increasing (row,column) order from an empty initial state. A state records the next column, selected edges from processed to future cells, and the partition of their pending ends into paths. Coordinates are relative to the current row; path labels are immaterial. At each cell choose only legal knight edges to later cells that have at least one endpoint in columns `0,1`. Require final degree two in columns `0,1` and at most two in columns `2,3`. Reject any choice that exceeds a future cell's degree bound or closes a cycle. After the last column shift row coordinates by `-1`. Use only states reachable from the empty state. The state space is finite because knight edges span at most two rows. Each transition weight `w` counts crossings introduced by its new edges. Count a new edge's proper crossings with the other new edges and with the still-pending edges, once per unordered pair. An edge whose two endpoints were already processed cannot cross a new edge, since every knight edge has nonzero vertical displacement and the scan processes rows in order. A board strip is a walk of `4n` transitions of total weight `X_sigma`. The width-one scan in B.4 uses columns `0,1,2`, allows only edges incident to column `0`, requires degree two in that column, and allows degree at most two in the other two columns.
+
+For the width-two graph, record also the set of test edges seen in the current row. Initialise from pending edges, then add newly selected test edges once. At row end evaluate both endpoint tests, charge `f=1` if either fails, and reset. Every test edge has minimum row at most the test row and maximum row at least the test row. Thus it is either pending at row start or is selected while processing that row; these data suffice.
+
+**Finite stability lemma.** On this augmented graph an integer potential `p` in `[-29,0]` satisfies
+
+`4w-1-4f+p(u)-p(v)>=0.`
+
+The independent checker builds the graph and relaxes every integer arc inequality until none changes. The wrapper requires convergence and the stated range. For each arc `u -> v`, `p(u)` and `p(v)` are the potentials of its endpoint states. Summing the inequalities over the `4n` transitions gives `4X_sigma-4n-4b_sigma >= p(end)-p(start) >= -29`. Hence
+
+`X_sigma-n >= b_sigma-29/4,`
+
+where `b_sigma` counts failed joint tests. Crossing pairs counted by two side strips lie in fixed-size corner regions. Thus `sum X_sigma<=X+O(1)`, and for `b=sum b_sigma`,
+
+`b <= E+O(1). (8)`
+
+This is the only stability coefficient used. Its optimality is not needed. The forest condition is why this proof applies to Hamiltonian tours.
+
+**Finite checks for this section:**
+
+```sh
+python3 w-turnstheory/check_lower_stability.py
+```
+
+### B.6. Count paths and conclude
+
+At each corner take `12<=R<=n/2-4`. This gives `2n-60` candidate paths in total. They are vertex-disjoint: a path's maximum local coordinate fixes its radius, and the four corner boxes are separated. Their whole squares are inside `D`. Discard a path if either endpoint fails the joint test.
+
+In a fixed side scan the near corner tests `R` and the far corner tests `n-1-R` with reflected data. The row sets `[12,n/2-4]` and `[n/2+3,n-13]` are disjoint. One failed side-row therefore removes at most one path. Hence
+
+`L >= 2n-b-O(1).`
+
+Together with `(7)` and `(8)`, this gives
+
+`4n <= 4E+2b+O(1) <= 6E+O(1),`
+
+`X=4n-2+E >= 14n/3-O(1).`
+
+For the explicit constant, adjacent sides can share only the four corner edges `(0,0)--(1,2)`, `(0,0)--(2,1)`, `(0,1)--(2,0)`, and `(0,2)--(1,0)`, after rotation. They have five crossing pairs in total, while opposite sides share none. Hence `|B|>=4(n-1)-4*5=4n-24`. A crossing pair counted in two width-two strips has both edges in their `4` by `4` corner square. There are `24` possible knight edges there, so the strip overcount is at most `4*binomial(24,2)=1104`. Thus `sum X_sigma<=X+1104`. Thus `2L<=4E+44`, `b<=E+1131`, and `4n<=6E+2426`, which implies `X>=14n/3-407`. These constants play no role in the leading coefficient.
+
+**Finite checks for this section:**
+
+```sh
+python3 w-turnstheory/check_col0_squares.py
+python3 w-turnstheory/check_lower_stability.py
+```
+
+### B.7. One command checks every finite input
+
+Run from the project root:
+
+```sh
+python3 w-turnstheory/check_crossings_lower.py
+```
+
+The runner uses the Python standard library, one process at a time, and no solver. It stops on any failure and writes `w-turnstheory/crossings_lower_checks.json`. Its five checks are:
+
+| Input | Checker in w-turnstheory/ |
+| --- | --- |
+| Tile geometry and local flux | `check_knight_tiles.py` |
+| Arbitrary-edge endpoint identity | `check_corner_box.py` |
+| Boundary potential and positive-area overlap | `check_col0_squares.py` |
+| Alternating square identity | `check_square_defects.py` |
+| Joint endpoint potential and corner overcount | `check_lower_stability.py` |
+
+The last check uses the independent implementation `w-lowerbounds/endpoint_independent.py`, not a saved solver answer. The circulation, charge, path disjointness, and final count are the arguments above; finite tests alone do not replace them.
+
+</details>

@@ -1,0 +1,30 @@
+[
+  {
+    "family": "TT16",
+    "n": 96,
+    "larger": 104,
+    "exterior_vertices": 1084,
+    "exterior_edges": 1070
+  },
+  {
+    "family": "TT16",
+    "n": 98,
+    "larger": 106,
+    "exterior_vertices": 1108,
+    "exterior_edges": 1094
+  },
+  {
+    "family": "TT16",
+    "n": 100,
+    "larger": 108,
+    "exterior_vertices": 1132,
+    "exterior_edges": 1118
+  },
+  {
+    "family": "TT16",
+    "n": 102,
+    "larger": 110,
+    "exterior_vertices": 1156,
+    "exterior_edges": 1142
+  }
+]

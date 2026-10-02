@@ -287,3 +287,15 @@ Addition (2026-10-02, Nil via CR): full progression in the demo (crossings: 13n,
 turns: 9.5n, 9.25n, 8.5n, 8n-14). 645 tours, all valid, JS counts agree, brute force agrees at n = 96, 98, 120.
 The paper's 21-turn heel rebuilt by heel21.py (OPTIMAL 21 turns / 31 crossings, gadgets/heel21.json); in Algorithm 1
 it gives T slope 37/4 = 9.25 exactly. Details: demo/README.md.
+
+## Public repo sync recipe (github.com/nmamano/knights-tour-bounds; staging ~/nil/knights-tour-bounds)
+Pushed: 1f8817d (Nil), 120be78 (charts). Final re-sync, fresh-copy run and commit + push wait for the CR's go.
+rsync -a from ~/nil/knight-formation-research/ with --exclude= /.venv/ /ktlean/.lake/ /ktlean/.git/ /CR_STATE.md
+/paper.pdf /paper.txt /board-patched.js __pycache__/ '*.npy' /w-searcher/tm /w-searcher/cert/{certify,certify2,
+corner_charge,strip2} /w-searcher/carrier/{band,band2} /w-verifier/claim22_pdf_page.txt
+/w-verifier/claim22_figure11_stream.txt /writeup/WRITER_STATE.md '/w-verifier/claim23*_clean/'.
+After rsync: replace knight-demo.office URL in w-integrator/FINDINGS.md line 280 by "Served as the office demo app."
+Staging still holds WRITER_STATE.md and claim23*_clean/ on disk (rm blocked by hook); .git/info/exclude keeps them out.
+Fresh-copy run: rsync staging (no .git) to /tmp/ktb-fresh, run every command in the Appendix sections of
+writeup/{turns,crossings}/post.mdx with system python3 (script /tmp/ktb-run.sh; add the new margins check). 2026-10-02: 12/12 PASS.
+Then privacy scan (emails, tokens, agent ids, office URLs), commit with Co-Authored-By line, git push origin main.

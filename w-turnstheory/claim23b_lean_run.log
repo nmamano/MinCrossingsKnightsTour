@@ -1,0 +1,32 @@
+@KT.ClosedTour.eight_mul_sub_64_le_numTurns : ∀ {n : ℕ} (T : KT.ClosedTour n), 8 ≤ n → 8 * n - 64 ≤ T.numTurns
+@KT.ClosedTour.four_mul_sub_two_le_numCrossings : ∀ {n : ℕ} (T : KT.ClosedTour n), 4 * n - 2 ≤ T.numCrossings
+@KT.TwoFactor.four_mul_sub_two_le_numCrossings : ∀ {n : ℕ} (F : KT.TwoFactor n), 4 * n - 2 ≤ F.numCrossings
+'KT.ClosedTour.eight_mul_sub_64_le_numTurns' depends on axioms: [propext, Classical.choice, Quot.sound]
+'KT.TwoFactor.eight_mul_le_numTurns_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'KT.Example.tour8_numTurns' depends on axioms: [propext, Classical.choice, Quot.sound]
+'KT.ClosedTour.four_mul_sub_two_le_numCrossings' depends on axioms: [propext, Classical.choice, Quot.sound]
+'KT.TwoFactor.four_mul_sub_two_le_numCrossings' depends on axioms: [propext, Classical.choice, Quot.sound]
+'KT.flux_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'KT.three_dvd_flux_add_chi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'KT.bad_budget' depends on axioms: [propext, Classical.choice, Quot.sound]
+'KT.charged_paths_budget' depends on axioms: [propext, Classical.choice, Quot.sound]
+'KT.counting_chain' depends on axioms: [propext, Classical.choice, Quot.sound]
+'KT.three_dvd_sum_bdry' depends on axioms: [propext, Classical.choice, Quot.sound]
+'KT.corner_charge' depends on axioms: [propext, Classical.choice, Quot.sound]
+'KT.corner_charge_row' depends on axioms: [propext, Classical.choice, Quot.sound]
+'KT.mult_alt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'KT.two_bad' depends on axioms: [propext, Classical.choice, Quot.sound]
+'KT.charged_squares_budget' depends on axioms: [propext, Classical.choice, Quot.sound]
+'KT.omega_rot' depends on axioms: [propext, Classical.choice, Quot.sound]
+'KT.corner_charge_rot' depends on axioms: [propext, Classical.choice, Quot.sound]
+'KT.side_pairs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'KT.combined_count' depends on axioms: [propext, Classical.choice, Quot.sound]
+'KT.fourteen_mul_le_of_stability' depends on axioms: [propext, Classical.choice, Quot.sound]
+'KT.corner_charge_mod_rot' depends on axioms: [propext, Classical.choice, Quot.sound]
+@KT.ClosedTour.combined_count : ∀ {h : ℕ} (T : KT.ClosedTour (2 * h)),
+  16 ≤ h → 10 * (2 * h) ≤ 2 * T.numCrossings + T.badRows.card + 130
+@KT.ClosedTour.fourteen_mul_le_of_stability : ∀ {h : ℕ} (T : KT.ClosedTour (2 * h)),
+  16 ≤ h →
+    ∀ (C : ℤ), ↑T.badRows.card ≤ ↑T.numCrossings - 4 * (2 * ↑h) + 2 + C → 14 * (2 * ↑h) ≤ 3 * ↑T.numCrossings + C + 132
+'KT.ClosedTour.combined_count' depends on axioms: [propext, Classical.choice, Quot.sound]
+'KT.ClosedTour.fourteen_mul_le_of_stability' depends on axioms: [propext, Classical.choice, Quot.sound]
