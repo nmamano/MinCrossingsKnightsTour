@@ -52,6 +52,14 @@ All seven distinct commands passed on 2026-10-02 ([record](w-turnstheory/results
 Bounds are leading terms (plus O(1)); dates of the Agent Team steps are Pacific time. The [demo](demo/) shows
 every step as a real tour for even n up to 200.
 
+Crossings: the best known lower and upper bound after each step (times in PT).
+
+![Crossings: best known lower and upper bound after each step](writeup/crossings/figures/progress_crossings.png)
+
+Turns: the best known lower and upper bound after each step; the leading term 8n is now exact.
+
+![Turns: best known lower and upper bound after each step](writeup/turns/images/progress_turns.png)
+
 ## Methodology
 
 **Setting.** One closed research session, 2026-10-01/02 (Pacific time), in the Isomux multi-agent office, room

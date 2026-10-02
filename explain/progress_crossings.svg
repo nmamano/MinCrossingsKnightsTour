@@ -1,0 +1,109 @@
+<svg width="720" height="438" viewBox="0 0 720 438" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif" font-size="12">
+<text x="10" y="16" fill="#8a97a1" font-size="12">Crossings: best known lower and upper bound after each step (times in PT)</text>
+<circle cx="324" cy="28" r="4" fill="#c0392b"/><text x="332" y="32" fill="#8a97a1" font-size="11">lower bound</text>
+<circle cx="414" cy="28" r="4" fill="#0b7a75"/><text x="422" y="32" fill="#8a97a1" font-size="11">upper bound</text>
+<line x1="334.1" y1="40" x2="334.1" y2="404" stroke="#8a97a1" stroke-opacity="0.25" stroke-width="1"/>
+<text x="334.1" y="420" text-anchor="middle" fill="#8a97a1" font-size="11">4n</text>
+<line x1="366.3" y1="40" x2="366.3" y2="404" stroke="#8a97a1" stroke-opacity="0.25" stroke-width="1"/>
+<text x="366.3" y="420" text-anchor="middle" fill="#8a97a1" font-size="11">5n</text>
+<line x1="398.5" y1="40" x2="398.5" y2="404" stroke="#8a97a1" stroke-opacity="0.25" stroke-width="1"/>
+<text x="398.5" y="420" text-anchor="middle" fill="#8a97a1" font-size="11">6n</text>
+<line x1="430.7" y1="40" x2="430.7" y2="404" stroke="#8a97a1" stroke-opacity="0.25" stroke-width="1"/>
+<text x="430.7" y="420" text-anchor="middle" fill="#8a97a1" font-size="11">7n</text>
+<line x1="462.9" y1="40" x2="462.9" y2="404" stroke="#8a97a1" stroke-opacity="0.25" stroke-width="1"/>
+<text x="462.9" y="420" text-anchor="middle" fill="#8a97a1" font-size="11">8n</text>
+<line x1="495.1" y1="40" x2="495.1" y2="404" stroke="#8a97a1" stroke-opacity="0.25" stroke-width="1"/>
+<text x="495.1" y="420" text-anchor="middle" fill="#8a97a1" font-size="11">9n</text>
+<line x1="527.3" y1="40" x2="527.3" y2="404" stroke="#8a97a1" stroke-opacity="0.25" stroke-width="1"/>
+<text x="527.3" y="420" text-anchor="middle" fill="#8a97a1" font-size="11">10n</text>
+<line x1="559.5" y1="40" x2="559.5" y2="404" stroke="#8a97a1" stroke-opacity="0.25" stroke-width="1"/>
+<text x="559.5" y="420" text-anchor="middle" fill="#8a97a1" font-size="11">11n</text>
+<line x1="591.7" y1="40" x2="591.7" y2="404" stroke="#8a97a1" stroke-opacity="0.25" stroke-width="1"/>
+<text x="591.7" y="420" text-anchor="middle" fill="#8a97a1" font-size="11">12n</text>
+<line x1="623.9" y1="40" x2="623.9" y2="404" stroke="#8a97a1" stroke-opacity="0.25" stroke-width="1"/>
+<text x="623.9" y="420" text-anchor="middle" fill="#8a97a1" font-size="11">13n</text>
+<text x="268" y="57.0" text-anchor="end" fill="currentColor">Besa, Johnson, Mamano, Osegueda <tspan fill="#8a97a1" font-size="11">· Apr 2019</tspan></text>
+<rect x="334.1" y="48.0" width="289.8" height="10" rx="3" fill="#9aa7b0" fill-opacity="0.35"/>
+<circle cx="334.1" cy="53.0" r="4" fill="#c0392b"/>
+<circle cx="623.9" cy="53.0" r="4" fill="#0b7a75"/>
+<text x="327.1" y="57.0" text-anchor="end" fill="#c0392b" font-size="11" font-weight="bold">4n</text>
+<text x="630.9" y="57.0" fill="currentColor" font-size="11" font-weight="bold">13n</text>
+<text x="268" y="83.0" text-anchor="end" fill="currentColor">Parker Williams <tspan fill="#8a97a1" font-size="11">· Jan 2022</tspan></text>
+<rect x="334.1" y="74.0" width="257.6" height="10" rx="3" fill="#9aa7b0" fill-opacity="0.35"/>
+<circle cx="334.1" cy="79.0" r="4" fill="#c0392b"/>
+<circle cx="591.7" cy="79.0" r="4" fill="#0b7a75"/>
+<text x="327.1" y="83.0" text-anchor="end" fill="#c0392b" font-size="11" font-weight="bold">4n</text>
+<text x="598.7" y="83.0" fill="currentColor" font-size="11" font-weight="bold">12n</text>
+<text x="268" y="109.0" text-anchor="end" fill="currentColor">Shisheng Li <tspan fill="#8a97a1" font-size="11">· May 2026</tspan></text>
+<rect x="334.1" y="100.0" width="241.5" height="10" rx="3" fill="#9aa7b0" fill-opacity="0.35"/>
+<circle cx="334.1" cy="105.0" r="4" fill="#c0392b"/>
+<circle cx="575.6" cy="105.0" r="4" fill="#0b7a75"/>
+<text x="327.1" y="109.0" text-anchor="end" fill="#c0392b" font-size="11" font-weight="bold">4n</text>
+<text x="582.6" y="109.0" fill="currentColor" font-size="11" font-weight="bold">11.5n</text>
+<text x="268" y="135.0" text-anchor="end" fill="currentColor">Agent Team <tspan fill="#8a97a1" font-size="11">· Oct 1, 4:59 pm</tspan></text>
+<rect x="334.1" y="126.0" width="161.0" height="10" rx="3" fill="#0b7a75" fill-opacity="0.35"/>
+<circle cx="334.1" cy="131.0" r="4" fill="#c0392b"/>
+<circle cx="495.1" cy="131.0" r="4" fill="#0b7a75"/>
+<text x="327.1" y="135.0" text-anchor="end" fill="#c0392b" font-size="11" font-weight="bold">4n</text>
+<text x="502.1" y="135.0" fill="currentColor" font-size="11" font-weight="bold">9n</text>
+<text x="268" y="161.0" text-anchor="end" fill="currentColor">Agent Team <tspan fill="#8a97a1" font-size="11">· Oct 1, 6:55 pm</tspan></text>
+<rect x="334.1" y="152.0" width="101.4" height="10" rx="3" fill="#0b7a75" fill-opacity="0.35"/>
+<circle cx="334.1" cy="157.0" r="4" fill="#c0392b"/>
+<circle cx="435.5" cy="157.0" r="4" fill="#0b7a75"/>
+<text x="327.1" y="161.0" text-anchor="end" fill="#c0392b" font-size="11" font-weight="bold">4n</text>
+<text x="442.5" y="161.0" fill="currentColor" font-size="11" font-weight="bold">7.15n</text>
+<text x="268" y="187.0" text-anchor="end" fill="currentColor">Agent Team <tspan fill="#8a97a1" font-size="11">· Oct 1, 8:31 pm</tspan></text>
+<rect x="334.1" y="178.0" width="75.1" height="10" rx="3" fill="#0b7a75" fill-opacity="0.35"/>
+<circle cx="334.1" cy="183.0" r="4" fill="#c0392b"/>
+<circle cx="409.2" cy="183.0" r="4" fill="#0b7a75"/>
+<text x="327.1" y="187.0" text-anchor="end" fill="#c0392b" font-size="11" font-weight="bold">4n</text>
+<text x="416.2" y="187.0" fill="currentColor" font-size="11" font-weight="bold">6.33n</text>
+<text x="268" y="213.0" text-anchor="end" fill="currentColor">Agent Team <tspan fill="#8a97a1" font-size="11">· Oct 1, 9:26 pm</tspan></text>
+<rect x="334.1" y="204.0" width="75.1" height="10" rx="3" fill="#0b7a75" fill-opacity="0.35"/>
+<circle cx="334.1" cy="209.0" r="4" fill="#c0392b"/>
+<circle cx="409.2" cy="209.0" r="4" fill="#0b7a75"/>
+<text x="327.1" y="213.0" text-anchor="end" fill="#c0392b" font-size="11" font-weight="bold">4.0001n</text>
+<text x="416.2" y="213.0" fill="currentColor" font-size="11" font-weight="bold">6.33n</text>
+<text x="268" y="239.0" text-anchor="end" fill="currentColor">Agent Team <tspan fill="#8a97a1" font-size="11">· Oct 1, 9:59 pm</tspan></text>
+<rect x="336.0" y="230.0" width="73.2" height="10" rx="3" fill="#0b7a75" fill-opacity="0.35"/>
+<circle cx="336.0" cy="235.0" r="4" fill="#c0392b"/>
+<circle cx="409.2" cy="235.0" r="4" fill="#0b7a75"/>
+<text x="329.0" y="239.0" text-anchor="end" fill="#c0392b" font-size="11" font-weight="bold">4.06n</text>
+<text x="416.2" y="239.0" fill="currentColor" font-size="11" font-weight="bold">6.33n</text>
+<text x="268" y="265.0" text-anchor="end" fill="currentColor">Agent Team <tspan fill="#8a97a1" font-size="11">· Oct 1, 10:30 pm</tspan></text>
+<rect x="338.1" y="256.0" width="71.1" height="10" rx="3" fill="#0b7a75" fill-opacity="0.35"/>
+<circle cx="338.1" cy="261.0" r="4" fill="#c0392b"/>
+<circle cx="409.2" cy="261.0" r="4" fill="#0b7a75"/>
+<text x="331.1" y="265.0" text-anchor="end" fill="#c0392b" font-size="11" font-weight="bold">4.13n</text>
+<text x="416.2" y="265.0" fill="currentColor" font-size="11" font-weight="bold">6.33n</text>
+<text x="268" y="291.0" text-anchor="end" fill="currentColor">Agent Team <tspan fill="#8a97a1" font-size="11">· Oct 1, 10:42 pm</tspan></text>
+<rect x="339.7" y="282.0" width="69.5" height="10" rx="3" fill="#0b7a75" fill-opacity="0.35"/>
+<circle cx="339.7" cy="287.0" r="4" fill="#c0392b"/>
+<circle cx="409.2" cy="287.0" r="4" fill="#0b7a75"/>
+<text x="332.7" y="291.0" text-anchor="end" fill="#c0392b" font-size="11" font-weight="bold">4.17n</text>
+<text x="416.2" y="291.0" fill="currentColor" font-size="11" font-weight="bold">6.33n</text>
+<text x="268" y="317.0" text-anchor="end" fill="currentColor">Agent Team <tspan fill="#8a97a1" font-size="11">· Oct 1, 10:56 pm</tspan></text>
+<rect x="342.7" y="308.0" width="66.5" height="10" rx="3" fill="#0b7a75" fill-opacity="0.35"/>
+<circle cx="342.7" cy="313.0" r="4" fill="#c0392b"/>
+<circle cx="409.2" cy="313.0" r="4" fill="#0b7a75"/>
+<text x="335.7" y="317.0" text-anchor="end" fill="#c0392b" font-size="11" font-weight="bold">4.27n</text>
+<text x="416.2" y="317.0" fill="currentColor" font-size="11" font-weight="bold">6.33n</text>
+<text x="268" y="343.0" text-anchor="end" fill="currentColor">Agent Team <tspan fill="#8a97a1" font-size="11">· Oct 1, 11:14 pm</tspan></text>
+<rect x="345.8" y="334.0" width="63.4" height="10" rx="3" fill="#0b7a75" fill-opacity="0.35"/>
+<circle cx="345.8" cy="339.0" r="4" fill="#c0392b"/>
+<circle cx="409.2" cy="339.0" r="4" fill="#0b7a75"/>
+<text x="338.8" y="343.0" text-anchor="end" fill="#c0392b" font-size="11" font-weight="bold">4.36n</text>
+<text x="416.2" y="343.0" fill="currentColor" font-size="11" font-weight="bold">6.33n</text>
+<text x="268" y="369.0" text-anchor="end" fill="currentColor">Agent Team <tspan fill="#8a97a1" font-size="11">· Oct 1, 11:51 pm</tspan></text>
+<rect x="350.2" y="360.0" width="59.0" height="10" rx="3" fill="#0b7a75" fill-opacity="0.35"/>
+<circle cx="350.2" cy="365.0" r="4" fill="#c0392b"/>
+<circle cx="409.2" cy="365.0" r="4" fill="#0b7a75"/>
+<text x="343.2" y="369.0" text-anchor="end" fill="#c0392b" font-size="11" font-weight="bold">4.5n</text>
+<text x="416.2" y="369.0" fill="currentColor" font-size="11" font-weight="bold">6.33n</text>
+<text x="268" y="395.0" text-anchor="end" fill="currentColor">Agent Team <tspan fill="#8a97a1" font-size="11">· Oct 2, 12:21 am</tspan></text>
+<rect x="355.6" y="386.0" width="53.7" height="10" rx="3" fill="#0b7a75" fill-opacity="0.35"/>
+<circle cx="355.6" cy="391.0" r="4" fill="#c0392b"/>
+<circle cx="409.2" cy="391.0" r="4" fill="#0b7a75"/>
+<text x="348.6" y="395.0" text-anchor="end" fill="#c0392b" font-size="11" font-weight="bold">4.67n</text>
+<text x="416.2" y="395.0" fill="currentColor" font-size="11" font-weight="bold">6.33n</text>
+</svg>

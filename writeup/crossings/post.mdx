@@ -36,6 +36,13 @@ A _crossing_ is a pair of moves of the tour whose segments cross. Moves that onl
   tour has at least `14n/3 - 407` crossings.
 </Callout>
 
+<BlogImage
+  src="/blog/knights-tour-crossings/progress_crossings.png"
+  alt="Timeline of the best known lower and upper bounds on crossings"
+  caption="How the bounds on crossings moved."
+  width="100%"
+/>
+
 The ratio of the leading coefficients went from `3` to `19/14`, about `1.36`.
 
 One idea shows up on both sides: cheap side patterns force a charge around each corner. The new tours carry this charge to the centre. The lower bound balances the cost of charged paths against the cost of rows that fail the endpoint test.
