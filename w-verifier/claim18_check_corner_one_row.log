@@ -1,0 +1,5 @@
+PASS: R 12 one critical endpoint row; all 4 patterns and 2916 corner choices; Q=1 mod 3.
+PASS: R 13 one critical endpoint row; all 4 patterns and 2916 corner choices; Q=1 mod 3.
+PASS: R 14 one critical endpoint row; all 4 patterns and 2916 corner choices; Q=1 mod 3.
+PASS: R 15 one critical endpoint row; all 4 patterns and 2916 corner choices; Q=1 mod 3.
+The R -> R+2 step adds two opposite-colour middle cells per side and translates the endpoint data.

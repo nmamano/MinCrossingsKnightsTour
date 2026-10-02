@@ -1,0 +1,367 @@
+ orig n= 48 valid=True X=624 T=442
+ orig n= 50 valid=True X=632 T=452
+ orig n= 52 valid=True X=665 T=475
+ orig n= 54 valid=True X=686 T=491
+ orig n= 56 valid=True X=728 T=518
+ orig n= 58 valid=True X=736 T=528
+ orig n= 60 valid=True X=769 T=551
+ orig n= 62 valid=True X=790 T=567
+ orig n= 64 valid=True X=832 T=594
+ orig n= 66 valid=True X=840 T=604
+ orig n= 68 valid=True X=873 T=627
+ orig n= 70 valid=True X=894 T=643
+ orig n= 72 valid=True X=936 T=670
+ orig n= 74 valid=True X=944 T=680
+ orig n= 76 valid=True X=977 T=703
+ orig n= 78 valid=True X=998 T=719
+ orig n= 80 valid=True X=1040 T=746
+ orig n= 82 valid=True X=1048 T=756
+ orig n= 84 valid=True X=1081 T=779
+ orig n= 86 valid=True X=1102 T=795
+ orig n= 88 valid=True X=1144 T=822
+ orig n= 90 valid=True X=1152 T=832
+ orig n= 92 valid=True X=1185 T=855
+ orig n= 94 valid=True X=1206 T=871
+ orig n=100 valid=True X=1289 T=931
+ orig n=102 valid=True X=1310 T=947
+ orig n=104 valid=True X=1352 T=974
+ orig n=106 valid=True X=1360 T=984
+ orig n=108 valid=True X=1393 T=1007
+ orig n=110 valid=True X=1414 T=1023
+ orig n=112 valid=True X=1456 T=1050
+ orig n=114 valid=True X=1464 T=1060
+ orig n=116 valid=True X=1497 T=1083
+ orig n=118 valid=True X=1518 T=1099
+ orig n= 96 valid=True X=1248 T=898 brute=1248
+ orig n= 98 valid=True X=1256 T=908 brute=1256
+ orig n=122 valid=True X=1568 T=1136
+ orig n=124 valid=True X=1601 T=1159
+ orig n=126 valid=True X=1622 T=1175
+ orig n=128 valid=True X=1664 T=1202
+ orig n=130 valid=True X=1672 T=1212
+ orig n=132 valid=True X=1705 T=1235
+ orig n=134 valid=True X=1726 T=1251
+ orig n=136 valid=True X=1768 T=1278
+ orig n=138 valid=True X=1776 T=1288
+ orig n=140 valid=True X=1809 T=1311
+ orig n=142 valid=True X=1830 T=1327
+ orig n=144 valid=True X=1872 T=1354
+ orig n=146 valid=True X=1880 T=1364
+ orig n=148 valid=True X=1913 T=1387
+ orig n=150 valid=True X=1934 T=1403
+ orig n=152 valid=True X=1976 T=1430
+ orig n=154 valid=True X=1984 T=1440
+ orig n=156 valid=True X=2017 T=1463
+ orig n=158 valid=True X=2038 T=1479
+ orig n=160 valid=True X=2080 T=1506
+ orig n=162 valid=True X=2088 T=1516
+ orig n=164 valid=True X=2121 T=1539
+ orig n=166 valid=True X=2142 T=1555
+ orig n=168 valid=True X=2184 T=1582
+ orig n=120 valid=True X=1560 T=1126 brute=1560
+ orig n=170 valid=True X=2192 T=1592
+ orig n=172 valid=True X=2225 T=1615
+ orig n=174 valid=True X=2246 T=1631
+ orig n=176 valid=True X=2288 T=1658
+ orig n=178 valid=True X=2296 T=1668
+ orig n=180 valid=True X=2329 T=1691
+ orig n=182 valid=True X=2350 T=1707
+ orig n=184 valid=True X=2392 T=1734
+ orig n=186 valid=True X=2400 T=1744
+ orig n=188 valid=True X=2433 T=1767
+ orig n=190 valid=True X=2454 T=1783
+ orig n=192 valid=True X=2496 T=1810
+ orig n=194 valid=True X=2504 T=1820
+ orig n=196 valid=True X=2537 T=1843
+heel21 n= 48 valid=True X=616 T=434
+heel21 n= 50 valid=True X=623 T=443
+heel21 n= 52 valid=True X=655 T=465
+heel21 n= 54 valid=True X=676 T=481
+heel21 n= 56 valid=True X=718 T=508
+heel21 n= 58 valid=True X=725 T=517
+ orig n=198 valid=True X=2558 T=1859
+heel21 n= 60 valid=True X=757 T=539
+heel21 n= 64 valid=True X=820 T=582
+heel21 n= 62 valid=True X=778 T=555
+heel21 n= 66 valid=True X=827 T=591
+ orig n=200 valid=True X=2600 T=1886
+heel21 n= 68 valid=True X=859 T=613
+heel21 n= 70 valid=True X=880 T=629
+heel21 n= 72 valid=True X=922 T=656
+heel21 n= 74 valid=True X=929 T=665
+heel21 n= 76 valid=True X=961 T=687
+heel21 n= 78 valid=True X=982 T=703
+heel21 n= 80 valid=True X=1024 T=730
+heel21 n= 82 valid=True X=1031 T=739
+heel21 n= 84 valid=True X=1063 T=761
+heel21 n= 86 valid=True X=1084 T=777
+heel21 n= 88 valid=True X=1126 T=804
+heel21 n= 90 valid=True X=1133 T=813
+heel21 n= 92 valid=True X=1165 T=835
+heel21 n= 94 valid=True X=1186 T=851
+heel21 n=100 valid=True X=1267 T=909
+heel21 n=102 valid=True X=1288 T=925
+heel21 n=104 valid=True X=1330 T=952
+heel21 n=106 valid=True X=1337 T=961
+heel21 n=108 valid=True X=1369 T=983
+heel21 n=110 valid=True X=1390 T=999
+heel21 n=112 valid=True X=1432 T=1026
+heel21 n=114 valid=True X=1439 T=1035
+heel21 n=116 valid=True X=1471 T=1057
+heel21 n=118 valid=True X=1492 T=1073
+heel21 n= 96 valid=True X=1228 T=878 brute=1228
+heel21 n= 98 valid=True X=1235 T=887 brute=1235
+heel21 n=122 valid=True X=1541 T=1109
+heel21 n=124 valid=True X=1573 T=1131
+heel21 n=126 valid=True X=1594 T=1147
+heel21 n=128 valid=True X=1636 T=1174
+heel21 n=130 valid=True X=1643 T=1183
+heel21 n=132 valid=True X=1675 T=1205
+heel21 n=134 valid=True X=1696 T=1221
+heel21 n=136 valid=True X=1738 T=1248
+heel21 n=138 valid=True X=1745 T=1257
+heel21 n=140 valid=True X=1777 T=1279
+heel21 n=142 valid=True X=1798 T=1295
+heel21 n=144 valid=True X=1840 T=1322
+heel21 n=146 valid=True X=1847 T=1331
+heel21 n=148 valid=True X=1879 T=1353
+heel21 n=150 valid=True X=1900 T=1369
+heel21 n=152 valid=True X=1942 T=1396
+heel21 n=154 valid=True X=1949 T=1405
+heel21 n=156 valid=True X=1981 T=1427
+heel21 n=158 valid=True X=2002 T=1443
+heel21 n=160 valid=True X=2044 T=1470
+heel21 n=162 valid=True X=2051 T=1479
+heel21 n=164 valid=True X=2083 T=1501
+heel21 n=166 valid=True X=2104 T=1517
+heel21 n=168 valid=True X=2146 T=1544
+heel21 n=170 valid=True X=2153 T=1553
+heel21 n=120 valid=True X=1534 T=1100 brute=1534
+heel21 n=172 valid=True X=2185 T=1575
+heel21 n=174 valid=True X=2206 T=1591
+heel21 n=176 valid=True X=2248 T=1618
+heel21 n=178 valid=True X=2255 T=1627
+heel21 n=180 valid=True X=2287 T=1649
+heel21 n=182 valid=True X=2308 T=1665
+heel21 n=184 valid=True X=2350 T=1692
+heel21 n=186 valid=True X=2357 T=1701
+heel21 n=188 valid=True X=2389 T=1723
+heel21 n=190 valid=True X=2410 T=1739
+heel21 n=192 valid=True X=2452 T=1766
+heel21 n=194 valid=True X=2459 T=1775
+heel21 n=196 valid=True X=2491 T=1797
+  P40 n= 48 valid=True X=592 T=442
+  P40 n= 50 valid=True X=586 T=457
+  P40 n= 52 valid=True X=605 T=485
+  P40 n= 54 valid=True X=636 T=496
+  P40 n= 56 valid=True X=668 T=528
+  P40 n= 58 valid=True X=672 T=538
+  P40 n= 60 valid=True X=701 T=561
+  P40 n= 62 valid=True X=722 T=577
+  P40 n= 64 valid=True X=764 T=604
+heel21 n=198 valid=True X=2512 T=1813
+  P40 n= 66 valid=True X=768 T=614
+  P40 n= 68 valid=True X=797 T=637
+  P40 n= 70 valid=True X=818 T=653
+  P40 n= 72 valid=True X=860 T=680
+heel21 n=200 valid=True X=2554 T=1840
+  P40 n= 74 valid=True X=864 T=690
+  P40 n= 76 valid=True X=893 T=713
+  P40 n= 78 valid=True X=914 T=729
+  P40 n= 80 valid=True X=956 T=756
+  P40 n= 82 valid=True X=960 T=766
+  P40 n= 84 valid=True X=989 T=789
+  P40 n= 86 valid=True X=1010 T=805
+  P40 n= 88 valid=True X=1052 T=832
+  P40 n= 90 valid=True X=1046 T=847
+  P40 n= 92 valid=True X=1065 T=875
+  P40 n= 94 valid=True X=1096 T=886
+  P40 n=100 valid=True X=1161 T=951
+  P40 n=102 valid=True X=1182 T=967
+  P40 n=104 valid=True X=1224 T=994
+  P40 n=106 valid=True X=1228 T=1004
+  P40 n=108 valid=True X=1257 T=1027
+  P40 n=110 valid=True X=1278 T=1043
+  P40 n= 96 valid=True X=1128 T=918 brute=1128
+  P40 n=114 valid=True X=1324 T=1080
+  P40 n=112 valid=True X=1320 T=1070
+  P40 n=116 valid=True X=1353 T=1103
+  P40 n=118 valid=True X=1374 T=1119
+  P40 n=122 valid=True X=1420 T=1156
+  P40 n= 98 valid=True X=1132 T=928 brute=1132
+  P40 n=124 valid=True X=1449 T=1179
+  P40 n=126 valid=True X=1470 T=1195
+  P40 n=128 valid=True X=1512 T=1222
+  P40 n=130 valid=True X=1506 T=1237
+  P40 n=132 valid=True X=1525 T=1265
+  P40 n=134 valid=True X=1556 T=1276
+  P40 n=136 valid=True X=1588 T=1308
+  P40 n=138 valid=True X=1592 T=1318
+  P40 n=140 valid=True X=1621 T=1341
+  P40 n=142 valid=True X=1642 T=1357
+  P40 n=144 valid=True X=1684 T=1384
+  P40 n=146 valid=True X=1688 T=1394
+  P40 n=148 valid=True X=1717 T=1417
+  P40 n=150 valid=True X=1738 T=1433
+  P40 n=152 valid=True X=1780 T=1460
+  P40 n=154 valid=True X=1784 T=1470
+  P40 n=156 valid=True X=1813 T=1493
+  P40 n=158 valid=True X=1834 T=1509
+  P40 n=160 valid=True X=1876 T=1536
+  P40 n=162 valid=True X=1880 T=1546
+  P40 n=164 valid=True X=1909 T=1569
+  P40 n=166 valid=True X=1930 T=1585
+  P40 n=168 valid=True X=1972 T=1612
+  P40 n=120 valid=True X=1416 T=1146 brute=1416
+  P40 n=170 valid=True X=1966 T=1627
+  P40 n=172 valid=True X=1985 T=1655
+  P40 n=174 valid=True X=2016 T=1666
+  P40 n=176 valid=True X=2048 T=1698
+  P40 n=178 valid=True X=2052 T=1708
+  P40 n=180 valid=True X=2081 T=1731
+  P40 n=182 valid=True X=2102 T=1747
+  P40 n=184 valid=True X=2144 T=1774
+  P40 n=186 valid=True X=2148 T=1784
+  P40 n=188 valid=True X=2177 T=1807
+  P40 n=190 valid=True X=2198 T=1823
+  P40 n=192 valid=True X=2240 T=1850
+  P40 n=194 valid=True X=2244 T=1860
+  P40 n=196 valid=True X=2273 T=1883
+  P40 n=198 valid=True X=2294 T=1899
+  P40 n=200 valid=True X=2336 T=1926
+  LF4 n=100 valid=True X=738 T=1048
+  LF4 n=102 valid=True X=751 T=1072
+  LF4 n=104 valid=True X=769 T=1089
+  LF4 n=106 valid=True X=783 T=1112
+  LF4 n=108 valid=True X=798 T=1136
+  LF4 n= 98 valid=True X=721 T=1028 brute=721
+  LF4 n=110 valid=True X=814 T=1156
+  LF4 n=112 valid=True X=821 T=1176
+  LF4 n=114 valid=True X=835 T=1198
+  LF4 n=116 valid=True X=854 T=1220
+  LF4 n=118 valid=True X=866 T=1238
+  LF4 n= 96 valid=True X=707 T=1010 brute=707
+  LF4 n=122 valid=True X=899 T=1284
+  LF4 n=124 valid=True X=912 T=1306
+  LF4 n=126 valid=True X=927 T=1330
+  LF4 n=128 valid=True X=937 T=1348
+  LF4 n=130 valid=True X=949 T=1368
+  LF4 n=132 valid=True X=967 T=1394
+  LF4 n=134 valid=True X=982 T=1410
+  LF4 n=136 valid=True X=996 T=1433
+  LF4 n=140 valid=True X=1028 T=1478
+  LF4 n=138 valid=True X=1012 T=1458
+  LF4 n=142 valid=True X=1041 T=1500
+  LF4 n=144 valid=True X=1050 T=1526
+  LF4 n=146 valid=True X=1064 T=1544
+  LF4 n=148 valid=True X=1081 T=1564
+  LF4 n=150 valid=True X=1094 T=1588
+  LF4 n=152 valid=True X=1112 T=1605
+  LF4 n=154 valid=True X=1126 T=1628
+  LF4 n=156 valid=True X=1141 T=1652
+  LF4 n=158 valid=True X=1157 T=1672
+  LF4 n=160 valid=True X=1164 T=1692
+  LF4 n=162 valid=True X=1178 T=1714
+  LF4 n=164 valid=True X=1197 T=1736
+  LF4 n=166 valid=True X=1209 T=1754
+  LF4 n=120 valid=True X=882 T=1263 brute=882
+  LF4 n=168 valid=True X=1225 T=1779
+  LF4 n=170 valid=True X=1242 T=1800
+  LF4 n=172 valid=True X=1255 T=1822
+  LF4 n=174 valid=True X=1270 T=1846
+  LF4 n=176 valid=True X=1280 T=1864
+  LF4 n=178 valid=True X=1292 T=1884
+  LF4 n=180 valid=True X=1310 T=1910
+  LF4 n=182 valid=True X=1325 T=1926
+  LF4 n=184 valid=True X=1339 T=1949
+  LF4 n=186 valid=True X=1355 T=1974
+  LF4 n=188 valid=True X=1371 T=1994
+  LF4 n=190 valid=True X=1384 T=2016
+  LF4 n=192 valid=True X=1393 T=2042
+  LF4 n=194 valid=True X=1407 T=2060
+  LF4 n=196 valid=True X=1424 T=2080
+  T18 n= 48 valid=True X=591 T=391
+  T18 n= 50 valid=True X=612 T=406
+  LF4 n=198 valid=True X=1437 T=2104
+  T18 n= 52 valid=True X=639 T=423
+  T18 n= 54 valid=True X=663 T=439
+  T18 n= 56 valid=True X=694 T=459
+  T18 n= 58 valid=True X=714 T=474
+  T18 n= 60 valid=True X=749 T=491
+  T18 n= 62 valid=True X=765 T=507
+  T18 n= 64 valid=True X=795 T=527
+  T18 n= 66 valid=True X=816 T=542
+  T18 n= 68 valid=True X=843 T=559
+  T18 n= 70 valid=True X=869 T=575
+  T18 n= 72 valid=True X=897 T=595
+  T18 n= 74 valid=True X=918 T=610
+  T18 n= 76 valid=True X=945 T=627
+  T18 n= 78 valid=True X=969 T=643
+  LF4 n=200 valid=True X=1455 T=2121
+  T18 n= 80 valid=True X=1000 T=663
+  T18 n= 82 valid=True X=1020 T=678
+  T18 n= 86 valid=True X=1071 T=711
+  T18 n= 84 valid=True X=1055 T=695
+  T18 n= 88 valid=True X=1101 T=731
+  T18 n= 90 valid=True X=1122 T=746
+  T18 n= 92 valid=True X=1149 T=763
+  T18 n= 94 valid=True X=1175 T=779
+  T18 n=100 valid=True X=1251 T=831
+  T18 n=102 valid=True X=1275 T=847
+  T18 n=104 valid=True X=1306 T=867
+  T18 n=106 valid=True X=1326 T=882
+  T18 n=108 valid=True X=1361 T=899
+  T18 n=110 valid=True X=1377 T=915
+  T18 n= 96 valid=True X=1203 T=799 brute=1203
+  T18 n=112 valid=True X=1407 T=935
+  T18 n=114 valid=True X=1428 T=950
+  T18 n=116 valid=True X=1455 T=967
+  T18 n=118 valid=True X=1481 T=983
+  T18 n=122 valid=True X=1530 T=1018
+  T18 n= 98 valid=True X=1224 T=814 brute=1224
+  T18 n=124 valid=True X=1557 T=1035
+  T18 n=126 valid=True X=1581 T=1051
+  T18 n=128 valid=True X=1612 T=1071
+  T18 n=130 valid=True X=1632 T=1086
+  T18 n=132 valid=True X=1667 T=1103
+  T18 n=134 valid=True X=1683 T=1119
+  T18 n=136 valid=True X=1713 T=1139
+  T18 n=138 valid=True X=1734 T=1154
+  T18 n=140 valid=True X=1761 T=1171
+  T18 n=142 valid=True X=1787 T=1187
+  T18 n=144 valid=True X=1815 T=1207
+  T18 n=146 valid=True X=1836 T=1222
+  T18 n=148 valid=True X=1863 T=1239
+  T18 n=150 valid=True X=1887 T=1255
+  T18 n=152 valid=True X=1918 T=1275
+  T18 n=154 valid=True X=1938 T=1290
+  T18 n=156 valid=True X=1973 T=1307
+  T18 n=158 valid=True X=1989 T=1323
+  T18 n=160 valid=True X=2019 T=1343
+  T18 n=162 valid=True X=2040 T=1358
+  T18 n=164 valid=True X=2067 T=1375
+  T18 n=166 valid=True X=2093 T=1391
+  T18 n=120 valid=True X=1509 T=1003 brute=1509
+  T18 n=168 valid=True X=2121 T=1411
+  T18 n=170 valid=True X=2142 T=1426
+  T18 n=172 valid=True X=2169 T=1443
+  T18 n=174 valid=True X=2193 T=1459
+  T18 n=178 valid=True X=2244 T=1494
+  T18 n=176 valid=True X=2224 T=1479
+  T18 n=180 valid=True X=2279 T=1511
+  T18 n=182 valid=True X=2295 T=1527
+  T18 n=184 valid=True X=2325 T=1547
+  T18 n=186 valid=True X=2346 T=1562
+  T18 n=190 valid=True X=2399 T=1595
+  T18 n=188 valid=True X=2373 T=1579
+  T18 n=192 valid=True X=2427 T=1615
+  T18 n=194 valid=True X=2448 T=1630
+  T18 n=196 valid=True X=2475 T=1647
+  T18 n=198 valid=True X=2499 T=1663
+  T18 n=200 valid=True X=2530 T=1683
+orig: 77 tours, invalid [], brute mismatches [], slopes per 8: {'crossings': ['13'], 'turns': ['19/2']}
+heel21: 77 tours, invalid [], brute mismatches [], slopes per 8: {'crossings': ['51/4'], 'turns': ['37/4']}
+P40: 77 tours, invalid [], brute mismatches [], slopes per 40: {'crossings': ['23/2'], 'turns': ['39/4']}
+LF4: 53 tours, invalid [], brute mismatches [], slopes per 48: {'crossings': ['343/48'], 'turns': ['43/4']}
+T18: 77 tours, invalid [], brute mismatches [], slopes per 24: {'crossings': ['51/4'], 'turns': ['17/2']}
+exit=0

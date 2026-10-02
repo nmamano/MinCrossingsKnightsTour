@@ -1,0 +1,2152 @@
+{
+  "date": "2026-10-02",
+  "stored": [
+    {
+      "file": "w-integrator/tours/TT16_n48.json",
+      "sha256": "30171038d35e4c94062be5f709c59553af9c243f6273c37fc98df3856bac0da5",
+      "n": 48,
+      "X": 454,
+      "T": 370
+    },
+    {
+      "file": "w-integrator/tours/TT16_n50.json",
+      "sha256": "9ba015221e38f3ebd110fd83122ad9f0f019319cffeb78ae07fb7a33d9e4978f",
+      "n": 50,
+      "X": 472,
+      "T": 386
+    },
+    {
+      "file": "w-integrator/tours/TT16_n52.json",
+      "sha256": "059c1f8d1471df4be2f6e9a1b91c8cbb1e3cade7c37ac5a80c476526bf00d95a",
+      "n": 52,
+      "X": 494,
+      "T": 402
+    },
+    {
+      "file": "w-integrator/tours/TT16_n54.json",
+      "sha256": "76e9b8491cda9690d97f2296d05261eebc217e48cf420174e002bad059263d8d",
+      "n": 54,
+      "X": 516,
+      "T": 418
+    },
+    {
+      "file": "w-integrator/tours/TT16_n72.json",
+      "sha256": "0915261bd2bedce99e63b0d3445d6b5d7ba21eca4dae691a895f166d61ee14b2",
+      "n": 72,
+      "X": 682,
+      "T": 562
+    },
+    {
+      "file": "w-integrator/tours/TT16_n74.json",
+      "sha256": "8a1c1315b00412da4384bbe6ed31e96fbeb59260dd520220bf7f6f1f7d604aa5",
+      "n": 74,
+      "X": 700,
+      "T": 578
+    },
+    {
+      "file": "w-integrator/tours/TT16_n76.json",
+      "sha256": "9f6e1392029b0a17a9313130b751975eee7e9c69d1631ea1c00a6eea1b3a118e",
+      "n": 76,
+      "X": 722,
+      "T": 594
+    },
+    {
+      "file": "w-integrator/tours/TT16_n78.json",
+      "sha256": "c825cb688d26af8447f1413e3b9ee92e4d0cce580db21958838049469487276e",
+      "n": 78,
+      "X": 744,
+      "T": 610
+    },
+    {
+      "file": "w-integrator/tours/TT16_n96.json",
+      "sha256": "083f5ff270fac42edf421a1671c003e2b53ca1514e15dbb5fd4d99591d9c8514",
+      "n": 96,
+      "X": 910,
+      "T": 754
+    },
+    {
+      "file": "w-integrator/tours/certificates/TT16_n56.json",
+      "sha256": "dc3452ff6507d80d4a3cddcc3309875c19d3192df1f01220e395d1f11d2605c6",
+      "n": 56,
+      "X": 530,
+      "T": 434
+    },
+    {
+      "file": "w-integrator/tours/certificates/TT16_n58.json",
+      "sha256": "3a6f633088436724f152dce9ac3cea0f2420db3ece8de94b57419fe78201c27c",
+      "n": 58,
+      "X": 548,
+      "T": 450
+    },
+    {
+      "file": "w-integrator/tours/certificates/TT16_n60.json",
+      "sha256": "f14c8e46b863d3af1094e9b4c19e68d77b06907704c31945e1b6684f379dcf13",
+      "n": 60,
+      "X": 570,
+      "T": 466
+    },
+    {
+      "file": "w-integrator/tours/certificates/TT16_n62.json",
+      "sha256": "f64dc45771bfbe5c06df1aaec97f9036e157199dab14ea7838da39d03b55170f",
+      "n": 62,
+      "X": 592,
+      "T": 482
+    }
+  ],
+  "rebuilt": [
+    {
+      "n": 48,
+      "X": 454,
+      "T": 370,
+      "paths": 34
+    },
+    {
+      "n": 50,
+      "X": 472,
+      "T": 386,
+      "paths": 34
+    },
+    {
+      "n": 52,
+      "X": 494,
+      "T": 402,
+      "paths": 34
+    },
+    {
+      "n": 54,
+      "X": 516,
+      "T": 418,
+      "paths": 34
+    },
+    {
+      "n": 56,
+      "X": 530,
+      "T": 434,
+      "paths": 34
+    },
+    {
+      "n": 58,
+      "X": 548,
+      "T": 450,
+      "paths": 34
+    },
+    {
+      "n": 60,
+      "X": 570,
+      "T": 466,
+      "paths": 34
+    },
+    {
+      "n": 62,
+      "X": 592,
+      "T": 482,
+      "paths": 34
+    },
+    {
+      "n": 64,
+      "X": 606,
+      "T": 498,
+      "paths": 34
+    },
+    {
+      "n": 66,
+      "X": 624,
+      "T": 514,
+      "paths": 34
+    },
+    {
+      "n": 68,
+      "X": 646,
+      "T": 530,
+      "paths": 34
+    },
+    {
+      "n": 70,
+      "X": 668,
+      "T": 546,
+      "paths": 34
+    },
+    {
+      "n": 72,
+      "X": 682,
+      "T": 562,
+      "paths": 34
+    },
+    {
+      "n": 74,
+      "X": 700,
+      "T": 578,
+      "paths": 34
+    },
+    {
+      "n": 76,
+      "X": 722,
+      "T": 594,
+      "paths": 34
+    },
+    {
+      "n": 78,
+      "X": 744,
+      "T": 610,
+      "paths": 34
+    },
+    {
+      "n": 80,
+      "X": 758,
+      "T": 626,
+      "paths": 34
+    },
+    {
+      "n": 82,
+      "X": 776,
+      "T": 642,
+      "paths": 34
+    },
+    {
+      "n": 84,
+      "X": 798,
+      "T": 658,
+      "paths": 34
+    },
+    {
+      "n": 86,
+      "X": 820,
+      "T": 674,
+      "paths": 34
+    },
+    {
+      "n": 88,
+      "X": 834,
+      "T": 690,
+      "paths": 34
+    },
+    {
+      "n": 90,
+      "X": 852,
+      "T": 706,
+      "paths": 34
+    },
+    {
+      "n": 92,
+      "X": 874,
+      "T": 722,
+      "paths": 34
+    },
+    {
+      "n": 94,
+      "X": 896,
+      "T": 738,
+      "paths": 34
+    },
+    {
+      "n": 96,
+      "X": 910,
+      "T": 754,
+      "paths": 34
+    },
+    {
+      "n": 98,
+      "X": 928,
+      "T": 770,
+      "paths": 34
+    },
+    {
+      "n": 100,
+      "X": 950,
+      "T": 786,
+      "paths": 34
+    },
+    {
+      "n": 102,
+      "X": 972,
+      "T": 802,
+      "paths": 34
+    },
+    {
+      "n": 104,
+      "X": 986,
+      "T": 818,
+      "paths": 34
+    },
+    {
+      "n": 106,
+      "X": 1004,
+      "T": 834,
+      "paths": 34
+    },
+    {
+      "n": 108,
+      "X": 1026,
+      "T": 850,
+      "paths": 34
+    },
+    {
+      "n": 110,
+      "X": 1048,
+      "T": 866,
+      "paths": 34
+    },
+    {
+      "n": 112,
+      "X": 1062,
+      "T": 882,
+      "paths": 34
+    },
+    {
+      "n": 114,
+      "X": 1080,
+      "T": 898,
+      "paths": 34
+    },
+    {
+      "n": 116,
+      "X": 1102,
+      "T": 914,
+      "paths": 34
+    },
+    {
+      "n": 118,
+      "X": 1124,
+      "T": 930,
+      "paths": 34
+    },
+    {
+      "n": 120,
+      "X": 1138,
+      "T": 946,
+      "paths": 34
+    },
+    {
+      "n": 122,
+      "X": 1156,
+      "T": 962,
+      "paths": 34
+    },
+    {
+      "n": 124,
+      "X": 1178,
+      "T": 978,
+      "paths": 34
+    },
+    {
+      "n": 126,
+      "X": 1200,
+      "T": 994,
+      "paths": 34
+    },
+    {
+      "n": 128,
+      "X": 1214,
+      "T": 1010,
+      "paths": 34
+    },
+    {
+      "n": 130,
+      "X": 1232,
+      "T": 1026,
+      "paths": 34
+    },
+    {
+      "n": 132,
+      "X": 1254,
+      "T": 1042,
+      "paths": 34
+    },
+    {
+      "n": 134,
+      "X": 1276,
+      "T": 1058,
+      "paths": 34
+    },
+    {
+      "n": 312,
+      "X": 2962,
+      "T": 2482,
+      "paths": 34
+    },
+    {
+      "n": 314,
+      "X": 2980,
+      "T": 2498,
+      "paths": 34
+    },
+    {
+      "n": 316,
+      "X": 3002,
+      "T": 2514,
+      "paths": 34
+    },
+    {
+      "n": 318,
+      "X": 3024,
+      "T": 2530,
+      "paths": 34
+    }
+  ],
+  "regions": {
+    "0": {
+      "BL": {
+        "period": 8,
+        "finite_cycles": false,
+        "strands": 2,
+        "cut_counts": [
+          4,
+          6
+        ],
+        "directed_quotient_cycles": [
+          {
+            "states": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                4,
+                0
+              ],
+              [
+                5,
+                1
+              ]
+            ],
+            "displacement": 8,
+            "winding": 1,
+            "lifted_coordinates": [
+              0,
+              9,
+              12,
+              5,
+              8
+            ]
+          },
+          {
+            "states": [
+              [
+                0,
+                1
+              ],
+              [
+                5,
+                0
+              ],
+              [
+                4,
+                1
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "displacement": -8,
+            "winding": -1,
+            "lifted_coordinates": [
+              0,
+              -3,
+              4,
+              1,
+              -8
+            ]
+          },
+          {
+            "states": [
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                1
+              ],
+              [
+                6,
+                0
+              ],
+              [
+                7,
+                1
+              ]
+            ],
+            "displacement": 8,
+            "winding": 1,
+            "lifted_coordinates": [
+              2,
+              -5,
+              -2,
+              7,
+              10
+            ]
+          },
+          {
+            "states": [
+              [
+                2,
+                1
+              ],
+              [
+                7,
+                0
+              ],
+              [
+                6,
+                1
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "displacement": -8,
+            "winding": -1,
+            "lifted_coordinates": [
+              2,
+              -1,
+              -10,
+              -13,
+              -6
+            ]
+          }
+        ],
+        "max_cycle_span": 15
+      },
+      "MID": {
+        "period": 8,
+        "finite_cycles": false,
+        "strands": 4,
+        "cut_counts": [
+          4
+        ],
+        "directed_quotient_cycles": [
+          {
+            "states": [
+              [
+                0,
+                0
+              ],
+              [
+                5,
+                1
+              ]
+            ],
+            "displacement": -8,
+            "winding": -1,
+            "lifted_coordinates": [
+              0,
+              -3,
+              -8
+            ]
+          },
+          {
+            "states": [
+              [
+                0,
+                1
+              ],
+              [
+                5,
+                0
+              ]
+            ],
+            "displacement": 8,
+            "winding": 1,
+            "lifted_coordinates": [
+              0,
+              5,
+              8
+            ]
+          },
+          {
+            "states": [
+              [
+                1,
+                0
+              ],
+              [
+                4,
+                1
+              ]
+            ],
+            "displacement": 8,
+            "winding": 1,
+            "lifted_coordinates": [
+              1,
+              4,
+              9
+            ]
+          },
+          {
+            "states": [
+              [
+                1,
+                1
+              ],
+              [
+                4,
+                0
+              ]
+            ],
+            "displacement": -8,
+            "winding": -1,
+            "lifted_coordinates": [
+              1,
+              -4,
+              -7
+            ]
+          },
+          {
+            "states": [
+              [
+                2,
+                0
+              ],
+              [
+                7,
+                1
+              ]
+            ],
+            "displacement": -8,
+            "winding": -1,
+            "lifted_coordinates": [
+              2,
+              -1,
+              -6
+            ]
+          },
+          {
+            "states": [
+              [
+                2,
+                1
+              ],
+              [
+                7,
+                0
+              ]
+            ],
+            "displacement": 8,
+            "winding": 1,
+            "lifted_coordinates": [
+              2,
+              7,
+              10
+            ]
+          },
+          {
+            "states": [
+              [
+                3,
+                0
+              ],
+              [
+                6,
+                1
+              ]
+            ],
+            "displacement": 8,
+            "winding": 1,
+            "lifted_coordinates": [
+              3,
+              6,
+              11
+            ]
+          },
+          {
+            "states": [
+              [
+                3,
+                1
+              ],
+              [
+                6,
+                0
+              ]
+            ],
+            "displacement": -8,
+            "winding": -1,
+            "lifted_coordinates": [
+              3,
+              -2,
+              -5
+            ]
+          }
+        ],
+        "max_cycle_span": 8
+      },
+      "TR": {
+        "period": 8,
+        "finite_cycles": false,
+        "strands": 2,
+        "cut_counts": [
+          6,
+          8
+        ],
+        "directed_quotient_cycles": [
+          {
+            "states": [
+              [
+                0,
+                0
+              ],
+              [
+                5,
+                1
+              ],
+              [
+                4,
+                0
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "displacement": 8,
+            "winding": 1,
+            "lifted_coordinates": [
+              0,
+              5,
+              12,
+              17,
+              8
+            ]
+          },
+          {
+            "states": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                4,
+                1
+              ],
+              [
+                5,
+                0
+              ]
+            ],
+            "displacement": -8,
+            "winding": -1,
+            "lifted_coordinates": [
+              0,
+              9,
+              4,
+              -3,
+              -8
+            ]
+          },
+          {
+            "states": [
+              [
+                2,
+                0
+              ],
+              [
+                7,
+                1
+              ],
+              [
+                6,
+                0
+              ],
+              [
+                3,
+                1
+              ]
+            ],
+            "displacement": 8,
+            "winding": 1,
+            "lifted_coordinates": [
+              2,
+              7,
+              -2,
+              3,
+              10
+            ]
+          },
+          {
+            "states": [
+              [
+                2,
+                1
+              ],
+              [
+                3,
+                0
+              ],
+              [
+                6,
+                1
+              ],
+              [
+                7,
+                0
+              ]
+            ],
+            "displacement": -8,
+            "winding": -1,
+            "lifted_coordinates": [
+              2,
+              -5,
+              -10,
+              -1,
+              -6
+            ]
+          }
+        ],
+        "max_cycle_span": 17
+      }
+    },
+    "2": {
+      "BL": {
+        "period": 8,
+        "finite_cycles": false,
+        "strands": 2,
+        "cut_counts": [
+          4,
+          6
+        ],
+        "directed_quotient_cycles": [
+          {
+            "states": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                4,
+                0
+              ],
+              [
+                5,
+                1
+              ]
+            ],
+            "displacement": 8,
+            "winding": 1,
+            "lifted_coordinates": [
+              0,
+              9,
+              12,
+              5,
+              8
+            ]
+          },
+          {
+            "states": [
+              [
+                0,
+                1
+              ],
+              [
+                5,
+                0
+              ],
+              [
+                4,
+                1
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "displacement": -8,
+            "winding": -1,
+            "lifted_coordinates": [
+              0,
+              -3,
+              4,
+              1,
+              -8
+            ]
+          },
+          {
+            "states": [
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                1
+              ],
+              [
+                6,
+                0
+              ],
+              [
+                7,
+                1
+              ]
+            ],
+            "displacement": 8,
+            "winding": 1,
+            "lifted_coordinates": [
+              2,
+              -5,
+              -2,
+              7,
+              10
+            ]
+          },
+          {
+            "states": [
+              [
+                2,
+                1
+              ],
+              [
+                7,
+                0
+              ],
+              [
+                6,
+                1
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "displacement": -8,
+            "winding": -1,
+            "lifted_coordinates": [
+              2,
+              -1,
+              -10,
+              -13,
+              -6
+            ]
+          }
+        ],
+        "max_cycle_span": 15
+      },
+      "MID": {
+        "period": 8,
+        "finite_cycles": false,
+        "strands": 4,
+        "cut_counts": [
+          4
+        ],
+        "directed_quotient_cycles": [
+          {
+            "states": [
+              [
+                0,
+                0
+              ],
+              [
+                5,
+                1
+              ]
+            ],
+            "displacement": -8,
+            "winding": -1,
+            "lifted_coordinates": [
+              0,
+              -3,
+              -8
+            ]
+          },
+          {
+            "states": [
+              [
+                0,
+                1
+              ],
+              [
+                5,
+                0
+              ]
+            ],
+            "displacement": 8,
+            "winding": 1,
+            "lifted_coordinates": [
+              0,
+              5,
+              8
+            ]
+          },
+          {
+            "states": [
+              [
+                1,
+                0
+              ],
+              [
+                4,
+                1
+              ]
+            ],
+            "displacement": 8,
+            "winding": 1,
+            "lifted_coordinates": [
+              1,
+              4,
+              9
+            ]
+          },
+          {
+            "states": [
+              [
+                1,
+                1
+              ],
+              [
+                4,
+                0
+              ]
+            ],
+            "displacement": -8,
+            "winding": -1,
+            "lifted_coordinates": [
+              1,
+              -4,
+              -7
+            ]
+          },
+          {
+            "states": [
+              [
+                2,
+                0
+              ],
+              [
+                7,
+                1
+              ]
+            ],
+            "displacement": -8,
+            "winding": -1,
+            "lifted_coordinates": [
+              2,
+              -1,
+              -6
+            ]
+          },
+          {
+            "states": [
+              [
+                2,
+                1
+              ],
+              [
+                7,
+                0
+              ]
+            ],
+            "displacement": 8,
+            "winding": 1,
+            "lifted_coordinates": [
+              2,
+              7,
+              10
+            ]
+          },
+          {
+            "states": [
+              [
+                3,
+                0
+              ],
+              [
+                6,
+                1
+              ]
+            ],
+            "displacement": 8,
+            "winding": 1,
+            "lifted_coordinates": [
+              3,
+              6,
+              11
+            ]
+          },
+          {
+            "states": [
+              [
+                3,
+                1
+              ],
+              [
+                6,
+                0
+              ]
+            ],
+            "displacement": -8,
+            "winding": -1,
+            "lifted_coordinates": [
+              3,
+              -2,
+              -5
+            ]
+          }
+        ],
+        "max_cycle_span": 8
+      },
+      "TR": {
+        "period": 8,
+        "finite_cycles": false,
+        "strands": 2,
+        "cut_counts": [
+          6,
+          8
+        ],
+        "directed_quotient_cycles": [
+          {
+            "states": [
+              [
+                0,
+                0
+              ],
+              [
+                5,
+                1
+              ],
+              [
+                4,
+                0
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "displacement": 8,
+            "winding": 1,
+            "lifted_coordinates": [
+              0,
+              5,
+              -4,
+              1,
+              8
+            ]
+          },
+          {
+            "states": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                4,
+                1
+              ],
+              [
+                5,
+                0
+              ]
+            ],
+            "displacement": -8,
+            "winding": -1,
+            "lifted_coordinates": [
+              0,
+              -7,
+              -12,
+              -3,
+              -8
+            ]
+          },
+          {
+            "states": [
+              [
+                2,
+                0
+              ],
+              [
+                7,
+                1
+              ],
+              [
+                6,
+                0
+              ],
+              [
+                3,
+                1
+              ]
+            ],
+            "displacement": 8,
+            "winding": 1,
+            "lifted_coordinates": [
+              2,
+              7,
+              14,
+              19,
+              10
+            ]
+          },
+          {
+            "states": [
+              [
+                2,
+                1
+              ],
+              [
+                3,
+                0
+              ],
+              [
+                6,
+                1
+              ],
+              [
+                7,
+                0
+              ]
+            ],
+            "displacement": -8,
+            "winding": -1,
+            "lifted_coordinates": [
+              2,
+              11,
+              6,
+              -1,
+              -6
+            ]
+          }
+        ],
+        "max_cycle_span": 17
+      }
+    },
+    "4": {
+      "BL": {
+        "period": 8,
+        "finite_cycles": false,
+        "strands": 2,
+        "cut_counts": [
+          4,
+          6
+        ],
+        "directed_quotient_cycles": [
+          {
+            "states": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                4,
+                0
+              ],
+              [
+                5,
+                1
+              ]
+            ],
+            "displacement": 8,
+            "winding": 1,
+            "lifted_coordinates": [
+              0,
+              9,
+              12,
+              5,
+              8
+            ]
+          },
+          {
+            "states": [
+              [
+                0,
+                1
+              ],
+              [
+                5,
+                0
+              ],
+              [
+                4,
+                1
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "displacement": -8,
+            "winding": -1,
+            "lifted_coordinates": [
+              0,
+              -3,
+              4,
+              1,
+              -8
+            ]
+          },
+          {
+            "states": [
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                1
+              ],
+              [
+                6,
+                0
+              ],
+              [
+                7,
+                1
+              ]
+            ],
+            "displacement": 8,
+            "winding": 1,
+            "lifted_coordinates": [
+              2,
+              -5,
+              -2,
+              7,
+              10
+            ]
+          },
+          {
+            "states": [
+              [
+                2,
+                1
+              ],
+              [
+                7,
+                0
+              ],
+              [
+                6,
+                1
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "displacement": -8,
+            "winding": -1,
+            "lifted_coordinates": [
+              2,
+              -1,
+              -10,
+              -13,
+              -6
+            ]
+          }
+        ],
+        "max_cycle_span": 15
+      },
+      "MID": {
+        "period": 8,
+        "finite_cycles": false,
+        "strands": 4,
+        "cut_counts": [
+          4
+        ],
+        "directed_quotient_cycles": [
+          {
+            "states": [
+              [
+                0,
+                0
+              ],
+              [
+                5,
+                1
+              ]
+            ],
+            "displacement": -8,
+            "winding": -1,
+            "lifted_coordinates": [
+              0,
+              -3,
+              -8
+            ]
+          },
+          {
+            "states": [
+              [
+                0,
+                1
+              ],
+              [
+                5,
+                0
+              ]
+            ],
+            "displacement": 8,
+            "winding": 1,
+            "lifted_coordinates": [
+              0,
+              5,
+              8
+            ]
+          },
+          {
+            "states": [
+              [
+                1,
+                0
+              ],
+              [
+                4,
+                1
+              ]
+            ],
+            "displacement": 8,
+            "winding": 1,
+            "lifted_coordinates": [
+              1,
+              4,
+              9
+            ]
+          },
+          {
+            "states": [
+              [
+                1,
+                1
+              ],
+              [
+                4,
+                0
+              ]
+            ],
+            "displacement": -8,
+            "winding": -1,
+            "lifted_coordinates": [
+              1,
+              -4,
+              -7
+            ]
+          },
+          {
+            "states": [
+              [
+                2,
+                0
+              ],
+              [
+                7,
+                1
+              ]
+            ],
+            "displacement": -8,
+            "winding": -1,
+            "lifted_coordinates": [
+              2,
+              -1,
+              -6
+            ]
+          },
+          {
+            "states": [
+              [
+                2,
+                1
+              ],
+              [
+                7,
+                0
+              ]
+            ],
+            "displacement": 8,
+            "winding": 1,
+            "lifted_coordinates": [
+              2,
+              7,
+              10
+            ]
+          },
+          {
+            "states": [
+              [
+                3,
+                0
+              ],
+              [
+                6,
+                1
+              ]
+            ],
+            "displacement": 8,
+            "winding": 1,
+            "lifted_coordinates": [
+              3,
+              6,
+              11
+            ]
+          },
+          {
+            "states": [
+              [
+                3,
+                1
+              ],
+              [
+                6,
+                0
+              ]
+            ],
+            "displacement": -8,
+            "winding": -1,
+            "lifted_coordinates": [
+              3,
+              -2,
+              -5
+            ]
+          }
+        ],
+        "max_cycle_span": 8
+      },
+      "TR": {
+        "period": 8,
+        "finite_cycles": false,
+        "strands": 2,
+        "cut_counts": [
+          6,
+          8
+        ],
+        "directed_quotient_cycles": [
+          {
+            "states": [
+              [
+                0,
+                0
+              ],
+              [
+                5,
+                1
+              ],
+              [
+                4,
+                0
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "displacement": 8,
+            "winding": 1,
+            "lifted_coordinates": [
+              0,
+              5,
+              12,
+              17,
+              8
+            ]
+          },
+          {
+            "states": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                4,
+                1
+              ],
+              [
+                5,
+                0
+              ]
+            ],
+            "displacement": -8,
+            "winding": -1,
+            "lifted_coordinates": [
+              0,
+              9,
+              4,
+              -3,
+              -8
+            ]
+          },
+          {
+            "states": [
+              [
+                2,
+                0
+              ],
+              [
+                7,
+                1
+              ],
+              [
+                6,
+                0
+              ],
+              [
+                3,
+                1
+              ]
+            ],
+            "displacement": 8,
+            "winding": 1,
+            "lifted_coordinates": [
+              2,
+              7,
+              -2,
+              3,
+              10
+            ]
+          },
+          {
+            "states": [
+              [
+                2,
+                1
+              ],
+              [
+                3,
+                0
+              ],
+              [
+                6,
+                1
+              ],
+              [
+                7,
+                0
+              ]
+            ],
+            "displacement": -8,
+            "winding": -1,
+            "lifted_coordinates": [
+              2,
+              -5,
+              -10,
+              -1,
+              -6
+            ]
+          }
+        ],
+        "max_cycle_span": 17
+      }
+    },
+    "6": {
+      "BL": {
+        "period": 8,
+        "finite_cycles": false,
+        "strands": 2,
+        "cut_counts": [
+          4,
+          6
+        ],
+        "directed_quotient_cycles": [
+          {
+            "states": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                4,
+                0
+              ],
+              [
+                5,
+                1
+              ]
+            ],
+            "displacement": 8,
+            "winding": 1,
+            "lifted_coordinates": [
+              0,
+              9,
+              12,
+              5,
+              8
+            ]
+          },
+          {
+            "states": [
+              [
+                0,
+                1
+              ],
+              [
+                5,
+                0
+              ],
+              [
+                4,
+                1
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "displacement": -8,
+            "winding": -1,
+            "lifted_coordinates": [
+              0,
+              -3,
+              4,
+              1,
+              -8
+            ]
+          },
+          {
+            "states": [
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                1
+              ],
+              [
+                6,
+                0
+              ],
+              [
+                7,
+                1
+              ]
+            ],
+            "displacement": 8,
+            "winding": 1,
+            "lifted_coordinates": [
+              2,
+              -5,
+              -2,
+              7,
+              10
+            ]
+          },
+          {
+            "states": [
+              [
+                2,
+                1
+              ],
+              [
+                7,
+                0
+              ],
+              [
+                6,
+                1
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "displacement": -8,
+            "winding": -1,
+            "lifted_coordinates": [
+              2,
+              -1,
+              -10,
+              -13,
+              -6
+            ]
+          }
+        ],
+        "max_cycle_span": 15
+      },
+      "MID": {
+        "period": 8,
+        "finite_cycles": false,
+        "strands": 4,
+        "cut_counts": [
+          4
+        ],
+        "directed_quotient_cycles": [
+          {
+            "states": [
+              [
+                0,
+                0
+              ],
+              [
+                5,
+                1
+              ]
+            ],
+            "displacement": -8,
+            "winding": -1,
+            "lifted_coordinates": [
+              0,
+              -3,
+              -8
+            ]
+          },
+          {
+            "states": [
+              [
+                0,
+                1
+              ],
+              [
+                5,
+                0
+              ]
+            ],
+            "displacement": 8,
+            "winding": 1,
+            "lifted_coordinates": [
+              0,
+              5,
+              8
+            ]
+          },
+          {
+            "states": [
+              [
+                1,
+                0
+              ],
+              [
+                4,
+                1
+              ]
+            ],
+            "displacement": 8,
+            "winding": 1,
+            "lifted_coordinates": [
+              1,
+              4,
+              9
+            ]
+          },
+          {
+            "states": [
+              [
+                1,
+                1
+              ],
+              [
+                4,
+                0
+              ]
+            ],
+            "displacement": -8,
+            "winding": -1,
+            "lifted_coordinates": [
+              1,
+              -4,
+              -7
+            ]
+          },
+          {
+            "states": [
+              [
+                2,
+                0
+              ],
+              [
+                7,
+                1
+              ]
+            ],
+            "displacement": -8,
+            "winding": -1,
+            "lifted_coordinates": [
+              2,
+              -1,
+              -6
+            ]
+          },
+          {
+            "states": [
+              [
+                2,
+                1
+              ],
+              [
+                7,
+                0
+              ]
+            ],
+            "displacement": 8,
+            "winding": 1,
+            "lifted_coordinates": [
+              2,
+              7,
+              10
+            ]
+          },
+          {
+            "states": [
+              [
+                3,
+                0
+              ],
+              [
+                6,
+                1
+              ]
+            ],
+            "displacement": 8,
+            "winding": 1,
+            "lifted_coordinates": [
+              3,
+              6,
+              11
+            ]
+          },
+          {
+            "states": [
+              [
+                3,
+                1
+              ],
+              [
+                6,
+                0
+              ]
+            ],
+            "displacement": -8,
+            "winding": -1,
+            "lifted_coordinates": [
+              3,
+              -2,
+              -5
+            ]
+          }
+        ],
+        "max_cycle_span": 8
+      },
+      "TR": {
+        "period": 8,
+        "finite_cycles": false,
+        "strands": 2,
+        "cut_counts": [
+          6,
+          8
+        ],
+        "directed_quotient_cycles": [
+          {
+            "states": [
+              [
+                0,
+                0
+              ],
+              [
+                5,
+                1
+              ],
+              [
+                4,
+                0
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "displacement": 8,
+            "winding": 1,
+            "lifted_coordinates": [
+              0,
+              5,
+              -4,
+              1,
+              8
+            ]
+          },
+          {
+            "states": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                4,
+                1
+              ],
+              [
+                5,
+                0
+              ]
+            ],
+            "displacement": -8,
+            "winding": -1,
+            "lifted_coordinates": [
+              0,
+              -7,
+              -12,
+              -3,
+              -8
+            ]
+          },
+          {
+            "states": [
+              [
+                2,
+                0
+              ],
+              [
+                7,
+                1
+              ],
+              [
+                6,
+                0
+              ],
+              [
+                3,
+                1
+              ]
+            ],
+            "displacement": 8,
+            "winding": 1,
+            "lifted_coordinates": [
+              2,
+              7,
+              14,
+              19,
+              10
+            ]
+          },
+          {
+            "states": [
+              [
+                2,
+                1
+              ],
+              [
+                3,
+                0
+              ],
+              [
+                6,
+                1
+              ],
+              [
+                7,
+                0
+              ]
+            ],
+            "displacement": -8,
+            "winding": -1,
+            "lifted_coordinates": [
+              2,
+              11,
+              6,
+              -1,
+              -6
+            ]
+          }
+        ],
+        "max_cycle_span": 17
+      }
+    }
+  },
+  "strips": {
+    "bottom": {
+      "turns": 16,
+      "crossings": 26,
+      "matching": {
+        "0": 9,
+        "1": -8,
+        "2": -5,
+        "3": 10,
+        "4": -3,
+        "5": 12,
+        "6": 15,
+        "7": -2
+      },
+      "max_path_span": 9
+    },
+    "top": {
+      "turns": 16,
+      "crossings": 26,
+      "matching": {
+        "0": 9,
+        "1": -8,
+        "2": -5,
+        "3": 10,
+        "4": -3,
+        "5": 12,
+        "6": 15,
+        "7": -2
+      },
+      "max_path_span": 9
+    },
+    "left": {
+      "turns": 8,
+      "crossings": 4,
+      "matching": {
+        "0": -3,
+        "2": -1,
+        "4": 1,
+        "6": 3,
+        "1": 4,
+        "3": 6,
+        "5": 8,
+        "7": 10
+      },
+      "max_path_span": 3
+    },
+    "right": {
+      "turns": 8,
+      "crossings": 8,
+      "matching": {
+        "0": 5,
+        "2": 7,
+        "4": 9,
+        "6": 11,
+        "1": -4,
+        "3": -2,
+        "5": 0,
+        "7": 2
+      },
+      "max_path_span": 5
+    }
+  },
+  "corners": [
+    {
+      "file": "w-integrator/corners/TT16_res00.json",
+      "sha256": "cd374f841b8d1077dd7ca700acb0929a01a9ca052047bce3effbe3294f4d0b02"
+    },
+    {
+      "file": "w-integrator/corners/TT16_res02.json",
+      "sha256": "fcd0e4240cfa73f3a458af1c1da9ed1a60c959ba5704a4589062f93b9b96910c"
+    },
+    {
+      "file": "w-integrator/corners/TT16_res04.json",
+      "sha256": "d2139a16120513902c4a358ae525a3cff228bcb62c37a5b962f9403aef7ab569"
+    },
+    {
+      "file": "w-integrator/corners/TT16_res06.json",
+      "sha256": "db67dd60d3de0878b83c61a6ecf271f542d42b9695e586c71c4a341887eaa72c"
+    }
+  ]
+}

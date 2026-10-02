@@ -1,0 +1,37 @@
+[
+  {
+    "lemma": "Tile geometry and flux",
+    "checker": "check_knight_tiles.py",
+    "exit_code": 0,
+    "seconds": 0.32,
+    "output": "PASS: 1292 edge pairs; overlap quarter-triangle counts {0: 1256, 1: 24, 2: 12} ; maximum intersection area 2/4\nPASS: 648 single-edge local flux identities (both dual directions).\n"
+  },
+  {
+    "lemma": "One-row corner charge",
+    "checker": "check_corner_box.py",
+    "exit_code": 0,
+    "seconds": 0.096,
+    "output": "PASS: all 8 top-end edges straddle the one critical row.\nPASS: top and right end flux = chi(R) for either pattern sign.\nPASS: new endpoint test equals the earlier test plus degree two.\nPASS: outside flux + end flux = 1 + 3 chi(R) = 1 mod 3.\n"
+  },
+  {
+    "lemma": "Boundary count and full-square exclusion",
+    "checker": "check_col0_squares.py",
+    "exit_code": 0,
+    "seconds": 0.072,
+    "output": "PASS: 20 normalised crossing pairs; only two orientations of the inward overlap exception.\nPASS: the endpoint test explicitly excludes the only inward-overlap pair.\nPASS: at most five duplicate crossing pairs per corner; the asserted bound one is false.\nPASS: width-one potential minimum -3 in units 1/3; each side has at least n-1 crossings.\nTherefore the union B has at least 4n-24 crossing pairs, and avoids the retained paths' whole squares.\n"
+  },
+  {
+    "lemma": "Two bad quarters per defective square",
+    "checker": "check_square_defects.py",
+    "exit_code": 0,
+    "seconds": 0.34,
+    "output": "PASS: 16 translated edge types; two adjacent quarters per visited square.\nPASS: 36 overlapping tile pairs; their dual edges have a common vertex.\nPASS: corner paths are vertex-disjoint; all incident squares avoid boundary tile overlaps.\nPASS: degree-two gentle seam; J=Q=0; height jump 1 mod 3; one half-area crossing per (1,1) period.\nThe arbitrary-size disjointness and alternating-sum implications are proved in section 9.\n"
+  },
+  {
+    "lemma": "Joint endpoint strip stability",
+    "checker": "check_lower_stability.py",
+    "exit_code": 0,
+    "seconds": 9.62,
+    "output": "base states 82516 arcs 144674\naugmented nodes 167782 arcs 315389\nboth beta=1/1: converged after 7 passes, no negative cycle; potential range -29..0 (units 1/(4q))\nPASS: exact endpoint error 29/4, coefficient 1 per failed joint endpoint test.\nPASS: 24 knight edges per 4-by-4 corner; strip overcount at most 1104.\n"
+  }
+]

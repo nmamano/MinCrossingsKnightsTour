@@ -1,0 +1,223 @@
+---
+title: "TODO: pick a title"
+date: "2026-10-02"
+excerpt: "For every even n >= 48, the minimum number of turns in a closed knight's tour lies between 8n - 28 and 8n - 14. Our old conjecture of at least 8n was wrong, but only by a constant."
+coverImage: "/blog/knights-tour-turns/cover.png"
+categories: ["research"]
+---
+
+{/* TODO (Nil): title. Three options:
+  1. "The knight's tour needs 8n turns, minus a constant"
+  2. "Our knight's tour conjecture was wrong (by a constant)"
+  3. "Knight's tours with the fewest turns, almost exactly"
+  The slug and image folder assume "knights-tour-turns"; rename both if the title changes. */}
+
+{/* TODO (Nil): date. */}
+
+In my [knight's tour post](/blog/knights-tour), I described our tours with `9.25n + O(1)` turns on an `n x n` board, and a lower bound of about `6n`.
+
+At the end of the paper, we conjectured that the minimum number of turns is at least `8n`.
+
+That conjecture is false.
+
+There are closed tours with `8n - 14` turns, for every even `n >= 48`.
+
+It is also true up to a constant: for `n >= 8`, every closed tour has at least `8n - 28` turns.
+
+For every even `n >= 48`, the minimum is between 14 and 28 turns below `8n`.
+
+The crossings results are in a [separate post](/blog/knights-tour-crossings).
+
+{/* TODO (Nil): how this work came about (e.g., the AI-agent setup). */}
+
+<Toc />
+
+## Recap
+
+A closed knight's tour visits every cell of the board once and returns to the start.
+
+A cell is a _turn_ if the knight changes direction there.
+
+At each cell, look at the vectors from that cell to its predecessor and successor in the tour. The cell is straight exactly when these vectors are opposite. Otherwise, it is a turn.
+
+In the paper, the tour moves four knights in formation along long diagonals. All the turns are near the sides of the board:
+
+- `2` turns per row on the left and right sides.
+- `2.625` turns per column on average on each of the top and bottom sides (the optimized heels have 21 turns per 8 columns, after Parker's improvement).
+
+That adds up to `2 + 2 + 2.625 + 2.625 = 9.25` turns per unit of `n`.
+
+The lower bound in the paper was `(6 - ε)n`, for any `ε > 0` and large enough `n`.
+
+## The new bounds
+
+<Callout>
+  For every even `n >= 48`, the minimum number of turns `T(n)` of a closed
+  knight's tour on an `n x n` board satisfies `8n - 28 <= T(n) <= 8n - 14`.
+</Callout>
+
+The upper bound breaks the conjecture as stated, by a constant.
+
+The lower bound confirms its leading term.
+
+The exact minimum is one of 15 values, and we don't know which.
+
+## The lower bound: four columns
+
+The lower bound has a short proof.
+
+In this argument, assume `n >= 8`.
+
+It only looks at the four columns next to one side of the board, and it shows that they contain at least `2n` turns.
+
+<BlogImage
+  src="/blog/knights-tour-turns/turns_lemma.png"
+  alt="The four-column argument: column 0, columns 1-2, column 3, and the sum"
+  caption="The arrows in the first two panels show possible moves. A tour uses two moves at each cell. The argument assumes n >= 8."
+  width="100%"
+/>
+
+Column 0 is easy. Every move from column 0 goes to the right, and two moves to the right are never opposite. So all `n` cells of column 0 are turns.
+
+Columns 1 and 2 are the clever part. Call a move _outward_ if it goes to column 0 or to column 3. From column 1, an outward move goes 1 left or 2 right. From column 2, it goes 2 left or 1 right. Two of these never cancel, so a cell with two outward moves is a turn.
+
+Now we count outward move ends. Column 0 sends `2n` moves into columns 1-2. Say column 3 sends `B` more. That is `2n + B` move ends on `2n` cells, and each cell holds at most 2. So at least `B` cells hold two, and those are at least `B` turns.
+
+Column 3 pays for `B`. A cell in column 3 with no move back into columns 1-2 has both moves going right, so it is a turn. At most `B` cells of column 3 have a move back, so at least `n - B` of them turn.
+
+Adding up, `n + B + (n - B) = 2n`. The `B` cancels.
+
+The same holds at all four sides, which gives `8n`. The only problem is that the strips overlap at the corners:
+
+<BlogImage
+  src="/blog/knights-tour-turns/strips.png"
+  alt="Four strips of width 4; the 4x4 corner squares belong to two strips"
+  caption="The four strips. A corner square (red) belongs to two strips, so its turns are counted twice."
+  width="50%"
+/>
+
+Each corner square has 16 cells, so at most 64 turns are counted twice. That gives `8n - 64`.
+
+This bound is checked in Lean 4 with Mathlib, a proof assistant. The formal statement uses the same definition of a turn as the paper.
+
+The corners don't really lose 16 turns each. A finer look at a `4 x 4` corner shows that it loses at most 7. That improves the bound to `8n - 28`. The details are [below](#details).
+
+## The upper bound: 2 turns per column
+
+The four-column argument says that each side needs at least 2 turns per row or column, on average.
+
+The left and right sides of the paper's tours already did exactly that.
+
+The heels on the top and bottom averaged 2.625 turns per column. To improve the leading coefficient while keeping the side rate at 2, we focused on the heels.
+
+The paper's optimized heels already let the four knights break formation temporarily, while keeping the same entry and exit cells. Our first search kept each path within its assigned pair of lanes but allowed the four paths to be permuted. It found a piece with 18 turns per 8 columns, and no better rate in the tested sizes. With the side pieces, this gives `8.5n + O(1)` turns.
+
+Without the rule, a heel may connect the diagonal lines in any order. The four knights don't need to stay in formation, as long as everything closes into a single tour in the end. With this freedom, the search found a piece with 16 turns per 8 columns, an average of 2 per column:
+
+<BlogImage
+  src="/blog/knights-tour-turns/t16_band.png"
+  alt="The new bottom piece, repeated every 8 columns"
+  caption="Bottom-left part of the tour for n = 48. Red dots are turns, grey dots are straight cells. The dotted lines mark the 8-column period of the new piece. The dashed square is the 6 x 6 corner."
+  width="100%"
+/>
+
+{/* TODO (Nil): the relaxation story (dropping the lane rule was your idea). */}
+
+The inside of the board is the same as before: parallel straight lines, with no turns at all.
+
+Away from the corners, the two columns nearest each vertical side turn, and the other cells in that side region are straight:
+
+<BlogImage
+  src="/blog/knights-tour-turns/left_band.png"
+  alt="The left side: two turns per row"
+  caption="The left side. Two turns per row."
+  width="35%"
+/>
+
+The four `6 x 6` corners are solved by a computer search, once for each value of `n mod 8`. So there are 4 sets of corners, and each set works for every even board size `n >= 48` in its residue class modulo 8.
+
+Here is a full tour:
+
+<BlogImage
+  src="/blog/knights-tour-turns/tour48.png"
+  alt="A 48 x 48 closed knight's tour with 370 turns"
+  caption="A 48 x 48 closed tour with 8 * 48 - 14 = 370 turns (red)."
+  width="90%"
+/>
+
+## Counting the turns
+
+The turn count is a short sum.
+
+A cell is a turn or not based on its own two moves, so we can count cell by cell.
+
+The straight lines inside have no turns.
+
+Outside the corner columns, the bottom counts repeat as `3, 1, 2, 2, 1, 3, 2, 2`. At board column `x`, the top uses bottom-template column `(1 - x) mod 8`, with both moves negated. Its counts repeat as `1, 3, 2, 2, 3, 1, 2, 2`. Each column from 6 through `n - 7` has exactly 4 turns across the two bands:
+
+<BlogImage
+  src="/blog/knights-tour-turns/count.png"
+  alt="Turns per column in the top and bottom rows"
+  caption="Turns per column, top and bottom, for 16 columns of the n = 48 tour. Each column adds up to 4."
+  width="90%"
+/>
+
+In every row from 6 through `n - 7`, the left and right bands have 2 turns each, so 4 in total.
+
+The four corners have 82 turns in total, in all 4 sets of corners.
+
+Outside the corners, there are `n - 12` columns and `n - 12` rows. So the total is `82 + 4(n - 12) + 4(n - 12) = 8n - 14`.
+
+## One tour for every n
+
+There is one more thing to check.
+
+For every even `n >= 48`, the construction gives each cell two distinct legal neighbours, and the choices are reciprocal. This gives cycles covering the board. We must also show that there is only one cycle.
+
+A computer check confirms this directly for every even `n` from 48 to 102.
+
+For larger boards, the argument is that growing the board by 8 does not change how things connect:
+
+<BlogImage
+  src="/blog/knights-tour-turns/grow.png"
+  alt="The tours for n = 48 and n = 56"
+  caption="The tours for n = 48 and n = 56. Same corners, longer sides."
+  width="100%"
+/>
+
+Going from `n` to `n + 8` inserts one more period of each side piece: 8 more columns at the top and bottom, and 8 more rows (two periods of 4) at the left and right.
+
+First contract the straight interior paths. A block consists of 8 consecutive diagonal-line labels and the pieces at both ends of those lines. Its paths meet the rest of the reduced graph through a few ports. Some paths cross the block, and some return to the same cut.
+
+The check is that two copies of the block, glued end to end, connect their outer ports exactly like one copy, without closing a loop in the middle. At a cut with the required template phase and enough space from the corners, inserting a second copy preserves the connections to the rest of the reduced graph. A single cycle stays a single cycle.
+
+There are three kinds of blocks: bottom-left, left-right, and right-top. All three pass the matching check. For every even `n >= 96`, the chosen cuts have enough space for the insertion argument. It proves that one cycle at size `n` stays one cycle at size `n + 8`. The bases `96, 98, 100, 102` therefore cover all larger even sizes; direct checks cover the smaller even sizes from 48 to 94.
+
+## Details
+
+This section is for readers who want to check the proofs. {/* TODO (Nil): link the technical companion (writeup/turns/main.pdf)? */}
+
+**The corner improvement.** The four-column argument can be written as a sum of local bounds, one per cell: column 0 contributes 1, columns 1-2 contribute "outward moves minus 1", and column 3 contributes "1 minus moves back". The local bounds over a strip sum to exactly `2n`. So `T - 8n` equals the sum of "turn minus local bound" over all cells. This is nonnegative outside the corners. In a `4 x 4` corner, we give each cell a number and each of 9 short edges a number, so that each cell's slack is at least its number plus a small transfer along its edges. The transfers cancel in the sum, and the cell numbers add up to `-7`. Checking the local inequality is a finite list of 209 cases (a cell and a pair of moves). The tables are in the companion note.
+
+The local corner bound `-7` is sharp: a pattern with reciprocal internal edges and no internal cycle attains it when the edges leaving the corner are left free. Improving the global constant needs more information than this independent `4 x 4` corner bound.
+
+**The one-cycle check.** For each of the three kinds of blocks, the check lists the ports, the pairs of ports joined by a path, and confirms that every cell of the block is on one of those paths. It then glues two copies and checks that the outer pairs are the same. A separate check compares the reduced graphs after straight paths are contracted: the graph at size `n + 8` is obtained by doubling the three chosen blocks and translating the remaining pieces.
+
+**What is checked, and how.**
+
+- The `8n - 64` bound is checked in Lean 4 with Mathlib (theorem `KT.ClosedTour.eight_mul_sub_64_le_numTurns`, standard axioms only).
+- The corner tables (`8n - 28`) are checked by two independent programs.
+- The tours were rebuilt and checked by an independent program for every even `n` from 48 through 134, and for `n = 312, 314, 316, 318`.
+- The block-insertion proof was audited separately, including a comparison of the whole board outside the inserted blocks.
+- The post and figure script were independently reviewed on 2026-10-02, including the displayed turn counts and the scope of the insertion proof.
+
+{/* TODO (Nil): links to code and data. */}
+
+## Open questions
+
+What is the exact minimum? It is between `8n - 28` and `8n - 14`.
+
+The lower bound would need a new idea near the corners. The upper bound would need better corners, or a better way to join the sides.
+
+
+{/* TODO (Nil): credits. */}

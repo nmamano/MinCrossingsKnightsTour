@@ -1,0 +1,16 @@
+{
+ "date": "2026-10-02",
+ "sha256": {
+  "w-verifier/claim11_runner/check_corner_endpoint_charge.py": "e9ba775ef9b9f0b6b420aebd80b3a805ca20a478da6129394e56fe2256c5f87c",
+  "w-verifier/claim11_runner/alpha_star.py": "5981eb8bcef0935bccdf714b767ab3eacdcfa1c73c952bcf1b5a9cda2b4e5fab",
+  "w-verifier/claim11_runner/check_knight_tiles.py": "6a1f68faf26e1f7f5bcd8032f701d2116c8ff101d07747f54529e9650a38877c",
+  "w-verifier/claim11_runner/strip_dp.py": "8a2dc95105dbfbfb0581cb4760f6f32302badfad72003a8b925069b78d4989a6",
+  "w-verifier/claim11_runner/alpha_cert.py": "3d1e1fb507a5eab704ec2c970ffede40a5d2fe19d59aa29b0b67e662706a2a2e",
+  "w-verifier/claim11_runner/strip2_independent.py": "4f524d70f87b67207c619c160dd5268bd878dc840927b2e6a17080eb7d877310",
+  "w-verifier/claim11_runner/run_all.py": "5bd771380913e45096a7c62a5ac31e802d7b6c30ee626ff79fe61b1a2c67d331",
+  "w-verifier/claim11_runner/check_strip_row_certificate.py": "d5d526b81b3da8ece466e76f8b99bc9634ae38b0bb71c7565fcbed5b352baae5",
+  "w-verifier/claim11_runner/check_sharp_witness.py": "5af8a7421befaabcc7750c773e9d971f6212eea67373768eb6ef2c00d15fde94",
+  "w-verifier/claim11_forest.py": "19e4eebcafccee0874883420ebd306f3cc8dadc4b5bc5f8738733015cdfa554e",
+  "w-verifier/claim11_corner.py": "0f918eb067aaaaef7f52a07b2d836c08c9b656597d901e9f69bb3c98db96fcdb"
+ }
+}

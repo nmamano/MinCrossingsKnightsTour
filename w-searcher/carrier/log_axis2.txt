@@ -1,0 +1,180 @@
+{"kind": "diag21", "p": 2, "w1": 1, "w2": 1, "current": 3, "status": "OPTIMAL", "stamp": "2026-10-02 09:55", "X": 0, "bound": 0.0, "rate": 0.0}
+{"kind": "diag21", "p": 2, "w1": 1, "w2": 1, "current": 4, "status": "INFEASIBLE", "stamp": "2026-10-02 09:55", "rel": 1, "base_current": 3}
+{"kind": "diag21", "p": 2, "w1": 1, "w2": 1, "current": 2, "status": "INFEASIBLE", "stamp": "2026-10-02 09:55", "rel": -1, "base_current": 3}
+{"kind": "diag21", "p": 2, "w1": 1, "w2": 1, "current": 5, "status": "INFEASIBLE", "stamp": "2026-10-02 09:55", "rel": 2, "base_current": 3}
+{"kind": "diag21", "p": 2, "w1": 1, "w2": 1, "current": 1, "status": "INFEASIBLE", "stamp": "2026-10-02 09:55", "rel": -2, "base_current": 3}
+{"kind": "diag21", "p": 4, "w1": 1, "w2": 1, "current": 0, "status": "OPTIMAL", "stamp": "2026-10-02 09:55", "X": 0, "bound": 0.0, "rate": 0.0}
+{"kind": "diag21", "p": 4, "w1": 1, "w2": 1, "current": 1, "status": "INFEASIBLE", "stamp": "2026-10-02 09:55", "rel": 1, "base_current": 0}
+{"kind": "diag21", "p": 4, "w1": 1, "w2": 1, "current": -1, "status": "INFEASIBLE", "stamp": "2026-10-02 09:55", "rel": -1, "base_current": 0}
+{"kind": "diag21", "p": 4, "w1": 1, "w2": 1, "current": 2, "status": "INFEASIBLE", "stamp": "2026-10-02 09:55", "rel": 2, "base_current": 0}
+{"kind": "diag21", "p": 4, "w1": 1, "w2": 1, "current": -2, "status": "INFEASIBLE", "stamp": "2026-10-02 09:55", "rel": -2, "base_current": 0}
+{"kind": "diag21", "p": 6, "w1": 1, "w2": 1, "current": 0, "status": "OPTIMAL", "stamp": "2026-10-02 09:55", "X": 0, "bound": 0.0, "rate": 0.0}
+{"kind": "diag21", "p": 6, "w1": 1, "w2": 1, "current": 1, "status": "OPTIMAL", "stamp": "2026-10-02 09:55", "X": 4, "bound": 4.0, "rate": 0.6666666666666666, "rel": 1, "base_current": 0}
+{"kind": "diag21", "p": 6, "w1": 1, "w2": 1, "current": -1, "status": "OPTIMAL", "stamp": "2026-10-02 09:55", "X": 4, "bound": 4.0, "rate": 0.6666666666666666, "rel": -1, "base_current": 0}
+{"kind": "diag21", "p": 6, "w1": 1, "w2": 1, "current": 2, "status": "OPTIMAL", "stamp": "2026-10-02 09:55", "X": 4, "bound": 4.0, "rate": 0.6666666666666666, "rel": 2, "base_current": 0}
+{"kind": "diag21", "p": 6, "w1": 1, "w2": 1, "current": -2, "status": "OPTIMAL", "stamp": "2026-10-02 09:55", "X": 4, "bound": 4.0, "rate": 0.6666666666666666, "rel": -2, "base_current": 0}
+{"kind": "diag21", "p": 2, "w1": 2, "w2": 2, "current": 0, "status": "OPTIMAL", "stamp": "2026-10-02 09:55", "X": 0, "bound": 0.0, "rate": 0.0}
+{"kind": "diag21", "p": 2, "w1": 2, "w2": 2, "current": 1, "status": "OPTIMAL", "stamp": "2026-10-02 09:55", "X": 6, "bound": 6.0, "rate": 3.0, "rel": 1, "base_current": 0}
+{"kind": "diag21", "p": 2, "w1": 2, "w2": 2, "current": -1, "status": "OPTIMAL", "stamp": "2026-10-02 09:55", "X": 6, "bound": 6.0, "rate": 3.0, "rel": -1, "base_current": 0}
+{"kind": "diag21", "p": 2, "w1": 2, "w2": 2, "current": 2, "status": "OPTIMAL", "stamp": "2026-10-02 09:55", "X": 6, "bound": 6.0, "rate": 3.0, "rel": 2, "base_current": 0}
+{"kind": "diag21", "p": 2, "w1": 2, "w2": 2, "current": -2, "status": "OPTIMAL", "stamp": "2026-10-02 09:55", "X": 6, "bound": 6.0, "rate": 3.0, "rel": -2, "base_current": 0}
+{"kind": "diag21", "p": 4, "w1": 2, "w2": 2, "current": 0, "status": "OPTIMAL", "stamp": "2026-10-02 09:55", "X": 0, "bound": 0.0, "rate": 0.0}
+{"kind": "diag21", "p": 4, "w1": 2, "w2": 2, "current": 1, "status": "OPTIMAL", "stamp": "2026-10-02 09:55", "X": 6, "bound": 6.0, "rate": 1.5, "rel": 1, "base_current": 0}
+{"kind": "diag21", "p": 4, "w1": 2, "w2": 2, "current": -1, "status": "OPTIMAL", "stamp": "2026-10-02 09:55", "X": 6, "bound": 6.0, "rate": 1.5, "rel": -1, "base_current": 0}
+{"kind": "diag21", "p": 4, "w1": 2, "w2": 2, "current": 2, "status": "OPTIMAL", "stamp": "2026-10-02 09:55", "X": 6, "bound": 6.0, "rate": 1.5, "rel": 2, "base_current": 0}
+{"kind": "diag21", "p": 4, "w1": 2, "w2": 2, "current": -2, "status": "OPTIMAL", "stamp": "2026-10-02 09:55", "X": 6, "bound": 6.0, "rate": 1.5, "rel": -2, "base_current": 0}
+{"kind": "diag21", "p": 6, "w1": 2, "w2": 2, "current": 3, "status": "OPTIMAL", "stamp": "2026-10-02 09:55", "X": 0, "bound": 0.0, "rate": 0.0}
+{"kind": "diag21", "p": 6, "w1": 2, "w2": 2, "current": 4, "status": "OPTIMAL", "stamp": "2026-10-02 09:55", "X": 4, "bound": 4.0, "rate": 0.6666666666666666, "rel": 1, "base_current": 3}
+{"kind": "diag21", "p": 6, "w1": 2, "w2": 2, "current": 2, "status": "OPTIMAL", "stamp": "2026-10-02 09:55", "X": 4, "bound": 4.0, "rate": 0.6666666666666666, "rel": -1, "base_current": 3}
+{"kind": "diag21", "p": 6, "w1": 2, "w2": 2, "current": 5, "status": "OPTIMAL", "stamp": "2026-10-02 09:55", "X": 4, "bound": 4.0, "rate": 0.6666666666666666, "rel": 2, "base_current": 3}
+{"kind": "diag21", "p": 6, "w1": 2, "w2": 2, "current": 1, "status": "OPTIMAL", "stamp": "2026-10-02 09:55", "X": 4, "bound": 4.0, "rate": 0.6666666666666666, "rel": -2, "base_current": 3}
+{"kind": "diag21", "p": 2, "w1": 3, "w2": 3, "current": 0, "status": "OPTIMAL", "stamp": "2026-10-02 09:55", "X": 0, "bound": 0.0, "rate": 0.0}
+{"kind": "diag21", "p": 2, "w1": 3, "w2": 3, "current": 1, "status": "OPTIMAL", "stamp": "2026-10-02 09:55", "X": 6, "bound": 6.0, "rate": 3.0, "rel": 1, "base_current": 0}
+{"kind": "diag21", "p": 2, "w1": 3, "w2": 3, "current": -1, "status": "OPTIMAL", "stamp": "2026-10-02 09:55", "X": 6, "bound": 6.0, "rate": 3.0, "rel": -1, "base_current": 0}
+{"kind": "diag21", "p": 2, "w1": 3, "w2": 3, "current": 2, "status": "OPTIMAL", "stamp": "2026-10-02 09:55", "X": 6, "bound": 6.0, "rate": 3.0, "rel": 2, "base_current": 0}
+{"kind": "diag21", "p": 2, "w1": 3, "w2": 3, "current": -2, "status": "OPTIMAL", "stamp": "2026-10-02 09:55", "X": 6, "bound": 6.0, "rate": 3.0, "rel": -2, "base_current": 0}
+{"kind": "diag21", "p": 4, "w1": 3, "w2": 3, "current": -6, "status": "OPTIMAL", "stamp": "2026-10-02 09:55", "X": 0, "bound": 0.0, "rate": 0.0}
+{"kind": "diag21", "p": 4, "w1": 3, "w2": 3, "current": -5, "status": "OPTIMAL", "stamp": "2026-10-02 09:55", "X": 6, "bound": 6.0, "rate": 1.5, "rel": 1, "base_current": -6}
+{"kind": "diag21", "p": 4, "w1": 3, "w2": 3, "current": -7, "status": "OPTIMAL", "stamp": "2026-10-02 09:55", "X": 6, "bound": 6.0, "rate": 1.5, "rel": -1, "base_current": -6}
+{"kind": "diag21", "p": 4, "w1": 3, "w2": 3, "current": -4, "status": "FEASIBLE", "stamp": "2026-10-02 09:56", "X": 6, "bound": 0.0, "rate": 1.5, "rel": 2, "base_current": -6}
+{"kind": "diag21", "p": 4, "w1": 3, "w2": 3, "current": -8, "status": "OPTIMAL", "stamp": "2026-10-02 09:56", "X": 6, "bound": 6.0, "rate": 1.5, "rel": -2, "base_current": -6}
+{"kind": "diag21", "p": 6, "w1": 3, "w2": 3, "current": 3, "status": "OPTIMAL", "stamp": "2026-10-02 09:56", "X": 0, "bound": 0.0, "rate": 0.0}
+{"kind": "diag21", "p": 6, "w1": 3, "w2": 3, "current": 4, "status": "OPTIMAL", "stamp": "2026-10-02 09:56", "X": 4, "bound": 4.0, "rate": 0.6666666666666666, "rel": 1, "base_current": 3}
+{"kind": "diag21", "p": 6, "w1": 3, "w2": 3, "current": 2, "status": "OPTIMAL", "stamp": "2026-10-02 09:57", "X": 4, "bound": 4.0, "rate": 0.6666666666666666, "rel": -1, "base_current": 3}
+{"kind": "diag21", "p": 6, "w1": 3, "w2": 3, "current": 5, "status": "OPTIMAL", "stamp": "2026-10-02 09:57", "X": 4, "bound": 4.0, "rate": 0.6666666666666666, "rel": 2, "base_current": 3}
+{"kind": "diag21", "p": 6, "w1": 3, "w2": 3, "current": 1, "status": "OPTIMAL", "stamp": "2026-10-02 09:57", "X": 4, "bound": 4.0, "rate": 0.6666666666666666, "rel": -2, "base_current": 3}
+{"kind": "diag12", "p": 2, "w1": 1, "w2": 1, "current": 3, "status": "OPTIMAL", "stamp": "2026-10-02 09:57", "X": 0, "bound": 0.0, "rate": 0.0}
+{"kind": "diag12", "p": 2, "w1": 1, "w2": 1, "current": 4, "status": "INFEASIBLE", "stamp": "2026-10-02 09:57", "rel": 1, "base_current": 3}
+{"kind": "diag12", "p": 2, "w1": 1, "w2": 1, "current": 2, "status": "INFEASIBLE", "stamp": "2026-10-02 09:57", "rel": -1, "base_current": 3}
+{"kind": "diag12", "p": 2, "w1": 1, "w2": 1, "current": 5, "status": "INFEASIBLE", "stamp": "2026-10-02 09:57", "rel": 2, "base_current": 3}
+{"kind": "diag12", "p": 2, "w1": 1, "w2": 1, "current": 1, "status": "INFEASIBLE", "stamp": "2026-10-02 09:57", "rel": -2, "base_current": 3}
+{"kind": "diag12", "p": 4, "w1": 1, "w2": 1, "current": 0, "status": "OPTIMAL", "stamp": "2026-10-02 09:57", "X": 0, "bound": 0.0, "rate": 0.0}
+{"kind": "diag12", "p": 4, "w1": 1, "w2": 1, "current": 1, "status": "INFEASIBLE", "stamp": "2026-10-02 09:57", "rel": 1, "base_current": 0}
+{"kind": "diag12", "p": 4, "w1": 1, "w2": 1, "current": -1, "status": "INFEASIBLE", "stamp": "2026-10-02 09:57", "rel": -1, "base_current": 0}
+{"kind": "diag12", "p": 4, "w1": 1, "w2": 1, "current": 2, "status": "INFEASIBLE", "stamp": "2026-10-02 09:57", "rel": 2, "base_current": 0}
+{"kind": "diag12", "p": 4, "w1": 1, "w2": 1, "current": -2, "status": "INFEASIBLE", "stamp": "2026-10-02 09:57", "rel": -2, "base_current": 0}
+{"kind": "diag12", "p": 6, "w1": 1, "w2": 1, "current": 0, "status": "OPTIMAL", "stamp": "2026-10-02 09:57", "X": 0, "bound": 0.0, "rate": 0.0}
+{"kind": "diag12", "p": 6, "w1": 1, "w2": 1, "current": 1, "status": "OPTIMAL", "stamp": "2026-10-02 09:57", "X": 4, "bound": 4.0, "rate": 0.6666666666666666, "rel": 1, "base_current": 0}
+{"kind": "diag12", "p": 6, "w1": 1, "w2": 1, "current": -1, "status": "OPTIMAL", "stamp": "2026-10-02 09:57", "X": 4, "bound": 4.0, "rate": 0.6666666666666666, "rel": -1, "base_current": 0}
+{"kind": "diag12", "p": 6, "w1": 1, "w2": 1, "current": 2, "status": "OPTIMAL", "stamp": "2026-10-02 09:57", "X": 4, "bound": 4.0, "rate": 0.6666666666666666, "rel": 2, "base_current": 0}
+{"kind": "diag12", "p": 6, "w1": 1, "w2": 1, "current": -2, "status": "OPTIMAL", "stamp": "2026-10-02 09:57", "X": 4, "bound": 4.0, "rate": 0.6666666666666666, "rel": -2, "base_current": 0}
+{"kind": "diag12", "p": 2, "w1": 2, "w2": 2, "current": 0, "status": "OPTIMAL", "stamp": "2026-10-02 09:57", "X": 0, "bound": 0.0, "rate": 0.0}
+{"kind": "diag12", "p": 2, "w1": 2, "w2": 2, "current": 1, "status": "OPTIMAL", "stamp": "2026-10-02 09:57", "X": 6, "bound": 6.0, "rate": 3.0, "rel": 1, "base_current": 0}
+{"kind": "diag12", "p": 2, "w1": 2, "w2": 2, "current": -1, "status": "OPTIMAL", "stamp": "2026-10-02 09:57", "X": 6, "bound": 6.0, "rate": 3.0, "rel": -1, "base_current": 0}
+{"kind": "diag12", "p": 2, "w1": 2, "w2": 2, "current": 2, "status": "OPTIMAL", "stamp": "2026-10-02 09:57", "X": 6, "bound": 6.0, "rate": 3.0, "rel": 2, "base_current": 0}
+{"kind": "diag12", "p": 2, "w1": 2, "w2": 2, "current": -2, "status": "OPTIMAL", "stamp": "2026-10-02 09:57", "X": 6, "bound": 6.0, "rate": 3.0, "rel": -2, "base_current": 0}
+{"kind": "diag12", "p": 4, "w1": 2, "w2": 2, "current": 0, "status": "OPTIMAL", "stamp": "2026-10-02 09:57", "X": 0, "bound": 0.0, "rate": 0.0}
+{"kind": "diag12", "p": 4, "w1": 2, "w2": 2, "current": 1, "status": "OPTIMAL", "stamp": "2026-10-02 09:57", "X": 6, "bound": 6.0, "rate": 1.5, "rel": 1, "base_current": 0}
+{"kind": "diag12", "p": 4, "w1": 2, "w2": 2, "current": -1, "status": "OPTIMAL", "stamp": "2026-10-02 09:57", "X": 6, "bound": 6.0, "rate": 1.5, "rel": -1, "base_current": 0}
+{"kind": "diag12", "p": 4, "w1": 2, "w2": 2, "current": 2, "status": "OPTIMAL", "stamp": "2026-10-02 09:57", "X": 6, "bound": 6.0, "rate": 1.5, "rel": 2, "base_current": 0}
+{"kind": "diag12", "p": 4, "w1": 2, "w2": 2, "current": -2, "status": "OPTIMAL", "stamp": "2026-10-02 09:57", "X": 6, "bound": 6.0, "rate": 1.5, "rel": -2, "base_current": 0}
+{"kind": "diag12", "p": 6, "w1": 2, "w2": 2, "current": 3, "status": "OPTIMAL", "stamp": "2026-10-02 09:57", "X": 0, "bound": 0.0, "rate": 0.0}
+{"kind": "diag12", "p": 6, "w1": 2, "w2": 2, "current": 4, "status": "OPTIMAL", "stamp": "2026-10-02 09:57", "X": 4, "bound": 4.0, "rate": 0.6666666666666666, "rel": 1, "base_current": 3}
+{"kind": "diag12", "p": 6, "w1": 2, "w2": 2, "current": 2, "status": "OPTIMAL", "stamp": "2026-10-02 09:57", "X": 4, "bound": 4.0, "rate": 0.6666666666666666, "rel": -1, "base_current": 3}
+{"kind": "diag12", "p": 6, "w1": 2, "w2": 2, "current": 5, "status": "OPTIMAL", "stamp": "2026-10-02 09:57", "X": 4, "bound": 4.0, "rate": 0.6666666666666666, "rel": 2, "base_current": 3}
+{"kind": "diag12", "p": 6, "w1": 2, "w2": 2, "current": 1, "status": "OPTIMAL", "stamp": "2026-10-02 09:57", "X": 4, "bound": 4.0, "rate": 0.6666666666666666, "rel": -2, "base_current": 3}
+{"kind": "diag12", "p": 2, "w1": 3, "w2": 3, "current": 0, "status": "OPTIMAL", "stamp": "2026-10-02 09:57", "X": 0, "bound": 0.0, "rate": 0.0}
+{"kind": "diag12", "p": 2, "w1": 3, "w2": 3, "current": 1, "status": "OPTIMAL", "stamp": "2026-10-02 09:57", "X": 6, "bound": 6.0, "rate": 3.0, "rel": 1, "base_current": 0}
+{"kind": "diag12", "p": 2, "w1": 3, "w2": 3, "current": -1, "status": "OPTIMAL", "stamp": "2026-10-02 09:57", "X": 6, "bound": 6.0, "rate": 3.0, "rel": -1, "base_current": 0}
+{"kind": "diag12", "p": 2, "w1": 3, "w2": 3, "current": 2, "status": "OPTIMAL", "stamp": "2026-10-02 09:57", "X": 6, "bound": 6.0, "rate": 3.0, "rel": 2, "base_current": 0}
+{"kind": "diag12", "p": 2, "w1": 3, "w2": 3, "current": -2, "status": "OPTIMAL", "stamp": "2026-10-02 09:57", "X": 6, "bound": 6.0, "rate": 3.0, "rel": -2, "base_current": 0}
+{"kind": "diag12", "p": 4, "w1": 3, "w2": 3, "current": 0, "status": "OPTIMAL", "stamp": "2026-10-02 09:57", "X": 0, "bound": 0.0, "rate": 0.0}
+{"kind": "diag12", "p": 4, "w1": 3, "w2": 3, "current": 1, "status": "FEASIBLE", "stamp": "2026-10-02 09:58", "X": 6, "bound": 0.0, "rate": 1.5, "rel": 1, "base_current": 0}
+{"kind": "diag12", "p": 4, "w1": 3, "w2": 3, "current": -1, "status": "FEASIBLE", "stamp": "2026-10-02 09:59", "X": 6, "bound": 0.0, "rate": 1.5, "rel": -1, "base_current": 0}
+{"kind": "diag12", "p": 4, "w1": 3, "w2": 3, "current": 2, "status": "FEASIBLE", "stamp": "2026-10-02 10:00", "X": 6, "bound": 0.0, "rate": 1.5, "rel": 2, "base_current": 0}
+{"kind": "diag12", "p": 4, "w1": 3, "w2": 3, "current": -2, "status": "FEASIBLE", "stamp": "2026-10-02 10:01", "X": 6, "bound": 0.0, "rate": 1.5, "rel": -2, "base_current": 0}
+{"kind": "diag12", "p": 6, "w1": 3, "w2": 3, "current": 6, "status": "OPTIMAL", "stamp": "2026-10-02 10:01", "X": 0, "bound": 0.0, "rate": 0.0}
+{"kind": "diag12", "p": 6, "w1": 3, "w2": 3, "current": 7, "status": "OPTIMAL", "stamp": "2026-10-02 10:01", "X": 4, "bound": 4.0, "rate": 0.6666666666666666, "rel": 1, "base_current": 6}
+{"kind": "diag12", "p": 6, "w1": 3, "w2": 3, "current": 5, "status": "OPTIMAL", "stamp": "2026-10-02 10:02", "X": 4, "bound": 4.0, "rate": 0.6666666666666666, "rel": -1, "base_current": 6}
+{"kind": "diag12", "p": 6, "w1": 3, "w2": 3, "current": 8, "status": "OPTIMAL", "stamp": "2026-10-02 10:02", "X": 4, "bound": 4.0, "rate": 0.6666666666666666, "rel": 2, "base_current": 6}
+{"kind": "diag12", "p": 6, "w1": 3, "w2": 3, "current": 4, "status": "OPTIMAL", "stamp": "2026-10-02 10:02", "X": 4, "bound": 4.0, "rate": 0.6666666666666666, "rel": -2, "base_current": 6}
+{"kind": "anti21", "p": 2, "w1": 1, "w2": 1, "current": 0, "status": "OPTIMAL", "stamp": "2026-10-02 10:02", "X": 0, "bound": 0.0, "rate": 0.0}
+{"kind": "anti21", "p": 2, "w1": 1, "w2": 1, "current": 1, "status": "INFEASIBLE", "stamp": "2026-10-02 10:02", "rel": 1, "base_current": 0}
+{"kind": "anti21", "p": 2, "w1": 1, "w2": 1, "current": -1, "status": "INFEASIBLE", "stamp": "2026-10-02 10:02", "rel": -1, "base_current": 0}
+{"kind": "anti21", "p": 2, "w1": 1, "w2": 1, "current": 2, "status": "INFEASIBLE", "stamp": "2026-10-02 10:02", "rel": 2, "base_current": 0}
+{"kind": "anti21", "p": 2, "w1": 1, "w2": 1, "current": -2, "status": "INFEASIBLE", "stamp": "2026-10-02 10:02", "rel": -2, "base_current": 0}
+{"kind": "anti21", "p": 4, "w1": 1, "w2": 1, "current": 0, "status": "OPTIMAL", "stamp": "2026-10-02 10:02", "X": 0, "bound": 0.0, "rate": 0.0}
+{"kind": "anti21", "p": 4, "w1": 1, "w2": 1, "current": 1, "status": "INFEASIBLE", "stamp": "2026-10-02 10:02", "rel": 1, "base_current": 0}
+{"kind": "anti21", "p": 4, "w1": 1, "w2": 1, "current": -1, "status": "INFEASIBLE", "stamp": "2026-10-02 10:02", "rel": -1, "base_current": 0}
+{"kind": "anti21", "p": 4, "w1": 1, "w2": 1, "current": 2, "status": "INFEASIBLE", "stamp": "2026-10-02 10:02", "rel": 2, "base_current": 0}
+{"kind": "anti21", "p": 4, "w1": 1, "w2": 1, "current": -2, "status": "INFEASIBLE", "stamp": "2026-10-02 10:02", "rel": -2, "base_current": 0}
+{"kind": "anti21", "p": 6, "w1": 1, "w2": 1, "current": 0, "status": "OPTIMAL", "stamp": "2026-10-02 10:02", "X": 0, "bound": 0.0, "rate": 0.0}
+{"kind": "anti21", "p": 6, "w1": 1, "w2": 1, "current": 1, "status": "INFEASIBLE", "stamp": "2026-10-02 10:02", "rel": 1, "base_current": 0}
+{"kind": "anti21", "p": 6, "w1": 1, "w2": 1, "current": -1, "status": "INFEASIBLE", "stamp": "2026-10-02 10:02", "rel": -1, "base_current": 0}
+{"kind": "anti21", "p": 6, "w1": 1, "w2": 1, "current": 2, "status": "INFEASIBLE", "stamp": "2026-10-02 10:02", "rel": 2, "base_current": 0}
+{"kind": "anti21", "p": 6, "w1": 1, "w2": 1, "current": -2, "status": "INFEASIBLE", "stamp": "2026-10-02 10:02", "rel": -2, "base_current": 0}
+{"kind": "anti21", "p": 2, "w1": 2, "w2": 2, "current": 0, "status": "OPTIMAL", "stamp": "2026-10-02 10:02", "X": 0, "bound": 0.0, "rate": 0.0}
+{"kind": "anti21", "p": 2, "w1": 2, "w2": 2, "current": 1, "status": "OPTIMAL", "stamp": "2026-10-02 10:02", "X": 4, "bound": 4.0, "rate": 2.0, "rel": 1, "base_current": 0}
+{"kind": "anti21", "p": 2, "w1": 2, "w2": 2, "current": -1, "status": "OPTIMAL", "stamp": "2026-10-02 10:02", "X": 4, "bound": 4.0, "rate": 2.0, "rel": -1, "base_current": 0}
+{"kind": "anti21", "p": 2, "w1": 2, "w2": 2, "current": 2, "status": "OPTIMAL", "stamp": "2026-10-02 10:02", "X": 8, "bound": 8.0, "rate": 4.0, "rel": 2, "base_current": 0}
+{"kind": "anti21", "p": 2, "w1": 2, "w2": 2, "current": -2, "status": "OPTIMAL", "stamp": "2026-10-02 10:02", "X": 8, "bound": 8.0, "rate": 4.0, "rel": -2, "base_current": 0}
+{"kind": "anti21", "p": 4, "w1": 2, "w2": 2, "current": 0, "status": "OPTIMAL", "stamp": "2026-10-02 10:02", "X": 0, "bound": 0.0, "rate": 0.0}
+{"kind": "anti21", "p": 4, "w1": 2, "w2": 2, "current": 1, "status": "OPTIMAL", "stamp": "2026-10-02 10:02", "X": 8, "bound": 8.0, "rate": 2.0, "rel": 1, "base_current": 0}
+{"kind": "anti21", "p": 4, "w1": 2, "w2": 2, "current": -1, "status": "OPTIMAL", "stamp": "2026-10-02 10:02", "X": 8, "bound": 8.0, "rate": 2.0, "rel": -1, "base_current": 0}
+{"kind": "anti21", "p": 4, "w1": 2, "w2": 2, "current": 2, "status": "OPTIMAL", "stamp": "2026-10-02 10:02", "X": 16, "bound": 16.0, "rate": 4.0, "rel": 2, "base_current": 0}
+{"kind": "anti21", "p": 4, "w1": 2, "w2": 2, "current": -2, "status": "OPTIMAL", "stamp": "2026-10-02 10:02", "X": 16, "bound": 16.0, "rate": 4.0, "rel": -2, "base_current": 0}
+{"kind": "anti21", "p": 6, "w1": 2, "w2": 2, "current": 0, "status": "OPTIMAL", "stamp": "2026-10-02 10:02", "X": 0, "bound": 0.0, "rate": 0.0}
+{"kind": "anti21", "p": 6, "w1": 2, "w2": 2, "current": 1, "status": "OPTIMAL", "stamp": "2026-10-02 10:02", "X": 12, "bound": 12.0, "rate": 2.0, "rel": 1, "base_current": 0}
+{"kind": "anti21", "p": 6, "w1": 2, "w2": 2, "current": -1, "status": "OPTIMAL", "stamp": "2026-10-02 10:02", "X": 12, "bound": 12.0, "rate": 2.0, "rel": -1, "base_current": 0}
+{"kind": "anti21", "p": 6, "w1": 2, "w2": 2, "current": 2, "status": "OPTIMAL", "stamp": "2026-10-02 10:02", "X": 24, "bound": 24.0, "rate": 4.0, "rel": 2, "base_current": 0}
+{"kind": "anti21", "p": 6, "w1": 2, "w2": 2, "current": -2, "status": "OPTIMAL", "stamp": "2026-10-02 10:02", "X": 24, "bound": 24.0, "rate": 4.0, "rel": -2, "base_current": 0}
+{"kind": "anti21", "p": 2, "w1": 3, "w2": 3, "current": 0, "status": "OPTIMAL", "stamp": "2026-10-02 10:02", "X": 0, "bound": 0.0, "rate": 0.0}
+{"kind": "anti21", "p": 2, "w1": 3, "w2": 3, "current": 1, "status": "OPTIMAL", "stamp": "2026-10-02 10:02", "X": 4, "bound": 4.0, "rate": 2.0, "rel": 1, "base_current": 0}
+{"kind": "anti21", "p": 2, "w1": 3, "w2": 3, "current": -1, "status": "OPTIMAL", "stamp": "2026-10-02 10:02", "X": 4, "bound": 4.0, "rate": 2.0, "rel": -1, "base_current": 0}
+{"kind": "anti21", "p": 2, "w1": 3, "w2": 3, "current": 2, "status": "OPTIMAL", "stamp": "2026-10-02 10:02", "X": 8, "bound": 8.0, "rate": 4.0, "rel": 2, "base_current": 0}
+{"kind": "anti21", "p": 2, "w1": 3, "w2": 3, "current": -2, "status": "OPTIMAL", "stamp": "2026-10-02 10:02", "X": 8, "bound": 8.0, "rate": 4.0, "rel": -2, "base_current": 0}
+{"kind": "anti21", "p": 4, "w1": 3, "w2": 3, "current": 0, "status": "OPTIMAL", "stamp": "2026-10-02 10:02", "X": 0, "bound": 0.0, "rate": 0.0}
+{"kind": "anti21", "p": 4, "w1": 3, "w2": 3, "current": 1, "status": "OPTIMAL", "stamp": "2026-10-02 10:02", "X": 8, "bound": 8.0, "rate": 2.0, "rel": 1, "base_current": 0}
+{"kind": "anti21", "p": 4, "w1": 3, "w2": 3, "current": -1, "status": "OPTIMAL", "stamp": "2026-10-02 10:02", "X": 8, "bound": 8.0, "rate": 2.0, "rel": -1, "base_current": 0}
+{"kind": "anti21", "p": 4, "w1": 3, "w2": 3, "current": 2, "status": "OPTIMAL", "stamp": "2026-10-02 10:02", "X": 14, "bound": 14.0, "rate": 3.5, "rel": 2, "base_current": 0}
+{"kind": "anti21", "p": 4, "w1": 3, "w2": 3, "current": -2, "status": "OPTIMAL", "stamp": "2026-10-02 10:02", "X": 14, "bound": 14.0, "rate": 3.5, "rel": -2, "base_current": 0}
+{"kind": "anti21", "p": 6, "w1": 3, "w2": 3, "current": 0, "status": "OPTIMAL", "stamp": "2026-10-02 10:02", "X": 0, "bound": 0.0, "rate": 0.0}
+{"kind": "anti21", "p": 6, "w1": 3, "w2": 3, "current": 1, "status": "OPTIMAL", "stamp": "2026-10-02 10:02", "X": 12, "bound": 12.0, "rate": 2.0, "rel": 1, "base_current": 0}
+{"kind": "anti21", "p": 6, "w1": 3, "w2": 3, "current": -1, "status": "OPTIMAL", "stamp": "2026-10-02 10:02", "X": 12, "bound": 12.0, "rate": 2.0, "rel": -1, "base_current": 0}
+{"kind": "anti21", "p": 6, "w1": 3, "w2": 3, "current": 2, "status": "FEASIBLE", "stamp": "2026-10-02 10:04", "X": 22, "bound": 2.0, "rate": 3.6666666666666665, "rel": 2, "base_current": 0}
+{"kind": "anti21", "p": 6, "w1": 3, "w2": 3, "current": -2, "status": "FEASIBLE", "stamp": "2026-10-02 10:05", "X": 22, "bound": 2.0, "rate": 3.6666666666666665, "rel": -2, "base_current": 0}
+{"kind": "anti12", "p": 2, "w1": 1, "w2": 1, "current": 0, "status": "OPTIMAL", "stamp": "2026-10-02 10:05", "X": 0, "bound": 0.0, "rate": 0.0}
+{"kind": "anti12", "p": 2, "w1": 1, "w2": 1, "current": 1, "status": "INFEASIBLE", "stamp": "2026-10-02 10:05", "rel": 1, "base_current": 0}
+{"kind": "anti12", "p": 2, "w1": 1, "w2": 1, "current": -1, "status": "INFEASIBLE", "stamp": "2026-10-02 10:05", "rel": -1, "base_current": 0}
+{"kind": "anti12", "p": 2, "w1": 1, "w2": 1, "current": 2, "status": "INFEASIBLE", "stamp": "2026-10-02 10:05", "rel": 2, "base_current": 0}
+{"kind": "anti12", "p": 2, "w1": 1, "w2": 1, "current": -2, "status": "INFEASIBLE", "stamp": "2026-10-02 10:05", "rel": -2, "base_current": 0}
+{"kind": "anti12", "p": 4, "w1": 1, "w2": 1, "current": 0, "status": "OPTIMAL", "stamp": "2026-10-02 10:05", "X": 0, "bound": 0.0, "rate": 0.0}
+{"kind": "anti12", "p": 4, "w1": 1, "w2": 1, "current": 1, "status": "INFEASIBLE", "stamp": "2026-10-02 10:05", "rel": 1, "base_current": 0}
+{"kind": "anti12", "p": 4, "w1": 1, "w2": 1, "current": -1, "status": "INFEASIBLE", "stamp": "2026-10-02 10:05", "rel": -1, "base_current": 0}
+{"kind": "anti12", "p": 4, "w1": 1, "w2": 1, "current": 2, "status": "INFEASIBLE", "stamp": "2026-10-02 10:05", "rel": 2, "base_current": 0}
+{"kind": "anti12", "p": 4, "w1": 1, "w2": 1, "current": -2, "status": "INFEASIBLE", "stamp": "2026-10-02 10:05", "rel": -2, "base_current": 0}
+{"kind": "anti12", "p": 6, "w1": 1, "w2": 1, "current": 0, "status": "OPTIMAL", "stamp": "2026-10-02 10:05", "X": 0, "bound": 0.0, "rate": 0.0}
+{"kind": "anti12", "p": 6, "w1": 1, "w2": 1, "current": 1, "status": "INFEASIBLE", "stamp": "2026-10-02 10:05", "rel": 1, "base_current": 0}
+{"kind": "anti12", "p": 6, "w1": 1, "w2": 1, "current": -1, "status": "INFEASIBLE", "stamp": "2026-10-02 10:05", "rel": -1, "base_current": 0}
+{"kind": "anti12", "p": 6, "w1": 1, "w2": 1, "current": 2, "status": "INFEASIBLE", "stamp": "2026-10-02 10:05", "rel": 2, "base_current": 0}
+{"kind": "anti12", "p": 6, "w1": 1, "w2": 1, "current": -2, "status": "INFEASIBLE", "stamp": "2026-10-02 10:05", "rel": -2, "base_current": 0}
+{"kind": "anti12", "p": 2, "w1": 2, "w2": 2, "current": 0, "status": "OPTIMAL", "stamp": "2026-10-02 10:05", "X": 0, "bound": 0.0, "rate": 0.0}
+{"kind": "anti12", "p": 2, "w1": 2, "w2": 2, "current": 1, "status": "OPTIMAL", "stamp": "2026-10-02 10:05", "X": 4, "bound": 4.0, "rate": 2.0, "rel": 1, "base_current": 0}
+{"kind": "anti12", "p": 2, "w1": 2, "w2": 2, "current": -1, "status": "OPTIMAL", "stamp": "2026-10-02 10:05", "X": 4, "bound": 4.0, "rate": 2.0, "rel": -1, "base_current": 0}
+{"kind": "anti12", "p": 2, "w1": 2, "w2": 2, "current": 2, "status": "OPTIMAL", "stamp": "2026-10-02 10:05", "X": 8, "bound": 8.0, "rate": 4.0, "rel": 2, "base_current": 0}
+{"kind": "anti12", "p": 2, "w1": 2, "w2": 2, "current": -2, "status": "OPTIMAL", "stamp": "2026-10-02 10:05", "X": 8, "bound": 8.0, "rate": 4.0, "rel": -2, "base_current": 0}
+{"kind": "anti12", "p": 4, "w1": 2, "w2": 2, "current": 0, "status": "OPTIMAL", "stamp": "2026-10-02 10:05", "X": 0, "bound": 0.0, "rate": 0.0}
+{"kind": "anti12", "p": 4, "w1": 2, "w2": 2, "current": 1, "status": "OPTIMAL", "stamp": "2026-10-02 10:05", "X": 8, "bound": 8.0, "rate": 2.0, "rel": 1, "base_current": 0}
+{"kind": "anti12", "p": 4, "w1": 2, "w2": 2, "current": -1, "status": "OPTIMAL", "stamp": "2026-10-02 10:05", "X": 8, "bound": 8.0, "rate": 2.0, "rel": -1, "base_current": 0}
+{"kind": "anti12", "p": 4, "w1": 2, "w2": 2, "current": 2, "status": "OPTIMAL", "stamp": "2026-10-02 10:05", "X": 16, "bound": 16.0, "rate": 4.0, "rel": 2, "base_current": 0}
+{"kind": "anti12", "p": 4, "w1": 2, "w2": 2, "current": -2, "status": "OPTIMAL", "stamp": "2026-10-02 10:05", "X": 16, "bound": 16.0, "rate": 4.0, "rel": -2, "base_current": 0}
+{"kind": "anti12", "p": 6, "w1": 2, "w2": 2, "current": 0, "status": "OPTIMAL", "stamp": "2026-10-02 10:05", "X": 0, "bound": 0.0, "rate": 0.0}
+{"kind": "anti12", "p": 6, "w1": 2, "w2": 2, "current": 1, "status": "OPTIMAL", "stamp": "2026-10-02 10:05", "X": 12, "bound": 12.0, "rate": 2.0, "rel": 1, "base_current": 0}
+{"kind": "anti12", "p": 6, "w1": 2, "w2": 2, "current": -1, "status": "OPTIMAL", "stamp": "2026-10-02 10:05", "X": 12, "bound": 12.0, "rate": 2.0, "rel": -1, "base_current": 0}
+{"kind": "anti12", "p": 6, "w1": 2, "w2": 2, "current": 2, "status": "OPTIMAL", "stamp": "2026-10-02 10:05", "X": 24, "bound": 24.0, "rate": 4.0, "rel": 2, "base_current": 0}
+{"kind": "anti12", "p": 6, "w1": 2, "w2": 2, "current": -2, "status": "OPTIMAL", "stamp": "2026-10-02 10:05", "X": 24, "bound": 24.0, "rate": 4.0, "rel": -2, "base_current": 0}
+{"kind": "anti12", "p": 2, "w1": 3, "w2": 3, "current": 0, "status": "OPTIMAL", "stamp": "2026-10-02 10:05", "X": 0, "bound": 0.0, "rate": 0.0}
+{"kind": "anti12", "p": 2, "w1": 3, "w2": 3, "current": 1, "status": "OPTIMAL", "stamp": "2026-10-02 10:05", "X": 4, "bound": 4.0, "rate": 2.0, "rel": 1, "base_current": 0}
+{"kind": "anti12", "p": 2, "w1": 3, "w2": 3, "current": -1, "status": "OPTIMAL", "stamp": "2026-10-02 10:05", "X": 4, "bound": 4.0, "rate": 2.0, "rel": -1, "base_current": 0}
+{"kind": "anti12", "p": 2, "w1": 3, "w2": 3, "current": 2, "status": "OPTIMAL", "stamp": "2026-10-02 10:05", "X": 8, "bound": 8.0, "rate": 4.0, "rel": 2, "base_current": 0}
+{"kind": "anti12", "p": 2, "w1": 3, "w2": 3, "current": -2, "status": "OPTIMAL", "stamp": "2026-10-02 10:05", "X": 8, "bound": 8.0, "rate": 4.0, "rel": -2, "base_current": 0}
+{"kind": "anti12", "p": 4, "w1": 3, "w2": 3, "current": 0, "status": "OPTIMAL", "stamp": "2026-10-02 10:05", "X": 0, "bound": 0.0, "rate": 0.0}
+{"kind": "anti12", "p": 4, "w1": 3, "w2": 3, "current": 1, "status": "OPTIMAL", "stamp": "2026-10-02 10:05", "X": 8, "bound": 8.0, "rate": 2.0, "rel": 1, "base_current": 0}
+{"kind": "anti12", "p": 4, "w1": 3, "w2": 3, "current": -1, "status": "OPTIMAL", "stamp": "2026-10-02 10:05", "X": 8, "bound": 8.0, "rate": 2.0, "rel": -1, "base_current": 0}
+{"kind": "anti12", "p": 4, "w1": 3, "w2": 3, "current": 2, "status": "OPTIMAL", "stamp": "2026-10-02 10:05", "X": 14, "bound": 14.0, "rate": 3.5, "rel": 2, "base_current": 0}
+{"kind": "anti12", "p": 4, "w1": 3, "w2": 3, "current": -2, "status": "OPTIMAL", "stamp": "2026-10-02 10:05", "X": 14, "bound": 14.0, "rate": 3.5, "rel": -2, "base_current": 0}
+{"kind": "anti12", "p": 6, "w1": 3, "w2": 3, "current": 0, "status": "OPTIMAL", "stamp": "2026-10-02 10:05", "X": 0, "bound": 0.0, "rate": 0.0}
+{"kind": "anti12", "p": 6, "w1": 3, "w2": 3, "current": 1, "status": "OPTIMAL", "stamp": "2026-10-02 10:05", "X": 12, "bound": 12.0, "rate": 2.0, "rel": 1, "base_current": 0}
+{"kind": "anti12", "p": 6, "w1": 3, "w2": 3, "current": -1, "status": "OPTIMAL", "stamp": "2026-10-02 10:05", "X": 12, "bound": 12.0, "rate": 2.0, "rel": -1, "base_current": 0}
+{"kind": "anti12", "p": 6, "w1": 3, "w2": 3, "current": 2, "status": "FEASIBLE", "stamp": "2026-10-02 10:06", "X": 22, "bound": 2.0, "rate": 3.6666666666666665, "rel": 2, "base_current": 0}
+{"kind": "anti12", "p": 6, "w1": 3, "w2": 3, "current": -2, "status": "FEASIBLE", "stamp": "2026-10-02 10:07", "X": 22, "bound": 2.0, "rate": 3.6666666666666665, "rel": -2, "base_current": 0}

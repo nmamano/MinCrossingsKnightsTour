@@ -1,0 +1,2 @@
+cycle arcs 8
+beta 1/2: no negative cycle: True potential range (units 1/8): -46 0

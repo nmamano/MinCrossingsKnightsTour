@@ -1,0 +1,2 @@
+states 12544 arcs 25536
+{"cycle_input_crossings": 29, "patterns_checked": true, "states": 12544, "arcs": 25536, "potential_scaled4": [-1, 124], "rho_scaled4": 4, "tight_cycles": [4, 4], "T": 27}

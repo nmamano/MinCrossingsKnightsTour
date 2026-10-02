@@ -1,0 +1,5 @@
+PASS: 16 translated edge types; two adjacent quarters per visited square.
+PASS: 36 overlapping tile pairs; their dual edges have a common vertex.
+PASS: corner paths are vertex-disjoint; all incident squares avoid boundary tile overlaps.
+PASS: degree-two gentle seam; J=Q=0; height jump 1 mod 3; one half-area crossing per (1,1) period.
+The arbitrary-size disjointness and alternating-sum implications are proved in section 9.

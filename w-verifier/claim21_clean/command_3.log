@@ -1,0 +1,5 @@
+PASS: 20 normalised crossing pairs; only two orientations of the inward overlap exception.
+PASS: the endpoint test explicitly excludes the only inward-overlap pair.
+PASS: at most five duplicate crossing pairs per corner; the asserted bound one is false.
+PASS: width-one potential minimum -3 in units 1/3; each side has at least n-1 crossings.
+Therefore the union B has at least 4n-24 crossing pairs, and avoids the retained paths' whole squares.

@@ -1,0 +1,126 @@
+{
+  "n": 48,
+  "moment": 208,
+  "changed_edges": 3232,
+  "cuts": [
+    {
+      "r": 4,
+      "reference_charge": 2,
+      "tour_flux": 0,
+      "reference_flux": -2,
+      "difference_flux": 2
+    },
+    {
+      "r": 5,
+      "reference_charge": 2,
+      "tour_flux": 2,
+      "reference_flux": 0,
+      "difference_flux": 2
+    },
+    {
+      "r": 6,
+      "reference_charge": 2,
+      "tour_flux": 0,
+      "reference_flux": -2,
+      "difference_flux": 2
+    },
+    {
+      "r": 7,
+      "reference_charge": 2,
+      "tour_flux": 2,
+      "reference_flux": 0,
+      "difference_flux": 2
+    },
+    {
+      "r": 8,
+      "reference_charge": 2,
+      "tour_flux": 0,
+      "reference_flux": -2,
+      "difference_flux": 2
+    },
+    {
+      "r": 9,
+      "reference_charge": 2,
+      "tour_flux": 2,
+      "reference_flux": 0,
+      "difference_flux": 2
+    },
+    {
+      "r": 10,
+      "reference_charge": 2,
+      "tour_flux": 0,
+      "reference_flux": -2,
+      "difference_flux": 2
+    },
+    {
+      "r": 11,
+      "reference_charge": 2,
+      "tour_flux": 2,
+      "reference_flux": 0,
+      "difference_flux": 2
+    },
+    {
+      "r": 12,
+      "reference_charge": 2,
+      "tour_flux": 0,
+      "reference_flux": -2,
+      "difference_flux": 2
+    },
+    {
+      "r": 13,
+      "reference_charge": 2,
+      "tour_flux": 2,
+      "reference_flux": 0,
+      "difference_flux": 2
+    },
+    {
+      "r": 14,
+      "reference_charge": 2,
+      "tour_flux": 0,
+      "reference_flux": -2,
+      "difference_flux": 2
+    },
+    {
+      "r": 15,
+      "reference_charge": 2,
+      "tour_flux": 2,
+      "reference_flux": 0,
+      "difference_flux": 2
+    },
+    {
+      "r": 16,
+      "reference_charge": 2,
+      "tour_flux": 0,
+      "reference_flux": -2,
+      "difference_flux": 2
+    },
+    {
+      "r": 17,
+      "reference_charge": 2,
+      "tour_flux": 2,
+      "reference_flux": 0,
+      "difference_flux": 2
+    },
+    {
+      "r": 18,
+      "reference_charge": 2,
+      "tour_flux": 0,
+      "reference_flux": -2,
+      "difference_flux": 2
+    },
+    {
+      "r": 19,
+      "reference_charge": 2,
+      "tour_flux": 2,
+      "reference_flux": 0,
+      "difference_flux": 2
+    },
+    {
+      "r": 20,
+      "reference_charge": 2,
+      "tour_flux": 0,
+      "reference_flux": -2,
+      "difference_flux": 2
+    }
+  ]
+}

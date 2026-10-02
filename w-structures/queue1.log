@@ -1,0 +1,120 @@
+vert p=1 w=2 s=0 off2=0 cells=5 OPTIMAL 0.0s X=1 T=2 bound=1.0 X/p=1.000 T/p=2.000 chk(strands_ok=False,X=1,T=2,bad=0) chosen=[2, 6, 10]
+vert p=1 w=3 s=0 off2=0 cells=7 OPTIMAL 0.0s X=1 T=2 bound=1.0 X/p=1.000 T/p=2.000 chk(strands_ok=False,X=1,T=2,bad=0) chosen=[2, 6, 9, 13, 17]
+vert p=1 w=4 s=0 off2=0 cells=9 OPTIMAL 0.0s X=1 T=2 bound=1.0 X/p=1.000 T/p=2.000 chk(strands_ok=False,X=1,T=2,bad=0) chosen=[2, 6, 10, 14, 18, 22, 25]
+vert p=1 w=5 s=0 off2=0 cells=11 OPTIMAL 0.1s X=1 T=2 bound=1.0 X/p=1.000 T/p=2.000 chk(strands_ok=False,X=1,T=2,bad=0) chosen=[2, 6, 10, 14, 18, 21, 25, 29, 33]
+vert p=2 w=2 s=0 off2=0 cells=10 OPTIMAL 0.0s X=2 T=4 bound=2.0 X/p=1.000 T/p=2.000 chk(strands_ok=False,X=2,T=4,bad=0) chosen=[1, 5, 9, 13, 17, 21]
+vert p=2 w=3 s=0 off2=0 cells=14 OPTIMAL 0.1s X=2 T=4 bound=2.0 X/p=1.000 T/p=2.000 chk(strands_ok=False,X=2,T=4,bad=0) chosen=[2, 6, 10, 14, 18, 22, 26, 30, 33, 37]
+vert p=2 w=4 s=0 off2=0 cells=18 OPTIMAL 0.3s X=2 T=4 bound=2.0 X/p=1.000 T/p=2.000 chk(strands_ok=False,X=2,T=4,bad=0) chosen=[2, 6, 10, 14, 18, 22, 26, 30, 34, 38, 41, 45, 49, 53]
+vert p=2 w=5 s=0 off2=0 cells=22 OPTIMAL 0.3s X=2 T=4 bound=2.0 X/p=1.000 T/p=2.000 chk(strands_ok=False,X=2,T=4,bad=0) chosen=[2, 6, 10, 14, 18, 22, 26, 30, 34, 38, 42, 46, 49, 53, 57, 61, 65, 69]
+vert p=4 w=2 s=0 off2=0 cells=20 OPTIMAL 0.0s X=4 T=8 bound=4.0 X/p=1.000 T/p=2.000 chk(strands_ok=False,X=4,T=8,bad=0) chosen=[1, 5, 9, 13, 17, 21, 25, 29, 33, 37, 41, 45]
+vert p=4 w=3 s=0 off2=0 cells=28 OPTIMAL 2.5s X=4 T=8 bound=4.0 X/p=1.000 T/p=2.000 chk(strands_ok=False,X=4,T=8,bad=0) chosen=[2, 6, 10, 14, 18, 22, 26, 30, 34, 38, 42, 46, 49, 53, 57, 61, 65, 69, 73, 77]
+vert p=4 w=4 s=0 off2=0 cells=36 OPTIMAL 7.8s X=4 T=8 bound=4.0 X/p=1.000 T/p=2.000 chk(strands_ok=False,X=4,T=8,bad=0) chosen=[2, 6, 10, 14, 18, 22, 26, 30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, 81, 85, 89, 93, 97, 101, 105, 109]
+vert p=4 w=5 s=0 off2=0 cells=44 OPTIMAL 5.6s X=4 T=8 bound=4.0 X/p=1.000 T/p=2.000 chk(strands_ok=False,X=4,T=8,bad=0) chosen=[2, 6, 10, 14, 18, 22, 26, 30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, 82, 86, 90, 94, 97, 101, 105, 109, 113, 117, 121, 125, 129, 133, 137, 141]
+Traceback (most recent call last):
+  File "/home/nil/nil/knight-formation-research/w-structures/run_seam.py", line 20, in <module>
+    st = make(kind, p, w, max(s, 1), off2)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nil/nil/knight-formation-research/w-structures/run_seam.py", line 13, in make
+    return Seam(T=k['T'](p), hv=k['hv'], w1=w, w2=w if w2 is None else w2, f1=k['f1'], form1=k['form1'],
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nil/nil/knight-formation-research/w-structures/seam.py", line 38, in __init__
+    assert dot(form2, T) == self.delta, (dot(form2, T), self.delta)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: (-1, 1)
+Traceback (most recent call last):
+  File "/home/nil/nil/knight-formation-research/w-structures/run_seam.py", line 20, in <module>
+    st = make(kind, p, w, max(s, 1), off2)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nil/nil/knight-formation-research/w-structures/run_seam.py", line 13, in make
+    return Seam(T=k['T'](p), hv=k['hv'], w1=w, w2=w if w2 is None else w2, f1=k['f1'], form1=k['form1'],
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nil/nil/knight-formation-research/w-structures/seam.py", line 38, in __init__
+    assert dot(form2, T) == self.delta, (dot(form2, T), self.delta)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: (-1, 1)
+Traceback (most recent call last):
+  File "/home/nil/nil/knight-formation-research/w-structures/run_seam.py", line 20, in <module>
+    st = make(kind, p, w, max(s, 1), off2)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nil/nil/knight-formation-research/w-structures/run_seam.py", line 13, in make
+    return Seam(T=k['T'](p), hv=k['hv'], w1=w, w2=w if w2 is None else w2, f1=k['f1'], form1=k['form1'],
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nil/nil/knight-formation-research/w-structures/seam.py", line 38, in __init__
+    assert dot(form2, T) == self.delta, (dot(form2, T), self.delta)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: (-1, 1)
+Traceback (most recent call last):
+  File "/home/nil/nil/knight-formation-research/w-structures/run_seam.py", line 20, in <module>
+    st = make(kind, p, w, max(s, 1), off2)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nil/nil/knight-formation-research/w-structures/run_seam.py", line 13, in make
+    return Seam(T=k['T'](p), hv=k['hv'], w1=w, w2=w if w2 is None else w2, f1=k['f1'], form1=k['form1'],
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nil/nil/knight-formation-research/w-structures/seam.py", line 38, in __init__
+    assert dot(form2, T) == self.delta, (dot(form2, T), self.delta)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: (-2, 2)
+Traceback (most recent call last):
+  File "/home/nil/nil/knight-formation-research/w-structures/run_seam.py", line 20, in <module>
+    st = make(kind, p, w, max(s, 1), off2)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nil/nil/knight-formation-research/w-structures/run_seam.py", line 13, in make
+    return Seam(T=k['T'](p), hv=k['hv'], w1=w, w2=w if w2 is None else w2, f1=k['f1'], form1=k['form1'],
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nil/nil/knight-formation-research/w-structures/seam.py", line 38, in __init__
+    assert dot(form2, T) == self.delta, (dot(form2, T), self.delta)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: (-2, 2)
+Traceback (most recent call last):
+  File "/home/nil/nil/knight-formation-research/w-structures/run_seam.py", line 20, in <module>
+    st = make(kind, p, w, max(s, 1), off2)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nil/nil/knight-formation-research/w-structures/run_seam.py", line 13, in make
+    return Seam(T=k['T'](p), hv=k['hv'], w1=w, w2=w if w2 is None else w2, f1=k['f1'], form1=k['form1'],
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nil/nil/knight-formation-research/w-structures/seam.py", line 38, in __init__
+    assert dot(form2, T) == self.delta, (dot(form2, T), self.delta)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: (-2, 2)
+Traceback (most recent call last):
+  File "/home/nil/nil/knight-formation-research/w-structures/run_seam.py", line 20, in <module>
+    st = make(kind, p, w, max(s, 1), off2)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nil/nil/knight-formation-research/w-structures/run_seam.py", line 13, in make
+    return Seam(T=k['T'](p), hv=k['hv'], w1=w, w2=w if w2 is None else w2, f1=k['f1'], form1=k['form1'],
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nil/nil/knight-formation-research/w-structures/seam.py", line 38, in __init__
+    assert dot(form2, T) == self.delta, (dot(form2, T), self.delta)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: (-4, 4)
+Traceback (most recent call last):
+  File "/home/nil/nil/knight-formation-research/w-structures/run_seam.py", line 20, in <module>
+    st = make(kind, p, w, max(s, 1), off2)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nil/nil/knight-formation-research/w-structures/run_seam.py", line 13, in make
+    return Seam(T=k['T'](p), hv=k['hv'], w1=w, w2=w if w2 is None else w2, f1=k['f1'], form1=k['form1'],
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nil/nil/knight-formation-research/w-structures/seam.py", line 38, in __init__
+    assert dot(form2, T) == self.delta, (dot(form2, T), self.delta)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: (-4, 4)
+Traceback (most recent call last):
+  File "/home/nil/nil/knight-formation-research/w-structures/run_seam.py", line 20, in <module>
+    st = make(kind, p, w, max(s, 1), off2)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nil/nil/knight-formation-research/w-structures/run_seam.py", line 13, in make
+    return Seam(T=k['T'](p), hv=k['hv'], w1=w, w2=w if w2 is None else w2, f1=k['f1'], form1=k['form1'],
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nil/nil/knight-formation-research/w-structures/seam.py", line 38, in __init__
+    assert dot(form2, T) == self.delta, (dot(form2, T), self.delta)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: (-4, 4)
+sharp p=4 w=2 s=4 off2=0 cells=20 OPTIMAL 0.3s X=0 T=12 bound=0.0 X/p=0.000 T/p=3.000 chk(strands_ok=True,X=0,T=12,bad=0) chosen=[2, 7, 8, 11, 14, 19, 20, 23, 26, 31, 32, 35, 38, 43, 44, 47]
+sharp p=4 w=2 s=4 off2=1 cells=20 OPTIMAL 0.9s X=6 T=13 bound=6.0 X/p=1.500 T/p=3.250 chk(strands_ok=True,X=6,T=13,bad=0) chosen=[2, 7, 8, 11, 13, 20, 23, 26, 31, 32, 35, 38, 41, 43, 44, 47]
+sharp p=4 w=2 s=4 off2=2 cells=20 OPTIMAL 0.9s X=6 T=18 bound=6.0 X/p=1.500 T/p=4.500 chk(strands_ok=True,X=6,T=18,bad=0) chosen=[5, 6, 9, 10, 17, 18, 19, 21, 22, 23, 29, 30, 34, 39, 42, 46]
+sharp p=4 w=2 s=4 off2=3 cells=20 OPTIMAL 0.1s X=0 T=12 bound=0.0 X/p=0.000 T/p=3.000 chk(strands_ok=True,X=0,T=12,bad=0) chosen=[6, 7, 8, 11, 18, 19, 20, 23, 30, 31, 32, 35, 42, 43, 44, 47]
+sharp p=4 w=3 s=4 off2=0 cells=28 OPTIMAL 38.0s X=0 T=20 bound=0.0 X/p=0.000 T/p=5.000 chk(strands_ok=True,X=0,T=20,bad=0) chosen=[5, 6, 9, 16, 17, 18, 25, 26, 29, 36, 37, 38, 45, 46, 49, 56, 57, 58, 65, 66, 69, 76, 77, 78]
+sharp p=4 w=3 s=4 off2=1 cells=28 FEASIBLE 60.0s X=6 T=20 bound=0.0 X/p=1.500 T/p=5.000 chk(strands_ok=True,X=6,T=20,bad=0) chosen=[2, 9, 10, 15, 16, 19, 22, 29, 30, 33, 35, 36, 39, 42, 49, 50, 55, 56, 59, 62, 68, 70, 76, 79]
+sharp p=4 w=3 s=4 off2=2 cells=28 FEASIBLE 60.0s X=6 T=26 bound=0.0 X/p=1.500 T/p=6.500 chk(strands_ok=True,X=6,T=26,bad=0) chosen=[5, 6, 10, 13, 14, 17, 18, 26, 34, 37, 38, 43, 46, 53, 54, 57, 58, 65, 66, 69, 73, 74, 77, 78]
+sharp p=4 w=3 s=4 off2=3 cells=28 OPTIMAL 18.1s X=0 T=12 bound=0.0 X/p=0.000 T/p=3.000 chk(strands_ok=True,X=0,T=12,bad=0) chosen=[2, 10, 14, 15, 16, 19, 22, 30, 34, 35, 36, 39, 42, 50, 54, 55, 56, 59, 62, 70, 74, 75, 76, 79]
+exit=0

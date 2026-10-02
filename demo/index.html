@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Knight's tours with few crossings - interactive demo</title>
+<link rel="stylesheet" href="demo.css">
+</head>
+<body>
+<div id="ktdemo">
+  <header>
+    <h1>Knight's tours with few crossings and few turns</h1>
+    <p class="sub">How the best known closed knight's tours on an n &times; n board improved, step by step. Pick a measure and a step, change n, and zoom in.
+      Every tour on this page is a real tour, checked in your browser.</p>
+  </header>
+
+  <div class="layout">
+    <aside class="panel">
+      <section>
+        <h2>Measure</h2>
+        <div class="tabs"><button data-metric="X">Crossings</button><button data-metric="T">Turns</button></div>
+      </section>
+
+      <section>
+        <h2>Progression</h2>
+        <div class="size-row">
+          <button id="stepprev" aria-label="previous step">&lsaquo;</button>
+          <input id="steprange" type="range" step="1">
+          <button id="stepnext" aria-label="next step">&rsaquo;</button>
+          <span id="stepnum" class="note"></span>
+        </div>
+        <div id="steps" class="choices"></div>
+      </section>
+
+      <section>
+        <h2>Board size</h2>
+        <div class="size-row">
+          <button id="nminus" aria-label="smaller board">&minus;</button>
+          <input id="nrange" type="range" step="2">
+          <button id="nplus" aria-label="larger board">+</button>
+          <span class="nval">n = <input id="nnum" type="number" step="2"></span>
+        </div>
+        <div id="nnote" class="note"></div>
+      </section>
+
+      <section>
+        <h2>Counts</h2>
+        <div id="counts" class="counts"></div>
+        <div id="check" class="check"></div>
+      </section>
+
+      <section>
+        <h2>Show</h2>
+        <label><input type="checkbox" id="tCross" checked> Crossings <span class="sw dot-red"></span></label>
+        <label><input type="checkbox" id="tTurns"> Turns <span class="sw dot-dark"></span></label>
+        <label><input type="checkbox" id="tColor" checked> Color moves by direction</label>
+        <div id="dirLegend" class="legend"></div>
+        <label><input type="checkbox" id="tLayout" checked> Layout (edge bands, triangles)</label>
+        <label><input type="checkbox" id="tSolver"> Cells filled by the computer search</label>
+      </section>
+    </aside>
+
+    <main>
+      <div class="caption" id="caption"></div>
+      <div class="viewbar">
+        <span>Zoom:</span>
+        <button data-view="fit">Whole board</button>
+        <button data-view="edge">Edge band</button>
+        <button data-view="corner">Corner</button>
+        <button data-view="centre">Centre</button>
+        <span class="hint">scroll to zoom, drag to move</span>
+      </div>
+      <div class="board-wrap"><canvas id="board"></canvas><div id="loading" class="loading">loading...</div></div>
+      <figure class="chartfig"><figcaption id="charttitle"></figcaption><svg id="chart"></svg><div id="chartnote" class="note"></div></figure>
+      <div id="tip" class="tip"></div>
+    </main>
+  </div>
+  <footer>Tours and counts computed October 1-2, 2026 (Agent Team). Crossings count unordered pairs of moves whose open segments intersect properly. A shared endpoint does not count; several pairs at one point count separately.
+    Turn = a square where the tour changes direction.</footer>
+</div>
+<script src="tourlib.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,650 @@
+[
+  {
+    "file": "w-integrator/corners/H16a_VE_res00.json",
+    "sha256": "edf0f8b95c6baa940fd853f60a704770c5cf4779b90d9bbb7ffd9f9f4eed4480",
+    "checks": [
+      {
+        "n": 48,
+        "k": 0,
+        "X": 437,
+        "T": 465,
+        "outside_paths": 31
+      },
+      {
+        "n": 72,
+        "k": 1,
+        "X": 653,
+        "T": 711,
+        "outside_paths": 31
+      },
+      {
+        "n": 240,
+        "k": 8,
+        "X": 2165,
+        "T": 2433,
+        "outside_paths": 31
+      }
+    ]
+  },
+  {
+    "file": "w-integrator/corners/H16a_VE_res02.json",
+    "sha256": "f24933c1729a425ddee6571a700b9564cf7300bae48a0eda428f59c729ff7301",
+    "checks": [
+      {
+        "n": 50,
+        "k": 0,
+        "X": 450,
+        "T": 486,
+        "outside_paths": 32
+      },
+      {
+        "n": 74,
+        "k": 1,
+        "X": 666,
+        "T": 732,
+        "outside_paths": 32
+      },
+      {
+        "n": 242,
+        "k": 8,
+        "X": 2178,
+        "T": 2454,
+        "outside_paths": 32
+      }
+    ]
+  },
+  {
+    "file": "w-integrator/corners/H16a_VE_res04.json",
+    "sha256": "3e8be0bf0bb3113042d3e78aa9de81e2b04b5792275792feffef254b100ea45d",
+    "checks": [
+      {
+        "n": 52,
+        "k": 0,
+        "X": 475,
+        "T": 507,
+        "outside_paths": 32
+      },
+      {
+        "n": 76,
+        "k": 1,
+        "X": 691,
+        "T": 753,
+        "outside_paths": 32
+      },
+      {
+        "n": 244,
+        "k": 8,
+        "X": 2203,
+        "T": 2475,
+        "outside_paths": 32
+      }
+    ]
+  },
+  {
+    "file": "w-integrator/corners/H16a_VE_res06.json",
+    "sha256": "567c40c3be09c8d39f2a8e38fe577b647c12ec3792413cd676e9c0fc69a106d9",
+    "checks": [
+      {
+        "n": 54,
+        "k": 0,
+        "X": 489,
+        "T": 526,
+        "outside_paths": 33
+      },
+      {
+        "n": 78,
+        "k": 1,
+        "X": 705,
+        "T": 772,
+        "outside_paths": 33
+      },
+      {
+        "n": 246,
+        "k": 8,
+        "X": 2217,
+        "T": 2494,
+        "outside_paths": 33
+      }
+    ]
+  },
+  {
+    "file": "w-integrator/corners/H16a_VE_res08.json",
+    "sha256": "19171c0bfc59d76502a83d8ab7676f53613374c72502d4ff89f809abff8553a5",
+    "checks": [
+      {
+        "n": 56,
+        "k": 0,
+        "X": 509,
+        "T": 549,
+        "outside_paths": 31
+      },
+      {
+        "n": 80,
+        "k": 1,
+        "X": 725,
+        "T": 795,
+        "outside_paths": 31
+      },
+      {
+        "n": 248,
+        "k": 8,
+        "X": 2237,
+        "T": 2517,
+        "outside_paths": 31
+      }
+    ]
+  },
+  {
+    "file": "w-integrator/corners/H16a_VE_res10.json",
+    "sha256": "94a90fe71805f313d8609e567a0560efa833374b45f973dd68a0ffc4b3b524e6",
+    "checks": [
+      {
+        "n": 58,
+        "k": 0,
+        "X": 522,
+        "T": 568,
+        "outside_paths": 32
+      },
+      {
+        "n": 82,
+        "k": 1,
+        "X": 738,
+        "T": 814,
+        "outside_paths": 32
+      },
+      {
+        "n": 250,
+        "k": 8,
+        "X": 2250,
+        "T": 2536,
+        "outside_paths": 32
+      }
+    ]
+  },
+  {
+    "file": "w-integrator/corners/H16a_VE_res12.json",
+    "sha256": "fbd0af4e5acacfd88a021c023e910250c2a0003c53d195785aca64e3dc2ccefb",
+    "checks": [
+      {
+        "n": 60,
+        "k": 0,
+        "X": 547,
+        "T": 589,
+        "outside_paths": 32
+      },
+      {
+        "n": 84,
+        "k": 1,
+        "X": 763,
+        "T": 835,
+        "outside_paths": 32
+      },
+      {
+        "n": 252,
+        "k": 8,
+        "X": 2275,
+        "T": 2557,
+        "outside_paths": 32
+      }
+    ]
+  },
+  {
+    "file": "w-integrator/corners/H16a_VE_res14.json",
+    "sha256": "48b7ac17e5ec88e53693465fc28572cb6bfa73dfc10be771d0e9cbe90c595a7f",
+    "checks": [
+      {
+        "n": 62,
+        "k": 0,
+        "X": 559,
+        "T": 605,
+        "outside_paths": 33
+      },
+      {
+        "n": 86,
+        "k": 1,
+        "X": 775,
+        "T": 851,
+        "outside_paths": 33
+      },
+      {
+        "n": 254,
+        "k": 8,
+        "X": 2287,
+        "T": 2573,
+        "outside_paths": 33
+      }
+    ]
+  },
+  {
+    "file": "w-integrator/corners/H16a_VE_res16.json",
+    "sha256": "ad25778049c4a24e896dd1d4ae2e7ee787113817534049718762815e95d1409e",
+    "checks": [
+      {
+        "n": 64,
+        "k": 0,
+        "X": 581,
+        "T": 630,
+        "outside_paths": 31
+      },
+      {
+        "n": 88,
+        "k": 1,
+        "X": 797,
+        "T": 876,
+        "outside_paths": 31
+      },
+      {
+        "n": 256,
+        "k": 8,
+        "X": 2309,
+        "T": 2598,
+        "outside_paths": 31
+      }
+    ]
+  },
+  {
+    "file": "w-integrator/corners/H16a_VE_res18.json",
+    "sha256": "da1c5d301bc8621cc00938f591a54006544e73fa49df8b9b13cfebc4c2bfb277",
+    "checks": [
+      {
+        "n": 66,
+        "k": 0,
+        "X": 594,
+        "T": 650,
+        "outside_paths": 32
+      },
+      {
+        "n": 90,
+        "k": 1,
+        "X": 810,
+        "T": 896,
+        "outside_paths": 32
+      },
+      {
+        "n": 258,
+        "k": 8,
+        "X": 2322,
+        "T": 2618,
+        "outside_paths": 32
+      }
+    ]
+  },
+  {
+    "file": "w-integrator/corners/H16a_VE_res20.json",
+    "sha256": "dd404ebcc6c0867317db251f0cdee9b6e523c87a16be411b4675361d93c99dc8",
+    "checks": [
+      {
+        "n": 68,
+        "k": 0,
+        "X": 619,
+        "T": 679,
+        "outside_paths": 32
+      },
+      {
+        "n": 92,
+        "k": 1,
+        "X": 835,
+        "T": 925,
+        "outside_paths": 32
+      },
+      {
+        "n": 260,
+        "k": 8,
+        "X": 2347,
+        "T": 2647,
+        "outside_paths": 32
+      }
+    ]
+  },
+  {
+    "file": "w-integrator/corners/H16a_VE_res22.json",
+    "sha256": "b72bf95d41bc3466362083179354940f55edefc58df33c7fc88488538fef59c8",
+    "checks": [
+      {
+        "n": 70,
+        "k": 0,
+        "X": 632,
+        "T": 692,
+        "outside_paths": 33
+      },
+      {
+        "n": 94,
+        "k": 1,
+        "X": 848,
+        "T": 938,
+        "outside_paths": 33
+      },
+      {
+        "n": 262,
+        "k": 8,
+        "X": 2360,
+        "T": 2660,
+        "outside_paths": 33
+      }
+    ]
+  },
+  {
+    "file": "w-integrator/corners/T18_res00.json",
+    "sha256": "9765a2a41265d7a5feb7107fa0f8348b9984d5da3b5aa06b132e255195f4b29f",
+    "checks": [
+      {
+        "n": 48,
+        "k": 0,
+        "X": 591,
+        "T": 391,
+        "outside_paths": 32
+      },
+      {
+        "n": 72,
+        "k": 1,
+        "X": 897,
+        "T": 595,
+        "outside_paths": 32
+      },
+      {
+        "n": 240,
+        "k": 8,
+        "X": 3039,
+        "T": 2023,
+        "outside_paths": 32
+      }
+    ]
+  },
+  {
+    "file": "w-integrator/corners/T18_res02.json",
+    "sha256": "ba62a6c270e573d453cf558b83bceb8a6d49f5da262083dee28b6f05d4c0a04d",
+    "checks": [
+      {
+        "n": 50,
+        "k": 0,
+        "X": 612,
+        "T": 406,
+        "outside_paths": 34
+      },
+      {
+        "n": 74,
+        "k": 1,
+        "X": 918,
+        "T": 610,
+        "outside_paths": 34
+      },
+      {
+        "n": 242,
+        "k": 8,
+        "X": 3060,
+        "T": 2038,
+        "outside_paths": 34
+      }
+    ]
+  },
+  {
+    "file": "w-integrator/corners/T18_res04.json",
+    "sha256": "70c62fe63f53858ab4e432538f1bfec32ff41ec239a88408f8dd507593cbbbc6",
+    "checks": [
+      {
+        "n": 52,
+        "k": 0,
+        "X": 639,
+        "T": 423,
+        "outside_paths": 32
+      },
+      {
+        "n": 76,
+        "k": 1,
+        "X": 945,
+        "T": 627,
+        "outside_paths": 32
+      },
+      {
+        "n": 244,
+        "k": 8,
+        "X": 3087,
+        "T": 2055,
+        "outside_paths": 32
+      }
+    ]
+  },
+  {
+    "file": "w-integrator/corners/T18_res06.json",
+    "sha256": "9baa3d5e172ae729a7e5f7d4ec19fee726c85fa7da1d9bc641f12f0ad83950b3",
+    "checks": [
+      {
+        "n": 54,
+        "k": 0,
+        "X": 663,
+        "T": 439,
+        "outside_paths": 34
+      },
+      {
+        "n": 78,
+        "k": 1,
+        "X": 969,
+        "T": 643,
+        "outside_paths": 34
+      },
+      {
+        "n": 246,
+        "k": 8,
+        "X": 3111,
+        "T": 2071,
+        "outside_paths": 34
+      }
+    ]
+  },
+  {
+    "file": "w-integrator/corners/T18_res08.json",
+    "sha256": "b16bd15e6fe1d19f004327cd284a58bcce1eb84ceef0b74e4df8944aefb1fd13",
+    "checks": [
+      {
+        "n": 56,
+        "k": 0,
+        "X": 694,
+        "T": 459,
+        "outside_paths": 32
+      },
+      {
+        "n": 80,
+        "k": 1,
+        "X": 1000,
+        "T": 663,
+        "outside_paths": 32
+      },
+      {
+        "n": 248,
+        "k": 8,
+        "X": 3142,
+        "T": 2091,
+        "outside_paths": 32
+      }
+    ]
+  },
+  {
+    "file": "w-integrator/corners/T18_res10.json",
+    "sha256": "a8d01b780627709f6a204b356219814964821dde06e920001b05a6fc75c48724",
+    "checks": [
+      {
+        "n": 58,
+        "k": 0,
+        "X": 714,
+        "T": 474,
+        "outside_paths": 34
+      },
+      {
+        "n": 82,
+        "k": 1,
+        "X": 1020,
+        "T": 678,
+        "outside_paths": 34
+      },
+      {
+        "n": 250,
+        "k": 8,
+        "X": 3162,
+        "T": 2106,
+        "outside_paths": 34
+      }
+    ]
+  },
+  {
+    "file": "w-integrator/corners/T18_res12.json",
+    "sha256": "7e188cb5afc13258ceb8df3272e8567ae7b8f1183908a66d21df1a1283ec67da",
+    "checks": [
+      {
+        "n": 60,
+        "k": 0,
+        "X": 749,
+        "T": 491,
+        "outside_paths": 32
+      },
+      {
+        "n": 84,
+        "k": 1,
+        "X": 1055,
+        "T": 695,
+        "outside_paths": 32
+      },
+      {
+        "n": 252,
+        "k": 8,
+        "X": 3197,
+        "T": 2123,
+        "outside_paths": 32
+      }
+    ]
+  },
+  {
+    "file": "w-integrator/corners/T18_res14.json",
+    "sha256": "6ae0675243c5745d16ef59a15a4847be2c014a5a047db770d0ff2ed35c4d84f5",
+    "checks": [
+      {
+        "n": 62,
+        "k": 0,
+        "X": 765,
+        "T": 507,
+        "outside_paths": 34
+      },
+      {
+        "n": 86,
+        "k": 1,
+        "X": 1071,
+        "T": 711,
+        "outside_paths": 34
+      },
+      {
+        "n": 254,
+        "k": 8,
+        "X": 3213,
+        "T": 2139,
+        "outside_paths": 34
+      }
+    ]
+  },
+  {
+    "file": "w-integrator/corners/T18_res16.json",
+    "sha256": "58d7d0b56ffe9bf3fb60d49eb9f4422333bdd76f5501c57360fbcaa523df9fb6",
+    "checks": [
+      {
+        "n": 64,
+        "k": 0,
+        "X": 795,
+        "T": 527,
+        "outside_paths": 32
+      },
+      {
+        "n": 88,
+        "k": 1,
+        "X": 1101,
+        "T": 731,
+        "outside_paths": 32
+      },
+      {
+        "n": 256,
+        "k": 8,
+        "X": 3243,
+        "T": 2159,
+        "outside_paths": 32
+      }
+    ]
+  },
+  {
+    "file": "w-integrator/corners/T18_res18.json",
+    "sha256": "d78de9a90c776fa01fde63f20583675209d620c8d96d8b9ded84fd9c00ae2528",
+    "checks": [
+      {
+        "n": 66,
+        "k": 0,
+        "X": 816,
+        "T": 542,
+        "outside_paths": 34
+      },
+      {
+        "n": 90,
+        "k": 1,
+        "X": 1122,
+        "T": 746,
+        "outside_paths": 34
+      },
+      {
+        "n": 258,
+        "k": 8,
+        "X": 3264,
+        "T": 2174,
+        "outside_paths": 34
+      }
+    ]
+  },
+  {
+    "file": "w-integrator/corners/T18_res20.json",
+    "sha256": "e753b40f6425a078f85df3cc3e2b334583c8fc32df5d3966ea5a2fe6a4ba5e51",
+    "checks": [
+      {
+        "n": 68,
+        "k": 0,
+        "X": 843,
+        "T": 559,
+        "outside_paths": 32
+      },
+      {
+        "n": 92,
+        "k": 1,
+        "X": 1149,
+        "T": 763,
+        "outside_paths": 32
+      },
+      {
+        "n": 260,
+        "k": 8,
+        "X": 3291,
+        "T": 2191,
+        "outside_paths": 32
+      }
+    ]
+  },
+  {
+    "file": "w-integrator/corners/T18_res22.json",
+    "sha256": "ee7c7f52b3982caa1a8f1f6d369b1a61215d892a3ccca64741946126e943417e",
+    "checks": [
+      {
+        "n": 70,
+        "k": 0,
+        "X": 869,
+        "T": 575,
+        "outside_paths": 34
+      },
+      {
+        "n": 94,
+        "k": 1,
+        "X": 1175,
+        "T": 779,
+        "outside_paths": 34
+      },
+      {
+        "n": 262,
+        "k": 8,
+        "X": 3317,
+        "T": 2207,
+        "outside_paths": 34
+      }
+    ]
+  }
+]

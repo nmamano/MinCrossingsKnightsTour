@@ -1,0 +1,16 @@
+W=7 o=h OX=0 OY=0 | right cell (3, 2) chi -1 crossing edges 6 | {"maxStates":8615532,"feasible":{"-1":1,"2":1}} | 06:05
+W=7 o=h OX=0 OY=1 | right cell (3, 3) chi 1 crossing edges 6 | {"maxStates":8615532,"feasible":{"-2":1,"1":1}} | 06:08
+W=7 o=h OX=1 OY=0 | right cell (4, 2) chi 1 crossing edges 6 | {"maxStates":8615532,"feasible":{"-2":1,"1":1}} | 06:11
+W=7 o=h OX=1 OY=1 | right cell (4, 3) chi -1 crossing edges 6 | {"maxStates":8615532,"feasible":{"-1":1,"2":1}} | 06:13
+W=7 o=v OX=0 OY=0 | right cell (3, 3) chi 1 crossing edges 6 | {"maxStates":8615532,"feasible":{"-2":1,"1":1}} | 06:15
+W=7 o=v OX=0 OY=1 | right cell (3, 4) chi -1 crossing edges 6 | {"maxStates":8615532,"feasible":{"-1":1,"2":1}} | 06:18
+W=7 o=v OX=1 OY=0 | right cell (4, 3) chi -1 crossing edges 6 | {"maxStates":8615532,"feasible":{"-1":1,"2":1}} | 06:20
+W=7 o=v OX=1 OY=1 | right cell (4, 4) chi 1 crossing edges 6 | {"maxStates":8615532,"feasible":{"-2":1,"1":1}} | 06:23
+W=8 o=h OX=0 OY=0 | right cell (4, 3) chi -1 crossing edges 6 | {"maxStates":5894683,"feasible":{"-1":1,"2":1}} | 06:53
+W=8 o=h OX=0 OY=1 | right cell (4, 4) chi 1 crossing edges 6 | {"maxStates":5894683,"feasible":{"-2":1,"1":1}} | 06:54
+W=8 o=h OX=1 OY=0 | right cell (5, 3) chi 1 crossing edges 6 | {"maxStates":5894683,"feasible":{"-2":1,"1":1}} | 06:56
+W=8 o=h OX=1 OY=1 | right cell (5, 4) chi -1 crossing edges 6 | {"maxStates":5894683,"feasible":{"-1":1,"2":1}} | 06:59
+W=8 o=v OX=0 OY=0 | right cell (4, 4) chi 1 crossing edges 6 | {"maxStates":5894683,"feasible":{"-2":1,"1":1}} | 07:00
+W=8 o=v OX=0 OY=1 | right cell (4, 5) chi -1 crossing edges 6 | {"maxStates":5894683,"feasible":{"-1":1,"2":1}} | 07:02
+W=8 o=v OX=1 OY=0 | right cell (5, 4) chi -1 crossing edges 6 | {"maxStates":5894683,"feasible":{"-1":1,"2":1}} | 07:04
+W=8 o=v OX=1 OY=1 | right cell (5, 5) chi 1 crossing edges 6 | {"maxStates":5894683,"feasible":{"-2":1,"1":1}} | 07:05

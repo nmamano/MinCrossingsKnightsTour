@@ -1,0 +1,4 @@
+n	valid	X	T	Z	status	cornerX	bound	secs	phases	Xbrute
+260	True	1853	2788	6	OPTIMAL	99	99	425	(1, 0, 0, 0)	1853
+
+per residue class (n mod 8): differences per +8 in n

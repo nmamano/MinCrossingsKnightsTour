@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.npy
+ktlean/.lake/
+w-searcher/tm
+w-searcher/cert/certify
+w-searcher/cert/certify2
+w-searcher/cert/corner_charge
+w-searcher/cert/strip2
+w-searcher/carrier/band
+w-searcher/carrier/band2

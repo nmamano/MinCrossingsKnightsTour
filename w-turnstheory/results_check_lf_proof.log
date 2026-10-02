@@ -1,0 +1,25 @@
+residue  0: n0=96, X0=707, b=21; PASS
+residue  2: n0=98, X0=721, b=497/24; PASS
+residue  4: n0=100, X0=738, b=281/12; PASS
+residue  6: n0=102, X0=751, b=177/8; PASS
+residue  8: n0=104, X0=769, b=155/6; PASS
+residue 10: n0=106, X0=783, b=613/24; PASS
+residue 12: n0=108, X0=798, b=105/4; PASS
+residue 14: n0=110, X0=814, b=671/24; PASS
+residue 16: n0=112, X0=821, b=62/3; PASS
+residue 18: n0=114, X0=835, b=163/8; PASS
+residue 20: n0=116, X0=854, b=301/12; PASS
+residue 22: n0=118, X0=866, b=547/24; PASS
+residue 24: n0=120, X0=882, b=49/2; PASS
+residue 26: n0=122, X0=899, b=653/24; PASS
+residue 28: n0=124, X0=912, b=311/12; PASS
+residue 30: n0=126, X0=927, b=213/8; PASS
+residue 32: n0=128, X0=937, b=67/3; PASS
+residue 34: n0=130, X0=949, b=481/24; PASS
+residue 36: n0=132, X0=967, b=95/4; PASS
+residue 38: n0=134, X0=982, b=587/24; PASS
+residue 40: n0=136, X0=996, b=145/6; PASS
+residue 42: n0=138, X0=1012, b=207/8; PASS
+residue 44: n0=140, X0=1028, b=331/12; PASS
+residue 46: n0=142, X0=1041, b=631/24; PASS
+PASS: 24 residue bases, 24 enlarged tours, 72 local insertion checks; delta X=343.

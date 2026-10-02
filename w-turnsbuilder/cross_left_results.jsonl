@@ -1,0 +1,17 @@
+{"date": "2026-10-02", "Q": 4, "D": 2, "result": "PROVED no compatible X < 2Q", "solves": 2, "cycle_cuts": 4, "seconds": 0.01, "last_bound": 0.0, "accepted": []}
+{"date": "2026-10-02", "Q": 4, "D": 3, "result": "PROVED no compatible X < 2Q", "solves": 2, "cycle_cuts": 4, "seconds": 0.02, "last_bound": 0.0, "accepted": []}
+{"date": "2026-10-02", "Q": 4, "D": 4, "result": "PROVED no compatible X < 2Q", "solves": 2, "cycle_cuts": 4, "seconds": 0.08, "last_bound": 0.0, "accepted": []}
+{"date": "2026-10-02", "Q": 4, "D": 5, "result": "PROVED no compatible X < 2Q", "solves": 2, "cycle_cuts": 4, "seconds": 0.17, "last_bound": 0.0, "accepted": []}
+{"date": "2026-10-02", "Q": 8, "D": 2, "result": "PROVED no compatible X < 2Q", "solves": 2, "cycle_cuts": 8, "seconds": 0.01, "last_bound": 0.0, "accepted": []}
+{"date": "2026-10-02", "Q": 8, "D": 3, "result": "PROVED no compatible X < 2Q", "solves": 2, "cycle_cuts": 8, "seconds": 0.06, "last_bound": 0.0, "accepted": []}
+{"date": "2026-10-02", "Q": 8, "D": 4, "result": "PROVED no compatible X < 2Q", "solves": 2, "cycle_cuts": 8, "seconds": 2.68, "last_bound": 0.0, "accepted": []}
+{"date": "2026-10-02", "Q": 8, "D": 5, "result": "TIME LIMIT; no improvement found", "solves": 2, "cycle_cuts": 8, "seconds": 40.02, "last_bound": 0.0, "accepted": []}
+{"date": "2026-10-02", "Q": 12, "D": 2, "result": "PROVED no compatible X < 2Q", "solves": 2, "cycle_cuts": 12, "seconds": 0.01, "last_bound": 0.0, "accepted": []}
+{"date": "2026-10-02", "Q": 12, "D": 3, "result": "PROVED no compatible X < 2Q", "solves": 2, "cycle_cuts": 12, "seconds": 0.1, "last_bound": 0.0, "accepted": []}
+{"date": "2026-10-02", "Q": 12, "D": 4, "result": "TIME LIMIT; no improvement found", "solves": 2, "cycle_cuts": 12, "seconds": 40.0, "last_bound": 0.0, "accepted": []}
+{"date": "2026-10-02", "Q": 4, "D": 5, "result": "PROVED no compatible X < 2Q", "solves": 1, "cycle_cuts": 0, "seconds": 0.16, "last_bound": 0.0, "accepted": [], "hard_no_odd_three": true, "control_status": "OPTIMAL"}
+{"date": "2026-10-02", "Q": 4, "D": 6, "result": "PROVED no compatible X < 2Q", "solves": 1, "cycle_cuts": 0, "seconds": 1.06, "last_bound": 0.0, "accepted": [], "hard_no_odd_three": true, "control_status": "OPTIMAL"}
+{"date": "2026-10-02", "Q": 6, "D": 5, "result": "PROVED no compatible X < 2Q", "solves": 1, "cycle_cuts": 0, "seconds": 7.58, "last_bound": 0.0, "accepted": [], "hard_no_odd_three": true, "control_status": "OPTIMAL"}
+{"date": "2026-10-02", "Q": 6, "D": 6, "result": "PROVED no compatible X < 2Q", "solves": 1, "cycle_cuts": 0, "seconds": 28.66, "last_bound": 0.0, "accepted": [], "hard_no_odd_three": true, "control_status": "OPTIMAL"}
+{"date": "2026-10-02", "Q": 8, "D": 5, "result": "TIME LIMIT; no improvement found", "solves": 1, "cycle_cuts": 0, "seconds": 45.01, "last_bound": 0.0, "accepted": [], "hard_no_odd_three": true, "control_status": "OPTIMAL"}
+{"date": "2026-10-02", "Q": 8, "D": 6, "result": "TIME LIMIT; no improvement found", "solves": 1, "cycle_cuts": 0, "seconds": 45.01, "last_bound": 0.0, "accepted": [], "hard_no_odd_three": true, "control_status": "OPTIMAL"}

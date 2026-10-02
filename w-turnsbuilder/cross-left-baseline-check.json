@@ -1,0 +1,84 @@
+{
+  "T": 8,
+  "X": 8,
+  "pairing": [
+    [
+      0,
+      5
+    ],
+    [
+      2,
+      5
+    ],
+    [
+      4,
+      5
+    ],
+    [
+      6,
+      5
+    ]
+  ],
+  "signed_offsets": [
+    [
+      0,
+      5
+    ],
+    [
+      1,
+      -5
+    ],
+    [
+      2,
+      5
+    ],
+    [
+      3,
+      -5
+    ],
+    [
+      4,
+      5
+    ],
+    [
+      5,
+      -5
+    ],
+    [
+      6,
+      5
+    ],
+    [
+      7,
+      -5
+    ]
+  ],
+  "all_cells_on_finite_paths": true,
+  "unrolled": {
+    "ok": false,
+    "bad": [],
+    "lane_ok": false,
+    "n_paths": 32,
+    "uncovered": 0,
+    "X_per_period": 8,
+    "T_per_period": 8,
+    "max_strand_drift": 2
+  },
+  "cper": 8,
+  "MID": {
+    "256": {
+      "cycles": 0,
+      "strands": 4,
+      "cuts": [
+        4
+      ]
+    },
+    "258": {
+      "cycles": 0,
+      "strands": 4,
+      "cuts": [
+        4
+      ]
+    }
+  }
+}

@@ -1,0 +1,4 @@
+m3_W7_h_ox0 {'status': 'UNSAT', 'vars': 272, 'clauses': 4277, 'claimed': 2, 'crossing_edges': 6}
+m3_W7_h_ox1 {'status': 'UNSAT', 'vars': 272, 'clauses': 4277, 'claimed': 1, 'crossing_edges': 6}
+m3_W7_v_ox0 {'status': 'UNSAT', 'vars': 272, 'clauses': 4277, 'claimed': 1, 'crossing_edges': 6}
+m3_W7_v_ox1 {'status': 'UNSAT', 'vars': 272, 'clauses': 4277, 'claimed': 2, 'crossing_edges': 6}

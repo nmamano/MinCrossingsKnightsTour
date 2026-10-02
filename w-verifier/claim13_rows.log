@@ -1,0 +1,2 @@
+{'date': '2026-10-02', 'base_states': 82516, 'base_arcs': 144674, 'augmented_states': 165032, 'augmented_arcs': 289348, 'reachable_augmented_states': 82521, 'potential_scaled8': [-46, 0], 'start_potential_scaled8': -22, 'minimum_adjusted_for_partial_row_scaled8': -46}
+EXACT sharp cycle: 16 steps, weight 6 bad rows 4 ratio 1/2; 501/1000 weight -16

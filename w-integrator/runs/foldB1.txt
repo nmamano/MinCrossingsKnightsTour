@@ -1,0 +1,24 @@
+n=48 pre: {'comps': 32, 'closed': 0, 'bad': 52, 'clusters': 13, 'free': 992, 'imb': [-1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, -1, 0], 'X_pre': 192}
+   lns round 0: 41 windows changed
+   lns round 1: 24 windows changed
+   lns round 2: 15 windows changed
+   lns round 3: 4 windows changed
+   lns round 4: 2 windows changed
+  LNS: X 1046 -> 440
+n=48 valid=True X=440 X/n=9.167 T=666 {'status': 'OPTIMAL', 'corner_obj': 0, 'corner_turns': None, 'obj': 0.0, 'bound': 0.0, 'secs': 3.5} 375s Xbrute=440
+n=96 pre: {'comps': 32, 'closed': 0, 'bad': 52, 'clusters': 13, 'free': 1320, 'imb': [-1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, -1, 0], 'X_pre': 432}
+   lns round 0: 44 windows changed
+   lns round 1: 7 windows changed
+   lns round 2: 1 windows changed
+   lns round 3: 1 windows changed
+   lns round 4: 4 windows changed
+  LNS: X 1307 -> 727
+n=96 valid=True X=727 X/n=7.573 T=1239 {'status': 'OPTIMAL', 'corner_obj': 0, 'corner_turns': None, 'obj': 0.0, 'bound': 0.0, 'secs': 2.7} 425s Xbrute=727
+n=144 pre: {'comps': 32, 'closed': 0, 'bad': 52, 'clusters': 13, 'free': 1608, 'imb': [-1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, -1, 0], 'X_pre': 672}
+   lns round 0: 45 windows changed
+   lns round 1: 14 windows changed
+   lns round 2: 7 windows changed
+   lns round 3: 5 windows changed
+   lns round 4: 4 windows changed
+  LNS: X 1630 -> 1045
+n=144 valid=True X=1045 X/n=7.257 T=1849 {'status': 'OPTIMAL', 'corner_obj': 0, 'corner_turns': None, 'obj': 0.0, 'bound': 0.0, 'secs': 16.4} 676s Xbrute=1045

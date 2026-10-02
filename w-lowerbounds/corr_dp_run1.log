@@ -1,0 +1,48 @@
+edge W=3 current(even rows)=-3: min crossings/row 5/2  states 8897
+edge W=3 current(even rows)=-2: min crossings/row 2  states 9291
+edge W=3 current(even rows)=-1: min crossings/row 1  states 9526
+edge W=3 current(even rows)=0: min crossings/row 2  states 9305
+edge W=3 current(even rows)=1: min crossings/row 5/2  states 8874
+edge W=3 current(even rows)=2: min crossings/row 3  states 8685
+edge W=4 current(even rows)=-3: min crossings/row 3  states 543515
+edge W=4 current(even rows)=-2: min crossings/row 5/2  states 568393
+edge W=4 current(even rows)=-1: min crossings/row 2  states 612600
+edge W=4 current(even rows)=0: min crossings/row 1  states 615271
+edge W=4 current(even rows)=1: min crossings/row 2  states 584146
+edge W=4 current(even rows)=2: min crossings/row 5/2  states 553793
+edge W=4 current(even rows)=3: min crossings/row 3  states 540539
+mid W=3 current(even rows)=-3: min crossings/row 7/4  states 12260
+mid W=3 current(even rows)=-2: min crossings/row 1  states 12495
+mid W=3 current(even rows)=-1: min crossings/row 3/4  states 12908
+mid W=3 current(even rows)=0: min crossings/row 0  states 13158
+mid W=3 current(even rows)=1: min crossings/row 3/4  states 12940
+mid W=3 current(even rows)=2: min crossings/row 1  states 12511
+mid W=3 current(even rows)=3: min crossings/row 7/4  states 12260
+mid W=4 current(even rows)=-3: min crossings/row 7/4  states 917781
+mid W=4 current(even rows)=-2: min crossings/row 1  states 941333
+mid W=4 current(even rows)=-1: min crossings/row 3/4  states 980646
+mid W=4 current(even rows)=0: min crossings/row 0  states 1002812
+mid W=4 current(even rows)=1: min crossings/row 3/4  states 982934
+mid W=4 current(even rows)=2: min crossings/row 1  states 943599
+mid W=4 current(even rows)=3: min crossings/row 7/4  states 918688
+diag W=3 current(even rows)=0: min crossings/row 0  states 1111
+diag W=3 current(even rows)=1: min crossings/row 2/3  states 1156
+diag W=3 current(even rows)=2: min crossings/row 2/3  states 1237
+diag W=3 current(even rows)=3: min crossings/row 0  states 1282
+diag W=4 current(even rows)=-3: min crossings/row 2/3  states 30048
+diag W=4 current(even rows)=-2: min crossings/row 2/3  states 30943
+diag W=4 current(even rows)=-1: min crossings/row 0  states 32463
+Traceback (most recent call last):
+  File "/home/nil/nil/knight-formation-research/w-lowerbounds/corr_dp.py", line 224, in <module>
+    r, ns = rate(name, W, t)
+            ^^^^^^^^^^^^^^^^
+  File "/home/nil/nil/knight-formation-research/w-lowerbounds/corr_dp.py", line 215, in rate
+    mu, pol, eta = howard(adj, alive)
+                   ^^^^^^^^^^^^^^^^^^
+  File "/home/nil/nil/knight-formation-research/w-lowerbounds/mmc.py", line 91, in howard
+    raise RuntimeError('no convergence')
+RuntimeError: no convergence
+diag W=4 current(even rows)=1: min crossings/row 2/3  states 32912
+diag W=4 current(even rows)=2: min crossings/row 0  states 31495
+diag W=4 current(even rows)=3: min crossings/row 2/3  states 30371
+exit=0

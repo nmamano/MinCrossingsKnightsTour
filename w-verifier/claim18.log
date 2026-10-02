@@ -1,0 +1,3 @@
+row recovery [{'sign': -1, 'phases': [0, 1, 2, 3, 0], 'present_edges': 7, 'absent_edges': 13}, {'sign': 1, 'phases': [0, 1, 2, 3, 0], 'present_edges': 7, 'absent_edges': 13}]
+corner PASS 8 radii
+ALL PASS

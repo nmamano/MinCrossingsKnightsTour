@@ -1,0 +1,19 @@
+== {'P': 8, 'D': 5, 'vs': 'L3odd', 'name': 'vsL3odd: any but {odd,odd+3}', 'rule': [2, [[0, 1], [1, 1], [0, 2], [1, 2], [0, 3], [0, 4], [1, 4], [0, 5], [1, 5], [0, 6], [1, 6], [0, 7], [1, 7], [0, 8], [1, 8], [0, 9], [1, 9]]], 'tl': 120}
+  iter 0: X=19 bound=0.0 status=FEASIBLE accept=False
+  iter 1: X=19 bound=0.0 status=FEASIBLE accept=True
+{"kind": "bottom", "P": 8, "D": 5, "rule": "vsL3odd: any but {odd,odd+3}", "vs": "L3odd", "status": "FEASIBLE", "stamp": "2026-10-02 03:33", "X": 19, "T": 25, "bound": 0.0, "rate": 2.375, "tpl": ["26 26 26 26 26 36 26 26", "36 26 26 26 36 26 36 34", "23 23 23 36 36 36 37 36", "27 27 26 26 26 27 02 27", "67 67 67 67 67 67 67 67"], "pairing": [[2, 3], [3, 5], [4, 3], [6, 3]], "cper": 8, "check": {"paths_ok": true, "X": 19}, "accept": {"(0, 0)": 2, "(2, 0)": 2, "(4, 0)": 2, "(6, 0)": 2}}
+== {'P': 12, 'D': 4, 'vs': 'L3odd', 'name': 'vsL3odd: any but {odd,odd+3}', 'rule': [2, [[0, 1], [1, 1], [0, 2], [1, 2], [0, 3], [0, 4], [1, 4], [0, 5], [1, 5], [0, 6], [1, 6], [0, 7], [1, 7], [0, 8], [1, 8], [0, 9], [1, 9]]], 'tl': 180}
+  iter 0: X=26 bound=0.0 status=FEASIBLE accept=False
+  iter 1: X=26 bound=0.0 status=FEASIBLE accept=False
+  iter 2: X=26 bound=0.0 status=FEASIBLE accept=False
+  iter 3: X=31 bound=0.0 status=FEASIBLE accept=False
+  iter 4: X=31 bound=0.0 status=FEASIBLE accept=True
+{"kind": "bottom", "P": 12, "D": 4, "rule": "vsL3odd: any but {odd,odd+3}", "vs": "L3odd", "status": "FEASIBLE", "stamp": "2026-10-02 03:48", "X": 31, "T": 45, "bound": 0.0, "rate": 2.5833333333333335, "tpl": ["56 36 56 56 56 56 56 56 56 36 36 36", "13 13 13 13 13 15 15 35 35 35 13 23", "27 26 27 12 12 12 12 12 25 25 27 27", "67 67 67 67 67 67 16 16 67 67 67 67"], "pairing": [[0, 1], [2, 4], [3, 7], [4, 4], [5, 4], [7, 4]], "cper": 12, "check": {"paths_ok": true, "X": 31}, "accept": {"(0, 0)": 2, "(2, 0)": 2, "(4, 0)": 2, "(6, 0)": 2, "(8, 0)": 2, "(10, 0)": 2}}
+== {'P': 16, 'D': 4, 'vs': 'L3odd', 'name': 'vsL3odd: any but {odd,odd+3}', 'rule': [2, [[0, 1], [1, 1], [0, 2], [1, 2], [0, 3], [0, 4], [1, 4], [0, 5], [1, 5], [0, 6], [1, 6], [0, 7], [1, 7], [0, 8], [1, 8], [0, 9], [1, 9]]], 'tl': 240}
+  iter 0: X=37 bound=0.0 status=FEASIBLE accept=True
+{"kind": "bottom", "P": 16, "D": 4, "rule": "vsL3odd: any but {odd,odd+3}", "vs": "L3odd", "status": "FEASIBLE", "stamp": "2026-10-02 03:52", "X": 37, "T": 52, "bound": 0.0, "rate": 2.3125, "tpl": ["36 56 36 26 26 26 36 36 36 36 56 36 56 36 56 26", "23 36 23 23 23 36 36 36 13 23 13 23 13 23 23 13", "26 27 26 27 26 26 26 27 27 27 27 26 27 26 27 26", "67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67"], "pairing": [[1, 9], [3, 4], [6, 3], [8, 3], [12, 4], [13, 7], [14, 4], [15, 6]], "cper": 16, "check": {"paths_ok": true, "X": 37}, "accept": {"(0, 0)": 2, "(2, 0)": 2, "(4, 0)": 2, "(6, 0)": 2, "(8, 0)": 2, "(10, 0)": 2, "(12, 0)": 2, "(14, 0)": 2}}
+== {'P': 10, 'D': 4, 'vs': 'L3odd', 'name': 'vsL3odd: any but {odd,odd+3}', 'rule': [2, [[0, 1], [1, 1], [0, 2], [1, 2], [0, 3], [0, 4], [1, 4], [0, 5], [1, 5], [0, 6], [1, 6], [0, 7], [1, 7], [0, 8], [1, 8], [0, 9], [1, 9]]], 'tl': 150}
+  iter 0: X=21 bound=0.0 status=FEASIBLE accept=False
+  iter 1: X=21 bound=0.0 status=FEASIBLE accept=False
+  iter 2: X=21 bound=0.0 status=FEASIBLE accept=False
+  iter 3: X=21 bound=0.0 status=FEASIBLE accept=False

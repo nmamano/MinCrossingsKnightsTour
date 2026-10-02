@@ -1,0 +1,5 @@
+PASS: all 77 allowed pairs satisfy the local inequalities.
+PASS: n=16, turns=138, side-strip counts=[45, 46, 47, 58].
+PASS: n=24, turns=214, side-strip counts=[61, 62, 69, 80].
+PASS: n=40, turns=366, side-strip counts=[93, 94, 113, 124].
+PASS: n=80, turns=746, side-strip counts=[173, 174, 223, 234].

@@ -1,0 +1,4 @@
+cd /home/nil/nil/knight-formation-research/w-searcher
+sleep 60
+while pgrep -f "run_filtered.py" -u nil > /dev/null; do sleep 20; done
+../.venv/bin/python run_filtered.py '[{"P":10,"D":4,"vs":"L3odd","name":"vsL3odd: any but {odd,odd+3}","rule":[2,[[0,1],[1,1],[0,2],[1,2],[0,3],[0,4],[1,4],[0,5],[1,5],[0,6],[1,6],[0,7],[1,7],[0,8],[1,8],[0,9],[1,9]]],"pi":0,"tl":200,"it":6},{"P":10,"D":4,"vs":"L3odd","name":"vsL3odd: any but {odd,odd+3}","rule":[2,[[0,1],[1,1],[0,2],[1,2],[0,3],[0,4],[1,4],[0,5],[1,5],[0,6],[1,6],[0,7],[1,7],[0,8],[1,8],[0,9],[1,9]]],"pi":1,"tl":200,"it":6},{"P":12,"D":4,"vs":"L3odd","name":"vsL3odd: any but {odd,odd+3}","rule":[2,[[0,1],[1,1],[0,2],[1,2],[0,3],[0,4],[1,4],[0,5],[1,5],[0,6],[1,6],[0,7],[1,7],[0,8],[1,8],[0,9],[1,9]]],"pi":1,"tl":300,"it":6}]' > log_filt5.txt 2>&1

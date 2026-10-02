@@ -1,0 +1,8 @@
+{"kind": "left", "P": 4, "D": 2, "rule": "free", "status": "INFEASIBLE", "time": 0.0, "stamp": "2026-10-02 02:33"}
+{"kind": "left", "P": 4, "D": 3, "rule": "free", "status": "INFEASIBLE", "time": 0.0, "stamp": "2026-10-02 02:33"}
+{"kind": "left", "P": 8, "D": 3, "rule": "free", "status": "INFEASIBLE", "time": 0.0, "stamp": "2026-10-02 02:33"}
+{"kind": "left", "P": 4, "D": 2, "rule": "free", "status": "OPTIMAL", "time": 0.0, "X": 4, "T": 8, "bound": 4.0, "rate": 1.0, "tpl": ["23 27", "23 27", "23 27", "23 27"], "check": {"paths_ok": true, "X": 4}, "pairing": [[1, 3], [3, 3], [5, 3], [7, 3]], "cper": 8, "stamp": "2026-10-02 02:33"}
+{"kind": "left", "P": 4, "D": 3, "rule": "free", "status": "OPTIMAL", "time": 0.1, "X": 4, "T": 8, "bound": 4.0, "rate": 1.0, "tpl": ["23 27 26", "23 27 26", "23 27 26", "23 27 26"], "check": {"paths_ok": true, "X": 4}, "pairing": [[1, 3], [3, 3], [5, 3], [7, 3]], "cper": 8, "stamp": "2026-10-02 02:33"}
+{"kind": "left", "P": 8, "D": 3, "rule": "free", "status": "OPTIMAL", "time": 0.1, "X": 8, "T": 16, "bound": 8.0, "rate": 1.0, "tpl": ["23 27 26", "23 27 26", "23 27 26", "23 27 26", "23 27 26", "23 27 26", "23 27 26", "23 27 26"], "check": {"paths_ok": true, "X": 8}, "pairing": [[1, 3], [3, 3], [5, 3], [7, 3], [9, 3], [11, 3], [13, 3], [15, 3]], "cper": 16, "stamp": "2026-10-02 02:33"}
+{"kind": "left", "P": 4, "D": 2, "rule": "free", "status": "INFEASIBLE", "time": 0.0, "stamp": "2026-10-02 02:33"}
+{"kind": "left", "P": 4, "D": 2, "rule": "free", "status": "INFEASIBLE", "time": 0.0, "stamp": "2026-10-02 02:33"}

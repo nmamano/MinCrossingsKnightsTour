@@ -1,0 +1,9 @@
+n	valid	X	T	Z	status	cornerX	bound	secs	phases	Xbrute
+72	True	682	562	6	OPTIMAL	106	82106	18	(0, 1, 0, 0)	682
+74	True	700	578	6	OPTIMAL	105	82105	15	(0, 1, 0, 0)	700
+76	True	722	594	6	OPTIMAL	107	82107	21	(0, 1, 0, 0)	722
+78	True	744	610	6	OPTIMAL	110	82110	23	(0, 1, 0, 0)	744
+96	True	910	754	6	OPTIMAL	106	82106	27	(0, 1, 0, 0)	910
+
+per residue class (n mod 8): differences per +8 in n
+  res 0: n=[72, 96] X=[682, 910] T=[562, 754] dX/dn=[9.5] dT/dn=[8.0]

@@ -1,0 +1,47 @@
+PASS certs/m3_W7_h_ox0.cnf: 938 RUP additions verified, empty clause derived (UNSAT).
+PASS certs/m3_W7_h_ox1.cnf: 594 RUP additions verified, empty clause derived (UNSAT).
+PASS certs/m3_W7_v_ox0.cnf: 633 RUP additions verified, empty clause derived (UNSAT).
+PASS certs/m3_W7_v_ox1.cnf: 508 RUP additions verified, empty clause derived (UNSAT).
+PASS certs/nem3_P_r8_j2.cnf: 0 RUP additions verified, empty clause derived (UNSAT).
+PASS certs/nem3_P_r8_j3.cnf: 0 RUP additions verified, empty clause derived (UNSAT).
+PASS certs/nem3_P_r8_j4.cnf: 0 RUP additions verified, empty clause derived (UNSAT).
+PASS certs/nem3_P_r8_j5.cnf: 0 RUP additions verified, empty clause derived (UNSAT).
+PASS certs/nem3_P_r8_j6.cnf: 0 RUP additions verified, empty clause derived (UNSAT).
+PASS certs/nem3_P_r8_j7.cnf: 0 RUP additions verified, empty clause derived (UNSAT).
+PASS certs/nem3_P_r8_j8.cnf: 0 RUP additions verified, empty clause derived (UNSAT).
+PASS certs/nem3_P_r9_j2.cnf: 0 RUP additions verified, empty clause derived (UNSAT).
+PASS certs/nem3_P_r9_j3.cnf: 0 RUP additions verified, empty clause derived (UNSAT).
+PASS certs/nem3_P_r9_j4.cnf: 0 RUP additions verified, empty clause derived (UNSAT).
+PASS certs/nem3_P_r9_j5.cnf: 0 RUP additions verified, empty clause derived (UNSAT).
+PASS certs/nem3_P_r9_j6.cnf: 0 RUP additions verified, empty clause derived (UNSAT).
+PASS certs/nem3_P_r9_j7.cnf: 0 RUP additions verified, empty clause derived (UNSAT).
+PASS certs/nem3_P_r9_j8.cnf: 0 RUP additions verified, empty clause derived (UNSAT).
+PASS certs/nem3_Q_r8_j2.cnf: 0 RUP additions verified, empty clause derived (UNSAT).
+PASS certs/nem3_Q_r8_j3.cnf: 0 RUP additions verified, empty clause derived (UNSAT).
+PASS certs/nem3_Q_r8_j4.cnf: 0 RUP additions verified, empty clause derived (UNSAT).
+PASS certs/nem3_Q_r8_j5.cnf: 0 RUP additions verified, empty clause derived (UNSAT).
+PASS certs/nem3_Q_r8_j6.cnf: 0 RUP additions verified, empty clause derived (UNSAT).
+PASS certs/nem3_Q_r8_j7.cnf: 0 RUP additions verified, empty clause derived (UNSAT).
+PASS certs/nem3_Q_r8_j8.cnf: 0 RUP additions verified, empty clause derived (UNSAT).
+PASS certs/nem3_Q_r9_j2.cnf: 0 RUP additions verified, empty clause derived (UNSAT).
+PASS certs/nem3_Q_r9_j3.cnf: 0 RUP additions verified, empty clause derived (UNSAT).
+PASS certs/nem3_Q_r9_j4.cnf: 0 RUP additions verified, empty clause derived (UNSAT).
+PASS certs/nem3_Q_r9_j5.cnf: 0 RUP additions verified, empty clause derived (UNSAT).
+PASS certs/nem3_Q_r9_j6.cnf: 0 RUP additions verified, empty clause derived (UNSAT).
+PASS certs/nem3_Q_r9_j7.cnf: 0 RUP additions verified, empty clause derived (UNSAT).
+PASS certs/nem3_Q_r9_j8.cnf: 0 RUP additions verified, empty clause derived (UNSAT).
+wrong-residue SAT m3 h 0
+wrong-residue SAT m3 h 1
+wrong-residue SAT m3 v 0
+wrong-residue SAT m3 v 1
+wrong-residue SAT nem3 P
+wrong-residue SAT nem3 Q
+FAIL: no empty clause
+START strip_constants.py
+DONE strip_constants.py
+START strip2_independent.py
+DONE strip2_independent.py
+START corner_charge.py
+DONE corner_charge.py
+START corner_charge2.py
+DONE corner_charge2.py

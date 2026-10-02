@@ -1,0 +1,14 @@
+PASS n0=96: X0=720, b=112; +24/+48 valid; +12 cycles=1
+PASS n0=98: X0=752, b=394/3; +24/+48 valid; +12 cycles=1
+PASS n0=100: X0=775, b=425/3; +24/+48 valid; +12 cycles=3
+PASS n0=102: X0=754, b=108; +24/+48 valid; +12 cycles=2
+PASS n0=104: X0=776, b=352/3; +24/+48 valid; +12 cycles=1
+PASS n0=106: X0=786, b=344/3; +24/+48 valid; +12 cycles=2
+PASS n0=108: X0=788, b=104; +24/+48 valid; +12 cycles=1
+PASS n0=110: X0=803, b=319/3; +24/+48 valid; +12 cycles=1
+PASS n0=112: X0=839, b=389/3; +24/+48 valid; +12 cycles=3
+PASS n0=114: X0=864, b=142; +24/+48 valid; +12 cycles=2
+PASS n0=116: X0=850, b=346/3; +24/+48 valid; +12 cycles=1
+PASS n0=118: X0=875, b=383/3; +24/+48 valid; +12 cycles=2
+PASS: 36 saved tours; all complete block/outside matchings; no hidden component; 152=120+32.
+/home/nil/nil/knight-formation-research/w-verifier/fold_proof_checks.json

@@ -1,0 +1,12 @@
+{
+  "date": "2026-10-02",
+  "tile_pairs": 1292,
+  "areas": {
+    "0": 1256,
+    "1/4": 24,
+    "1/2": 12
+  },
+  "shared_endpoint_cases": 56,
+  "flux_cases": 5184,
+  "method": "rational polygon clipping; exact quarter-triangle areas; oriented proper intersection"
+}

@@ -1,0 +1,16 @@
+START tiles
+PASS tiles
+START corner_endpoint
+PASS corner_endpoint
+START strip_rows
+PASS strip_rows
+START alpha_primary
+PASS alpha_primary
+START alpha_separate
+PASS alpha_separate
+START own claim11_forest
+PASS own claim11_forest
+START own claim11_corner
+PASS own claim11_corner
+START own claim9_tiles
+PASS own claim9_tiles

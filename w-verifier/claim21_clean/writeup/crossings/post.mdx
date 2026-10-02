@@ -1,0 +1,351 @@
+---
+title: "TODO: pick a title"
+date: "2026-10-02"
+excerpt: "Closed knight's tours on an n x n board need at least 14n/3 - 407 crossings, and some have only 19n/3 + 142. The paper had 4n and 12n."
+coverImage: "/blog/knights-tour-crossings/tour96.png"
+categories: ["research"]
+---
+
+{/* TODO (Nil): title. Three options:
+  1. "Knight's tours with fewer crossings, and why they can't have many fewer"
+  2. "Knight's tour crossings: from 3x to 1.36x"
+  3. "Folds, tiles, and the corner charge"
+  The slug and image folder assume "knights-tour-crossings"; rename both if the title changes. */}
+
+{/* TODO (Nil): date. */}
+
+In my [knight's tour post](/blog/knights-tour), the crossings result was the weak one.
+
+Our tours had `12n + O(1)` crossings on an `n x n` board, and the best lower bound was `4n - O(1)`. Shisheng Li later brought the upper bound down to `11.5n`.
+
+Both bounds moved. Every closed tour needs about `4.67n` crossings, and there are tours with about `6.33n`.
+
+This is the sequel for crossings. The [turns post](/blog/knights-tour-turns) does the same for turns.
+
+{/* TODO (Nil): how this work came about. */}
+
+<Toc />
+
+## The result
+
+A _crossing_ is a pair of moves of the tour whose segments cross. Moves that only share an endpoint don't count.
+
+<Callout>
+  For every even `n >= 96`, there is a closed knight's tour on an `n x n` board
+  with at most `19n/3 + 142` crossings. For every even `n >= 32`, every closed
+  tour has at least `14n/3 - 407` crossings.
+</Callout>
+
+The ratio between the bounds went from `3` to about `1.36`.
+
+One idea shows up on both sides: each corner of the board creates a "charge" that has to go somewhere. The new tours pay to carry it to the centre. The lower bound shows that every tour pays for it.
+
+{/* TODO (Integrator demo): embed the interactive demo with the full progression of crossings and turns here. */}
+
+## Part 1: tours with fewer crossings
+
+### All the crossings are at the sides
+
+In the paper's tours, the inside of the board is covered by long parallel lines. Parallel lines never cross.
+
+All the crossings are at the sides, where the lines turn around. So the cost of a tour is basically "crossings per row or column, at each side".
+
+### A better heel: 9n
+
+The paper's heels on the top and bottom sides have 28 crossings per 8 columns. The left and right sides have 2.5 per row. That is `3.5 + 3.5 + 2.5 + 2.5 = 12`.
+
+A computer search found a heel with 16 crossings per 8 columns, once the four knights could leave the heel in any order, as long as the whole tour still closes into one cycle:
+
+<BlogImage
+  src="/blog/knights-tour-crossings/heels.png"
+  alt="The paper's heel and the new heel, with crossings in red"
+  caption="The bottom side of two real tours. Red dots are crossings."
+  width="100%"
+/>
+
+{/* TODO (Nil): the story of the permutation idea (letting the knights leave in any order was your idea). */}
+
+That gives `2 + 2 + 2.5 + 2.5 = 9` crossings per unit of `n`.
+
+Dropping the four-knight formation altogether, the same kind of search reached `343n/48`, about `7.15n`. But the bigger step came from a different layout.
+
+### Folds
+
+The new layout fills the board with 8 triangles. Each triangle is covered by straight parallel lines, in one of four directions:
+
+<BlogImage
+  src="/blog/knights-tour-crossings/fold_field.png"
+  alt="The board split into 8 triangles of parallel lines"
+  caption="The fold layout. Each colour is one direction of knight moves. Dashed lines are the folds."
+  width="80%"
+/>
+
+Where two triangles meet, the lines bounce off the boundary, like a fold in a sheet of paper. The two families touch at the fold, but they don't cross:
+
+<BlogImage
+  src="/blog/knights-tour-crossings/fold_closeup.png"
+  alt="Close-up of a fold: two families of lines meet without crossing"
+  caption="A fold, up close. Two lines of each family are highlighted."
+  width="50%"
+/>
+
+So the inside of the board costs nothing again. Everything depends on the sides.
+
+### The sides: 1 crossing per row
+
+At each side, the lines arrive in one direction and leave in another. The cheapest way to turn them around costs 1 crossing per row:
+
+<BlogImage
+  src="/blog/knights-tour-crossings/edge_uturn.png"
+  alt="The U-turn pattern at a side: one crossing per row"
+  caption="The U-turns at the left side. One crossing per row."
+  width="60%"
+/>
+
+That is `n` per side, so `4n` in total. This matches the lower bound from the paper. If nothing else went wrong, we'd have tours with `4n + O(1)` crossings.
+
+Two things go wrong.
+
+### Problem 1: trapped lines (+n)
+
+Near the middle of each side, the lines come in, bounce off a fold, and come back out to the same side. These "chevrons" close into many short cycles instead of one big tour:
+
+<BlogImage
+  src="/blog/knights-tour-crossings/chevrons.png"
+  alt="Chevrons close into short loops; arch flips remove them"
+  caption="Left: the chevrons at one side close into short loops. Right: flipping the U-turns on a quarter of the side (red) removes them."
+  width="90%"
+/>
+
+The fix is to flip the U-turn pattern on a quarter of each side. The flipped pattern costs 2 crossings per row instead of 1. That is `+n` in total.
+
+### Problem 2: the corner charge (+4n/3)
+
+The second problem is subtler. Each corner of the board creates an imbalance, modulo 3, in how the tour's moves cross the board. It is the same "charge" that the lower bound uses, explained in part 2.
+
+The charges at the four corners add up to 0, so they can cancel at the centre. But they have to get there. Along each diagonal fold, a narrow corridor carries the charge at a cost of `2/3` crossings per step:
+
+<BlogImage
+  src="/blog/knights-tour-crossings/flux.png"
+  alt="The four corner charges flow to the centre along corridors on the diagonals"
+  caption="Left: the four corner charges and their path to the centre. Right: a corridor on the diagonal, with its crossings."
+  width="90%"
+/>
+
+Four corridors of length `n/2` each give `4 x n/2 x 2/3 = 4n/3`.
+
+### The total: 19n/3
+
+<BlogImage
+  src="/blog/knights-tour-crossings/count.png"
+  alt="Where the crossings are: edges 4n, arch flips n, corridors 4n/3"
+  width="80%"
+/>
+
+That is `4n + n + 4n/3 = 19n/3`, plus a constant from the corners and the centre.
+
+<BlogImage
+  src="/blog/knights-tour-crossings/tour96.png"
+  alt="A 96 x 96 fold tour with 720 crossings"
+  caption="A 96 x 96 tour with 720 crossings (red). 19 x 96 / 3 = 608, plus 112."
+  width="90%"
+/>
+
+These tours work for every even `n >= 96`, with at most `19n/3 + 142` crossings. The proof that each one is a single cycle uses the same block-insertion idea as the turns tours (see the details).
+
+### Why it stops there
+
+Both extra costs come from forcing everything into this one layout.
+
+We tried several ways to untrap the chevrons more cheaply: other side patterns, narrow bands inside the board, other seams between the triangles. Within this family of layouts, each of them costs about `n` or more. So `19n/3` is where this family stops.
+
+This is not a lower bound. A different layout could do better.
+
+## Part 2: why every tour needs 4.67n crossings
+
+The proof has five steps:
+
+1. Each knight move owns a small tile. The tiles almost cover the board exactly once. This gives the old `4n`.
+2. Colour the board like a chess board. The colours define a charge that only a badly tiled spot can change.
+3. Each corner of the board forces a charge on about `n/2` nested paths around it.
+4. Each charged path needs two badly tiled quarter squares, and those cost crossings. That gives `5n`, but only if the rows next to the sides of the board look normal.
+5. A tour can make some rows abnormal to switch the charge off. But each abnormal row costs at least one crossing. Balancing the two gives `14n/3`.
+
+### Step 1: knight tiles
+
+Here, we put the cells at the integer points and look at the unit squares between them.
+
+Each knight move is the long diagonal of a small parallelogram. Its short diagonal is the unit edge with the same midpoint. This parallelogram is the move's _tile_. It has area exactly 1.
+
+Cutting each unit square along both diagonals gives four _quarter triangles_. Every tile is made of exactly four of them:
+
+<BlogImage
+  src="/blog/knights-tour-crossings/lb_tile.png"
+  alt="A knight move, its tile, and the tile as four quarter triangles"
+  width="80%"
+/>
+
+The key fact is that two tiles overlap only if their moves cross. And when they do, they share one or two quarters, never more:
+
+<BlogImage
+  src="/blog/knights-tour-crossings/lb_overlap.png"
+  alt="Two pairs of crossing moves, overlapping in one and in two quarters"
+  caption="Two crossing pairs. The shared quarters are red."
+  width="80%"
+/>
+
+Now we count area. A tour on an `n x n` board has `n^2` moves, so the tiles have total area `n^2`. The unit squares between the cells only have area `(n - 1)^2`. That is about `2n` of extra area. It has to go somewhere, and the only place is overlaps. Each crossing creates at most `1/2` of overlap, so there are at least about `4n` crossings.
+
+The exact version is `4n - 2`, and it is checked in Lean, a proof assistant.
+
+Here is what this looks like on a real tour:
+
+<BlogImage
+  src="/blog/knights-tour-crossings/lb_tiled.png"
+  alt="Tile multiplicities near the corner of a tour"
+  caption="Near a corner of a 48 x 48 tour. Blue: quarters covered once. Red: covered twice. White: not covered. The long straight lines inside tile the board perfectly. All the trouble is at the sides."
+  width="90%"
+/>
+
+### Step 2: gaps cost too
+
+The area count is exact. So every white (uncovered) quarter must be paid for by an extra red quarter somewhere, which means more crossings.
+
+A quarter is _bad_ if it is not covered exactly once.
+
+To beat `4n`, we need to show that a tour can't avoid bad quarters away from the sides of the board.
+
+The tool is a charge. Colour the cells black and white, like a chess board. Along any path through the centres of the unit squares, we can measure how the tour's moves cross the path, counted with colours and signs, modulo 3. The exact rule is in the [details](#details).
+
+This measurement has two properties:
+
+- Around any closed loop, it adds up to 0 (mod 3). This holds because every cell has exactly two moves. So it behaves like a height: each square centre gets a height in `{0, 1, 2}`, and a path measures the height difference between its ends.
+- Where the tiles fit perfectly, it doesn't change. If both quarters next to a step of the path are covered exactly once, the step adds 0.
+
+So if the two ends of a path have different heights, the path must pass next to a bad quarter.
+
+We call such a path _charged_.
+
+### Step 3: every corner is charged
+
+Take the bottom-left corner and a box `[0, R] x [0, R]`. Look at the path that goes up the right side of the box and then left along its top side:
+
+<BlogImage
+  src="/blog/knights-tour-crossings/lb_corner_box.png"
+  alt="A corner box, the path along its right and top sides, and its two end rows"
+  caption="The path around a corner box. Its two ends sit next to the sides of the board."
+  width="50%"
+/>
+
+The whole boundary of the box has total charge 0 (mod 3). Most of the boundary is outside the board, where nothing crosses it, and it is easy to compute. The two short pieces near the ends depend only on the tour's moves in one row next to the left side and one column next to the bottom side.
+
+If those two end rows look _normal_, the computation gives `1 (mod 3)` for the outside part. So the path around the box carries the rest: it is charged.
+
+"Normal" is a precise local test on the moves near the end row, also in the details. The rows of a typical cheap side pattern pass it.
+
+This works for every radius `R` from 12 to `n/2 - 4`, at all four corners. Paths at different radii don't touch:
+
+<BlogImage
+  src="/blog/knights-tour-crossings/lb_nested.png"
+  alt="Four families of nested corner paths"
+  caption="The four families of corner paths (here n = 48). An abnormal end row (red) removes one path."
+  width="60%"
+/>
+
+That is about `2n` disjoint charged paths, if every end row is normal.
+
+### Step 4: two bad quarters per path
+
+A path that passes next to a bad quarter goes through the centre of that quarter's unit square. And a unit square never has just one bad quarter.
+
+Each tile covers two _adjacent_ quarters in each unit square it touches. So the four counts `m0, m1, m2, m3` of a unit square (bottom, right, top, left) always satisfy `m0 - m1 + m2 - m3 = 0`. If one of them is not 1, another one is not 1 either:
+
+<BlogImage
+  src="/blog/knights-tour-crossings/lb_square.png"
+  alt="The alternating sum of a unit square, and a square with two bad quarters"
+  width="60%"
+/>
+
+So each charged path owns two bad quarters, and different paths own different ones.
+
+The boundary crossings (the `4n` from step 1) only create overlaps right next to the sides, away from these paths. So the bad quarters on the paths must be paid for by crossings beyond the first `4n`. One extra crossing can pay for at most 4 of them.
+
+With `2n` charged paths, that is `4n` bad quarters, so about `n` extra crossings: `5n` in total.
+
+But this assumed that every end row is normal.
+
+### Step 5: abnormal rows cost a crossing
+
+A tour can switch off the charge of a corner path by making one of its end rows abnormal. Each abnormal row removes one path, and so saves half a crossing.
+
+The question is what an abnormal row costs at the side of the board.
+
+The four columns next to a side can be checked by computer. The computer goes row by row through every possible way the tour can use the two outer columns, and keeps track of the crossings. It shows that an abnormal row always costs at least one crossing more than the minimum of one crossing per row:
+
+<BlogImage
+  src="/blog/knights-tour-crossings/lb_strip.png"
+  alt="The cheapest normal side pattern, with 1 crossing per row, and the cheapest abnormal one, with 2"
+  caption="Left: the cheapest side pattern, 1 crossing per row, and every row is normal. Right: the cheapest way to make every row abnormal, 2 crossings per row."
+  width="60%"
+/>
+
+The right pattern shows that "one crossing" can't be improved.
+
+Now the tour has two options, and neither is cheap. Say it has `b` abnormal rows:
+
+- The paths give at least `n - b/2` extra crossings.
+- The abnormal rows give at least `b` extra crossings.
+
+The best a tour can do is make both equal: `b = 2n/3`. That is `2n/3` extra crossings, so `14n/3` in total.
+
+## The gap
+
+<BlogImage
+  src="/blog/knights-tour-crossings/lb_numberline.png"
+  alt="History of the bounds on crossings"
+  caption="The bounds on crossings, as multiples of n."
+  width="100%"
+/>
+
+The minimum number of crossings is between `4.67n` and `6.33n`.
+
+On the lower side, we don't know how far this method can go. It looks only at short windows next to the sides, and it charges each path for one defective square.
+
+On the upper side, the fold tours pay exactly for the corner charge (`4n/3`) and for the trapped lines (`n`). A cheaper way to carry the charge, or to untrap the lines, would lower the upper bound.
+
+## Details
+
+This section is for readers who want to check the proofs. The full proofs, with every finite check, are in the companion notes. {/* TODO (Nil): link the companion proofs (w-turnstheory/PROOF_fold.md and PROOF_crossings_lower.md, to be typeset). */}
+
+**The fold tours for every n.** The construction is a fixed rule plus 12 sets of saved corner and centre pieces, one for each even residue of `n` modulo 24. Going from `n` to `n + 24` inserts blocks of 12 more diagonal lines in 8 places. Each corner block connects its ports the same way as two copies of itself, so inserting more of them changes nothing. The side blocks permute 4 strands in a cycle of order 4, so a `+24` step switches between two connection patterns, and both give one cycle (so the true period is 48). Every crossing is local, and each `+24` step adds exactly `152 = 120 + 32` crossings (boundary and corridors), which gives `19/3`. A standalone checker rebuilds all 36 saved tours and checks every block.
+
+**The lower bound, step by step.**
+
+**Tiles.** The tile of the move `(0,0)-(2,1)` has corners `(0,0), (1,0), (2,1), (1,1)`. A computer check of all 1,292 nearby pairs of moves confirms that two tiles overlap exactly when the moves cross, and then in one or two quarters. With `m_t` the number of tiles on quarter `t`, the area count is `sum (m_t - 1)_+ = 8n - 4 + G`, where `G` is the number of uncovered quarters. Since `(m - 1)_+` is at most the number of pairs among `m` tiles, `8n - 4 + G <= 2X`. Writing `E = X - 4n + 2` for the excess, `G <= 2E`.
+
+**The charge.** Orient every move from black to white. For a step of a dual path, count the oriented moves that cross it from left to right, minus those from right to left, and add `+1` or `-1` for the unit grid edge it crosses, by the colour of the cell on its left. Modulo 3, this equals the colour sign times `m+ + m- + 1`, where `m+` and `m-` cover the two quarters next to the step. So a step next to two quarters covered once adds `3 = 0 (mod 3)`. Around the boundary of any set of cells, the total is `6 x (sum of colour signs) = 0 (mod 3)`, because every cell has degree 2.
+
+**The corner charge.** The normal-row test sums 8 signed coefficients over the moves near the end row (mod 3), and also excludes one particular crossing pair. The outside part of the box boundary then has total `1 (mod 3)`, so the inside path has `-1`. This is a short exact computation, checked by computer for both orientations.
+
+**From bad quarters to crossings.** Let `B` be the crossing pairs among moves at the outermost column of each side. A computer certificate on the width-one strip gives `|B| >= 4n - 24`, and their overlaps avoid every unit square on the corner paths. With `L` charged paths: `2L <= 2E + 2(X - |B|) <= 4E + 44`.
+
+**Abnormal rows.** The strip of the two outer columns (plus the two next columns as partial neighbours) has 82,516 states in a row-by-row scan. A potential function with values in `[-29, 0]` proves `X_side - n >= b_side - 29/4` for every side. Two independent programs check it, and an exact critical-cycle computation shows that the rate 1 is sharp.
+
+**Putting it together.** `L >= 2n - 60 - b`, `b <= E + 1131`, and `2L <= 4E + 44` give `4n <= 6E + 2426`, so `X >= 14n/3 - 407`.
+
+**What is checked, and how.**
+
+- The `4n - 2` tile bound is checked in Lean 4 with Mathlib (`KT.ClosedTour.four_mul_sub_two_le_numCrossings`, standard axioms only).
+- The `19n/3` construction and its all-size proof were audited by an independent reviewer with separately written code.
+- The `14n/3` proof was audited by an independent reviewer, with separately written code for the finite checks. {/* TODO: update when the standalone audit of the consolidated proof (Claim 20) is done. */}
+- The text and figures of this post have not been reviewed yet. {/* TODO (Nil): remove after review. */}
+
+{/* TODO (Nil): links to code and data. */}
+
+## Open questions
+
+Where is the true minimum, between `4.67n` and `6.33n`?
+
+A better lower bound needs more than one defect per path, or wider windows at the sides.
+
+{/* TODO (Nil): credits. */}

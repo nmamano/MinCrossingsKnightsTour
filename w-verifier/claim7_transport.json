@@ -1,0 +1,114 @@
+[
+  {
+    "family": "H16a",
+    "n": 96,
+    "larger": 120,
+    "exterior_vertices": 1080,
+    "exterior_edges": 1068
+  },
+  {
+    "family": "H16a",
+    "n": 98,
+    "larger": 122,
+    "exterior_vertices": 1104,
+    "exterior_edges": 1092
+  },
+  {
+    "family": "H16a",
+    "n": 100,
+    "larger": 124,
+    "exterior_vertices": 1128,
+    "exterior_edges": 1116
+  },
+  {
+    "family": "H16a",
+    "n": 102,
+    "larger": 126,
+    "exterior_vertices": 1152,
+    "exterior_edges": 1140
+  },
+  {
+    "family": "H16a",
+    "n": 104,
+    "larger": 128,
+    "exterior_vertices": 1176,
+    "exterior_edges": 1164
+  },
+  {
+    "family": "H16a",
+    "n": 106,
+    "larger": 130,
+    "exterior_vertices": 1200,
+    "exterior_edges": 1188
+  },
+  {
+    "family": "H16a",
+    "n": 108,
+    "larger": 132,
+    "exterior_vertices": 1224,
+    "exterior_edges": 1212
+  },
+  {
+    "family": "H16a",
+    "n": 110,
+    "larger": 134,
+    "exterior_vertices": 1248,
+    "exterior_edges": 1236
+  },
+  {
+    "family": "H16a",
+    "n": 112,
+    "larger": 136,
+    "exterior_vertices": 1272,
+    "exterior_edges": 1260
+  },
+  {
+    "family": "H16a",
+    "n": 114,
+    "larger": 138,
+    "exterior_vertices": 1296,
+    "exterior_edges": 1284
+  },
+  {
+    "family": "H16a",
+    "n": 116,
+    "larger": 140,
+    "exterior_vertices": 1320,
+    "exterior_edges": 1308
+  },
+  {
+    "family": "H16a",
+    "n": 118,
+    "larger": 142,
+    "exterior_vertices": 1344,
+    "exterior_edges": 1332
+  },
+  {
+    "family": "TT16",
+    "n": 96,
+    "larger": 104,
+    "exterior_vertices": 1084,
+    "exterior_edges": 1070
+  },
+  {
+    "family": "TT16",
+    "n": 98,
+    "larger": 106,
+    "exterior_vertices": 1108,
+    "exterior_edges": 1094
+  },
+  {
+    "family": "TT16",
+    "n": 100,
+    "larger": 108,
+    "exterior_vertices": 1132,
+    "exterior_edges": 1118
+  },
+  {
+    "family": "TT16",
+    "n": 102,
+    "larger": 110,
+    "exterior_vertices": 1156,
+    "exterior_edges": 1142
+  }
+]

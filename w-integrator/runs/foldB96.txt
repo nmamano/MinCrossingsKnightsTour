@@ -1,0 +1,6 @@
+n=96 pre: {'comps': 32, 'closed': 0, 'bad': 52, 'clusters': 13, 'free': 1920, 'imb': [-1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, -1, 0], 'X_pre': 432}
+   lns round 0: 108 windows changed
+   lns round 1: 34 windows changed
+   lns round 2: 11 windows changed
+  LNS: X 2212 -> 899
+n=96 valid=True X=899 X/n=9.365 T=1550 {'status': 'OPTIMAL', 'corner_obj': 0, 'corner_turns': None, 'obj': 0.0, 'bound': 0.0, 'secs': 33.3} 609s Xbrute=899

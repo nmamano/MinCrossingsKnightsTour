@@ -1,0 +1,14 @@
+n=96 pre: {'comps': 32, 'closed': 0, 'bad': 52, 'clusters': 13, 'free': 1320, 'imb': [-1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, -1, 0], 'X_pre': 432}
+   round 0: periodic middle OPTIMAL, X=1321
+   lns round 0: 42 windows changed
+   round 0: X=764
+   round 1: periodic middle OPTIMAL, X=764
+   lns round 0: 13 windows changed
+   round 1: X=725
+   round 2: periodic middle OPTIMAL, X=725
+   lns round 0: 2 windows changed
+   round 2: X=723
+   round 3: periodic middle OPTIMAL, X=723
+   lns round 0: 0 windows changed
+   round 3: X=723
+n=96 valid=True X=723 X/n=7.531 T=1238 {'status': 'OPTIMAL', 'corner_obj': 0, 'corner_turns': None, 'obj': 0.0, 'bound': 0.0, 'secs': 2.2} 254s Xbrute=723

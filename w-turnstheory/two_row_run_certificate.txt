@@ -1,0 +1,3 @@
+cycle arcs 8
+kappa=2/5, loss k+1, converged: True
+potential range: -117 0 units 1/20

@@ -1,0 +1,5 @@
+base states 82516 arcs 144674
+augmented nodes 167782 arcs 315389
+both beta=1/1: converged after 7 passes, no negative cycle; potential range -29..0 (units 1/(4q))
+PASS: exact endpoint error 29/4, coefficient 1 per failed joint endpoint test.
+PASS: 24 knight edges per 4-by-4 corner; strip overcount at most 1104.

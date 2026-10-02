@@ -1,0 +1,9 @@
+M=18 d=6 left=P bottom=P: INFEASIBLE
+M=18 d=6 left=P bottom=Q: INFEASIBLE
+M=18 d=6 left=Q bottom=P: INFEASIBLE
+M=18 d=6 left=Q bottom=Q: INFEASIBLE
+M=18 d=8 left=P bottom=P: INFEASIBLE
+M=18 d=8 left=P bottom=Q: INFEASIBLE
+M=18 d=8 left=Q bottom=P: INFEASIBLE
+M=18 d=8 left=Q bottom=Q: INFEASIBLE
+exit=0

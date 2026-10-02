@@ -1,0 +1,2 @@
+cycle arcs 8
+PASS alpha=1/5; potential range -149 0 in units 1/20
