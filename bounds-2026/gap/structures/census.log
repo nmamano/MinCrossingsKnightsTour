@@ -1,0 +1,243 @@
+FOLD24_n96.json n 96
+  clean=True ends=(1, -1) steep=(2, 2) shiftparity=0 : 132
+  clean=False ends=(1, 1) steep=(2, 2) shiftparity=None : 35
+  clean=False ends=(-1, -1) steep=(2, 2) shiftparity=None : 31
+  clean=False ends=(1, -1) steep=(2, 2) shiftparity=0 : 11
+  clean=True ends=(-1, 1) steep=(2, 2) shiftparity=0 : 6
+  clean=False ends=(1, -1) steep=(2, 2) shiftparity=1 : 2
+  clean=False ends=(1, -1) steep=(2, 1) shiftparity=None : 2
+  clean=False ends=(-1, -1) steep=(1, 2) shiftparity=None : 2
+  clean=False ends=(-1, 1) steep=(2, 2) shiftparity=0 : 1
+  clean=False ends=(1, -1) steep=(1, 2) shiftparity=None : 1
+  long clean returns (side, low row, up row, len, shift): 105
+    (0, 32, 64, 33, 192)
+    (0, 32, 64, 33, 192)
+    (0, 33, 63, 31, 192)
+    (0, 33, 63, 31, 192)
+    (0, 34, 62, 29, 192)
+    (0, 34, 62, 29, 192)
+    (3, 42, 54, 13, 192)
+    (3, 43, 53, 11, 192)
+    (3, 43, 53, 11, 192)
+FOLD24_n96.json {'n': 96, 'ports': 688, 'N_re': 194, 'EXC': 155, 'rule': {(3, -1, 0, -3): 37, (3, -1, 1, 3): 37, (1, 1, 1, 3): 38, (2, 1, 1, 3): 36, (0, -1, 1, 3): 37, (3, 1, 1, 3): 15, (1, 1, 0, -3): 38, (0, -1, 0, -3): 37, (1, -1, 1, 3): 14, (0, 1, 1, 3): 18, (0, 1, 0, -3): 18, (1, -1, 0, -3): 14, (2, -1, 0, -3): 10, (3, 1, 0, -3): 15, (2, 1, 0, -3): 36, (2, -1, 1, 3): 10}, 'clean_returns_by_changed_ends': {1: 135, 2: 3}, 'E': 338, 'BQ': 622, 'W': 195}
+claim36_FOLD_n144.json n 144
+  clean=True ends=(1, -1) steep=(2, 2) shiftparity=0 : 228
+  clean=False ends=(1, 1) steep=(2, 2) shiftparity=None : 51
+  clean=False ends=(-1, -1) steep=(2, 2) shiftparity=None : 47
+  clean=False ends=(1, -1) steep=(2, 2) shiftparity=0 : 11
+  clean=True ends=(-1, 1) steep=(2, 2) shiftparity=0 : 6
+  clean=False ends=(-1, -1) steep=(1, 2) shiftparity=None : 2
+  clean=False ends=(1, -1) steep=(2, 2) shiftparity=1 : 2
+  clean=False ends=(1, -1) steep=(2, 1) shiftparity=None : 2
+  clean=False ends=(-1, 1) steep=(2, 2) shiftparity=0 : 1
+  clean=False ends=(1, -1) steep=(1, 2) shiftparity=None : 1
+  long clean returns (side, low row, up row, len, shift): 201
+    (0, 44, 100, 57, 288)
+    (0, 44, 100, 57, 288)
+    (0, 45, 99, 55, 288)
+    (0, 45, 99, 55, 288)
+    (0, 46, 98, 53, 288)
+    (0, 46, 98, 53, 288)
+    (3, 66, 78, 13, 288)
+    (3, 67, 77, 11, 288)
+    (3, 67, 77, 11, 288)
+claim36_FOLD_n144.json {'n': 144, 'ports': 1072, 'N_re': 290, 'EXC': 203, 'rule': {(1, 1, 1, 3): 62, (0, -1, 1, 3): 61, (2, 1, 1, 3): 60, (1, 1, 0, -3): 62, (3, -1, 1, 3): 61, (2, -1, 1, 3): 22, (1, -1, 1, 3): 26, (3, -1, 0, -3): 61, (1, -1, 0, -3): 26, (0, -1, 0, -3): 61, (3, 1, 0, -3): 27, (2, -1, 0, -3): 22, (0, 1, 0, -3): 30, (0, 1, 1, 3): 30, (2, 1, 0, -3): 60, (3, 1, 1, 3): 27}, 'clean_returns_by_changed_ends': {1: 231, 2: 3}, 'E': 450, 'BQ': 878, 'W': 339}
+claim36_FOLD_n192.json n 192
+  clean=True ends=(1, -1) steep=(2, 2) shiftparity=0 : 324
+  clean=False ends=(1, 1) steep=(2, 2) shiftparity=None : 67
+  clean=False ends=(-1, -1) steep=(2, 2) shiftparity=None : 63
+  clean=False ends=(1, -1) steep=(2, 2) shiftparity=0 : 11
+  clean=True ends=(-1, 1) steep=(2, 2) shiftparity=0 : 6
+  clean=False ends=(1, -1) steep=(2, 1) shiftparity=None : 2
+  clean=False ends=(1, -1) steep=(2, 2) shiftparity=1 : 2
+  clean=False ends=(-1, -1) steep=(1, 2) shiftparity=None : 2
+  clean=False ends=(-1, 1) steep=(2, 2) shiftparity=0 : 1
+  clean=False ends=(1, -1) steep=(1, 2) shiftparity=None : 1
+  long clean returns (side, low row, up row, len, shift): 297
+    (0, 56, 136, 81, 384)
+    (0, 56, 136, 81, 384)
+    (0, 57, 135, 79, 384)
+    (0, 57, 135, 79, 384)
+    (0, 58, 134, 77, 384)
+    (0, 58, 134, 77, 384)
+    (3, 90, 102, 13, 384)
+    (3, 91, 101, 11, 384)
+    (3, 91, 101, 11, 384)
+claim36_FOLD_n192.json {'n': 192, 'ports': 1456, 'N_re': 386, 'EXC': 251, 'rule': {(0, -1, 1, 3): 85, (2, 1, 1, 3): 84, (1, 1, 0, -3): 86, (3, 1, 0, -3): 39, (3, 1, 1, 3): 39, (3, -1, 0, -3): 85, (2, -1, 0, -3): 34, (1, -1, 0, -3): 38, (0, -1, 0, -3): 85, (2, -1, 1, 3): 34, (1, 1, 1, 3): 86, (2, 1, 0, -3): 84, (0, 1, 0, -3): 42, (1, -1, 1, 3): 38, (0, 1, 1, 3): 42, (3, -1, 1, 3): 85}, 'clean_returns_by_changed_ends': {1: 327, 2: 3}, 'E': 562, 'BQ': 1134, 'W': 483}
+claim36_FOLD_n240.json n 240
+  clean=True ends=(1, -1) steep=(2, 2) shiftparity=0 : 420
+  clean=False ends=(1, 1) steep=(2, 2) shiftparity=None : 83
+  clean=False ends=(-1, -1) steep=(2, 2) shiftparity=None : 79
+  clean=False ends=(1, -1) steep=(2, 2) shiftparity=0 : 11
+  clean=True ends=(-1, 1) steep=(2, 2) shiftparity=0 : 6
+  clean=False ends=(-1, -1) steep=(1, 2) shiftparity=None : 2
+  clean=False ends=(1, -1) steep=(2, 2) shiftparity=1 : 2
+  clean=False ends=(1, -1) steep=(2, 1) shiftparity=None : 2
+  clean=False ends=(1, -1) steep=(1, 2) shiftparity=None : 1
+  clean=False ends=(-1, 1) steep=(2, 2) shiftparity=0 : 1
+  long clean returns (side, low row, up row, len, shift): 393
+    (0, 68, 172, 105, 480)
+    (0, 68, 172, 105, 480)
+    (0, 69, 171, 103, 480)
+    (0, 69, 171, 103, 480)
+    (0, 70, 170, 101, 480)
+    (0, 70, 170, 101, 480)
+    (3, 114, 126, 13, 480)
+    (3, 115, 125, 11, 480)
+    (3, 115, 125, 11, 480)
+claim36_FOLD_n240.json {'n': 240, 'ports': 1840, 'N_re': 482, 'EXC': 299, 'rule': {(1, 1, 1, 3): 110, (1, 1, 0, -3): 110, (2, 1, 1, 3): 108, (3, 1, 1, 3): 51, (3, -1, 0, -3): 109, (1, -1, 1, 3): 50, (3, -1, 1, 3): 109, (2, 1, 0, -3): 108, (3, 1, 0, -3): 51, (0, -1, 1, 3): 109, (0, -1, 0, -3): 109, (0, 1, 0, -3): 54, (1, -1, 0, -3): 50, (0, 1, 1, 3): 54, (2, -1, 0, -3): 46, (2, -1, 1, 3): 46}, 'clean_returns_by_changed_ends': {1: 423, 2: 3}, 'E': 674, 'BQ': 1390, 'W': 627}
+claim36_FOLD_n288.json n 288
+  clean=True ends=(1, -1) steep=(2, 2) shiftparity=0 : 516
+  clean=False ends=(1, 1) steep=(2, 2) shiftparity=None : 99
+  clean=False ends=(-1, -1) steep=(2, 2) shiftparity=None : 95
+  clean=False ends=(1, -1) steep=(2, 2) shiftparity=0 : 11
+  clean=True ends=(-1, 1) steep=(2, 2) shiftparity=0 : 6
+  clean=False ends=(1, -1) steep=(2, 2) shiftparity=1 : 2
+  clean=False ends=(-1, -1) steep=(1, 2) shiftparity=None : 2
+  clean=False ends=(1, -1) steep=(2, 1) shiftparity=None : 2
+  clean=False ends=(1, -1) steep=(1, 2) shiftparity=None : 1
+  clean=False ends=(-1, 1) steep=(2, 2) shiftparity=0 : 1
+  long clean returns (side, low row, up row, len, shift): 489
+    (0, 80, 208, 129, 576)
+    (0, 80, 208, 129, 576)
+    (0, 81, 207, 127, 576)
+    (0, 81, 207, 127, 576)
+    (0, 82, 206, 125, 576)
+    (0, 82, 206, 125, 576)
+    (3, 138, 150, 13, 576)
+    (3, 139, 149, 11, 576)
+    (3, 139, 149, 11, 576)
+claim36_FOLD_n288.json {'n': 288, 'ports': 2224, 'N_re': 578, 'EXC': 347, 'rule': {(1, -1, 0, -3): 62, (1, 1, 0, -3): 134, (2, 1, 1, 3): 132, (2, -1, 0, -3): 58, (2, 1, 0, -3): 132, (3, -1, 0, -3): 133, (0, -1, 1, 3): 133, (3, 1, 0, -3): 63, (3, -1, 1, 3): 133, (0, -1, 0, -3): 133, (0, 1, 0, -3): 66, (1, 1, 1, 3): 134, (1, -1, 1, 3): 62, (2, -1, 1, 3): 58, (0, 1, 1, 3): 66, (3, 1, 1, 3): 63}, 'clean_returns_by_changed_ends': {1: 519, 2: 3}, 'E': 786, 'BQ': 1646, 'W': 771}
+FIELD_n166_92_155.json n 166
+  clean=True ends=(1, -1) steep=(2, 2) shiftparity=0 : 214
+  clean=False ends=(1, -1) steep=(2, 2) shiftparity=0 : 59
+  clean=False ends=(1, 1) steep=(2, 2) shiftparity=None : 47
+  clean=False ends=(-1, -1) steep=(2, 2) shiftparity=None : 45
+  clean=True ends=(-1, 1) steep=(2, 2) shiftparity=0 : 5
+  clean=False ends=(1, -1) steep=(2, 1) shiftparity=None : 3
+  clean=False ends=(-1, 1) steep=(2, 2) shiftparity=0 : 3
+  clean=False ends=(1, -1) steep=(2, 2) shiftparity=1 : 2
+  clean=False ends=(1, -1) steep=(1, 2) shiftparity=None : 2
+  clean=False ends=(-1, -1) steep=(2, 1) shiftparity=None : 1
+  clean=False ends=(1, 1) steep=(1, 2) shiftparity=None : 1
+  clean=False ends=(-1, 1) steep=(1, 1) shiftparity=None : 1
+  clean=False ends=(1, 1) steep=(2, 1) shiftparity=None : 1
+  long clean returns (side, low row, up row, len, shift): 194
+    (1, 45, 119, 75, 328)
+    (1, 45, 119, 75, 328)
+    (1, 46, 118, 73, 328)
+    (1, 46, 118, 73, 328)
+    (1, 47, 117, 71, 328)
+    (1, 47, 117, 71, 328)
+    (3, 77, 89, 13, 332)
+    (3, 78, 88, 11, 332)
+    (3, 78, 88, 11, 332)
+FIELD_n166_92_155.json {'n': 166, 'ports': 1246, 'N_re': 486, 'EXC': 303, 'rule': {(3, -1, 1, 3): 73, (3, -1, 0, -3): 73, (1, 1, 0, -3): 73, (2, 1, 1, 3): 72, (1, -1, 0, -3): 29, (1, 1, 1, 3): 73, (0, 1, 0, -3): 28, (1, -1, 1, 3): 29, (0, 1, 1, 3): 28, (3, 1, 1, 3): 33, (3, 1, 0, -3): 33, (2, 1, 0, -3): 72, (2, -1, 1, 3): 29, (2, -1, 0, -3): 29}, 'clean_returns_by_changed_ends': {1: 217, 2: 2}, 'E': 578, 'BQ': 912, 'W': 306}
+FOLDB1_n144.json n 144
+  clean=True ends=(1, -1) steep=(2, 2) shiftparity=0 : 225
+  clean=False ends=(1, 1) steep=(2, 2) shiftparity=None : 49
+  clean=False ends=(-1, -1) steep=(2, 2) shiftparity=None : 44
+  clean=False ends=(1, -1) steep=(2, 2) shiftparity=0 : 14
+  clean=False ends=(-1, 1) steep=(2, 2) shiftparity=0 : 3
+  clean=False ends=(-1, 1) steep=(1, 2) shiftparity=None : 3
+  clean=True ends=(-1, 1) steep=(2, 2) shiftparity=0 : 2
+  clean=False ends=(1, -1) steep=(2, 1) shiftparity=None : 2
+  clean=False ends=(1, -1) steep=(1, 2) shiftparity=None : 2
+  clean=False ends=(1, 1) steep=(1, 2) shiftparity=None : 1
+  clean=False ends=(1, -1) steep=(2, 2) shiftparity=1 : 1
+  long clean returns (side, low row, up row, len, shift): 214
+    (0, 43, 101, 59, 288)
+    (0, 43, 101, 59, 288)
+    (0, 44, 100, 57, 288)
+    (0, 44, 100, 57, 288)
+    (0, 45, 99, 55, 288)
+    (0, 45, 99, 55, 288)
+    (3, 66, 78, 13, 288)
+    (3, 66, 78, 13, 288)
+    (3, 67, 77, 11, 288)
+FOLDB1_n144.json {'n': 144, 'ports': 1066, 'N_re': 308, 'EXC': 230, 'rule': {(1, 1, 1, 3): 60, (0, -1, 1, 3): 57, (2, 1, 1, 3): 60, (1, 1, 0, -3): 60, (3, -1, 1, 3): 57, (2, -1, 1, 3): 21, (1, -1, 1, 3): 20, (3, -1, 0, -3): 57, (1, -1, 0, -3): 20, (3, 1, 0, -3): 24, (2, -1, 0, -3): 21, (0, 1, 0, -3): 23, (0, 1, 1, 3): 23, (0, -1, 0, -3): 57, (2, 1, 0, -3): 60, (3, 1, 1, 3): 24}, 'clean_returns_by_changed_ends': {1: 225, 2: 2}, 'E': 471, 'BQ': 841, 'W': 318}
+FOLDP_n96.json n 96
+  clean=True ends=(1, -1) steep=(2, 2) shiftparity=0 : 128
+  clean=False ends=(-1, -1) steep=(2, 2) shiftparity=None : 35
+  clean=False ends=(1, 1) steep=(2, 2) shiftparity=None : 33
+  clean=False ends=(1, -1) steep=(2, 2) shiftparity=0 : 12
+  clean=True ends=(-1, 1) steep=(2, 2) shiftparity=0 : 5
+  clean=False ends=(-1, 1) steep=(2, 2) shiftparity=0 : 3
+  clean=False ends=(-1, -1) steep=(1, 2) shiftparity=None : 2
+  clean=False ends=(1, 1) steep=(2, 1) shiftparity=None : 1
+  clean=False ends=(1, -1) steep=(1, 2) shiftparity=None : 1
+  clean=False ends=(-1, 1) steep=(2, 1) shiftparity=None : 1
+  clean=False ends=(1, -1) steep=(2, 1) shiftparity=None : 1
+  long clean returns (side, low row, up row, len, shift): 106
+    (0, 32, 64, 33, 192)
+    (0, 32, 64, 33, 192)
+    (0, 33, 63, 31, 192)
+    (0, 33, 63, 31, 192)
+    (0, 34, 62, 29, 192)
+    (0, 34, 62, 29, 192)
+    (3, 42, 54, 13, 192)
+    (3, 43, 53, 11, 192)
+    (3, 43, 53, 11, 192)
+FOLDP_n96.json {'n': 96, 'ports': 688, 'N_re': 192, 'EXC': 160, 'rule': {(3, -1, 0, -3): 38, (3, -1, 1, 3): 38, (1, 1, 1, 3): 38, (2, 1, 1, 3): 38, (2, 1, 0, -3): 38, (0, -1, 1, 3): 38, (3, 1, 1, 3): 12, (1, 1, 0, -3): 38, (0, -1, 0, -3): 38, (0, 1, 1, 3): 14, (0, 1, 0, -3): 14, (1, -1, 0, -3): 12, (2, -1, 0, -3): 10, (3, 1, 0, -3): 12, (2, -1, 1, 3): 10, (1, -1, 1, 3): 12}, 'clean_returns_by_changed_ends': {1: 131, 2: 2}, 'E': 341, 'BQ': 593, 'W': 193}
+FOLDX_n100.json n 100
+  clean=True ends=(1, -1) steep=(2, 2) shiftparity=0 : 131
+  clean=False ends=(1, 1) steep=(2, 2) shiftparity=None : 41
+  clean=False ends=(-1, -1) steep=(2, 2) shiftparity=None : 34
+  clean=False ends=(1, -1) steep=(2, 2) shiftparity=0 : 16
+  clean=True ends=(-1, 1) steep=(2, 2) shiftparity=0 : 4
+  clean=False ends=(-1, 1) steep=(2, 2) shiftparity=0 : 3
+  clean=False ends=(1, 1) steep=(1, 2) shiftparity=None : 2
+  clean=False ends=(1, -1) steep=(2, 2) shiftparity=1 : 2
+  clean=False ends=(1, -1) steep=(2, 1) shiftparity=None : 1
+  clean=False ends=(-1, -1) steep=(1, 2) shiftparity=None : 1
+  clean=False ends=(1, 1) steep=(2, 1) shiftparity=None : 1
+  clean=False ends=(1, -1) steep=(1, 2) shiftparity=None : 1
+  long clean returns (side, low row, up row, len, shift): 113
+    (0, 31, 69, 39, 200)
+    (0, 31, 69, 39, 200)
+    (0, 32, 68, 37, 200)
+    (0, 32, 68, 37, 200)
+    (0, 33, 67, 35, 200)
+    (0, 33, 67, 35, 200)
+    (3, 44, 56, 13, 200)
+    (3, 45, 55, 11, 200)
+    (3, 45, 55, 11, 200)
+FOLDX_n100.json {'n': 100, 'ports': 712, 'N_re': 208, 'EXC': 178, 'rule': {(1, 1, 1, 3): 36, (3, -1, 0, -3): 39, (1, 1, 0, -3): 36, (2, 1, 1, 3): 38, (3, -1, 1, 3): 39, (1, -1, 0, -3): 10, (0, -1, 0, -3): 32, (2, 1, 0, -3): 38, (1, -1, 1, 3): 10, (0, -1, 1, 3): 32, (0, 1, 1, 3): 13, (0, 1, 0, -3): 13, (3, 1, 1, 3): 17, (2, -1, 0, -3): 13, (3, 1, 0, -3): 17, (2, -1, 1, 3): 13}, 'clean_returns_by_changed_ends': {1: 132, 2: 3}, 'E': 358, 'BQ': 653, 'W': 194}
+FJOG_n130.json n 130
+  clean=False ends=(1, 1) steep=(2, 2) shiftparity=None : 106
+  clean=False ends=(-1, -1) steep=(2, 2) shiftparity=None : 93
+  clean=False ends=(1, -1) steep=(2, 2) shiftparity=1 : 37
+  clean=False ends=(1, -1) steep=(2, 2) shiftparity=0 : 18
+  clean=False ends=(1, 1) steep=(1, 2) shiftparity=None : 12
+  clean=False ends=(-1, 1) steep=(2, 2) shiftparity=0 : 8
+  clean=False ends=(1, 1) steep=(2, 1) shiftparity=None : 6
+  clean=False ends=(-1, 1) steep=(1, 2) shiftparity=None : 4
+  clean=False ends=(1, -1) steep=(1, 2) shiftparity=None : 4
+  clean=False ends=(-1, -1) steep=(1, 2) shiftparity=None : 3
+  clean=False ends=(1, -1) steep=(2, 1) shiftparity=None : 2
+  clean=False ends=(-1, 1) steep=(2, 1) shiftparity=None : 2
+  clean=False ends=(1, 1) steep=(1, 1) shiftparity=None : 2
+  clean=False ends=(-1, -1) steep=(2, 1) shiftparity=None : 1
+  clean=False ends=(-1, 1) steep=(2, 2) shiftparity=1 : 1
+  long clean returns (side, low row, up row, len, shift): 0
+FJOG_n130.json {'n': 130, 'ports': 922, 'N_re': 148, 'EXC': 193, 'rule': {(2, 1, 0, -3): 52, (3, -1, 0, -3): 48, (3, -1, 1, 3): 48, (1, 1, 1, 3): 54, (1, 1, 0, -3): 54, (2, 1, 1, 3): 52, (0, -1, 1, 3): 48, (1, -1, 0, -3): 22, (3, 1, 1, 3): 25, (2, -1, 0, -3): 27, (2, -1, 1, 3): 27, (0, -1, 0, -3): 48, (0, 1, 1, 3): 27, (1, -1, 1, 3): 22, (0, 1, 0, -3): 27, (3, 1, 0, -3): 25}, 'clean_returns_by_changed_ends': {}, 'E': 1045, 'BQ': 2544, 'W': 242}
+FJOG_n132.json n 132
+  clean=False ends=(1, 1) steep=(2, 2) shiftparity=None : 134
+  clean=False ends=(-1, -1) steep=(2, 2) shiftparity=None : 105
+  clean=False ends=(1, -1) steep=(2, 2) shiftparity=0 : 31
+  clean=False ends=(1, -1) steep=(2, 2) shiftparity=1 : 30
+  clean=False ends=(-1, 1) steep=(1, 2) shiftparity=None : 4
+  clean=False ends=(-1, 1) steep=(2, 2) shiftparity=0 : 4
+  clean=False ends=(1, -1) steep=(2, 1) shiftparity=None : 2
+  clean=False ends=(1, 1) steep=(1, 2) shiftparity=None : 2
+  clean=False ends=(-1, 1) steep=(2, 1) shiftparity=None : 1
+  clean=False ends=(1, 1) steep=(2, 1) shiftparity=None : 1
+  long clean returns (side, low row, up row, len, shift): 0
+FJOG_n132.json {'n': 132, 'ports': 958, 'N_re': 86, 'EXC': 163, 'rule': {(2, 1, 0, -3): 58, (3, -1, 0, -3): 51, (1, 1, 1, 3): 62, (3, 1, 1, 3): 37, (1, -1, 1, 3): 23, (3, -1, 1, 3): 51, (2, 1, 1, 3): 58, (0, -1, 1, 3): 51, (1, 1, 0, -3): 62, (3, 1, 0, -3): 37, (1, -1, 0, -3): 23, (2, -1, 0, -3): 30, (2, -1, 1, 3): 30, (0, -1, 0, -3): 51, (0, 1, 1, 3): 29, (0, 1, 0, -3): 29}, 'clean_returns_by_changed_ends': {}, 'E': 699, 'BQ': 1937, 'W': 259}
+LF4_n96.json n 96
+  long clean returns (side, low row, up row, len, shift): 0
+LF4_n96.json {'n': 96, 'ports': 536, 'N_re': 362, 'EXC': 278, 'rule': {(1, 1, 1, 3): 82, (1, 1, 0, -3): 82}, 'clean_returns_by_changed_ends': {}, 'E': 325, 'BQ': 4, 'W': 0}
+TT16_n72.json n 72
+  long clean returns (side, low row, up row, len, shift): 0
+TT16_n72.json {'n': 72, 'ports': 392, 'N_re': 264, 'EXC': 205, 'rule': {(0, -1, 1, 3): 59, (0, -1, 0, -3): 59}, 'clean_returns_by_changed_ends': {}, 'E': 396, 'BQ': 0, 'W': 0}
+exit=0

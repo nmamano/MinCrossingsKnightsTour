@@ -151,3 +151,19 @@
 -2 /HV /HVV x1:FIELD-CONFLICT:None:None:ends6:- x2:FIELD-CONFLICT:None:None:ends12:-
 -2 /HV \HV x1:FIELD-CONFLICT:None:None:ends8:- x2:FIELD-CONFLICT:None:None:ends16:-
 -2 /HV \HHV x1:FIELD-CONFLICT:None:None:ends24:- x2:FIELD-CONFLICT:None:None:ends48:-
+-2 /HV \HVV x1:FIELD-CONFLICT:None:None:ends24:- x2:FIELD-CONFLICT:None:None:ends48:-
+-2 /HHV /H x1:FIELD-CONFLICT:None:None:ends2:- x2:FIELD-CONFLICT:None:None:ends4:-
+-2 /HHV /V x1:FIELD-CONFLICT:None:None:ends4:- x2:FIELD-CONFLICT:None:None:ends8:-
+-2 /HHV /HV x1:FIELD-CONFLICT:None:None:ends6:- x2:FIELD-CONFLICT:None:None:ends12:-
+-2 /HHV /HVV x1:FIELD-CONFLICT:None:None:ends2:- x2:FIELD-CONFLICT:None:None:ends4:-
+-2 /HVV /H x1:FIELD-CONFLICT:None:None:ends4:- x2:FIELD-CONFLICT:None:None:ends8:-
+-2 /HVV /V x1:FIELD-CONFLICT:None:None:ends2:- x2:FIELD-CONFLICT:None:None:ends4:-
+-2 /HVV /HV x1:FIELD-CONFLICT:None:None:ends6:- x2:FIELD-CONFLICT:None:None:ends12:-
+-2 /HVV /HHV x1:FIELD-CONFLICT:None:None:ends2:- x2:FIELD-CONFLICT:None:None:ends4:-
+-2 \HV /HV x1:FIELD-CONFLICT:None:None:ends8:- x2:FIELD-CONFLICT:None:None:ends16:-
+-2 \HV /HVV x1:FIELD-CONFLICT:None:None:ends8:- x2:FIELD-CONFLICT:None:None:ends16:-
+-2 \HHV /HV x1:FIELD-CONFLICT:None:None:ends24:- x2:FIELD-CONFLICT:None:None:ends48:-
+-2 \HHV /HVV x1:FIELD-CONFLICT:None:None:ends12:- x2:FIELD-CONFLICT:None:None:ends24:-
+-2 \HVV /HV x1:FIELD-CONFLICT:None:None:ends24:- x2:FIELD-CONFLICT:None:None:ends48:-
+-2 \HVV /HVV x1:FIELD-CONFLICT:None:None:ends12:- x2:FIELD-CONFLICT:None:None:ends24:-
+exit=0

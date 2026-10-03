@@ -1,0 +1,74 @@
+{
+  "geometry": [
+    {
+      "n": 128,
+      "candidates": 196,
+      "small": 84,
+      "squares": 13916
+    },
+    {
+      "n": 130,
+      "candidates": 200,
+      "small": 84,
+      "squares": 14400
+    },
+    {
+      "n": 144,
+      "candidates": 228,
+      "small": 84,
+      "squares": 18012
+    },
+    {
+      "n": 288,
+      "candidates": 516,
+      "small": 84,
+      "squares": 77916
+    }
+  ],
+  "covered_quarters": 16,
+  "max_endpoint_distance_times2": 3,
+  "strip_overlap_pairs": 232,
+  "max_strip_overlap_square_depth": 2,
+  "tours": [
+    {
+      "file": "w-integrator/tours/FOLD24_n96.json",
+      "n": 96,
+      "X": 720,
+      "E": 338,
+      "S_union": 541,
+      "T": 159,
+      "nu_times4": 1034,
+      "cases": {
+        "X1": 150,
+        "unpaid": 622,
+        "W3": 36,
+        "hole": 400,
+        "outside_pair": 315
+      },
+      "allocated_quarter_units": 901,
+      "residual_quarter_demands_all_candidates": {
+        "0": 48
+      }
+    },
+    {
+      "file": "gap/verifier/claim36_FOLD_n144.json",
+      "n": 144,
+      "X": 1024,
+      "E": 450,
+      "S_union": 781,
+      "T": 207,
+      "nu_times4": 1386,
+      "cases": {
+        "X1": 246,
+        "unpaid": 910,
+        "W3": 36,
+        "hole": 528,
+        "outside_pair": 443
+      },
+      "allocated_quarter_units": 1253,
+      "residual_quarter_demands_all_candidates": {
+        "0": 144
+      }
+    }
+  ]
+}

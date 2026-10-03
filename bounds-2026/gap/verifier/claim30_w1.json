@@ -1,0 +1,8 @@
+{
+  "date": "2026-10-03",
+  "variables": 424,
+  "clauses": 7144,
+  "maps": 156,
+  "clause_multiset_match": true,
+  "cnf_sha256": "7f043910cd96b1ca8746b3b95df35516f357dadc080ec13e5f06ac8a9706cc86"
+}

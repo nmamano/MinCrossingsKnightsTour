@@ -1,0 +1,13 @@
+s=1: 1 free tree polyominoes, 2 admissible labellings, 0 SAT (15s)
+s=2: 1 free tree polyominoes, 2 admissible labellings, 0 SAT (15s)
+s=3: 2 free tree polyominoes, 4 admissible labellings, 0 SAT (16s)
+s=4: 4 free tree polyominoes, 8 admissible labellings, 0 SAT (16s)
+s=5: 11 free tree polyominoes, 22 admissible labellings, 0 SAT (16s)
+s=6: 27 free tree polyominoes, 54 admissible labellings, 0 SAT (17s)
+s=7: 83 free tree polyominoes, 166 admissible labellings, 0 SAT (19s)
+s=8: 255 free tree polyominoes, 510 admissible labellings, 0 SAT (29s)
+s=9: 847 free tree polyominoes, 1694 admissible labellings, 0 SAT (64s)
+s=10: 2829 free tree polyominoes, 5658 admissible labellings, 0 SAT (192s)
+s=11: 9734 free tree polyominoes, 19468 admissible labellings, 0 SAT (679s)
+s=12: 33724 free tree polyominoes, 67448 admissible labellings, 0 SAT (2477s)
+exit=0

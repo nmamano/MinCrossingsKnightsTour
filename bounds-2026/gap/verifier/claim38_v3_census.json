@@ -1,0 +1,81 @@
+[
+  {
+    "file": "w-integrator/tours/FOLD24_n96.json",
+    "n": 96,
+    "E": 338,
+    "BQ": 622,
+    "RET_clean": 138,
+    "changed_ends": {
+      "1": 135,
+      "2": 3
+    },
+    "N_re": 194,
+    "N_re_prime": 53,
+    "B_left": 1004,
+    "B_surplus": 620,
+    "D_surplus": 85.5,
+    "zero_changed_returns": []
+  },
+  {
+    "file": "gap/verifier/claim36_FOLD_n288.json",
+    "n": 288,
+    "E": 786,
+    "BQ": 1646,
+    "RET_clean": 522,
+    "changed_ends": {
+      "1": 519,
+      "2": 3
+    },
+    "N_re": 578,
+    "N_re_prime": 53,
+    "B_left": 2796,
+    "B_surplus": 1644,
+    "D_surplus": 85.5,
+    "zero_changed_returns": []
+  },
+  {
+    "file": "gap/verifier/claim38_patched_n288.json",
+    "n": 288,
+    "E": 1306,
+    "BQ": 2530,
+    "RET_clean": 288,
+    "changed_ends": {
+      "1": 275,
+      "2": 13
+    },
+    "N_re": 786,
+    "N_re_prime": 485,
+    "B_left": 4076,
+    "B_surplus": 2924,
+    "D_surplus": 280.5,
+    "zero_changed_returns": []
+  },
+  {
+    "file": "w-integrator/tours/FJOG_n130.json",
+    "n": 130,
+    "E": 1045,
+    "BQ": 2544,
+    "RET_clean": 0,
+    "changed_ends": {},
+    "N_re": 148,
+    "N_re_prime": 148,
+    "B_left": 2840,
+    "B_surplus": 2320,
+    "D_surplus": 335.0,
+    "zero_changed_returns": []
+  },
+  {
+    "file": "w-integrator/tours/H16a_VerticalEdge_off0_n96.json",
+    "n": 96,
+    "E": 487,
+    "BQ": 0,
+    "RET_clean": 0,
+    "changed_ends": {},
+    "N_re": 362,
+    "N_re_prime": 362,
+    "B_left": 724,
+    "B_surplus": 340,
+    "D_surplus": 306.0,
+    "zero_changed_returns": []
+  }
+]

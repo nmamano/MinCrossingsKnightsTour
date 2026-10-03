@@ -1,0 +1,42 @@
+[
+  {
+    "source": "w-integrator/tours/FOLD24_n96.json",
+    "n": 96,
+    "S_union": 541,
+    "T": 159,
+    "N_re_reported": 194,
+    "T_minus_N_re": -35
+  },
+  {
+    "source": "gap/verifier/claim36_FOLD_n144.json",
+    "n": 144,
+    "S_union": 781,
+    "T": 207,
+    "N_re_reported": 290,
+    "T_minus_N_re": -83
+  },
+  {
+    "source": "gap/verifier/claim36_FOLD_n192.json",
+    "n": 192,
+    "S_union": 1021,
+    "T": 255,
+    "N_re_reported": 386,
+    "T_minus_N_re": -131
+  },
+  {
+    "source": "gap/verifier/claim36_FOLD_n240.json",
+    "n": 240,
+    "S_union": 1261,
+    "T": 303,
+    "N_re_reported": 482,
+    "T_minus_N_re": -179
+  },
+  {
+    "source": "gap/verifier/claim36_FOLD_n288.json",
+    "n": 288,
+    "S_union": 1501,
+    "T": 351,
+    "N_re_reported": 578,
+    "T_minus_N_re": -227
+  }
+]

@@ -1,0 +1,4 @@
+{'file': 'gap/verifier/claim36_FOLD_n144.json', 'n': 144, 'cheap_slots': 349, 'all_slots': 552, 'label_counts': {'D': 3, 'UNDEFINED': 7, 'W': 339}, 'W': 339, 'SSR': 79, 'W_minus_2SSR': 181}
+{'file': 'gap/verifier/claim36_FOLD_n192.json', 'n': 192, 'cheap_slots': 493, 'all_slots': 744, 'label_counts': {'D': 3, 'UNDEFINED': 7, 'W': 483}, 'W': 483, 'SSR': 111, 'W_minus_2SSR': 261}
+{'file': 'gap/verifier/claim36_FOLD_n240.json', 'n': 240, 'cheap_slots': 637, 'all_slots': 936, 'label_counts': {'D': 3, 'UNDEFINED': 7, 'W': 627}, 'W': 627, 'SSR': 143, 'W_minus_2SSR': 341}
+{'file': 'gap/verifier/claim36_FOLD_n288.json', 'n': 288, 'cheap_slots': 781, 'all_slots': 1128, 'label_counts': {'D': 3, 'UNDEFINED': 7, 'W': 771}, 'W': 771, 'SSR': 175, 'W_minus_2SSR': 421}

@@ -1,0 +1,4 @@
+PASS: independent rational tiles, explicit support centres, retained-path cut.
+LF5 n=260: J={(right,bottom,r): 15<=r<=126, r mod 6 !=2}, |J|=94.
+N(J): 21 non-S* pairs + 217 holes; no X1/W3 atoms; capacity=301/6.
+Demand=376/6; Hall deficit=75/6=25/2.

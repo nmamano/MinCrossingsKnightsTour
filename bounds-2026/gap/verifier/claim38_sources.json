@@ -1,0 +1,7 @@
+{
+  "gap/structures/SHEET.md": "653ac1853b1b5bb99f944eb75f449a07cb2a46c398c629c625a6f1b9fb3f9c16",
+  "gap/structures/FINDINGS.md": "6a9063dd77f8d3fe1890bb8862d277cfb4d3c46e7c37cd4d4e3dea33b290fc34",
+  "gap/verifier/claim38_gadget.json": "a81ea784dd96aae6f6b7d0d2a77de869cf5537f3ed22b5d16ef91b4ef8b40726",
+  "gap/verifier/claim38_validate_gadget.py": "3845f1fddca0051459a22233649ec46d38d695358c8669b2e4c2ed01a4cd7e96",
+  "gap/verifier/claim38_clean.py": "efef61309b4caccc5557ffd6b419593bd1da4548acfb5fc690e1e2b5eedba154"
+}

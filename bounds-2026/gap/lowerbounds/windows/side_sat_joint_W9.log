@@ -1,0 +1,3 @@
+sideSAT_P8_W9_all_K0_joint: UNSAT (cuts 0, 5s; vars 3608, clauses 38541)
+sideSAT_P12_W9_all_K0_joint: UNSAT (cuts 0, 84s; vars 5632, clauses 78215)
+exit=0

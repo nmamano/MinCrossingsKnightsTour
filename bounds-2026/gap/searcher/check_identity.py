@@ -56,4 +56,5 @@ def main():
     assert 2 * (X - 4 * n + 2) == G + X1 + W3
     print("PASS: identity (I) holds exactly")
 
-main()
+if __name__ == "__main__":
+    main()

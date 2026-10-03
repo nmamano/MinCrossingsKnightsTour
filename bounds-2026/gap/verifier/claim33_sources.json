@@ -1,0 +1,14 @@
+{
+  "date": "2026-10-03",
+  "source_hashes": {
+    "gap/lowerbounds/FINDINGS.md": "3eede3fcb6801b8d3022dbda1610175f234e63f18ab2840e094069829108858d",
+    "gap/lowerbounds/windows/hole_cert.py": "4a8bf73ef773c2849ba3096f06ebd86ebfd92450ac0aea68bf8fa8dbf21a1187",
+    "gap/lowerbounds/windows/side_hole_cert.py": "3d76b8d9f97e78b88626718222f5ca5f58d2d532b0cdd4e1dab6db41dba8bfe1",
+    "gap/lowerbounds/windows/w1_cert.py": "8e6bd73cdf8aceddb36bbbeec01be2ee160e215906694665a0c6f5d109b0c437",
+    "gap/lowerbounds/windows/w1_count_stacks.py": "086f17eb4b87641a41f03a1fda0db5be9ac0a6dfafc26321de2b7fd8e9c0b14a",
+    "gap/lowerbounds/windows/w1_foldstack.py": "db8f0068669024e588b50ab3161145265fa2004ad37f3aba64ddc0dd954b354f",
+    "gap/lowerbounds/windows/w3_quarters.py": "a2f86f8c6ca838ce0947340b9037cc3c5c104013abf994d8035877f7b2f6cfa9",
+    "w-lowerbounds/check_drup.py": "4c55b42f931ab69d1f5d9a17f9108cd7c351ee7cc03f2f3c85b51e29531cbfc1",
+    "gap/turnstheory/PLAN.md": "e1aeb35c90ebba5837c7258571643cb7bb8c75943b96488c59bc7d8277144e91"
+  }
+}

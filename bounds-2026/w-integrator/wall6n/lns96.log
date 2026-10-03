@@ -1,0 +1,1 @@
+n=96 mode=diag w=3 {'comps': 32, 'closed': 0, 'bad': 52, 'clusters': 13, 'free': 1320, 'imb': [-1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, -1, 0], 'X_pre': 432}

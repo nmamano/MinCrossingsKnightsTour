@@ -1,10 +1,11 @@
 # Claim 31: exact joint-strip crossings
 
-2026-10-03. **PROOF DELTA SUBMITTED FOR AUDIT.** The producer's exact
-integer certificates give beta=2 and C=26 in both orientations. This
-reduction and the new finite input await independent Claim 31 review.
+2026-10-03. **AUDITED PASS (Claim 31).** The Verifier independently
+rebuilt both integer certificates and checked this reduction. The
+coefficient, constant, and size range below pass. See Claim 31 in
+`w-verifier/FINDINGS.md` for the independent checks.
 
-For every even n>=32, the proposed theorem for closed Hamiltonian knight
+For every even n>=32, the audited theorem for closed Hamiltonian knight
 tours on the n by n board is
 
 ```
@@ -12,7 +13,7 @@ X >= (24n-13012)/5 >= 24n/5-2603.
 ```
 
 X counts unordered proper crossing pairs. This is a computer-assisted
-proof submission, not a Lean theorem or a claim for arbitrary 2-factors.
+audited proof, not a Lean theorem or a claim for arbitrary 2-factors.
 
 ## Delta and inherited input
 
@@ -203,6 +204,6 @@ not an extra premise of the lower bound.
 
 For this submission I read the source and both producer logs and ran
 the small reduction check. I did not rerun the large graph jobs. The
-Verifier must audit the graph's completeness, crossing counts, endpoint
-state coverage, and exact potential, as well as this reduction, before
-Claim 31 changes an audited result.
+Verifier subsequently audited graph completeness, crossing counts,
+endpoint state coverage, and exact potentials using an independent
+implementation, and passed this reduction as Claim 31.

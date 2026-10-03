@@ -1,5 +1,127 @@
 # KT Lower Bounds - gap mission findings (gap/lowerbounds/)
 
+## G (2026-10-03, phase 2c): Gap Lemma, square version - PROVEN (computer-assisted)
+
+Statement (gap/structures/GAP_LEMMA.md section 2, square version): for every set K of absorbing cuts, the gap
+squares of the cuts in K contain at least 2|K| bad quarters. **PROVEN**, from these inputs:
+1. Lemma 0 (audited, Claim 30), L1 and L2 (Structures, GAP_LEMMA.md section 6), "every bad square has >= 2 bad
+   quarters" and the reduction to tree islands (Structures, section 11). The reduction: a violation needs a
+   4-component U of gap squares that is a TREE polyomino, off the board sides, with all 2|U| + 2 boundary sides
+   cut ends (so every side neighbour of U is good), |U| + 1 cuts, and total excess sum (b(S) - 2) <= 1.
+2. **Uniformity Lemma (PROVEN, by hand, this section).** In such an island all side neighbours have the SAME
+   split. Proof by induction on |U|. Call boundary sides e, e' linked if one chain segment through U joins them
+   ('/' or '\\'), or if they face the same neighbour square; a segment of the type of the label at one end must
+   end at the same label, so labels are constant on linked classes. |U| = 1: the four halves join the four sides
+   in a 4-cycle. Step: remove a leaf L (U' = U - L is a tree; one class by induction). The side f between L and
+   its parent was a boundary side of U'; its '/' and '\\' partners g1, g2 in U' now join the sides of L via the
+   two halves of L at f, and the other two halves of L join the three boundary sides of L to each other. The
+   square L was the neighbour of f only (L is a leaf). Every path of links in U' through f reroutes through
+   the sides of L, so U has one class. By the reflection x -> -x we may take the label '\\'.
+3. **Tree automaton (CERTIFIED, exact, gaplemma/tree_automaton.py).** Bottom-up DP over rooted tree islands.
+   Node = U square C with the types of its 3 x 3 block (side neighbours U or good '\\'; diagonal squares U or
+   good if they touch a U side neighbour, else unconstrained). Owned constraints (a RELAXATION of the real ones):
+   C bad; every good square of the block good with split '\\' (L1 n-values); degree <= 2 at the four corners of
+   C. The patch keeps C's 8 side links; all other block links are local existential copies. Tree-edge key:
+   the 2 links of the shared side, the types of the 2 x 3 region, the 4 links of the two cross sides, the
+   partial degree sums (C part, X part) at both shared corners, and the parity state of the '\\' cut through
+   the side ('/' segments are not cuts). Cuts must be absorbing (L2: y0 + yk + k odd).
+   Result: 82 block types, 117,612 patches, 8,660 keys; the fixed point is reached after 6 rounds;
+   **minimum total excess over all finite tree islands = 2** (no violation needs excess <= 1). Runtime 2.5 min.
+   Soundness test (gaplemma/validate_automaton.py): 225 real island configurations (exact degree 2, all island
+   conditions, s <= 7, up to 15 solutions per shape), every root: every real patch is in the enumerated set,
+   every parent/child key pair agrees, every chain check passes (6,870 node checks, 0 failures).
+   Sanity: without the key sync (SYNC=0) the automaton gives 0, so the sync is what carries the proof.
+4. **Exhaustive cross-check (CERTIFIED, pysat, gaplemma/tree_islands.py):** every tree island with |U| <= 12
+   (33,724 free tree polyominoes at |U| = 12) is UNSAT at <= 2|U| + 1 bad quarters. Tight islands (excess
+   exactly 2) exist for every |U| <= 9: seam staircases with exactly one square of 4 bad quarters (SLACK=1).
+   The exhaustive model needs only degree <= 2 at the 2|U| + 2 corners of U; every corner class is needed;
+   the absorbing parity is needed; without degree constraints violations exist.
+
+Scope: the proof uses only degree <= 2 (no connectivity, no exact degree 2), so it holds for every edge set of
+maximum degree 2 that satisfies Lemma 0. Half version and per-cut form are FALSE (Verifier Claim 34, Structures
+single_cut.py). Proof size for a reader: the reduction (Structures, half a page), the Uniformity Lemma (above,
+10 lines) and one finite computation (tree_automaton.py, about 300 lines of Python, 2.5 min). Independent
+re-implementation of the automaton by the Verifier is the recommended audit.
+
+```sh
+cd gap/lowerbounds/gaplemma
+../../../.venv/bin/python tree_automaton.py 100          # ROOT: minimum total excess ... = 2 (automaton_v3.log)
+SLACK=6 NSOL=15 ../../../.venv/bin/python validate_automaton.py 7     # 0 failures
+../../../.venv/bin/python tree_islands.py 12             # islands_s12_slack0.log: 0 SAT for all s <= 12
+```
+
+## A (2026-10-03, phase 2b): side end-zone charge - the answer to item (a)
+
+Question (CR): can a retained charged path keep its whole charge at depth <= 3 at an end, with the side strip
+at baseline? Answer: NO, except through a failed end test, which the reserve already pays. Charge at depth
+<= 3 with a passing test needs a height MISMATCH along the side. A mismatch costs at least one strip crossing
+per row (finite evidence, below). Setting: left side x = 0, row line l_r = dual line y = r + 1/2, dual step
+s_x crosses the grid edge (x,r)-(x,r+1) in direction +x. Q(r) = omega(s_0) + omega(s_1),
+E_K(r) = omega(s_2) + ... + omega(s_K) (end-zone flux), F(r) = audited up-test value (section 3 table).
+Hypothesis H (the W3 case (b)): no crossing outside S* near the end, and the quarters at depth >= 4 are
+perfect (m = 1). By W3 this is the case unless a non-S* crossing is within about 6 cells.
+
+**Lemma A1 (PROVEN, by hand from the audited (2), (3) and the endpoint lemma).** Let K >= 2. If every dual
+step of the segment x = K + 1/2, r + 1/2 <= y <= r' + 1/2 has both adjacent quarters with m = 1, then
+c(r) := E_K(r) - (-1)^r (F(r) - 2) and c(r') are equal mod 3.
+Proof. Apply (3) to the cells {0..K} x {r+1..r'}. The bottom line gives Q(r) + E_K(r) and the top line
+gives -(Q(r') + E_K(r')). The right side is 0 mod 3 by (2). The outside left side x = -1/2 meets no knight
+edge, and its grid terms add to sum_{y=r+1..r'} (-1)^y. The endpoint lemma (direction +x) gives
+Q(r) = -(-1)^r (F(r) + 2). Insert these terms and reduce mod 3.
+Meaning: c is the mod-3 colour height of the deep region relative to the standard strip height. A crossing-
+free deep region tiles exactly (W1, W3), so c is constant along a clean stretch of the side. If the test
+passes at r (F = 2, no exception), the end zone carries charge (E != 0) exactly when c != 0. Then EVERY
+row of that clean stretch fails the strong test defined below. Numerical check: c is constant on all rows
+of all saved witnesses (windows/side_end_check.py).
+
+**Lemma A2 (PROVEN, by hand from (2) and the audited overlap lemma (6)).** Under H at row r, if E_4(r) != 0
+mod 3 and the exception pair at r is absent, l_r has, at depth 1..3, an uncovered quarter or an overlap
+quarter of a pair in S* \ B. (A step with omega != 0 mod 3 has a bad adjacent quarter by (2). The only B
+overlap at depth >= 1 is pair (6), and pair (6) at row r is the exception.)
+
+**Strong test** at row r: F(r) = 2 mod 3, no exception pair, and E_4(r) = 0 mod 3. Every lost candidate
+fails the joint test at an end. Every retained candidate with end-zone charge fails the strong test at
+that end.
+
+**CERTIFIED (SAT; DRUP-checked where marked; P-periodic strips only).** Model windows/side_sat.py: rows
+Z_P (P even), columns 0..W+1, degree 2 for x < W, halo degree <= 2, H imposed, lazy no-finite-cycle cuts,
+S* crossings counted per period (the baseline is P, one per row).
+- JOINT test (J): for every P-periodic strip under H, excess >= #(rows that fail the strong test).
+  UNSAT of the violation for W = 7 and P = 8, 10, 12, 14, 16, and for W = 9 and P = 8, 12. No cycle cut
+  was needed, so (J) holds even without the forest condition. Equality occurs (excess 8, 8 failures, P = 8).
+  P = 8, W = 7: DRUP proof (61,381 RUP steps) passes w-lowerbounds/check_drup.py.
+- Mismatch alone (row 0 charged with a passing test, so c != 0 on the whole period): minimum excess per
+  period 13 (P = 8), 14 (P = 10), 17 (P = 12), >= 16 (P = 14). It is always >= P (bisection, exact SAT).
+- No periodic strip has every row charged at baseline (P = 8). One charged row costs 11 (P = 8) and
+  >= 4 (P = 12). The pure SAT model agrees exactly with the CP-SAT model windows/side_end.py at P = 8.
+Witnesses pass the independent checker windows/side_end_check.py (degrees, crossing classes, quarter
+multiplicities by exact rational point tests, formula (2) on every step, F, exception, c).
+
+**Plug-in (ARGUMENT).** Suppose (J) holds for every strip (non-periodic, with an additive constant), on the
+rows where H holds. Then V2 improves to T + C' >= #(strong failures) >= D_loss + L_end. Here L_end counts
+retained paths with end-zone charge in a clean stretch, so the reserve lambda*(T + C') pays lambda = 2/3
+for these paths as well. Every other retained path has E = 0 at both clean ends. Its charge therefore sits
+at depth >= 4 from both sides, or one of its end windows is not clean. In both cases a non-S* crossing is
+within bounded distance (W3 lemmas). This is the interior allocation (item (b), KT Edge Searcher).
+So item (a) reduces the side case to ONE strip inequality (J). It needs no new currency.
+
+**PARKED (CR, 2026-10-03): the (J) certificate is not built.** Reason: the 2/3 flux route is in doubt (Edge Searcher's (1,2) wall at 1/2 per level), and the simple 5n route is primary. Resume: build the transfer graph below, and first finish the P = 14, 16 mismatch bisection (side_sat_scan.sh 7).
+
+**Next (proposal, parked).** Certify (J) for all strips with a transfer graph: columns 0..8, no connectivity labels
+(the SAT runs did not use the cycle cuts), H imposed, row-local mod-3 trackers for E_4 and F. Alternatively,
+carry c in the state (Lemma A1 makes it constant between defects). Rows where H fails are defect rows with
+g = 0 and free state. Risk: the state count with 9 columns is unknown; H (only S* crossings, perfect deep
+quarters) should make it small, because by W1 the deep part is a fold stack.
+
+```sh
+cd gap/lowerbounds/windows
+../../../.venv/bin/python side_sat.py 8 7 all 0 joint     # UNSAT: (J) at P = 8 (writes .cnf/.drup)
+python3 ../../../w-lowerbounds/check_drup.py sideSAT_P8_W7_all_K0_joint.cnf sideSAT_P8_W7_all_K0_joint.drup
+../../../.venv/bin/python side_sat.py 8 7 0 12 pass        # UNSAT: mismatch needs excess >= 13 at P = 8
+../../../.venv/bin/python side_sat.py 8 7 0 13 pass        # SAT witness; check with side_end_check.py
+./side_sat_scan.sh 7                                       # mismatch bisection (side_sat_scan_W7.log)
+```
+
 ## W3 (2026-10-03, phase 2): bad quarters are local - holes need a nearby crossing
 
 Notation: a quarter is bad if its tile multiplicity m != 1 (audited proof, section 1); a hole has m = 0. By the

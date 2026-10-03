@@ -1,0 +1,32 @@
+shear 1/1 WM=4 KM=1 MODE=any lambda=1/2: columns u in [-3,6], 60 slots, complete squares s in [0,3], 2 cost squares per row
+warm-up done: 359424 strict seed states, largest warm layer 18805632, 188s
+states by warm level: strict 666204, warm1 0, warm2 0, warm3 0
+graph: states 666204 arcs 660876 (rejected: margin 120892752, psi 0) 189s
+== lambda 1/1
+ try mean 8/1 per row
+RESULT A=1 WM=4 KM=1 any lambda=1/1: min mean weight per row = 8/1 (CERTIFIED: no cycle below); per level (E units) = 8/2 = 4.0000  (189s)
+total 189s
+	Command being timed: "./wifc 1 4 1 any 8 1 90000000"
+	User time (seconds): 181.38
+	System time (seconds): 7.70
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 3:09.11
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 1176248
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 976816
+	Voluntary context switches: 1
+	Involuntary context switches: 505
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 24
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+exit=0

@@ -1,3 +1,499 @@
+# R4 posted; unpaid end zone reduced to four squares — 2026-10-03
+
+**R4 is ACTIVE at the top of REQUESTS.md for KT Lower Bounds.** It
+specifies the actual residual F1 demands and nu capacities, baseline
+marks, endpoint pairing, a safe eight-column model, complete-square
+requirements, state domains, scale, and potential constants. Start
+with local end-type enumeration and table feasibility; no large scan
+was launched here. Claim 39's audit can amend the hand-kernel premises.
+
+**New hand classification (awaiting audit):** END_TYPES.md lists all
+seven anchored S-minus-B two-quarter crossing pairs, four geometric
+shapes up to translation/reflection. There are no unpaid quarters at
+depth >=3. Residual paths therefore have only TWO potentially bad
+squares per end, not three. At depth two the only unpaid quarter is L.
+A deficient path can have a bad depth-two square at only one end, and
+then has one payable quarter and only 1/4 residual demand. Zero-payable
+active ends have only three multiplicity vectors. Exact edge witnesses
+and the local flux formula are written in END_TYPES.md.
+
+The small enumeration `python3 gap/turnstheory/classify_unpaid_ends.py`
+found seven records; output is `unpaid_end_types.json`. It uses exact
+tiles and no solver. The bounded support argument proves the search
+box covers every possible pair. These geometric types are not yet
+claims of degree-two or closed-tour completion.
+
+**Certificate correction:** a total-demand side potential would only
+prove aggregate capacity. R4 instead requires the potential to cover
+all Hall subsets of marked target rows. An atom contributes once when
+its eligible row interval meets the subset. This enforces individual
+payments with ONE bounded total deficit, as Claim 29 requires. The
+recent-selection history is finite, but may be costly; first shrink
+local types. Pending edges, baseline marks, and subset history must
+continue across cuts. Complete-square tests prevent ghost holes from
+being credited. Exact half-walk widths give explicit global constants.
+
+Pareto profile: the new hand step is a seven-pair geometric table and
+its short multiplicity/flux consequences. R4 is a detailed sufficient
+certificate specification, not a finished finite-state proof. The
+universal side price, baseline-choice reduction, and state completeness
+remain open. Both routes' shared quarter ledger is unchanged.
+
+---
+
+# Shared D*: bulk allocation matches, side identification does not yet — 2026-10-03
+
+Section 7 is now in the existing `PROOF_5N_PLAN.md`.
+**HAND IMPLICATION:** Structures' interior BQ quarters are all payable
+by the quarter-packing lemma, so nu>=BQ/4 and
+`E=nu+T/2>=BQ/4+T/2`. Thus `T>=N_re-O(1)` would imply D*.
+However, that is not the proved L3 statement, which concerns D_loss.
+
+A light exact count on the five audited FOLD tours gives T=159,207,
+255,303,351 for n=96,144,192,240,288. Against Structures' reported
+N_re=194,290,386,482,578, the deficits T-N_re are -35,-83,-131,-179,
+-227. The observed formulas are T=n+63 and N_re=2n+2. This strongly
+warns against a side-only identification; an infinite-family count
+is still needed to turn the observed growth into an O(1) disproof.
+
+The correct shared identity keeps residual bulk capacity:
+`M_bulk=nu-BQ/4>=0` and `E=BQ/4+(T+2*M_bulk)/2`.
+D* needs `T+2*M_bulk>=N_re-O(1)`, not necessarily T>=N_re-O(1).
+The five samples have M_bulk=103,127,151,175,199 and
+`T+2*M_bulk-N_re=171`, which exactly reproduces the 85.5 margin.
+Thus both routes can share the quarter allocation and its residual;
+D* still needs a changed-port price in that combined capacity.
+
+No double use: D_loss restoration and N_re repair cannot both spend
+T independently, and BQ payments and flux-path payments use the same
+quarter allocation. The new evidence is five O(n)-strip crossing
+counts after reading each saved grid; it does not re-audit Structures'
+port census. Command: `python3 gap/turnstheory/check_shared_dstar.py`.
+Full counts and paths are in `shared_dstar_check.json`. No heavy job ran.
+
+---
+
+# Five-n plan: interior half-price has a direct hand proof — 2026-10-03
+
+**NEW HAND ARGUMENT, submitted for independent review; no 5n theorem.**
+`PROOF_5N_PLAN.md` gives the lemma chain, finite-state requirements,
+and the first hand step. The main simplification is an exact
+quarter-payment rule in nu_(1/2), which removes interior sharing from
+the open part of the proof.
+
+Every bad quarter can receive 1/4 privately except one precise type:
+multiplicity exactly two, whose unique covering pair is in S* and has
+a two-quarter overlap. Holes use their G atoms; multiplicity >=3 uses
+one W3 unit; a non-S* pair pays at most two quarters from its half-unit
+capacity; a one-quarter S* crossing pays its only quarter from X1.
+Thus ANY set of distinct payable quarters can be funded simultaneously.
+The paying supports lie within distance 3/2 of the square centre, so
+they obey the strict radius-ten rule (in fact radius two suffices).
+
+A bad middle square has at least two bad quarters by the alternating
+multiplicity identity, and both are payable because S* overlaps cannot
+reach that depth. Vertex-disjoint candidate paths use distinct squares.
+This proves the private half-price and all subset Hall inequalities
+for paths with a bad middle square, without an injection from holes to
+crossings and without a global fold-stack description.
+
+After paying min(2,s_i) payable quarters per path, the exact remaining
+demand is (2-min(2,s_i))/4. Any path with positive demand has a completely
+good middle. Apart from at most 84 fixed small-radius candidates,
+its bad squares lie in its two three-square end zones. Retention also
+excludes B overlaps, so the unpaid overlaps are in S* minus B.
+
+**Single remaining new price lemma F1:** pay those residual end demands
+from the SAME residual nu capacity, with one total constant error.
+The plan specifies eight side columns, degree/halo rules, endpoint
+types, baseline-consumption marks, finite state domains, the two-end
+domination table, and a bounded-range potential target. Baseline-mark
+realizability and state gluing are still open; no completed finite
+reduction is asserted. Start with hand analysis / local end-type
+enumeration before any large transfer graph. A failing relaxation
+would reject that certificate class, not the closed-tour theorem.
+
+If F1 has total error C_side, the already proved endpoint reserve gives
+`X>=5n-(612+C_side)`. This route needs no SHEET connectivity count.
+W1/W3 and Claims 33/35 are used with their audited scope as support,
+pruning, and stop-test inputs; the direct quarter-payment proof itself
+needs only the audited tile and square identities.
+
+Checks: `python3 gap/turnstheory/check_quarter_payment_support.py` passes
+all four move types and 16 covered quarters, with exact maximum endpoint
+distance 3/2. No SAT search or large state graph was run. The earlier
+193-tour zero-deficit screen at mixed p=1/2 remains evidence for full
+L2, not yet for the more restrictive baseline-plus-F1 certificate.
+
+Pareto profile: the hand kernel (Sections 2–3) has 100 lines and
+832 words. The full plan has 270 lines and 2,159 words, including
+certificate specifications and scope limits. Only the side price
+remains new finite work.
+The detailed plan distinguishes inherited finite inputs, optional
+W1/W3 pruning, and the missing side certificate. Next: audit the hand
+packing lemma and classify the residual end types for F1.
+
+---
+
+# Claim 35 read; closed-wall Hall test queued — 2026-10-03
+
+**AUDITED wall rate, L2-v3 still OPEN.** The Verifier proves the achieved
+half-price wall with an explicit acyclic full-plane zigzag extension.
+This is stronger than the finite-cylinder source evidence I previously
+reviewed. The audit also checks charged gamma_R shapes at radii 12..80;
+the missing steps are actual board-side retention and the cost of
+Hamiltonian completion inside the full eligible collars. The wall's
+edges preserve x+y modulo three, so completion needs extra structure.
+PLAN.md and WALL_1_2_SCOPE.md now reflect the completed audit.
+
+The next incoming Integrator wall tour will receive the existing exact
+R=10 pure non-B Hall test, primarily at p=2/3, with p=1/2 as comparison.
+Report actual retained paths, Delta, and the min-cut. A single positive
+deficit is decisive for that tour and proposed constant, but does not
+refute an unknown uniform C_flux; that requires unbounded deficits in
+a completed-tour family. No new tour path was included in this message.
+No new search or background polling was started.
+
+Finite-input profile: the achieved wall rate now needs 19 edge orbits,
+four row checks, a three-path quotient, and the explicit exterior word,
+not the large minimum-mean graph. The pending tour test uses only the
+existing validation, support, and exact max-flow checks.
+
+---
+
+# Skeleton v4: half-price flux; wall scope checked — 2026-10-03
+
+**Decision:** use mixed p=lambda=1/2 for the flux route to 5n. Seek
+connectivity credit for any coefficient above five in this skeleton.
+The new top section of PLAN.md supersedes the p=2/3 recommendation.
+No new lower-bound theorem is claimed; Claim 31 remains the audited
+24n/5 result.
+
+**The (1,2) wall does not yet refute closed-tour L2-v3.** I read the
+witness and extension code and reproduced two crossings per four rows,
+modeled degree two, and no cycle in the finite unroll. The extension
+is a skew cylinder with soft outer degrees and permits cycles. It
+provides neither a square Hamiltonian tour nor the actual retained
+corner endpoints. One wall intersection does not determine total path
+flux, retention, or all resources in the path's full radius-ten collar.
+See WALL_1_2_SCOPE.md. Claim 35 is pending in the supplied material.
+
+To turn this wall into a formal fixed-radius counterexample, construct
+closed tours with retained subsets J of unbounded size and prove that
+their ENTIRE eligible capacity is at most |J|/2+O(1). Then the p=2/3
+Hall deficit is at least |J|/6-O(1). The current wall files do not supply
+that completion and capacity argument. They do block the proposed
+universal open-wall price above 1/2, so that is no longer an input to
+the main route. This is not a ceiling on all closed-tour methods.
+
+V4 keeps the proved endpoint reserve:
+`E+580 = nu_(1/2)(total) + (T+1160)/2`.
+Individual half-price flux with total deficit C_flux would give
+`X>=5n-(612+C_flux)`. A JOINT unused-capacity allocation of
+`kappa*n-C_conn` for connectivity would give
+`X>=(5+kappa)n-(612+C_flux+C_conn)`.
+**Reaching 6n now requires n-O(1) connectivity credit, not 2n/3.**
+Flux and connectivity must obey one capacity constraint. The global
+ribbon-word shortcut remains excluded by Claim 30.
+
+The exact Delta(H) results are included in v4: all 193 distinct saved
+tours pass mixed p=1/2; seven fail zero-error mixed p=2/3, up to 25/2
+on LF5 n=260; every tour passes pure non-B at both prices. These finite
+results do not prove uniform bounded deficit or unbounded growth.
+The per-tour tables and the independently checked worst cut remain in
+the earlier report and data files.
+
+Size and checks: v4 has 153 lines / 1,078 words; the wall scope note has
+90 lines / 703 words. The update uses the inherited ledger/restoration
+inputs, the sixteen local hole certificates, and the existing Hall
+screens; universal flux and connectivity inputs remain missing. The
+only new run was the light witness check:
+
+```sh
+python3 gap/searcher/wall/verify_witness.py
+```
+
+Its output is saved as `wall_1_2_check.log`. I did not rerun the large
+wall graph or the cylinder solver. The next proof task is a universal
+half-price allocation including the side/end zones; above 5n, it must
+be accompanied by connectivity obligations priced in the same ledger.
+
+---
+
+# Currency comparison: use pure non-B for 2/3; retain mixed 1/2 — 2026-10-03
+
+**MEASURED exact result:** all 193 distinct completed tours (345 saved
+records, n=32..260) have Delta=0 in PURE NON-B CROSSINGS at p=2/3 and
+p=1/2, with the same strict radius ten and actual retained family.
+The mixed nu_(2/3) test has the seven deficits previously reported;
+its maximum is 25/2. The mixed nu_(1/2) test has zero deficit throughout.
+The per-tour, per-n comparison is `HALL_CURRENCY_RESULTS.md`, with all
+source aliases in `hall_currency_results.tsv` and exact data in
+`hall_currency_results.json`.
+
+| Family / n | Mixed 2/3 | Pure non-B 2/3 | Mixed 1/2 | Pure non-B 1/2 |
+| --- | ---: | ---: | ---: | ---: |
+| FOLD24, all 36 sizes 96..166 | 0 | 0 | 0 | 0 |
+| H16a, all 44 distinct boards | 0 | 0 | 0 | 0 |
+| TT16, all 13 boards | 0 | 0 | 0 | 0 |
+| Forced FIELD, 166 | 0 | 0 | 0 | 0 |
+| LF1/LF2/LF3, 120 (each) | 1/3 | 0 | 0 | 0 |
+| LF4, 144 | 7/3 | 0 | 0 | 0 |
+| LF5, 104 | 0 | 0 | 0 | 0 |
+| LF5, 156 | 10/3 | 0 | 0 | 0 |
+| LF5, 208 | 8 | 0 | 0 | 0 |
+| LF5, 260 | 25/2 | 0 | 0 | 0 |
+
+All remaining boards, including the eight smaller LF4 boards, pass all
+four columns. Thus no deficit growth is seen in pure non-B currency
+on this data. The saved worst pure representative is LF5 n=260, tied
+with every other tour at zero; both pure Hall cuts J are empty.
+
+## The old worst cut explains the budget issue
+
+The old mixed Hall set on LF5 n=260 is unchanged:
+`J={(1,0,r):15<=r<=126, r mod 6 !=2}`, with 94 retained paths.
+Its pure radius-ten neighbourhood contains 109 crossing pairs outside
+B: 21 outside S* and 88 in S* minus B. Pure capacity 109 exceeds demand
+188/3 by 139/3. Its mixed capacity was only 301/6, with deficit 25/2.
+The exact neighbouring pairs are saved in `hall_currency_old_cut.json`.
+
+Therefore the success is not just a change of weight on the same
+resources. It also admits 88 side-strip pairs previously excluded by
+S*. The existing endpoint-restoration reserve can need those pairs.
+A pure L2 proof and the old L3 proof cannot spend them independently.
+
+## Recommendation and precise remaining gap
+
+**Use pure non-B crossings for p=2/3. Keep mixed p=lambda=1/2 as the
+simpler Pareto route to 5n.** PLAN.md now states the pure L2 contract
+and a sufficient JOINT L2/L3 allocation after reserving a baseline
+B0 subset B of size 4n-24. Its single capacity inequality covers kept
+paths and lost endpoints. This joint allocation is OPEN; the present
+flows test kept paths only. The exact identity E=(X-|B|)+(|B|-4n+2)
+and |B|>=4n-24 give E>=X-|B|-22, but do not pay lost endpoints for free.
+
+Searcher Section 7 gives supporting local evidence: at the stated
+width-four diagonal wall, pure crossings cost 2/3 per level while the
+half-mixed currency costs exactly 1/2. Those are certified fixed-width
+wall results, not a proof for arbitrary walls or tours. The global
+allocation and side/end-zone obligations remain. No new lower-bound
+coefficient is claimed from these tests.
+
+## Checks, size, and reproduction
+
+The 55-line comparison driver uses the checked integer flow and strict
+support routines. It recomputes and validates every tour's geometry,
+checks its board hash against the original test, and uses unit crossing
+capacity outside the UNION B of all four outer-column pair sets. It
+runs exact flows at both prices. The original mixed values are reused
+from the saved exact run on these identical boards; their equality is
+checked rather than silently replacing the old data.
+
+The 43-line comparison checker verifies complete inventory coverage,
+all pure demands met, and the unchanged mixed results. It independently
+classifies the old worst set's 109 eligible pairs into the 21+88 split.
+The B union counts match all three Claim 29 records (519, 534, 944).
+The shared flow and support self-tests passed again. New finite work:
+193 validations and 386 pure flows, about 182 seconds, one process,
+no solver threads. This is screening evidence rather than proof size
+for a universal theorem.
+
+Commands from the research root:
+
+```sh
+python3 gap/turnstheory/compare_hall_currencies.py > gap/turnstheory/hall_currency_run.log 2>&1
+python3 gap/turnstheory/check_currency_comparison.py
+```
+
+`hall_currency_check.log` records the checks. The original mixed run
+and separate worst-cut geometry audit remain in their earlier files.
+The next mathematical action is the joint side budget for pure p=2/3,
+or a universal mixed p=1/2 allocation for the simpler 5n route. No
+further computation was launched.
+
+---
+
+# Exact Hall screening: p=1/2 passes; p=2/3 deficits grow in LF5 — 2026-10-03
+
+**MEASURED, exact finite tests; no universal theorem.** I tested all 345
+saved JSON tour records found in the research tree: 193 distinct closed
+Hamiltonian tours, n=32 through 260. Every tour passed degree,
+reciprocity, connectivity, and proper-crossing validation. At R=10 and
+lambda=p, **p=1/2 has Delta(H)=0 on all 193 tours.** At p=2/3, 186 tours
+have zero deficit and seven have positive deficit. The full per-tour
+and per-n table is `HALL_V3_RESULTS.md`; every saved filename, including
+duplicate copies, is in `hall_v3_results.tsv`.
+
+## Positive deficits and observed growth
+
+| Tour | n | Retained paths | Delta at p=2/3 | Delta at p=1/2 |
+| --- | ---: | ---: | ---: | ---: |
+| LF1 | 120 | 165 | 1/3 | 0 |
+| LF2 | 120 | 119 | 1/3 | 0 |
+| LF3 | 120 | 132 | 1/3 | 0 |
+| LF4 | 144 | 180 | 7/3 | 0 |
+| LF5 | 156 | 181 | 10/3 | 0 |
+| LF5 | 208 | 256 | 8 | 0 |
+| LF5 | 260 | 332 | 25/2 | 0 |
+
+LF5 at n=104 has Delta=0. Thus its measured sequence is
+`(104,0), (156,10/3), (208,8), (260,25/2)`: the deficit grows with n on
+these saved tours. This is a warning for the fixed-radius p=2/3
+conjecture, not yet a proof of unbounded deficit. A proof needs a growing
+family and its resource count. The current v3 constant must be at least
+25/2. The three n=120 examples lie below v3's n>=128 range; the larger
+LF4/LF5 examples do not. No growth occurs for p=1/2 in this data.
+
+Required-family coverage: all 36 primary FOLD24 tours n=96,98,...,166,
+all 44 distinct H16a tours n=48..142, all 13 TT16 tours n=48..96, and the
+forced period-four FIELD tour at n=166 have zero deficit at both prices.
+All nine LF4 tours were tested: n=96,98,...,110 pass both prices;
+n=144 is in the table above. The three Claim 29 tours are included, and
+their X,E,G,X1,W3 and retained-path counts agree exactly with the
+Verifier's saved records. There are 39 tested distinct tours with
+n>=128. Additional families and old audit copies were also included.
+
+## Worst Hall cut, independently checked
+
+For `w-integrator/tours/LF5_n260.json`, the p=2/3 maximum flow has
+scaled value 1253 against total demand 1328 (units 1/6). Its source-side
+Hall set is entirely at the bottom-right corner:
+
+```
+J = {(fx,fy,r)=(1,0,r): 15<=r<=126 and r mod 6 != 2}.
+|J| = 94.
+```
+
+Use x rightwards and y upwards, as in the audited endpoint convention.
+The STRICT radius-ten neighbourhood of J contains 21 outside-S* pair
+atoms and 217 hole atoms, and no X1 or W3 atoms. Its capacity is
+`21*(2/3)+217*(1/6)=301/6`. Demand is `94*(2/3)=376/6`. Hence
+
+```
+Delta(H) = (376-301)/6 = 25/2.
+```
+
+The flow attains the complementary upper bound, so this is the exact
+maximum Hall deficit, not just the deficit of one selected subset.
+`hall_v3_worst_2_3.json` contains J and every neighbouring atom with its
+geometry and capacity. A separate checker rebuilt tiles by rational
+polygon clipping and tested support using explicit dual-vertex sets;
+it reproduced the cut, all endpoint retention tests, the 21 pairs,
+and the 217 holes. It does not import the main flow or support code.
+Its output is `hall_v3_cut_check.log`.
+
+At p=1/2 all tours tie for worst deficit zero. The saved representative
+is also LF5 n=260; its full scaled flow is 664/664 (units 1/4). The
+residual source-side Hall set is empty, so there is no obstructing J.
+See `hall_v3_worst_1_2.json`.
+
+## Exact test, finite inputs, and reproduction
+
+The test uses the whole-tour S* union, actual retained paths, full-tour
+quarter multiplicities, and the v3 rule: every point of an atom's
+support must lie within distance ten of ONE dual vertex. Pair support
+is its four endpoints; hole/W3 support is its closed quarter triangle.
+This is not the Verifier's generous bounding-box-intersection test.
+W3 units with identical support are aggregated with their exact total
+capacity. The mixed identities are checked before every flow.
+
+At p=2/3, capacities are multiplied by six: demand four, pair capacity
+four, excess-atom capacity one. At p=1/2, capacities are multiplied by
+four: demand two, pair capacity two, excess-atom capacity one. Thus
+lambda=p in BOTH experiments; the p=1/2 experiment uses its own mixed
+ledger. All arithmetic is integer or exact rational arithmetic.
+
+Finite evidence: 193 geometry validations and 386 integer max-flows.
+The 228-line main checker also passes 300 small random graphs checked
+against exhaustive Hall-subset enumeration and 2,000 strict-support
+checks against direct path-vertex enumeration. Every computed flow
+checks capacity, conservation, and equality with its residual Hall cut.
+The second worst-cut checker and the inventory summary are separate
+small scripts; no SAT or large strip graph is an input. The main run
+took about 210 seconds in one process. No solver threads were used.
+
+Commands from the research root:
+
+```sh
+python3 gap/turnstheory/check_hall_v3.py > gap/turnstheory/hall_v3_run.log 2>&1
+python3 gap/turnstheory/summarize_hall_v3.py
+python3 gap/turnstheory/verify_hall_v3_cut.py
+```
+
+`hall_inventory.json` fixes the 345 input paths. `hall_v3_results.json`
+records board hashes, source aliases, exact deficits, and cut data.
+The summary checks complete inventory coverage and the three Claim 29
+records. The test includes the 36 assembled FOLD24 tours; corner
+`template` files are construction data, not additional completed tours.
+
+**Next mathematical action:** count the displayed LF5 Hall set along
+an arbitrary-size LF5 family before treating the growing deficit as a
+disproof. In parallel, retain p=1/2 as the simpler 5n target: every saved
+tour meets its individual demands, but a universal allocation and the
+end-zone lemma remain unproved. No further computation was launched.
+
+---
+
+# Skeleton v3: Claim 29 quantifiers fixed; Claim 31 audited — 2026-10-03
+
+**L2 remains CONJECTURE / GAP.** The new top section of PLAN.md gives
+L2-v3(2/3,10): individual retained-path demands, strict radius-ten atom
+support, mixed capacity, and ONE absolute total deficit. The statement
+quantifies the constant before all board sizes and tours. It permits
+no allowance per path, run, or open patch. Claim 29's forest, near-side,
+and radius-zero stop tests are stated with their exact limits.
+
+The exact next finite test is max-flow on each completed tour, with
+capacities scaled by six: demand four per retained path, capacity four
+per outside-S* pair atom, capacity one per excess atom. Its min-cut
+returns the exact Hall deficit over ALL path subsets. This differs
+from the earlier aggregate-payment formula and generous non-B tests.
+
+Important limit: this finite flow decides one tour, not the all-size
+conjecture. A universal finite certificate still requires a specified
+interface-state scheme and a proof that its local payments and boundary
+potentials join correctly. W3 supplies support but not that proof.
+Claim 30's one-bit-per-run correction is included; no global ribbon
+word is assumed. Interior sharing and end-zone/L3 joint pricing remain
+open. The proposed next computation is the strict mixed-capacity test
+on the three saved completed tours; no large computation was launched.
+
+Proof size: the v3 statement, reductions, and test specification have
+169 lines and 1,325 words. They add no new finite proof input. W3's
+sixteen local hole certificates and the audited ledger/L3 remain inputs;
+the universal allocation certificate is still missing.
+
+**Claim 31 PASS:** I read the independent audit and marked PROOF_R3.md
+AUDITED. The final strip theorem is 5X>=24n-13012 for even n>=32.
+No result index or post was changed.
+
+---
+
+# W3 support incorporated; end-zone price separated — 2026-10-03
+
+**ARGUMENT, no new coefficient.** PLAN.md now gives a conservative
+L-infinity support radius TEN for a non-S* crossing near an interior
+bad square, from the 7 by 7 and side-anchored 12 by 9 hole certificates.
+I read their generators and check logs and independently ran all four
+depth-6 DRUP checks; all passed. Fixed corner boxes handle interference
+from a second side. The current support discussion uses n>=128 and
+fixed size 32 corner boxes; no new theorem size range is claimed.
+
+The remaining L2 tasks are explicit: a capacity allocation controlling
+shared crossing witnesses, and a separate side lemma for paths whose
+charge lies in depth-at-most-three end zones. L3 pays lost candidates;
+it does not also pay these retained end zones without a joint budget.
+The mixed-ledger contract is preserved. PLAN.md states a Hall-type
+condition for arbitrary subsets of retained radii, not only runs.
+
+Proof size: the new PLAN.md section has 139 lines and 1,100 words,
+including the geometric derivation, open contracts, and check commands. Finite inputs are four interior and twelve
+side CNF/DRUP proofs, plus the inherited tile/flux input. No large
+computation or new SAT search was run. The 2/3 price remains open.
+
+---
+
 # L2/L3 corner contract corrected — 2026-10-03
 
 **No new bound.** The top of PLAN.md now incorporates W1 and W3.

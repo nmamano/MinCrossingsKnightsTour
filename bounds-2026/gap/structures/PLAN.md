@@ -70,3 +70,14 @@ field, so the carrier model needs exogenous ribbon bits, not arbitrary tours.
    transport (S8 is ARGUMENT only).
 4. Constants: per-domain/per-wall losses must total O(1) or o(n) (number of domains is not bounded a priori).
 First milestone I propose for me: C1 + C2 + write-up of T1-T4 for the Verifier, then C3 at w = 3 for the six slopes.
+
+## 5. Phase 2 status (2026-10-03)
+- C1 DONE (wall_check.py) and full hand proof of T3; STRUCTURE.md written (Verifier Claim 30).
+- C2 DONE (G10): a non-all-H word next to a side costs >= 1.5 per V end (D <= 5, periodic); words that inject
+  integer colour charge into the side are infeasible in the periodic model (open: along-side current).
+- C3 pilot (G11): straight lines, pure and mixed words (period <= 3), bands a = 2..4: the minimum price per absorbed
+  end is 1/4, attained ONLY by the gentle seam and its mirror; every mixed-word line costs >= 1/2.
+- Idea for a universal R5 (no straight-line or periodicity assumption), "R5-count": by T2(a) an absorbed end that is
+  not at a wall ends at a bad square, and at most 4 ribbon halves (2 '/', 2 '\') end in one square, which has >= 2 bad
+  quarters. A local discharging lemma "every absorbed end receives >= 1/4 crossing, every crossing gives <= 1" on a
+  bounded patch around the bad square is a finite LP/SAT question; the naive count gives only 1/8.

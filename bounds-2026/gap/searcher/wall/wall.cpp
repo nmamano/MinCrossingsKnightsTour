@@ -19,13 +19,17 @@
 // Result: min mean cost per row over all cycles (exact: Dinkelbach + integer Bellman-Ford).
 //
 // usage: wall A WM KM MODE [P Q]      (start ratio P/Q, default 8/1)
+// FIELDL=0 FIELDR=2 (env): the tiles that cover the left / right margin squares may only use these upward moves
+// (0 = (2,1) a, 1 = (-2,1) d, 2 = (1,2) b, 3 = (-1,2) c): '/' H = 0, '/' V = 2, '\' H = 1, '\' V = 3.
 #include <bits/stdc++.h>
 using namespace std;
 typedef long long ll; typedef unsigned long long ull;
-int A, WM, KM; string MODE; const int WU = 3;
+int A, SA = 0, SB = 1, WM, KM;   /* shear SA/SB: cell (u,y) = board cell (u + floor(SA*y/SB), y) */ string MODE; int WU = 2; bool NOLAB = false; int LA = 1, LB = 2; int FLM = 15, FRM = 15;   // lambda = LA/LB: cost = 2*LA*Xc + (LB-LA)*(G+W3+X1), E share = cost/(2*LB)
 int ULO, UHI, NC;                         // scan columns u in [ULO, UHI]
 const int MDX[4] = {2, -2, 1, -1}, MDY[4] = {1, 1, 2, 2};
 static bool modeled(int u) { return u >= 0 && u < WM; }
+static inline ll fdiv(ll p, ll q) { return p >= 0 ? p / q : -((-p + q - 1) / q); }
+static inline int shf(int ph, int y) { return (int)(fdiv((ll)SA * (ph + y), SB) - fdiv((ll)SA * ph, SB)); }   // shift of row y relative to row 0 at phase ph
 static ll orient(ll ax, ll ay, ll bx, ll by, ll cx, ll cy) { ll v = (bx - ax) * (cy - ay) - (by - ay) * (cx - ax); return (v > 0) - (v < 0); }
 static bool crossR(ll a, ll b, ll c, ll d, ll e, ll f, ll g, ll h) { return orient(a, b, c, d, e, f) * orient(a, b, c, d, g, h) < 0 && orient(e, f, g, h, a, b) * orient(e, f, g, h, c, d) < 0; }
 // ---- tiles: quarters (dX, dY, q) relative to the lower end, per upward move; q: 0 bottom 1 right 2 top 3 left
@@ -51,23 +55,33 @@ static void makeTiles() {
     }
 }
 // ---- slots
-struct Slot { int c, ly, m, tc, ty; };
+struct Slot { int c, ly, m, ty; int tc[8]; bool ok[8]; };
 vector<Slot> SL; int SID[64][3][4];
-int sqClass[256]; const int SOFF = 128;   // class of square by s = X - A*Y: 0 incomplete, 1 margin, 2 cost
-int sLo, sHi;                              // complete squares s in [sLo, sHi]
-struct Key { ull m[3]; ull l[2]; uint8_t x, warm; bool operator==(const Key& o) const { return !memcmp(this, &o, sizeof(Key)); } };
+const int SOFF = 128; int sqC[8][256]; int sLoP[8], sHiP[8];   // per phase: class of square by s: 0 incomplete, 1 margin, 2 cost
+#ifdef NOLABK   // compact key (24 bytes): no path labels; run with NOLAB=1 only
+struct Key { ull m, m2; uint16_t x; uint8_t warm; static constexpr ull l = 0, l2 = 0; bool operator==(const Key& o) const { return m == o.m && m2 == o.m2 && x == o.x && warm == o.warm; } };
+#else
+struct Key { ull m, m2; ull l; ull l2; uint32_t x, warm; bool operator==(const Key& o) const { return m == o.m && m2 == o.m2 && l == o.l && l2 == o.l2 && x == o.x && warm == o.warm; } };
+#endif
 struct PE { int c, ly, m, comp; };        // lower end column index c (u = c + ULO), row ly; move m
 static Key encode(int x, int warm, const vector<PE>& e) {
-    Key k; memset(&k, 0, sizeof k); k.x = x; k.warm = warm; int li = 0;
-    for (auto& p : e) { int s = SID[p.c][p.ly + 2][p.m]; k.m[s >> 6] |= 1ULL << (s & 63); k.l[li >> 4] |= (ull)p.comp << (4 * (li & 15)); li++; }
+    Key k; k.m = 0; k.m2 = 0; k.x = x; k.warm = warm;
+#ifndef NOLABK
+    k.l = 0; k.l2 = 0; int li = 0;
+#endif
+    for (auto& p : e) { int s = SID[p.c][p.ly + 2][p.m]; if (s < 64) k.m |= 1ULL << s; else k.m2 |= 1ULL << (s - 64);
+#ifndef NOLABK
+        if (li < 16) k.l |= (ull)p.comp << (4 * li); else k.l2 |= (ull)p.comp << (4 * (li - 16)); li++;
+#endif
+    }
     return k;
 }
 static void decode(const Key& k, vector<PE>& e) {
     e.clear(); int li = 0;
-    for (int s = 0; s < (int)SL.size(); s++) if (k.m[s >> 6] >> (s & 63) & 1) { e.push_back({SL[s].c, SL[s].ly, SL[s].m, (int)(k.l[li >> 4] >> (4 * (li & 15)) & 15)}); li++; }
+    for (int s = 0; s < (int)SL.size(); s++) if ((s < 64 ? k.m >> s : k.m2 >> (s - 64)) & 1) { e.push_back({SL[s].c, SL[s].ly, SL[s].m, (int)((li < 16 ? k.l >> (4 * li) : k.l2 >> (4 * (li - 16))) & 15)}); li++; }
 }
 vector<Key> keys; vector<uint32_t> tab; ull tmask;
-static ull hk(const Key& k) { ull h = 1469598103934665603ULL; const unsigned char* p = (const unsigned char*)&k; for (size_t i = 0; i < sizeof(Key); i++) { h ^= p[i]; h *= 1099511628211ULL; } h ^= h >> 29; return h; }
+static ull hk(const Key& k) { ull x = k.m * 0x9E3779B97F4A7C15ULL ^ (k.m2 + 0x5851F42D4C957F2DULL) * 0xD6E8FEB86659FD93ULL ^ (k.l + 0x632BE59BD9B4E019ULL) * 0xC2B2AE3D27D4EB4FULL ^ (k.l2 + 0x2545F4914F6CDD1DULL) * 0x94D049BB133111EBULL ^ ((ull)k.x << 8 | k.warm) * 0x165667B19E3779F9ULL; x ^= x >> 31; x *= 0xBF58476D1CE4E5B9ULL; x ^= x >> 29; return x; }
 static void rehash(int lg) { tab.assign(1ULL << lg, ~0u); tmask = (1ULL << lg) - 1; for (uint32_t i = 0; i < keys.size(); i++) { ull h = hk(keys[i]) & tmask; while (tab[h] != ~0u) h = (h + 1) & tmask; tab[h] = i; } }
 static uint32_t getId(const Key& k) {
     ull h = hk(k) & tmask;
@@ -77,62 +91,79 @@ static uint32_t getId(const Key& k) {
     return id;
 }
 // real coordinates of a slot end (row ly relative to the current row 0)
-static inline ll RX(int c, int y) { return (ll)(c + ULO) + (ll)A * y; }
+static inline ll RX(int c, int y, int ph) { return (ll)(c + ULO) + shf(ph, y); }
 
 int main(int argc, char** argv) {
     setvbuf(stdout, NULL, _IONBF, 0);
     if (argc < 5) { fprintf(stderr, "usage: wall A WM KM nz|zero|any [P Q] [cap]\n"); return 1; }
-    A = atoi(argv[1]); WM = atoi(argv[2]); KM = atoi(argv[3]); MODE = argv[4];
-    ll P = argc > 6 ? atoll(argv[5]) : 8, Q = argc > 6 ? atoll(argv[6]) : 1; size_t CAP = argc > 7 ? atoll(argv[7]) : 400000000;
+    if (strchr(argv[1], '/')) sscanf(argv[1], "%d/%d", &SA, &SB); else { SA = atoi(argv[1]); SB = 1; } A = SA;
+    if (SB > 8 || (SB > 1 && SA >= SB)) { printf("shear a/b needs b <= 8 and a < b (or b = 1)\n"); return 1; }
+    WM = atoi(argv[2]); KM = atoi(argv[3]); MODE = argv[4];
+    ll P = argc > 6 ? atoll(argv[5]) : 8, Q = argc > 6 ? atoll(argv[6]) : 1; size_t CAP = argc > 7 ? atoll(argv[7]) : 400000000; if (getenv("NOLAB")) NOLAB = true;
+    for (int sd = 0; sd < 2; sd++) { const char* f = getenv(sd ? "FIELDR" : "FIELDL"); if (!f) continue; int mk = 0; for (const char* c = f; *c; c++) mk |= 1 << (*c - '0'); (sd ? FRM : FLM) = mk; }
+#ifdef NOLABK
+    NOLAB = true;
+#endif
+ if (getenv("WU")) WU = atoi(getenv("WU")); if (getenv("LAM")) sscanf(getenv("LAM"), "%d/%d", &LA, &LB);
     auto T0 = chrono::steady_clock::now(); auto el = [&]() { return chrono::duration<double>(chrono::steady_clock::now() - T0).count(); };
     makeTiles();
     int dmin = 0, dmax = 0;
-    for (int m = 0; m < 4; m++) { int du = MDX[m] - A * MDY[m]; dmin = min({dmin, du, -du}); dmax = max({dmax, du, -du}); }
+    for (int ph = 0; ph < SB; ph++) for (int m = 0; m < 4; m++) { int du = MDX[m] - shf(ph, MDY[m]); dmin = min({dmin, du, -du}); dmax = max({dmax, du, -du}); }
     ULO = dmin; UHI = WM - 1 + dmax; NC = UHI - ULO + 1;
     if (NC > 64) { printf("too many columns\n"); return 1; }
     memset(SID, -1, sizeof SID);
     for (int c = 0; c < NC; c++) for (int ly = -2; ly <= 0; ly++) for (int m = 0; m < 4; m++) {
-        int tc = c + MDX[m] - A * MDY[m], ty = ly + MDY[m];
-        if (ty < 0 || tc < 0 || tc >= NC) continue;
-        if (!modeled(c + ULO) && !modeled(tc + ULO)) continue;
-        SID[c][ly + 2][m] = SL.size(); SL.push_back({c, ly, m, tc, ty});
-    }
-    if (SL.size() > 192) { printf("too many slots %zu\n", SL.size()); return 1; }
-    // ---- square classes (square row Y = 0, X = s)
-    memset(sqClass, 0, sizeof sqClass); sLo = 1 << 30; sHi = -(1 << 30);
-    for (int X = -40; X <= 60; X++) {
-        bool comp = true, any = false;
-        for (int x1 = X - 2; x1 <= X + 3; x1++) for (int y1 = -2; y1 <= 1; y1++) for (int m = 0; m < 4; m++) {
-            bool cov = false;
-            for (auto& t : TQ[m]) if (x1 + t[0] == X && y1 + t[1] == 0) cov = true;
-            if (!cov) continue;
-            any = true;
-            int x2 = x1 + MDX[m], y2 = y1 + MDY[m];
-            if (!modeled(x1 - A * y1) && !modeled(x2 - A * y2)) comp = false;
+        Slot S; S.c = c; S.ly = ly; S.m = m; S.ty = ly + MDY[m]; bool any = false;
+        for (int ph = 0; ph < SB; ph++) {   // ph = phase of the CURRENT row 0; the lower end is in row ly
+            int lp = ((ph + ly) % SB + SB) % SB;
+            int tc = c + MDX[m] - shf(lp, MDY[m]);
+            S.tc[ph] = tc; S.ok[ph] = S.ty >= 0 && tc >= 0 && tc < NC && (modeled(c + ULO) || modeled(tc + ULO));
+            any |= S.ok[ph];
         }
-        if (comp && any) { sqClass[X + SOFF] = 2; sLo = min(sLo, X); sHi = max(sHi, X); }
+        if (!any) continue;
+        SID[c][ly + 2][m] = SL.size(); SL.push_back(S);
     }
-    for (int X = sLo; X <= sHi; X++) if (sqClass[X + SOFF] != 2) { printf("complete squares not an interval\n"); return 1; }
-    for (int k = 0; k < KM; k++) { sqClass[sLo + k + SOFF] = 1; sqClass[sHi - k + SOFF] = 1; }
-    int ncost = 0; for (int X = sLo; X <= sHi; X++) ncost += sqClass[X + SOFF] == 2;
-    printf("A=%d WM=%d KM=%d MODE=%s: columns u in [%d,%d], %zu slots, complete squares s in [%d,%d], %d cost squares per row\n",
-           A, WM, KM, MODE.c_str(), ULO, UHI, SL.size(), sLo, sHi, ncost);
+    if (SL.size() > 128) { printf("too many slots %zu\n", SL.size()); return 1; }
+    // ---- square classes per phase psi of the square row (absolute row Y = psi), index s = X - floor(SA*Y/SB)
+    for (int ps = 0; ps < SB; ps++) {
+        sLoP[ps] = 1 << 30; sHiP[ps] = -(1 << 30);
+        for (int sidx = -40; sidx <= 60; sidx++) {
+            ll X = sidx + fdiv((ll)SA * ps, SB);
+            bool comp = true, any = false;
+            for (ll x1 = X - 2; x1 <= X + 3; x1++) for (int y1 = ps - 2; y1 <= ps + 1; y1++) for (int m = 0; m < 4; m++) {
+                bool cov = false;
+                for (auto& t : TQ[m]) if (x1 + t[0] == X && y1 + t[1] == ps) cov = true;
+                if (!cov) continue;
+                any = true;
+                ll x2 = x1 + MDX[m]; int y2 = y1 + MDY[m];
+                if (!modeled((int)(x1 - fdiv((ll)SA * y1, SB))) && !modeled((int)(x2 - fdiv((ll)SA * y2, SB)))) comp = false;
+            }
+            sqC[ps][sidx + SOFF] = 0;
+            if (comp && any) { sqC[ps][sidx + SOFF] = 2; sLoP[ps] = min(sLoP[ps], sidx); sHiP[ps] = max(sHiP[ps], sidx); }
+        }
+        if (sLoP[ps] > sHiP[ps] || sHiP[ps] - sLoP[ps] + 1 < 2 * KM + 1) { printf("shear %d/%d WM=%d: too few complete squares at phase %d\n", SA, SB, WM, ps); return 1; }
+        for (int X = sLoP[ps]; X <= sHiP[ps]; X++) if (sqC[ps][X + SOFF] != 2) { printf("complete squares not an interval\n"); return 1; }
+        for (int k = 0; k < KM; k++) { sqC[ps][sLoP[ps] + k + SOFF] = 1; sqC[ps][sHiP[ps] - k + SOFF] = 1; }
+    }
+    int sLo = sLoP[0], sHi = sHiP[0];
+    int ncost = 0; for (int X = sLo; X <= sHi; X++) ncost += sqC[0][X + SOFF] == 2;
+    printf("shear %d/%d WM=%d KM=%d MODE=%s lambda=%d/%d: columns u in [%d,%d], %zu slots, complete squares s in [%d,%d], %d cost squares per row\n",
+           SA, SB, WM, KM, MODE.c_str(), LA, LB, ULO, UHI, SL.size(), sLo, sHi, ncost);
+    if (getenv("DRY")) return 0;
     // ---- graph
-    rehash(20);
-    { vector<PE> e0; getId(encode(0, WU, e0)); }
-    vector<ull> off{0}; vector<uint32_t> tgt; vector<uint8_t> wgt; vector<uint8_t> isRowEnd;
+    rehash(20); keys.reserve(min(CAP + 1000000, (size_t)400000000));   // reserve: no doubling peak (untouched pages cost no RSS)
+    vector<ull> off{0}; vector<uint32_t> tgt; vector<uint8_t> wgX, wgW; vector<uint8_t> isRowEnd;
     vector<PE> s, in, rest, ne;
     long rejM = 0, rejPsi = 0;
-    for (size_t q = 0; q < keys.size(); q++) {
-        if (keys.size() > CAP) { size_t cw[4] = {0, 0, 0, 0}, cx[4] = {0,0,0,0}; for (size_t i = 0; i < q; i++) cw[keys[i].warm]++; for (size_t i = q; i < keys.size(); i++) cx[keys[i].warm]++; printf("CAP reached: %zu states (processed %zu) %.0fs; processed by warm 0..3: %zu %zu %zu %zu; queued: %zu %zu %zu %zu\n", keys.size(), q, el(), cw[0], cw[1], cw[2], cw[3], cx[0], cx[1], cx[2], cx[3]); return 0; }
-        Key kq = keys[q]; int x = kq.x, warm = kq.warm; decode(kq, s);
+    auto expand = [&](const Key kq, vector<pair<Key, uint16_t>>& outK) {
+        int x = kq.x & 255, ph = kq.x >> 8, warm = kq.warm; decode(kq, s);
         in.clear(); rest.clear();
-        for (auto& p : s) { auto& S = SL[SID[p.c][p.ly + 2][p.m]]; (S.tc == x && S.ty == 0 ? in : rest).push_back(p); }
+        for (auto& p : s) { auto& S = SL[SID[p.c][p.ly + 2][p.m]]; (S.tc[ph] == x && S.ty == 0 ? in : rest).push_back(p); }
         int din = in.size(); bool isMod = modeled(x + ULO);
-        bool ok0 = din <= 2 && !(din == 2 && in[0].comp == in[1].comp);
-        vector<pair<uint32_t, uint8_t>> outs;
+        bool ok0 = din <= 2 && !(!NOLAB && din == 2 && in[0].comp == in[1].comp);
+        outK.clear();
         if (ok0) {
-            vector<int> cand; for (int m = 0; m < 4; m++) if (SID[x][2][m] >= 0) cand.push_back(m);
+            vector<int> cand; for (int m = 0; m < 4; m++) if (SID[x][2][m] >= 0 && SL[SID[x][2][m]].ok[ph]) cand.push_back(m);
             int nc = cand.size();
             for (int msk = 0; msk < (1 << nc); msk++) {
                 int r = __builtin_popcount(msk);
@@ -140,20 +171,20 @@ int main(int argc, char** argv) {
                 if (isMod && !warm && din + r != 2) continue;
                 vector<int> ch; for (int i = 0; i < nc; i++) if (msk >> i & 1) ch.push_back(cand[i]);
                 bool ok = true;
-                for (int m : ch) { auto& S = SL[SID[x][2][m]]; int dg = 0; for (auto& p : rest) { auto& T = SL[SID[p.c][p.ly + 2][p.m]]; if (T.tc == S.tc && T.ty == S.ty) dg++; } for (int m2 : ch) { auto& S2 = SL[SID[x][2][m2]]; if (S2.tc == S.tc && S2.ty == S.ty) dg++; } if (dg > 2) ok = false; }
+                for (int m : ch) { auto& S = SL[SID[x][2][m]]; int dg = 0; for (auto& p : rest) { auto& T = SL[SID[p.c][p.ly + 2][p.m]]; if (T.tc[ph] == S.tc[ph] && T.ty == S.ty) dg++; } for (int m2 : ch) { auto& S2 = SL[SID[x][2][m2]]; if (S2.tc[ph] == S.tc[ph] && S2.ty == S.ty) dg++; } if (dg > 2) ok = false; }
                 if (!ok) continue;
                 // crossings of new edges, X1 and margin overlap pruning
-                int x1c = 0;
-                auto edgeR = [&](int c, int ly, int m, ll* E) { E[0] = RX(c, ly); E[1] = ly; E[2] = E[0] + MDX[m]; E[3] = ly + MDY[m]; };
+                int x1c = 0, xc = 0;
+                auto edgeR = [&](int c, int ly, int m, ll* E) { E[0] = RX(c, ly, ph); E[1] = ly; E[2] = E[0] + MDX[m]; E[3] = ly + MDY[m]; };
                 auto pairCheck = [&](const ll* e, int me, const ll* f, int mf) {
                     if (!crossR(e[0], e[1], e[2], e[3], f[0], f[1], f[2], f[3])) return;
                     int ov = 0;
                     for (auto& a : TQ[me]) for (auto& b : TQ[mf]) {
                         ll X1 = e[0] + a[0], Y1 = e[1] + a[1], X2 = f[0] + b[0], Y2 = f[1] + b[1];
-                        if (X1 == X2 && Y1 == Y2 && a[2] == b[2]) { ov++; if (!warm && sqClass[(int)(X1 - (ll)A * Y1) + SOFF] == 1) ok = false; }
+                        if (X1 == X2 && Y1 == Y2 && a[2] == b[2]) { ov++; if ((WU - warm) + Y1 >= 1) { int ps = (int)(((ph + Y1) % SB + SB) % SB); ll sidx = X1 - shf(ph, (int)Y1); if (sidx > -100 && sidx < 120 && sqC[ps][sidx + SOFF] == 1) ok = false; } }
                     }
                     if (ov < 1 || ov > 2) { fprintf(stderr, "overlap error %d\n", ov); exit(1); }
-                    if (ov == 1) x1c++;
+                    if (ov == 1) x1c++; xc++;
                 };
                 for (size_t i = 0; i < ch.size() && ok; i++) {
                     ll e[4]; edgeR(x, 0, ch[i], e);
@@ -165,19 +196,23 @@ int main(int argc, char** argv) {
                 ne.clear();
                 for (auto p : rest) { if (merge >= 0 && p.comp == merge) p.comp = label; ne.push_back(p); }
                 for (int m : ch) ne.push_back({x, 0, m, label});
-                int nx = x + 1, sh = 0, nwarm = warm; if (nx == NC) { nx = 0; sh = 1; if (nwarm) nwarm--; }
+                int nx = x + 1, sh = 0, nwarm = warm, nph = ph; if (nx == NC) { nx = 0; sh = 1; if (nwarm) nwarm--; nph = (ph + 1) % SB; }
                 for (auto& p : ne) p.ly -= sh;
                 int w = x1c;
-                if (sh && !warm) {
+                if (sh && (WU - warm) >= 1) {   // square row of absolute row >= 1: all covering edges are represented
                     // square row Y = -1 (between rows -1 and 0 of the new frame): multiplicities from pending edges
-                    int span = sHi - sLo + 1; vector<array<int, 4>> mm(span, {0, 0, 0, 0});
+                    int sLo = sLoP[ph], sHi = sHiP[ph];   // square row -1 of the new frame has the phase of the old row 0
+                    int span = sHi - sLo + 1; vector<array<int, 4>> mm(span, {0, 0, 0, 0}); vector<int> mvm(span, 0);
                     for (auto& p : ne) {
-                        ll ex = RX(p.c, p.ly);
-                        for (auto& t : TQ[p.m]) { ll X = ex + t[0], Y = p.ly + t[1]; if (Y != -1) continue; ll sidx = X + A; if (sidx >= sLo && sidx <= sHi) mm[sidx - sLo][t[2]]++; }
+                        ll ex = RX(p.c, p.ly, nph);
+                        for (auto& t : TQ[p.m]) { ll X = ex + t[0], Y = p.ly + t[1]; if (Y != -1) continue; ll sidx = X - shf(nph, -1); if (sidx >= sLo && sidx <= sHi) { mm[sidx - sLo][t[2]]++; mvm[sidx - sLo] |= 1 << p.m; } }
                     }
+                    bool fok = true;   // FIELDL / FIELDR: allowed moves of the tiles that cover the margin squares
+                    for (int i = 0; i < KM; i++) { if (mvm[i] & ~FLM) fok = false; if (mvm[span - 1 - i] & ~FRM) fok = false; }
+                    if (!fok) { rejM++; continue; }
                     int G = 0, W3 = 0; bool good = true;
                     for (int i = 0; i < span; i++) {
-                        int cl = sqClass[sLo + i + SOFF];
+                        int cl = sqC[ph][sLo + i + SOFF];
                         for (int qq = 0; qq < 4; qq++) { int mv = mm[i][qq];
                             if (cl == 1 && mv != 1) good = false;
                             if (cl == 2) { if (mv == 0) G++; if (mv >= 3) W3 += (mv - 1) * (mv - 2) / 2; } }
@@ -185,23 +220,52 @@ int main(int argc, char** argv) {
                     if (!good) { rejM++; continue; }
                     // psi jump: grid edges between squares i-1 and i (real X = sLo + i - A), chi relative (-1)^X
                     int psi = 0;
-                    for (int i = 1; i < span; i++) { int X = sLo + i - A; int chi = (X & 1) ? -1 : 1; psi += chi * (mm[i - 1][1] + mm[i][3] + 1); }
+                    for (int i = 1; i < span; i++) { int X = sLo + i; int chi = (X & 1) ? -1 : 1; psi += chi * (mm[i - 1][1] + mm[i][3] + 1); }
                     psi = ((psi % 3) + 3) % 3;
                     if ((MODE == "nz" && psi == 0) || (MODE == "zero" && psi != 0)) { rejPsi++; continue; }
                     w += G + W3;
-                } else if (warm) w = 0;
+                }
+                if (warm) { w = 0; xc = 0; }
                 sort(ne.begin(), ne.end(), [&](const PE& a, const PE& b) { return SID[a.c][a.ly + 2][a.m] < SID[b.c][b.ly + 2][b.m]; });
                 int rl[128]; memset(rl, -1, sizeof rl); int nl = 0;
-                for (auto& p : ne) { if (rl[p.comp] < 0) rl[p.comp] = nl++; p.comp = rl[p.comp]; }
-                if (nl > 15 || ne.size() > 32) { printf("label overflow\n"); return 1; }
-                if (w > 255) { printf("weight overflow\n"); return 1; }
-                outs.push_back({getId(encode(nx, nwarm, ne)), (uint8_t)w});
+                for (auto& p : ne) { if (NOLAB) { p.comp = 0; continue; } if (rl[p.comp] < 0) rl[p.comp] = nl++; p.comp = rl[p.comp]; }
+                if (nl > 15 || ne.size() > 32) { printf("label overflow (%zu pending edges)\n", ne.size()); exit(1); }
+                if (w > 255 || xc > 255) { printf("weight overflow\n"); exit(1); }
+                outK.push_back({encode(nx | nph << 8, nwarm, ne), (uint16_t)(xc << 8 | w)});
             }
         }
+    };
+    vector<pair<Key, uint16_t>> outK;
+    {   // warm-up layers: expanded one cell position at a time, not stored
+        vector<Key> cur; { vector<PE> e0; cur.push_back(encode(0, WU, e0)); }
+        size_t seeds = 0, maxLayer = 0;
+        while (!cur.empty()) {
+            vector<Key> nxt; vector<uint32_t> wt(1 << 16, ~0u); ull wm = wt.size() - 1;   // layer hash set (dedupe while generating)
+            auto addW = [&](const Key& k) {
+                ull h = hk(k) & wm;
+                while (wt[h] != ~0u) { if (nxt[wt[h]] == k) return; h = (h + 1) & wm; }
+                wt[h] = nxt.size(); nxt.push_back(k);
+                if (nxt.size() * 2 > wt.size()) { wt.assign(wt.size() * 2, ~0u); wm = wt.size() - 1; for (uint32_t i = 0; i < nxt.size(); i++) { ull g = hk(nxt[i]) & wm; while (wt[g] != ~0u) g = (g + 1) & wm; wt[g] = i; } }
+            };
+            for (size_t ci = 0; ci < cur.size(); ci++) { expand(cur[ci], outK); for (auto& o : outK) { if (o.first.warm == 0) { getId(o.first); } else addW(o.first); }
+                if (keys.size() + nxt.size() > CAP) { printf("CAP reached in warm-up: next layer %zu, seeds %zu %.0fs\n", nxt.size(), keys.size(), el()); return 0; } }
+            { vector<Key>().swap(cur); vector<uint32_t>().swap(wt); }
+            maxLayer = max(maxLayer, nxt.size()); cur.swap(nxt);
+            if (cur.size() + keys.size() > CAP) { printf("CAP reached in warm-up: layer %zu, seeds %zu %.0fs\n", cur.size(), keys.size(), el()); return 0; }
+        }
+        seeds = keys.size();
+        printf("warm-up done: %zu strict seed states, largest warm layer %zu, %.0fs\n", seeds, maxLayer, el());
+    }
+    for (size_t q = 0; q < keys.size(); q++) {
+        if (keys.size() > CAP) { printf("CAP reached: %zu states (processed %zu) %.0fs\n", keys.size(), q, el()); return 0; }
+        Key kq = keys[q]; int x = kq.x & 255;
+        expand(kq, outK);
+        vector<pair<uint32_t, uint16_t>> outs;
+        for (auto& o : outK) outs.push_back({getId(o.first), o.second});
         sort(outs.begin(), outs.end());
         for (size_t i = 0; i < outs.size(); i++) {
-            if (i && outs[i].first == outs[i - 1].first) { if (outs[i].second < wgt.back()) wgt.back() = outs[i].second; continue; }   // min weight per target
-            tgt.push_back(outs[i].first); wgt.push_back(outs[i].second); isRowEnd.push_back(x == NC - 1);
+            if (i && outs[i].first == outs[i - 1].first) { if (outs[i].second != outs[i - 1].second) { printf("non-unique arc data\n"); return 1; } continue; }
+            tgt.push_back(outs[i].first); wgX.push_back(outs[i].second >> 8); wgW.push_back(outs[i].second & 255); isRowEnd.push_back(x == NC - 1);
         }
         off.push_back(tgt.size());
         if (q && (q & ((1 << 22) - 1)) == 0) printf("  ... %zu/%zu states, %zu arcs, %.0fs\n", q, keys.size(), tgt.size(), el());
@@ -209,15 +273,17 @@ int main(int argc, char** argv) {
     size_t N = keys.size(), M = tgt.size();
     { size_t cw[4] = {0, 0, 0, 0}; for (auto& k : keys) cw[k.warm]++; printf("states by warm level: strict %zu, warm1 %zu, warm2 %zu, warm3 %zu\n", cw[0], cw[1], cw[2], cw[3]); }
     printf("graph: states %zu arcs %zu (rejected: margin %ld, psi %ld) %.0fs\n", N, M, rejM, rejPsi, el());
+    { vector<uint32_t>().swap(tab); }
     // ---- min mean cost per row: Dinkelbach with exact Bellman-Ford (weights Q*w - P per row end)
     vector<ll> d(N); vector<uint32_t> par(N), src(M);
     for (size_t u = 0; u < N; u++) for (ull i = off[u]; i < off[u + 1]; i++) src[i] = u;
     vector<uint32_t> cyc;
+    auto WG = [&](size_t i) -> ll { return 2LL * LA * wgX[i] + (ll)(LB - LA) * wgW[i]; };
     auto bf = [&](ll p, ll q) {
         fill(d.begin(), d.end(), 0); fill(par.begin(), par.end(), ~0u); vector<uint8_t> col(N);
         for (int pass = 1;; pass++) {
             bool chg = false;
-            for (size_t u = 0; u < N; u++) { ll du = d[u]; for (ull i = off[u]; i < off[u + 1]; i++) { ll nd = du + q * wgt[i] - (isRowEnd[i] ? p : 0); if (nd < d[tgt[i]]) { d[tgt[i]] = nd; par[tgt[i]] = i; chg = true; } } }
+            for (size_t u = 0; u < N; u++) { ll du = d[u]; for (ull i = off[u]; i < off[u + 1]; i++) { ll nd = du + q * WG(i) - (isRowEnd[i] ? p : 0); if (nd < d[tgt[i]]) { d[tgt[i]] = nd; par[tgt[i]] = i; chg = true; } } }
             if (!chg) return true;
             if (pass % 4 == 0) {
                 fill(col.begin(), col.end(), 0); vector<size_t> path;
@@ -235,30 +301,35 @@ int main(int argc, char** argv) {
         }
     };
     auto printCycle = [&]() {
-        size_t st = 0; for (size_t j = 0; j < cyc.size(); j++) if (keys[src[cyc[j]]].x == 0) { st = j; break; }
-        int row = 0;
+        size_t st = 0; for (size_t j = 0; j < cyc.size(); j++) if ((keys[src[cyc[j]]].x & 255) == 0) { st = j; break; }
+        int row = 0; int ph0 = keys[src[cyc[st]]].x >> 8;
+        printf("    (cycle starts at row phase %d; board x = u + floor(%d*(phase+row)/%d) - floor(%d*phase/%d))\n", ph0, SA, SB, SA, SB);
         for (size_t jj = 0; jj < cyc.size(); jj++) {
-            uint32_t i = cyc[(st + jj) % cyc.size()]; int x = keys[src[i]].x;
-            vector<PE> tv; decode(keys[tgt[i]], tv); int sh = keys[tgt[i]].x == 0 ? 1 : 0;
+            uint32_t i = cyc[(st + jj) % cyc.size()]; int x = keys[src[i]].x & 255;
+            vector<PE> tv; decode(keys[tgt[i]], tv); int sh = (keys[tgt[i]].x & 255) == 0 ? 1 : 0;
             bool any = false; for (auto& p : tv) if (p.c == x && p.ly == -sh) any = true;
-            if (any || wgt[i]) {
-                printf("    row %d u %d (%s) w=%d:", row, x + ULO, modeled(x + ULO) ? "mod" : "ghost", wgt[i]);
-                for (auto& p : tv) if (p.c == x && p.ly == -sh) { ll ax = x + ULO + (ll)A * row, ay = row; printf(" (%lld,%lld)-(%lld,%lld)", ax, ay, ax + MDX[p.m], ay + MDY[p.m]); }
+            if (any || wgX[i] || wgW[i]) {
+                printf("    row %d u %d (%s) X=%d waste=%d:", row, x + ULO, modeled(x + ULO) ? "mod" : "ghost", wgX[i], wgW[i]);
+                for (auto& p : tv) if (p.c == x && p.ly == -sh) { ll ax = x + ULO + fdiv((ll)SA * (ph0 + row), SB) - fdiv((ll)SA * ph0, SB), ay = row; printf(" (%lld,%lld)-(%lld,%lld)", ax, ay, ax + MDX[p.m], ay + MDY[p.m]); }
                 printf("\n");
             }
             if (isRowEnd[i]) row++;
         }
     };
-    int lev = max(abs(A), 1);
+    int lev = SB > 1 ? 1 : max(abs(A), 1);
+    string lams = getenv("LAMS") ? getenv("LAMS") : "0/1,1/2,1/1"; ll P0 = P, Q0 = Q;
+    for (size_t pos = 0; pos < lams.size();) {
+    size_t e2 = lams.find(',', pos); if (e2 == string::npos) e2 = lams.size(); sscanf(lams.substr(pos, e2 - pos).c_str(), "%d/%d", &LA, &LB); pos = e2 + 1; P = P0 * LB; Q = Q0;
+    printf("== lambda %d/%d\n", LA, LB);
     while (true) {
         printf(" try mean %lld/%lld per row\n", P, Q);
         if (bf(P, Q)) {
-            printf("RESULT A=%d WM=%d KM=%d %s: min mean cost per row = %lld/%lld (CERTIFIED: no cycle below); E share per row = %lld/%lld; per level = %lld/%lld = %.4f  (%.0fs)\n",
-                   A, WM, KM, MODE.c_str(), P, Q, P, 2 * Q, P, 2 * Q * lev, (double)P / (2 * Q * lev), el());
+            printf("RESULT A=%d WM=%d KM=%d %s lambda=%d/%d: min mean weight per row = %lld/%lld (CERTIFIED: no cycle below); per level (E units) = %lld/%lld = %.4f  (%.0fs)\n",
+                   A, WM, KM, MODE.c_str(), LA, LB, P, Q, P, 2 * LB * Q * lev, (double)P / (2 * LB * Q * lev), el());
             break;
         }
-        ll sw = 0; int rows = 0; for (auto i : cyc) { sw += wgt[i]; rows += isRowEnd[i]; }
-        printf("  cycle: %zu arcs, %d rows, cost %lld -> mean %lld/%d\n", cyc.size(), rows, sw, sw, rows);
+        ll sw = 0, sx = 0, sww = 0; int rows = 0; for (auto i : cyc) { sw += WG(i); sx += wgX[i]; sww += wgW[i]; rows += isRowEnd[i]; }
+        printf("  cycle: %zu arcs, %d rows, crossings %lld, waste %lld, weight %lld -> mean %lld/%d\n", cyc.size(), rows, sx, sww, sw, sw, rows);
         if (rows == 0) { printf("  ERROR: cycle without row end\n"); return 1; }
         ll g = __gcd(sw, (ll)rows); ll P2 = sw / g, Q2 = rows / g;
         if (g == 0) { P2 = 0; Q2 = 1; }
@@ -266,6 +337,7 @@ int main(int argc, char** argv) {
         P = P2; Q = Q2;
         printCycle();
         if (P == 0) { printf("  zero-cost cycle\n"); }
+    }
     }
     printf("total %.0fs\n", el());
 }

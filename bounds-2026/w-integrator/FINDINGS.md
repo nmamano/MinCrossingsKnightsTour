@@ -322,3 +322,24 @@ commands PASS from a git-ls-files copy (tt16.py needs the user site-packages mat
 bounds-2026/demo/ return 200 and match the repo bytes. knights-tour-bounds: local commit bbe0a89 (README "moved" note), NOT pushed;
 Nil decides archive vs keep.
 2026-10-03: f177a42 pushed (bounds-2026 README title + run folder, gap/ sync, ELF auto-exclude). CR rule: sync + push after each milestone the CR names; routine gap/ sync + push without asking, at most once every ~2 h. Do not push bbe0a89.
+
+## 2026-10-03: (1,2) defect wall for the upper bound (CR task 19n/3 -> 6n?): DOES NOT FIT
+Tools in wall6n/: wallcyl.py (periodic cylinder: band of direction (a,b), fixed exterior fields, degree 2,
+psi jump of PROOF_crossings_lower.md (2) forced != 0 mod 3, exact crossings per period; CP-SAT 2 workers),
+chevron.py / chev_tf.py / tf.py (full board, fold field + 13 windows + free wall bands; tf.py = 2-factor relaxation
+of kt.board.complete). The period vector must not be a difference of two knight moves (else edges collapse:
+(2,4), (3,3), (0,4) are bad); wallcyl.py asserts this.
+Calibration: (1,1) band between fold fields (2,1)|(1,2), period 6: charged OPTIMAL 2/3 per level, uncharged 0.
+(1,2) band between (1,-1) zigzag fields z0|z0, period (4,8): charged OPTIMAL 1/2 per level (Edge Searcher 7.1).
+(1,2) wall results (period (4,8), width 4): (2,1)|(2,1) best found 1 (bound open); (1,2)|(1,2) OPTIMAL 1;
+(1,2)|(2,1) and (2,1)|(1,2) 3/4 charged or not; z0|z1 INFEASIBLE; straight|zigzag INFEASIBLE.
+Full board n = 120 (chevrons BL->(n/4,n/2)->TL and BR->TR, no diagonal corridors, 2-factor + crossing objective):
+about 1 per level (0.95..1.3). Without any carrier the fold field + windows has no 2-factor (charge needs a carrier).
+Reason (colour balance, exact): the knight graph is bipartite, so a periodic band with equal black/white cells needs
+equal black/white stubs. A (1,-1) zigzag field (black cells send +(2,1),+(1,2)) cut along direction (a,b) leaves
+stubs of one colour, 3|a-b|/2 per unit (checked: vertical cut 12 per 8 rows, all one colour; straight fields 8/8).
+So a zigzag region can only be bounded along (1,1). A (1,2) wall over n/2 levels needs a zigzag region of width
+~n/4 whose boundary meets sides or straight fields along other directions: impossible without a colour current of
+order n. Side check: zigzag field at a vertical board side INFEASIBLE (width 4, 6); (2,1) field at a side OPTIMAL 1/row.
+Possible LOWER-side use (UNCHECKED, for Edge Searcher / Turns Theory): 1/2-walls need zigzag exteriors, and zigzag
+regions are (1,1)-bounded; straight-field walls cost >= 2/3 in every case measured.

@@ -1,0 +1,88 @@
+A=1 WM=3 KM=1 MODE=nz: columns u in [-3,5], 50 slots, complete squares s in [0,2], 1 cost squares per row
+  ... 4194304/4378173 states, 5894380 arcs, 15s
+states by warm level: strict 2601404, warm1 3679182, warm2 69569, warm3 0
+graph: states 6350155 arcs 8361924 (rejected: margin 12735083, psi 346208) 21s
+ try mean 8/1 per row
+  cycle: 90 arcs, 10 rows, cost 21 -> mean 21/10
+    row 0 u 2 (mod) w=0: (2,0)-(0,1) (2,0)-(3,2)
+    row 0 u 4 (ghost) w=0: (4,0)-(3,2)
+    row 0 u 5 (ghost) w=2: (5,0)-(3,1) (5,0)-(4,2)
+    row 1 u 0 (mod) w=0: (1,1)-(0,3)
+    row 1 u 1 (mod) w=0: (2,1)-(0,2) (2,1)-(1,3)
+    row 1 u 3 (ghost) w=1: (4,1)-(5,3) (4,1)-(3,3)
+    row 1 u 5 (ghost) w=2:
+    row 2 u 0 (mod) w=1: (2,2)-(4,3) (2,2)-(3,4)
+    row 2 u 2 (mod) w=0: (4,2)-(5,4)
+    row 2 u 5 (ghost) w=1:
+    row 3 u -1 (ghost) w=0: (2,3)-(4,4)
+    row 3 u 0 (mod) w=0: (3,3)-(5,4)
+    row 3 u 1 (mod) w=0: (4,3)-(6,4)
+    row 3 u 2 (mod) w=0: (5,3)-(7,4)
+    row 3 u 3 (ghost) w=0: (6,3)-(7,5)
+    row 4 u -1 (ghost) w=0: (3,4)-(5,5)
+    row 4 u 0 (mod) w=0: (4,4)-(6,5)
+    row 4 u 2 (mod) w=0: (6,4)-(7,6)
+    row 4 u 5 (ghost) w=2:
+    row 5 u 0 (mod) w=0: (5,5)-(3,6)
+    row 5 u 1 (mod) w=0: (6,5)-(4,6)
+    row 5 u 2 (mod) w=1: (7,5)-(5,6)
+    row 5 u 3 (ghost) w=1: (8,5)-(6,6) (8,5)-(9,7)
+    row 5 u 4 (ghost) w=1: (9,5)-(7,6)
+    row 5 u 5 (ghost) w=1: (10,5)-(8,6)
+    row 6 u -1 (ghost) w=0: (5,6)-(7,7)
+    row 6 u 0 (mod) w=0: (6,6)-(8,7)
+    row 6 u 2 (mod) w=0: (8,6)-(9,8)
+    row 6 u 5 (ghost) w=2:
+    row 7 u -1 (ghost) w=0: (6,7)-(8,8)
+    row 7 u 0 (mod) w=0: (7,7)-(9,8)
+    row 7 u 1 (mod) w=0: (8,7)-(10,8)
+    row 7 u 2 (mod) w=0: (9,7)-(11,8)
+    row 7 u 4 (ghost) w=1: (11,7)-(10,9)
+    row 7 u 5 (ghost) w=1: (12,7)-(10,8) (12,7)-(11,9)
+    row 8 u -1 (ghost) w=0: (7,8)-(9,9)
+    row 8 u 0 (mod) w=0: (8,8)-(10,9)
+    row 8 u 3 (ghost) w=0: (11,8)-(10,10)
+    row 8 u 4 (ghost) w=0: (12,8)-(11,10)
+    row 8 u 5 (ghost) w=2:
+    row 9 u -1 (ghost) w=0: (8,9)-(10,10)
+    row 9 u 0 (mod) w=1: (9,9)-(11,10)
+    row 9 u 2 (mod) w=1: (11,9)-(10,11)
+    row 9 u 3 (ghost) w=0: (12,9)-(13,11) (12,9)-(11,11)
+ try mean 21/10 per row
+  cycle: 18 arcs, 2 rows, cost 2 -> mean 2/2
+    row 0 u -1 (ghost) w=0: (-1,0)-(1,1)
+    row 0 u 0 (mod) w=0: (0,0)-(2,1)
+    row 0 u 1 (mod) w=0: (1,0)-(3,1)
+    row 0 u 2 (mod) w=0: (2,0)-(4,1)
+    row 0 u 3 (ghost) w=0: (3,0)-(4,2)
+    row 1 u -1 (ghost) w=0: (0,1)-(2,2)
+    row 1 u 0 (mod) w=0: (1,1)-(3,2)
+    row 1 u 2 (mod) w=0: (3,1)-(4,3)
+    row 1 u 5 (ghost) w=2:
+ try mean 1/1 per row
+RESULT A=1 WM=3 KM=1 nz: min mean cost per row = 1/1 (CERTIFIED: no cycle below); E share per row = 1/2; per level = 1/2 = 0.5000  (22s)
+total 22s
+	Command being timed: "./wall 1 3 1 nz 8 1 60000000"
+	User time (seconds): 20.20
+	System time (seconds): 1.60
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:21.81
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 578820
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 1
+	Minor (reclaiming a frame) page faults: 267747
+	Voluntary context switches: 2
+	Involuntary context switches: 125
+	Swaps: 0
+	File system inputs: 32
+	File system outputs: 8
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+exit=0

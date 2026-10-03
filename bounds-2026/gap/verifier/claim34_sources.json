@@ -1,0 +1,35 @@
+{
+  "date": "2026-10-03",
+  "files": {
+    "gap/structures/GAP_LEMMA.md": {
+      "sha256": "a5d4ebf3441f8d787f773eb92cac12f226aa1c6095a6857b26ed13ee5840a66e",
+      "words": 1049,
+      "lines": 75
+    },
+    "gap/structures/FINDINGS.md": {
+      "sha256": "6a9063dd77f8d3fe1890bb8862d277cfb4d3c46e7c37cd4d4e3dea33b290fc34",
+      "words": 4609,
+      "lines": 284
+    },
+    "gap/structures/cluster_scan.py": {
+      "sha256": "c2a69c72df1e708fbc6aad2cedf6c760d4d655f43583e304ae646ed762dcd013",
+      "words": 1674,
+      "lines": 209
+    },
+    "gap/structures/w1_compare.py": {
+      "sha256": "2ec7f3339326047a84cf174ce4640433a3cb7de63eaebf805348deff921d943e",
+      "words": 403,
+      "lines": 51
+    },
+    "gap/structures/STRUCTURE.md": {
+      "sha256": "b733f11779f88d441962776f5ef68c998065545b8234501aacf7d7beb398190c",
+      "words": 2737,
+      "lines": 177
+    },
+    "gap/verifier/claim34_tour_n16.json": {
+      "sha256": "a249944c233463cec3ec4c7da4bad561922c9af86b314a601ee5823303ffb0ac",
+      "words": 299,
+      "lines": 295
+    }
+  }
+}

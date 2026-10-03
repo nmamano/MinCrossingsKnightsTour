@@ -1,0 +1,2 @@
+{'file': 'w-integrator/tours/FOLD24_n96.json', 'n': 96, 'cheap_slots': 205, 'all_slots': 360, 'label_counts': {'D': 3, 'UNDEFINED': 7, 'W': 195}, 'W': 195, 'SSR': 47, 'W_minus_2SSR': 101, 'X': 720, 'E': 338, 'BQ': 622, 'EXC': 155, 'revised_B_left': 1026}
+{'file': 'gap/verifier/claim36_FOLD_n288.json', 'n': 288, 'cheap_slots': 781, 'all_slots': 1128, 'label_counts': {'D': 3, 'UNDEFINED': 7, 'W': 771}, 'W': 771, 'SSR': 175, 'W_minus_2SSR': 421, 'X': 1936, 'E': 786, 'BQ': 1646, 'EXC': 347, 'revised_B_left': 2690}

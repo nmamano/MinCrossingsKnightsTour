@@ -5,6 +5,7 @@ log, a, tl = sys.argv[1], int(sys.argv[2]), float(sys.argv[3])
 mults = [int(t) for t in sys.argv[4].split(',')]
 for line in open(log):
     if 'per end None' not in line or 'INFEASIBLE' in line: continue
+    if 'x1:None' not in line and 'FIELD-CONFLICT' not in line: continue
     sl, f1, f2 = line.split()[:3]
     F1, F2 = (f1[0], f1[1:]), (f2[0], f2[1:])
     T0, hv = I.SLOPES[sl]; mm = I.mult_for(T0, F1, F2)

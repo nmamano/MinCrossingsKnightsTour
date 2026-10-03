@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-03",
+  "sources": {
+    "gap/structures/PLAN.md": {
+      "sha256": "daf33055a3195b372eb9270a96bc3161e4674bea883aaec9a4463170c919b5b3",
+      "words": 1268,
+      "lines": 72
+    },
+    "gap/structures/FINDINGS.md": {
+      "sha256": "bf916461751341fa965186eb45769f837e5ff3e6a71563559c78d3192c8b6650",
+      "words": 3841,
+      "lines": 240
+    },
+    "gap/structures/STRUCTURE.md": {
+      "sha256": "d3879d43ab7cd78bfd004ab19f0c452019d67050cd2481e870a69381a9ac7d37",
+      "words": 2060,
+      "lines": 139
+    },
+    "w-turnstheory/PROOF_crossings_lower.md": {
+      "sha256": "f11a4804770563f78e239f679d0e9d6990e3a6b8946656c48a88303bfb3060cf",
+      "words": 2254,
+      "lines": 295
+    }
+  }
+}

@@ -1,0 +1,6 @@
+PASS B union matches Claim 29: w-integrator/tours/FOLD24_n96.json 519
+PASS B union matches Claim 29: w-integrator/tours/FOLD24_n98.json 534
+PASS B union matches Claim 29: gap/lowerbounds/conn/FIELD_n166_92_155.json 944
+PASS full inventory and all exact flows; original mixed values unchanged.
+OLD J: 94 paths; pure capacities {'S_minus_B': 88, 'outside_S': 21} total 109
+OLD J pure signed deficit: -139/3 versus mixed deficit 25/2

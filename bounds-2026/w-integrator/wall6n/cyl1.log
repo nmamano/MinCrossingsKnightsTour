@@ -1,0 +1,5 @@
+wall (1,1) L=6 WM=4 D=6 fields 21|12 zero=False: OPTIMAL crossings/period=4 bound=4 per level=4/6=0.6667 r=1
+wall (1,1) L=6 WM=3 D=6 fields 21|12 zero=False: OPTIMAL crossings/period=4 bound=4 per level=4/6=0.6667 r=1
+wall (1,2) L=4 WM=4 D=6 fields 21|21 zero=False: FEASIBLE crossings/period=8 bound=0 per level=8/8=1.0000 r=2
+wall (1,2) L=6 WM=4 D=6 fields 21|21 zero=False: FEASIBLE crossings/period=12 bound=0 per level=12/12=1.0000 r=2
+exit=0

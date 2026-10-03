@@ -1,0 +1,472 @@
+shear 0/1 WM=3 KM=1 MODE=nz lambda=1/2: columns u in [-2,4], 44 slots, complete squares s in [-1,2], 2 cost squares per row
+warm-up done: 40892 strict seed states, largest warm layer 594462, 4s
+states by warm level: strict 2350259, warm1 0, warm2 0, warm3 0
+graph: states 2350259 arcs 3014281 (rejected: margin 5379714, psi 35288) 10s
+== lambda 0/1
+ try mean 8/1 per row
+  cycle: 84 arcs, 12 rows, crossings 16, waste 32, weight 32 -> mean 32/12
+    row 0 u 1 (mod) X=0 waste=0: (1,0)-(-1,1) (1,0)-(2,2)
+    row 0 u 2 (mod) X=0 waste=0: (2,0)-(4,1) (2,0)-(3,2)
+    row 0 u 4 (ghost) X=0 waste=2:
+    row 1 u 0 (mod) X=0 waste=0: (0,1)-(-2,2) (0,1)-(1,3)
+    row 1 u 1 (mod) X=2 waste=1: (1,1)-(-1,2) (1,1)-(0,3)
+    row 1 u 2 (mod) X=0 waste=0: (2,1)-(3,3)
+    row 1 u 4 (ghost) X=0 waste=2:
+    row 2 u 0 (mod) X=0 waste=0: (0,2)-(-2,3) (0,2)-(-1,4)
+    row 2 u 1 (mod) X=0 waste=0: (1,2)-(3,3) (1,2)-(2,4)
+    row 2 u 2 (mod) X=2 waste=1: (2,2)-(1,4)
+    row 2 u 4 (ghost) X=0 waste=1:
+    row 3 u 0 (mod) X=0 waste=0: (0,3)-(-1,5)
+    row 3 u 1 (mod) X=0 waste=0: (1,3)-(0,5)
+    row 3 u 2 (mod) X=0 waste=0: (2,3)-(4,4) (2,3)-(3,5)
+    row 3 u 4 (ghost) X=0 waste=3:
+    row 4 u 0 (mod) X=1 waste=1: (0,4)-(2,5) (0,4)-(-1,6)
+    row 4 u 1 (mod) X=1 waste=0: (1,4)-(2,6)
+    row 4 u 2 (mod) X=0 waste=0: (2,4)-(3,6)
+    row 4 u 4 (ghost) X=0 waste=3:
+    row 5 u 0 (mod) X=0 waste=0: (0,5)-(2,6)
+    row 5 u 1 (mod) X=2 waste=2: (1,5)-(-1,6) (1,5)-(0,7)
+    row 5 u 2 (mod) X=0 waste=0: (2,5)-(3,7)
+    row 6 u 0 (mod) X=0 waste=0: (0,6)-(-2,7) (0,6)-(-1,8)
+    row 6 u 1 (mod) X=0 waste=0: (1,6)-(3,7) (1,6)-(0,8)
+    row 6 u 4 (ghost) X=0 waste=2:
+    row 7 u 0 (mod) X=0 waste=0: (0,7)-(-1,9)
+    row 7 u 1 (mod) X=0 waste=0: (1,7)-(3,8) (1,7)-(2,9)
+    row 7 u 2 (mod) X=2 waste=1: (2,7)-(4,8) (2,7)-(1,9)
+    row 7 u 4 (ghost) X=0 waste=2:
+    row 8 u 0 (mod) X=0 waste=0: (0,8)-(1,10)
+    row 8 u 1 (mod) X=2 waste=1: (1,8)-(-1,9) (1,8)-(0,10)
+    row 8 u 2 (mod) X=0 waste=0: (2,8)-(4,9) (2,8)-(3,10)
+    row 8 u 4 (ghost) X=0 waste=1:
+    row 9 u 0 (mod) X=0 waste=0: (0,9)-(-2,10) (0,9)-(-1,11)
+    row 9 u 1 (mod) X=0 waste=0: (1,9)-(2,11)
+    row 9 u 2 (mod) X=0 waste=0: (2,9)-(3,11)
+    row 9 u 4 (ghost) X=0 waste=3:
+    row 10 u 0 (mod) X=0 waste=0: (0,10)-(-1,12)
+    row 10 u 1 (mod) X=0 waste=0: (1,10)-(0,12)
+    row 10 u 2 (mod) X=2 waste=1: (2,10)-(0,11) (2,10)-(3,12)
+    row 10 u 4 (ghost) X=0 waste=3:
+    row 11 u 0 (mod) X=0 waste=0: (0,11)-(-1,13)
+    row 11 u 1 (mod) X=0 waste=0: (1,11)-(3,12) (1,11)-(2,13)
+    row 11 u 2 (mod) X=2 waste=2: (2,11)-(0,12)
+ try mean 8/3 per row
+  cycle: 70 arcs, 10 rows, crossings 11, waste 22, weight 22 -> mean 22/10
+    row 0 u 0 (mod) X=0 waste=0: (0,0)-(-2,1)
+    row 0 u 1 (mod) X=0 waste=0: (1,0)-(-1,1) (1,0)-(0,2)
+    row 0 u 2 (mod) X=0 waste=0: (2,0)-(3,2)
+    row 0 u 4 (ghost) X=0 waste=2:
+    row 1 u 0 (mod) X=0 waste=0: (0,1)-(-2,2) (0,1)-(-1,3)
+    row 1 u 1 (mod) X=0 waste=0: (1,1)-(3,2) (1,1)-(0,3)
+    row 1 u 2 (mod) X=1 waste=1: (2,1)-(1,3)
+    row 1 u 4 (ghost) X=0 waste=1:
+    row 2 u 0 (mod) X=0 waste=0: (0,2)-(-1,4)
+    row 2 u 1 (mod) X=1 waste=1: (1,2)-(2,4) (1,2)-(0,4)
+    row 2 u 2 (mod) X=0 waste=0: (2,2)-(4,3) (2,2)-(3,4)
+    row 2 u 4 (ghost) X=0 waste=1:
+    row 3 u 0 (mod) X=0 waste=0: (0,3)-(-1,5)
+    row 3 u 1 (mod) X=0 waste=0: (1,3)-(2,5)
+    row 3 u 2 (mod) X=2 waste=2: (2,3)-(0,4) (2,3)-(3,5)
+    row 4 u 1 (mod) X=0 waste=0: (1,4)-(-1,5) (1,4)-(2,6)
+    row 4 u 2 (mod) X=0 waste=0: (2,4)-(3,6)
+    row 4 u 4 (ghost) X=0 waste=2:
+    row 5 u 0 (mod) X=0 waste=0: (0,5)-(-2,6) (0,5)-(1,7)
+    row 5 u 1 (mod) X=2 waste=1: (1,5)-(-1,6) (1,5)-(0,7)
+    row 5 u 2 (mod) X=0 waste=0: (2,5)-(3,7)
+    row 5 u 4 (ghost) X=0 waste=2:
+    row 6 u 0 (mod) X=0 waste=0: (0,6)-(-2,7) (0,6)-(-1,8)
+    row 6 u 1 (mod) X=1 waste=1: (1,6)-(3,7) (1,6)-(0,8)
+    row 6 u 2 (mod) X=1 waste=1: (2,6)-(1,8)
+    row 6 u 4 (ghost) X=0 waste=1:
+    row 7 u 0 (mod) X=0 waste=0: (0,7)-(-1,9)
+    row 7 u 1 (mod) X=0 waste=0: (1,7)-(0,9)
+    row 7 u 2 (mod) X=0 waste=0: (2,7)-(4,8) (2,7)-(3,9)
+    row 7 u 4 (ghost) X=0 waste=2:
+    row 8 u 0 (mod) X=0 waste=0: (0,8)-(-1,10)
+    row 8 u 1 (mod) X=0 waste=0: (1,8)-(2,10)
+    row 8 u 2 (mod) X=1 waste=1: (2,8)-(0,9) (2,8)-(3,10)
+    row 8 u 4 (ghost) X=0 waste=1:
+    row 9 u 1 (mod) X=0 waste=0: (1,9)-(-1,10) (1,9)-(2,11)
+    row 9 u 2 (mod) X=2 waste=2: (2,9)-(0,10) (2,9)-(3,11)
+ try mean 11/5 per row
+  cycle: 70 arcs, 10 rows, crossings 9, waste 18, weight 18 -> mean 18/10
+    row 0 u 0 (mod) X=1 waste=1: (0,0)-(1,2) (0,0)-(-1,2)
+    row 0 u 1 (mod) X=0 waste=0: (1,0)-(3,1) (1,0)-(2,2)
+    row 0 u 4 (ghost) X=0 waste=1:
+    row 1 u 0 (mod) X=0 waste=0: (0,1)-(1,3)
+    row 1 u 1 (mod) X=2 waste=2: (1,1)-(-1,2) (1,1)-(2,3)
+    row 1 u 2 (mod) X=0 waste=0: (2,1)-(4,2) (2,1)-(3,3)
+    row 2 u 0 (mod) X=0 waste=0: (0,2)-(-2,3) (0,2)-(-1,4)
+    row 2 u 1 (mod) X=0 waste=0: (1,2)-(2,4)
+    row 2 u 2 (mod) X=0 waste=0: (2,2)-(3,4)
+    row 2 u 4 (ghost) X=0 waste=2:
+    row 3 u 0 (mod) X=0 waste=0: (0,3)-(2,4) (0,3)-(1,5)
+    row 3 u 1 (mod) X=2 waste=2: (1,3)-(-1,4)
+    row 3 u 2 (mod) X=0 waste=0: (2,3)-(3,5)
+    row 4 u 0 (mod) X=0 waste=0: (0,4)-(-2,5) (0,4)-(-1,6)
+    row 4 u 1 (mod) X=0 waste=0: (1,4)-(3,5) (1,4)-(2,6)
+    row 4 u 4 (ghost) X=0 waste=2:
+    row 5 u 0 (mod) X=0 waste=0: (0,5)-(1,7) (0,5)-(-1,7)
+    row 5 u 1 (mod) X=0 waste=0: (1,5)-(2,7)
+    row 5 u 2 (mod) X=0 waste=0: (2,5)-(4,6) (2,5)-(3,7)
+    row 5 u 4 (ghost) X=0 waste=2:
+    row 6 u 0 (mod) X=0 waste=0: (0,6)-(1,8) (0,6)-(-1,8)
+    row 6 u 1 (mod) X=2 waste=1: (1,6)-(2,8) (1,6)-(0,8)
+    row 6 u 2 (mod) X=0 waste=0: (2,6)-(3,8)
+    row 7 u 0 (mod) X=1 waste=1: (0,7)-(1,9) (0,7)-(-1,9)
+    row 7 u 1 (mod) X=0 waste=0: (1,7)-(2,9)
+    row 7 u 2 (mod) X=0 waste=0: (2,7)-(3,9)
+    row 8 u 0 (mod) X=0 waste=0: (0,8)-(-1,10)
+    row 8 u 1 (mod) X=0 waste=0: (1,8)-(2,10)
+    row 8 u 2 (mod) X=0 waste=0: (2,8)-(3,10)
+    row 8 u 4 (ghost) X=0 waste=2:
+    row 9 u 0 (mod) X=0 waste=0: (0,9)-(2,10) (0,9)-(-1,11)
+    row 9 u 1 (mod) X=1 waste=1: (1,9)-(0,11)
+    row 9 u 2 (mod) X=0 waste=0: (2,9)-(3,11)
+    row 9 u 4 (ghost) X=0 waste=1:
+ try mean 9/5 per row
+  cycle: 28 arcs, 4 rows, crossings 3, waste 6, weight 6 -> mean 6/4
+    row 0 u 0 (mod) X=0 waste=0: (0,0)-(1,2) (0,0)-(-1,2)
+    row 0 u 2 (mod) X=0 waste=0: (2,0)-(3,2) (2,0)-(1,2)
+    row 0 u 4 (ghost) X=0 waste=2:
+    row 1 u 0 (mod) X=0 waste=0: (0,1)-(1,3) (0,1)-(-1,3)
+    row 1 u 1 (mod) X=1 waste=1: (1,1)-(2,3)
+    row 1 u 2 (mod) X=1 waste=0: (2,1)-(3,3) (2,1)-(1,3)
+    row 2 u 0 (mod) X=0 waste=0: (0,2)-(1,4) (0,2)-(-1,4)
+    row 2 u 2 (mod) X=1 waste=1: (2,2)-(3,4) (2,2)-(1,4)
+    row 3 u 0 (mod) X=0 waste=0: (0,3)-(1,5) (0,3)-(-1,5)
+    row 3 u 2 (mod) X=0 waste=0: (2,3)-(3,5)
+    row 3 u 4 (ghost) X=0 waste=2:
+ try mean 3/2 per row
+  cycle: 42 arcs, 6 rows, crossings 4, waste 8, weight 8 -> mean 8/6
+    row 0 u -2 (ghost) X=0 waste=0: (-2,0)-(0,1)
+    row 0 u -1 (ghost) X=0 waste=0: (-1,0)-(1,1)
+    row 0 u 0 (mod) X=0 waste=0: (0,0)-(2,1)
+    row 0 u 2 (mod) X=0 waste=0: (2,0)-(4,1) (2,0)-(3,2)
+    row 0 u 4 (ghost) X=0 waste=2:
+    row 1 u -2 (ghost) X=0 waste=0: (-2,1)-(0,2)
+    row 1 u -1 (ghost) X=0 waste=0: (-1,1)-(1,2)
+    row 1 u 0 (mod) X=0 waste=0: (0,1)-(2,2)
+    row 1 u 1 (mod) X=1 waste=0: (1,1)-(2,3)
+    row 1 u 2 (mod) X=0 waste=0: (2,1)-(3,3)
+    row 1 u 4 (ghost) X=0 waste=2:
+    row 2 u -2 (ghost) X=0 waste=0: (-2,2)-(0,3)
+    row 2 u -1 (ghost) X=0 waste=0: (-1,2)-(1,3)
+    row 2 u 0 (mod) X=1 waste=0: (0,2)-(1,4)
+    row 2 u 1 (mod) X=0 waste=0: (1,2)-(2,4)
+    row 2 u 2 (mod) X=0 waste=0: (2,2)-(3,4)
+    row 2 u 4 (ghost) X=0 waste=2:
+    row 3 u -1 (ghost) X=0 waste=0: (-1,3)-(1,4) (-1,3)-(0,5)
+    row 3 u 0 (mod) X=1 waste=0: (0,3)-(1,5)
+    row 3 u 1 (mod) X=0 waste=0: (1,3)-(2,5)
+    row 3 u 2 (mod) X=0 waste=0: (2,3)-(3,5)
+    row 4 u -2 (ghost) X=0 waste=0: (-2,4)-(0,5)
+    row 4 u 0 (mod) X=1 waste=0: (0,4)-(2,5) (0,4)-(1,6)
+    row 4 u 2 (mod) X=0 waste=0: (2,4)-(3,6)
+    row 5 u -2 (ghost) X=0 waste=0: (-2,5)-(0,6)
+    row 5 u -1 (ghost) X=0 waste=0: (-1,5)-(1,6)
+    row 5 u 1 (mod) X=0 waste=0: (1,5)-(3,6)
+    row 5 u 4 (ghost) X=0 waste=2:
+ try mean 4/3 per row
+RESULT A=0 WM=3 KM=1 nz lambda=0/1: min mean weight per row = 4/3 (CERTIFIED: no cycle below); per level (E units) = 4/6 = 0.6667  (11s)
+== lambda 1/2
+ try mean 16/1 per row
+  cycle: 84 arcs, 12 rows, crossings 16, waste 32, weight 64 -> mean 64/12
+    row 0 u 1 (mod) X=0 waste=0: (1,0)-(-1,1) (1,0)-(2,2)
+    row 0 u 2 (mod) X=0 waste=0: (2,0)-(4,1) (2,0)-(3,2)
+    row 0 u 4 (ghost) X=0 waste=2:
+    row 1 u 0 (mod) X=0 waste=0: (0,1)-(-2,2) (0,1)-(1,3)
+    row 1 u 1 (mod) X=2 waste=1: (1,1)-(-1,2) (1,1)-(0,3)
+    row 1 u 2 (mod) X=0 waste=0: (2,1)-(3,3)
+    row 1 u 4 (ghost) X=0 waste=2:
+    row 2 u 0 (mod) X=0 waste=0: (0,2)-(-2,3) (0,2)-(-1,4)
+    row 2 u 1 (mod) X=0 waste=0: (1,2)-(3,3) (1,2)-(2,4)
+    row 2 u 2 (mod) X=2 waste=1: (2,2)-(1,4)
+    row 2 u 4 (ghost) X=0 waste=1:
+    row 3 u 0 (mod) X=0 waste=0: (0,3)-(-1,5)
+    row 3 u 1 (mod) X=0 waste=0: (1,3)-(0,5)
+    row 3 u 2 (mod) X=0 waste=0: (2,3)-(4,4) (2,3)-(3,5)
+    row 3 u 4 (ghost) X=0 waste=3:
+    row 4 u 0 (mod) X=1 waste=1: (0,4)-(2,5) (0,4)-(-1,6)
+    row 4 u 1 (mod) X=1 waste=0: (1,4)-(2,6)
+    row 4 u 2 (mod) X=0 waste=0: (2,4)-(3,6)
+    row 4 u 4 (ghost) X=0 waste=3:
+    row 5 u 0 (mod) X=0 waste=0: (0,5)-(2,6)
+    row 5 u 1 (mod) X=2 waste=2: (1,5)-(-1,6) (1,5)-(0,7)
+    row 5 u 2 (mod) X=0 waste=0: (2,5)-(3,7)
+    row 6 u 0 (mod) X=0 waste=0: (0,6)-(-2,7) (0,6)-(-1,8)
+    row 6 u 1 (mod) X=0 waste=0: (1,6)-(3,7) (1,6)-(0,8)
+    row 6 u 4 (ghost) X=0 waste=2:
+    row 7 u 0 (mod) X=0 waste=0: (0,7)-(-1,9)
+    row 7 u 1 (mod) X=0 waste=0: (1,7)-(3,8) (1,7)-(2,9)
+    row 7 u 2 (mod) X=2 waste=1: (2,7)-(4,8) (2,7)-(1,9)
+    row 7 u 4 (ghost) X=0 waste=2:
+    row 8 u 0 (mod) X=0 waste=0: (0,8)-(1,10)
+    row 8 u 1 (mod) X=2 waste=1: (1,8)-(-1,9) (1,8)-(0,10)
+    row 8 u 2 (mod) X=0 waste=0: (2,8)-(4,9) (2,8)-(3,10)
+    row 8 u 4 (ghost) X=0 waste=1:
+    row 9 u 0 (mod) X=0 waste=0: (0,9)-(-2,10) (0,9)-(-1,11)
+    row 9 u 1 (mod) X=0 waste=0: (1,9)-(2,11)
+    row 9 u 2 (mod) X=0 waste=0: (2,9)-(3,11)
+    row 9 u 4 (ghost) X=0 waste=3:
+    row 10 u 0 (mod) X=0 waste=0: (0,10)-(-1,12)
+    row 10 u 1 (mod) X=0 waste=0: (1,10)-(0,12)
+    row 10 u 2 (mod) X=2 waste=1: (2,10)-(0,11) (2,10)-(3,12)
+    row 10 u 4 (ghost) X=0 waste=3:
+    row 11 u 0 (mod) X=0 waste=0: (0,11)-(-1,13)
+    row 11 u 1 (mod) X=0 waste=0: (1,11)-(3,12) (1,11)-(2,13)
+    row 11 u 2 (mod) X=2 waste=2: (2,11)-(0,12)
+ try mean 16/3 per row
+  cycle: 70 arcs, 10 rows, crossings 11, waste 22, weight 44 -> mean 44/10
+    row 0 u 0 (mod) X=0 waste=0: (0,0)-(-2,1)
+    row 0 u 1 (mod) X=0 waste=0: (1,0)-(-1,1) (1,0)-(0,2)
+    row 0 u 2 (mod) X=0 waste=0: (2,0)-(3,2)
+    row 0 u 4 (ghost) X=0 waste=2:
+    row 1 u 0 (mod) X=0 waste=0: (0,1)-(-2,2) (0,1)-(-1,3)
+    row 1 u 1 (mod) X=0 waste=0: (1,1)-(3,2) (1,1)-(0,3)
+    row 1 u 2 (mod) X=1 waste=1: (2,1)-(1,3)
+    row 1 u 4 (ghost) X=0 waste=1:
+    row 2 u 0 (mod) X=0 waste=0: (0,2)-(-1,4)
+    row 2 u 1 (mod) X=1 waste=1: (1,2)-(2,4) (1,2)-(0,4)
+    row 2 u 2 (mod) X=0 waste=0: (2,2)-(4,3) (2,2)-(3,4)
+    row 2 u 4 (ghost) X=0 waste=1:
+    row 3 u 0 (mod) X=0 waste=0: (0,3)-(-1,5)
+    row 3 u 1 (mod) X=0 waste=0: (1,3)-(2,5)
+    row 3 u 2 (mod) X=2 waste=2: (2,3)-(0,4) (2,3)-(3,5)
+    row 4 u 1 (mod) X=0 waste=0: (1,4)-(-1,5) (1,4)-(2,6)
+    row 4 u 2 (mod) X=0 waste=0: (2,4)-(3,6)
+    row 4 u 4 (ghost) X=0 waste=2:
+    row 5 u 0 (mod) X=0 waste=0: (0,5)-(-2,6) (0,5)-(1,7)
+    row 5 u 1 (mod) X=2 waste=1: (1,5)-(-1,6) (1,5)-(0,7)
+    row 5 u 2 (mod) X=0 waste=0: (2,5)-(3,7)
+    row 5 u 4 (ghost) X=0 waste=2:
+    row 6 u 0 (mod) X=0 waste=0: (0,6)-(-2,7) (0,6)-(-1,8)
+    row 6 u 1 (mod) X=1 waste=1: (1,6)-(3,7) (1,6)-(0,8)
+    row 6 u 2 (mod) X=1 waste=1: (2,6)-(1,8)
+    row 6 u 4 (ghost) X=0 waste=1:
+    row 7 u 0 (mod) X=0 waste=0: (0,7)-(-1,9)
+    row 7 u 1 (mod) X=0 waste=0: (1,7)-(0,9)
+    row 7 u 2 (mod) X=0 waste=0: (2,7)-(4,8) (2,7)-(3,9)
+    row 7 u 4 (ghost) X=0 waste=2:
+    row 8 u 0 (mod) X=0 waste=0: (0,8)-(-1,10)
+    row 8 u 1 (mod) X=0 waste=0: (1,8)-(2,10)
+    row 8 u 2 (mod) X=1 waste=1: (2,8)-(0,9) (2,8)-(3,10)
+    row 8 u 4 (ghost) X=0 waste=1:
+    row 9 u 1 (mod) X=0 waste=0: (1,9)-(-1,10) (1,9)-(2,11)
+    row 9 u 2 (mod) X=2 waste=2: (2,9)-(0,10) (2,9)-(3,11)
+ try mean 22/5 per row
+  cycle: 28 arcs, 4 rows, crossings 4, waste 8, weight 16 -> mean 16/4
+    row 0 u 0 (mod) X=1 waste=1: (0,0)-(1,2) (0,0)-(-1,2)
+    row 0 u 1 (mod) X=0 waste=0: (1,0)-(3,1) (1,0)-(2,2)
+    row 0 u 4 (ghost) X=0 waste=1:
+    row 1 u 0 (mod) X=0 waste=0: (0,1)-(1,3)
+    row 1 u 1 (mod) X=2 waste=2: (1,1)-(-1,2) (1,1)-(2,3)
+    row 1 u 2 (mod) X=0 waste=0: (2,1)-(4,2) (2,1)-(3,3)
+    row 2 u 0 (mod) X=0 waste=0: (0,2)-(-2,3) (0,2)-(-1,4)
+    row 2 u 1 (mod) X=0 waste=0: (1,2)-(2,4)
+    row 2 u 2 (mod) X=0 waste=0: (2,2)-(3,4)
+    row 2 u 4 (ghost) X=0 waste=2:
+    row 3 u 0 (mod) X=0 waste=0: (0,3)-(2,4) (0,3)-(-1,5)
+    row 3 u 1 (mod) X=1 waste=1: (1,3)-(0,5)
+    row 3 u 2 (mod) X=0 waste=0: (2,3)-(3,5)
+    row 3 u 4 (ghost) X=0 waste=1:
+ try mean 4/1 per row
+  cycle: 28 arcs, 4 rows, crossings 3, waste 6, weight 12 -> mean 12/4
+    row 0 u -1 (ghost) X=0 waste=0: (-1,0)-(0,2)
+    row 0 u 0 (mod) X=0 waste=0: (0,0)-(1,2)
+    row 0 u 2 (mod) X=0 waste=0: (2,0)-(3,2)
+    row 0 u 4 (ghost) X=0 waste=2:
+    row 1 u -1 (ghost) X=0 waste=0: (-1,1)-(0,3)
+    row 1 u 0 (mod) X=0 waste=0: (0,1)-(1,3)
+    row 1 u 2 (mod) X=0 waste=0: (2,1)-(3,3) (2,1)-(1,3)
+    row 1 u 4 (ghost) X=0 waste=2:
+    row 2 u -1 (ghost) X=0 waste=0: (-1,2)-(0,4)
+    row 2 u 0 (mod) X=0 waste=0: (0,2)-(1,4)
+    row 2 u 1 (mod) X=1 waste=1: (1,2)-(2,4)
+    row 2 u 2 (mod) X=1 waste=0: (2,2)-(3,4) (2,2)-(1,4)
+    row 3 u -1 (ghost) X=0 waste=0: (-1,3)-(0,5)
+    row 3 u 0 (mod) X=0 waste=0: (0,3)-(1,5)
+    row 3 u 2 (mod) X=1 waste=1: (2,3)-(3,5) (2,3)-(1,5)
+ try mean 3/1 per row
+  cycle: 42 arcs, 6 rows, crossings 4, waste 8, weight 16 -> mean 16/6
+    row 0 u -2 (ghost) X=0 waste=0: (-2,0)-(0,1)
+    row 0 u 0 (mod) X=1 waste=0: (0,0)-(2,1) (0,0)-(1,2)
+    row 0 u 2 (mod) X=0 waste=0: (2,0)-(3,2)
+    row 1 u -2 (ghost) X=0 waste=0: (-2,1)-(0,2)
+    row 1 u -1 (ghost) X=0 waste=0: (-1,1)-(1,2)
+    row 1 u 1 (mod) X=0 waste=0: (1,1)-(3,2)
+    row 1 u 4 (ghost) X=0 waste=2:
+    row 2 u -2 (ghost) X=0 waste=0: (-2,2)-(0,3)
+    row 2 u -1 (ghost) X=0 waste=0: (-1,2)-(1,3)
+    row 2 u 0 (mod) X=0 waste=0: (0,2)-(2,3)
+    row 2 u 2 (mod) X=0 waste=0: (2,2)-(4,3) (2,2)-(3,4)
+    row 2 u 4 (ghost) X=0 waste=2:
+    row 3 u -2 (ghost) X=0 waste=0: (-2,3)-(0,4)
+    row 3 u -1 (ghost) X=0 waste=0: (-1,3)-(1,4)
+    row 3 u 0 (mod) X=0 waste=0: (0,3)-(2,4)
+    row 3 u 1 (mod) X=1 waste=0: (1,3)-(2,5)
+    row 3 u 2 (mod) X=0 waste=0: (2,3)-(3,5)
+    row 3 u 4 (ghost) X=0 waste=2:
+    row 4 u -2 (ghost) X=0 waste=0: (-2,4)-(0,5)
+    row 4 u -1 (ghost) X=0 waste=0: (-1,4)-(1,5)
+    row 4 u 0 (mod) X=1 waste=0: (0,4)-(1,6)
+    row 4 u 1 (mod) X=0 waste=0: (1,4)-(2,6)
+    row 4 u 2 (mod) X=0 waste=0: (2,4)-(3,6)
+    row 4 u 4 (ghost) X=0 waste=2:
+    row 5 u -1 (ghost) X=0 waste=0: (-1,5)-(1,6) (-1,5)-(0,7)
+    row 5 u 0 (mod) X=1 waste=0: (0,5)-(1,7)
+    row 5 u 1 (mod) X=0 waste=0: (1,5)-(2,7)
+    row 5 u 2 (mod) X=0 waste=0: (2,5)-(3,7)
+ try mean 8/3 per row
+RESULT A=0 WM=3 KM=1 nz lambda=1/2: min mean weight per row = 8/3 (CERTIFIED: no cycle below); per level (E units) = 8/12 = 0.6667  (12s)
+== lambda 1/1
+ try mean 8/1 per row
+  cycle: 84 arcs, 12 rows, crossings 16, waste 32, weight 32 -> mean 32/12
+    row 0 u 1 (mod) X=0 waste=0: (1,0)-(-1,1) (1,0)-(2,2)
+    row 0 u 2 (mod) X=0 waste=0: (2,0)-(4,1) (2,0)-(3,2)
+    row 0 u 4 (ghost) X=0 waste=2:
+    row 1 u 0 (mod) X=0 waste=0: (0,1)-(-2,2) (0,1)-(1,3)
+    row 1 u 1 (mod) X=2 waste=1: (1,1)-(-1,2) (1,1)-(0,3)
+    row 1 u 2 (mod) X=0 waste=0: (2,1)-(3,3)
+    row 1 u 4 (ghost) X=0 waste=2:
+    row 2 u 0 (mod) X=0 waste=0: (0,2)-(-2,3) (0,2)-(-1,4)
+    row 2 u 1 (mod) X=0 waste=0: (1,2)-(3,3) (1,2)-(2,4)
+    row 2 u 2 (mod) X=2 waste=1: (2,2)-(1,4)
+    row 2 u 4 (ghost) X=0 waste=1:
+    row 3 u 0 (mod) X=0 waste=0: (0,3)-(-1,5)
+    row 3 u 1 (mod) X=0 waste=0: (1,3)-(0,5)
+    row 3 u 2 (mod) X=0 waste=0: (2,3)-(4,4) (2,3)-(3,5)
+    row 3 u 4 (ghost) X=0 waste=3:
+    row 4 u 0 (mod) X=1 waste=1: (0,4)-(2,5) (0,4)-(-1,6)
+    row 4 u 1 (mod) X=1 waste=0: (1,4)-(2,6)
+    row 4 u 2 (mod) X=0 waste=0: (2,4)-(3,6)
+    row 4 u 4 (ghost) X=0 waste=3:
+    row 5 u 0 (mod) X=0 waste=0: (0,5)-(2,6)
+    row 5 u 1 (mod) X=2 waste=2: (1,5)-(-1,6) (1,5)-(0,7)
+    row 5 u 2 (mod) X=0 waste=0: (2,5)-(3,7)
+    row 6 u 0 (mod) X=0 waste=0: (0,6)-(-2,7) (0,6)-(-1,8)
+    row 6 u 1 (mod) X=0 waste=0: (1,6)-(3,7) (1,6)-(0,8)
+    row 6 u 4 (ghost) X=0 waste=2:
+    row 7 u 0 (mod) X=0 waste=0: (0,7)-(-1,9)
+    row 7 u 1 (mod) X=0 waste=0: (1,7)-(3,8) (1,7)-(2,9)
+    row 7 u 2 (mod) X=2 waste=1: (2,7)-(4,8) (2,7)-(1,9)
+    row 7 u 4 (ghost) X=0 waste=2:
+    row 8 u 0 (mod) X=0 waste=0: (0,8)-(1,10)
+    row 8 u 1 (mod) X=2 waste=1: (1,8)-(-1,9) (1,8)-(0,10)
+    row 8 u 2 (mod) X=0 waste=0: (2,8)-(4,9) (2,8)-(3,10)
+    row 8 u 4 (ghost) X=0 waste=1:
+    row 9 u 0 (mod) X=0 waste=0: (0,9)-(-2,10) (0,9)-(-1,11)
+    row 9 u 1 (mod) X=0 waste=0: (1,9)-(2,11)
+    row 9 u 2 (mod) X=0 waste=0: (2,9)-(3,11)
+    row 9 u 4 (ghost) X=0 waste=3:
+    row 10 u 0 (mod) X=0 waste=0: (0,10)-(-1,12)
+    row 10 u 1 (mod) X=0 waste=0: (1,10)-(0,12)
+    row 10 u 2 (mod) X=2 waste=1: (2,10)-(0,11) (2,10)-(3,12)
+    row 10 u 4 (ghost) X=0 waste=3:
+    row 11 u 0 (mod) X=0 waste=0: (0,11)-(-1,13)
+    row 11 u 1 (mod) X=0 waste=0: (1,11)-(3,12) (1,11)-(2,13)
+    row 11 u 2 (mod) X=2 waste=2: (2,11)-(0,12)
+ try mean 8/3 per row
+  cycle: 14 arcs, 2 rows, crossings 2, waste 4, weight 4 -> mean 4/2
+    row 0 u -2 (ghost) X=0 waste=0: (-2,0)-(0,1)
+    row 0 u 0 (mod) X=1 waste=1: (0,0)-(2,1) (0,0)-(1,2)
+    row 0 u 3 (ghost) X=1 waste=1: (3,0)-(1,1) (3,0)-(2,2)
+    row 1 u -1 (ghost) X=0 waste=0: (-1,1)-(1,2) (-1,1)-(0,3)
+    row 1 u 2 (mod) X=0 waste=0: (2,1)-(1,3)
+    row 1 u 4 (ghost) X=0 waste=2: (4,1)-(2,2)
+ try mean 2/1 per row
+  cycle: 70 arcs, 10 rows, crossings 7, waste 14, weight 14 -> mean 14/10
+    row 0 u -2 (ghost) X=0 waste=0: (-2,0)-(0,1)
+    row 0 u 0 (mod) X=0 waste=0: (0,0)-(2,1)
+    row 0 u 1 (mod) X=0 waste=0: (1,0)-(3,1)
+    row 0 u 2 (mod) X=0 waste=0: (2,0)-(4,1)
+    row 0 u 4 (ghost) X=0 waste=2:
+    row 1 u -1 (ghost) X=0 waste=0: (-1,1)-(1,2) (-1,1)-(0,3)
+    row 1 u 1 (mod) X=0 waste=0: (1,1)-(3,2) (1,1)-(2,3)
+    row 1 u 2 (mod) X=0 waste=0: (2,1)-(4,2)
+    row 1 u 4 (ghost) X=0 waste=2:
+    row 2 u -1 (ghost) X=0 waste=0: (-1,2)-(0,4)
+    row 2 u 0 (mod) X=0 waste=0: (0,2)-(2,3) (0,2)-(1,4)
+    row 2 u 1 (mod) X=1 waste=0: (1,2)-(2,4)
+    row 2 u 2 (mod) X=0 waste=0: (2,2)-(4,3) (2,2)-(3,4)
+    row 3 u -1 (ghost) X=0 waste=0: (-1,3)-(0,5)
+    row 3 u 0 (mod) X=0 waste=0: (0,3)-(1,5)
+    row 3 u 1 (mod) X=1 waste=0: (1,3)-(3,4) (1,3)-(2,5)
+    row 4 u -2 (ghost) X=0 waste=0: (-2,4)-(0,5)
+    row 4 u 0 (mod) X=0 waste=0: (0,4)-(1,6)
+    row 4 u 1 (mod) X=1 waste=0: (1,4)-(3,5)
+    row 4 u 2 (mod) X=0 waste=0: (2,4)-(4,5)
+    row 4 u 4 (ghost) X=0 waste=2:
+    row 5 u -1 (ghost) X=0 waste=0: (-1,5)-(1,6) (-1,5)-(0,7)
+    row 5 u 1 (mod) X=0 waste=0: (1,5)-(3,6)
+    row 5 u 2 (mod) X=0 waste=0: (2,5)-(4,6)
+    row 5 u 4 (ghost) X=0 waste=2:
+    row 6 u -2 (ghost) X=0 waste=0: (-2,6)-(0,7)
+    row 6 u 0 (mod) X=0 waste=0: (0,6)-(2,7) (0,6)-(1,8)
+    row 6 u 2 (mod) X=0 waste=0: (2,6)-(4,7) (2,6)-(3,8)
+    row 6 u 4 (ghost) X=0 waste=2:
+    row 7 u -1 (ghost) X=0 waste=0: (-1,7)-(1,8) (-1,7)-(0,9)
+    row 7 u 1 (mod) X=0 waste=0: (1,7)-(3,8) (1,7)-(2,9)
+    row 7 u 2 (mod) X=2 waste=1: (2,7)-(1,9)
+    row 8 u -1 (ghost) X=0 waste=0: (-1,8)-(0,10)
+    row 8 u 0 (mod) X=1 waste=1: (0,8)-(2,9) (0,8)-(1,10)
+    row 8 u 2 (mod) X=0 waste=0: (2,8)-(4,9) (2,8)-(3,10)
+    row 9 u -1 (ghost) X=0 waste=0: (-1,9)-(0,11)
+    row 9 u 0 (mod) X=1 waste=0: (0,9)-(2,10)
+    row 9 u 1 (mod) X=0 waste=0: (1,9)-(3,10)
+    row 9 u 4 (ghost) X=0 waste=2:
+ try mean 7/5 per row
+  cycle: 42 arcs, 6 rows, crossings 4, waste 8, weight 8 -> mean 8/6
+    row 0 u -1 (ghost) X=0 waste=0: (-1,0)-(0,2)
+    row 0 u 0 (mod) X=1 waste=0: (0,0)-(2,1)
+    row 0 u 1 (mod) X=0 waste=0: (1,0)-(3,1)
+    row 0 u 4 (ghost) X=0 waste=2:
+    row 1 u -2 (ghost) X=0 waste=0: (-2,1)-(0,2)
+    row 1 u 0 (mod) X=0 waste=0: (0,1)-(2,2)
+    row 1 u 1 (mod) X=0 waste=0: (1,1)-(3,2)
+    row 1 u 2 (mod) X=0 waste=0: (2,1)-(4,2)
+    row 1 u 4 (ghost) X=0 waste=2:
+    row 2 u -2 (ghost) X=0 waste=0: (-2,2)-(0,3)
+    row 2 u -1 (ghost) X=0 waste=0: (-1,2)-(1,3)
+    row 2 u 1 (mod) X=0 waste=0: (1,2)-(3,3) (1,2)-(2,4)
+    row 2 u 2 (mod) X=0 waste=0: (2,2)-(4,3)
+    row 2 u 4 (ghost) X=0 waste=2:
+    row 3 u -2 (ghost) X=0 waste=0: (-2,3)-(0,4)
+    row 3 u -1 (ghost) X=0 waste=0: (-1,3)-(1,4)
+    row 3 u 0 (mod) X=1 waste=0: (0,3)-(1,5)
+    row 3 u 1 (mod) X=0 waste=0: (1,3)-(2,5)
+    row 3 u 2 (mod) X=0 waste=0: (2,3)-(4,4) (2,3)-(3,5)
+    row 3 u 4 (ghost) X=0 waste=2:
+    row 4 u -1 (ghost) X=0 waste=0: (-1,4)-(1,5) (-1,4)-(0,6)
+    row 4 u 0 (mod) X=1 waste=0: (0,4)-(1,6)
+    row 4 u 1 (mod) X=0 waste=0: (1,4)-(2,6)
+    row 4 u 2 (mod) X=0 waste=0: (2,4)-(3,6)
+    row 5 u -1 (ghost) X=0 waste=0: (-1,5)-(0,7)
+    row 5 u 0 (mod) X=1 waste=0: (0,5)-(2,6) (0,5)-(1,7)
+    row 5 u 2 (mod) X=0 waste=0: (2,5)-(3,7)
+ try mean 4/3 per row
+RESULT A=0 WM=3 KM=1 nz lambda=1/1: min mean weight per row = 4/3 (CERTIFIED: no cycle below); per level (E units) = 4/6 = 0.6667  (14s)
+total 14s
+	Command being timed: "./wall 0 3 1 nz 8 1 30000000"
+	User time (seconds): 12.21
+	System time (seconds): 1.32
+	Percent of CPU this job got: 96%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:13.99
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 234844
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 166097
+	Voluntary context switches: 1
+	Involuntary context switches: 2295
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 48
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+exit=0

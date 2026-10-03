@@ -1,0 +1,4 @@
+P=10 W=7 rows=[0] KMAX=9: INFEASIBLE pass=True (cuts 0, 398s)
+P=12 W=7 rows=[0] KMAX=11: UNKNOWN pass=True (cuts 0, 1500s)
+Terminated
+exit=143

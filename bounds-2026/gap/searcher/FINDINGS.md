@@ -6,6 +6,17 @@ All dates 2026-10-03.
 
 ## 0. Status summary (latest first)
 
+- 2026-10-03 10:00: WALL12.md (CR request). (1,2) wall with margins restricted to one field type (W=4, lambda=1):
+  1/2 per row needs mixed-word '/' fields (zigzag) on both sides; next to straight knight-line fields the cheapest
+  (1,2) wall costs 1 per row ('\' H|V or '/'H|'\'V) or does not exist. wall.cpp: FIELDL/FIELDR, warm-layer hash dedupe,
+  compact key (-DNOLABK). W=5 does not fit in 8 GB (relaxed warm layer > 90 M states): stopped, low value.
+
+- 2026-10-03 09:30: Structures' metric on the wall witnesses (section 7.3): the (1,2) and (1,1) walls absorb 0 ribbon
+  ends (same split, same bits both sides); (1,3) 1.25 and (2,3) 2.33 crossings per absorbed end.
+
+- 2026-10-03 STEP A KEY RESULT: a straight defect wall of direction (1,2) between PERFECT regions, psi jump != 0,
+  costs 1/2 crossing per level (section 7.1; witness checked by Python and extended by CP-SAT). So P1(2/3) is
+  FALSE for straight walls; and if it fits a layout, it is a cheaper flux carrier than the diagonal 2/3.
 - 2026-10-03 PIVOT (gap/PIVOT_BRIEF.md): phase-1 plan for piece 1 is gap/searcher/PLAN.md. New exact identity
   E = X - 4n + 2 = (G + X1 + W3)/2 (PLAN section 1), checked on the n = 166 tour (check_identity.py).
 - 2026-10-03 LOWER side: R2 second implementation MATCHES KT Lower Bounds: beta* = 16/11 exact, both orientations
@@ -257,3 +268,114 @@ cd gap/searcher/lower && g++ -O2 -march=native -std=c++17 -o jr jr.cpp
 ./run_wd.sh joint_up.log 8 ./jr EELELL 01,02,12,13,23,34,35 slab up crit 8 3     # 4 min, 3.6 GB
 ./run_wd.sh joint_down.log 8 ./jr EELELL 01,02,12,13,23,34,35 slab down crit 8 3 # 5 min, 5.3 GB
 ```
+
+## 7. Step A of PLAN.md: wall tension of straight defect bands (2026-10-03, IN PROGRESS)
+
+Engine `wall/wall.cpp` (own code). Model: band of direction (A,1); scan cell (u,y) = board cell (u + A*y, y);
+modeled cells 0 <= u < WM have degree exactly 2; ghost cells = all their other knight neighbours, degree <= 2,
+edges only to modeled cells (so every edge with a modeled end is represented). Complete squares (every covering
+tile has a modeled end) form an interval per square row; the KM outermost on each side are MARGIN squares and must
+be perfect (all quarters m = 1); the others are COST squares. psi jump (sum of chi(a)(m_+ + m_- + 1) over the
+transversal, audited formula (2)) must be != 0 mod 3 at every row end. Cost per row: crossings Xc of represented
+edges and waste G + W3 (cost squares) + X1; weight lambda*Xc + (1-lambda)(waste)/2 in E units (PLAN (II)).
+Warm-up: rows 0 and 1 relax modeled degrees; checks start at square row 1 (fully represented there); warm-up
+layers are expanded one cell position at a time and not stored. Exact min mean cycle per row (Dinkelbach + integer
+Bellman-Ford). Per level = per row / max(|A|, 1) (L-infinity levels crossed per row). NOLAB=1 drops path labels
+(no acyclicity): a relaxation, valid for lower bounds. A wider band can only help the wall (more room).
+Calibration: MODE zero (psi jump 0) gives cost 0 (A=0, WM=3).
+
+Results (CERTIFIED for the stated model and width; E units per level crossed):
+
+| wall | WM | labels | states | lambda=0 (waste) | lambda=1/2 | lambda=1 (crossings) |
+| --- | --- | --- | ---: | --- | --- | --- |
+| vertical A=0 | 3 | yes | 2.6 M | 2/3 | 2/3 | 2/3 |
+| vertical A=0 | 4 | no (relaxed) | 13.5 M | 2/3 | 2/3 | 2/3 |
+| diagonal A=1 | 3 | yes | 2.6 M | 1/2 | 3/4 | 1 |
+| diagonal A=1 | 4 | no (relaxed) | 20.0 M | 0 | 1/2 | 2/3 |
+| direction (1,2) (shear 1/2) | 4 | no (relaxed) | 10.6 M | 1/2 | 1/2 | **1/2** |
+| direction (1,3) (shear 1/3) | 4 | no (relaxed) | 22.2 M | - | 5/9 | 5/9 |
+| direction (2,3) (shear 2/3) | 4 | no (relaxed) | 23.0 M | - | 5/8 | 7/12 |
+
+WM=4 with labels exceeds 100 M strict states (not run to the end; 8 GB rule).
+Note: one early pilot (A=0, WM=3, old warm-up) peaked at 16.6 GB without the watchdog; all later runs use
+run_wd.sh (kill by PID above 7 GB).
+
+Reading (2026-10-03, 08:20):
+- The waste currency alone (lambda = 0) prices a diagonal wall at 0 (WM=4): a psi jump made of doubly covered
+  quarters only, with no local gap. So the identity E = waste/2 cannot be used alone for walls. The doubles are
+  paid globally through E >= X_int + R - O(1) (crossings outside B).
+- lambda = 1/2 (today's accounting) gives exactly 1/2 per level on the diagonal: the method's 1/2 is locally tight.
+- lambda = 1 (crossings only) gives 2/3 per level for BOTH the vertical (axis) and the diagonal wall (WM=4,
+  relaxed), equal to the certified fold carrier. So the right currency for P1 is crossings outside B (lambda = 1).
+- Slopes 2 and 3 (A = 2, 3) need WM >= 5 (geometry: no complete squares below), 82+ slots; the A=2, WM=5 warm-up
+  passed 7.5 GB and was stopped by the watchdog. Next engine step: rational shear x = u + floor(a*y/b) with the
+  row phase in the state (direction (a,b), a < b), equivalent by transposition and much narrower per row.
+Commands: `cd gap/searcher/wall && g++ -O2 -march=native -std=c++17 -o wall wall.cpp`;
+`NOLAB=1 ./run_wd.sh LOG 7 ./wall A WM 1 nz 8 1 CAP` (LAMS=0/1,1/2,1/1 default). DRY=1 prints the geometry only.
+
+### 7.1 The (1,2) wall: 1/2 crossing per level (2026-10-03, 09:00)
+
+Engine: rational shear (wall.cpp, cell (u,y) = board cell (u + floor(a*y/b), y), row phase in the state);
+regression: A=0, A=1 results unchanged; MODE zero gives 0. Shear 1/2, WM=4, NOLAB: min mean = 1/2 crossing per
+row for lambda = 1 and also 1/2 for lambda = 0, 1/2 (CERTIFIED in that relaxed model; 10.6 M states, 85 s).
+
+Witness (period 4 rows, period vector (2,4); board coordinates; modeled cells 0 <= x - floor((1+y)/2) < 4):
+
+    (-1,0)-(1,1)  (1,0)-(3,1)  (1,0)-(2,2)  (2,0)-(3,2)  (3,0)-(5,1)  (3,0)-(4,2)
+    (0,1)-(2,2)   (2,1)-(4,2)  (2,1)-(3,3)  (4,1)-(6,2)  (4,1)-(5,3)
+    (1,2)-(3,3)   (1,2)-(2,4)  (3,2)-(5,3)
+    (0,3)-(2,4)   (2,3)-(4,4)  (2,3)-(3,5)  (4,3)-(6,4)  (4,3)-(5,5)
+
+Checks:
+- `python3 gap/searcher/wall/verify_witness.py` (independent Python, own tiles): modeled degrees 2, no cycle,
+  2 crossings per period (0.5 per row), per period 4 doubly covered and 4 uncovered quarters (area balanced);
+  margin squares perfect; psi jump nonzero (one grid edge with m_+ + m_- = 2 + 1).
+- `.venv/bin/python gap/searcher/wall/extend_witness.py 2 8` (CP-SAT, 2 workers, < 1 s): with the witness fixed,
+  the exterior on a cylinder (8 rows, 5 inner square columns per side) has a solution in which EVERY exterior
+  quarter is covered exactly once (OPTIMAL = feasible). So the wall separates two perfect regions.
+Meaning: per L-infinity level (one row in the y > x region), the wall costs 1/2 crossing, and its waste is also
+1/2 per level. A wall from a corner in direction (1,2) crosses every gamma_R once. Hence:
+- LOWER side: P1(p) with p > 1/2 is FALSE for straight walls; the private flux price of straight walls is at most
+  1/2 per path, the value the audited method already gets. The 16n/3 route via flux alone fails as stated.
+- UPPER side (UNCHECKED): if such a wall fits a full tour layout (side and corner compatibility, exterior fields
+  that match the fold layout, one cycle), the flux term would drop from 4n/3 to n (19n/3 -> 6n). Not tested.
+Other directions (WM=4, relaxed, lambda=1): (1,3) 5/9, (2,3) 7/12, (1,1) 2/3, (0,1) 2/3.
+
+### 7.3 Ribbon ends and integer current of the wall witnesses (KT Structures' request, 2026-10-03, 09:30)
+
+Tool `wall/ribbon_ends.py LOG...` (output `wall/ribbon_ends.out`). It reads the optimal witness of each lambda
+section, rebuilds the periodic edge set (old logs printed x without the row phase; the tool rebuilds x from u and
+takes the phase for which every margin square is good), and reads the two margin columns: split, and the H/V bit of
+each ribbon run that meets the band (a run that crosses the band as one good run has no end). Absorbed ends per
+period by Structures' G11 rule. Integer current: I(Y) = sum of chi(a)(m_+ + m_- - 3g + 1) along square row Y between
+the margins (I(Y) != 0 mod 3 at every row for MODE nz, by construction). Caveat: the margins are ONE square column;
+the exterior beyond them is free (ghost cells), so it is not forced to be a ribbon field.
+
+| wall (WM=4, relaxed) | lambda | crossings per period / rows | splits L, R | absorbed ends per period | crossings per end |
+| --- | --- | --- | --- | ---: | --- |
+| vertical (0,1) | 0, 1/2, 1 | 4 / 6 | mixed, mixed (horizontal split walls cross the band) | n/a | n/a |
+| diagonal (1,1) | 1 | 2 / 3 | '/', '/' (ribbons parallel to the band) | 0 | no end |
+| diagonal (1,1) | 0, 1/2 | 2 / 1, 2 / 2 | '\', '\' (equal bits) | 0 | no end |
+| (1,2) | 0, 1/2, 1 | 2 / 4 | '/', '/' (bits VH, VH) | **0** | no end |
+| (1,3) | 1/2, 1 | 5 / 9 | '/', '/' | 4 | 1.25 |
+| (2,3) | 1/2, 1 | 14 / 24 | '/', '/' | 6 | 2.33 |
+
+Reading: the cheapest psi walls ((1,2) at 1/2 per level, (1,1) at 2/3) absorb NO ribbon end: both sides have the
+same split and the same bit on every ribbon. So a nonzero psi jump does not need an absorbed end, and the G11/R5
+"price per absorbed end" does not see these walls; they carry an integer colour current along the band (I(Y) values
+in ribbon_ends.out, e.g. (1,2): 5, 2, 2, 2 per row, = 2 mod 3). The optimal vertical wall uses mixed-split margins.
+
+### 7.2 State for the next session (2026-10-03, 10:10; supersedes the 09:00 version)
+
+- DONE: Structures' ribbon-end metric (7.3, sent); WALL12.md (field-restricted (1,2) wall, sent to CR + Integrator);
+  Integrator's question (straight (2,1)|(2,1) and (2,1)|(1,2)) answered: none below 4 per level at W=4.
+- Width 5 (NOLAB, compact key, warm hash dedupe): relaxed warm layer > 90 M states, stopped (nl_s12_W5c.log). Do not retry.
+- B1 (P1 with p = 2/3) is moot: straight (1,2) walls give p <= 1/2.
+- NEW TASK (CR, 10:05): decide whether a 6n layout with (1,2) walls can exist. Certify interface prices (lambda=1):
+  (1) zigzag field | straight knight-line field, every interface slope that can occur (crossings per unit length);
+  (2) zigzag field next to a board side (Structures C2: infeasible in their model; confirm or find the cheapest side
+  pattern); (3) break-even: walls at 1/2 per level (BL-TL, BR-TR pairs, total n); zigzag zones + transitions must
+  cost < n/3 in total to beat 19n/3. Coordinate with KT Integrator (agent-1790897628991-tlfe).
+  Tool idea: wall.cpp with FIELDL/FIELDR and MODE any (no psi jump) prices a straight interface between two fields of
+  given types: run shears 0, 1/2, 1, 1/3, 2/3 (and transposed directions by symmetry). Side: a new one-sided variant
+  (modeled strip next to the side, margin on one side only).

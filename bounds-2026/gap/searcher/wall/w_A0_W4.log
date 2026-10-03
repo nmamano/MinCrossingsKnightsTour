@@ -1,0 +1,50 @@
+A=0 WM=4 KM=1 MODE=nz lambda=1/2: columns u in [-2,5], 54 slots, complete squares s in [-1,3], 3 cost squares per row
+warm-up done: 2015042 strict seed states, largest warm layer 29619315, 178s
+  ... 4194304/9344925 states, 7534344 arcs, 192s
+  ... 8388608/15010632 states, 14089425 arcs, 203s
+  ... 12582912/20097687 states, 20664582 arcs, 218s
+  ... 16777216/25626289 states, 28687827 arcs, 230s
+  ... 20971520/33470214 states, 38580061 arcs, 250s
+  ... 25165824/40780311 states, 47936416 arcs, 273s
+  ... 29360128/48631258 states, 57594802 arcs, 288s
+  ... 33554432/56593764 states, 66400613 arcs, 312s
+  ... 37748736/65138549 states, 76193912 arcs, 332s
+  ... 41943040/68813464 states, 81887424 arcs, 359s
+  ... 46137344/71796927 states, 86398033 arcs, 365s
+  ... 50331648/76896750 states, 92435163 arcs, 375s
+  ... 54525952/79597717 states, 96645672 arcs, 384s
+  ... 58720256/82742952 states, 100791414 arcs, 395s
+  ... 62914560/86604637 states, 105559999 arcs, 406s
+  ... 67108864/91492592 states, 112219391 arcs, 422s
+  ... 71303168/97444840 states, 118212832 arcs, 433s
+  ... 75497472/97633957 states, 118591162 arcs, 437s
+  ... 79691776/98075282 states, 119274127 arcs, 442s
+  ... 83886080/98264137 states, 119802325 arcs, 446s
+  ... 88080384/98513433 states, 120285270 arcs, 450s
+  ... 92274688/98918272 states, 120869916 arcs, 455s
+  ... 96468992/99807234 states, 121940983 arcs, 460s
+CAP reached: 100000002 states (processed 97401522) 461s
+	Command being timed: "./wall 0 4 1 nz 8 1 100000000"
+	User time (seconds): 410.70
+	System time (seconds): 51.06
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 7:42.11
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 5773332
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 5716233
+	Voluntary context switches: 2
+	Involuntary context switches: 1723
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 144
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+exit=0

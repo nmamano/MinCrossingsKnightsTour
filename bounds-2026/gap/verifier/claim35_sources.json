@@ -1,0 +1,10 @@
+{
+  "date": "2026-10-03",
+  "sha256": {
+    "gap/searcher/FINDINGS.md": "edd28ce7b579602e3cf111d95473ac511e857bb5989fa35a9c1e6721fc6c119a",
+    "gap/searcher/wall/wall.cpp": "f0f812d50d6f67d6fd8384c00ca1870eecdbe90be3e46ea922015ff41512cb40",
+    "gap/searcher/wall/verify_witness.py": "6018f21c94efe8836f8f834762f8d31cb2dccdc89e14a0270ff1c592f932b95b",
+    "gap/searcher/wall/extend_witness.py": "48a084fcda1b83bc2bb7357e046bf02ef2e608525511a45f9f690fece9bca790",
+    "gap/turnstheory/PLAN.md": "2650c4e90d4ea5902a73f8e98a075111d7d5dd3dcbc2d890bb17d49e4e710035"
+  }
+}

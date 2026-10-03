@@ -238,3 +238,47 @@ So in this model R5 (>= 1/4 per absorbed end) holds for straight pure-field line
 the gentle seam: zero slack, as predicted. Caveats: band width a = 2 only (a wider defect may be cheaper; values
 are not monotone guarantees); straight lines only; periods <= 4 x minimal. Mixed words: run in progress
 (interface_a2mix.log). Commands: `python interface.py 2 120 pure 1,2,3,4` (log interface_a2m.log, about 6 min).
+Update (2026-10-03, mixed words, interface_a2mix.log + reruns): fields '/' and '\' with words H, V, HV, HHV, HVV,
+8 slopes, all ordered pairs (680 lines). At a = 2: 308 OPTIMAL, minimum among lines with a mixed word = 1/2 per end
+(0.25 only for the pure gentle seam and its mirror). 168 lines had FIELD-CONFLICT (band too thin, fixed edges of both
+sides meet at a band cell; not solver time-outs): rerun at a = 3 and a = 4 (interface_a3_conflicts.log,
+interface_a4_rest.log): every OPTIMAL value >= 3/4 per end. 116 pairs stay INFEASIBLE at the tested periods; 78 of
+them put net integer colour charge into the band (periodic model cannot carry it; same gap as C2). The rerun of the
+other 38 at a = 4 with period x2, x3 was stopped after 27 lines (interface_a4_inf.log, cases in
+interface_inf_cases.txt): OPTIMAL ones >= 1 per end; 3 slope +1/2 lines are FEASIBLE at 22-24 crossings for 24 ends
+(about 0.9-1.0 per end) with unproved bounds.
+Result of the pilot: in every resolved straight periodic case, a defect line costs >= 1/4 per absorbed end, with
+equality only for the gentle seam. Open: charge-injecting interfaces (integer current along the line), bands wider
+than a = 4, curved and non-periodic defects.
+
+## G12 (2026-10-03, MEASURED on 4 validated tours): R5-count - absorbed ends are paid locally at 1/4 in c_{1/2}
+
+Ledger: identity (I) E = (G + X1 + W3)/2 (Edge Searcher, PROVEN in Claim 29) and (II) E >= sum c_lambda + lambda R - O(1)
+with c_lambda = lambda (crossing pairs not in B, split over their overlap quarters) + (1 - lambda)/2 (G + X1 + W3).
+In c_{1/2} every bad quarter carries >= 1/4 (hole 1/4; overlap quarter >= 1/2 x 1/2; X1 and W3 more).
+Absorbing cut (cluster_scan.py): on one ribbon chain, two good runs with DIFFERENT bits separated by a gap of halves
+in bad squares only (2 absorbed ends). Same-bit gaps absorb nothing (they are most gaps). Results (interior = gap
+squares at distance > 3 from the side):
+| tour | E | absorbing interior cuts | ends | gap-local matching (2 distinct bad quarters per cut, in its own squares) |
+|---|---|---|---|---|
+| layoutG_n32 | 151 | 48 | 96 | 96 / 96 |
+| FOLD24_n96 | 338 | 13 | 26 | 26 / 26 |
+| FJOG_n130 | 1045 | 166 | 332 | 332 / 332 |
+| FIELD_n166_92_155 | 578 | 13 | 26 | 26 / 26 |
+Also: per interior cluster, min c_{1/2} per absorbed end = exactly 1/4 (3 tours), max (ends / bad quarters) = 1.000.
+Pure currencies fail locally: c_0 = (G+X1+W3)/2 is 0 on overlap-only cuts (their holes are elsewhere), and c_1
+(crossings only) is 0 on hole-only cuts. Per SQUARE the count fails (ends / bad quarters = 2 on a few squares), so
+the lemma must be per cut (per gap), not per square.
+Conjecture GAP LEMMA (R5-count): for every set of absorbing cuts, the union of their gap squares holds >= 2 x (number
+of cuts) bad quarters (Hall's condition); with c_{1/2} this pays 1/4 per absorbed end, any defect shape. A hand
+proof by cases on the gap looks feasible (single-half gaps: both good neighbours are matched away from the gap, so
+the gap half is covered only by halves of the other split; the bad quarters then sit in the same square).
+Command: `python cluster_scan.py <tour.json>` (about 1-3 min per tour; prints the identity check E = sum of costs).
+Update G12 (same day): even the HALF-local form holds in all 4 tours: every interior absorbing cut has >= 2 bad
+quarters inside its own gap halves, and the half-local matching is perfect (96/96, 26/26, 332/332, 26/26). Gap
+lengths seen: 1-9 halves. Proof notes: (i) a one-half gap h between good g-, g+ absorbs iff g- and g+ are both
+matched toward h (then h is covered twice: 2 bad quarters in h) or both matched away from h. (ii) In the "away" case
+for h = BR(i,j), the good '/' neighbours force the '\' tiles of S to cross its T and L sides, so the bad quarters of S
+are T and L (in TL(S), not in h): the half-local form can fail there in principle; the square-local form still holds,
+but T and L also lie on the two '\' chains of S. Did not occur in the 4 tours. A proof must handle this sharing case
+(tight example: the gentle seam, 2 bad quarters per cut, all on one split).

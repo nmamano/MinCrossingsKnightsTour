@@ -1,0 +1,123 @@
+{
+  "levels": [
+    {
+      "size": 1,
+      "shapes": 1,
+      "sat": [],
+      "corner_counts": [
+        4
+      ],
+      "elapsed": 0.858
+    },
+    {
+      "size": 2,
+      "shapes": 1,
+      "sat": [],
+      "corner_counts": [
+        6
+      ],
+      "elapsed": 0.861
+    },
+    {
+      "size": 3,
+      "shapes": 2,
+      "sat": [],
+      "corner_counts": [
+        8
+      ],
+      "elapsed": 0.868
+    },
+    {
+      "size": 4,
+      "shapes": 4,
+      "sat": [],
+      "corner_counts": [
+        10
+      ],
+      "elapsed": 0.88
+    },
+    {
+      "size": 5,
+      "shapes": 11,
+      "sat": [],
+      "corner_counts": [
+        12
+      ],
+      "elapsed": 0.914
+    },
+    {
+      "size": 6,
+      "shapes": 27,
+      "sat": [],
+      "corner_counts": [
+        14
+      ],
+      "elapsed": 1.099
+    },
+    {
+      "size": 7,
+      "shapes": 83,
+      "sat": [],
+      "corner_counts": [
+        15,
+        16
+      ],
+      "elapsed": 1.546
+    },
+    {
+      "size": 8,
+      "shapes": 255,
+      "sat": [],
+      "corner_counts": [
+        17,
+        18
+      ],
+      "elapsed": 3.18
+    },
+    {
+      "size": 9,
+      "shapes": 847,
+      "sat": [],
+      "corner_counts": [
+        19,
+        20
+      ],
+      "elapsed": 8.478
+    },
+    {
+      "size": 10,
+      "shapes": 2829,
+      "sat": [],
+      "corner_counts": [
+        21,
+        22
+      ],
+      "elapsed": 29.955
+    }
+  ],
+  "sanity": {
+    "slack2": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "no_degree": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "no_absorbing": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ]
+  }
+}

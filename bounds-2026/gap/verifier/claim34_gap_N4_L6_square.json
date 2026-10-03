@@ -1,0 +1,10 @@
+{
+  "date": "2026-10-03",
+  "N": 4,
+  "max_gap": 6,
+  "mode": "square",
+  "seconds": 20.00658217794262,
+  "status": "UNKNOWN",
+  "candidate_cuts": 88,
+  "edge_variables": 152
+}

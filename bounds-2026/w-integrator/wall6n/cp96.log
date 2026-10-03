@@ -1,0 +1,2 @@
+n=96 w=3.0 P=4 lo=16 free=1962 mid=416 ties=516 {'comps': 32, 'closed': 0, 'bad': 52, 'clusters': 13, 'free': 888, 'imb': [-1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, -1, 0], 'X_pre': 432}
+exit=143

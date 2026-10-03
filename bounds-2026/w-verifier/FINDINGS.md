@@ -4150,3 +4150,920 @@ The shared ingredients are the four knight-tile shapes, their one/two-quarter ov
 Claim 31 improves the coefficient and simplifies the written reduction relative to Claim 27, but greatly enlarges the certificate. Claim 26 keeps a much smaller graph. These are different simplicity tradeoffs; I do not discard the smaller-certificate route merely because its coefficient is lower. Claim 30's repaired ribbon-run statements offer a mostly hand-checkable structural input, but no 5n conclusion has yet been audited from them.
 
 Optional optimality witnesses, diagnostic tour checks, and torus samples do not add premises to the stated crossing lower bounds. For each future audit, report the theorem, proof size, essential finite checks, and which checks are only corroborating. A hand proof or a small certificate can therefore remain valuable even after a larger computational bound is known.
+
+## Claim 30 addendum: W1 local SAT/DRUP cross-check — 2026-10-03
+
+**PASS for the precise 9-by-9 / central 3-by-3 statement.** I read the W1 model generator, fold-stack map generator, and standalone DRUP checker. I independently rebuilt the entire CNF in `gap/verifier/claim30_w1.py`, without imports from the authors. The rebuilt model has 424 edge variables, 7,144 clauses, and 156 excluded central maps. Its clause multiset equals the supplied CNF exactly. The independent crossing test solves the two segment parameters with integer determinants. Results and the CNF hash are in `gap/verifier/claim30_w1.json`.
+
+The variables are every knight edge with an endpoint in the 9-by-9 core. Each core vertex has exactly two selected edges, each halo vertex at most two. Every strictly crossing pair of represented edges is forbidden. The central map records both incident edge directions at every one of its nine vertices. Each exclusion clause contains the negatives of all edges in one map; core degree two makes this equivalent to excluding that exact map. Duplicated literals from edges between central vertices do not affect the clause. Cycles are allowed, so the statement also applies to tours. Edges with both endpoints outside the core are absent; restricting a full configuration to represented edges gives the required relaxation.
+
+I reran the standalone checker against both supplied proofs. Glucose: **2,942 RUP additions, PASS**. Lingeling: **2,989 RUP additions, PASS**. Both derive the empty clause. Logs: `gap/verifier/claim30_w1_glucose.log` and `claim30_w1_lingeling.log`. Thus every configuration meeting these window hypotheses has one of the 156 fold-stack maps at its centre.
+
+**Scope unchanged.** This finite local theorem supports the local structure classification. It does not prove one ribbon bit throughout an arbitrary connected good domain, where bad squares can interrupt a ribbon. The full-tour counterexample in Claim 30B remains valid. Neither this CNF nor its proofs certify the subsequent global gluing/no-junction corollary as worded; any such use must specify complete translated window hypotheses and prove the gluing step. The four functional families in W1 are exhaustive **up to sign** within the stated search range; add those words to its definition paragraph (the source code already uses that convention).
+
+**Proof-size / finite-input profile.** W1 supplies a short local reduction to a 424-variable, 7,144-clause CNF and two checked proofs of about 3,000 RUP additions each. One proof suffices for the theorem; the second is corroboration. It adds no lower-bound coefficient and does not replace Claim 30's required scope repairs. No large graph rebuild was repeated. Claims 29, 31, and 30 remain complete in the requested order; Claim 31's bound is unchanged.
+
+
+## Claim 32 — RED TEAM: ribbon absorption toward 5n — 2026-10-03
+
+**Verdict: GAP for the proposed 5n theorem; FAIL for an unconditional wall-face yield lemma.** The simpler route remains worth pursuing, but the supplied steps do not yet give a private price of 1/4 per original side end. I found an exact zero-crossing field that defeats R3 if its only correction is for defects. This is a counterexample to that intermediate geometric statement, not a closed-tour counterexample to X >= 5n-O(1).
+
+Sources: gap/structures/PLAN.md point 2, FINDINGS.md G9–G10, STRUCTURE.md, and the audited tile/boundary budget. I also read G11's pilot description to distinguish its fixed straight-interface model from the proposed universal claim. Source hashes and sizes: claim32_sources.json. All checks were light, single-process checks; no optimisation or large graph job was run.
+
+### 32A. PROVEN counterexample: a wall can send its strands to other walls for free
+
+On the whole integer plane choose every edge
+
+    (x,y) -- (x+2,y+1)     when y is even,
+    (x,y) -- (x-2,y+1)     when y is odd.
+
+Every vertex has one edge to the row above and one to the row below. Edges in one open horizontal slab are parallel; different open slabs are disjoint. The field therefore has degree two and no crossings. It is the fold stack with f=y and alternating choices (2,1), (-2,1).
+
+Every square in an even row has slash split; every square in an odd row has backslash split. The tiles cover all quarters exactly once. Thus **every integer horizontal line is a wall and there are no defects anywhere**. All ribbons incident to a wall have the required H bit. The complete strands are explicitly
+
+    P_k(y) = (k + 2*(y mod 2), y),    y in Z.
+
+They are strictly monotone in y and stay between x=k and x=k+2. In a rectangle, all strands whose two x coordinates are strictly inside it run from bottom to top. They do not return to a vertical side. A horizontal wall segment can have arbitrarily large length while almost all its incident strands are of this type. Only O(1) strands near either vertical boundary can meet that boundary. No defect correction explains this loss, because there are no defects.
+
+This breaks R3 as a statement that each face of length l yields l/2-O(defects) distinct same-vertical-side strands. It also breaks any attempt to price all wall faces independently: this field has arbitrarily many wall faces at zero crossing cost. The same strand meets arbitrarily many faces. The existence of many such faces cannot create many independent connectivity obligations.
+
+Independent exact check: claim32_pleats.py enumerates 625 edges in a padded window, checks all crossing pairs (zero), verifies degree two at 144 core vertices and exact coverage at 576 core quarters, and traces three interior strands from bottom to top. Output: claim32_pleats.json. The formulas above prove the family for every size; the window check only corroborates it.
+
+**Required repair.** Give each original side end a persistent label. At a wall, either prove a return to the same side, or transfer that label through a precisely defined strand/face relation. A face has a price only for labels that ultimately create distinct connectivity obligations. A wall-to-wall transfer is free in this example. Any number of such transfers must be handled without a separate O(1) loss per wall. If R3 was intended only for isolated chevrons already connected to one vertical side, state that hypothesis: deriving it from the general ribbon decomposition remains a new lemma.
+
+The example is a full-plane field and an open-window restriction, not a closed Hamiltonian tour. It does not satisfy a specification of four cheap, closed board sides. It therefore leaves open whether global side conditions can force enough *labelled* returns. It shows that the asserted local geometry does not supply that conclusion by itself.
+
+### 32B. PROVEN local propagation; GAP in the global end count and assignment
+
+Claim 30's repair is essential here. A bit propagates along one uninterrupted good half-ribbon run. It need not propagate across a bad interruption, even within one connected good domain. The validated n=96 tour in Claim 30B has H and V on two runs of ribbon 1 in the same connected slash domain. Consequently, an end cannot be transported past that interruption using the full-plane word model. The interruption must be entered in the absorber ledger at that point.
+
+For a straight uninterrupted ribbon that actually reaches perpendicular cheap sides, incompatible H/V requirements do force an interruption or wall encounter. This supports the local obstruction in R2. It does not establish the full accounting inequality as written. The count 4n-O(1) requires a defined scan curve with one side-end slot per row, including rows whose collar has defects or a non-cheap pattern. G10 optimises a side attached to a *fixed* exterior word; it does not prove that every arbitrary tour has this collar decomposition or price a nonperiodic side carrying current.
+
+The revised count should map each of these fixed boundary slots either to one labelled good run or directly to a paid side exception. Count the first absorber of that label once. Do not count the two sides of an interior run as two new original side ends. Do not replace defect-separated runs by a single word. The statement “a defect cut absorbs at most two ends” can hold for a specified cut of a specified ribbon, but does not mean one bad square is one such cut: a slash square contains halves of two different ribbons.
+
+### 32C. GAP: a price in crossings is not yet an extra price above 4n
+
+There are two different baseline arguments. The area proof gives X >= 4n-2 from total tile area; it does not identify 4n particular crossing pairs that can simply be removed. The audited boundary certificate does identify a set B with |B| >= 4n-24. A clean sufficient version of the new route is therefore a total absorption allocation of at least n-O(1) supported on crossing pairs outside B, with total allocation at each such pair at most one.
+
+Side repairs can also use surplus crossings inside B, but then they need one combined residual budget. For example, reserve a baseline of 4n-24 inside B and allow only its remaining capacity plus X-|B| to pay absorbers. The total available capacity is X-4n+24. A crossing counted in a side-strip objective cannot also pay a nearby defect or seam at full strength. Unit capacity is global across all absorber types, not merely within each type.
+
+This distinction matters for holes. A bad square need not contain a crossing at all. T4 bounds bad squares in U by E+X-|B|, with E=X-4n+2. With only |B| >= 4n-O(1), that is at most 2E+O(1). It does not assign a distinct crossing unit to each defect. For illustration, even if one separately proved at most four end labels per bad square, this budget alone would give at most 8E+O(1) labels and hence only E >= n/2-O(1) from 4n labels. This is a diagnostic calculation, not a new certified bound. A stronger defect inequality or an explicit allocation is needed for E >= n-O(1).
+
+The gentle-seam price of 1/4 per end has no spare capacity for duplicate labels or overlap with side charges. A finite band optimum with fixed exterior fields does not certify arbitrary bent, merged, or terminated defect sets. G11 itself records the width and period restrictions. Its zero-cost walls also require the global connectivity argument refuted in its unconditional form in 32A.
+
+### 32D. Status of the proposed steps and smallest useful repair
+
+| Step | Audit status |
+| --- | --- |
+| Good-run H/V propagation and local wall orientation | PROVEN, with Claim 30's run and degree hypotheses |
+| Cheap arbitrary side implies the required labelled H/V collar | GAP; G10 supplies restricted model evidence |
+| Every original boundary end reaches a first absorber | ARGUMENT until slots, collars, run interruptions, and transfers are defined |
+| Every wall face yields l/2 same-side strands up to defect losses | FAIL without added global hypotheses; alternating horizontal walls are a counterexample |
+| A fixed P-compatible chevron strand needs a changed edge end | PROVEN in Claim 28's fixed-matching scope |
+| Changed-end price 1/2 | CERTIFIED for the fixed exterior, W<=4 model in Claim 28; universal version remains GAP |
+| Every defect/seam/side absorber pays 1/4 privately | CONJECTURE; no general allocation is provided |
+| Adding the absorber prices to 4n | GAP until one baseline-residual ledger is proved |
+
+The next hand lemma should describe labelled side ends under wall-to-wall transfers, with no per-wall loss. It must explicitly pass the alternating-wall field above and Claim 30's interrupted-ribbon example. Only then is a finite defect-price search measuring the needed quantity. A sufficient final target is: at least 4n-O(1) original labels receive weight 1/4, and the total weight charged to all residual crossing capacity is at most that capacity. This target includes side, wall, and defect repairs in one inequality.
+
+**Pareto profile.** No new lower-bound coefficient is proved or refuted here. The counterexample is a two-line edge formula with an elementary slab argument; its finite input is zero. The exact 625-edge check is optional corroboration. The proposed 5n route has short geometric components, but its unresolved global transfer and residual-budget lemmas cannot yet be counted as a short proof. It remains a useful primary target after these repairs.
+
+Claim 32 is complete. No author files were edited. The outstanding mathematical work is to replace R3 by a labelled transfer/return lemma and then prove a joint extra-crossing budget.
+
+
+## Claim 33 — W1 and W3 window encodings — 2026-10-03
+
+**PASS for the precise finite window lemmas. PASS for their use in every tour when the core fits in the board and the stated crossing hypothesis holds.** I independently reconstructed the clause multisets, then reran every required DRUP proof. No encoding error was found. The broad wording needs the scope repairs below: a crossing need not be inside the core, one side's strip is different from the union of all four strips, and the depth >=4 extension uses the depth-6 certificates plus a translated interior window.
+
+Evidence: `gap/verifier/claim33_windows.py`, `claim33_windows.json`, `claim33_windows.log`, and `claim33_sources.json`. W1 also uses the independent reconstruction `claim30_w1.py`, rerun for this audit. The new checker imports no author geometry or model code. All computations were light and sequential. No SAT search was necessary.
+
+### 33A. Variable meaning and degree / halo constraints — PASS
+
+Each variable is one undirected knight edge with at least one endpoint in the core. IDs are the lexicographic order of sorted endpoint pairs, starting at one. Interior windows include all eight possible moves at each core vertex. Side windows discard edges with a negative x endpoint, so x=0 is a genuine board side. Edges with both endpoints outside the core are not represented.
+
+At every represented vertex, all negative triples of incident variables impose degree at most two. At a core vertex with incident list L, the positive clauses L minus {i}, for every i in L, impose degree at least two: zero chosen variables fails every such clause; one chosen variable fails the clause omitting it; two or more satisfy all of them. Together these clauses impose degree exactly two in the core. There are no connectivity or cycle constraints.
+
+The width-two halo is the set of possible external endpoints. “Halo degree at most two” refers only to represented edges, not a requirement to complete the halo into a tour or to close it periodically. The four extreme corners of the bounding halo need not have any incident variable. Nothing requires every halo vertex to be used.
+
+**Restriction of any tour is valid.** Retain all tour edges with an endpoint in the core. Every core vertex keeps both tour edges; halo vertices retain at most their two tour edges. Assign false to variables outside the physical board. This also works when the artificial halo extends outside the board. Only the core must fit. A true hole imposes the required absent edges, and the appropriate absence-of-crossings hypothesis imposes the binary clauses. Thus UNSAT proves the stated contrapositive for every closed tour. In fact these local lemmas apply to any degree-two graph on the core with the same degree bound outside, including disconnected 2-factors.
+
+### 33B. Crossing and hole geometry — PASS
+
+For each forbidden properly crossing pair, the CNF has the binary clause (-e,-f). Shared endpoints do not count. The independent checker solves the segment intersection parameters using integer determinants and requires both parameters to lie strictly between zero and one. This reconstructs every crossing clause, not a sample.
+
+For W3 the quarter labels are b,r,t,l, relative to the square sides. A hole means that every edge whose tile covers that quarter is absent. The independent checker uses exact quarter centroids with denominator six and integer tile vertices scaled by six. It searches all possible covering edges in a box larger than the maximum tile span, verifies that all are represented, and reconstructs exactly four negative unit clauses for each quarter. The audited fact that each tile is a union of whole quarters makes the centroid test exact. This independent calculation also checks the result of the author's 0.33-offset floating-point test; the saved CNFs have the correct exact constraints.
+
+For the side model, an allowed pair has **both edges incident to a vertex in columns {0,1}**. Either endpoint may be the incident endpoint. The clause test “both touch column zero OR both touch columns <=1” is equivalent to this condition, since the first case is a subset of the second. The model does not allow all pairs containing just one strip edge, and does not mean edges wholly contained in the two columns. Denote this permitted class by S_left. It is not automatically the union S* of four side classes.
+
+### 33C. W1: central fold-stack map — PASS
+
+The 9-by-9 core is {0,...,8} squared. The central block comprises the nine vertices {3,4,5} squared and their full incident-edge choices. The CNF forbids all crossings between represented edges. The four fold-stack families and all relevant binary level words produce exactly 156 distinct maps on these nine vertices. The independent reconstruction enumerates these maps without importing the author's list.
+
+Each map is excluded by one clause containing the negatives of its chosen edges. Since each central vertex has degree exactly two, satisfying all chosen edges would give precisely that map; it cannot have extra edges there. Repeated literals for edges joining two central vertices are harmless. UNSAT therefore proves that every admissible window has one of the 156 maps.
+
+The complete reconstruction matches 424 variables and 7,144 clauses. The Glucose proof verifies 2,942 RUP additions; the Lingeling proof verifies 2,989. Both derive the empty clause. One proof suffices; the second corroborates it.
+
+**Scope repair.** State “the central 3-by-3 incident-edge map agrees with a fold stack.” This certificate alone does not prove one global word throughout an arbitrary connected domain. Claim 30's interrupted-ribbon repair remains in force. In the functional-family description add “up to sign.” Any global classification or no-junction corollary needs its own continuation argument and complete translated-window hypotheses. None is needed for the W3 certificates.
+
+### 33D. W3: exact finite statements and checked proof sizes — PASS
+
+Interior statement: let C={0,...,6} squared. If a quarter of [3,4] squared is a hole, there is a proper crossing between two selected edges each having an endpoint in C. All four quarter orientations are certified. The crossing point and other endpoints need not lie in C; endpoints can lie in [-2,8] squared.
+
+Side statement: let C={0,...,11} times {0,...,8}, with no vertices at x<0. For d=4,5,6, a hole in any quarter of [d,d+1] times [4,5] forces a proper crossing outside S_left between two edges each touching C. I included all four depth-6 proofs, which now exist on disk, to close the depth-extension issue in the request.
+
+| Window | Variables | Clauses per quarter | RUP additions in b,r,t,l order |
+| --- | ---: | ---: | --- |
+| 7-by-7 interior | 272 | 4,260 | 606, 773, 574, 427 |
+| 12-by-9 side, d=4 | 496 | 7,918 | 682, 551, 563, 687 |
+| 12-by-9 side, d=5 | 496 | 7,918 | 896, 435, 1,041, 734 |
+| 12-by-9 side, d=6 | 496 | 7,918 | 784, 621, 633, 680 |
+
+Every reconstructed CNF matches the supplied clause multiset exactly. Interior CNFs contain 3,192 degree clauses, 1,064 crossing clauses, and four hole units. Side CNFs contain 6,156 degree clauses, 1,758 forbidden-crossing clauses, and four hole units. The 16 W3 proofs verify 10,687 RUP additions in total. The checker validates each added clause by reverse unit propagation and derives the empty clause. Ignoring proof deletions is sound because every retained learned clause was already proved.
+
+### 33E. Depth extension and union-of-sides scope — PASS with explicit hypotheses
+
+The literal claim “all d>=4 among edges touching the same side-anchored 12-by-9 core” is too broad: that fixed core does not even contain arbitrarily deep target squares. Use the following argument instead.
+
+For square lower-left coordinates (d,c), the translated interior core is [d-3,d+3] times [c-3,c+3], and all represented endpoints lie in [d-5,d+5] times [c-5,c+5]. If d>=7, every represented edge endpoint has x>=2, so no represented edge touches the left width-two strip. The interior lemma then forces a crossing outside S_left. At d=6 this reasoning does not work, because represented edges can touch column 1. The four depth-6 side proofs fill that case; depth-4/5 proofs alone do not supply it.
+
+For d=4,5,6 use the side-anchored core [0,11] times [c-4,c+4]. Its endpoints have x in [0,13] and y in [c-6,c+6]. Provided this core lies on the board, the side lemma applies. Hence under the hypothesis “the only crossings are in S_left,” these holes are impossible. In an arbitrary tour they instead imply the existence of a nearby crossing outside S_left. No assumption about the tour beyond the represented window is needed.
+
+To obtain a witness outside the **union** S* of four strips, keep the entire endpoint box away from the other three strips. The revised Turns Theory PLAN uses n>=128 and removes vertices within distance 32 of two adjacent sides. This is ample: if a square has depth 4–6 from one side outside these corner boxes, its side-window endpoints cannot touch another strip. If the square has depth at least seven from every side, the interior-window endpoints touch no strip at all. Under these conditions every endpoint of the witness pair is within L-infinity distance at most ten of the target square's centre. The informal “about six” is not established by the side-window certificate; radius ten is a safe explicit replacement.
+
+At multiplicity at least two, the audited tile lemma supplies a crossing directly. A tile from an edge incident to columns {0,1} has no area at square depth >=4, since that edge reaches column at most three. Thus the same strip exclusion holds for an overlapping quarter at these depths. Together with the hole lemmas, this proves bounded support for bad quarters in the stated middle region.
+
+The proof does not give distinct crossings to distinct holes or paths. It does not prove a private price, a Hall condition, or a finite decision procedure for an arbitrary number of paths. Those allocation claims remain open. The shallower-depth SAT witnesses and the separate B-only threshold were not needed or audited in Claim 33.
+
+### Repairs and Pareto profile
+
+Required wording repairs: retain the exact central-map scope of W1; specify represented halo degree; say “crossing between edges touching the core”; distinguish S_left from the four-side union; include d=6 and translated interior windows in the d>=4 statement; use a safe explicit radius and exclude corner interactions before asserting an off-S* witness. The current Turns Theory support discussion already includes d=6 and radius ten, and its support conclusion passes under the stated window and corner hypotheses.
+
+The W1/W3 source sections total 1,028 whitespace words and 74 lines as read on 2026-10-03, including ancillary claims not used here. Their essential finite inputs are one W1 CNF plus one of its two DRUP proofs, and 16 W3 CNF/DRUP pairs. The largest CNF has only 496 variables and 7,918 clauses. There is no large state graph and no new crossing coefficient. The geometric scope and translation argument are short; the allocation problem is not solved by these certificates.
+
+Claim 33 is complete. No author files were edited.
+
+
+## Claim 34 — Gap Lemma red team and W1 comparison closeout — 2026-10-03
+
+**FAIL: the strong gap-half lemma.** A validated closed 16-by-16 knight tour has an absorbing cut with five gap halves but only **one** bad quarter in their union. Every gap square is at distance at least five from the board sides, so the intended side-collar exclusion does not fix this counterexample.
+
+**GAP / CONJECTURE: the original gap-square Hall lemma.** The counterexample does not refute that version. I found no counterexample to it in the limited searches below; this is not a proof. **PASS: the independent W1 comparison reproduces 200, 164, 156 central maps at R=1,2,3.**
+
+GAP_LEMMA.md was absent at the first read and appeared during the search. I then used its precise definitions, strong version, and intended cost application. A copy of that 1,049-word, 75-line draft is saved as `claim34_GAP_LEMMA_reviewed.md`. Source hashes are in `claim34_sources.json`. No author files were edited.
+
+### 34A. Closed-tour counterexample to the strong version — PROVEN by explicit witness
+
+File: `gap/verifier/claim34_tour_n16.json`, in the repository's standard two-direction-code tour format. It has 256 vertices, 256 undirected knight edges, one connected cycle, and X=318 crossing pairs. The solver-free checker `claim34_validate.py` checks degrees, board containment, knight moves, connectivity, exact quarter coverage, endpoint bits, and the claimed cut. It also calls the prior independent tour checker on the standard encoding. The full edge list and cyclic order are in `claim34_closed_tour.json`.
+
+The backslash-chain cut is
+
+    RT(6,9), LB(7,9), RT(7,8), LB(8,8), RT(8,7), LB(9,7), RT(9,6).
+
+Its two endpoint squares are good. The initial half RT(6,9) is covered by the d-tile of edge (6,10)--(8,9), so its bit is H. The final half RT(9,6) is covered by the c-tile of edge (9,8)--(10,6), so its bit is V. The five intervening squares are all bad. Hence this is an absorbing cut under the draft's definition, with two absorbed ends.
+
+| Gap half | Multiplicities (B,R,T,L) in its square | Bad quarters in that half |
+| --- | --- | --- |
+| LB(7,9) | (1,0,0,1) | none |
+| RT(7,8) | (2,1,1,2) | none |
+| LB(8,8) | (1,1,2,2) | L only |
+| RT(8,7) | (2,1,1,2) | none |
+| LB(9,7) | (1,0,0,1) | none |
+
+Thus the union of the gap halves contains exactly one bad quarter, L(8,8), of multiplicity two. The strong inequality already fails for the singleton set K containing this cut: 1 < 2|K|. Sharing between different cuts is not needed to break it. In contrast, the five gap **squares** contain ten bad quarters.
+
+The tour has five absorbing cuts in total. My independent bipartite matching check finds 10/10 assigned quarters for the square version and only 9/10 for the half version. The author's current scanner agrees when run on this tour with ALLCUTS=1: square matching 10/10, half matching 9/10, and one cut with fewer than two bad quarters in its own halves. See `claim34_cluster_author.log` and `claim34_validation.json`.
+
+**Repair:** remove the strong half statement. Any proof must allow bad-quarter assignments to leave the chain half and enter the rest of a gap square. The original square statement permits precisely that repair. The witness does not show that the square statement is sufficient to finish the global absorption route.
+
+### 34B. Search model and limits of the square-version evidence
+
+`claim34_gap_search.py` independently constructs all knight edges touching a square window's vertex core, with exact degree two on that core and degree at most two on the endpoint halo. Quarter multiplicities use the verifier's exact tile geometry. For every candidate chain interval it can select an absorbing cut only if the endpoint halves are good with different bits and every intervening square is bad. All cuts are generated in one fixed direction, without reversed duplicates.
+
+The model selects an arbitrary subset of candidate cuts. It counts each bad quarter in their allowed union only once, then asks for 2 times the number of selected cuts to exceed that count. This tests a Hall deficit directly; it does not merely count single cuts. Local SAT witnesses are not automatically tours. I therefore completed the half-version witness to a closed tour using a circuit constraint, then validated it without the solver.
+
+Results, one worker per job:
+
+| Window of unit squares / maximum gap length | Version | Result |
+| --- | --- | --- |
+| 3-by-3 / 4, 28 candidate cuts | square | INFEASIBLE, about 0.10 s |
+| 3-by-3 / 4, 28 candidate cuts | half | INFEASIBLE, about 0.14 s |
+| 4-by-4 / 6, 88 candidate cuts | half | Counterexample found, about 0.43 s |
+| 4-by-4 / 6, 88 candidate cuts | square | UNKNOWN after 20 s |
+| 5-by-5 / 8, 200 candidate cuts | square | UNKNOWN after 30 s |
+
+The small INFEASIBLE results are bounded CP-SAT checks, not general proofs or separately checked DRUP certificates. UNKNOWN is no evidence of impossibility. The square conjecture remains open. The saved tour demonstrates why passing four construction-family tours was insufficient for the stronger conjecture.
+
+Definition repair: regard a cut and its reverse as one cut, or require the displayed forward chain orientation. Otherwise a set of sequences could count the same physical gap twice. The scanner uses the forward convention. Also, when applying an interior version, every gap square must satisfy the distance condition, not just the first square to which cluster_scan assigns its two ends.
+
+### 34C. Conditional use of the square lemma in the mixed cost — PASS
+
+For the exact cost identity, define X1(t) as the number of one-quarter-overlap crossing pairs whose overlap quarter is t. Define W3(t)=binom(m_t-1,2) when m_t>=1 and zero at a hole. In particular, do not evaluate the polynomial at m_t=0. With quarter shares of all crossing pairs outside B,
+
+    sum_t c(t) = (G+X1+W3)/4 + (X-|B|)/2
+               = E/2 + (X-|B|)/2.
+
+Using E=X-4n+2 and R=|B|-4n gives the exact equality
+
+    E = sum_t c(t) + R/2 + 1.
+
+If the draft's X1 brackets mean only a Boolean indicator, they undercount multiple pairs at a quarter. The stated lower-budget inequality remains valid with that smaller cost, but the exact identity requires the count above.
+
+A hole has cost at least 1/4. At a multiply covered quarter with an overlap pair outside B, that pair contributes at least (1/2)*(1/2)=1/4, because a crossing overlap has at most two quarters. For gap squares at distance >3 from all sides, no B overlap reaches them. Thus, **if the square Hall lemma is proved**, two distinct assigned bad quarters per cut give at least 1/2 per cut, or 1/4 per absorbed end, without spending that quarter twice. This deduction is sound and does not require the false strong version.
+
+The mixed identity is already a residual-budget identity above 4n; it should not be added again to another independent copy of the baseline. Nor does this conditional result establish that 4n-O(1) original side labels become absorbing cuts. Walls, same-bit gaps, side exceptions, and free transfers still require the global accounting identified in Claim 32. The half counterexample and the conditional square price are separate issues.
+
+### 34D. W1 comparison and Claim 30 closeout — PASS
+
+I read `w1_compare.py`. It imposes exact coverage on the (2+2R)-by-(2+2R) square window and degree two at its (1+2R)-by-(1+2R) interior lattice points. It counts the incident-edge maps at the central 3-by-3 vertices. It does not impose degree bounds at other points. These are the local T1–T3 hypotheses, not the same model as W1's crossing-free 9-by-9 core.
+
+The author's full-solution enumeration at R=3 was stopped to keep the check light. Instead, `claim34_w1_check.py` builds the model independently from exact tile quarters and enumerates only **new central maps**. It first excludes all 156 fold-stack maps, then excludes each additional central map as found. The final residual model is INFEASIBLE for every R. Separately, the checker constructs a full-plane extension for each fold-stack map and verifies all finite-window degree and quarter constraints. This proves both inclusion directions in each tested window.
+
+| R | Edge variables | Fold-stack maps | Extra maps | Total central maps |
+| --- | ---: | ---: | ---: | ---: |
+| 1 | 80 | 156 | 44 | 200 |
+| 2 | 168 | 156 | 8 | 164 |
+| 3 | 288 | 156 | 0 | 156 |
+
+The projected searches took about 1.47, 0.35, and 0.08 seconds respectively, excluding setup. Outputs: `claim34_w1_check.json/log`. These are exhaustive finite comparison checks. They support the new dictionary in STRUCTURE.md Section 5b, but do not identify the hypotheses of its model with those of W1 or prove a global word per connected domain.
+
+The current STRUCTURE.md explicitly incorporates Claim 30's repairs: one bit per uninterrupted run, T4 restricted to a full spanning 2-factor, and the corrected summary. The prior connected-domain objection is resolved in that revised text. The old counterexample remains a useful test against reintroducing the stronger statement.
+
+**Pareto profile.** The 1,049-word gap draft is still a conjecture in its square form and false in its strong form. This audit adds no lower-bound coefficient. Its decisive finite input is one explicit 16-by-16 tour plus a short exact witness check; no solver trust is needed to verify the counterexample. The W1 comparison uses three small finite models, with at most 288 edge variables, and a direct fold-stack extension check. The next mathematical task is a square-level assignment proof that explicitly permits off-half quarters and handles sharing; the false half lemma must be removed first.
+
+Claim 34 is complete. All computation started for this audit has stopped.
+
+
+## Claim 35 — rational-shear wall witness and L2 scope — 2026-10-03
+
+**PASS: the 19-edge periodic witness achieves 1/2 crossing per row, has nonzero transverse psi jump, and admits perfect exteriors.** I give an explicit extension to the whole plane, stronger than the supplied finite-cylinder feasibility result. The extended graph has degree two everywhere and no finite cycles.
+
+**GAP: the advertised disproof of L2-v3 at p=2/3.** The example refutes a universal price above 1/2 for unrestricted charged paths across a straight wall. It does not provide the closed tours, actual retained candidates, or unbounded total deficit required to refute L2-v3. The sentence “the 16n/3 route via flux alone fails as stated” is not established for the current skeleton's quantifiers.
+
+Evidence: `claim35_wall.py/json/log`, `claim35_extension_author.log`, `claim35_witness_author.log`, and `claim35_sources.json`, all in gap/verifier. The independent checker imports the verifier's exact tile geometry, not the author's model or witness checker. I read the rational-shear geometry and row-weight code and reran both small author checks. I did not rebuild the 10.6-million-state minimum-mean graph. Thus this audit proves an achievable rate of 1/2; it does not independently certify that no cheaper witness exists in that finite model.
+
+### 35A. Exact periodic graph, degrees, cycles, crossings — PASS
+
+Use the 19 listed edges and translate them by T=(2,4). Write
+
+    u(x,y)=x-floor((y+1)/2).
+
+Modeled vertices have 0<=u<4. Each represented edge has a modeled endpoint, every modeled vertex has degree two, and every other endpoint has degree at most two. There are exactly 19 distinct edge orbits; no duplicate edge is hidden by the period.
+
+To check cycles for all periods, I form the finite quotient graph and retain the integer translation of each edge. It has three components, all paths, on 8, 6, and 8 vertices. Their edge counts are 7, 5, and 7. Hence every lifted component of the represented band is a finite path; no finite cycle can be concealed beyond an unrolling cutoff. This is stronger than merely finding no cycle in a long finite sample.
+
+There are exactly two crossing-pair orbits. Representatives, assigned by the later lower endpoint row, are
+
+    (1,0)--(3,1) with (2,0)--(3,2),
+    (2,0)--(3,2) with (2,1)--(4,2).
+
+Both overlaps contain two quarters. There are no one-quarter crossings. Therefore X=2 per four-row period, or 1/2 per row. Since T advances four L-infinity levels along a ray in the region y>x, the rate is also 1/2 per such level. This is a count of unordered crossing pairs, even though the two pairs share one edge.
+
+### 35B. Quarter multiplicities and psi — PASS
+
+I independently enumerate every tile that could cover each tested square. A square is complete exactly when every such tile has a modeled endpoint. The complete-column intervals alternate in width because the witness starts at shear phase one.
+
+Quarter order below is B,R,T,L. Unlisted complete squares have multiplicities (1,1,1,1).
+
+| Square row y | Complete x columns | Non-perfect square and multiplicities | Left-to-right omega sum | psi mod 3 |
+| --- | --- | --- | ---: | ---: |
+| 0 | 0,1,2,3 | x=2: (1,1,2,2) | 2 | 2 |
+| 1 | 1,2,3 | x=2: (2,2,1,1) | -1 | 2 |
+| 2 | 1,2,3,4 | x=3: (1,1,0,0) | -4 | 2 |
+| 3 | 2,3,4 | x=3: (0,0,1,1) | -1 | 2 |
+
+The first and last complete square in every row are perfect margins. The period has four uncovered quarters and four doubly covered quarters, with no multiplicity above two. These statements initially concern complete squares only; the bare 19-edge band leaves incomplete exterior squares uncovered.
+
+For a horizontal dual step from square (x-1,y) to square (x,y), the lattice endpoint on its left is (x,y+1). The audited residue formula gives
+
+    omega = (-1)^(x+y+1) * (m_R(x-1,y)+m_L(x,y)+1) mod 3.
+
+Summing across the complete interval gives the table. The C++ row check omits a common checkerboard sign depending on the row/frame; that does not change the zero-versus-nonzero test. The supplied verify_witness.py does not itself print or test psi, despite its descriptive header. The independent computation above fills that omission.
+
+### 35C. Perfect exterior: finite check and explicit infinite construction — PASS
+
+I reran `extend_witness.py 2 8`. It reports 160 cylinder vertices, 416 free edge variables, 38 fixed witness edges, 336 quarter constraints, and OPTIMAL feasibility. Its period is (4,8). It imposes degree two away from its soft outer boundary and exact coverage on the specified inner exterior squares. It allows cycles. By itself, this finite-window result would not prove an infinite perfect extension or acyclicity.
+
+There is, however, a direct extension. Let f(x,y)=x-y and define the full-plane fold stack by
+
+    c[t]=(-1,-2) for even t, and c[t]=(2,1) for odd t;
+    neighbours of v are v+c[f(v)] and v-c[f(v)-1].
+
+Keep every translated witness edge. Add every edge of this fold stack whose two endpoints are outside the modeled band. The same stack is used on both sides. **Exterior-phase scope:** this is an alternating zigzag field with strand direction (1,-1). At every exterior vertex, one incident edge has move class (2,1) and the other has move class (1,2). It is not a pure straight (2,1) or pure straight (1,2) field. The achieved 1/2 rate is verified for these two matching zigzag exteriors; this audit does not certify the same rate with prescribed pure straight exteriors. The reported straight-field extension infeasibility tests are outside this audit. No knight edge can jump from u<0 to u>=4 without a modeled endpoint, since its u displacement is at most three.
+
+For each of the four row phases I checked every external vertex that could have an edge into the band (u=-3,-2,-1 and u=4,5,6). Its fold-stack neighbours inside the band are exactly its fixed witness neighbours. Thus the union has degree two everywhere. Away from this finite transverse interface it is precisely the full-plane fold stack.
+
+The exact check covers a 24-column transverse range through all four row phases: 96 vertex degrees and 384 quarter multiplicities. Every quarter outside the complete band squares is covered once; complete-square multiplicities remain those in 35B. This range contains the entire interface and every tile that can meet it. Beyond it, perfect coverage follows from the fold-stack formula. There are no additional crossing pairs. This proves two perfect infinite exterior regions, not just a fixed number of perfect collar columns.
+
+For acyclicity, orient the fold-stack strands by increasing f. The even step (-1,-2) leaves u unchanged; the odd step (2,1) increases u by one or two. Therefore u is nondecreasing and increases over every pair of steps. An exterior strand cannot leave the band and return to it while staying in that exterior half-plane. Each finite witness-band path attaches to two infinite exterior tails. Together with the quotient-path check in 35A, this excludes finite cycles in the full-plane extension.
+
+### 35D. What the price obstruction proves
+
+In the extended plane, all crossings and waste are confined to this wall. Each four-row period has
+
+    crossings = 2,   holes = 4,   X1 = 0,   W3 = 0.
+
+Consequently, the mixed local currency lambda*X+(1-lambda)*(G+X1+W3)/2 is exactly two units per period for every lambda. At lambda=2/3, this is 4/3 from the two crossing pairs plus 2/3 from the four holes. Pure crossing capacity is also two units per period. No claim about a finite board's global E is needed for this local calculation.
+
+Take M consecutive charged transverse paths, one per row, in this plane field. For a fixed support radius, their entire eligible atom union contains at most M/2+O(1) capacity, because there are only two capacity units per four wall rows and the radius adds only a bounded number of rows. A requested price p>1/2 therefore has an unbounded Hall deficit (p-1/2)M-O(1). This refutes the broad straight-wall rule even with one total constant allowance.
+
+The paths need not be very small. The standard corner-path shapes
+
+    gamma_R: (R+1/2,3/2) -> (R+1/2,R+1/2) -> (3/2,R+1/2)
+
+cross this wall on their top arm for large R; the other arm lies in a perfect region. The checker explicitly verifies residue 1 for R=12,...,80 in the extended plane. Periodicity and the perfect-region residue zero explain the continuation. Thus restricting the geometric radii to start at 12 does not by itself remove this open-plane obstruction.
+
+### 35E. Why this does not yet refute L2-v3 — GAP
+
+L2-v3 quantifies over closed Hamiltonian tours on even boards n>=128. Its demanded family is the **actual retained** family after the endpoint-residue tests and both exception exclusions. It permits a single unknown finite total deficit C_flux, independent of n and the tour. Its eligibility rule requires the entire atom support to be within radius ten of one path vertex. The revised pure-crossing proposal at the top of PLAN.md keeps these family and error requirements.
+
+The witness and its infinite extension establish neither of the following necessary facts:
+
+1. A family of closed tours can contain arbitrarily long copies of this wall, while linearly many corresponding corner paths pass the actual retention tests.
+2. Completing the sides, corners, and one-cycle connections adds only O(1) eligible capacity to the selected Hall family, rather than enough linear capacity to pay its deficit.
+
+Both are material. The perfect infinite exteriors have no board-side degree conditions. Cutting them at x=0 and y=0 does not produce a tour. Nor may an arbitrary charged path be substituted for a retained candidate. All edges in the explicit plane construction have move class (2,1) or (1,2), so they preserve x+y modulo three; a Hamiltonian completion necessarily uses additional structure. No cost or support estimate for that structure is supplied here.
+
+A finite completed example with a positive deficit would still not refute the quantified theorem: C_flux could cover that fixed deficit. A valid disproof needs an unbounded family of completed-tour deficits, or a theorem that embeds these wall patches while controlling both retention and all extra eligible atoms. I have not proved or assumed such an embedding.
+
+**Required wording repair:** “A straight (1,2) wall between perfect infinite regions achieves rate 1/2 and refutes an unrestricted charged-path private price p>1/2. It is a candidate obstruction to L2-v3; closed-tour completion, actual retained-path density, and the total eligible-capacity bound remain open.” Do not mark L2-v3 or the current 16n/3 reduction false on this evidence alone.
+
+**Pareto profile.** Source Section 7.1 is 523 words and 39 lines as read. The verified construction needs only 19 edge orbits, four exact row checks, a three-component quotient graph, and a two-letter exterior formula. The cylinder solver is now corroboration rather than an essential input. The large minimum-mean certificate is not needed to prove the achieved upper rate and was not audited here. No new finite-board lower or upper coefficient follows without the missing global completion argument.
+
+Claim 35 is complete. No author files were edited, and all checks have finished.
+
+
+## Claim 36 — SHEET connectivity red team — 2026-10-03
+
+**FAIL for the original requested (B), and FAIL for the trapping premise of (C).** The already audited FOLD tour family is a counterexample to the proposed current-tour count: W=3n-O(1), but SSR=2n/3+O(1), so W-2SSR=5n/3-O(1). No absolute constant repairs (B). The reason is simpler than a new defect gadget: the construction's arch flips make one end of each long chevron an exception. Its other end can still generate a wall label, but the chord is excluded from the draft's SSR definition, which requires two cheap ends.
+
+For (C), periodic corridor returns connect the opposite phase of the cheap collar matching. They coexist with unchanged cheap collars in one closed tour. They are not P-compatible chevrons and do not form the isolated cycles used in Claim 28. This refutes the stated trapping explanation, not every possible 1/2 lower price for those chords.
+
+**FAIL for (A)'s literal label count. GAP for (D)'s separate prices and capacity assignment.** The final algebra is correct if its premises are supplied, but those premises need revision. No counterexample to X>=5n-O(1) is claimed.
+
+
+**Version scope.** SHEET.md changed during this audit. Its revised (B) is BQ+2SSR+2EXC>=4n-O(1), and it introduces I for the previously undefined interface labels. The counterexample below refutes the original 2SSR>=W-O(1), which the author has now withdrawn; it does not refute the revised BQ inequality. The revised inequality and B0 remain GAP. Section 36E audits the new barrier argument and records a separate error there. The saved 2,874-word, 171-line source is the revised version.
+
+Sources: SHEET.md, saved as claim36_SHEET_reviewed.md; the audited FOLD construction in Claim 12; its independent assembler claim12_full.py; and the saved n0=96 template. Hashes are in claim36_sources.json. All new checks were light, single-process geometry and graph checks. No optimisation was run.
+
+### 36A. A convention issue that changes the main count — FAIL
+
+The draft gives a label to each **cheap** slot only. An exception slot has no starting label. W,D,X_E count the destinations of these cheap-slot labels. Even if all labels terminate as intended, the literal identity is
+
+    W + D + X_E = number of cheap slots
+                = 4n-O(1)-EXC,
+
+not (A). The draft's pleat-stack row silently changes the convention by setting X_E=4n when every starting slot is an exception. Under the stated definition all three counts would instead be zero.
+
+A repair can give an exception slot its own immediately absorbed label, or retain EXC explicitly. The price and multiplicity of an exception absorber must then be reconsidered: its own label and incoming ribbon labels cannot be counted under incompatible conventions.
+
+There is also a missing stopping case. After a bad interruption the next good square may have the other split. This is neither a same-bit continuation on the old chain nor an absorbing cut with two good halves of that chain, and it is not a direct wall face between good squares. The scanner below records this case as UNDEFINED rather than silently making it a wall. The revised draft now calls this fourth label type I, which addresses this stopping case. Its amended equality still omits EXC from the starting-label count.
+
+### 36B. Counterexample to the Sheet Lemma using audited closed tours — FAIL
+
+I used the n0=96 FOLD construction from Claim 12, which is already proved to give a closed Hamiltonian tour for every n=96+48k. These tours are also spanning 2-factors, as required by (B). I rebuilt n=144,192,240,288 with the prior independent assembler and validated each tour again. The n=96 saved tour was checked directly.
+
+For reproducibility I made the collar convention precise: d=3; a slot is cheap when every incident edge at local columns 0,1,2 in rows y-3,...,y+3 agrees with P or P'. In the left P frame the neighbours are
+
+    (0,y): (2,y+1), (1,y+2);
+    (1,y): (3,y+1), (0,y-2);
+    (2,y): (4,y+1), (0,y-1).
+
+P' reverses the row direction. Reflections/transposition give the other sides. Interior vertices have both coordinates in [3,n-4]; interior squares have lower-left coordinates in [3,n-5]. Chord ends use the row of the exterior endpoint of the cut edge, consistent with the two ports per row in the fixed-field strip convention. Labels start at the corresponding first interior half and are followed exactly along their half chains.
+
+The chosen collar is a concrete version of the draft's intended window. Changing a fixed depth or the bounded offset used to name a port changes only O(1) rows at the finitely many collar phase boundaries in this family. It does not change the coefficients below.
+
+| n | Cheap slots | W | D | Undefined continuations | SSR | W-2SSR |
+| ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| 96 | 205 | 195 | 3 | 7 | 47 | 101 |
+| 144 | 349 | 339 | 3 | 7 | 79 | 181 |
+| 192 | 493 | 483 | 3 | 7 | 111 | 261 |
+| 240 | 637 | 627 | 3 | 7 | 143 | 341 |
+| 288 | 781 | 771 | 3 | 7 | 175 | 421 |
+
+These finite deficits alone would not refute an unspecified O(1). The periodic geometry explains their unbounded growth:
+
+* On each side the construction flips the cheap U-turns on an interval of length n/4. The remaining 3n/4-O(1) slots are cheap. Their H or V ribbon labels reach a midline wall. Diagonal corridor cells run parallel to these ribbons; only O(1) ribbons near the corners or the fixed patch windows are affected. Thus W=3n-O(1).
+* Long midpoint chevrons have one end in the flipped interval and one in the unflipped interval. Their interior geometry remains a return, but they are **not SSRs under SHEET's current definition** because one endpoint is not cheap.
+* The remaining bulk returns come from the four period-six diagonal corridors. Each corridor period has exactly six path components: one A-to-A return, one B-to-B return, and four A-to-B through paths. A and B denote the pure (2,1) and (1,2) arms of the corner. The quotient components each have five vertices and four edges, so there are no hidden long through components. Every corridor has n/12+O(1) periods. Therefore its two same-side returns per period contribute n/6+O(1), and all four contribute SSR=2n/3+O(1). The finitely many patch windows affect only O(1) chord ends.
+
+The finite corridor claim is independently checked in claim36_corridor.py/json: all four saved templates have 24 edge orbits and the stated six paths. Translating a corridor period by (6,6) preserves these connections; pure-field arms extend them to the same two board sides. The global tour existence and the fixed number of patch windows are the already audited Claim 12 facts. Hence the asymptotic count is not an extrapolation from the five rows of the table.
+
+Consequently 2SSR=4n/3+O(1), while W=3n-O(1), disproving (B). The sample counts satisfy W=3n-93 and SSR=2n/3-17; the exact constants are diagnostic and are not needed for the counterexample.
+
+Evidence: claim36_scan.py, claim36_scan.log, claim36_initial_scan.json, claim36_family_scan.log, claim36_scan.json, the four generated claim36_FOLD_n*.json tours, and claim36_corridor.py/json/log. A separate diagnostic on the saved n=166 FIELD tour also gives a positive deficit (W=306, SSR=66), but is not needed for the infinite-family argument.
+
+**Repair:** distinguish reference returns before a repair from current chords after the repair. If a wall label is to be covered by a current return with an exception endpoint, count that object and route its charge to the exception budget. Alternatively add an explicit wall-label loss term to (B). An O(1) defect term cannot fix this example. Any exception term must share capacity with the exception labels already charged in (D).
+
+### 36C. Actual same-side returns need not be trapped by P — FAIL for the stated premise
+
+The same corridor check gives an explicit non-chevron return. In frame zero, one lifted A-to-A corridor path is
+
+    (0,3), (2,4), (1,2), (-1,1), (-3,0).
+
+Its two A-line labels c=x-2y are -6 and -3. Every translate by (6,6) gives the same pairing phase. The corresponding returns in the actual FOLD tours have two cheap endpoints; the large-board checker traces them as maximal interior chords.
+
+The cheap collar matching is
+
+    P(c)=c-3 for even c, and P(c)=c+3 for odd c.
+
+The corridor returns instead pair an even line c with c+3. Let I denote this opposite matching on one residue-class chain. Then for even c,
+
+    P(I(c)) = c+6.
+
+Thus alternating the unchanged collar matching and these return chords advances along a chain. It does not close each return and a partner into the isolated component used in Claim 28. The finite ends of these chains connect through the construction's bounded patches; the resulting graph is one Hamiltonian cycle.
+
+This is a direct counterexample to “same-side return with two cheap endpoints implies the P-compatible trapping relation.” There are linearly many such returns and no changed cheap collar at their endpoints. Claim 28's trapping proof depended on the **fixed chevron interior matching**, not merely on the names of the sides at the two ends.
+
+The corridor contains crossing defects and pays a substantial cost. Therefore the separate assertion that every such return can receive 1/2 from a suitable joint budget is still GAP, not disproved here. It would need an interior-repair or chord-matching price theorem. It cannot be justified by counting changed side ends alone.
+
+### 36D. Baseline and joint capacity — GAP, with an exact safe budget
+
+The mixed cost c=c_{1/2} is not simply the count of non-B crossing pairs. With W3 zero at uncovered quarters and X1 counted with multiplicity at its quarter,
+
+    sum c = (G+X1+W3)/4 + (X-|B|)/2,
+    E = sum c + R/2 + 1,       R=|B|-4n.
+
+This is already a budget above the 4n baseline. Its atoms include holes as well as fractional crossing contributions. Spending disjoint crossing pairs is not, by itself, enough to show that a Gap-Lemma allocation in c and a second pure-crossing repair allocation have disjoint capacity. The same outside crossing contributes to c, and the hole/waste part has already used the global excess identity.
+
+A safe formulation puts the D-label, exception, and return payments into one allocation on c, plus a controlled allocation from the boundary-surplus term R/2. Prove that their total is at most that budget. A side proof granting a full unit of boundary surplus cannot be appended automatically: this particular decomposition exposes only half that surplus separately; the other half is represented in the mixed identity. A different decomposition is possible, but its reserve must be explicit.
+
+Further, one changed local row can make several overlapping width-seven slot windows exceptions. Claim 28 certifies a price per changed **pairing end** in its fixed strip model, not a price per exception window. The claimed >=1/2 per exception slot needs an independent packing or allocation proof. Enlarging the starting-label set to fix (A) also changes how many labels an exception absorber receives.
+
+With genuinely disjoint allocations the final inequality in (D) would be valid. The present draft has no such allocation, and the false current-return count cannot supply it. Lemma F's development on good regions does not fix this: the actual corridor returns pass through bad squares, precisely where that good-region hypothesis stops.
+
+### 36E. Revised barrier argument: wall edges do not block strands — FAIL for that proof step
+
+The revised Section 6 says a wall edge carries no tile, so no tour edge crosses it, and then assigns no crossing capacity to the wall part of a chamber boundary. The first statement concerns proper intersection with an open unit edge. It does not imply the second statement about strands.
+
+Consider the exact crossing-free fold stack with f=y, choosing c[y]=(2,1) for y<0 and c[y]=(-2,1) for y>=0. Squares below y=0 have slash split; squares above have backslash split. All quarters are perfect and every vertex has degree two. The line y=0 is a horizontal wall. For every integer x the strand contains
+
+    (x-2,-1) -- (x,0) -- (x-2,1).
+
+The strand passes from below the wall to above it **at the wall vertex (x,0)**. Neither incident knight edge properly crosses an open unit wall edge. Nevertheless the strand exits a chamber bounded by that wall. Along a wall segment of length l there are l-O(1) such passages, with no bad quarters to pay for them. This is an elementary whole-plane field, not a completion claim for a finite board; it directly tests the local permeability assertion used by the chamber proof.
+
+A Jordan-curve crossing count must either route the barrier away from tour vertices and count the resulting edge intersections, or give an explicit vertex-crossing convention. A small displacement of this wall does not preserve zero capacity. Therefore the displayed chamber estimate and its asserted additivity are not established by the present proof. Adding BQ alone cannot pay these wall-vertex passages, since this local example has BQ=0. This does not refute the revised final inequality, which can use exception terms and different barriers.
+
+For clarity, the revised BQ inequality passes the two examples recomputed after the update: at n=96, BQ=622 and EXC=155 give BQ+2SSR+2EXC=1026; at n=288, BQ=1646 and EXC=347 give 2690. These are larger than 4n. See claim36_revised_scan.log. The original counterexample therefore cannot be relabelled as a counterexample to the revised inequality.
+
+**Pareto profile.** The decisive new finite input is four tiny periodic corridor graphs (24 edge orbits each), together with the previously audited all-size FOLD construction. Five complete tours give direct regression checks; no SAT solver is needed for this audit. The result adds no crossing bound. The simpler 5n goal remains open, but a revised statement must count repairs already made, not demand that their former returns still have two cheap endpoints.
+
+Claim 36 is complete. No author files were edited; all computations have finished.
+
+
+### 36F. Explicit closeout of the REVISED Sheet Lemma — GAP (2026-10-03)
+
+This section answers the queued request to test the revised statement, rather than the withdrawn original B. The revised universal inequality
+
+    BQ + 2 SSR + 2 EXC >= 4n - O(1)
+
+is **GAP, not refuted** by this audit. The old FOLD counterexample does not refute it. Section 36E refutes a proposed local barrier step, not this final inequality. The new I label repairs one missing stopping case; it does not repair the missing EXC term in (A): since only cheap slots receive labels, the available identity is W+D+I+X_E = 4(n-6)-EXC for d=3, provided the stopping rule is exhaustive.
+
+**Independent direct tests (CERTIFIED for these saved tours only).** I used actual P/P' collar windows and required both SSR endpoints to be cheap, as in SHEET. Interior BQ uses exact quarter multiplicities. These are complete validated tours, hence also spanning 2-factors.
+
+| tour | n | BQ | SSR | EXC | revised left side | 4n |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| FOLD | 96 | 622 | 47 | 155 | 1026 | 384 |
+| FOLD | 288 | 1646 | 175 | 347 | 2690 | 1152 |
+| FJOG | 130 | 2544 | 137 | 193 | 3204 | 520 |
+| FIELD | 166 | 912 | 66 | 303 | 1650 | 664 |
+
+The first two results are in claim36_scan.json; the two additional runs are in claim36_revised_extra.json. They have substantial slack and provide no evidence for the sharp coefficient near equality. No finite test establishes a statement with an unspecified O(1).
+
+**Measurement mismatch (FAIL as a test of the stated quantities).** The author script sheet_measure.py counts every same-side interior chord, including chords with exception endpoints. SHEET defines SSR to require two cheap endpoints. The script also replaces EXC with the number of rows whose collar crossing count is not one. Equality of a row crossing count does not assert equality of the full P/P' window. For FOLD n=96, running
+
+    PYTHONPATH=w-verifier python3 gap/structures/sheet_measure.py 3 w-integrator/tours/FOLD24_n96.json
+
+returns SSR=223 and EXCp=95, whereas the exact-window test gives SSR=47 and EXC=155. BQ=622 and X=720 agree. Thus the reported proxy left side 1258 is not the stated left side 1026. The two substitutions have opposite effects; a passing proxy total cannot be used as a certificate for B. Repair: check the full collar pattern at both endpoints, use the same inclusive slot interval as SHEET, and report proxy counts separately.
+
+**C and D remain unresolved by the revision.** The explicit opposite-matching corridor in 36C still disproves the claim that actual cheap-ended SSRs must be P-trapped. A separate half-unit price theorem could still hold, but Claim 28 does not establish it. Section 36D's common-capacity requirement also remains: BQ, exception windows and SSR payments need one allocation in the excess budget. None of these gaps is fixed merely by adding BQ to B.
+
+**Required repairs before a 5n proof:** use the corrected label identity; replace the wall-impermeability step with a valid strand count including wall vertices; establish the joint Hall/capacity bound for the revised B (including cheap-to-exception chords); prove a price theorem that covers non-chevron returns; and allocate all three payments in a single excess ledger. These are proof obligations, not requests for further large computation.
+
+**Pareto profile:** this follow-up uses two additional direct tour scans and one small diagnostic script run, with no SAT or transfer-graph input. The obstruction to the proposed proof is the elementary three-vertex wall passage in 36E. The audit establishes no new lower-bound coefficient. Revised B remains a conjecture; C's stated trapping premise is false; the joint price conclusion is a gap. Claim 36 is complete for the revised request.
+
+
+## Claim 37: square Gap Lemma reduction and tree islands through size 10
+
+**2026-10-03. Verdict: PASS for the reduction and the finite exclusion, with two wording repairs below. GAP for the unrestricted square Gap Lemma.** This audit does not restore the false half version. Sources: GAP_LEMMA.md section 11 and gap/lowerbounds/gaplemma/tree_islands.py. Source hashes are in claim37_sources.json.
+
+### 37A. Reduction — PASS
+
+Fix a finite set K of absorbing cuts and let U be the union of their gap squares. All squares of U are bad. Each cut follows adjacent squares, so its whole gap belongs to one 4-connected component C of U. Partition K accordingly; the quarter counts of different components are disjoint. If the Hall inequality fails, at least one component fails it.
+
+Write s=|C|, A for the number of adjacent square pairs in C, r=A-s+1 for its adjacency graph's cycle rank, k for its number of selected cuts, and b for its number of bad quarters. The graph is connected, so r>=0. Counting square sides gives
+
+    perimeter(C) = 4s-2A = 2s+2-2r.
+
+Every selected cut has two distinct end sides between a bad square in C and a good square outside U. A boundary side can be such an end for at most one cut: the outside good square has one split, and the half of that split at the side has one continuation into C. Gaps on that chain are disjoint. Thus 2k<=perimeter(C).
+
+For each square, the tile link identity gives m_B+m_T=m_R+m_L=N. If N differs from 2, each opposite pair has a bad quarter. If N=2, any bad quarter forces its opposite to be bad. Therefore b>=2s. In particular, if r>=1, then 2k<=2s<=b and this component cannot violate Hall.
+
+If a tree component violates Hall, integrality gives
+
+    2s <= b < 2k <= 2s+2.
+
+Hence k=s+1, b<=2s+1, and all 2s+2 boundary sides are selected cut ends. Every side-neighbour outside C is consequently a good square. A component touching the board boundary cannot saturate its boundary sides, since no good square exists across a board-boundary side. The finite island model therefore covers every possible violating component, including components near a board side: treating the surrounding plane as available only relaxes the constraints.
+
+**Wording repairs.** “Tree” must mean that the side-adjacency graph is a tree. It is not equivalent to “no 2x2 block and no hole.” In particular, the seven squares
+
+    (1,0),(2,0),(2,1),(2,2),(1,2),(0,2),(0,1)
+
+form an adjacency path, but their closed union encloses the missing centre square, with diagonal self-contact at (1,1). Thus the parenthetical claim that a hole forces r>=1 needs a no-self-contact hypothesis or should be removed. The perimeter argument itself remains valid. Both finite enumerators include this shape.
+
+Also, 2s+2 is the number of boundary *sides*, not always the number of distinct lattice vertices incident to C. There are at most 2s+2 such vertices; adding a leaf introduces at most two vertices. The displayed seven-square shape has 15 vertices, not 16. The code constrains the actual set of vertices, which is correct.
+
+### 37B. Author enumeration and CNF — PASS
+
+The shape generator starts with one square and attaches a square with exactly one side-neighbour, reducing by the eight lattice rotations/reflections and translation. This is complete: removing a leaf from any finite adjacency tree leaves a smaller connected adjacency tree. The transformations preserve degree, quarter multiplicity and the property that endpoint bits differ.
+
+The label reduction in labellings() merges the endpoints of both slash and backslash chain segments, as well as repeated occurrences of the same outside neighbour. This initially looks stronger than necessary but is valid. For a slash segment, if either endpoint neighbour is slash, saturation forces the other endpoint to be slash. Thus the endpoint labels agree, including the case where both are backslash and that segment is inactive. The same argument applies to backslash segments. Coverage of every U square is checked, so U is the union of the selected gaps. The code does not assume there are only two labellings; it enumerates every assignment to the resulting classes. The observed two assignments per shape are the output of that procedure.
+
+Each edge variable is a specific undirected knight edge. The link formulas agree with the audited tile halves. At a good neighbour, both halves of its split have exactly one link, and the other halves have none. Each U quarter has four distinct contributing link variables. The bad-budget variable is forced true for multiplicity zero or at least two. It need not be forced false for multiplicity one: under an upper bound, these optional true values cannot admit a false feasible assignment, and every genuine assignment can choose the exact bad indicators. A separate witness variable for each quarter is allowed true only if that quarter is bad; the disjunction of these witnesses requires each U square to be bad.
+
+The two endpoint link clauses impose equality when the gap length is odd and inequality when it is even. This is exactly y0+yk+k odd, the absorbing-cut criterion. The sequential-counter bound is 2s+1. Degree clauses forbid every triple of incident selected edges. In DEGMODE=lecorners they are imposed only at the actual lattice vertices incident to U, with no lower degree bound and no degree constraints elsewhere. These are necessary constraints for every tour or 2-factor and for any edge set of maximum degree two.
+
+The source can request Glucose proof output, but main() calls sat_check() with proof=False. Its normal logs are solver results, not checked DRUP certificates. This audit uses a second encoding and solver; it makes no independently checked DRUP or Lean claim.
+
+### 37C. Independent finite check — PASS / computational certificate
+
+The new standalone claim37_check.py imports no author code. It uses:
+
+* a separate free-tree generator;
+* convex tile polygons and integer quarter-centroid tests to obtain tile ownership;
+* exact truth-table clauses for each bad-quarter indicator;
+* free split variables for all outside neighbours, without the author's union-find labelling reduction;
+* chain components derived from the two halves of each geometric tile;
+* a direct inequality between the two good endpoint H-bit variables for every active cut, instead of a gap-length parity formula;
+* degree at most two at vertices incident to U, with all other degree constraints omitted;
+* a totalizer for the bad-quarter bound and Minisat22 as solver.
+
+Only edges that cover a square in U or a side-neighbour are retained. Ignoring any other incident edges in a degree upper bound is a valid relaxation. A genuine violation therefore restricts to a satisfying assignment of this model. The script solves the outside split choices together in one SAT instance per shape.
+
+| s | Free tree shapes | Author label instances | Independent SAT instances with a solution |
+| ---: | ---: | ---: | ---: |
+| 1 | 1 | 2 | 0 |
+| 2 | 1 | 2 | 0 |
+| 3 | 2 | 4 | 0 |
+| 4 | 4 | 8 | 0 |
+| 5 | 11 | 22 | 0 |
+| 6 | 27 | 54 | 0 |
+| 7 | 83 | 166 | 0 |
+| 8 | 255 | 510 | 0 |
+| 9 | 847 | 1694 | 0 |
+| 10 | 2829 | 5658 | 0 |
+
+Total: 4,060 shapes. The independent run took about 30 seconds; the author rerun took about 48 seconds on this box on 2026-10-03. Both were single-thread solver runs, with at most two jobs active. Commands:
+
+    .venv/bin/python gap/verifier/claim37_check.py 10
+    DEGMODE=lecorners .venv/bin/python gap/lowerbounds/gaplemma/tree_islands.py 10 0
+
+Evidence: claim37_check.py, claim37_check.json, claim37_check.log and claim37_author.log. Sanity tests find SAT examples when the bad-quarter budget is increased by two (all tested sizes 1 through 6), when the absorbing requirement is removed (sizes 1 through 6), or when degree constraints are removed (sizes 2 through 6). These tests do not establish extendibility of the relaxed witnesses; they check that the independent model is not identically inconsistent.
+
+### 37D. Exact proved scope and remaining gap
+
+The square Hall inequality holds for every K for which each tree component of its gap-square union has at most 10 squares; cyclic components may have arbitrary size. In particular, **it holds for every set of at most 11 absorbing cuts, with no restriction on individual gap lengths**. Indeed, a violating component must have k=s+1, so k<=11 would imply s<=10, which the finite check excludes.
+
+Any counterexample to the unrestricted square lemma must contain a saturated adjacency-tree component with s>=11 squares, exactly s+1 selected cuts and at most 2s+1 bad quarters. No induction or all-size tree certificate has been established by this audit. The result applies to every closed tour and spanning 2-factor, without a perfect halo assumption: goodness of the one-square side-neighbour layer is forced by saturation in a putative counterexample. The SAT models do not impose connectivity or spanningness. No price or exclusion of boundary crossing pairs B follows from this combinatorial result; that remains a separate requirement in the ledger application.
+
+**Pareto profile:** the reduction is a short perimeter and integrality argument. Its finite input is all 4,060 free tree shapes through size 10, checked with two encodings and two SAT solvers. It gives a bounded-cut Hall theorem, not a new asymptotic crossing coefficient. The unrestricted tree step remains GAP. No author files were edited; the audit is complete.
+
+
+## Claim 38: SHEET v2, T5 and clean returns — 2026-10-03
+
+**Verdict: FAIL for T5 as written. D_T with the exact exception-window count is false, including its O(1) allowance. B_T and the numerical clean-return inequality remain GAP. The proposed clean-return proof has two missing implications. The repaired label count and the local barrier convention pass with their stated qualifications.** Audit object: gap/structures/SHEET.md section 7. No author files were edited.
+
+### 38A. A repeatable counterexample to D_T — FAIL
+
+D_T asserts E >= BQ/4 + EXC - O(1), where E=X-4n+2 and EXC counts the non-P/P' windows with d=3. I found a finite replacement in the pure left P collar, in columns 0 through 5 and rows 0 through 15. The replacement changes 12 edges to 12 edges, preserves every vertex degree, has no internal cycle, and preserves **every exterior port pairing**. It can therefore be inserted into a closed Hamiltonian tour without changing the tour's connectivity. In the reference P field its exact changes are
+
+    delta X = 20,   delta BQ = 34,   delta EXC = 18,
+    delta(E - BQ/4 - EXC) = 20 - 34/4 - 18 = -13/2.
+
+The complete removed/added edge list is in claim38_gadget.json. The box has 22 exterior-port pairs, including trivial components with both external edges incident to one vertex; the replacement preserves the entire pairing. A solver-free validator checks the edge list, knight moves, degrees, absence of cycles, the actual *external edge* pairings, exact proper crossings, quarter multiplicities, and both P/P' window tests. No SAT lower bound is needed: this is a finite explicit witness.
+
+The gadget does not simply exchange two paths and hope that the tour remains connected. It preserves their exterior connections. Any number of spatially separated copies therefore preserves one Hamiltonian cycle. Copies at a fixed sufficiently large row spacing, for example 40, have disjoint crossing, quarter and window supports. Reflection and transposition give the other side orientations.
+
+Use the audited all-size FOLD family n=96+48k from Claim 12. Its unchanged bulk has pure collars on intervals of length proportional to n; the finitely many construction patches and phase transitions remove only O(1) rows at any fixed collar depth. Thus a positive linear number of these fixed-size replacements fits. For the unmodified family,
+
+    E = 7n/3 + O(1),   BQ = 16n/3 + O(1),   EXC = n + O(1).
+
+The first coefficient is the audited X=19n/3+O(1) construction. For the second, claim38_corridor_bq.py counts 16 bad quarters per (6,6) period in each of the four diagonal corridors. Each has n/12+O(1) periods; the pure/fold bulk has no bad quarters, and the remaining patches and endpoints contribute O(1). The collar arch flips are outside the interior BQ region. The third coefficient is the quarter-side arch-flip count, with fixed-window and patch effects O(1), already used in Claim 36. Consequently the unmodified D_T surplus is O(1), whereas m disjoint gadgets change it by -13m/2. Taking m proportional to n disproves D_T with any uniform additive constant. This conclusion is not an extrapolation from the finite table.
+
+Five complete modified tours were also checked from their stored grid encodings by the independent tour and geometry checks:
+
+| n | Gadget copies | X | E | BQ | EXC | E-BQ/4-EXC |
+| ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| 96 | 2 | 760 | 378 | 690 | 191 | 14.5 |
+| 144 | 6 | 1144 | 570 | 1082 | 311 | -11.5 |
+| 192 | 12 | 1568 | 802 | 1542 | 467 | -50.5 |
+| 240 | 19 | 2012 | 1054 | 2036 | 641 | -96 |
+| 288 | 26 | 2456 | 1306 | 2530 | 815 | -141.5 |
+
+These are one-cycle Hamiltonian tours, not only degree-two witnesses. B_T is satisfied on these examples; the counterexample attacks D_T.
+
+Evidence: claim38_gadget.json; claim38_validate_gadget.py; claim38_gadget_validation.json/log; claim38_patched_n96.json through claim38_patched_n288.json; claim38_corridor_bq.py/json. CP-SAT with one worker was used only to discover the local replacement. claim38_gadget.py --replay fixes the saved edge choices and checks the model; its OPTIMAL status concerns this fixed-witness replay, not a claim that the gadget is globally best. The exact validator is the decisive check.
+
+An earlier exploratory search also produced a validated n=96 tour with D_T surplus -88.75 by successive cycle-preserving two-edge switches. That single-size result alone would not defeat O(1), so the proof above uses the pairing-preserving gadget instead. The exploratory files are claim38_switch.py/log and claim38_switched_n96.json.
+
+### 38B. N_re is a different quantity — repair requires a new statement
+
+The gadget preserves all exterior partners. Thus N_re, if defined from these actual collar-port partners relative to P, does not change, while EXC increases by 18 per copy. This gives a direct unbounded separation between exception windows and pairing repairs. Replacing EXC by N_re/2 avoids this specific counterexample; it does not establish the resulting D_T.
+
+If only D_T is changed, B_T still contains EXC and the advertised conclusion E>=n-O(1) no longer follows. One must either prove a geometric inequality involving the same pairing variable, such as an appropriate BQ+2N_re bound, or prove a different common-budget relation. In particular, N_re/2>=EXC-O(1) is false for these insertions.
+
+The witness uses a width-six replacement. Claim 28's price is for a fixed-field strip of width at most four and a specified current class, with finite-interval qualifications. Nothing here contradicts that certificate. A new arbitrary-collar pairing price, or a reduction to its certified strip class, is still needed. Measuring a constant surplus on the unmodified FOLD family cannot establish a universal joint ledger.
+
+### 38C. Clean-return argument — FAIL for the stated implication; GAP for C'
+
+C' is SSR_clean<=EXC+O(1). I did not find a counterexample to this numerical inequality. Its proposed proof is incomplete even after removing returns through bad squares.
+
+First, “the return's interior lies in good squares” must specify what happens at lattice vertices. There is a degree-two local edge configuration containing
+
+    (0,0) -> (2,1) -> (3,3)
+
+in which all four squares traversed by the two open knight segments are good:
+
+    (0,0), (1,0), (2,1), (2,2).
+
+At the turning vertex (2,1), the other two incident squares are bad. Their quarter multiplicities, in B,R,T,L order, in the saved witness are
+
+    square (1,1): (0,0,1,1);   square (2,0): (1,1,2,2).
+
+Thus the path goes through good squares yet makes a gentle (2,1)->(1,2) turn, which is not an allowed transition of G1's free-fold eight-cycle. The point (2,1) itself belongs to the closure of good squares, so requiring containment in that closed union does not remove the issue.
+
+claim38_clean.py constructs the local witness with exact degree two on the point box [-4,7] x [-5,7], degree at most two outside, the two forced moves, and exact goodness of the four traversed squares. A direct recount of its 172 selected edges confirms these assertions. The full edge list is in claim38_clean.json. This is a local counterexample to the claimed implication, not a completed closed-tour counterexample to C'. A repair could require a full good neighbourhood at every interior turning vertex, then prove that this implies the free-fold hypothesis. Such a stronger definition changes SSR_clean and requires a new geometric count in (B).
+
+Second, even when the free-fold hypothesis is separately ensured, G1 proves a *net cycle step* of +1. It explicitly allows cancelling fold pairs and a composite reflection or glide, and explicitly says it does not prove a general arch price. This is not a proof of the fixed P-compatible matching relation required by Claim 28C. That claim assumes fixed chevron interior matchings and changes only to edge pairings. A single clean arc does not establish that its partner arc survives, that its nest has that matching, or that all nests share a disjoint supply of exception slots. A charging proof of SSR_clean<=EXC+O(1) must address these points.
+
+The saved FOLD, FJOG and FIELD diagnostics were also tested for clean SSRs using goodness of every square traversed by their interior edges. Results are in claim38_clean.json/log. These tests do not supply the missing universal implication or matching theorem.
+
+### 38D. Label count and barrier convention
+
+**PASS, conditional on exhaustive stopping:** W+D+I+X_E=4(n-2d)-EXC is the correct starting-label count under the stated slot convention. No labels are initially assigned to exception slots. The revision correctly retains the qualification that all label paths stop in one of the listed classes. This count alone supplies no price for a slot.
+
+**PASS for the local barrier repair; GAP for a global chamber argument.** A slash strip midline y-x=k-1/2 avoids lattice vertices. Within a good square of its split, an intersecting tour edge is the corresponding present chain link. Likewise a transversal passage through a wall edge's midpoint avoids the uncounted wall-vertex passages from Claim 36E. A knight edge crossing that unit edge in its interior would be its carried tile link, which the good wall does not permit. Thus the revised convention removes that particular defect.
+
+The withdrawal of the old half-chamber and attached-wall claims is necessary. A full-triangle count can only be invoked after the two complete boundary paths, their good-strip hypotheses, and the partner's arrival at the side are established. It cannot be applied to the pleat deflector by the midpoint convention alone. In particular, the convention proves neither B_T nor the clean-return version of (B).
+
+### 38E. Scope and Pareto profile
+
+T5 with window EXC is false because D_T is false. B_T remains GAP; C' remains GAP, with the clean-to-free-fold and free-fold-to-P-matching steps unproved. The proposed replacement of EXC by N_re/2 is a new conjecture, not an audited repair. The counterexample does not refute X>=5n-O(1); all modified tours have many more crossings than that.
+
+The decisive finite input is one 6-by-16 pairing-preserving collar replacement, independently checked without a solver. Its unbounded use relies only on the previously audited FOLD construction and a 16-bad-quarter period count. Five full tours are regression evidence. The clean-turn objection uses one small local degree-two witness. There is no large transfer graph and no new lower-bound coefficient. All computations are finished; Claim 38 is complete.
+
+
+### Claim 38 follow-up: latest SHEET section 8 — 2026-10-03
+
+**Verdict: GAP for (B'), (C*) as an input sufficient for the lower bound, and (D*). No counterexample to these numerical targets was found. PASS for the good-point/free-fold local step and the conditional trap-parity calculation. FAIL for the unrestricted statement that every clean return is a steep-port horizontal chevron.** The section-7 EXC counterexample remains valid for that withdrawn price; it is not a counterexample to section 8's pairing price.
+
+The current file is more specific than the queued summary. Its actual geometric target is
+
+    (B') BQ + 2 RET_clean + 2 N_re' >= 4n-O(1),
+
+where N_re' counts changed ports that are NOT ends of clean returns. This distinction is required for the final addition. I audited this version.
+
+#### 38F. Good-point repair and the missing port hypothesis
+
+Requiring all four squares at each interior chord vertex to be good fixes the gentle-turn objection from the previous audit. The local classification used in 8.1 is correct. At a one-split point, the four possibilities given by T2 are two straight pairs and two free-fold pairs. The wall classification gives the remaining axis-fold pairs. Thus the turns of such a clean chord are free folds. Goodness also rules out proper edge crossings along the interior arc. The previous witness with two bad squares at its turning vertex is excluded by the new definition.
+
+However, RET_clean explicitly allows ANY port type. G1 requires steep ports. The cut x=5/2 can also be crossed by a shallow (1,2) or (1,-2) edge. Good points do not exclude them. A concrete whole-plane perfect field provides the counterexample to the asserted classification:
+
+    w(k)=V for k<=-1, and w(k)=H for k>=0,
+
+in T2's slash ribbon-word construction. Its strand contains
+
+    (2,-2), (3,0), (4,2), (5,4), (3,3), (1,2).
+
+The portion in x>5/2 returns to the same boundary. Every point and square is good. Its entrance is shallow (1,2); its exit is steep (-2,-1). Both ports have slash sign. The turn from (1,2) to (-2,-1) is a valid diagonal free fold. The composite reflection is diagonal, not the asserted horizontal reflection. The two intersections with x=5/2 are (5/2,-1) and (5/2,11/4).
+
+This is a whole-plane perfect-field counterexample to “clean return implies G1's steep-port hypotheses,” not a completed closed-tour counterexample to (C*). claim38_v3_local.py checks the word-field edges, degrees and all quarter multiplicities on a surrounding box. The infinite extension is exactly T2's word formula.
+
+**Repair:** first separate shallow and steep ports. Under the census convention a shallow port is automatically changed, so any return with a shallow end already satisfies the required changed-end alternative. Apply G1 only to the remaining two-steep-port returns, and obtain only its actual net-step and reflection/glide conclusion. The definition of N_re should explicitly classify shallow ports as changed, since P/P' has no reference port of that type. This is a definition choice currently implemented by the script, not supplied by the phrase “its P/P' partner.”
+
+A short odd-shift free-fold candidate was also tested with every interior vertex required good; the local degree-two SAT model was UNSAT. That single failed candidate is not a parity proof and supplies no new claim about 8.5.
+
+#### 38G. Trap parity is conditional; the exceptions are not controlled
+
+The algebra in 8.2 passes. Write P(c)=c-3 for even c and c+3 for odd c. Then
+
+    P(c+s)=P(c)+s                  if s is even,
+    P(c+s)=P(c)+s +/- 6            if s is odd.
+
+If two distinct returns have the stated partner endpoints, equal even shift, and unchanged collar partners at both ends, these two chords and their two collar paths form a closed component. A larger single tour cannot contain it as a proper component. This is the fixed-matching trapping result, not a proof that the partner return exists or that the shifts agree.
+
+Section 8.3 explicitly assumes P/P' WINDOWS at the ports and a defect-free region between the two returns, and still depends on the unwritten Lemma F. “Unchanged partner” alone does not imply a P/P' window. Those hypotheses must be established when applying the development argument to an arbitrary return. The good-point condition on the return itself does not establish goodness of the partner or of the enclosed region.
+
+More importantly, the proposed exceptions (i) dirty/nonreturn partner, (ii) a bad square between the returns, and (iii) odd shift are not bounded in number. They are not merely the O(1) geometric board-corner exceptions. Even if the alternatives in 8.3 are made exhaustive, listing them gives no estimate sufficient for the target. A bad cluster can be enclosed by many nested regions, and the same dirty partner or bad-quarter capacity must not be charged repeatedly without a matching/allocation proof.
+
+Here is the exact missing term. Let U_0 be the number of clean returns with zero changed ends, and N_c the number of changed ports incident to clean returns. Distinct interior chords have distinct ports, so
+
+    N_re = N_c + N_re',     N_c >= RET_clean-U_0.
+
+Consequently (B') and (D*) would give only
+
+    E >= n - U_0/2 - O(1).
+
+To conclude E>=n-O(1), prove U_0=O(1), or prove a stronger joint inequality that pays this loss. Merely permitting the cases (i)-(iii) in (C*) does not do so. The BQ/4 term is already fully present in (D*); it cannot be used a second time to pay these cases. Similarly, the Parity Lemma remains a conjecture, as the source itself states. G1's net-step result does not prove even shift or absence of defects inside the return's disk.
+
+**Status:** the conditional trap calculation is PROVEN. The universal changed-end count, or a version with quantitatively paid exceptions, is GAP. No closed-tour counterexample to the strengthened, exception-free count is claimed here.
+
+#### 38H. Independent census of the actual section-8 quantities
+
+claim38_v3_census.py traces each interior chord and each collar path directly, tests goodness of all four squares at every interior vertex, and uses the fixed parity rule for P. It does not infer the rule from whichever cheap windows happen to occur in the test tour. It marks shallow, cross-side, cross-sign and ambiguous corner ports changed, as the author census intends. It traces collar paths to completion rather than imposing a 4n-step cap; the collar contains about 12n vertices, so that cap is not justified for arbitrary tours.
+
+The author's learned `exp` table has another scope issue: if a side/sign/parity class has no sampled cheap ports, a genuinely P-paired port in that class is automatically counted as changed. Hard-code the proved reference matching and handle nonreference port types explicitly. The reference rule can be derived directly from the short P paths; its use should not depend on the test tour's training samples. The independent counts below agree with the published FOLD and FJOG rows.
+
+| Tour | n | BQ | RET_clean | N_re | N_re' | B' left side minus 4n | E-BQ/4-N_re/2 |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| FOLD | 96 | 622 | 138 | 194 | 53 | 620 | 85.5 |
+| FOLD | 288 | 1646 | 522 | 578 | 53 | 1644 | 85.5 |
+| FOLD with 26 audit gadgets | 288 | 2530 | 288 | 786 | 485 | 2924 | 280.5 |
+| FJOG | 130 | 2544 | 0 | 148 | 148 | 2320 | 335 |
+| H16a | 96 | 0 | 0 | 362 | 362 | 340 | 306 |
+
+Every tested clean return had one or two changed ends. These are finite tests with substantial geometric slack, not certificates for (B') or (C*) on arbitrary tours or 2-factors.
+
+**Important cut-depth distinction:** Claim 38's collar replacement preserves all port pairings at the boundary of its six-column box. It does NOT preserve all ports or pairings at the depth-three cut now used in section 8. In the displayed 26-gadget tour, N_re at that cut increases by 208, while RET_clean decreases by 234. Thus the earlier EXC counterexample does not refute (D*) at this cut. Do not transfer the “unchanged pairing” statement between these two different port sets. The claim that RET_clean is flip-invariant also needs a specified class of flips: general collar modifications crossing the chosen cut can create bad interior points and destroy clean returns, as this example does.
+
+(B') still needs a global geometric proof. The local midline convention from section 7 repairs the wall-vertex issue, but it does not provide partner paths or bound shared defect regions. (D*) still needs one joint allocation of quarter and pairing charges. Claim 28's certificate has its fixed-field, width-at-most-four, current-class and finite-interval hypotheses; it is not by itself a theorem for every depth-three collar with arbitrary exterior ports.
+
+#### 38I. Closeout for section 8
+
+The clean-point correction is valid. Restrict the chevron classification to the steep-port case, state how nonreference ports enter N_re, replace the learned matching rule and fixed collar-path cutoff, and quantify the U_0 exception term in the shared budget. These repairs are necessary before the revised route can prove 5n. The new numerical targets remain GAP, not refuted by this audit.
+
+**Pareto profile:** one explicit perfect word field disproves the unrestricted local classification; five direct tour scans check the revised quantities. One small rejected odd-shift SAT candidate provides only a diagnostic. No large computation and no new asymptotic crossing coefficient are involved. Evidence: claim38_v3_local.py/json/log and claim38_v3_census.py/json/log. This follow-up completes the latest Claim 38 request.
+
+
+## Claim 39: half-price quarter-payment hand kernel — 2026-10-03
+
+**Verdict: PASS for Sections 2–3 of gap/turnstheory/PROOF_5N_PLAN.md and the conditional reduction to F1, with the flux wording clarified below. F1 remains GAP/OPEN. No 5n theorem is established.** The proof is a valid private allocation in the stated mixed currency, rather than an aggregate support count. I also checked the ledger and final constant needed for its intended use.
+
+### 39A. Currency and quarter-payment rule — PASS
+
+Use the audited full-tour quarter multiplicities and crossing pairs. Write X1 for the number of pairs with a one-quarter overlap, and define W3(q)=binomial(m(q)-1,2) for m(q)>=1, zero for m(q)=0. The exact identity is
+
+    G+X1+W3 = 2(X-4n+2) = 2E.
+
+For S* the UNION of the four width-two strip pair sets, T=|S*|-4n+2, the stated capacity therefore satisfies
+
+    nu(total) = (X-|S*|)/2 + E/2 = E-T/2.
+
+A pair outside S* has a half-unit pair atom. Hole atoms, X1 atoms and each W3 unit have quarter-unit capacity. These are distinct summands even when associated with the same physical crossing or neighbourhood.
+
+The four-case allocation is correct:
+
+* A hole uses its own quarter-unit atom.
+* A quarter with multiplicity at least three uses one of its W3 units; at least one exists. W3 units at different quarters are distinct.
+* At multiplicity two, a pair outside S* pays a quarter unit. The two tiles overlap in at most two quarters, so the same half-unit pair atom receives at most two requests, even if the requests come from different paths.
+* At multiplicity two, a pair in S* with one-quarter overlap pays from its X1 atom. This atom can receive a request at only that quarter.
+
+The only excluded bad-quarter type is multiplicity two with its pair in S* and a two-quarter overlap. Calling this type “unpaid” means that the specified direct rule does not pay it; it does not rule out payment from other nearby residual atoms in F1.
+
+This proves the allocation for ANY set of distinct payable quarters, including all payable quarters at once. It does not require a hole-to-crossing injection, an assumption about phases, or a no-sharing conjecture. In particular, using one W3 unit at a multiplicity-four quarter is safe even though that quarter has several incident crossing pairs.
+
+### 39B. Locality and distinct path squares — PASS
+
+If a knight tile covers a quarter of a square, its endpoint box contains the full coordinate intervals of that square. The integer endpoint extrema have coordinate span at most two, so each endpoint is within L-infinity distance 3/2 of the square centre. Both edges of a pair covering the quarter obey this bound. A closed quarter triangle is within distance 1/2 of its centre. Thus the whole support of the chosen atom is within radius two of ONE dual vertex of the path, as required; radius ten is more than sufficient. This uses the precise support definition, not a bounding-box intersection with the union of a path neighbourhood.
+
+A dual vertex is the centre of one unique unit square. The audited candidate paths are vertex-disjoint: in a corner frame their maximum square coordinate identifies their radius, and the four corner boxes do not meet. Therefore the chosen quarters for different paths are distinct. Picking any two payable quarters per eligible path and applying the global quarter rule gives a simultaneous half-unit allocation. This proves all subset/Hall inequalities for those paths, including when one crossing pair supplies quarters to two different paths.
+
+The author support check passes: four unoriented move types, 16 covered quarters, maximum endpoint distance 3/2. The independent check uses the previously audited exact polygon-quarter geometry and reproduces these values without importing the author script or its microtile implementation.
+
+### 39C. Reduction to end zones — PASS
+
+The square identity m_B-m_R+m_T-m_L=0 implies that exactly one bad quarter is impossible. Every bad square has at least two bad quarters.
+
+Membership in a side's width-two pair set means BOTH edges have an endpoint at depth zero or one from that same side. Each edge endpoint box reaches depth at most three. Hence its tile, and therefore the pair's overlap, cannot have positive area in a square starting at depth at least three. The source uses the weaker safe cutoff four; that is valid. Every quarter in its defined middle is payable if it is bad.
+
+A bad middle square therefore supplies two payable quarters and pays its path in full. After choosing min(2,s_i) quarters for every path, the explicit atom allocation leaves a nonnegative residual capacity nu'. Any path with positive residual demand has no bad middle square. This reasoning concerns actual full-tour multiplicities, not a local patch with missing exterior edges.
+
+For even n>=128 and r>32, the corner path has exactly six squares at square-depth below four: depths 1,2,3 at each of its two ends. The opposite board sides are far away. The remaining squares are in the middle. At each corner there are 21 possible radii 12 through 32; discarding these only for payment loses at most 84 paths, hence 42 units. Keeping them in L and D_loss, while assigning their unmet demand to the one total error, is consistent. C_side must include this allowance, as the source states.
+
+Retention excludes B overlaps from every path square by the audited endpoint exception rule. Thus an unpaid quarter on a retained path has its covering pair in S* minus B. This exclusion is inherited from the audited retained family; it is not true merely because a candidate path has the right radius.
+
+**Wording repair:** “the flux across the good middle is zero” should say “zero modulo three.” For a step with two good adjacent quarters, the flux formula gives omega=3 chi(a)(1-g), which need not be the integer zero. Its residue is zero, which is exactly what the charge reduction uses. Include the transition steps between the end zones and the good middle when assigning the remaining charge to the ends.
+
+**Optional tightening:** with square depth defined as min(x,y,n-2-x,n-2-y), the endpoint-box argument actually makes every bad square of depth at least three fully payable. A deficient path can therefore have bad squares only at depths one and two, four end squares in total. The stated six-square reduction is conservative and requires no change for correctness.
+
+### 39D. Independent checks — PASS
+
+New check: claim39_check.py, standard Python, one process, no author imports. Evidence is in claim39_check.json/log and claim39_sources.json. It checks:
+
+* the exact endpoint support bound on all 16 template quarters;
+* all 81 choices of half multiplicities in {0,1,2}, confirming the square identity and exclusion of one bad quarter;
+* 232 overlapping pairs from a sufficient local set of width-two side edges, all with overlap-square depth at most two;
+* candidate-square disjointness, exact candidate count 2n-60, the 84 small-radius candidates, and the six end squares at n=128,130,144,288;
+* the complete atomic allocation on two independently validated tours, choosing EVERY payable quarter at once, and checking that no atom exceeds its capacity;
+* the exact mixed identity and the residual-good-middle implication on those candidate paths.
+
+For FOLD n=96 the check obtains X=720, |S*|=541, E=338 and 4 nu=1034. It simultaneously assigns 901 quarter units to all payable quarters without overuse. At n=144 it obtains X=1024, |S*|=781, E=450, 4 nu=1386 and 1253 assigned quarter units. These finite runs support the elementary allocation proof; they do not establish F1. The n=96 run is a local-allocation test, not an assertion of the proposed theorem's n>=128 scope.
+
+Commands:
+
+    python3 gap/turnstheory/check_quarter_payment_support.py
+    python3 gap/verifier/claim39_check.py
+
+### 39E. Conditional 5n conclusion and exact remaining obligation
+
+The audited beta=1 certificate has error 29/4 per oriented half walk. Eight halves give 58. The strip sum exceeds the S* UNION count by at most 1104, so
+
+    D_loss <= A <= |S*|-4n+1162 = T+1160.
+
+Combining this with nu(total)=E-T/2 gives the exact stated reserve identity and restoration inequality:
+
+    E+580 = nu(total)+(T+1160)/2,
+    (T+1160)/2 >= D_loss/2.
+
+If F1 supplies the residual payments in the SAME nu' after the baseline quarter choices, with total error at most C_side, then nu(total)>=L/2-C_side. Since L+D_loss=2n-60,
+
+    E+580 >= n-30-C_side,
+    X >= 5n-(612+C_side),       for even n>=128.
+
+The constant and sign pass. The 42-unit small-radius allowance is already included in C_side and is not to be added again. To extend to smaller even boards by the trivial X>=0 bound, one may enlarge the final constant to at least 630.
+
+F1 is the single remaining NEW price lemma in this conditional chain. Its existence is not proved by the hand kernel. In particular, fully paid paths may already have spent pair capacity near a deficient path's end windows. The side proof must use the actual residual atom capacities and one total error, not independently reset each window's budget. The good-middle reduction localizes possible path defects and the residue calculation; it does not automatically prove that end-local resources suffice. As written, F1 allows radius-ten eligible resources along the path. A certificate restricted to end windows would be a sufficient, potentially stronger implementation and needs its own domination and joining proof.
+
+The proposed finite-state description in Section 4 is explicitly a specification, not an audited completed reduction. No claim is made here that it has finitely many sufficient marks with proved compatibility, that an LP/transfer certificate exists, or that W1/W3 substitute for it. Their support results and the full allocation are different statements.
+
+**Pareto profile:** the new proof consists of four local allocation cases, the square identity, disjoint square centres and a bounded end-zone argument. It needs no new SAT or large graph certificate. Its inherited finite inputs are the audited tile/flux facts and beta=1 endpoint-restoration certificate. If F1 admits a short side proof, this is a valid simple route to 5n. At present the hand kernel passes and F1 remains open. Claim 39 is complete; no author files were edited.
+
+
+## Claim 40: F1 and the R4 side-certificate specification — 2026-10-03
+
+**Verdict: PASS for F1's sufficiency and R4's Hall-based certificate logic. PASS for the degree/edge-set relaxation. GAP for F1 itself and for a completed finite-state certificate. A naive use of halo quarter atoms is invalid and needs the explicit repair below.** I found no counterexample to F1 in the light tests. The section-8 recheck requested after this task was already completed in Claim 38F–I.
+
+Sources: PROOF_5N_PLAN.md section 4, the current R4 at the top of REQUESTS.md, and END_TYPES.md. This audit uses the Claim 39 hand kernel. No author files were edited and no large graph was built.
+
+### 40A. F1 is sufficient for the claimed algebra — PASS
+
+The baseline must be the actual simultaneous quarter allocation f0 from Claim 39. Each path gets min(2,s_i)/4, with the prescribed atom type for each selected quarter. Subtract its consumption atom by atom to obtain nu'. The residual demand d_i is the difference from one half. F1 asks for a permitted baseline choice and a nonnegative residual allocation from that same nu', with one absolute bound on the sum of deficits. Thus f0+g pays L/2-C_side from nu, without exceeding any atom capacity.
+
+The separate audited reserve pays D_loss/2. Its identity is
+
+    E+580 = nu(total)+(T+1160)/2,
+    (T+1160)/2 >= D_loss/2.
+
+Adding gives X>=5n-(612+C_side), exactly as in Claim 39. No extra raw S* crossing capacity, 4n baseline capacity, or endpoint reserve is available in g. X1 and W3 atoms associated with S* pairs remain legitimate components of nu; using them is not double counting, because the mixed identity explicitly separates these atom types.
+
+The quantifier is existential over permitted baseline choices, not “every greedy baseline succeeds.” R4's proposed proof for EVERY locally allowed baseline marking is a stronger sufficient condition. Failure of that stronger marked-state model would not refute F1. Conversely, optimizing convenient marks in a scan proves nothing unless every actual tour has a compatible permitted global choice. The deficit allowance must be one total constant; it cannot restart at a deficient path, selected subset, gap, or artificial window. State g>=0 explicitly when restating R4's equations alone; it is already explicit in the mathematical F1 definition.
+
+### 40B. Hall augmentation and endpoint pairing — PASS as a sufficient scheme
+
+The old scalar “total capacity minus total demand” scan was insufficient. Current R4 repairs this by allowing every subset of target rows, demanding t(tau_r) only on selected rows, and counting an atom once exactly when at least one selected endpoint can use it. For fixed geometry and residual capacities, a bound
+
+    capacity(N(J)) - sum_(r in J) t(tau_r) >= -M
+
+for all J is precisely a bound M on total max-flow deficit in quarter units. It yields individual endpoint payments with total error at most M/4, not M/4 per row. Nonnegative endpoint demands whose sum dominates each paired path's residual demand then give path payments with no larger total error.
+
+The anchor (3/2,r+1/2) is an actual path vertex. Restricting to atoms wholly within radius ten of this anchor is therefore safe, but stronger than F1's whole-path eligibility. Its eligible row interval is exactly the stated ceiling/floor interval, provided the entire depth support is within ten of 3/2. A 21-row selection history is conservative for these supports. Activation at the upper eligible row is a valid way to count each atom once, provided its identity, residual capacity and earlier selection history survive until that event.
+
+For targets at local radius at least 33, different physical sides' anchor neighbourhoods are disjoint. For example, a left-side neighbourhood has x<=11.5 and y>=23.5 near the bottom corner; a bottom-side neighbourhood has y<=11.5 and x>=23.5. Opposite sides are separated for n>=128. This justifies summing the four side allocations. The two ORIENTED HALVES of one side are different: their neighbourhoods can overlap. R4 correctly requires continued marks and Hall history and one ownership rule across the orientation change. Resetting the scan and crediting the same atom on both halves would be invalid.
+
+With an integral quarter-unit table and potential width M per half, eight half-walk errors give 2M ordinary units. Thus C_side<=42+2M is correct if all ownership and boundary-state conditions pass. The resulting conditional bound is X>=5n-(654+2M). For rational tables use the full scaling denominator. A potential on only convenient start states is insufficient; actual marked half-walk boundary states must all be covered.
+
+### 40C. Degree relaxation — PASS; halo atoms require a repair
+
+Retain exactly the actual tour edges with an endpoint in columns 0 through 5. Every vertex in these columns still has degree two. Columns 6 and 7 have degree at most two in the retained graph, and every retained edge ends by column 7. Therefore the proposed edge/degree model includes every actual tour restriction. Optional forest constraints are safe on this proper subgraph of a Hamiltonian cycle, provided the scan's component handling is correct. They are not required for a certificate valid on the larger degree-only class.
+
+However, this does NOT give full-tour multiplicities at every square inside the apparent eight-column strip. Squares at depth 6 may have covering edges with neither endpoint in columns 0 through 5. A missing tile can create a false hole.
+
+An explicit example is the perfect P half-plane. For x>=2 its edges are (x,y)--(x+2,y+1), with the standard P pairings in columns 0 and 1. After retaining only edges touching columns 0 through 5, the B and R quarters of square (6,y) become uncovered. In the full field they are covered once by the omitted edge (6,y)--(8,y+1). Thus the truncated model would invent TWO quarter-unit hole atoms per row if its halo multiplicities were treated as full multiplicities. These false atoms lie within the endpoint anchor's radius-ten depth range. This is a real resource-encoding error, not just an unextendible edge assignment.
+
+**Exact safe repair:** use hole and W3 quarter atoms only in square columns 0 through 5, where every possible covering edge is represented. Alternatively represent the missing covering edges and their effect on the full multiplicity. Restricting quarter atoms to the complete columns is sufficient and simpler. For pair and X1 atoms, require both edges to be represented and compute their one/two-quarter overlap from the two full tiles. Their geometric pair capacity does not depend on absent third tiles. Omit all other resources. This is a safe restricted resource pool, not an equality with the tour's full nu.
+
+For a represented pair atom, baseline consumption can come from either overlap quarter, including one in an incompletely represented square. The state must still subtract ALL actual f0 consumption of that pair. Allowing all feasible 0/1/2 consumption marks is a safe relaxation; declaring “no visible mark, no consumption” without accounting for the missing quarter is not. Similarly, quarter multiplicity zero must never be inferred from an incomplete owner set.
+
+### 40D. Baseline flags and finite-state scope — GAP until mapped
+
+Actual tours map into the proposed marking relaxation if the state admits the actual selected quarters, exact atom consumptions, candidate quotas and deficiency flags. For a deficient path all its payable quarters are mandatory baseline selections, and its two end records must agree on the total count and flag. A single-side relaxation may omit remote consistency and admit more states; a bound valid on all those states is sufficient. It may also become too strong to certify.
+
+For fully paid paths, local marks do not determine which two quarters the global baseline selected. For deficient paths, locally good represented middle squares do not prove the unseen entire middle is good. These are reasons to permit additional flags/marks, not reasons to discard states. Any restriction based on realizability, a preferred baseline policy, remote compatibility, or good-middle continuation needs a mapping proof. No one-bit continuation through interrupted runs is available.
+
+The listed finite domains and delayed Hall rule are plausible sufficient state ingredients, not a completeness theorem. Resource ownership, possible consumption from unrepresented squares, finalization of late endpoint types, and all actual boundary states must be checked in the implementation. R4 correctly asks for that proof before declaring a certificate. The recommended next stage is the small end-type/table pilot with the halo repair, not a full transfer graph yet.
+
+### 40E. Light red-team tests and their limits
+
+**Actual tours, baseline-subtracted Hall tests.** claim40_residual.py uses the audited exact retained-path/atom builder, then independently selects baseline quarters, subtracts their prescribed atom capacities, and solves the variable-demand residual flow. It tries three permitted tie policies: lexicographic, deepest-first and shallowest-first. It omits r<=32 for payment, reserving the allowed corner error. For each policy it tests the whole path collar, the union of the two endpoint-anchor neighbourhoods, and the more restrictive side-strip resource pool with the safe complete-column quarter rule above.
+
+| Tour | n | Retained r>32 | Deficient paths | Residual demand | Unpaid after residual flow |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| LF5 | 156 | 120 | 0 | 0 | 0 |
+| LF5 | 208 | 194 | 0 | 0 | 0 |
+| FIELD | 166 | 143 | 1 | 1/2 | 0 |
+| Claim 38 modified FOLD | 288 | 365 | 0 | 0 | 0 |
+
+All nine policy/resource combinations pass for each tour. The FIELD path supplies a nonvacuous residual test. The LF5 tours that stressed the earlier 2/3 currency have no remaining demand at half-price after this baseline. Neither does the pairing-preserving-gadget tour used to refute the EXC price. These tests do not prove that every marking works, that an additive endpoint table exists, or that F1 holds universally.
+
+**Periodic starting fields.** claim40_periods.py fixes the period-four blocking field in columns 0 and 1 and permits degree-two completion through column 5, with degree-at-most-two halo columns. Requiring squares 3 through 5 good on every row and minimizing payable quarters at row zero yields an extension with both end squares good on every row. Such an end has zero local charge; two such good ends and a good middle do not produce a retained charged path. It is not a residual-demand counterexample by itself.
+
+The period-eight single-shift blocking field, and the same single-shift construction at period six, are INFEASIBLE under that all-rows-good-middle restriction. This is only a small periodic-model result: it does not exclude a completion with some bad middle rows, isolated deficient rows, a different exterior, or a different period. The solver used one worker and a five-second limit per instance; the reported INFEASIBLE results are completed statuses. The check also exhibits the two false halo holes described above. Separately, exact geometry reproduces all seven anchored S-minus-B double-overlap pairs in END_TYPES.md; see claim40_endpairs.json.
+
+**The (1,2) wall.** Its plane witness is not a side completion. If its bad squares meet a path at depth at least three, Claim 39 pays that path already. To challenge F1 it must instead produce the correct retained endpoint states with the bad squares confined to the shallow end zone. A fixed-width straight (1,2) wall intersects a fixed-depth zone of a vertical side over only a bounded row interval; translating it there does not create a growing family of deficient endpoints. Cutting off its zigzag exterior at the board side also changes degrees and demands a new completion. No closed-tour or repeated-end-zone counterexample follows from that wall witness. This remains a useful local stop test, but its original half-price measurement is neither a proof nor a refutation of F1.
+
+Evidence: claim40_residual.py/json/log; claim40_periods.py/json/log; claim40_endpairs.json. No local patch was promoted to a completed-tour claim. No counterexample to F1 was found.
+
+### 40F. Closeout and Pareto profile
+
+F1 is the correct remaining allocation statement for the conditional 5n algebra. R4's all-subsets augmentation is necessary and sufficient at the endpoint-allocation level once the table, actual-state mapping and ownership are proved. The edge relaxation passes; restrict or complete halo quarter atoms before using it for a resource certificate. Baseline marks and their global interpretation remain part of the required proof.
+
+This audit adds one explicit halo-resource counterexample, seven-pair geometry, three small periodic checks and four actual-tour residual-flow screens. It adds no lower-bound coefficient and no large finite input. The mathematical F1 remains OPEN. Claim 40 is complete, and the lower-priority Claim 38 section-8 recheck is already in the audit log.

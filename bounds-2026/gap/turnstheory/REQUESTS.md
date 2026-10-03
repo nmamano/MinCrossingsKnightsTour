@@ -1,3 +1,202 @@
+# R4: F1 residual end-zone certificate — 2026-10-03
+
+**ACTIVE for KT Lower Bounds.** The Chief Researcher assigned this
+joint task. Claim 39 is auditing the hand kernel; use its verdict if
+it repairs these definitions. R3 below is historical and complete.
+Read PROOF_5N_PLAN.md Sections 2–4 and the new END_TYPES.md first.
+No large graph is requested before local end-type enumeration.
+
+## R4.1 Exact mathematical target
+
+Use actual closed-tour retained candidates, with the audited residue
+and exception tests. Work at n>=128 and omit r<=32 for PAYMENT only;
+these at most 84 candidates cost at most 42 in the total error.
+Let nu assign 1/2 per crossing pair outside S*, and 1/4 per hole,
+one-quarter crossing, and W3 unit. S* is the UNION of the four
+width-two side pair sets; W3 is zero at multiplicity zero.
+
+A bad quarter is payable unless it has multiplicity exactly two and
+its unique covering pair belongs to S* with a TWO-quarter overlap.
+For every retained path i, let s_i count its payable quarters. Select
+min(2,s_i) distinct payable quarters on i. Give each selected quarter
+1/4 by this fixed priority rule:
+
+* multiplicity zero: its G atom;
+* multiplicity >=3: one W3 unit at that quarter;
+* multiplicity two, pair outside S*: its pair atom;
+* multiplicity two, pair in S*: its X1 atom (overlap must be one).
+
+These payments f0 are jointly feasible by the hand kernel. Put
+`nu'=nu-sum_i f0_(alpha,i)` and
+`d_i=(2-min(2,s_i))/4`. Deficient paths (d_i>0) have good middle
+squares; by END_TYPES.md only depths one and two at each end can be
+bad. Hence d_i is 1/4 or 1/2 and is determined by the two end counts.
+
+**F1 to certify:** some permitted choice of the baseline quarters
+admits residual payments from nu' to every deficient path, each from
+strict radius-ten support, with deficits epsilon_i>=0 satisfying
+
+```
+sum_alpha g_(alpha,i)+epsilon_i >= d_i;
+sum_i g_(alpha,i) <= nu'(alpha);
+sum_i epsilon_i <= C_side,
+```
+
+where C_side is absolute. It includes the 42 corner allowance and a
+fixed number of potential endpoint errors. NO allowance per path,
+run, selected subset, or artificial window. A total-capacity inequality
+without individual demands/Hall control is insufficient (Claim 29).
+
+## R4.2 Start with the smaller local classification
+
+The exact geometric enumeration in END_TYPES.md finds seven anchored
+S-minus-B double-overlap pairs, four shapes up to reflection/translation.
+There is no unpaid quarter at depth >=3. At depth two only L can be
+unpaid. An active zero-payable end has a good depth-two square and one
+of three depth-one vectors:
+`(2,2,1,1), (1,2,2,1), (2,2,2,2)` in B,R,T,L order.
+Its inward local flux is (-1)^(y+3). A zero-payable end with R=1 has
+zero local flux. A deficient path with a bad depth-two square has
+exactly one payable quarter overall and needs only 1/4 more.
+
+**First request:** enumerate feasible end edge types, not just their
+multiplicity vectors. Record exact degrees, the full endpoint h/e
+fields, payable count capped at two, local flux, and compatible baseline
+marks. Reject any purported reduction contradicted by the seven-pair
+list. Return exact edge witnesses for surviving zero/one-payable types.
+Use a bounded-window degree relaxation for this first stage; do not
+label a surviving patch as a completed tour. This can shrink the
+certificate before adding expensive history.
+
+## R4.3 One sufficient side model and its state domains
+
+Use depths 0..7, all legal edges touching columns 0..5; require degree
+two there and degree at most two at 6,7. Every actual tour restriction
+is admitted. Optional forest labels strengthen the model, but a
+certificate on the degree-only relaxation is also valid. This width
+is a safe starting specification, not a proven minimal width. If it
+is too large, report the local-type result before building the graph.
+
+State fields: cell phase 0..7; parity; pending edges of row span <=2;
+endpoint-test history for both orientations; the recent multiplicities
+0..4 and baseline-quarter marks; and exact consumption of resource
+atoms awaiting assignment. Resource capacities in QUARTER UNITS are
+2 per non-S pair, 1 per G or X1 atom, and binomial(m-1,2) per W3 atom.
+Credit G/W3 quarter atoms only in COMPLETE squares, where every
+possible covering edge is represented; depths 0..4 are a conservative
+choice here. Do not interpret missing ghost edges as holes. X1 and
+pair atoms use their exact selected edges and full tile intersections.
+Subtract 1 for each baseline quarter assigned to that atom. A pair
+atom can have zero, one, or two such marks. No atom may be subtracted
+or credited twice. Disappearing atoms must be fully settled.
+
+Permit all actual choices of baseline marks with at most two per path.
+For a flagged deficient path, all its payable quarters (at most one)
+are selected, its middle is good, and both end records agree on that
+flag. In a single-side relaxation the remote record may be omitted;
+this enlarges the state space. A certificate valid for every such
+local marking is SUFFICIENT for F1. Its failure rejects this stronger
+mark relaxation, not F1's existential choice. If needed, propose a
+specific baseline-choice rule and prove that every tour has it before
+restricting the graph. Do not silently optimize an unrelated marking
+that an actual tour cannot use.
+
+Take as a conservative local allocation anchor the actual endpoint
+square centre (3/2,r+1/2). Use only residual atoms wholly within
+L-infinity distance ten of that anchor. This is a subset of the
+allowed path collar, so any certificate in this restriction is valid.
+Atoms outside the chosen strip are simply unavailable to this scan.
+Use targets at local radii >=33, with the fixed far-end exclusions;
+then different physical sides' allocated atom sets are disjoint.
+This prevents a second four-side crossing budget from being assumed.
+
+## R4.4 Pair the end types, then certify ALL Hall subsets
+
+Seek a NONNEGATIVE rational endpoint demand table t(tau), in quarter
+units. tau includes the oriented h/e values, the local payable count,
+the deficiency flag, baseline marks, and the local type needed by the
+side model. For every pair of end types compatible with a deficient
+retained path, require
+
+```
+t(tau_left)+t(tau_bottom) >= 2 - (s_left+s_bottom).
+```
+
+Here s_left+s_bottom is 0 or 1. Non-deficient rows have demand zero.
+At first it is safe to allow every pair passing the audited h/e test
+and the capped-count constraints; this is a relaxation, not a claim
+that every pair extends through a good middle. Any stronger restriction
+must be proved. Both orientations and both radius parities are needed.
+
+**Essential Hall augmentation:** a scalar certificate for total side
+capacity minus total t does NOT prove private payments. For each row
+allow an arbitrary subset-selection bit j_r on target rows. Charge
+`t(tau_r)*j_r`. Count a residual atom once if and only if at least one
+selected target can use it. The certificate must prove for ALL such
+bit sequences
+
+```
+capacity(N(J)) - sum_(r in J) t(tau_r) >= -M
+```
+
+in quarter units, where M is absolute. By max-flow/min-cut, this gives
+side allocations with total endpoint deficit at most M/4. Pairing the
+allocations then supplies F1. It is permissible to optimize the table
+and potentials jointly, but all inequalities need exact verification.
+
+For the fixed anchor, an atom's eligible row set is an integer interval:
+if its support has row extrema y_min,y_max, then
+
+```
+ceil(y_max-10-1/2) <= r <= floor(y_min+10-1/2),
+```
+
+provided every support depth is within ten of 3/2. Decide its Hall
+activation once, when the upper eligible row has been processed. Store
+its residual capacity and interval until then. A recent-selection
+bitmask of 21 rows is sufficient (or a capped age of the last selected
+row, with a proved equivalent delayed rule). Endpoint types may finish
+a few rows after their target row; preserve the marked row's identity.
+This is finite but can be expensive, so add it only after the local
+classification and demand-table pilot. Empty J must count no resources
+and incur no demand; it is a useful normalization test.
+
+Final integer arc weights are activated residual capacity minus
+selected endpoint demand. There is no old strip per-cell baseline.
+Require an exact potential on all reachable augmented states, both
+orientations and parities. A potential width M gives deficit M/4 per
+oriented half if the table is integral in quarter units; for a rational
+table report the full denominator. Keep pending edges, marks, and Hall
+history across cuts. Never count an atom again when a half changes
+endpoint orientation. With eight halves, a common width M would give
+`C_side <= 42+2*M` under the stated scaling and exact ownership.
+A full-side certificate can improve this bookkeeping.
+
+## R4.5 Stop tests, feasibility, and what to return
+
+Test the period-four/six/eight strip fields, the Claim 29 retained-end
+patches, and the Claim 35 half-price wall only under their actual
+boundary assumptions. The 193-tour half-price Hall result tests F1's
+unrestricted final allocation, not this particular baseline and anchor
+restriction. Do not discard a state merely because it is not a fold
+stack: W1 applies only under its complete crossing-free-window premise.
+No one-bit global ribbon continuation is allowed (Claim 30).
+
+Please return local type witnesses first; then table feasibility or an
+explicit obstructing cycle/marked-row set before a large scan. Run one
+process, start with a state-count pilot, and respect the shared memory
+limit. Positive completion requires graph completeness, resource
+ownership, all Hall-bit choices, paired demands, exact potentials and
+constants, and a proof mapping actual tours into the marked states.
+A negative result should identify which relaxation or restriction it
+rejects. It need not refute the actual half-price theorem.
+
+New hand classification command:
+`python3 gap/turnstheory/classify_unpaid_ends.py`.
+No large computation has been launched by Turns Theory for R4.
+
+---
+
 # R3 active: joint six-column model — 2026-10-03
 
 Chief Researcher requested this specification for KT Edge Searcher.

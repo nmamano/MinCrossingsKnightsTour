@@ -1,0 +1,5 @@
+n=120 mode=diag free=1464 ties=912 X_pre=552
+RESULT n=120 mode=diag w=3: X=830 {'status': 'FEASIBLE', 'corner_obj': 426, 'corner_turns': None, 'obj': 426000.0, 'bound': 32.0, 'secs': 600.2} levels [18,42) span 24: D0 16/24=0.6667 604s
+n=120 mode=lr free=2274 ties=2116 X_pre=552
+RESULT n=120 mode=lr w=3: X=905 {'status': 'FEASIBLE', 'corner_obj': 509, 'corner_turns': None, 'obj': 509000.0, 'bound': 34.0, 'secs': 900.3} levels [20,40) span 20: LB 20/20=1.0000, LT 20/20=1.0000, RB 26/20=1.3000, RT 19/20=0.9500 906s
+exit=0

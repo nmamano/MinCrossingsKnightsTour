@@ -1,0 +1,1017 @@
+{
+  "date": "2026-10-03",
+  "w1": {
+    "date": "2026-10-03",
+    "variables": 424,
+    "clauses": 7144,
+    "maps": 156,
+    "clause_multiset_match": true,
+    "cnf_sha256": "7f043910cd96b1ca8746b3b95df35516f357dadc080ec13e5f06ac8a9706cc86",
+    "proofs": [
+      {
+        "proof": "w1cert_k9_b3.glucose4.drup",
+        "sha256": "f241f9ae33a0dfbdc9f62fefb06160130c97f95babcfbad876d16a63daddcae5",
+        "result": "PASS /home/nil/nil/knight-formation-research/gap/lowerbounds/windows/w1cert_k9_b3.cnf: 2942 RUP additions verified, empty clause derived (UNSAT)."
+      },
+      {
+        "proof": "w1cert_k9_b3.lingeling.drup",
+        "sha256": "090b9fe4a6d0b176d9372a7c5736f7c08a857f782005c138d271963196e8ef5a",
+        "result": "PASS /home/nil/nil/knight-formation-research/gap/lowerbounds/windows/w1cert_k9_b3.cnf: 2989 RUP additions verified, empty clause derived (UNSAT)."
+      }
+    ]
+  },
+  "w3": [
+    {
+      "name": "hole_k7_b",
+      "variables": 272,
+      "clauses": 4260,
+      "degree_clauses": 3192,
+      "crossing_clauses": 1064,
+      "hole_edges": [
+        [
+          [
+            2,
+            4
+          ],
+          [
+            4,
+            3
+          ]
+        ],
+        [
+          [
+            3,
+            2
+          ],
+          [
+            4,
+            4
+          ]
+        ],
+        [
+          [
+            3,
+            3
+          ],
+          [
+            5,
+            4
+          ]
+        ],
+        [
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            2
+          ]
+        ]
+      ],
+      "hole_units": [
+        132,
+        157,
+        163,
+        164
+      ],
+      "cnf_sha256": "491abdc0abde29173f2e7e9a7c42372b56175f5307a9f76d8e0663554c32ce7e",
+      "clause_multiset_match": true,
+      "drup": {
+        "proof": "hole_k7_b.drup",
+        "sha256": "ad47ae798cd0599659826187f916ec3de48034804050cf2a70d3cacc8c16b446",
+        "result": "PASS /home/nil/nil/knight-formation-research/gap/lowerbounds/windows/hole_k7_b.cnf: 606 RUP additions verified, empty clause derived (UNSAT)."
+      }
+    },
+    {
+      "name": "hole_k7_r",
+      "variables": 272,
+      "clauses": 4260,
+      "degree_clauses": 3192,
+      "crossing_clauses": 1064,
+      "hole_edges": [
+        [
+          [
+            3,
+            2
+          ],
+          [
+            4,
+            4
+          ]
+        ],
+        [
+          [
+            3,
+            3
+          ],
+          [
+            5,
+            4
+          ]
+        ],
+        [
+          [
+            3,
+            4
+          ],
+          [
+            5,
+            3
+          ]
+        ],
+        [
+          [
+            3,
+            5
+          ],
+          [
+            4,
+            3
+          ]
+        ]
+      ],
+      "hole_units": [
+        157,
+        163,
+        166,
+        168
+      ],
+      "cnf_sha256": "3854154bd3a6969cd4b933290f0cdc0ce86835189a1f6d0794fe795163a9bd01",
+      "clause_multiset_match": true,
+      "drup": {
+        "proof": "hole_k7_r.drup",
+        "sha256": "33beaa2e7e9497cae3d8c74942c95cfffa5590cc246b450412723294ba7811f6",
+        "result": "PASS /home/nil/nil/knight-formation-research/gap/lowerbounds/windows/hole_k7_r.cnf: 773 RUP additions verified, empty clause derived (UNSAT)."
+      }
+    },
+    {
+      "name": "hole_k7_t",
+      "variables": 272,
+      "clauses": 4260,
+      "degree_clauses": 3192,
+      "crossing_clauses": 1064,
+      "hole_edges": [
+        [
+          [
+            2,
+            3
+          ],
+          [
+            4,
+            4
+          ]
+        ],
+        [
+          [
+            3,
+            3
+          ],
+          [
+            4,
+            5
+          ]
+        ],
+        [
+          [
+            3,
+            4
+          ],
+          [
+            5,
+            3
+          ]
+        ],
+        [
+          [
+            3,
+            5
+          ],
+          [
+            4,
+            3
+          ]
+        ]
+      ],
+      "hole_units": [
+        129,
+        161,
+        166,
+        168
+      ],
+      "cnf_sha256": "61ce499d3eafdee0a841a64f466e01af0d9ea364fde6cfc287718342825ed8e8",
+      "clause_multiset_match": true,
+      "drup": {
+        "proof": "hole_k7_t.drup",
+        "sha256": "e30112690d8ac36fddcf587fe20fbf9d4a2f740ef41903d0ad485c9a6316fb83",
+        "result": "PASS /home/nil/nil/knight-formation-research/gap/lowerbounds/windows/hole_k7_t.cnf: 574 RUP additions verified, empty clause derived (UNSAT)."
+      }
+    },
+    {
+      "name": "hole_k7_l",
+      "variables": 272,
+      "clauses": 4260,
+      "degree_clauses": 3192,
+      "crossing_clauses": 1064,
+      "hole_edges": [
+        [
+          [
+            2,
+            3
+          ],
+          [
+            4,
+            4
+          ]
+        ],
+        [
+          [
+            2,
+            4
+          ],
+          [
+            4,
+            3
+          ]
+        ],
+        [
+          [
+            3,
+            3
+          ],
+          [
+            4,
+            5
+          ]
+        ],
+        [
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            2
+          ]
+        ]
+      ],
+      "hole_units": [
+        129,
+        132,
+        161,
+        164
+      ],
+      "cnf_sha256": "52e6103231a73667d25fa6e863bb96915165d1935d8017fe6ed5b69cf5e89647",
+      "clause_multiset_match": true,
+      "drup": {
+        "proof": "hole_k7_l.drup",
+        "sha256": "f06ac919b2ac9b74921fa91fab9b58742d75a58687b5c02051187e838816ae77",
+        "result": "PASS /home/nil/nil/knight-formation-research/gap/lowerbounds/windows/hole_k7_l.cnf: 427 RUP additions verified, empty clause derived (UNSAT)."
+      }
+    },
+    {
+      "name": "sidehole_W12_H9_d4_S_b",
+      "variables": 496,
+      "clauses": 7918,
+      "degree_clauses": 6156,
+      "crossing_clauses": 1758,
+      "hole_edges": [
+        [
+          [
+            3,
+            5
+          ],
+          [
+            5,
+            4
+          ]
+        ],
+        [
+          [
+            4,
+            3
+          ],
+          [
+            5,
+            5
+          ]
+        ],
+        [
+          [
+            4,
+            4
+          ],
+          [
+            6,
+            5
+          ]
+        ],
+        [
+          [
+            4,
+            5
+          ],
+          [
+            5,
+            3
+          ]
+        ]
+      ],
+      "hole_units": [
+        152,
+        185,
+        191,
+        192
+      ],
+      "cnf_sha256": "55361ff056b549c81cf054d6b21cc8b12275d735d0dcf68685e6b4a5bc15ea32",
+      "clause_multiset_match": true,
+      "drup": {
+        "proof": "sidehole_W12_H9_d4_S_b.drup",
+        "sha256": "6ab3defa3e55f45df573ee7f9c1ada6d1a9d95d08e0f34faeb13ddc6bc53fca1",
+        "result": "PASS /home/nil/nil/knight-formation-research/gap/lowerbounds/windows/sidehole_W12_H9_d4_S_b.cnf: 682 RUP additions verified, empty clause derived (UNSAT)."
+      }
+    },
+    {
+      "name": "sidehole_W12_H9_d4_S_r",
+      "variables": 496,
+      "clauses": 7918,
+      "degree_clauses": 6156,
+      "crossing_clauses": 1758,
+      "hole_edges": [
+        [
+          [
+            4,
+            3
+          ],
+          [
+            5,
+            5
+          ]
+        ],
+        [
+          [
+            4,
+            4
+          ],
+          [
+            6,
+            5
+          ]
+        ],
+        [
+          [
+            4,
+            5
+          ],
+          [
+            6,
+            4
+          ]
+        ],
+        [
+          [
+            4,
+            6
+          ],
+          [
+            5,
+            4
+          ]
+        ]
+      ],
+      "hole_units": [
+        185,
+        191,
+        194,
+        196
+      ],
+      "cnf_sha256": "e039f3f5cc9f303414c597d2179c90e30a3173ab8901e88317395083a855c70a",
+      "clause_multiset_match": true,
+      "drup": {
+        "proof": "sidehole_W12_H9_d4_S_r.drup",
+        "sha256": "3a32faa935c7ce75e43a9452d382f98e2282d560a00ad394ef167c37067a7097",
+        "result": "PASS /home/nil/nil/knight-formation-research/gap/lowerbounds/windows/sidehole_W12_H9_d4_S_r.cnf: 551 RUP additions verified, empty clause derived (UNSAT)."
+      }
+    },
+    {
+      "name": "sidehole_W12_H9_d4_S_t",
+      "variables": 496,
+      "clauses": 7918,
+      "degree_clauses": 6156,
+      "crossing_clauses": 1758,
+      "hole_edges": [
+        [
+          [
+            3,
+            4
+          ],
+          [
+            5,
+            5
+          ]
+        ],
+        [
+          [
+            4,
+            4
+          ],
+          [
+            5,
+            6
+          ]
+        ],
+        [
+          [
+            4,
+            5
+          ],
+          [
+            6,
+            4
+          ]
+        ],
+        [
+          [
+            4,
+            6
+          ],
+          [
+            5,
+            4
+          ]
+        ]
+      ],
+      "hole_units": [
+        149,
+        189,
+        194,
+        196
+      ],
+      "cnf_sha256": "fb201de4413cf62c2088831f7c5a29b8e73714204f5b87a7731511a0860eab14",
+      "clause_multiset_match": true,
+      "drup": {
+        "proof": "sidehole_W12_H9_d4_S_t.drup",
+        "sha256": "184f5ba6a587df62d88eecd23eac73f6aee1ae1f21a9cabca81f73ac61efaac6",
+        "result": "PASS /home/nil/nil/knight-formation-research/gap/lowerbounds/windows/sidehole_W12_H9_d4_S_t.cnf: 563 RUP additions verified, empty clause derived (UNSAT)."
+      }
+    },
+    {
+      "name": "sidehole_W12_H9_d4_S_l",
+      "variables": 496,
+      "clauses": 7918,
+      "degree_clauses": 6156,
+      "crossing_clauses": 1758,
+      "hole_edges": [
+        [
+          [
+            3,
+            4
+          ],
+          [
+            5,
+            5
+          ]
+        ],
+        [
+          [
+            3,
+            5
+          ],
+          [
+            5,
+            4
+          ]
+        ],
+        [
+          [
+            4,
+            4
+          ],
+          [
+            5,
+            6
+          ]
+        ],
+        [
+          [
+            4,
+            5
+          ],
+          [
+            5,
+            3
+          ]
+        ]
+      ],
+      "hole_units": [
+        149,
+        152,
+        189,
+        192
+      ],
+      "cnf_sha256": "ac4a7ea3951f9ee75b630571554e291342a5d58fc755ceef81c689805775c989",
+      "clause_multiset_match": true,
+      "drup": {
+        "proof": "sidehole_W12_H9_d4_S_l.drup",
+        "sha256": "9207afefb686a25e586442ed6e3875d1de2433580657216ed2eee6c8848a07f2",
+        "result": "PASS /home/nil/nil/knight-formation-research/gap/lowerbounds/windows/sidehole_W12_H9_d4_S_l.cnf: 687 RUP additions verified, empty clause derived (UNSAT)."
+      }
+    },
+    {
+      "name": "sidehole_W12_H9_d5_S_b",
+      "variables": 496,
+      "clauses": 7918,
+      "degree_clauses": 6156,
+      "crossing_clauses": 1758,
+      "hole_edges": [
+        [
+          [
+            4,
+            5
+          ],
+          [
+            6,
+            4
+          ]
+        ],
+        [
+          [
+            5,
+            3
+          ],
+          [
+            6,
+            5
+          ]
+        ],
+        [
+          [
+            5,
+            4
+          ],
+          [
+            7,
+            5
+          ]
+        ],
+        [
+          [
+            5,
+            5
+          ],
+          [
+            6,
+            3
+          ]
+        ]
+      ],
+      "hole_units": [
+        194,
+        227,
+        233,
+        234
+      ],
+      "cnf_sha256": "1453dcf081cf37bd81cfef2d8d935ed54eec484785f31c9197926e922f1f86b9",
+      "clause_multiset_match": true,
+      "drup": {
+        "proof": "sidehole_W12_H9_d5_S_b.drup",
+        "sha256": "9d190f15e421182df6880a6f2918d12b21e0473f9c2ecd9d195e463c7685ef9f",
+        "result": "PASS /home/nil/nil/knight-formation-research/gap/lowerbounds/windows/sidehole_W12_H9_d5_S_b.cnf: 896 RUP additions verified, empty clause derived (UNSAT)."
+      }
+    },
+    {
+      "name": "sidehole_W12_H9_d5_S_r",
+      "variables": 496,
+      "clauses": 7918,
+      "degree_clauses": 6156,
+      "crossing_clauses": 1758,
+      "hole_edges": [
+        [
+          [
+            5,
+            3
+          ],
+          [
+            6,
+            5
+          ]
+        ],
+        [
+          [
+            5,
+            4
+          ],
+          [
+            7,
+            5
+          ]
+        ],
+        [
+          [
+            5,
+            5
+          ],
+          [
+            7,
+            4
+          ]
+        ],
+        [
+          [
+            5,
+            6
+          ],
+          [
+            6,
+            4
+          ]
+        ]
+      ],
+      "hole_units": [
+        227,
+        233,
+        236,
+        238
+      ],
+      "cnf_sha256": "2401e0ebd4d3eb277ebcea4b96c41d86e523ff18381edb7a0680e6f95f5d6d68",
+      "clause_multiset_match": true,
+      "drup": {
+        "proof": "sidehole_W12_H9_d5_S_r.drup",
+        "sha256": "3622c9feec78455cc33cd632722a8116b2942c99d257148bea98b4a53ce7a334",
+        "result": "PASS /home/nil/nil/knight-formation-research/gap/lowerbounds/windows/sidehole_W12_H9_d5_S_r.cnf: 435 RUP additions verified, empty clause derived (UNSAT)."
+      }
+    },
+    {
+      "name": "sidehole_W12_H9_d5_S_t",
+      "variables": 496,
+      "clauses": 7918,
+      "degree_clauses": 6156,
+      "crossing_clauses": 1758,
+      "hole_edges": [
+        [
+          [
+            4,
+            4
+          ],
+          [
+            6,
+            5
+          ]
+        ],
+        [
+          [
+            5,
+            4
+          ],
+          [
+            6,
+            6
+          ]
+        ],
+        [
+          [
+            5,
+            5
+          ],
+          [
+            7,
+            4
+          ]
+        ],
+        [
+          [
+            5,
+            6
+          ],
+          [
+            6,
+            4
+          ]
+        ]
+      ],
+      "hole_units": [
+        191,
+        231,
+        236,
+        238
+      ],
+      "cnf_sha256": "c162ef7fd58189f3f8f7a30eacc6bf92c676d0f77ff077280de73298b00ca3de",
+      "clause_multiset_match": true,
+      "drup": {
+        "proof": "sidehole_W12_H9_d5_S_t.drup",
+        "sha256": "2733342f04233c71fe2776c1804956ec290d87feb44acc46c51067e9177603c3",
+        "result": "PASS /home/nil/nil/knight-formation-research/gap/lowerbounds/windows/sidehole_W12_H9_d5_S_t.cnf: 1041 RUP additions verified, empty clause derived (UNSAT)."
+      }
+    },
+    {
+      "name": "sidehole_W12_H9_d5_S_l",
+      "variables": 496,
+      "clauses": 7918,
+      "degree_clauses": 6156,
+      "crossing_clauses": 1758,
+      "hole_edges": [
+        [
+          [
+            4,
+            4
+          ],
+          [
+            6,
+            5
+          ]
+        ],
+        [
+          [
+            4,
+            5
+          ],
+          [
+            6,
+            4
+          ]
+        ],
+        [
+          [
+            5,
+            4
+          ],
+          [
+            6,
+            6
+          ]
+        ],
+        [
+          [
+            5,
+            5
+          ],
+          [
+            6,
+            3
+          ]
+        ]
+      ],
+      "hole_units": [
+        191,
+        194,
+        231,
+        234
+      ],
+      "cnf_sha256": "8c2a1696c9a878aff1d8dca1dde82d119a38a5e35f82e6ff13a15a2001c1de72",
+      "clause_multiset_match": true,
+      "drup": {
+        "proof": "sidehole_W12_H9_d5_S_l.drup",
+        "sha256": "d21bd20ac0813df972765ddee40e1d2e3f609137f2efcdf2f4b979c440c21f07",
+        "result": "PASS /home/nil/nil/knight-formation-research/gap/lowerbounds/windows/sidehole_W12_H9_d5_S_l.cnf: 734 RUP additions verified, empty clause derived (UNSAT)."
+      }
+    },
+    {
+      "name": "sidehole_W12_H9_d6_S_b",
+      "variables": 496,
+      "clauses": 7918,
+      "degree_clauses": 6156,
+      "crossing_clauses": 1758,
+      "hole_edges": [
+        [
+          [
+            5,
+            5
+          ],
+          [
+            7,
+            4
+          ]
+        ],
+        [
+          [
+            6,
+            3
+          ],
+          [
+            7,
+            5
+          ]
+        ],
+        [
+          [
+            6,
+            4
+          ],
+          [
+            8,
+            5
+          ]
+        ],
+        [
+          [
+            6,
+            5
+          ],
+          [
+            7,
+            3
+          ]
+        ]
+      ],
+      "hole_units": [
+        236,
+        269,
+        275,
+        276
+      ],
+      "cnf_sha256": "41f7c176e3b1f6ddd027ae1227e09a8efc2c6443ecc9744df9d24573c9336d38",
+      "clause_multiset_match": true,
+      "drup": {
+        "proof": "sidehole_W12_H9_d6_S_b.drup",
+        "sha256": "9a19c46b24d81b086dbfb57b0f3f5670e77a678296f5b9c285f542f583212689",
+        "result": "PASS /home/nil/nil/knight-formation-research/gap/lowerbounds/windows/sidehole_W12_H9_d6_S_b.cnf: 784 RUP additions verified, empty clause derived (UNSAT)."
+      }
+    },
+    {
+      "name": "sidehole_W12_H9_d6_S_r",
+      "variables": 496,
+      "clauses": 7918,
+      "degree_clauses": 6156,
+      "crossing_clauses": 1758,
+      "hole_edges": [
+        [
+          [
+            6,
+            3
+          ],
+          [
+            7,
+            5
+          ]
+        ],
+        [
+          [
+            6,
+            4
+          ],
+          [
+            8,
+            5
+          ]
+        ],
+        [
+          [
+            6,
+            5
+          ],
+          [
+            8,
+            4
+          ]
+        ],
+        [
+          [
+            6,
+            6
+          ],
+          [
+            7,
+            4
+          ]
+        ]
+      ],
+      "hole_units": [
+        269,
+        275,
+        278,
+        280
+      ],
+      "cnf_sha256": "d93d0032579a1ffef18ee3f545179c40806b3dbf2232a9dba05cce7c45a4b584",
+      "clause_multiset_match": true,
+      "drup": {
+        "proof": "sidehole_W12_H9_d6_S_r.drup",
+        "sha256": "3afc2e5c5a92515091d60deb7a2bb9b951d7297f71413e6d625973bb8b6968dd",
+        "result": "PASS /home/nil/nil/knight-formation-research/gap/lowerbounds/windows/sidehole_W12_H9_d6_S_r.cnf: 621 RUP additions verified, empty clause derived (UNSAT)."
+      }
+    },
+    {
+      "name": "sidehole_W12_H9_d6_S_t",
+      "variables": 496,
+      "clauses": 7918,
+      "degree_clauses": 6156,
+      "crossing_clauses": 1758,
+      "hole_edges": [
+        [
+          [
+            5,
+            4
+          ],
+          [
+            7,
+            5
+          ]
+        ],
+        [
+          [
+            6,
+            4
+          ],
+          [
+            7,
+            6
+          ]
+        ],
+        [
+          [
+            6,
+            5
+          ],
+          [
+            8,
+            4
+          ]
+        ],
+        [
+          [
+            6,
+            6
+          ],
+          [
+            7,
+            4
+          ]
+        ]
+      ],
+      "hole_units": [
+        233,
+        273,
+        278,
+        280
+      ],
+      "cnf_sha256": "c0ddb3a72827379ea2af2ddf2cd15f8b0f16efe8b3c6c66df7fe1299776326cd",
+      "clause_multiset_match": true,
+      "drup": {
+        "proof": "sidehole_W12_H9_d6_S_t.drup",
+        "sha256": "e98f24ec008dda1ff6c1a78889ff42c7c9de3fe0d39e0891270a232589cabe8c",
+        "result": "PASS /home/nil/nil/knight-formation-research/gap/lowerbounds/windows/sidehole_W12_H9_d6_S_t.cnf: 633 RUP additions verified, empty clause derived (UNSAT)."
+      }
+    },
+    {
+      "name": "sidehole_W12_H9_d6_S_l",
+      "variables": 496,
+      "clauses": 7918,
+      "degree_clauses": 6156,
+      "crossing_clauses": 1758,
+      "hole_edges": [
+        [
+          [
+            5,
+            4
+          ],
+          [
+            7,
+            5
+          ]
+        ],
+        [
+          [
+            5,
+            5
+          ],
+          [
+            7,
+            4
+          ]
+        ],
+        [
+          [
+            6,
+            4
+          ],
+          [
+            7,
+            6
+          ]
+        ],
+        [
+          [
+            6,
+            5
+          ],
+          [
+            7,
+            3
+          ]
+        ]
+      ],
+      "hole_units": [
+        233,
+        236,
+        273,
+        276
+      ],
+      "cnf_sha256": "304e17a22a67e3797c8690a5a26a8060e3c62001f7b706a6de3df78f22ae0a6c",
+      "clause_multiset_match": true,
+      "drup": {
+        "proof": "sidehole_W12_H9_d6_S_l.drup",
+        "sha256": "1fff5ff1a35380ff69e997e16691ff1f572507ca15d710f251fc5261ff18ff0c",
+        "result": "PASS /home/nil/nil/knight-formation-research/gap/lowerbounds/windows/sidehole_W12_H9_d6_S_l.cnf: 680 RUP additions verified, empty clause derived (UNSAT)."
+      }
+    }
+  ]
+}

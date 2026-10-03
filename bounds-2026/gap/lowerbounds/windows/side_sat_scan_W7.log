@@ -1,0 +1,21 @@
+sideSAT_P8_W7_0_K9_pass: UNSAT (cuts 0, 5s; vars 4087, clauses 12060)
+sideSAT_P8_W7_0_K14_pass: SAT excess 14 (cuts 0, 0s)
+sideSAT_P8_W7_0_K11_pass: UNSAT (cuts 0, 5s; vars 4463, clauses 12808)
+sideSAT_P8_W7_0_K12_pass: UNSAT (cuts 6, 6s; vars 4648, clauses 13182)
+sideSAT_P8_W7_0_K13_pass: SAT excess 13 (cuts 1, 1s)
+RESULT P=8 W=7 mismatch min excess = 13
+sideSAT_P10_W7_0_K11_pass: UNSAT (cuts 0, 14s; vars 6119, clauses 17068)
+sideSAT_P10_W7_0_K17_pass: SAT excess 17 (cuts 10, 1s)
+sideSAT_P10_W7_0_K14_pass: SAT excess 14 (cuts 1, 6s)
+sideSAT_P10_W7_0_K12_pass: UNSAT (cuts 0, 25s; vars 6356, clauses 17540)
+sideSAT_P10_W7_0_K13_pass: UNSAT (cuts 2, 22s; vars 6591, clauses 18010)
+RESULT P=10 W=7 mismatch min excess = 14
+sideSAT_P12_W7_0_K13_pass: UNSAT (cuts 0, 136s; vars 8567, clauses 22908)
+sideSAT_P12_W7_0_K20_pass: SAT excess 20 (cuts 0, 1s)
+sideSAT_P12_W7_0_K16_pass: UNSAT (cuts 6, 211s; vars 9416, clauses 24606)
+sideSAT_P12_W7_0_K18_pass: SAT excess 18 (cuts 9, 74s)
+sideSAT_P12_W7_0_K17_pass: SAT excess 17 strong failures 0 (cuts 2, 5s)
+RESULT P=12 W=7 mismatch min excess = 17
+sideSAT_P14_W7_0_K15_pass: UNSAT (cuts 0, 350s; vars 11431, clauses 29580)
+sideSAT_P14_W7_0_K23_pass: SAT excess 23 strong failures 0 (cuts 3, 1s)
+sideSAT_P14_W7_0_K19_pass: SAT excess 19 strong failures 0 (cuts 9, 580s)

@@ -1,3 +1,564 @@
+# Half-price hand step — 2026-10-03
+
+See PROOF_5N_PLAN.md for the new quarter-payment hand argument and the
+remaining side-certificate specification. It proves private half-price
+payments for paths with a bad middle square, using distinct payable
+quarters. The new argument awaits independent audit. Paths with
+residual demand have a good middle and bounded end zones; their joint
+residual-capacity price F1 remains open. No 5n theorem is claimed.
+
+---
+
+# Skeleton v4: half-price flux plus separate connectivity credit
+
+2026-10-03. **Current research contract; flux and connectivity lemmas
+remain OPEN.** This section supersedes the p=2/3 currency recommendation
+below. The audited lower bound remains 5X>=24n-13012 for even n>=32
+(Claim 31). No 5n or 6n theorem is claimed by this plan.
+
+## 1. Decision and the wall's precise scope
+
+Use p=lambda=1/2 in the mixed ledger. Searcher's Section 7.1 gives a
+(1,2) periodic wall of half a crossing per L-infinity level; the earlier
+diagonal wall also attains half-price in the half-mixed currency.
+Thus a universal flux-only wall price above 1/2 is not an available
+local input. Claim 35 now audits the achieved half-price and an explicit
+acyclic plane extension with matching zigzag exteriors. It does not
+audit optimality of the large minimum-mean graph.
+
+This does NOT yet refute the exact closed-tour L2-v3(2/3,10) conjecture.
+The audited plane extension is acyclic, but supplies neither
+Hamiltonian completion nor retained candidate endpoints. An entire
+path's collar can receive resources far from its wall intersection.
+See WALL_1_2_SCOPE.md for the exact missing hypotheses. The claim that
+the 16n/3 route fails must be read as a failure of the proposed universal
+wall-price input, not as a proved impossibility for closed tours.
+
+The formal p=2/3 conjecture is left unresolved; it is no longer the main
+route. Improvements above 5n in THIS skeleton must use a separate
+connectivity allocation rather than increasing the flux price.
+
+## 2. Ledger and endpoint restoration, unchanged proved inputs
+
+Let C be the actual retained family from the audited corner paths,
+N=2n-60, L=|C|, D_loss=N-L. Let S* be the union of the four width-two
+side crossing sets, s=|S*|, E=X-4n+2, T=s-4n+2, and U=X-s.
+Let mu put mass 1/2 on each uncovered quarter, each one-quarter crossing,
+and each W3 unit, with W3=0 at multiplicity zero. The exact identity is
+mu(total)=E. The audited beta=1 restoration gives T+1160>=D_loss.
+
+Use the atomic capacity
+
+```
+nu = (1/2)*(unit pair masses outside S*) + (1/2)*mu;
+E+580 = nu(total) + (1/2)*(T+1160).
+```
+
+Thus nu has mass 1/2 per non-S* pair and mass 1/4 per hole, one-quarter
+crossing, and W3 unit. The separate nonnegative side reserve pays
+D_loss/2. It is not available again for flux or connectivity. Keeping
+this mixed ledger avoids the unproved pure-currency L2/L3 recombination.
+
+## 3. Exact half-price flux statement
+
+For every even n>=128 and every closed Hamiltonian tour, form C with
+radii 12 through n/2-4, both endpoint residues, and both exception
+exclusions. For each atom use its four edge endpoints if it is a
+crossing atom, and its closed quarter triangle if it is a hole or W3
+atom. Eligibility means the whole support lies within L-infinity
+radius TEN of ONE dual vertex of the candidate path.
+
+Conjecture: there is an absolute C_flux such that every such tour has
+nonnegative payments f_(alpha,i) and deficits delta_i satisfying
+
+```
+f_(alpha,i)=0 unless alpha is eligible for i;
+sum_alpha f_(alpha,i)+delta_i >= 1/2       for every retained i;
+0<=delta_i<=1/2; sum_i delta_i<=C_flux;
+sum_i f_(alpha,i) <= nu(alpha)             for every atom alpha.
+```
+
+This is individual demand with ONE total error, not aggregate payment
+or an allowance per path/run/window. The radius-ten interior support
+argument still applies. End-zone paths still need a side-local proof
+in the same nu capacity. Fixed corner exceptions can consume a fixed
+part of C_flux. A finite local certificate must cancel its internal
+boundary terms; neither W3 nor the half-price wall proves this lemma.
+
+With this flux lemma and the proved reserve,
+
+```
+E+580 >= L/2-C_flux+D_loss/2 = n-30-C_flux,
+X >= 5n-(612+C_flux).
+```
+
+The smaller-board range can be covered by increasing a final constant.
+A proof of this half-price statement alone is a valuable Pareto result.
+
+## 4. Connectivity: extra demand in the SAME capacity
+
+To improve the coefficient, find nonnegative h_alpha together with f,
+not after a flow that has already spent the resource, such that
+
+```
+sum_i f_(alpha,i)+h_alpha <= nu(alpha),
+sum_alpha h_alpha >= kappa*n-C_conn.
+```
+
+The f demands and total-deficit bound remain those above. Then
+
+```
+X >= (5+kappa)n-(612+C_flux+C_conn).
+```
+
+In particular **6n needs kappa=1: n-O(1) extra connectivity credit**.
+The old 2n/3 connectivity target belonged to a p=2/3 flux calculation
+and is insufficient here; it would give only 17n/3. Any positive kappa
+would improve the leading coefficient above five in this framework.
+
+A connectivity proof must identify forced repair obligations of ONE
+closed tour, prove a lower bound on their number or total weight, and
+pay them from the unused capacity in this inequality. A crossing price
+in a restricted repair strip is not automatically a price in nu.
+Claim 30 permits one H/V bit per uninterrupted good ribbon run, not
+one bit throughout a connected good domain. Run separation, boundary
+ports, and costs at defects must remain in the topological argument.
+Local periodic wall/cylinder examples do not supply this global lemma.
+
+## 5. Completed-tour evidence and exact finite tests
+
+All 345 saved records were covered (193 distinct validated tours,
+n=32..260; 39 distinct boards with n>=128). At R=10:
+
+| Currency and price | Maximum Delta | Positive-deficit tours |
+| --- | ---: | ---: |
+| mixed nu_(1/2), p=1/2 | 0 | 0 |
+| mixed nu_(2/3), p=2/3 | 25/2 | 7 |
+| pure non-B pairs, p=1/2 | 0 | 0 |
+| pure non-B pairs, p=2/3 | 0 | 0 |
+
+The mixed p=2/3 LF5 deficits grow over saved sizes from zero at n=104
+to 10/3 at 156, 8 at 208, and 25/2 at 260. This is a finite warning,
+not an all-size disproof. The worst Hall cut was independently checked.
+Both tables contain every tested tour and n; see HALL_V3_RESULTS.md,
+HALL_CURRENCY_RESULTS.md, and the full report in FINDINGS.md.
+
+The half-price flux test is exact integer max-flow: scale nu by four,
+give each retained path demand two, each non-S* pair capacity two,
+and each excess-atom unit capacity one. A min-cut decides the minimum
+total deficit for one tour. It does not decide the universal lemma or
+supply h. A finite certificate for the universal joint allocation still
+requires specified interface states and a proved rule for joining them.
+The saved-tour tests show no half-price obstruction to guide one yet.
+
+## 6. Proof size and finite inputs
+
+This v4 is a short conditional reduction, not a new proof. Its proved
+inputs are the exact tile ledger, the audited endpoint-restoration
+certificate, and local support from the sixteen hole certificates.
+Its missing inputs are universal half-price allocation and connectivity
+in the residual mixed capacity. The wall witness is a stop test for a
+stronger local price, not a premise of the conditional 5n inequality.
+No new heavy computation was run for this update. The saved-tour runs
+and independent worst-cut check are recorded with commands in FINDINGS.
+
+---
+
+# Currency decision for skeleton v3 — 2026-10-03
+
+**Use pure non-B crossings for the p=2/3 route. Keep the mixed
+p=lambda=1/2 route as the simpler 5n target.** The same 193 saved tours
+all have zero strict-radius-10 Hall deficit in pure non-B crossings,
+at both prices. The mixed p=2/3 test has seven positive deficits and
+reaches 25/2 on LF5 n=260. See HALL_CURRENCY_RESULTS.md and FINDINGS.md.
+These are exact finite tests, not a universal allocation proof.
+
+## The pure-crossing L2 statement and required L3 repair
+
+Let B be the UNION of outer-column crossing-pair sets. Give every pair
+z outside B unit capacity. Keep v3's actual retained paths, strict
+radius R=10, individual demands p=2/3, and per-path deficits whose TOTAL
+is at most one absolute C_flux. Replace the nu_(2/3) atom capacity by
+this unit-pair capacity. This is the recommended new L2 conjecture.
+The finite max-flow test is source-to-path capacity two and
+pair-to-sink capacity three, in units 1/3. It passes every saved tour.
+
+This changes both the weights AND the exclusion set: B is smaller than
+S*. It is not the lambda=1 instance of V3, which excludes S*. In the
+old worst 94-path Hall set, pure currency has 109 pairs: 21 outside S*
+and 88 in S* minus B. Those 88 pairs explain why endpoint accounting
+must be repaired rather than carried over unchanged.
+
+With U_B=X-|B| and T_B=|B|-(4n-2), the exact ledger is E=U_B+T_B.
+The audited |B|>=4n-24 implies E>=U_B-22. This pays retained-path
+flux from U_B; it does not restore the discarded paths. V2's proved
+L3 uses S* capacity, including pairs now eligible for pure L2.
+
+A sufficient joint replacement is: choose B0 subset B of size 4n-24,
+and find nonnegative f_(z,i), e_z (and h_z if used) with
+
+```
+f_(z,i)=0 unless z is outside B and strictly eligible for i;
+e_z=0 outside S* minus B0;
+sum_i f_(z,i)+e_z+h_z <= 1-1_(z in B0) for every crossing pair z;
+sum_z f_(z,i)+delta_i >= p for every retained i;
+sum_i delta_i <= C_flux;
+sum_z e_z >= p*D_loss-C_end.
+```
+
+All constants are absolute. This single shared allocation would give
+`X >= (4+2p)n - (24+60p+C_flux+C_end)` when h=0, hence
+`X >= 16n/3 - (64+C_flux+C_end)` at p=2/3. The present pure flows test
+ONLY f; they do not establish this joint statement. The next proof
+obligation is L2/L3 joint pricing of the side and end zones, alongside
+universal sharing control. The old standalone beta=1 L3 certificate
+cannot simply be added to the new L2 payment.
+
+For the p=1/2 alternative, retain the existing mixed ledger V3 and its
+proved restoration reserve. A universal L2-v3(1/2,10) with total error
+C_flux would give `X >= 5n-(612+C_flux)` without this currency change.
+All saved tours meet its individual demands with zero deficit. It
+still needs a universal allocation proof and end-zone argument.
+
+## Wall input and scope
+
+Searcher Section 7 certifies the stated straight-wall widths: axis
+price 2/3 in the tested currencies; at diagonal width four, waste price
+zero, half-mixed price 1/2, and pure crossing price 2/3. This supports
+the currency choice and the simpler half-price target. The result is
+restricted to those widths and boundary conditions, not all slopes,
+junctions, variable-width walls, or complete tours. No global ribbon
+word is assumed; Claim 30's one-bit-per-run restriction remains.
+
+Proof size and finite inputs: this is a budget correction and a choice
+between two open routes. New evidence is 386 pure max-flows on 193
+validated tours; the mixed results are the earlier 386 exact flows on
+the same hashed boards. The new comparison driver has 55 lines and its
+coverage/resource checker has 43 lines, in addition to the shared
+geometry, flow, and support implementation. No new universal theorem
+or finite-state gluing certificate is supplied.
+
+---
+
+# Screening update — 2026-10-03
+
+The exact R=10 test now covers 193 distinct saved tours. At p=lambda=1/2
+all deficits are zero. At p=lambda=2/3, seven are positive; LF5 grows
+from zero at n=104 to 25/2 at n=260. The worst cut is independently
+checked. See FINDINGS.md and HALL_V3_RESULTS.md. This is finite evidence:
+it neither proves a uniform deficit bound nor proves unbounded growth.
+The p=1/2 route remains a useful simpler target.
+
+---
+
+# Skeleton v3: individual demands, one global deficit, and test scope
+
+2026-10-03. **L2 CONJECTURE / GAP (Claim 29).** This section supersedes
+the L2 quantifiers in V2.4. The exact tile ledger and L3 remain proved.
+The audited strip result is now X>=(24n-13012)/5, even n>=32 (Claim 31).
+No improvement follows from this skeleton until the allocation below
+is proved. The old reduction's coefficient-five ceiling is confirmed.
+
+## 1. Exact proposed L2, with a fixed support rule
+
+Fix p=lambda=2/3 and R=10. For each even n>=128 and each closed
+Hamiltonian knight tour H, let C(H) be its ACTUAL retained candidate
+family, using radii 12 through n/2-4, both endpoint residues, and both
+exception exclusions from the audited proof. Retain arbitrary missing
+radii. Do not replace C(H) by all charged curves of an open patch.
+
+Use the mixed capacity nu_(2/3) from V3: mass 2/3 per crossing pair
+outside the UNION S*, and mass 1/6 per uncovered quarter, one-quarter
+crossing, and W3 unit. W3 contributes zero at multiplicity zero.
+These are separate atom types. The two masses of a one-quarter
+crossing outside S*, if present, are the two terms of the proved mixed
+identity, not a second independent crossing budget.
+
+Define the support of a crossing atom as the four edge endpoints; the
+support of a hole or W3 atom as the closure of its quarter triangle.
+An atom alpha is eligible for i if its ENTIRE support lies within
+L-infinity distance R of some ONE dual vertex of path i. This is a
+specific conservative convention; bounding-box intersection alone is
+not the eligibility test. The radius-ten localization argument below
+supplies at least one eligible non-S* pair for an interior witness.
+For one-quarter crossing atoms use the four endpoints as well.
+
+**L2-v3(2/3,10), CONJECTURE:** there exists a finite C_flux>=0,
+independent of H and n, such that for every such H there exist
+nonnegative payments f_(alpha,i) and deficits delta_i satisfying
+
+```
+f_(alpha,i)=0 unless alpha is eligible for i;
+sum_i f_(alpha,i) <= nu_(2/3)(alpha)              for every atom alpha;
+sum_alpha f_(alpha,i)+delta_i >= 2/3             for every i in C(H);
+0 <= delta_i <= 2/3;
+sum_i delta_i <= C_flux.                        (ONE total allowance)
+```
+
+The quantifier order is `exists C_flux, for all n,H, exists f,delta`.
+It does not assert one universal finite local rule, and it does not
+assert zero deficit in every free-halo patch. A finite local rule is a
+possible sufficient proof, not an unstated requirement of the theorem.
+The radius and price are fixed here to make the next test unambiguous;
+a failure of this version would not disprove every fixed-radius price.
+For connectivity, replace the capacity by nu-h with a jointly proved
+nonnegative h. There is currently no such extra allocation.
+
+Fixed corner exclusions must appear as delta_i, with their TOTAL
+bounded by a constant. There is no error per path, per side row, per
+run, per patch, or per artificial window boundary. Finitely many small
+board sizes can be covered by increasing the final theorem constant.
+
+L3 and this individual-demand statement imply the former aggregate
+inequality and hence
+
+```
+E >= (2/3)*(2n-60)-C_flux-2320/3,
+X >= 16n/3 - (2446/3+C_flux).
+```
+
+This is a conditional implication only. A smaller price, for example
+p=lambda=1/2, would target 5n-O(1) and can be easier to prove. Report
+its finite input size as well as its coefficient.
+
+## 2. What Claim 29 stops, and what it leaves open
+
+The audited forest patch has two retained-test-compatible charged
+paths at radii 3 and 4, 46 crossings, and only one non-B crossing. A
+zero-error unit-pair price above 1/2 fails on this open patch. All-B
+side-hole patches also defeat a rule that demands an off-B crossing
+at every retained endpoint. Radius-zero demand fails even on the
+three checked completed tours. These are mandatory stop tests.
+
+They do not decide L2-v3: its radii start at 12, R is positive, its
+currency includes excess atoms inside the strips, and it permits one
+absolute total deficit. Free halo ports can acquire further capacity
+on completion. The completed-tour tests at radii 1,2,4,8 used non-B
+unit pairs and generous bounding-box eligibility; their success is not
+a check of the stricter mixed-capacity statement above.
+
+Use W3 to divide the proof effort into interior witness allocation and
+end-zone allocation, as detailed below. Both allocations must share
+nu. The end-zone alternative using raw S* pairs requires a new joint
+L2/L3 certificate. The beta=1 L3 certificate alone cannot price both
+lost candidates and retained end zones. An interior crossing can serve
+several nested radii; existence is not a price or a private assignment.
+
+Claim 30 permits one H/V bit per uninterrupted good ribbon run.
+Connected good domains need not have one global ribbon word. Any local
+state model must retain separate run bits and their boundary ports;
+it cannot join runs across defects for free. No global ribbon-word
+reduction is assumed in L2-v3 or in the tests below.
+
+## 3. The exact finite decision problem
+
+For a GIVEN completed tour, construct its atoms and the strict radius-10
+eligibility graph. Multiply all capacities and demands by six. Give
+source-to-path arcs capacity 4, eligible path-to-atom arcs capacity
+4*|C|+1, and atom-to-sink arcs capacity 4 for each non-S* pair atom and
+1 for each excess atom. Compute exact integer maximum flow F. Then
+
+```
+Delta(H) = (4*|C(H)|-F)/6
+```
+
+is exactly the minimum total deficit in L2-v3 on that tour. Equivalently,
+
+```
+Delta(H) = max_(J subset C(H))
+  [ (2/3)*|J| - sum_(alpha in N_10(J)) nu_(2/3)(alpha) ]_+.
+```
+
+This checks every subset, not only each single radius or each run.
+The finite computation decides feasibility with a SPECIFIED C_flux on
+that tour. It supplies a cut and its exact deficit on failure. The first
+implementation should run on the three Claim 29 completed tours and
+replay the saved patch stop tests under their own stated assumptions.
+Patch deficits must not be labelled completed-tour obstructions.
+
+For a FIXED board size, a finite exact search over Hamiltonian tours
+and path subsets J can maximize this Hall deficit. Require connectivity,
+full endpoint retention, full quarter multiplicities, all four strip
+unions, and the eligibility rule above. A SAT/MILP witness or exhaustive
+certificate then decides the fixed-size question. This is finite but
+likely too large for the first experiment; max-flow on saved tours is
+the cheap starting test. It needs no new strip transfer graph.
+
+**Scope limit:** no finite set of patch tests, sizes, or saved tours
+decides whether sup_(n,H) Delta(H) is finite. W3 proves bounded support,
+not a finite-state reduction of this universal allocation problem.
+Claim 30 removes the proposed global-word shortcut. A universal proof
+still needs a gluing theorem or an explicit bounded-state certificate.
+
+One possible sufficient certificate search is a rational discharging
+LP on a FIXED window/halo and a FIXED interface-state scheme. Variables
+are local fractional payments and interface potentials. Constraints
+must check every admitted edge/quarter pattern and marked path demand,
+atoms used by neighbouring windows, and every allowed interface match.
+Internal potentials must cancel exactly; only the four physical-side
+endpoints and fixed corner exceptions may contribute to C_flux.
+Separate ribbon-run bits and arbitrary missing-radius marks belong in
+those states. With a fixed finite scheme, feasibility is a finite LP
+question and an exact rational solution is checkable. Infeasibility
+rejects that scheme only. A state scheme and completeness/gluing proof
+have NOT yet been supplied; calling this a finite computation that
+already decides the all-tour conjecture would overstate the evidence.
+
+## 4. Status, proof size, and next finite work
+
+This v3 is a corrected conjecture plus a precise finite max-flow test,
+not a new proof. Its mathematical reduction uses the audited ledger,
+L3, and fractional max-flow/min-cut. Universal finite inputs are still
+missing: the shared interior allocation and the joint end-zone price.
+The W3 localization uses the sixteen hole certificates named below.
+The next concrete computation is mixed-capacity radius-10 max-flow on
+the saved completed tours, reporting exact cut sets and Delta(H).
+Do not launch a large transfer graph before fixing its interface states.
+
+Claim 31 needs no further strip search. Its audited proof status is
+recorded in PROOF_R3.md; no result index or post is changed here.
+
+---
+
+# Skeleton v2 update: bounded support and a separate end-zone lemma
+
+2026-10-03. **Local support ARGUMENT from certified W3 inputs; allocation
+and end-zone prices OPEN.** The risk that an interior hole requires a
+crossing arbitrarily far away is removed. W3 does not yet give a price
+per retained path: several paths can share one local crossing witness.
+This section is the current L2 contract and supplements V2.2–V2.4.
+
+## L2-support: explicit conservative radius
+
+KT Lower Bounds' W3 supplies the following finite inputs. A hole in a
+square centred within a degree-two 7 by 7 core forces a crossing between
+edges touching that core. Near a board side, a hole at square depth
+4, 5, or 6 forces a crossing outside that side's width-two strip among
+edges touching a 12 by 9 core anchored on the side. Each model includes
+a width-two degree-at-most-two halo. At multiplicity at least two, the
+audited tile lemma already supplies a crossing of the covering edges.
+An overlap of two width-two strip edges lies only at square depths <=3.
+
+For a square with lower-left coordinates (d,c), the interior core has
+coordinates [d-3,d+3] by [c-3,c+3]; all relevant edge endpoints lie in
+[d-5,d+5] by [c-5,c+5]. If its depth from every side is at least seven,
+no such edge can touch a width-two strip. For depths 4–6 from one side,
+use the side core: depths 0–11 and rows c-4 through c+4. Its edge
+endpoints have depths 0–13 and rows c-6 through c+6. Thus every endpoint
+of the crossing witness is within L-infinity distance at most TEN of
+the dual vertex at the centre of the witness square. This conservative
+radius avoids relying on the informal estimate of about six cells.
+
+Exclude fixed corner boxes when these windows approach a second side.
+For example, treat vertices within distance 32 of two adjacent sides
+separately, and take n>=128 for this support discussion. Smaller n
+form a fixed finite range for any later asymptotic theorem. For the
+audited corner paths, at most a fixed number of small radii enter these
+boxes. Outside them, the side window cannot acquire a crossing that
+belongs to a different side's strip. The witness is therefore outside
+the UNION S*, not merely outside the chosen side's strip.
+
+Split each retained path into end zones, consisting of its vertices
+whose square has depth <=3 from a side, and the remaining middle.
+A nonzero-flux step is adjacent to a bad quarter in one of its incident
+squares. If a middle square is bad, the preceding lemmas supply a
+non-S* crossing within radius ten of a path vertex. Otherwise all
+nonzero-flux steps are incident to end-zone squares. Each end zone has
+bounded length on one path, but there are linearly many path ends.
+They require a side lemma, not an O(1) global deletion.
+
+This proves existence of a bounded-support witness, conditional on the
+geometric encodings of the cited finite lemmas. It does not assign
+capacity or imply that every witness crossing is private to one path.
+
+## L2-price: allocation contract with sharing
+
+Partition the actual retained family into I (paths assigned an interior
+witness) and Z (paths assigned to the end-zone case), after the fixed
+corner exceptions. Use deterministic choices or include all admissible
+choices in the certificate. In the mixed ledger V3, the available pair
+mass is lambda per non-S* crossing; the remaining mass is (1-lambda)*mu.
+A witness crossing can have zero mu mass, so existence alone does not
+pay p in this currency. The side reserve is already committed to L3.
+
+The interior task is to allocate from radius-ten support neighbourhoods
+N(i), with one capacity constraint per atom, so that
+
+```
+sum_alpha f_(alpha,i) >= p                  for each i in I,
+sum_i f_(alpha,i)+g_alpha+h_alpha <= nu_lambda(alpha).
+```
+
+Here g is the allocation reserved for the end-zone lemma and h is the
+connectivity allocation. Any allowed deficit must sum to an absolute
+constant over the whole board. For a fractional allocation with fixed
+g and h, the relevant condition is the capacitated Hall inequality
+
+```
+p*|J| <= sum_(alpha in union_(i in J) N(i))
+             (nu_lambda(alpha)-g_alpha-h_alpha)
+```
+
+for EVERY subset J of I, with a single global allowance if needed.
+Checking only individual paths or consecutive radii does not establish
+this condition. Radius ten bounds the number of neighbouring nested
+radii; it does not certify the proposed price 2/3. The next finite
+input must control sharing and preserve its boundary terms when local
+windows are joined.
+
+## L2-end: separate side lemma, still open
+
+Prove `sum g_alpha >= p*|Z|-C_side` in the SAME residual mixed capacity,
+with C_side absolute over four sides. The certificate must observe the
+actual height-flux test, retention exceptions, both orientations, and
+arbitrary missing radii. A path with two charged end zones must be
+assigned or split once, not counted twice. Artificial window cuts need
+potentials whose terms cancel; an error per end or per run is invalid.
+
+Alternatively use raw S* pairs, but then replace the existing L3
+allocation by a joint side certificate that simultaneously pays
+p*D_loss and p*|Z| after the boundary baseline and all interior/repair
+allocations. The separate beta=1 restoration inequality pays lost
+candidates only; it supplies no free capacity for retained end zones.
+This is the exact interface needed between L2-end and L3.
+
+Together L2-price and L2-end would give V5. With L3, p=lambda=2/3 would
+then give 16n/3-O(1). Neither that price nor a new lower bound is proved
+by localization. A smaller price with a short, small-check proof is
+also a useful result under the Pareto criterion.
+
+## Finite inputs and proof size
+
+This update adds a short geometric support argument and two open
+allocation contracts; it adds no theorem coefficient. It uses four
+interior CNF/DRUP pairs and twelve side CNF/DRUP pairs (four quarter
+orientations at each of depths 4,5,6), plus the audited tile/flux lemma.
+The fold-stack tiling result explains the interior mechanism but is
+not an extra premise of this direct hole-certificate route. A test of
+random fold stacks alone would not prove that result for all stacks.
+
+I read the generators and producer check logs for the interior and
+depth-4/5 lemmas. I also checked the four depth-6 proofs directly:
+784, 680, 621, and 633 RUP additions passed for b,l,r,t respectively.
+All measurements are from 2026-10-03. No SAT search was rerun. To check
+the exact finite proofs, use these read-only commands from the root:
+
+```sh
+for q in b l r t; do
+  python3 w-lowerbounds/check_drup.py gap/lowerbounds/windows/hole_k7_${q}.cnf gap/lowerbounds/windows/hole_k7_${q}.drup
+done
+for d in 4 5 6; do
+  for q in b l r t; do
+    python3 w-lowerbounds/check_drup.py gap/lowerbounds/windows/sidehole_W12_H9_d${d}_S_${q}.cnf gap/lowerbounds/windows/sidehole_W12_H9_d${d}_S_${q}.drup
+  done
+done
+```
+
+These commands check the supplied CNF proofs. The geometric encodings
+and the support/gluing argument still need independent theorem audit.
+
+---
+
 # Skeleton v2 update: corner capacity and local fold stacks
 
 2026-10-03. This update qualifies V2.2–V2.4 below. **L3 accounting

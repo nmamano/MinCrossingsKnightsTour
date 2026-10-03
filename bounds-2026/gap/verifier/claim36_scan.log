@@ -1,0 +1,3 @@
+{'file': 'w-integrator/tours/FOLD24_n96.json', 'n': 96, 'cheap_slots': 205, 'all_slots': 360, 'label_counts': {'D': 3, 'UNDEFINED': 7, 'W': 195}, 'W': 195, 'SSR': 47, 'W_minus_2SSR': 101}
+{'file': 'w-integrator/tours/FJOG_n130.json', 'n': 130, 'cheap_slots': 303, 'all_slots': 496, 'label_counts': {'W': 242, 'UNDEFINED': 41, 'D': 20}, 'W': 242, 'SSR': 137, 'W_minus_2SSR': -32}
+{'file': 'gap/lowerbounds/conn/FIELD_n166_92_155.json', 'n': 166, 'cheap_slots': 337, 'all_slots': 640, 'label_counts': {'UNDEFINED': 30, 'W': 306, 'D': 1}, 'W': 306, 'SSR': 66, 'W_minus_2SSR': 174}

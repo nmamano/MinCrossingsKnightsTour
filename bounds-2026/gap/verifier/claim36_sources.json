@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-03",
+  "files": {
+    "gap/structures/SHEET.md": {
+      "sha256": "8ed2c7ae242a445e34928eb85aaf31c03dd7dc1d68cc06d73e1a39896f8c01d5",
+      "words": 2874,
+      "lines": 171
+    },
+    "w-integrator/FOLD_DATA.md": {
+      "sha256": "9a0a911805e3afcf8a2b86b2a7185897372794657777fb575a7a2563eb3a9021",
+      "words": 625,
+      "lines": 51
+    },
+    "w-verifier/claim12_full.py": {
+      "sha256": "db4f6c44397cbbee2a4efc7a8301c50b673f3fa1e729c08416b5365a4eff0d18",
+      "words": 963,
+      "lines": 290
+    },
+    "w-integrator/corners/FOLD24_base_n96.json": {
+      "sha256": "52fd287150bac825918ad0d038b46957a6c15ddc17ee9df100c66f076ff5b8fc",
+      "words": 5464,
+      "lines": 1
+    }
+  }
+}

@@ -1,0 +1,151 @@
+A=0 WM=3 KM=1 MODE=nz lambda=1/1: columns u in [-2,4], 44 slots, complete squares s in [-1,2], 2 cost squares per row
+  ... 4194304/4198517 states, 6206353 arcs, 14s
+states by warm level: strict 2350259, warm1 1849460, warm2 38099, warm3 0
+graph: states 4237818 arcs 6270251 (rejected: margin 5379714, psi 35288) 14s
+ try mean 64/1 per row
+  cycle: 84 arcs, 12 rows, cost 32 -> mean 32/12
+    row 0 u 0 (mod) w=0: (0,0)-(-1,2)
+    row 0 u 1 (mod) w=0: (1,0)-(0,2)
+    row 0 u 2 (mod) w=0: (2,0)-(4,1) (2,0)-(3,2)
+    row 1 u 0 (mod) w=2: (0,1)-(2,2) (0,1)-(-1,3)
+    row 1 u 1 (mod) w=2: (1,1)-(2,3)
+    row 1 u 2 (mod) w=0: (2,1)-(3,3)
+    row 2 u 0 (mod) w=0: (0,2)-(2,3)
+    row 2 u 1 (mod) w=4: (1,2)-(-1,3) (1,2)-(0,4)
+    row 2 u 2 (mod) w=0: (2,2)-(3,4)
+    row 3 u 0 (mod) w=0: (0,3)-(-2,4) (0,3)-(-1,5)
+    row 3 u 1 (mod) w=0: (1,3)-(3,4) (1,3)-(0,5)
+    row 4 u 0 (mod) w=0: (0,4)-(-1,6)
+    row 4 u 1 (mod) w=0: (1,4)-(3,5) (1,4)-(2,6)
+    row 4 u 2 (mod) w=4: (2,4)-(4,5) (2,4)-(1,6)
+    row 5 u 0 (mod) w=0: (0,5)-(1,7)
+    row 5 u 1 (mod) w=4: (1,5)-(-1,6) (1,5)-(0,7)
+    row 5 u 2 (mod) w=0: (2,5)-(4,6) (2,5)-(3,7)
+    row 6 u 0 (mod) w=0: (0,6)-(-2,7) (0,6)-(-1,8)
+    row 6 u 1 (mod) w=0: (1,6)-(2,8)
+    row 6 u 2 (mod) w=0: (2,6)-(3,8)
+    row 7 u 0 (mod) w=0: (0,7)-(-1,9)
+    row 7 u 1 (mod) w=0: (1,7)-(0,9)
+    row 7 u 2 (mod) w=4: (2,7)-(0,8) (2,7)-(3,9)
+    row 8 u 0 (mod) w=0: (0,8)-(-1,10)
+    row 8 u 1 (mod) w=0: (1,8)-(3,9) (1,8)-(2,10)
+    row 8 u 2 (mod) w=4: (2,8)-(0,9)
+    row 9 u 1 (mod) w=0: (1,9)-(-1,10) (1,9)-(2,11)
+    row 9 u 2 (mod) w=0: (2,9)-(4,10) (2,9)-(3,11)
+    row 10 u 0 (mod) w=0: (0,10)-(-2,11) (0,10)-(1,12)
+    row 10 u 1 (mod) w=4: (1,10)-(-1,11) (1,10)-(0,12)
+    row 10 u 2 (mod) w=0: (2,10)-(3,12)
+    row 11 u 0 (mod) w=0: (0,11)-(-2,12) (0,11)-(-1,13)
+    row 11 u 1 (mod) w=0: (1,11)-(3,12) (1,11)-(2,13)
+    row 11 u 2 (mod) w=4: (2,11)-(1,13)
+ try mean 8/3 per row
+  cycle: 98 arcs, 14 rows, cost 24 -> mean 24/14
+    row 0 u 0 (mod) w=0: (0,0)-(-2,1) (0,0)-(-1,2)
+    row 0 u 1 (mod) w=0: (1,0)-(0,2)
+    row 0 u 3 (ghost) w=0: (3,0)-(1,1) (3,0)-(2,2)
+    row 1 u 0 (mod) w=2: (0,1)-(2,2) (0,1)-(-1,3)
+    row 1 u 2 (mod) w=4: (2,1)-(0,2) (2,1)-(1,3)
+    row 1 u 3 (ghost) w=0: (3,1)-(2,3)
+    row 2 u 1 (mod) w=0: (1,2)-(-1,3) (1,2)-(0,4)
+    row 2 u 4 (ghost) w=0: (4,2)-(2,3)
+    row 3 u 0 (mod) w=0: (0,3)-(-2,4) (0,3)-(-1,5)
+    row 3 u 1 (mod) w=0: (1,3)-(0,5)
+    row 3 u 3 (ghost) w=0: (3,3)-(1,4) (3,3)-(2,5)
+    row 4 u 0 (mod) w=0: (0,4)-(-1,6)
+    row 4 u 1 (mod) w=0: (1,4)-(2,6)
+    row 4 u 2 (mod) w=4: (2,4)-(0,5) (2,4)-(1,6)
+    row 4 u 3 (ghost) w=0: (3,4)-(2,6)
+    row 5 u 1 (mod) w=0: (1,5)-(-1,6) (1,5)-(0,7)
+    row 5 u 2 (mod) w=2: (2,5)-(1,7)
+    row 5 u 3 (ghost) w=0: (3,5)-(2,7)
+    row 6 u 0 (mod) w=0: (0,6)-(-2,7) (0,6)-(-1,8)
+    row 6 u 1 (mod) w=0: (1,6)-(0,8)
+    row 6 u 3 (ghost) w=0: (3,6)-(2,8)
+    row 7 u 0 (mod) w=0: (0,7)-(-1,9)
+    row 7 u 1 (mod) w=0: (1,7)-(0,9)
+    row 7 u 2 (mod) w=0: (2,7)-(1,9)
+    row 7 u 3 (ghost) w=0: (3,7)-(2,9)
+    row 8 u 0 (mod) w=0: (0,8)-(-1,10)
+    row 8 u 1 (mod) w=2: (1,8)-(2,10) (1,8)-(0,10)
+    row 8 u 2 (mod) w=2: (2,8)-(1,10)
+    row 8 u 4 (ghost) w=0: (4,8)-(2,9)
+    row 9 u 0 (mod) w=0: (0,9)-(-1,11)
+    row 9 u 1 (mod) w=0: (1,9)-(0,11)
+    row 9 u 3 (ghost) w=2: (3,9)-(1,10) (3,9)-(2,11)
+    row 10 u 0 (mod) w=0: (0,10)-(-1,12)
+    row 10 u 2 (mod) w=0: (2,10)-(1,12)
+    row 10 u 4 (ghost) w=0: (4,10)-(2,11)
+    row 11 u 0 (mod) w=0: (0,11)-(1,13)
+    row 11 u 1 (mod) w=4: (1,11)-(-1,12) (1,11)-(0,13)
+    row 11 u 3 (ghost) w=0: (3,11)-(1,12) (3,11)-(2,13)
+    row 12 u 0 (mod) w=0: (0,12)-(-2,13) (0,12)-(-1,14)
+    row 12 u 2 (mod) w=2: (2,12)-(0,13) (2,12)-(1,14)
+    row 12 u 3 (ghost) w=0: (3,12)-(2,14)
+    row 13 u 1 (mod) w=0: (1,13)-(-1,14)
+    row 13 u 2 (mod) w=0: (2,13)-(1,15)
+    row 13 u 4 (ghost) w=0: (4,13)-(2,14)
+ try mean 12/7 per row
+  cycle: 28 arcs, 4 rows, cost 6 -> mean 6/4
+    row 0 u -1 (ghost) w=0: (-1,0)-(0,2)
+    row 0 u 1 (mod) w=0: (1,0)-(0,2)
+    row 0 u 2 (mod) w=0: (2,0)-(3,2) (2,0)-(1,2)
+    row 1 u -1 (ghost) w=0: (-1,1)-(0,3)
+    row 1 u 0 (mod) w=2: (0,1)-(1,3)
+    row 1 u 1 (mod) w=2: (1,1)-(0,3)
+    row 1 u 2 (mod) w=0: (2,1)-(3,3) (2,1)-(1,3)
+    row 2 u -1 (ghost) w=0: (-1,2)-(0,4)
+    row 2 u 1 (mod) w=2: (1,2)-(0,4)
+    row 2 u 2 (mod) w=0: (2,2)-(3,4) (2,2)-(1,4)
+    row 3 u -1 (ghost) w=0: (-1,3)-(0,5)
+    row 3 u 2 (mod) w=0: (2,3)-(3,5) (2,3)-(1,5)
+ try mean 3/2 per row
+  cycle: 42 arcs, 6 rows, cost 8 -> mean 8/6
+    row 0 u 0 (mod) w=0: (0,0)-(-2,1)
+    row 0 u 1 (mod) w=0: (1,0)-(-1,1)
+    row 0 u 2 (mod) w=0: (2,0)-(0,1)
+    row 0 u 4 (ghost) w=0: (4,0)-(2,1)
+    row 1 u 0 (mod) w=0: (0,1)-(-2,2)
+    row 1 u 1 (mod) w=0: (1,1)-(-1,2) (1,1)-(0,3)
+    row 1 u 3 (ghost) w=0: (3,1)-(1,2) (3,1)-(2,3)
+    row 2 u 0 (mod) w=0: (0,2)-(-2,3) (0,2)-(-1,4)
+    row 2 u 1 (mod) w=0: (1,2)-(0,4)
+    row 2 u 2 (mod) w=2: (2,2)-(0,3) (2,2)-(1,4)
+    row 2 u 3 (ghost) w=0: (3,2)-(2,4)
+    row 3 u 1 (mod) w=2: (1,3)-(-1,4) (1,3)-(0,5)
+    row 3 u 2 (mod) w=0: (2,3)-(1,5)
+    row 3 u 3 (ghost) w=0: (3,3)-(2,5)
+    row 4 u 0 (mod) w=0: (0,4)-(-2,5)
+    row 4 u 1 (mod) w=2: (1,4)-(-1,5)
+    row 4 u 2 (mod) w=0: (2,4)-(1,6)
+    row 4 u 3 (ghost) w=0: (3,4)-(2,6)
+    row 5 u 0 (mod) w=0: (0,5)-(-2,6)
+    row 5 u 1 (mod) w=0: (1,5)-(-1,6)
+    row 5 u 2 (mod) w=2: (2,5)-(0,6)
+    row 5 u 3 (ghost) w=0: (3,5)-(2,7)
+ try mean 4/3 per row
+RESULT A=0 WM=3 KM=1 nz lambda=1/1: min mean weight per row = 4/3 (CERTIFIED: no cycle below); per level (E units) = 4/6 = 0.6667  (16s)
+total 16s
+	Command being timed: "./wall 0 3 1 nz 64 1 30000000"
+	User time (seconds): 14.16
+	System time (seconds): 1.89
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:16.06
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 536040
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 224317
+	Voluntary context switches: 1
+	Involuntary context switches: 42
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 24
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+exit=0

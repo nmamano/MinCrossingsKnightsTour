@@ -1,0 +1,43 @@
+A=0 WM=3 KM=1 MODE=zero: columns u in [-2,4], 44 slots, complete squares s in [-1,2], 2 cost squares per row
+states by warm level: strict 1129722, warm1 1849460, warm2 38099, warm3 0
+graph: states 3017281 arcs 4661947 (rejected: margin 4088466, psi 71202) 9s
+ try mean 8/1 per row
+  cycle: 14 arcs, 2 rows, cost 0 -> mean 0/2
+    row 0 u 0 (mod) w=0: (0,0)-(-2,1)
+    row 0 u 1 (mod) w=0: (1,0)-(-1,1)
+    row 0 u 2 (mod) w=0: (2,0)-(0,1)
+    row 0 u 3 (ghost) w=0: (3,0)-(1,1)
+    row 0 u 4 (ghost) w=0: (4,0)-(2,1)
+    row 1 u -2 (ghost) w=0: (-2,1)-(0,2)
+    row 1 u -1 (ghost) w=0: (-1,1)-(1,2)
+    row 1 u 0 (mod) w=0: (0,1)-(2,2)
+    row 1 u 1 (mod) w=0: (1,1)-(3,2)
+    row 1 u 2 (mod) w=0: (2,1)-(4,2)
+  zero-cost cycle
+ try mean 0/1 per row
+RESULT A=0 WM=3 KM=1 zero: min mean cost per row = 0/1 (CERTIFIED: no cycle below); E share per row = 0/2; per level = 0/2 = 0.0000  (9s)
+total 9s
+	Command being timed: "./wall 0 3 1 zero 8 1 30000000"
+	User time (seconds): 8.39
+	System time (seconds): 0.74
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:09.14
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 308568
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 126543
+	Voluntary context switches: 1
+	Involuntary context switches: 34
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 8
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+exit=0

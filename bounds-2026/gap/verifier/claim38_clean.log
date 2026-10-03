@@ -1,0 +1,12 @@
+{'file': 'w-integrator/tours/FOLD24_n96.json', 'n': 96, 'SSR': 47, 'clean': 0, 'nonfree': 0, 'EXC': 155}
+{'file': 'gap/verifier/claim36_FOLD_n288.json', 'n': 288, 'SSR': 175, 'clean': 0, 'nonfree': 0, 'EXC': 347}
+{'file': 'w-integrator/tours/FJOG_n130.json', 'n': 130, 'SSR': 137, 'clean': 0, 'nonfree': 0, 'EXC': 193}
+{'file': 'gap/lowerbounds/conn/FIELD_n166_92_155.json', 'n': 166, 'SSR': 66, 'clean': 0, 'nonfree': 0, 'EXC': 303}
+{'file': 'gap/verifier/claim36_FOLD_n144.json', 'n': 144, 'SSR': 79, 'clean': 0, 'nonfree': 0, 'EXC': 203}
+{'file': 'gap/verifier/claim36_FOLD_n192.json', 'n': 192, 'SSR': 111, 'clean': 0, 'nonfree': 0, 'EXC': 251}
+{'file': 'gap/verifier/claim36_FOLD_n240.json', 'n': 240, 'SSR': 143, 'clean': 0, 'nonfree': 0, 'EXC': 299}
+{'file': 'gap/verifier/claim36_FOLD_n288.json', 'n': 288, 'SSR': 175, 'clean': 0, 'nonfree': 0, 'EXC': 347}
+local (1, -2) False
+local (1, 2) True
+local (2, -1) False
+local (-1, 2) False
