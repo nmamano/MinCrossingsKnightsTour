@@ -4,8 +4,13 @@
 set -e
 SRC=$HOME/nil/knight-formation-research/
 DST=$HOME/nil/MinCrossingsKnightsTour/bounds-2026/
+# Compiled binaries (ELF) anywhere in the research dir stay out; workers add new ones (e.g. gap/).
+BINX=$(mktemp)
+trap 'rm -f "$BINX"' EXIT
+(cd "$SRC" && find . \( -path ./.venv -o -path ./ktlean/.lake -o -path ./ktlean/.git \) -prune -o -type f -size +0 -print \
+  | while read -r f; do if head -c4 "$f" | grep -q ELF; then echo "/${f#./}"; fi; done) > "$BINX"
 # Repo-only files (.gitignore, README.md, requirements.txt) are excluded, so --delete keeps them.
-rsync -a --delete "$@" \
+rsync -a --delete "$@" --exclude-from="$BINX" \
   --exclude=/.gitignore --exclude=/README.md --exclude=/requirements.txt \
   --exclude=/.venv/ --exclude=/ktlean/.lake/ --exclude=/ktlean/.git/ --exclude=/CR_STATE.md \
   --exclude=/paper.pdf --exclude=/paper.txt --exclude=/board-patched.js \

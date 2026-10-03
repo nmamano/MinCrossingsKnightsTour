@@ -7,7 +7,7 @@ are audited and final (Claims 23A/23B).
 NIL'S ORDER (2026-10-03): take over his older repo https://github.com/nmamano/MinCrossingsKnightsTour (code for the
 original paper; default branch master; MIT License.txt "Copyright (c) 2019 Nil Mamano"; GitHub Pages serves master "/" at
 https://nmamano.github.io/MinCrossingsKnightsTour/ with index.html + board.js, the old demo) and put ALL our work online
-through it. You may push directly to master as Nil (his credentials are on the box). No branches, no PRs.
+through it. You may push directly to master as Nil. No branches, no PRs.
 
 Task:
 1. Clone it to ~/nil/MinCrossingsKnightsTour (path is free as of now; check again).

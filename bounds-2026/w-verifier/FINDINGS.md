@@ -1,5 +1,7 @@
 # Independent verification — 2026-10-02
 
+**Latest audit, 2026-10-03: Claim 24 below. G1 is GAP as written. PASS for the corrected theorem: a geometrically simple free-fold return from (2,1) to a steep left-facing direction has net cycle step +1. Four-fold returns are excluded. Seven total folds are possible; seven net steps are excluded. The reflection linear part passes, but the claimed general defect-cost consequence needs a separate proof. Evidence: `gap/verifier/claim24_check.py/json` and `gap/verifier/claim24_author_output.txt`. No numerical bound changes.**
+
 ## Claim 1: full tours with 9n + O(1) crossings
 
 **Verdict: all supplied finite witnesses pass. The general construction still needs a proof of connectivity for all board sizes. A fixed offset per residue class modulo 8 is false for these witnesses.**

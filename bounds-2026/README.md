@@ -1,4 +1,4 @@
-# knights-tour-bounds
+# Bounds on crossings and turns of closed knight tours (2026)
 
 Bounds on the minimum number of **crossings** and **turns** of a closed knight's tour on an n &times; n board,
 with constructions, proofs, independent audits, Lean 4 proofs of key lower bounds, and an interactive demo.
@@ -31,7 +31,7 @@ Claims refer to the audit log [w-verifier/FINDINGS.md](w-verifier/FINDINGS.md). 
 results give 8n &minus; 28 &le; T<sub>min</sub>(n) &le; 8n &minus; 14, so T<sub>min</sub>(n)/n &rarr; 8. The TT16 construction
 also shows that the paper's conjecture T &ge; 8n is false as stated (by a constant).
 Full statements, scope and the list of what is not proved: [RESULTS.md](RESULTS.md).
-The check commands run from the repository root, use Python 3, and need no solver.
+The check commands run from the bounds-2026 folder of the repository, use Python 3, and need no solver.
 All seven distinct commands passed on 2026-10-02 ([record](w-turnstheory/results_checks.json)).
 
 ## Progression of the upper bounds

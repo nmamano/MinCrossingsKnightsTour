@@ -317,3 +317,7 @@ Old 2019 files at the root (index.html, board.js, Code/, License.txt ...) stay u
    with system python3 from that bounds-2026 copy (script /tmp/ktb-run.sh).
 4. Privacy scan (emails, tokens, agent ids, office URLs, /home paths) on the staged diff; commit with the Co-Authored-By
    line; `git push origin master`; check the Pages build (gh api repos/nmamano/MinCrossingsKnightsTour/pages/builds/latest).
+2026-10-03 (PT 10-02 evening): pushed 10a06b8 (subtree import) + 7d66633 (sync, READMEs, .gitignore, .nojekyll). 13/13 appendix
+commands PASS from a git-ls-files copy (tt16.py needs the user site-packages matplotlib). Pages build of 7d66633: built; old demo and
+bounds-2026/demo/ return 200 and match the repo bytes. knights-tour-bounds: local commit bbe0a89 (README "moved" note), NOT pushed;
+Nil decides archive vs keep.
