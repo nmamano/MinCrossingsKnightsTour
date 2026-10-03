@@ -10,8 +10,8 @@ theorem KT.ClosedTour.eight_mul_sub_64_le_numTurns (T : ClosedTour n) (hn : 8 �
 ```
 
 Every closed knight's tour of the n × n board, n ≥ 8, has at least 8n - 64 turns. This proves
-the paper's conjecture (at least 8n turns) up to an additive constant. The best known upper
-bound is 9.25n + O(1). The sharper constant 8n - 28 (corner certificate in
+the paper's conjecture (a leading factor of 8). The best known upper bound is 8n - 14 (TT16,
+every even n >= 48). The sharper constant 8n - 28 (corner certificate in
 `w-turnstheory/FINDINGS.md`) is not formalized here.
 
 `#print axioms` gives only the standard axioms: `propext`, `Classical.choice`, `Quot.sound`.

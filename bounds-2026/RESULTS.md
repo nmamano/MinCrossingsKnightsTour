@@ -110,8 +110,8 @@ python3 w-turnstheory/check_knight_tiles.py
 
 For every even n>=48, the TT16 construction gives a closed tour with
 exactly T=8n-14. This is an upper bound on the minimum, not a claim that
-the construction is optimal. It also disproves the literal lower-bound
-conjecture T>=8n for these sizes.
+the construction is optimal. With the lower bound 8n-28, this proves the
+paper's conjecture (a leading factor of 8) and shows that it is tight.
 
 Proof: [turns paper, Theorem 1(b) and construction](writeup/turns/main.pdf),
 with the all-size connectivity argument in

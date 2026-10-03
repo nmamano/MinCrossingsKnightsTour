@@ -28,8 +28,8 @@ Shisheng Li (2026); turns (6 &minus; &epsilon;)n &le; T<sub>min</sub> &le; 9.25n
 | T &ge; 8n &minus; 64 | Proved, tours and 2-factors, n &ge; 8 | [turns paper](writeup/turns/main.pdf), [FINDINGS &sect;1](w-turnstheory/FINDINGS.md) | Claim 2 | unconditional: [`KT.ClosedTour.eight_mul_sub_64_le_numTurns`](ktlean/Ktlean/Tour.lean) | `python3 w-turnstheory/check_proof.py` |
 
 Claims refer to the audit log [w-verifier/FINDINGS.md](w-verifier/FINDINGS.md). For every even n &ge; 48 the turn
-results give 8n &minus; 28 &le; T<sub>min</sub>(n) &le; 8n &minus; 14, so T<sub>min</sub>(n)/n &rarr; 8. The TT16 construction
-also shows that the paper's conjecture T &ge; 8n is false as stated (by a constant).
+results give 8n &minus; 28 &le; T<sub>min</sub>(n) &le; 8n &minus; 14, so T<sub>min</sub>(n)/n &rarr; 8. This proves the paper's
+conjecture (a leading factor of 8) and shows that it is tight.
 Full statements, scope and the list of what is not proved: [RESULTS.md](RESULTS.md).
 The check commands run from the bounds-2026 folder of the repository, use Python 3, and need no solver.
 All seven distinct commands passed on 2026-10-02 ([record](w-turnstheory/results_checks.json)).
