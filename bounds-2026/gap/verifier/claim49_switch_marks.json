@@ -1,0 +1,66 @@
+{
+  "tested": 2964,
+  "histogram": [
+    {
+      "delta_Uin": 1,
+      "delta_BQ": 16,
+      "delta_selected": 0,
+      "delta_BQx": 16,
+      "score": -14,
+      "count": 2964
+    }
+  ],
+  "best": {
+    "delta_Uin": 1,
+    "delta_BQ": 16,
+    "score": -14,
+    "remove": [
+      [
+        [
+          97,
+          134
+        ],
+        [
+          98,
+          136
+        ]
+      ],
+      [
+        [
+          99,
+          133
+        ],
+        [
+          100,
+          135
+        ]
+      ]
+    ],
+    "add": [
+      [
+        [
+          98,
+          136
+        ],
+        [
+          100,
+          135
+        ]
+      ],
+      [
+        [
+          97,
+          134
+        ],
+        [
+          99,
+          133
+        ]
+      ]
+    ],
+    "region": 3,
+    "delta_selected_region": 0,
+    "delta_BQx": 16
+  },
+  "switched_X": 1032
+}

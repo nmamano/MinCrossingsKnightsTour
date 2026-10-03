@@ -551,3 +551,117 @@ height <= 12 is cheaper in J, and every known patch is far more expensive (5.4 t
 mechanism (C5-J) needs, at width 6. It does not cover wider patches: a patch that reaches column >= 6 changes
 depth-5 squares, so its cost must be read in BQx; the same model with the BQx quarters of squares x = 5, 6 added is
 the next check (H = 14, 16 are running).
+**13.6 Wider patches, cost read in J + BQx (CHECK, `c5j_patch.py` with env W, log `c5j_wide.log`, 2026-10-03).**
+Same model with box width W > 6 and objective 2J + (bad quarters in squares x >= 5, i.e. the BQx units of (C5-J)).
+OPTIMAL, change 0 (the U collar is the minimum): W = 8, H = 8; W = 10, H = 8 (and W = 6, H = 6..12 from 13.5).
+FEASIBLE only, nothing below the U collar after 30 min: W = 8, H = 10 and H = 12. Still running as a cross-check for
+Lower Bounds: W = 10 H = 10, W = 8 H = 16, W = 6 H = 14 and 16.
+Reading: up to width 10 and height 8, no pairing-preserving filling of a U-collar segment lowers 2J + BQx, so the
+known patches cannot be improved into a (C5-J) counterexample at these sizes. For larger boxes the solver bound is
+weak (5 to 8 against 54 to 66); a proof for all heights needs Lower Bounds' transfer DP (B5f), not CP-SAT.
+
+**13.7 Gap list for (C5-J) 2J + BQx - 2K >= 4n - C (2026-10-03, KT Structures; for assignment).** J = sum over the
+four sides of (X3 - rows) + Q3'/2 (rows 8..n-9); K, BQx as in 10.1. "Width-6 data" of a side segment = its stubs on
+the line x = 5.5 plus their pairing through the strip x <= 5. In order:
+  L0 [PASS, conditional; Claim 45 addendum] Ledger E >= (N - K)/2 + BQx/4 + J/2 - O(1). Conditions: Q3 atom
+     ownership (shallow atoms disjoint from deep selections; geometric, 44B) and one global corner error.
+  L1 [CHECK, 13.5 / 13.6; certificate OPEN: LB's exact DP needs > 8.3 GB] U-collar minimality: a segment whose
+     width-6 data equal the U collar's has J >= 2 (rows) - C. Proved by CP-SAT only for W = 6, H <= 12 and W <= 10,
+     H = 8 (2J + deep quarters).
+  L2 [OPEN, finite type] Cost function of width-6 data: J(segment) >= Phi(width-6 data) - C, Phi additive along the
+     side up to O(1) per junction, Phi = 0 on the P class, 2 per row on the U class, and Phi >= 2 #g-type costs on
+     frustrated stretches (LB certified J >= 2#g + N_free(2) - C, a = 2, c = 1, d0 = 2). L1 is the U case of L2.
+  L3 [PROOF at width 3: SHEET 8.2; development 8.3 modulo Lemma F (12, PROOF)] Trap parity restated at the x = 5.5
+     line: two clean returns (or cross chords) with P-class width-6 data at both ends close a 4-piece cycle when the
+     shift is even. Needed in this form because 13.4 shows width-3 changed ports are partly gauge.
+  L4 [PROOF modulo L4' and per-chamber errors: SHEET 13.1, Claim 45F] Chamber ledger at x = 5.5: every chamber row is
+     paid by inside returns; a return with P-class data at both ends is trapped (L3), so it needs non-P width-6 data
+     (Phi > 0) at one end, or it is untrapped by deep defects (L5).
+  L5 [OPEN; Gap Lemma PROVEN for even boundaries (Claim 41), (K) for odd carriers CHECK / ARGUMENT (SHEET 13.4)]
+     Untrapping pays in BQx: 2 U_in <= BQx(region) + O(1), AFTER route (i)'s deep-first selections are removed.
+     The joint use of one deep defect for corner flux and for untrapping is the Claim 44E risk.
+  L6 [CHECK, 11.1; ARGUMENT] Corner current: between the corners of an H-regime vertical side, the width-3 collar is
+     forced to the U collar (closest-to-P filling is U even without connectivity). Needed at width 6: a segment that
+     carries the corner current has Phi >= 2 per row, or the current leaves through deep defects (BQx).
+  L7 [PROOF of weak form: SHEET 9.5; localisation 13.3] Frustrated rows (2T of the run-end identity): each frustrated
+     row is paid by J on its own side (data: J >= 1 per frustrated row on the 8 H tours) without the near-g exclusion.
+  L8 [OPEN] The K term: candidates without two deep payable quarters cost 2 each; in the H regime K = N, and 2K must
+     come from L6 (vertical current) and L7 (frustrated sides). Data margin: LF1 (C5-J) = 10.0 n, least H tour 7.04 n.
+  L9 [OPEN, technical] Error control: O(1) per chamber and per segment junction (Claim 45F) must sum to O(1), or the
+     number of chambers / junctions must be paid by BQx or J.
+  Data [CHECK, 13.2]: (C5-J)/n >= 6.46 on 22 tours incl. both patch families (FOLD tends to 16/3).
+**Hardest: L4 + L5 together**, i.e. how global connectivity forces each side segment either into a costly width-6
+class (U-type, Phi = 2 per row) or into paying in BQx / K. This is the old (C_T') problem moved to the x = 5.5 line;
+its known risk is the shared use of deep defects (L5). L2 is the hardest finite certificate (memory). L1 and L3 are
+the most tractable next proofs (L1: a smaller DP restricted to U-class boundary data; L3: SHEET 8.2 with x = 5.5).
+
+**13.8 LB's filling R refutes L1 for J, not for the ledger: use J' (CHECK, 2026-10-03).** Lower Bounds B5f found a
+period-1 filling R of the U-collar class (U ports, U pairing, interior mirrored in y) with 2J = 4 per row against U's 6.
+Measured (`r_stretch.py` stretches LB's box; `c5w_insert.py`; `j_prime.py`; `c5j_patch.py` with JP=1):
+  - X does not drop. Local validation (pairing kept, no internal cycle): box H = 40 (20 R rows) deltaX = +14, box
+    H = 60 (40 R rows) deltaX = +14: R rows cost exactly U's crossings; +14 is the entry and exit. Closed tour: FOLD
+    n = 288 with one H = 40 box per side (the longest that fits the pure-U intervals) is one cycle, X = 1992 vs 1936.
+  - What changes: R moves one crossing per row from S3 (both edges reach x <= 2) to a pair just outside S3 (depth 3-4).
+    J counts the first and not the second, so J drops by 1 per R row (box model: 2J -27 at H = 40, -67 at H = 60) and
+    (C5-J) is FALSE: R over the whole U intervals (about n rows) takes FOLD from (16/3) n to about (10/3) n. On the
+    patched n = 288 tour: J 663.5 -> 609.5, K 7 -> 14, BQx 548 -> 562, (C5-J)/n 6.46 -> 6.09.
+  - Repair of the currency (no new input): the dropped crossing is a pair atom of nu3 = (X - |S3|)/2 + ..., a separate
+    summand from the quarter atoms and from the deep pair atoms that pay BQx. So the ledger L0 holds with
+        J' = J + Y_sh,  Y_sh = crossing pairs outside S3 whose overlap quarters all lie in squares x <= 4 (rows 8..n-9),
+    and (C5-J') 2J' + BQx - 2K >= 4n - C replaces (C5-J). In the box model R and U tie exactly in J' (change +55 at
+    both H = 40 and H = 60: entry and exit only). Tours: Y_sh = 18 on FOLD n = 288, 182 on the R-patched tour (+41 per
+    box), 0 on LF1; (C5-J')/n = 6.59 (FOLD 288) and 7.35 (R-patched). Since J' >= J, (C5-J') >= (C5-J) >= 6.46 n on the
+    22 tours of 13.2.
+  - Consequence for 13.7: L1 and L2 must be stated and certified for J' (crossings of S3 AND shallow pairs outside
+    S3). The CP-SAT minimality runs are being redone with J' (`c5jp_patch.log`).
+  - J' minimality (CHECK, `c5jp_patch.log`): with objective 2J' (JP=1), W = 6, H = 8, 10, 12 are OPTIMAL with change 0
+    (the U collar is the minimum). Wider and taller J' runs: not done.
+
+**13.9 Status at stop (2026-10-03, KT Structures; WIND DOWN by Nil's decision).** The beyond-5n research stops here.
+No compute job is running. The status of each item of 13.7, read with J' of 13.8 (J' = J + Y_sh):
+  L0 [PASS, conditional] Ledger E >= (N - K)/2 + BQx/4 + J'/2 - O(1). Claim 45 addendum passes it for J; the J' form
+     adds Y_sh, a pair-atom summand that is separate from the quarter atoms and the deep pair atoms (13.8, ARGUMENT,
+     not audited). Conditions stay open: Q3 atom ownership (44B) and one global corner error.
+  L1 [FALSE for J; CHECK only for J'] LB's period-1 filling R (B5f) has U-class width-6 data and 2J = 4 per row
+     against 6, so U-collar minimality is false for J. With J' the U collar and R tie (13.8). CP-SAT (`c5jp_patch.log`,
+     objective 2J'): OPTIMAL with change 0 only for W = 6, H = 8, 10, 12. Wider and taller J' boxes were not run. The
+     old-J results for W <= 10, H = 8 (13.6) do not carry over to J'. No certificate: LB's exact DP needs > 8.3 GB
+     (B5f closed by LB: more than 290M states at 7.6 GB, LB's measurement). LB's DP with B5F_JP=1 gives the same
+     R box change 2J' = +55 (relayed by LB, not rechecked here). A smaller sound model must keep the pairing
+     exact, or the P filling (2J = 0) gets in.
+  L2 [OPEN] Cost function Phi of width-6 data, now for J'. Nothing was computed beyond L1.
+  L3 [OPEN as stated] Trap parity at the line x = 5.5. Proved only at width 3 (SHEET 8.2, 8.3 modulo Lemma F). The
+     width-6 restatement is not written. Claim 49 notes that the chamber scripts still use the depth-3 cut.
+  L4 [PROOF modulo L4' and per-chamber errors] Chamber ledger at x = 5.5 (SHEET 13.1, Claim 45F). L4' (a shallow
+     port that is both a return's only changed end and part of c) is unresolved.
+  L5 [OPEN; no counterexample] Untrapping pays in BQx after route (i)'s selections: 2 U_in <= BQx(region) + O(1).
+     Verifier Claim 49 (depth-6 diagnostic, 2,964 deep switches, patch families, FJOG): no counterexample, not a
+     proof. Before a proof, three items need a definition: the width-6 REGION and P class, a spatial rule for the two
+     selected deep quarters, and whether the error is per chamber or total. The Claim 44E risk (one deep defect used
+     for corner flux and for untrapping) is unresolved.
+  L6 [CHECK at width 3, ARGUMENT] Corner current forces the U collar between the corners of an H-regime side (11.1).
+     The width-6 form (Phi >= 2 per row or deep payment) is not proved.
+  L7 [PROOF of weak form: SHEET 9.5] Frustrated rows paid by own-side J. Data: J >= 1 per frustrated row on the 8 H
+     tours. The localisation (13.3) is not proved.
+  L8 [OPEN] The K term (2K from L6 and L7 in the H regime). Data margin: LF1 10.0 n, least H tour 7.04 n.
+  L9 [OPEN] Error control: per-chamber and per-junction O(1) errors must sum to O(1) or be paid.
+  Data [CHECK]: (C5-J')/n >= 6.46 on 22 tours (13.2, 13.8); FOLD tends to 16/3. No tour below 4n was found.
+
+Refuted statements (all refutations are linear-in-n families of closed tours; none refutes X >= 6n itself, and every
+witness has X far above 6n):
+  (C5-4)  2 (G_free + N_free) + BQx >= 4n - O(1) (section 8): FALSE, Verifier Claim 45. Witnesses:
+          `gap/verifier/claim45_U_patched_n{96,144,192,240,288}.json` (gadget `claim45_U_gadget.json`).
+  (C5-K)  (section 10): FALSE, section 11 (deficit (5/6) n + 26). Witnesses: `p5_LF1v0_n72.json`,
+          `p5_LF1v0_n96.json`, `p5_LF1v0_n120.json` (this directory).
+  (C5-W)  (section 12) at (2, 1/2) and (2, 2/3): FALSE, Verifier Claim 47 ((313/84) n and (23/6) n). Witness:
+          `gap/verifier/claim47_patched_n288.json` (gadget `claim47_U_gadget_24.json`). Independent witness at (2, 1/2):
+          `c5w_patched16_n192.json`, `c5w_patched16_n288.json` (13.1).
+  (C5-J)  2J + BQx - 2K >= 4n - C (13.2): FALSE, LB's R filling (13.8; R over the U intervals takes FOLD to about
+          (10/3) n). Source: `gap/lowerbounds/beyond5/b5f_box_H40_R10_30.json`; closed-tour witness
+          `r_patched_D0_n288.json` (box `r_box_D0.json`, built by `r_stretch.py` and `c5w_insert.py`).
+  Also dead (13.1): every connectivity count with weights only on g rows and on changed ports by distance to g.
+
+**The one open core: L4 + L5 together.** Show that global connectivity forces each side segment either into a
+costly width-6 class (U type, Phi = 2 per row in J') or into a payment in BQx or K, with no deep defect used twice
+(Claim 44E). The surviving target is (C5-J') 2J' + BQx - 2K >= 4n - C, which with L0 gives X >= 6n - O(1). It is
+unrefuted, with no proof, and its local minimality (L1 for J') is checked only at W = 6, H <= 12.

@@ -12,7 +12,8 @@ from f1v_stab import tile_quarters
 from strip_dp import cross
 PORTS = [(4, 2, 1), (5, 2, 1)]
 PAT = {'P': [(0, 1, 2), (0, 2, 1), (1, 2, 1), (2, 2, 1), (3, 2, 1)],
-       'U': [(0, 2, 1), (1, -1, 2), (1, 2, 1), (2, 2, 1), (3, 2, 1)]}
+       'U': [(0, 2, 1), (1, -1, 2), (1, 2, 1), (2, 2, 1), (3, 2, 1)],
+       'R': [(1, -1, 2), (2, -2, 1), (3, -2, 1), (4, -2, 1), (5, -2, 1)]}
 for name, pat in PAT.items():
     E = [(x, y, x + dx, y + dy) for y in range(-12, 40) for x, dx, dy in pat + PORTS]
     rows = range(0, 24)

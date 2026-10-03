@@ -1,0 +1,87 @@
+shear 1/1 WM=4 KM=1 MODE=nz lambda=1/2: columns u in [-3,6], 60 slots, complete squares s in [0,3], 2 cost squares per row
+warm-up done: 61632 strict seed states, largest warm layer 18805632, 310s
+states by warm level: strict 332304, warm1 0, warm2 0, warm3 0
+graph: states 332304 arcs 347484 (rejected: margin 121149825, psi 485064) 312s
+== lambda 1/1
+ try mean 8/1 per row
+  cycle: 120 arcs, 12 rows, crossings 8, waste 16, weight 16 -> mean 16/12
+    (cycle starts at row phase 0; board x = u + floor(1*(phase+row)/1) - floor(1*phase/1))
+    row 0 u -1 (ghost) X=0 waste=0: (-1,0)-(1,1)
+    row 0 u 1 (mod) X=0 waste=0: (1,0)-(3,1) (1,0)-(2,2)
+    row 0 u 2 (mod) X=1 waste=0: (2,0)-(4,1) (2,0)-(3,2)
+    row 0 u 3 (mod) X=0 waste=0: (3,0)-(5,1)
+    row 1 u -1 (ghost) X=0 waste=0: (0,1)-(2,2)
+    row 1 u 1 (mod) X=1 waste=0: (2,1)-(4,2) (2,1)-(3,3)
+    row 1 u 2 (mod) X=0 waste=0: (3,1)-(5,2)
+    row 1 u 3 (mod) X=0 waste=0: (4,1)-(6,2)
+    row 2 u -1 (ghost) X=0 waste=0: (1,2)-(3,3)
+    row 2 u 1 (mod) X=0 waste=0: (3,2)-(4,4)
+    row 2 u 2 (mod) X=0 waste=0: (4,2)-(6,3)
+    row 2 u 3 (mod) X=0 waste=0: (5,2)-(7,3)
+    row 2 u 6 (ghost) X=0 waste=4:
+    row 3 u -1 (ghost) X=0 waste=0: (2,3)-(4,4)
+    row 3 u 1 (mod) X=0 waste=0: (4,3)-(6,4) (4,3)-(5,5)
+    row 3 u 2 (mod) X=1 waste=0: (5,3)-(7,4) (5,3)-(6,5)
+    row 3 u 3 (mod) X=0 waste=0: (6,3)-(8,4)
+    row 4 u -1 (ghost) X=0 waste=0: (3,4)-(5,5)
+    row 4 u 1 (mod) X=1 waste=0: (5,4)-(7,5) (5,4)-(6,6)
+    row 4 u 2 (mod) X=0 waste=0: (6,4)-(8,5)
+    row 4 u 3 (mod) X=0 waste=0: (7,4)-(9,5)
+    row 5 u -1 (ghost) X=0 waste=0: (4,5)-(6,6)
+    row 5 u 1 (mod) X=0 waste=0: (6,5)-(7,7)
+    row 5 u 2 (mod) X=0 waste=0: (7,5)-(9,6)
+    row 5 u 3 (mod) X=0 waste=0: (8,5)-(10,6)
+    row 5 u 6 (ghost) X=0 waste=4:
+    row 6 u -1 (ghost) X=0 waste=0: (5,6)-(7,7)
+    row 6 u 1 (mod) X=0 waste=0: (7,6)-(9,7) (7,6)-(8,8)
+    row 6 u 2 (mod) X=1 waste=0: (8,6)-(10,7) (8,6)-(9,8)
+    row 6 u 3 (mod) X=0 waste=0: (9,6)-(11,7)
+    row 7 u -1 (ghost) X=0 waste=0: (6,7)-(8,8)
+    row 7 u 1 (mod) X=1 waste=0: (8,7)-(10,8) (8,7)-(9,9)
+    row 7 u 2 (mod) X=0 waste=0: (9,7)-(11,8)
+    row 7 u 3 (mod) X=0 waste=0: (10,7)-(12,8)
+    row 8 u -1 (ghost) X=0 waste=0: (7,8)-(9,9)
+    row 8 u 1 (mod) X=0 waste=0: (9,8)-(10,10)
+    row 8 u 2 (mod) X=0 waste=0: (10,8)-(12,9)
+    row 8 u 3 (mod) X=0 waste=0: (11,8)-(13,9)
+    row 8 u 6 (ghost) X=0 waste=4:
+    row 9 u -1 (ghost) X=0 waste=0: (8,9)-(10,10)
+    row 9 u 1 (mod) X=0 waste=0: (10,9)-(12,10) (10,9)-(11,11)
+    row 9 u 2 (mod) X=1 waste=0: (11,9)-(13,10) (11,9)-(12,11)
+    row 9 u 3 (mod) X=0 waste=0: (12,9)-(14,10)
+    row 10 u -1 (ghost) X=0 waste=0: (9,10)-(11,11)
+    row 10 u 1 (mod) X=1 waste=0: (11,10)-(13,11) (11,10)-(12,12)
+    row 10 u 2 (mod) X=0 waste=0: (12,10)-(14,11)
+    row 10 u 3 (mod) X=0 waste=0: (13,10)-(15,11)
+    row 11 u -1 (ghost) X=0 waste=0: (10,11)-(12,12)
+    row 11 u 1 (mod) X=0 waste=0: (12,11)-(13,13)
+    row 11 u 2 (mod) X=0 waste=0: (13,11)-(15,12)
+    row 11 u 3 (mod) X=0 waste=0: (14,11)-(16,12)
+    row 11 u 6 (ghost) X=0 waste=4:
+ try mean 4/3 per row
+RESULT A=1 WM=4 KM=1 nz lambda=1/1: min mean weight per row = 4/3 (CERTIFIED: no cycle below); per level (E units) = 4/6 = 0.6667  (312s)
+total 312s
+	Command being timed: "./wifw2 1 4 1 nz 8 1 90000000"
+	User time (seconds): 214.14
+	System time (seconds): 12.06
+	Percent of CPU this job got: 72%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 5:12.12
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 1175756
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 971861
+	Voluntary context switches: 3
+	Involuntary context switches: 62169
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 32
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+exit=0

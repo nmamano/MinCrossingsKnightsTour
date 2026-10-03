@@ -69,6 +69,23 @@ for i,e in enumerate(x3e):
    if (le if isinstance(le,int) else lf):cost.append(2*(lf if isinstance(le,int) else le))
   else:
    z=m.NewBoolVar('');m.AddBoolOr([le.Not(),lf.Not(),z]);cost.append(2*z)
+# JP=1: shallow pair atoms outside S3 (crossing pairs not both reaching x <= 2, all overlap quarters in squares x <= 4)
+if os.environ.get('JP'):
+ ye=[e for e in universe if min(e[0][0],e[1][0])<=6]
+ for i,e in enumerate(ye):
+  for f in ye[i+1:]:
+   if not proper(e,f):continue
+   if min(e[0][0],e[1][0])<=2 and min(f[0][0],f[1][0])<=2:continue
+   ov=tq(e)&tq(f)
+   if not ov or any(q[0]>4 for q in ov):continue
+   if not any(Y0<=q[1]<=Y1 for q in ov):continue
+   if e not in ev and f not in ev:continue
+   BASEVAL+=2*val_base(e)*val_base(f)
+   le,lf=literal(e),literal(f)
+   if isinstance(le,int) or isinstance(lf,int):
+    if (le if isinstance(le,int) else lf):cost.append(2*(lf if isinstance(le,int) else le))
+   else:
+    z=m.NewBoolVar('');m.AddBoolOr([le.Not(),lf.Not(),z]);cost.append(2*z)
 # quarters
 cov=defaultdict(list)
 for e in universe:

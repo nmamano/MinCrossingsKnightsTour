@@ -1,0 +1,38 @@
+  expanded 10000000 states 18835604 arcs 20274771 rss 2410 MB 59s
+  expanded 20000000 states 29365506 arcs 31707026 rss 2611 MB 87s
+  expanded 30000000 states 37542772 arcs 39989050 rss 2767 MB 118s
+  expanded 40000000 states 52387476 arcs 57187467 rss 3050 MB 154s
+  expanded 50000000 states 68192139 arcs 78671279 rss 3352 MB 208s
+  expanded 60000000 states 86578933 arcs 100773258 rss 3703 MB 260s
+  expanded 70000000 states 103016258 arcs 121037365 rss 4016 MB 315s
+  expanded 80000000 states 120313561 arcs 141691963 rss 4346 MB 366s
+  expanded 90000000 states 130126378 arcs 153468833 rss 4533 MB 393s
+  expanded 100000000 states 138874680 arcs 164377221 rss 4700 MB 419s
+  expanded 110000000 states 147883140 arcs 175701948 rss 4872 MB 456s
+  expanded 120000000 states 156493924 arcs 186353302 rss 5036 MB 481s
+  expanded 130000000 states 162892488 arcs 192939078 rss 5158 MB 512s
+  expanded 140000000 states 169223270 arcs 199269860 rss 5279 MB 542s
+  expanded 150000000 states 175339573 arcs 205386163 rss 5396 MB 568s
+  expanded 160000000 states 183250781 arcs 213630389 rss 5547 MB 608s
+  expanded 170000000 states 195766909 arcs 227347778 rss 5785 MB 649s
+  expanded 180000000 states 208113507 arcs 240952243 rss 6021 MB 705s
+  expanded 190000000 states 220094372 arcs 258815870 rss 6249 MB 761s
+  expanded 200000000 states 231353194 arcs 275910652 rss 6464 MB 818s
+  expanded 210000000 states 243940987 arcs 293261245 rss 6704 MB 879s
+  expanded 220000000 states 250000000 arcs 304551509 rss 6820 MB 952s
+  expanded 230000000 states 250000000 arcs 307762874 rss 6820 MB 1009s
+  expanded 240000000 states 250000000 arcs 310933512 rss 6820 MB 1061s
+built: states 250000000 arcs 315604067 max ends 17 max pieces 9 rss 6820 MB 1101s
+table freed, keys written to b5f_keys.bin, rss 3 MB
+arcs loaded, rss 2763 MB
+co-reachability: 15 sweeps
+SCC of U (reachable from U and back): 3426015 states; rss 3001 MB
+negative closed walk through U found at pass 23
+NOT certified: negative cycle of 1.00 rows, weight -2, mean 2J per row 4.0000 (U: 6)
+  x3: (1,-1)-(0,1)L0T1 (5,-1)-(3,0)L1T3 (1,0)-(0,2)L2T2 (2,0)-(0,1)L0T1
+  x4: (1,-1)-(0,1)L0T1 (1,0)-(0,2)L1T2 (2,0)-(0,1)L0T1 (3,0)-(1,1)L2T3
+  x5: (1,-1)-(0,1)L0T1 (1,0)-(0,2)L1T1 (2,0)-(0,1)L0T1 (3,0)-(1,1)L2T3 (4,0)-(2,1)L1T1
+  x0: (1,-2)-(0,0)L0T1 (1,-1)-(0,1)L1T1 (2,-1)-(0,0)L0T1 (3,-1)-(1,0)L2T2 (4,-1)-(2,0)L1T1 (5,-1)-(3,0)L3T3
+  x1: (1,-1)-(0,1)L0T1 (3,-1)-(1,0)L1T2 (4,-1)-(2,0)L0T1 (5,-1)-(3,0)L2T3
+  x2: (1,-1)-(0,1)L0T1 (4,-1)-(2,0)L0T1 (5,-1)-(3,0)L1T3 (1,0)-(0,2)L2T2
+exit=1

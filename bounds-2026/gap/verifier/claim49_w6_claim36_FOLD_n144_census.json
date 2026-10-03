@@ -1,0 +1,85 @@
+{
+  "file": "gap/verifier/claim36_FOLD_n144.json",
+  "n": 144,
+  "X": 1024,
+  "retained": 221,
+  "K": 7,
+  "BQdeep": 798,
+  "selected": 442,
+  "BQx": 356,
+  "twoJ": 796,
+  "C5J": 1138,
+  "C5J_minus_4n": 562,
+  "sides": [
+    {
+      "X3_minus_rows": 45,
+      "Q3": 98,
+      "twoJ": 188
+    },
+    {
+      "X3_minus_rows": 48,
+      "Q3": 100,
+      "twoJ": 196
+    },
+    {
+      "X3_minus_rows": 51,
+      "Q3": 104,
+      "twoJ": 206
+    },
+    {
+      "X3_minus_rows": 50,
+      "Q3": 106,
+      "twoJ": 206
+    }
+  ],
+  "chambers": [
+    {
+      "side": 0,
+      "lo": 12,
+      "hi": 131,
+      "Uin": 0,
+      "raw_deep": 0,
+      "selected": 0,
+      "BQx": 0,
+      "possible_selected_overlap": 0,
+      "deficit": 0
+    },
+    {
+      "side": 1,
+      "lo": 11,
+      "hi": 130,
+      "Uin": 0,
+      "raw_deep": 0,
+      "selected": 0,
+      "BQx": 0,
+      "possible_selected_overlap": 0,
+      "deficit": 0
+    },
+    {
+      "side": 2,
+      "lo": 9,
+      "hi": 132,
+      "Uin": 0,
+      "raw_deep": 0,
+      "selected": 0,
+      "BQx": 0,
+      "possible_selected_overlap": 0,
+      "deficit": 0
+    },
+    {
+      "side": 3,
+      "lo": 12,
+      "hi": 131,
+      "Uin": 1,
+      "raw_deep": 0,
+      "selected": 0,
+      "BQx": 0,
+      "possible_selected_overlap": 0,
+      "deficit": 2
+    }
+  ],
+  "total_Uin": 1,
+  "total_region_BQx": 0,
+  "total_region_selected": 0,
+  "seconds": 11.356353517854586
+}

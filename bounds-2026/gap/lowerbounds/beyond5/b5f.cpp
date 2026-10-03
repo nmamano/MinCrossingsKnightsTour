@@ -20,41 +20,46 @@ static inline int slx(int s) { return (s / 4) % 6; }
 static inline int sly(int s) { return s / 24 - 2; }
 static inline int sux(int s) { return slx(s) + DX[s % 4]; }
 static inline int suy(int s) { return sly(s) + DY[s % 4]; }
-struct Key { u64 a, b, c; bool operator==(const Key &o) const { return a == o.a && b == o.b && c == o.c; } };
+struct __attribute__((packed)) Key { u64 a, b; uint32_t c; bool operator==(const Key &o) const { return a == o.a && b == o.b && c == o.c; } };
 struct St { int x, n, slot[24], lab[24], ty[24]; };   // ty indexed by label (labels < 24 before canonical relabel)
 static int MAXE = 0, MAXP = 0;
 static int LAM = getenv("B5F_LAM") ? atoi(getenv("B5F_LAM")) : 6;   // per-row test value (U collar: 6)
-static bool TRUNC = getenv("B5F_TRUNC") != nullptr;            // test only: drop arcs to states beyond the cap
-
+static bool TRUNC = getenv("B5F_TRUNC") != nullptr;
+static bool JP = getenv("B5F_JP") != nullptr;   // J' = J + Y_sh (BEYOND5 13.8): shallow pairs outside S3 at weight 2 (units 2J)            // test only: drop arcs to states beyond the cap
+// 160-bit key: bits 0..45 pending-slot mask (46 pendable slots), 46..48 x, 49..74 piece types (13 x 2), 75..158 labels (21 x 4)
+static int CI[72], CS[46];
+static void init_ci() { int k = 0; for (int sl = 0; sl < 72; sl++) { CI[sl] = -1; if (VALID[sl] && (sly(sl) >= -1 || DY[sl % 4] == 2)) { CI[sl] = k; CS[k++] = sl; } } if (k != 46) { fprintf(stderr, "CI %d\n", k); exit(2); } }
+static inline void putb(u64 *w, int pos, int nb, u64 v) { for (int i = 0; i < nb; i++) if (v >> i & 1) w[(pos + i) >> 6] |= 1ULL << ((pos + i) & 63); }
+static inline u64 getb(const u64 *w, int pos, int nb) { u64 v = 0; for (int i = 0; i < nb; i++) v |= ((w[(pos + i) >> 6] >> ((pos + i) & 63)) & 1ULL) << i; return v; }
 static Key enc(const St &s) {
     int ord[24];
     for (int i = 0; i < s.n; i++) ord[i] = i;
     sort(ord, ord + s.n, [&](int i, int j) { return s.slot[i] < s.slot[j]; });
     int mp[24]; memset(mp, -1, sizeof mp); int np = 0;
-    Key k{0, 0, 0};
+    u64 w[3] = {0, 0, 0};
+    if (s.n > 21) { fprintf(stderr, "state too large: %d ends\n", s.n); exit(2); }
     for (int t = 0; t < s.n; t++) {
         int i = ord[t], sl = s.slot[i];
         if (t && s.slot[ord[t - 1]] == sl) { fprintf(stderr, "duplicate slot\n"); exit(2); }
-        if (sl < 64) k.a |= 1ULL << sl; else k.b |= 1ULL << (sl - 64);
+        if (CI[sl] < 0) { fprintf(stderr, "unpendable slot %d\n", sl); exit(2); }
+        putb(w, CI[sl], 1, 1);
         if (mp[s.lab[i]] < 0) { mp[s.lab[i]] = np++; }
-        if (t < 16) k.c |= (u64)mp[s.lab[i]] << (4 * t); else k.b |= (u64)mp[s.lab[i]] << (37 + 4 * (t - 16));
+        putb(w, 75 + 4 * t, 4, mp[s.lab[i]]);
     }
-    if (s.n > 22 || np > 13) { fprintf(stderr, "state too large: %d ends %d pieces\n", s.n, np); exit(2); }
+    if (np > 13) { fprintf(stderr, "state too large: %d pieces\n", np); exit(2); }
     MAXE = max(MAXE, s.n); MAXP = max(MAXP, np);
-    k.b |= (u64)s.x << 8;
+    putb(w, 46, 3, s.x);
     for (int l = 0; l < 24; l++) if (mp[l] >= 0) {
         int t = s.ty[l]; if (t < 0 || t > 3) { fprintf(stderr, "bad type %d\n", t); exit(2); }
-        k.b |= (u64)t << (11 + 2 * mp[l]);
+        putb(w, 49 + 2 * mp[l], 2, t);
     }
-    return k;
+    return Key{w[0], w[1], (uint32_t)w[2]};
 }
 static St dec(const Key &k) {
-    St s; s.x = (k.b >> 8) & 7; s.n = 0;
-    for (int sl = 0; sl < 72; sl++) {
-        bool on = sl < 64 ? (k.a >> sl) & 1 : (k.b >> (sl - 64)) & 1;
-        if (on) { s.slot[s.n] = sl; s.lab[s.n] = s.n < 16 ? (k.c >> (4 * s.n)) & 15 : (k.b >> (37 + 4 * (s.n - 16))) & 15; s.n++; }
-    }
-    for (int l = 0; l < 24; l++) s.ty[l] = l < 13 ? (k.b >> (11 + 2 * l)) & 3 : -1;
+    u64 w[3] = {k.a, k.b, k.c};
+    St s; s.x = getb(w, 46, 3); s.n = 0;
+    for (int ci = 0; ci < 46; ci++) if (getb(w, ci, 1)) { s.slot[s.n] = CS[ci]; s.lab[s.n] = getb(w, 75 + 4 * s.n, 4); s.n++; }
+    for (int l = 0; l < 24; l++) s.ty[l] = l < 13 ? getb(w, 49 + 2 * l, 2) : -1;
     return s;
 }
 // expand: callback(Key next, int weight, int chosenMask over cands, const int* cands)
@@ -93,8 +98,8 @@ template <class F> static void expand(const St &s, F &&cb) {
         // weight: X3 crossings of new edges
         int w = 0;
         for (int i = 0; i < nch; i++) {
-            for (int j = 0; j < nr; j++) w += 2 * X3[s.slot[rest[j]]][ch[i]];
-            for (int j = 0; j < i; j++) w += 2 * X3[ch[j]][ch[i]];
+            for (int j = 0; j < nr; j++) w += 2 * X3[s.slot[rest[j]]][ch[i]] + (JP ? 2 * YS[s.slot[rest[j]]][ch[i]] : 0);
+            for (int j = 0; j < i; j++) w += 2 * X3[ch[j]][ch[i]] + (JP ? 2 * YS[ch[j]][ch[i]] : 0);
         }
         St t; t.x = x; t.n = 0;
         for (int l = 0; l < 24; l++) t.ty[l] = s.ty[l];
@@ -150,6 +155,7 @@ template <class F> static void expand(const St &s, F &&cb) {
                 int q = X1Q[sl[i]][sl[j]];
                 if (q >= 0 && m[q] == 2) q3 += 1;
             }
+            if (JP) for (int i = 0; i < t.n; i++) w += 2 * YS[72][t.slot[i]] + 2 * YS[73][t.slot[i]];   // row-0 ports vs pending edges
             w += q3 - LAM;
             for (int i = 0; i < t.n; i++) {
                 if (t.slot[i] < 24) { fprintf(stderr, "row-2 edge left at row end\n"); exit(2); }
@@ -192,6 +198,7 @@ template <class T> struct CV {   // chunked vector, no doubling copies
 
 int main(int argc, char **argv) {
     string mode = argc > 1 ? argv[1] : "build";
+    init_ci();
     Key k0 = enc(ustate());
     if (mode == "walk") {
         // up-edges per cell from file; follow them from the U state
@@ -217,7 +224,9 @@ int main(int argc, char **argv) {
     size_t cap = argc > 2 ? atoll(argv[2]) : (size_t)170000000; long maxpass = argc > 3 ? atol(argv[3]) : 100000;
     int tbits = argc > 4 ? atoi(argv[4]) : 28;
     // ---- build (BFS from the U state); open addressing table of 2^tbits uint32 (index + 1), keys stored once ----
-    CV<Key> keys; CV<uint32_t> dst; CV<int16_t> wt; CV<uint32_t> off;
+    CV<Key> keys; size_t A = 0;   // arcs are streamed to disk during the build (b5f_off.bin, b5f_dst.bin, b5f_wt.bin)
+    FILE *fo = fopen("b5f_off.bin", "wb"), *fd = fopen("b5f_dst.bin", "wb"), *fw = fopen("b5f_wt.bin", "wb");
+    setvbuf(fo, nullptr, _IOFBF, 1 << 24); setvbuf(fd, nullptr, _IOFBF, 1 << 24); setvbuf(fw, nullptr, _IOFBF, 1 << 24);
     bool ROWS = getenv("B5F_ROWS") != nullptr;   // store only row-start states; arcs = whole rows (min weight per successor)
     vector<pair<Key, int>> succ;
     size_t TS = (size_t)1 << tbits, TM = TS - 1;
@@ -234,42 +243,50 @@ int main(int argc, char **argv) {
     { bool nw; look(k0, true, nw); }
     auto t0 = chrono::steady_clock::now();
     for (size_t i = 0; i < keys.n; i++) {
-        if (dst.n >= 0xFFFFFFF0ULL) { printf("too many arcs for uint32 offsets\n"); return 2; }
-        off.push((uint32_t)dst.n);
+        if (A >= 0xFFFFFFF0ULL) { printf("too many arcs for uint32 offsets\n"); return 2; }
+        { uint32_t o = A; fwrite(&o, 4, 1, fo); }
         auto add = [&](Key n2, int w) {
             bool nw; uint32_t j;
             if (TRUNC && keys.n >= cap) { j = look(n2, false, nw); if (nw) return; }
             else j = look(n2, true, nw);
-            if (nw && keys.n > cap) { printf("CAP %zu reached: states %zu arcs %zu rss %ld MB\n", cap, keys.n, dst.n, rss_mb()); fflush(stdout); exit(3); }
-            dst.push(j); wt.push((int16_t)w);
+            if (nw && keys.n > cap) { printf("CAP %zu reached: states %zu arcs %zu rss %ld MB\n", cap, keys.n, A, rss_mb()); fflush(stdout); exit(3); }
+            if (w < -32000 || w > 32000) { printf("weight overflow\n"); exit(2); }
+            int16_t w16 = w; fwrite(&j, 4, 1, fd); fwrite(&w16, 2, 1, fw); A++;
         };
         if (!ROWS) expand(dec(keys[i]), [&](Key n2, int w, int, const int *) { add(n2, w); });
         else {
             succ.clear(); rowdfs(dec(keys[i]), 0, 0, succ);
             sort(succ.begin(), succ.end(), [](const pair<Key, int> &p, const pair<Key, int> &q) {
-                return tie(p.first.a, p.first.b, p.first.c, p.second) < tie(q.first.a, q.first.b, q.first.c, q.second); });
+                return make_tuple((u64)p.first.a, (u64)p.first.b, (uint32_t)p.first.c, p.second) < make_tuple((u64)q.first.a, (u64)q.first.b, (uint32_t)q.first.c, q.second); });
             for (size_t t = 0; t < succ.size(); t++) if (t == 0 || !(succ[t].first == succ[t - 1].first)) add(succ[t].first, succ[t].second);
         }
-        if (i % 10000000 == 0 && i) printf("  expanded %zu states %zu arcs %zu rss %ld MB %.0fs\n", i, keys.n, dst.n, rss_mb(), chrono::duration<double>(chrono::steady_clock::now() - t0).count()), fflush(stdout);
+        if (i % (ROWS ? 2000000 : 10000000) == 0 && i) printf("  expanded %zu states %zu arcs %zu rss %ld MB %.0fs\n", i, keys.n, A, rss_mb(), chrono::duration<double>(chrono::steady_clock::now() - t0).count()), fflush(stdout);
     }
-    off.push((uint32_t)dst.n);
-    size_t N = keys.n, A = dst.n;
+    { uint32_t o = A; fwrite(&o, 4, 1, fo); }
+    fclose(fo); fclose(fd); fclose(fw);
+    size_t N = keys.n;
     printf("built: states %zu arcs %zu max ends %d max pieces %d rss %ld MB %.0fs\n", N, A, MAXE, MAXP, rss_mb(), chrono::duration<double>(chrono::steady_clock::now() - t0).count());
     fflush(stdout);
     free(tab);
     { FILE *kf = fopen("b5f_keys.bin", "wb"); for (size_t i = 0; i < N; i++) fwrite(&keys[i], sizeof(Key), 1, kf); fclose(kf); }
     keys.clear();
     printf("table freed, keys written to b5f_keys.bin, rss %ld MB\n", rss_mb());
+    vector<uint32_t> off(N + 1), dst(A); vector<int16_t> wt(A);
+    { FILE *f = fopen("b5f_off.bin", "rb"); if (fread(off.data(), 4, N + 1, f) != N + 1) exit(2); fclose(f);
+      f = fopen("b5f_dst.bin", "rb"); if (fread(dst.data(), 4, A, f) != A) exit(2); fclose(f);
+      f = fopen("b5f_wt.bin", "rb"); if (fread(wt.data(), 2, A, f) != A) exit(2); fclose(f); }
+    printf("arcs loaded, rss %ld MB\n", rss_mb()); fflush(stdout);
     auto keyat = [&](uint32_t i) { Key k; FILE *kf = fopen("b5f_keys.bin", "rb"); fseek(kf, (long)i * sizeof(Key), SEEK_SET); if (fread(&k, sizeof k, 1, kf) != 1) exit(2); fclose(kf); return k; };
-    // ---- co-reachability to U (reverse BFS) ----
-    vector<uint32_t> rdeg(N + 1, 0);
-    for (size_t a = 0; a < A; a++) rdeg[dst[a] + 1]++;
-    for (size_t v = 0; v < N; v++) rdeg[v + 1] += rdeg[v];
-    vector<uint32_t> rsrc(A); { vector<uint32_t> pos(rdeg.begin(), rdeg.end() - 1);
-        for (size_t u = 0; u < N; u++) for (u64 a = off[u]; a < (u64)off[u + 1]; a++) rsrc[pos[dst[a]]++] = u; }
-    vector<char> co(N, 0); { vector<uint32_t> st{0}; co[0] = 1;
-        while (!st.empty()) { uint32_t v = st.back(); st.pop_back(); for (uint32_t a = rdeg[v]; a < rdeg[v + 1]; a++) { uint32_t u = rsrc[a]; if (!co[u]) { co[u] = 1; st.push_back(u); } } } }
-    { vector<uint32_t> e1, e2; rsrc.swap(e1); rdeg.swap(e2); }
+    // ---- co-reachability to U: sweeps in reverse index order until stable (no reverse arcs, to save memory) ----
+    vector<char> co(N, 0); co[0] = 1;
+    for (int sw = 1;; sw++) {
+        bool ch = false;
+        for (size_t u = N; u-- > 0;) {
+            if (co[u]) continue;
+            for (u64 a = off[u]; a < (u64)off[u + 1]; a++) if (co[dst[a]]) { co[u] = 1; ch = true; break; }
+        }
+        if (!ch) { printf("co-reachability: %d sweeps\n", sw); break; }
+    }
     size_t NC = 0; for (size_t v = 0; v < N; v++) NC += co[v];
     printf("SCC of U (reachable from U and back): %zu states; rss %ld MB\n", NC, rss_mb()); fflush(stdout);
     // ---- Bellman-Ford from U (weights in units of 2J, test value 6 per row already subtracted) ----

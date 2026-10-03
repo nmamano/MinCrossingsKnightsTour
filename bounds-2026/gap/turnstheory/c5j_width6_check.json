@@ -1,0 +1,99 @@
+{
+  "date": "2026-10-03",
+  "pairing_examples": [
+    {
+      "kind": "P",
+      "path": [
+        [
+          4,
+          0
+        ],
+        [
+          2,
+          -1
+        ],
+        [
+          0,
+          -2
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          5,
+          2
+        ]
+      ],
+      "outside": [
+        [
+          6,
+          1
+        ],
+        [
+          7,
+          3
+        ]
+      ],
+      "labels": [
+        4,
+        1
+      ]
+    },
+    {
+      "kind": "U",
+      "path": [
+        [
+          5,
+          0
+        ],
+        [
+          3,
+          -1
+        ],
+        [
+          1,
+          -2
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          4,
+          2
+        ]
+      ],
+      "outside": [
+        [
+          7,
+          1
+        ],
+        [
+          6,
+          3
+        ]
+      ],
+      "labels": [
+        5,
+        0
+      ]
+    }
+  ],
+  "affine_commutation": "epsilon=+1,s even OR epsilon=-1,s odd",
+  "unequal_shift_matching_shape": {
+    "0": 100,
+    "-3": 101,
+    "2": 104,
+    "-1": 97
+  },
+  "scope": "pairing and label algebra only; no degree-two geometric completion claimed for the shape"
+}

@@ -436,3 +436,5 @@ Role: KT Integrator; manager = Chief Researcher (agent-1790895858902-etft). Miss
   `node demo/check.js`; browser tests with playwright-core from ~/nil/isomux/node_modules + /usr/bin/google-chrome
   (scripts in /tmp/demotest may be gone; rewrite as needed). Pages: https://nmamano.github.io/MinCrossingsKnightsTour/
 - Upper-bound wall study closed (no-go), see sections above. knights-tour-bounds archived (CR).
+2026-10-03 16:10 UTC: routine sync pushed 0696598 (191 files, gap/ claims 46-48, wall, beyond5). New rule: fresh-copy audit runs
+gap/verifier/claim*_run/ are excluded in sync_public.sh and ignored in bounds-2026/.gitignore (claim46_run was a 446-file repo copy).

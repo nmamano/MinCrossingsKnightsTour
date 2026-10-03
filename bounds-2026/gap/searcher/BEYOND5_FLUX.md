@@ -4,6 +4,14 @@ Author: KT Edge Searcher. Status: DESIGN. Labels: PROVEN / CERTIFIED (finite, st
 Sources: gap/turnstheory/PROOF_5N_PLAN.md (identity (1), S*, retained paths C), gap/turnstheory/PLAN.md (L2-v3),
 w-integrator/FINDINGS.md (colour-balance lemma), gap/searcher/FINDINGS.md sections 7 and 8, WALL12.md.
 
+## Status at stop (2026-10-03, research stopped by Nil's decision)
+
+- CERTIFIED, clean model (margin-square constraints, 4 free columns, W = 4): wall price per slope (13 slopes, min 1/2 at (1,2)); item A (walls between straight fields >= 2/3); HHVV-exterior walls >= 2/3; MIXP wall + zone values (min 31/50 at e = 1/2, mu = 2); zone ends e >= 1/2 at slopes 0, +-1/2 only.
+- CELL-model only (2 free columns; NOT width-4 bounds): FINDINGS section 8 (zigzag prices, P2, P5) and item C at the other 14 slopes.
+- PROVEN: E = T + X_out and the reduction to X >= (4 + 2p)n - C via F1-V.
+- ARGUMENT (open): e >= 1/2 at all boundary shapes outside S*, sharing mu (<= 4 by corners), same-corner reuse, bends (Verifier 43D), all widths. So p = 9/16 .. 31/50 (5.125n .. 5.24n) is CONDITIONAL only.
+- No compute job is running; tools: wall/wall_if.cpp (options CELL, OR, SIDE, CUR, MIXP, WORD, WSQ), wall/if/*.sh.
+
 ## 1. Target statement (pure crossing currency)
 
 Notation as in PROOF_5N_PLAN.md section 1: N = 2n - 60 audited corner paths gamma_R, retained set C, L = |C|,
@@ -52,10 +60,10 @@ must use what the plane extension hides: the closed tour must END the fields tha
 | id | statement | status | finite input |
 | --- | --- | --- | --- |
 | P1 | Straight carrier between STRAIGHT-word ribbon fields (all ribbons of one side have one bit) costs >= 2/3 per level, every direction | CERTIFIED for (1,2) (none below 1, WALL12 s.2); (1,3), (2,3) TO RUN (fields of the witnesses are mixed words HVVVHV / VVHHVHVV, ribbon_ends.out); other slopes >= 2/3 already | wall_if.cpp, about 20 runs |
-| P2 | The (1,2) wall at 1/2 needs zigzag z0 \| z0 (same orientation) on both sides | CERTIFIED W = 4 (FINDINGS 8, orient run) **[CELL model (2 free columns) only; NOT a width-4 bound; rerun pending]** | done |
+| P2 | The (1,2) wall at 1/2 needs zigzag z0 \| z0 (same orientation) on both sides | CERTIFIED W = 4 (FINDINGS 8, orient run) **[rerun stopped 2026-10-03; CELL-model values, NOT width-4 bounds]** | done |
 | P3 | Colour current: for any cell set S of a 2-regular graph, (black-ended minus white-ended edges leaving S) = 2(B_S - W_S). Relative to straight fields, a zigzag ribbon carries current 3/2 along its ribbon direction; straight fields carry 0; a straight boundary line can supply at most 1 per unit length (a, b odd), 0 (a + b odd) | PROVEN (first identity, one line); field currents: Integrator's lemma, PROVEN for periodic bands | none |
 | P4 | Consequence: a zigzag region is bounded along its ribbon direction only, never touches an axis side, and its current returns only through turns ('/' zigzag \| '\' zigzag, axis-parallel line) or through defect regions | ARGUMENT for finite regions (current must cross a transverse cut of bounded width); PROVEN for periodic bands | none |
-| P5 | Price of a zigzag ribbon end: >= 1/3 per end at every boundary slope (relaxed model, lower bound); 1/2 per end at a colour-balanced turn | CERTIFIED W = 4 (FINDINGS 8.1, 8.2) **[CELL model (2 free columns) only; NOT a width-4 bound; rerun pending]** | done |
+| P5 | Price of a zigzag ribbon end: >= 1/3 per end at every boundary slope (relaxed model, lower bound); 1/2 per end at a colour-balanced turn | CERTIFIED W = 4 (FINDINGS 8.1, 8.2) **[rerun stopped 2026-10-03; CELL-model values, NOT width-4 bounds]** | done |
 | P6 | Mixed-word fields (any word not straight) carry current proportional to their bit alternations; the (1,3), (2,3) witnesses need it too | CONJECTURE (to check with P3 on the saved witnesses) | ribbon_ends.py |
 
 ## 4. Counting argument (ARGUMENT)
@@ -120,12 +128,12 @@ argument (section 4) + finite certificates A, C (band transfer matrices, about 3
 
 - B: walls below 2/3 carry colour current, but NET current cancels (z0/z1 stripes): price zones by switched
   ribbon ends, not by current (risk 4 resolved this way).
-- A (CERTIFIED, W = 4): walls between straight-word fields >= 2/3 at every tested slope. **[CELL model (2 free columns) only; NOT a width-4 bound; rerun pending]**
+- A (CERTIFIED, W = 4): walls between straight-word fields >= 2/3 at every tested slope. **[rerun stopped 2026-10-03; CELL-model values, NOT width-4 bounds]**
 - Slope table: every slope strictly between (0,1) and (1,1) is below 2/3 without its zone (min 1/2 at (1,2)).
 - Wall + zone (CERTIFIED per slope for ANY words, given e and mu): crossings + e|1-s|/4 * mixed margin squares.
   At e = 1/2, mu = 2: minimum over 13 slopes = 31/50 at (3,5). With the staircase cap: flux price per level
   p* >= 31/50 > 1/2, i.e. X >= 4n + (31/25) n - O(1) = 5.24n - O(1), conditional on the ARGUMENT steps.
-- C **[CELL model (2 free columns) only; NOT a width-4 bound; rerun pending]** (CELL model, per boundary slope): e >= 1/2 per switched ribbon end for ANY word at 17 slopes
+- C **[rerun stopped 2026-10-03; CELL-model values, NOT width-4 bounds]** (CELL model, per boundary slope): e >= 1/2 per switched ribbon end for ANY word at 17 slopes
   (0, +-1/5, +-1/4, +-1/3, +-2/5, +-1/2, +-3/5, +-2/3, +-3/4; 72 runs, all pass).
 - Verifier Claim 43: P6 and the mu <= 2 reason FAIL. MIXP does not use P6 (it charges alternations). With
   mu <= 4 (distinct corners), concavity gives p >= 9/16 (X >= 5.125n), conditional (FINDINGS 9.7). e <= 2/3 is forced by the zigzag | V line at s = -1/2.

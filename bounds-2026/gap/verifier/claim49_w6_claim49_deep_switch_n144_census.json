@@ -1,0 +1,85 @@
+{
+  "file": "gap/verifier/claim49_deep_switch_n144.json",
+  "n": 144,
+  "X": 1032,
+  "retained": 221,
+  "K": 7,
+  "BQdeep": 814,
+  "selected": 442,
+  "BQx": 372,
+  "twoJ": 796,
+  "C5J": 1154,
+  "C5J_minus_4n": 578,
+  "sides": [
+    {
+      "X3_minus_rows": 45,
+      "Q3": 98,
+      "twoJ": 188
+    },
+    {
+      "X3_minus_rows": 48,
+      "Q3": 100,
+      "twoJ": 196
+    },
+    {
+      "X3_minus_rows": 51,
+      "Q3": 104,
+      "twoJ": 206
+    },
+    {
+      "X3_minus_rows": 50,
+      "Q3": 106,
+      "twoJ": 206
+    }
+  ],
+  "chambers": [
+    {
+      "side": 0,
+      "lo": 12,
+      "hi": 131,
+      "Uin": 0,
+      "raw_deep": 0,
+      "selected": 0,
+      "BQx": 0,
+      "possible_selected_overlap": 0,
+      "deficit": 0
+    },
+    {
+      "side": 1,
+      "lo": 11,
+      "hi": 130,
+      "Uin": 0,
+      "raw_deep": 0,
+      "selected": 0,
+      "BQx": 0,
+      "possible_selected_overlap": 0,
+      "deficit": 0
+    },
+    {
+      "side": 2,
+      "lo": 9,
+      "hi": 132,
+      "Uin": 0,
+      "raw_deep": 0,
+      "selected": 0,
+      "BQx": 0,
+      "possible_selected_overlap": 0,
+      "deficit": 0
+    },
+    {
+      "side": 3,
+      "lo": 12,
+      "hi": 131,
+      "Uin": 2,
+      "raw_deep": 16,
+      "selected": 0,
+      "BQx": 16,
+      "possible_selected_overlap": 16,
+      "deficit": -12
+    }
+  ],
+  "total_Uin": 2,
+  "total_region_BQx": 16,
+  "total_region_selected": 0,
+  "seconds": 14.192214905982837
+}

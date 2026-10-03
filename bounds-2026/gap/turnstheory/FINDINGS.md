@@ -1,3 +1,42 @@
+# C5-J L3/L4 proof task: exact pairing and conditional chamber count — 2026-10-03
+
+POST delivery to the Chief Researcher was attempted as requested,
+but localhost:4000 failed to connect (curl error 7). This file is the
+durable report; c5j_report_message.json contains the unsent message.
+
+Delivered C5J_L3L4.md, with PROOF / ARGUMENT / OPEN labels at each
+step. The small standard-Python check check_c5j_width6.py passes;
+output is c5j_width6_check.json. No heavy computation or blog edit.
+
+L3: the exact P matching at depth 5.5 is still c->c-3 for even c,
+c->c+3 for odd c. Two actual partner returns of equal even shift
+close the four-piece cycle. Require it to be a proper component.
+For cross chords use f(P_lower(c))=P_upper(f(c)); when f=epsilon*c+s
+and the two reference rules agree, this means epsilon=+1/s even OR
+epsilon=-1/s odd. P-class ends alone do not prove the partner exists
+or that shifts agree. Lemma F needs the full intervening good region.
+
+Key correction to BEYOND5 13.4: width-six P and U have the same PORT
+EDGES and straddle count, but DIFFERENT labelled pairings. P joins
+(4,r) to (5,r+2), U joins (5,r) to (4,r+2). I derive both with six-cell
+paths, matching Lower Bounds B5f. A pairing class must retain this.
+
+L4: for a proper chamber with barrier capacity L+e_beta, coverage of
+square column five gives L<=2R_in+c+G5/2+128+e_beta. Here c counts
+shallow p56 ports and G5 raw holes; the 128 is a conservative explicit
+PER-INTERVAL endpoint allowance. This count avoids an unsupported
+translation of the old m12 degree identity. It remains conditional
+on constructing the proper chamber and barrier.
+
+The payment gaps are explicit: L4' still double-uses a shallow port
+as a return's escape and in c; G5 can overlap flux-selected quarters
+and is not automatically free BQx; non-P does not imply Phi>0 without
+a zero-set result; a segment cost must cover all returns it serves;
+L5 prices untrapping; per-chamber/junction errors need global control.
+There is no unconditional L4 proof or beyond-5 claim in this report.
+
+---
+
 # Public crossings demo embedded — 2026-10-03
 
 Replaced the Integrator-demo TODO in writeup/crossings/post.mdx with

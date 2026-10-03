@@ -387,7 +387,7 @@ in ribbon_ends.out, e.g. (1,2): 5, 2, 2, 2 per row, = 2 mod 3). The optimal vert
   (modeled strip next to the side, margin on one side only).
 
 ## 8. Can (1,2) walls give a 6n layout? Zigzag-zone prices (CR task, 2026-10-03, 10:15-13:30 box time)
-**[CELL model (2 free columns) only; NOT a width-4 bound; rerun pending]** (CR, 2026-10-03: the CELL option fixed the outermost modeled cells u = 0 and u = WM-1, so only 2 columns were free.)
+**[rerun stopped 2026-10-03; CELL-model values, NOT width-4 bounds]** (CR, 2026-10-03: the CELL option fixed the outermost modeled cells u = 0 and u = WM-1, so only 2 columns were free.)
 
 Engine `wall/wall_if.cpp` = wall.cpp + three options (build: `g++ -O2 -march=native -std=c++17 -DNOLABK -o wifc wall_if.cpp`):
 - CELLL / CELLR = move multiset of each of the ZW (default 1) outermost modeled cells per side: zigzag '/' = 02 (one
@@ -482,7 +482,7 @@ Every witness below 2/3 carries colour current; the 2/3 witnesses carry none. No
 row) at 7/12. Correction (9.3): NET current is the wrong measure (it can cancel); count switched ribbons (zone ends) instead.
 
 ### 9.2 Item A: psi walls between STRAIGHT-word fields (wall/if/straightA.sh, output if/straightA_W4.out)
-**[CELL model (2 free columns) only; NOT a width-4 bound; rerun pending]** (CR, 2026-10-03: the CELL option fixed the outermost modeled cells u = 0 and u = WM-1, so only 2 columns were free.)
+**[rerun stopped 2026-10-03; CELL-model values, NOT width-4 bounds]** (CR, 2026-10-03: the CELL option fixed the outermost modeled cells u = 0 and u = WM-1, so only 2 columns were free.)
 
 MODE nz, lambda = 1, W = 4, margins AND outermost modeled cells forced to one straight type per side
 (CELL 00/22/11/33 with FIELD 0/2/1/3), all 10 unordered pairs per shear. Crossings per row (CERTIFIED in the model):
@@ -539,7 +539,7 @@ channel also doubled the states by a row-parity bit; fixed: MIXP does not need i
 staircase cap 2/3 (section 4 of the design) the flux price is >= 31/50 per level IF e >= 1/2 and mu <= 2.
 
 ### 9.6 Item C (general words): zone ends cost >= e per switched ribbon end (if/zoneC.sh, zoneC*_e1_2.out)
-**[CELL model (2 free columns) only; NOT a width-4 bound; rerun pending]** (CR, 2026-10-03: the CELL option fixed the outermost modeled cells u = 0 and u = WM-1, so only 2 columns were free.)
+**[rerun stopped 2026-10-03; CELL-model values, NOT width-4 bounds]** (CR, 2026-10-03: the CELL option fixed the outermost modeled cells u = 0 and u = WM-1, so only 2 columns were free.)
 
 Band with left margin '/' (or '') of ANY word, right margin one straight type, MODE any, lambda = 1, W = 4.
 Weight per row = crossings - (e|1-s|/2) * (mixed left margin squares). Certified min >= 0 means: every
@@ -588,3 +588,24 @@ solver is far from optimal and proves nothing. Width 8 is the smallest width at 
 both ends could fit; the transfer-matrix engine stops at W = 4 (W = 5 > 8 GB). So item D is NOT feasible with the
 present tools. A certificate for bent carriers needs a different method (a common state space with checked bend
 transitions, as the Verifier suggests), not a bigger solver run.
+
+### 9.9 Clean reruns in the margin-square model (all 4 columns free; 2026-10-03 evening)
+
+Model: no CELL option. Field types are imposed ONLY on the margin squares (perfect, tiles restricted by FIELD;
+for words, the H/V bit of each half is fixed by WSQ = word, ribbon r = Y - X, phases WSQL/WSQR). This is the model
+of section 7 and WALL12. wall_if.cpp option WSQ (binary wifw2); row counter mod 4 in key bits 12-13.
+
+Item A (if/straightAf*.out), psi walls between straight fields, 10 field pairs per slope, crossings per row:
+(1,3) min 7/9 ('/'H | '/'V), others 5/6 .. 7/3 or none; (2,3) min 1 ('\'H | '\'V), others none; (3,4) min 1
+('\'H | '\'V), others none; (1,2) min 1 (WALL12). **A holds in the clean model: >= 2/3 at every tested slope.**
+
+Verifier's HHVV test (Claim 43E; if/wsq_W4.out): calibration: word HV both sides, same phase: 1/2 (= the witness);
+HV with phases 0 | 1: none. HHVV field alone (MODE any): 0 (the field is perfect, exists). **(1,2) psi wall
+between HHVV and HHVV, same phase (all 4 phases): none below 4 per row.** So the zero-current mixed word HHVV does
+NOT give a cheap (1,2) wall at W = 4. Also: all 12 unequal phase pairs at (1,2): none; same phase at (0,1): 1; (1,3): none;
+(1,1): 2/3. So with HHVV exteriors every tested psi wall costs >= 2/3 per level (W = 4).
+
+### 9.10 Stop (2026-10-03, CR: wind down by Nil's decision)
+
+Item C clean rerun (margin-square model, if/zoneCf_e1_2.out) stopped after 13 of 72 runs: slopes +-1/2 (8 runs) and
+0 (5 runs) all pass (min >= 0 at e = 1/2). The other slopes have only CELL-model values. No job is running.

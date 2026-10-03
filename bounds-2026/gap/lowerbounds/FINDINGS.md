@@ -1,5 +1,114 @@
 # KT Lower Bounds - gap mission findings (gap/lowerbounds/)
 
+## B5f (2026-10-03): the U collar is NOT the J-cheapest filling of its width-6 pairing class (BEYOND5 13.4 / 13.5)
+
+**Result (CHECKED two ways).** A period-1 filling R of the same width-6 boundary, with the same U pairing, has
+J = 1 per row (2J = 4) against the U collar's J = 2 (2J = 6). Boxes of height H >= about 22 are cheaper than U, by
+1 J per row minus about 19.5 J for the two transitions. So the local fact asked for in BEYOND5 13.4 is FALSE.
+R: inner edges per row (x, dx, dy) = (1,-1,2) (2,-2,1) (3,-2,1) (4,-2,1) (5,-2,1), ports (4,y)-(6,y+1),
+(5,y)-(7,y+1) as in U; the path (5,r)-(3,r+1)-(1,r+2)-(0,r+4)-(2,r+3)-(4,r+2) has the U port pair. R is the U
+interior mirrored in y, with U's ports kept. Per row (b5f_patterns.py): X3 1, hole 1, X1 1, W3 0.
+
+**Statement tested.** Strip cells x = 0..5 (local side frame), infinite in y. Boundary fixed to the U collar of FOLD
+(period 1 in y): every row has the ports (4,y)-(6,y+1) and (5,y)-(7,y+1), so cells 4, 5 have internal degree 1
+and cells 0..3 degree 2. U pairing: the collar path through port (5,r) ends at port (4,r+2). Claim: every filling
+of a box (6 x H) in this field with the same boundary edges, the same boundary pairing and no internal cycle has
+2J(box) >= 2J(U collar), where 2J = 2 X3 + Q3 exactly as Structures 13.5 (`c5j_patch.py`): X3 = proper crossing
+pairs of edges that both have an end at x <= 2; Q3 in squares x = 0..4: hole 1, W3 max(0, m-2, 2m-5, 3m-9), X1 1 for
+a properly crossing pair whose tiles share exactly one quarter when that quarter has m = 2. U: 2X3 + Q3 = 4 + 2 =
+6 per row (MEASURED, b5f_patterns.py: X3 2, X1 2, holes 0, W3 0 per row; J = (X3 - rows) + Q3/2 = 2).
+**Design input (MEASURED, b5f_boundary.py on FOLD24_n96 side 0).** P rows (8..27) and U rows (33..39) have the SAME
+width-6 port edges on every row; only the pairing differs: P pairs (4,r) with (5,r+2), U pairs (5,r) with (4,r+2)
+(each path has 6 cells). The same holds at widths 4 and 5 (same port edges, different pairing). So the pairing is
+the only thing that keeps P (2J = 0 per row) out of the class, and the DP must carry connectivity exactly.
+The s(r) state of the first brief is not needed (dropped by CR order after Structures 13.4).
+
+**Model (b5f.cpp, tables from b5f_tables.py).** Scan cells in (y, x) order. State = (x, pending internal edges,
+piece label per pending end, piece type). Piece = component of the processed part; its ends are pending edges.
+Types: G (no port, 2 ends), W0 / W1 (holds port (5,r), 1 end, partner port (4,r+2) is due in 0 / 1 rows),
+V (holds a port and its partner, 2 ends: the path is complete once its two ends meet). Rules: closing a G piece
+is an internal cycle (forbidden); a piece may hold at most one W or one V; at cell (5,y) the incoming piece must be
+G and becomes W; at cell (4,y) the piece must join the W due now (direct closure, or fusion into V). These rules
+accept a filling iff its components are paths whose port pairs are the U pairs. Arc weight (units of 2J):
+2 x (new X3 crossings of the cell's new edges with pending edges) + at each row end (Q3 of that square row - 6).
+Q3 of square row r is exact from the pending set at the end of row r (an edge's tile meets square row r iff it
+spans the cut r | r+1), plus the fixed port (4,r)-(6,r+1); no edge at x >= 6 has a tile quarter in squares x <= 4.
+The geometry tables use Structures' / Verifier's own functions (claim38_switch.qs, claim9_tiles.proper).
+**Why it is exact.** A box filling (rows 0..H-1) enters at the U frontier state and, because its boundary
+edges and pairing equal U's, leaves at the U frontier state; conversely every walk U-state -> U-state is such a
+filling. So "min over walks U -> U of the weight >= 0" is the claim for every H at once, with no O(1) loss beyond
+the booking of crossings / quarters at the two box ends. Certificate = Bellman-Ford from U on the strongly connected
+component of U (states reachable from U and co-reachable to U): convergence with d(U) = 0 proves it (the potential
+d is the certificate); a negative cycle is a periodic filling cheaper than U per row (linear-in-H lowering).
+mu = 1 tightness (item (4) of the first brief): the U collar is a zero-weight 1-row cycle of this graph, so the
+test value 6 per row is exact if the certificate passes; no Dinkelbach is needed.
+
+**Validation (MEASURED, `b5f walk`, b5f_walk.py).** Following a filling through the DP from the U state:
+U collar: weight 0 per row, returns to the U state. The three known pairing-preserving patches are accepted by the
+pairing rules, return to the U state, and give 2J change +210 (Claim 45, H = 16), +314 (Claim 47, H = 24), +173
+(Structures' c5w patch): exactly 2 x the J values +105 / +157 / +86.5 that Structures measured on tours.
+A forced value 7 per row (env B5F_LAM=7) makes the U cycle negative and the code returns it (mean 6.0000).
+
+**Size and memory (MEASURED).** The cell-level graph is large: a capped build (24-byte keys, unordered_map) reached
+the 170M-state cap at 6.4 GB with 200M arcs and the BFS queue still 29M; a row-level graph (only row-start states,
+one arc per whole row) has about 11 arcs per state and 32M row states after 10M expanded, so it is not smaller.
+Final build: 160-bit keys (46-bit compact slot mask, x, 13 x 2 type bits, 21 x 4 label bits), open addressing
+table of 2^29 uint32 (2 GB), arcs streamed to disk during the build (b5f_off/dst/wt.bin), then the table and keys
+are freed and the arcs loaded (about 13 bytes per state + 6 per arc). Peak about 20 bytes per state + 2 GB.
+**Run results (MEASURED, 2026-10-03).**
+- Exact graph: `b5f_run_exact_cap290M.log`: the BFS from U reached the 290M-state cap (356M arcs, 7.6 GB) with 241M
+  states expanded and the queue still growing (49M). The exact certificate does NOT fit 8.3 GB; the total is unknown.
+- One-sided search: `b5f_run_trunc250M.log` (env B5F_TRUNC=1: first 250M states, arcs to further states dropped;
+  315.6M arcs; SCC of U in it 3,426,015 states; max 17 ends, 9 pieces). Bellman-Ford finds a negative closed walk
+  through U at pass 23; the extracted cycle is R (1 row, weight -2 at test value 6: 2J = 4 per row).
+- Explicit box, two independent evaluations: Structures' model (`b5f_box.py` = c5j_patch.py unchanged + R forced on
+  rows 10..29), H = 40: FEASIBLE, 2J = 207 against 234 for U (change -27; solver bound 94, not optimal). Filling in
+  `b5f_box_H40_R10_30.json` (144 edges removed, 144 added). The DP walk of the same filling: row weights +19 (entry),
+  -2 on each of 33 R rows, +20 (exit), total -27, and it returns to the U state.
+- Consistent with Structures 13.5: U is optimal for H <= 12 because the transitions cost about 39 (2J).
+Closed (2026-10-03): the rerun at test value 4 per row (`b5f_run_trunc250M_lam4.log`) was stopped at 210M states
+by CR order: under J' (below) R ties U, so it is moot. Beyond-5n research is STOPPED by Nil's decision; nothing of
+B5f runs. Scratch graph files b5f_*.bin (7.6 GB, regenerable) were deleted.
+**R does not lower X (Structures, BEYOND5 13.8, relayed, not checked by me).** R rows have U's crossing count: a
+box changes X by +14 at both 20 and 40 R rows, and FOLD n = 288 with 4 R boxes is a closed tour with X + 14 per box.
+R moves one crossing per row from S3 to a pair just outside S3, which J does not count. Structures' repaired
+currency: J' = J + Y_sh, Y_sh = proper crossing pairs NOT both with an end at x <= 2 whose shared tile quarters are
+all in squares x <= 4. b5f.cpp option B5F_JP=1 adds Y_sh at weight 2 (units of 2J; internal pairs at creation, pairs
+with the port (4,r)-(6,r+1) at the end of row r; table YS from qs / proper). MEASURED with `b5f walk`: U has
+Y_sh = 0 per row, so U is still 2J' = 6 per row; the R box H = 40 gives 2J' change +55 (Structures: R and U tie in
+J', entry / exit +55; agrees); Claim 45 +270, Claim 47 +406 (2J').
+**Status of the evidence.** The refutation (R cheaper than U) is CHECKED: an explicit filling, evaluated by two
+independent codes. Any positive statement in this class (U minimal, or later R minimal) has only EVIDENCE, NOT a
+certificate: Structures' CP-SAT OPTIMAL for H = 6..12 plus the one-sided DP search over the first 250M states. The
+exact DP does not fit 8.3 GB (MEASURED: more than 290M states at 7.6 GB, queue growing). BEYOND5 13.7 L1 (the
+"smaller model" with the x = 5.5 stubs and their pairing fixed) is this same model, so it is refuted by R too.
+**Reductions for a later certificate (DESIGN only, nothing checked).**
+- Smaller sufficient statement. Certify only what the route uses: e.g. min mean J >= 1 per row (the R value) with
+  a coarser state. A lower bound on J needs exact connectivity only where it decides the pairing; edges at x = 5
+  touch J only through squares x = 4 quarters. Dropping the Q3 terms of squares x = 3, 4 gives a smaller weight
+  (still sound for a lower bound) but does not shrink the state; the state count is in the pending-edge sets (the
+  label factor was only about 1.4 in a 1.5M-state sample), so a state reduction must merge edge sets.
+- Dominance merge. Two states with the same connectivity and type data whose pending edges differ only in columns
+  4, 5 with identical future constraints can be merged with min weight; this needs a proof that the future
+  weight does not depend on the merged difference (it does through Q3 of square 4, so the merge must keep those
+  quarter multiplicities).
+- Canonical labels are already used (restricted growth over the slot order). A y-mirror symmetry does not apply:
+  the ports (4,y)-(6,y+1) break it (R is exactly the U interior mirrored).
+- Bidirectional pruning: the SCC of U was 1.4% of the 250M-state ball (3.4M states); a backward search from U
+  (the mirrored DP) intersected with the forward one may be far smaller than either. Both sides still need to be
+  enumerated once, so this needs disk-backed duplicate detection (keys 20 B per state, about 20 GB disk per 1G
+  states) rather than an in-memory hash.
+- External-memory BFS by cell position (6 layers) with sorted runs keeps RAM to one layer plus a merge buffer.
+
+```sh
+cd gap/lowerbounds/beyond5
+../../../.venv/bin/python b5f_tables.py && g++ -O2 -std=c++17 -o b5f2 b5f.cpp
+python3 b5f_walk.py -3 20 ../../verifier/claim45_U_gadget.json > /tmp/g45.txt && ./b5f2 walk /tmp/g45.txt   # +210
+(ulimit -v 8300000; ./b5f2 build 290000000 200000 29)                # exact: CAP at 290M (b5f_run_exact_cap290M.log)
+(ulimit -v 8300000; B5F_TRUNC=1 ./b5f2 build 250000000 200000 29)   # one-sided, finds R (about 25 min, 6.8 GB)
+cd ../../.. && .venv/bin/python gap/lowerbounds/beyond5/b5f_box.py 40 600 10 30   # Structures' model, 2J 207 vs 234
+```
+
 ## B5e (2026-10-03): R-f (Claim 47 gadget) and R-d (near ports)
 
 **R-f (MEASURED; r_b.py and check_hall_v3.geometry on gap/verifier/claim47_patched_n288.json, 4 copies, one per

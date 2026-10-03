@@ -1,0 +1,3 @@
+W 8 H 10 FEASIBLE 2J new 54.0 bound 8.0 2J base 54 change per row 0.0
+W 8 H 12 FEASIBLE 2J new 66.0 bound 5.0 2J base 66 change per row 0.0
+W 10 H 8 OPTIMAL 2J new 42.0 bound 42.0 2J base 42 change per row 0.0
