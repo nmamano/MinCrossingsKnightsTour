@@ -1,0 +1,40 @@
+== allpipe selftest_TT16 2026-10-04 01:08:24 bases=['/tmp/ap/TT16_n56.json', '/tmp/ap/TT16_n58.json', '/tmp/ap/TT16_n60.json', '/tmp/ap/TT16_n62.json']
+base n=56: T=434 (T-8n=-14) X=530 file=/tmp/ap/TT16_n56.json
+base n=58: T=450 (T-8n=-14) X=548 file=/tmp/ap/TT16_n58.json
+base n=60: T=466 (T-8n=-14) X=570 file=/tmp/ap/TT16_n60.json
+base n=62: T=482 (T-8n=-14) X=592 file=/tmp/ap/TT16_n62.json
+shape cells per corner: {'BL': 36, 'BR': 36, 'TL': 36, 'TR': 36} bounding boxes: {'BL': (6, 6), 'BR': (6, 6), 'TL': (6, 6), 'TR': (6, 6)}
+outside matching: period p=8 in n, periodic from n_s=48 (checked to n=300); n with overlap/closed fixed cycles: []
+n=48: T=370 T-8n=-14 X=454 transplant res00 (n0=56)
+n=50: T=386 T-8n=-14 X=472 transplant res02 (n0=58)
+n=52: T=402 T-8n=-14 X=494 transplant res04 (n0=60)
+n=54: T=418 T-8n=-14 X=516 transplant res06 (n0=62)
+n=56: T=434 T-8n=-14 X=530 transplant res00 (n0=56)
+n=58: T=450 T-8n=-14 X=548 transplant res02 (n0=58)
+n=60: T=466 T-8n=-14 X=570 transplant res04 (n0=60)
+n=62: T=482 T-8n=-14 X=592 transplant res06 (n0=62)
+n=64: T=498 T-8n=-14 X=606 transplant res00 (n0=56)
+n=66: T=514 T-8n=-14 X=624 transplant res02 (n0=58)
+n=68: T=530 T-8n=-14 X=646 transplant res04 (n0=60)
+n=70: T=546 T-8n=-14 X=668 transplant res06 (n0=62)
+n=72: T=562 T-8n=-14 X=682 transplant res00 (n0=56)
+n=74: T=578 T-8n=-14 X=700 transplant res02 (n0=58)
+n=76: T=594 T-8n=-14 X=722 transplant res04 (n0=60)
+n=78: T=610 T-8n=-14 X=744 transplant res06 (n0=62)
+n=80: T=626 T-8n=-14 X=758 transplant res00 (n0=56)
+n=82: T=642 T-8n=-14 X=776 transplant res02 (n0=58)
+n=84: T=658 T-8n=-14 X=798 transplant res04 (n0=60)
+n=86: T=674 T-8n=-14 X=820 transplant res06 (n0=62)
+n=88: T=690 T-8n=-14 X=834 transplant res00 (n0=56)
+n=90: T=706 T-8n=-14 X=852 transplant res02 (n0=58)
+n=92: T=722 T-8n=-14 X=874 transplant res04 (n0=60)
+n=94: T=738 T-8n=-14 X=896 transplant res06 (n0=62)
+n=96: T=754 T-8n=-14 X=910 transplant res00 (n0=56)
+n=98: T=770 T-8n=-14 X=928 transplant res02 (n0=58)
+n=100: T=786 T-8n=-14 X=950 transplant res04 (n0=60)
+n=102: T=802 T-8n=-14 X=972 transplant res06 (n0=62)
+n=104: T=818 T-8n=-14 X=986 transplant res00 (n0=56)
+n=106: T=834 T-8n=-14 X=1004 transplant res02 (n0=58)
+n=108: T=850 T-8n=-14 X=1026 transplant res04 (n0=60)
+n=110: T=866 T-8n=-14 X=1048 transplant res06 (n0=62)
+DONE: T-8n per residue {0: [-14], 2: [-14], 4: [-14], 6: [-14]}; worst -14; next: python3 w-integrator/allsize_check.py w-integrator/pipeline/selftest_TT16

@@ -1,0 +1,4 @@
+{'n': 40, 'joined': True, 'residual': -28, 'internal_cycles': [], 'ghost_degree_hist': {1: 138, 2: 36, 3: 2}, 'forced_ghost_turns': 36, 'overloaded': [[(4, 28), [(2, 27), (2, 29), (3, 30)]], [(35, 28), [(37, 27), (37, 29), (36, 30)]]]}
+{'n': 48, 'joined': True, 'residual': -28, 'internal_cycles': [], 'ghost_degree_hist': {1: 198, 2: 38, 3: 2}, 'forced_ghost_turns': 38, 'overloaded': [[(4, 36), [(2, 35), (2, 37), (3, 38)]], [(43, 36), [(45, 35), (45, 37), (44, 38)]]]}
+{'n': 64, 'joined': True, 'residual': -28, 'internal_cycles': [], 'ghost_degree_hist': {1: 326, 2: 38, 3: 2}, 'forced_ghost_turns': 38, 'overloaded': [[(4, 52), [(2, 51), (2, 53), (3, 54)]], [(59, 52), [(61, 51), (61, 53), (60, 54)]]]}
+{'n': 96, 'joined': True, 'residual': -28, 'internal_cycles': [], 'ghost_degree_hist': {1: 582, 2: 38, 3: 2}, 'forced_ghost_turns': 38, 'overloaded': [[(4, 84), [(2, 83), (2, 85), (3, 86)]], [(91, 84), [(93, 83), (93, 85), (92, 86)]]]}

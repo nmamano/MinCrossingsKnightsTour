@@ -1,0 +1,42 @@
+[
+  {
+    "path": "gap/verifier/turns_search_pair_level56_0.txt",
+    "n": 56,
+    "turns": 434,
+    "removed_edges": 3,
+    "added_edges": 3,
+    "sha256": "3df0f650f7a3695ea26e6e8f2e63d1b1705977bf60413cc59bb132621e225f6b"
+  },
+  {
+    "path": "gap/verifier/turns_search_seed56.txt",
+    "n": 56,
+    "turns": 434,
+    "removed_edges": 0,
+    "added_edges": 0,
+    "sha256": "d18b176330fe9be437068fcc06f5db970d4bdfc6e1c5af92839aa746452c0e19"
+  },
+  {
+    "path": "gap/verifier/turns_search_seed58.txt",
+    "n": 58,
+    "turns": 450,
+    "removed_edges": 0,
+    "added_edges": 0,
+    "sha256": "07d8393187fbe78154492298122150aa0af908241010e3a69406402c3bcb6f5d"
+  },
+  {
+    "path": "gap/verifier/turns_search_seed60.txt",
+    "n": 60,
+    "turns": 466,
+    "removed_edges": 0,
+    "added_edges": 0,
+    "sha256": "4610de8d04ae3243182efc4eabcd94aa0043001dd4b2f4feb52a2ad38bd65a46"
+  },
+  {
+    "path": "gap/verifier/turns_search_seed62.txt",
+    "n": 62,
+    "turns": 482,
+    "removed_edges": 0,
+    "added_edges": 0,
+    "sha256": "aa7b7d5716a7b55a4011c1028e9e1cda471115c503a6ffc54c16f0dc496350fb"
+  }
+]

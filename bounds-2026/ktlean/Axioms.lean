@@ -28,3 +28,9 @@ import Ktlean
 #check @KT.ClosedTour.fourteen_mul_le_of_stability
 #print axioms KT.ClosedTour.combined_count
 #print axioms KT.ClosedTour.fourteen_mul_le_of_stability
+#check @KT.ClosedTour.eight_mul_sub_28_le_numTurns
+#check @KT.TwoFactor.eight_mul_le_numTurns_add_28
+#check @KT.TwoFactor.eight_mul_le_numTurns_add_of_cornerBound
+#print axioms KT.ClosedTour.eight_mul_sub_28_le_numTurns
+#print axioms KT.TwoFactor.eight_mul_le_numTurns_add_28
+#print axioms KT.cornerBound_seven

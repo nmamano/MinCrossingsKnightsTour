@@ -1,0 +1,7 @@
+== 23:21:38 16 2f 0 600 r16_2f_D0.json r16_tour_D4.json
+it 1 OPTIMAL T-8n=-20 bound=-20 cycles=4 t=312s
+RESULT {"n": 16, "mode": "2f", "D": 0, "T": 108, "T_minus_8n": -20, "bound_minus_8n": -20, "status": "OPTIMAL", "cycles": 4, "seconds": 311.6, "exact": true, "date": "2026-10-04"}
+== 23:26:51 14 2f 0 600 r14_2f_D0.json
+it 1 OPTIMAL T-8n=-20 bound=-20 cycles=3 t=176s
+RESULT {"n": 14, "mode": "2f", "D": 0, "T": 92, "T_minus_8n": -20, "bound_minus_8n": -20, "status": "OPTIMAL", "cycles": 3, "seconds": 175.7, "exact": true, "date": "2026-10-04"}
+== 23:29:48 14 tour 0 600 r14_tour_D0.json

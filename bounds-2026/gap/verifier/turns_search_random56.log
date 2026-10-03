@@ -1,0 +1,14 @@
+n 56 baseline 434 census 1:68 2:187 3:388 4:4344
+run 0 best 434 final 434
+run 1 best 434 final 434
+run 2 best 434 final 434
+run 3 best 434 final 438
+run 4 best 434 final 434
+run 5 best 434 final 435
+run 6 best 434 final 435
+run 7 best 434 final 438
+run 8 best 434 final 434
+run 9 best 434 final 434
+run 10 best 434 final 434
+run 11 best 434 final 448
+SUMMARY n 56 best 434 attempted 36000000 valid 12504712 accepted 19844 neutral 6308

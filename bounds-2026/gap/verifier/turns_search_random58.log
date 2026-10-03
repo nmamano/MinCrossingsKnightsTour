@@ -1,0 +1,14 @@
+n 58 baseline 450 census 1:68 2:170 3:269 4:2670
+run 0 best 450 final 450
+run 1 best 450 final 451
+run 2 best 450 final 450
+run 3 best 450 final 461
+run 4 best 450 final 450
+run 5 best 450 final 450
+run 6 best 450 final 450
+run 7 best 450 final 460
+run 8 best 450 final 450
+run 9 best 450 final 450
+run 10 best 450 final 450
+run 11 best 450 final 455
+SUMMARY n 58 best 450 attempted 36000000 valid 9431863 accepted 19257 neutral 5659

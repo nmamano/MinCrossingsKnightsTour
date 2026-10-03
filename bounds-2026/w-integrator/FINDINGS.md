@@ -470,3 +470,26 @@ commands, coefficient "between 5 and 19/3"). Chart labels print "5n" only: no ch
 root on 2026-10-03 (cut certificate 4.1 s). This REPLACES the old Milestone plan's 5n-612 RESULTS row.
 At the milestone: sync; stage everything with ':!bounds-2026/writeup/turns'; fresh-copy run of the 13 crossings/turns post
 appendix commands (turns post is gone from the repo: run only the crossings ones + PROOF_5N_V2 sec 7); privacy scan; push.
+2026-10-03 21:15 UTC: routine sync pushed 055e815 (Claim 53 audit). HELD with the post: gap/verifier/claim53_post_snapshot.mdx + claim53_vs46.diff (full draft of the unreviewed crossings post); asked the CR. claim46_crossings_snapshot.mdx was already pushed in 0696598.
+2026-10-03 (CR): pushed cafc5cd: claim46_crossings_snapshot.mdx untracked (git rm --cached; research file kept). Held post snapshots now: claim46_crossings_snapshot.mdx, claim53_post_snapshot.mdx, claim53_vs46.diff - add ':!bounds-2026/gap/verifier/claim46_crossings_snapshot.mdx' to routine staging; release all three at the milestone. Other tracked post copies (gap/turnstheory/post_before_5n.mdx, claim26_sources/..post.mdx = public post; claim21_clean = older) are fine.
+
+## 2026-10-04: all-n pipeline for the turns mission (close 8n-28 <= T_min <= 8n-14)
+Role (CR): any improved corner set -> verified tours for every even n = 48..110 + period-in-n + all-size certificate.
+- w-integrator/allpipe.py (needs .venv/bin/python, CP-SAT). Input: Edge Searcher csolve.py --mode tour --out JSONs
+  (n, tour, A, B, combo path or inline bottom/left/top/right/phases; gadget names from menu_turns.json allowed;
+  optional explicit "region" per corner, i/j = distance from the vertical/horizontal side). Or --combo F --A --B
+  with no base (solves every class from the skeleton). Cells outside the region that differ from the skeleton are
+  added to the shape. Finds the outside-matching period p and n_s; per class mod p: base content, else CP-SAT
+  (corners whose band surroundings are unchanged are copied from the nearest base; --time, --workers 2,
+  --pure-turns). Transplants to every even n in [nmin, nmax]; direct solve where the transplant fails.
+  Output w-integrator/pipeline/<tag>/: res<r>.json (anchored-v2 zones: "<corner>:dx,dy" from anchors BL (0,0),
+  BR (n,0), TL (0,n), TR (n,n)), tours/<tag>_n<n>.json, SUMMARY.md, run.log.
+  Usage: .venv/bin/python w-integrator/allpipe.py --tag NAME base_n56.json base_n58.json ... [--nmax 110]
+- w-integrator/allsize_check.py (python3, standard library): the audited TT16 proof logic of
+  w-turnstheory/check_upper_proofs.py, generalised (any depths, periods, shapes; line period w = lcm(PB, PT, 2QL,
+  2QR), step s = lcm(p, w), base N in [96, 96+s) per class mod s, one cut slab per diagonal gap >= 6 lines from the
+  zones: M^(1+s/w) = M, n -> n+s equivalence, long slab; T(N+s) - T(N) = band turns). Direct checks of every n in
+  [48, N+s]. Usage: python3 w-integrator/allsize_check.py w-integrator/pipeline/NAME
+- Self-tests 2026-10-04 (pipeline/selftest_*): TT16 bases -> 8n-14 all even n >= 48, PASS (transplant works down
+  to n = 48; seconds). L-shape 10x6+6x10 from 1 base -> 8n-13 (3 classes solved, 120 s each), PASS. Combo
+  l_d5lowm20/l_free, 8x8, no base -> 8n-13 (~8 min), PASS. Untested: band periods 16 (s > p).

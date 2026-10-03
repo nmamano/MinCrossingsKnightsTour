@@ -21,3 +21,5 @@ import Ktlean.Assembly
 import Ktlean.EndTest
 import Ktlean.Main
 import Ktlean.TourMain
+import Ktlean.CornerTurns
+import Ktlean.Turns28

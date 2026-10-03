@@ -1,0 +1,192 @@
+{"corner": "BL", "n": 62, "Z": 8, "side": "A23_27", "xp": 0, "yp": 0, "res": -4, "bound": -4, "status": "OPTIMAL"}
+{"corner": "BL", "n": 62, "Z": 8, "side": "A23_27", "xp": 1, "yp": 0, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "BL", "n": 62, "Z": 8, "side": "A23_27", "xp": 2, "yp": 0, "res": -4, "bound": -4, "status": "OPTIMAL"}
+{"corner": "BL", "n": 62, "Z": 8, "side": "A23_27", "xp": 3, "yp": 0, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "BL", "n": 62, "Z": 8, "side": "A23_27", "xp": 4, "yp": 0, "res": -4, "bound": -4, "status": "OPTIMAL"}
+{"corner": "BL", "n": 62, "Z": 8, "side": "A23_27", "xp": 5, "yp": 0, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "BL", "n": 62, "Z": 8, "side": "A23_27", "xp": 6, "yp": 0, "res": -4, "bound": -4, "status": "OPTIMAL"}
+{"corner": "BL", "n": 62, "Z": 8, "side": "A23_27", "xp": 7, "yp": 0, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "BL", "n": 62, "Z": 8, "side": "B02_24", "xp": 0, "yp": 0, "res": -1, "bound": -1, "status": "OPTIMAL"}
+{"corner": "BL", "n": 62, "Z": 8, "side": "B02_24", "xp": 1, "yp": 0, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "BL", "n": 62, "Z": 8, "side": "B02_24", "xp": 2, "yp": 0, "res": -1, "bound": -1, "status": "OPTIMAL"}
+{"corner": "BL", "n": 62, "Z": 8, "side": "B02_24", "xp": 3, "yp": 0, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "BL", "n": 62, "Z": 8, "side": "B02_24", "xp": 4, "yp": 0, "res": -1, "bound": -1, "status": "OPTIMAL"}
+{"corner": "BL", "n": 62, "Z": 8, "side": "B02_24", "xp": 5, "yp": 0, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "BL", "n": 62, "Z": 8, "side": "B02_24", "xp": 6, "yp": 0, "res": -1, "bound": -1, "status": "OPTIMAL"}
+{"corner": "BL", "n": 62, "Z": 8, "side": "B02_24", "xp": 7, "yp": 0, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "BL", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 0, "yp": 0, "res": -3, "bound": -3, "status": "OPTIMAL"}
+{"corner": "BL", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 0, "yp": 1, "res": -3, "bound": -3, "status": "OPTIMAL"}
+{"corner": "BL", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 0, "yp": 2, "res": -2, "bound": -2, "status": "OPTIMAL"}
+{"corner": "BL", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 0, "yp": 3, "res": -2, "bound": -2, "status": "OPTIMAL"}
+{"corner": "BL", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 1, "yp": 0, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "BL", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 1, "yp": 1, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "BL", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 1, "yp": 2, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "BL", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 1, "yp": 3, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "BL", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 2, "yp": 0, "res": -3, "bound": -3, "status": "OPTIMAL"}
+{"corner": "BL", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 2, "yp": 1, "res": -2, "bound": -2, "status": "OPTIMAL"}
+{"corner": "BL", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 2, "yp": 2, "res": -2, "bound": -2, "status": "OPTIMAL"}
+{"corner": "BL", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 2, "yp": 3, "res": -2, "bound": -2, "status": "OPTIMAL"}
+{"corner": "BL", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 3, "yp": 0, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "BL", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 3, "yp": 1, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "BL", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 3, "yp": 2, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "BL", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 3, "yp": 3, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "BL", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 4, "yp": 0, "res": -3, "bound": -3, "status": "OPTIMAL"}
+{"corner": "BL", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 4, "yp": 1, "res": -2, "bound": -2, "status": "OPTIMAL"}
+{"corner": "BL", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 4, "yp": 2, "res": -2, "bound": -2, "status": "OPTIMAL"}
+{"corner": "BL", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 4, "yp": 3, "res": -2, "bound": -2, "status": "OPTIMAL"}
+{"corner": "BL", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 5, "yp": 0, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "BL", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 5, "yp": 1, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "BL", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 5, "yp": 2, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "BL", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 5, "yp": 3, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "BL", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 6, "yp": 0, "res": -3, "bound": -3, "status": "OPTIMAL"}
+{"corner": "BL", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 6, "yp": 1, "res": -3, "bound": -3, "status": "OPTIMAL"}
+{"corner": "BL", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 6, "yp": 2, "res": -2, "bound": -2, "status": "OPTIMAL"}
+{"corner": "BL", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 6, "yp": 3, "res": -2, "bound": -2, "status": "OPTIMAL"}
+{"corner": "BL", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 7, "yp": 0, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "BL", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 7, "yp": 1, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "BL", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 7, "yp": 2, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "BL", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 7, "yp": 3, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "BR", "n": 62, "Z": 8, "side": "A23_27", "xp": 0, "yp": 0, "res": -3, "bound": -3, "status": "OPTIMAL"}
+{"corner": "BR", "n": 62, "Z": 8, "side": "A23_27", "xp": 1, "yp": 0, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "BR", "n": 62, "Z": 8, "side": "A23_27", "xp": 2, "yp": 0, "res": -3, "bound": -3, "status": "OPTIMAL"}
+{"corner": "BR", "n": 62, "Z": 8, "side": "A23_27", "xp": 3, "yp": 0, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "BR", "n": 62, "Z": 8, "side": "A23_27", "xp": 4, "yp": 0, "res": -3, "bound": -3, "status": "OPTIMAL"}
+{"corner": "BR", "n": 62, "Z": 8, "side": "A23_27", "xp": 5, "yp": 0, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "BR", "n": 62, "Z": 8, "side": "A23_27", "xp": 6, "yp": 0, "res": -3, "bound": -3, "status": "OPTIMAL"}
+{"corner": "BR", "n": 62, "Z": 8, "side": "A23_27", "xp": 7, "yp": 0, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "BR", "n": 62, "Z": 8, "side": "B02_24", "xp": 0, "yp": 0, "res": -6, "bound": -6, "status": "OPTIMAL"}
+{"corner": "BR", "n": 62, "Z": 8, "side": "B02_24", "xp": 1, "yp": 0, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "BR", "n": 62, "Z": 8, "side": "B02_24", "xp": 2, "yp": 0, "res": -6, "bound": -6, "status": "OPTIMAL"}
+{"corner": "BR", "n": 62, "Z": 8, "side": "B02_24", "xp": 3, "yp": 0, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "BR", "n": 62, "Z": 8, "side": "B02_24", "xp": 4, "yp": 0, "res": -6, "bound": -6, "status": "OPTIMAL"}
+{"corner": "BR", "n": 62, "Z": 8, "side": "B02_24", "xp": 5, "yp": 0, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "BR", "n": 62, "Z": 8, "side": "B02_24", "xp": 6, "yp": 0, "res": -6, "bound": -6, "status": "OPTIMAL"}
+{"corner": "BR", "n": 62, "Z": 8, "side": "B02_24", "xp": 7, "yp": 0, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "BR", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 0, "yp": 0, "res": -4, "bound": -4, "status": "OPTIMAL"}
+{"corner": "BR", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 0, "yp": 1, "res": -5, "bound": -5, "status": "OPTIMAL"}
+{"corner": "BR", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 0, "yp": 2, "res": -6, "bound": -6, "status": "OPTIMAL"}
+{"corner": "BR", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 0, "yp": 3, "res": -5, "bound": -5, "status": "OPTIMAL"}
+{"corner": "BR", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 1, "yp": 0, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "BR", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 1, "yp": 1, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "BR", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 1, "yp": 2, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "BR", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 1, "yp": 3, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "BR", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 2, "yp": 0, "res": -4, "bound": -4, "status": "OPTIMAL"}
+{"corner": "BR", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 2, "yp": 1, "res": -5, "bound": -5, "status": "OPTIMAL"}
+{"corner": "BR", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 2, "yp": 2, "res": -6, "bound": -6, "status": "OPTIMAL"}
+{"corner": "BR", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 2, "yp": 3, "res": -5, "bound": -5, "status": "OPTIMAL"}
+{"corner": "BR", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 3, "yp": 0, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "BR", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 3, "yp": 1, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "BR", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 3, "yp": 2, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "BR", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 3, "yp": 3, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "BR", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 4, "yp": 0, "res": -4, "bound": -4, "status": "OPTIMAL"}
+{"corner": "BR", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 4, "yp": 1, "res": -5, "bound": -5, "status": "OPTIMAL"}
+{"corner": "BR", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 4, "yp": 2, "res": -6, "bound": -6, "status": "OPTIMAL"}
+{"corner": "BR", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 4, "yp": 3, "res": -5, "bound": -5, "status": "OPTIMAL"}
+{"corner": "BR", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 5, "yp": 0, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "BR", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 5, "yp": 1, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "BR", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 5, "yp": 2, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "BR", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 5, "yp": 3, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "BR", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 6, "yp": 0, "res": -4, "bound": -4, "status": "OPTIMAL"}
+{"corner": "BR", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 6, "yp": 1, "res": -5, "bound": -5, "status": "OPTIMAL"}
+{"corner": "BR", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 6, "yp": 2, "res": -6, "bound": -6, "status": "OPTIMAL"}
+{"corner": "BR", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 6, "yp": 3, "res": -5, "bound": -5, "status": "OPTIMAL"}
+{"corner": "BR", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 7, "yp": 0, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "BR", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 7, "yp": 1, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "BR", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 7, "yp": 2, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "BR", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 7, "yp": 3, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "TL", "n": 62, "Z": 8, "side": "A23_27", "xp": 0, "yp": 0, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "TL", "n": 62, "Z": 8, "side": "A23_27", "xp": 1, "yp": 0, "res": -3, "bound": -3, "status": "OPTIMAL"}
+{"corner": "TL", "n": 62, "Z": 8, "side": "A23_27", "xp": 2, "yp": 0, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "TL", "n": 62, "Z": 8, "side": "A23_27", "xp": 3, "yp": 0, "res": -3, "bound": -3, "status": "OPTIMAL"}
+{"corner": "TL", "n": 62, "Z": 8, "side": "A23_27", "xp": 4, "yp": 0, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "TL", "n": 62, "Z": 8, "side": "A23_27", "xp": 5, "yp": 0, "res": -3, "bound": -3, "status": "OPTIMAL"}
+{"corner": "TL", "n": 62, "Z": 8, "side": "A23_27", "xp": 6, "yp": 0, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "TL", "n": 62, "Z": 8, "side": "A23_27", "xp": 7, "yp": 0, "res": -3, "bound": -3, "status": "OPTIMAL"}
+{"corner": "TL", "n": 62, "Z": 8, "side": "B02_24", "xp": 0, "yp": 0, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "TL", "n": 62, "Z": 8, "side": "B02_24", "xp": 1, "yp": 0, "res": -6, "bound": -6, "status": "OPTIMAL"}
+{"corner": "TL", "n": 62, "Z": 8, "side": "B02_24", "xp": 2, "yp": 0, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "TL", "n": 62, "Z": 8, "side": "B02_24", "xp": 3, "yp": 0, "res": -6, "bound": -6, "status": "OPTIMAL"}
+{"corner": "TL", "n": 62, "Z": 8, "side": "B02_24", "xp": 4, "yp": 0, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "TL", "n": 62, "Z": 8, "side": "B02_24", "xp": 5, "yp": 0, "res": -6, "bound": -6, "status": "OPTIMAL"}
+{"corner": "TL", "n": 62, "Z": 8, "side": "B02_24", "xp": 6, "yp": 0, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "TL", "n": 62, "Z": 8, "side": "B02_24", "xp": 7, "yp": 0, "res": -6, "bound": -6, "status": "OPTIMAL"}
+{"corner": "TL", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 0, "yp": 0, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "TL", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 0, "yp": 1, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "TL", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 0, "yp": 2, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "TL", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 0, "yp": 3, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "TL", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 1, "yp": 0, "res": -5, "bound": -5, "status": "OPTIMAL"}
+{"corner": "TL", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 1, "yp": 1, "res": -4, "bound": -4, "status": "OPTIMAL"}
+{"corner": "TL", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 1, "yp": 2, "res": -5, "bound": -5, "status": "OPTIMAL"}
+{"corner": "TL", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 1, "yp": 3, "res": -6, "bound": -6, "status": "OPTIMAL"}
+{"corner": "TL", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 2, "yp": 0, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "TL", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 2, "yp": 1, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "TL", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 2, "yp": 2, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "TL", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 2, "yp": 3, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "TL", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 3, "yp": 0, "res": -5, "bound": -5, "status": "OPTIMAL"}
+{"corner": "TL", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 3, "yp": 1, "res": -4, "bound": -4, "status": "OPTIMAL"}
+{"corner": "TL", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 3, "yp": 2, "res": -5, "bound": -5, "status": "OPTIMAL"}
+{"corner": "TL", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 3, "yp": 3, "res": -6, "bound": -6, "status": "OPTIMAL"}
+{"corner": "TL", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 4, "yp": 0, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "TL", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 4, "yp": 1, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "TL", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 4, "yp": 2, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "TL", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 4, "yp": 3, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "TL", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 5, "yp": 0, "res": -5, "bound": -5, "status": "OPTIMAL"}
+{"corner": "TL", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 5, "yp": 1, "res": -4, "bound": -4, "status": "OPTIMAL"}
+{"corner": "TL", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 5, "yp": 2, "res": -5, "bound": -5, "status": "OPTIMAL"}
+{"corner": "TL", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 5, "yp": 3, "res": -6, "bound": -6, "status": "OPTIMAL"}
+{"corner": "TL", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 6, "yp": 0, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "TL", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 6, "yp": 1, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "TL", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 6, "yp": 2, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "TL", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 6, "yp": 3, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "TL", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 7, "yp": 0, "res": -5, "bound": -5, "status": "OPTIMAL"}
+{"corner": "TL", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 7, "yp": 1, "res": -4, "bound": -4, "status": "OPTIMAL"}
+{"corner": "TL", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 7, "yp": 2, "res": -5, "bound": -5, "status": "OPTIMAL"}
+{"corner": "TL", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 7, "yp": 3, "res": -6, "bound": -6, "status": "OPTIMAL"}
+{"corner": "TR", "n": 62, "Z": 8, "side": "A23_27", "xp": 0, "yp": 0, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "TR", "n": 62, "Z": 8, "side": "A23_27", "xp": 1, "yp": 0, "res": -4, "bound": -4, "status": "OPTIMAL"}
+{"corner": "TR", "n": 62, "Z": 8, "side": "A23_27", "xp": 2, "yp": 0, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "TR", "n": 62, "Z": 8, "side": "A23_27", "xp": 3, "yp": 0, "res": -4, "bound": -4, "status": "OPTIMAL"}
+{"corner": "TR", "n": 62, "Z": 8, "side": "A23_27", "xp": 4, "yp": 0, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "TR", "n": 62, "Z": 8, "side": "A23_27", "xp": 5, "yp": 0, "res": -4, "bound": -4, "status": "OPTIMAL"}
+{"corner": "TR", "n": 62, "Z": 8, "side": "A23_27", "xp": 6, "yp": 0, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "TR", "n": 62, "Z": 8, "side": "A23_27", "xp": 7, "yp": 0, "res": -4, "bound": -4, "status": "OPTIMAL"}
+{"corner": "TR", "n": 62, "Z": 8, "side": "B02_24", "xp": 0, "yp": 0, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "TR", "n": 62, "Z": 8, "side": "B02_24", "xp": 1, "yp": 0, "res": -1, "bound": -1, "status": "OPTIMAL"}
+{"corner": "TR", "n": 62, "Z": 8, "side": "B02_24", "xp": 2, "yp": 0, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "TR", "n": 62, "Z": 8, "side": "B02_24", "xp": 3, "yp": 0, "res": -1, "bound": -1, "status": "OPTIMAL"}
+{"corner": "TR", "n": 62, "Z": 8, "side": "B02_24", "xp": 4, "yp": 0, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "TR", "n": 62, "Z": 8, "side": "B02_24", "xp": 5, "yp": 0, "res": -1, "bound": -1, "status": "OPTIMAL"}
+{"corner": "TR", "n": 62, "Z": 8, "side": "B02_24", "xp": 6, "yp": 0, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "TR", "n": 62, "Z": 8, "side": "B02_24", "xp": 7, "yp": 0, "res": -1, "bound": -1, "status": "OPTIMAL"}
+{"corner": "TR", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 0, "yp": 0, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "TR", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 0, "yp": 1, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "TR", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 0, "yp": 2, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "TR", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 0, "yp": 3, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "TR", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 1, "yp": 0, "res": -2, "bound": -2, "status": "OPTIMAL"}
+{"corner": "TR", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 1, "yp": 1, "res": -3, "bound": -3, "status": "OPTIMAL"}
+{"corner": "TR", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 1, "yp": 2, "res": -2, "bound": -2, "status": "OPTIMAL"}
+{"corner": "TR", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 1, "yp": 3, "res": -2, "bound": -2, "status": "OPTIMAL"}
+{"corner": "TR", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 2, "yp": 0, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "TR", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 2, "yp": 1, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "TR", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 2, "yp": 2, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "TR", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 2, "yp": 3, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "TR", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 3, "yp": 0, "res": -2, "bound": -2, "status": "OPTIMAL"}
+{"corner": "TR", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 3, "yp": 1, "res": -3, "bound": -3, "status": "OPTIMAL"}
+{"corner": "TR", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 3, "yp": 2, "res": -2, "bound": -2, "status": "OPTIMAL"}
+{"corner": "TR", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 3, "yp": 3, "res": -2, "bound": -2, "status": "OPTIMAL"}
+{"corner": "TR", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 4, "yp": 0, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "TR", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 4, "yp": 1, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "TR", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 4, "yp": 2, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "TR", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 4, "yp": 3, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "TR", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 5, "yp": 0, "res": -3, "bound": -3, "status": "OPTIMAL"}
+{"corner": "TR", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 5, "yp": 1, "res": -3, "bound": -3, "status": "OPTIMAL"}
+{"corner": "TR", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 5, "yp": 2, "res": -2, "bound": -2, "status": "OPTIMAL"}
+{"corner": "TR", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 5, "yp": 3, "res": -2, "bound": -2, "status": "OPTIMAL"}
+{"corner": "TR", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 6, "yp": 0, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "TR", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 6, "yp": 1, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "TR", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 6, "yp": 2, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "TR", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 6, "yp": 3, "res": null, "bound": null, "status": "no 2-factor (b-matching flow)"}
+{"corner": "TR", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 7, "yp": 0, "res": -3, "bound": -3, "status": "OPTIMAL"}
+{"corner": "TR", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 7, "yp": 1, "res": -3, "bound": -3, "status": "OPTIMAL"}
+{"corner": "TR", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 7, "yp": 2, "res": -2, "bound": -2, "status": "OPTIMAL"}
+{"corner": "TR", "n": 62, "Z": 8, "side": "C_lanes4o0", "xp": 7, "yp": 3, "res": -2, "bound": -2, "status": "OPTIMAL"}

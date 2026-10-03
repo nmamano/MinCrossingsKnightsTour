@@ -1,0 +1,9 @@
+{
+  "alpha_entries": 16,
+  "beta_entries": 9,
+  "sum_alpha": -7,
+  "legal_unordered_cases": 209,
+  "tight_cells": 16,
+  "paper_sha256": "f2953241292722bc0b70919babccb79c367f7556953308f6a1455ef9b4d73ff6",
+  "lean_sha256": "ab14b22405cf05545241b5091cae768e1d20fa6df9a86bea9a4e2e99a9dd1016"
+}

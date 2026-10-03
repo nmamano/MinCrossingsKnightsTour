@@ -1,0 +1,14 @@
+n 60 baseline 466 census 1:72 2:182 3:278 4:2892
+run 0 best 466 final 466
+run 1 best 466 final 466
+run 2 best 466 final 467
+run 3 best 466 final 473
+run 4 best 466 final 466
+run 5 best 466 final 466
+run 6 best 466 final 472
+run 7 best 466 final 485
+run 8 best 466 final 466
+run 9 best 466 final 466
+run 10 best 466 final 468
+run 11 best 466 final 474
+SUMMARY n 60 best 466 attempted 36000000 valid 9378278 accepted 19006 neutral 5669

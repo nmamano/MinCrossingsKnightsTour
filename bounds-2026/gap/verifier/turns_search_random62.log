@@ -1,0 +1,14 @@
+n 62 baseline 482 census 1:76 2:210 3:433 4:5531
+run 0 best 482 final 482
+run 1 best 482 final 482
+run 2 best 482 final 484
+run 3 best 482 final 490
+run 4 best 482 final 482
+run 5 best 482 final 482
+run 6 best 482 final 482
+run 7 best 482 final 498
+run 8 best 482 final 482
+run 9 best 482 final 482
+run 10 best 482 final 482
+run 11 best 482 final 487
+SUMMARY n 62 best 482 attempted 36000000 valid 13072232 accepted 20062 neutral 6323

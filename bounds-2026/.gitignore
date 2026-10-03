@@ -29,3 +29,5 @@ w-searcher/carrier/band2
 
 # fresh-copy audit runs (duplicates of the repo)
 gap/verifier/claim*_run/
+gap/verifier/claim*_clean/
+w-integrator/pipeline/selftest_[!T]*/

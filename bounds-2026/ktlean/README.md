@@ -5,14 +5,17 @@ Lean 4 + Mathlib (toolchain `leanprover/lean4:v4.35.0-rc3`, Mathlib `v4.35.0-rc3
 ## Main theorem (proved, no `sorry`, no new axioms)
 
 ```lean
-theorem KT.ClosedTour.eight_mul_sub_64_le_numTurns (T : ClosedTour n) (hn : 8 ≤ n) :
-    8 * n - 64 ≤ T.numTurns
+theorem KT.ClosedTour.eight_mul_sub_28_le_numTurns (T : ClosedTour n) (hn : 8 ≤ n) :
+    8 * n - 28 ≤ T.numTurns
+theorem KT.TwoFactor.eight_mul_le_numTurns_add_28 (F : TwoFactor n) (hn : 8 ≤ n) :
+    8 * n ≤ F.numTurns + 28
 ```
 
-Every closed knight's tour of the n × n board, n ≥ 8, has at least 8n - 64 turns. This proves
-the paper's conjecture (a leading factor of 8). The best known upper bound is 8n - 14 (TT16,
-every even n >= 48). The sharper constant 8n - 28 (corner certificate in
-`w-turnstheory/FINDINGS.md`) is not formalized here.
+Every closed knight's tour (and every 2-factor of the knight's graph) of the n × n board, n ≥ 8,
+has at least 8n - 28 turns. This proves the paper's conjecture (a leading factor of 8) with the
+constant of `writeup/turns/main.tex`, Theorem 1(a). The best known upper bound is 8n - 14 (TT16,
+every even n >= 48). The earlier, weaker bound `KT.ClosedTour.eight_mul_sub_64_le_numTurns`
+(8n - 64, no corner certificate) is still in the project.
 
 `#print axioms` gives only the standard axioms: `propext`, `Classical.choice`, `Quot.sound`.
 
@@ -88,6 +91,25 @@ Crossings (tile argument of KT Turns Theory, FINDINGS.md sections 6.1 and 6.4):
    pairs) and to the `n²` edges of a 2-factor (handshake lemma); each crossing pair is counted
    twice in `Y`.
 
+Constant 28 (corner certificate, Lemma 3 of `writeup/turns/main.tex`; added 2026-10-04):
+
+7. `Ktlean/CornerTurns.lean`: the local bounds `Lside` (L_0 = 1, L_1 = L_2 = (neighbours at
+   distance 0 or 3) - 1, L_3 = 1 - (neighbours at distance 1 or 2)), with `Lside_le_turn`
+   (t ≥ L) and `sum_Lside` (the sum over the board is exactly 2m). `CornerBound c` is the corner
+   lemma as a parameter: in an abstract corner (2-regular symmetric graph, corner coordinates
+   X, Y ≥ 0, knight moves), the sum of t - L_x - L_y over the 16 corner cells is at least -c.
+   A `CornerCert` (numbers α on the 16 cells, β on oriented edges inside the corner) with
+   `Valid` (a decidable check of r(v) ≥ α(v) + D(v) for every cell and every pair of distinct
+   legal moves) gives `CornerBound (-Σ α)` (`CornerCert.cornerBound`; the β terms cancel by
+   antisymmetry). `cert28` is Tables 1 and 2 of `main.tex`; `cert28_valid` and
+   `cert28_total : cert28.total = -7` are `decide +kernel` checks (seconds).
+   `cornerBound_seven : CornerBound 7`.
+8. `Ktlean/Turns28.lean`: `TwoFactor.eight_mul_le_numTurns_add_of_cornerBound`:
+   `CornerBound c → 8n ≤ T + 4c` for every 2-factor, n ≥ 8. A cell outside the four corners
+   has at most one nonzero side term; at a corner cell only the two sides of that corner
+   contribute. A better certificate of the same shape (4 × 4 corner, same `Lside`) only needs a
+   new `CornerCert` value and its two `decide` checks.
+
 ## How to build
 
 ```sh
@@ -98,7 +120,7 @@ lake build           # builds Ktlean (about 5 minutes when Mathlib is cached; th
 lake env lean Axioms.lean   # prints the main statement and its axioms
 ```
 
-Status (2026-10-02): everything builds with no errors, no warnings and no `sorry`.
+Status (2026-10-04): everything builds with no errors, no warnings and no `sorry`.
 
 ## Toward crossings above 4n (in progress, 2026-10-02)
 

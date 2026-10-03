@@ -13,6 +13,11 @@
 - Commit only in this repo (ktlean). Nil allowed commits here. Hand off at about 50% context.
 
 ## Proved (all in Ktlean.lean imports; 0 warnings at the last commit)
+- Turns, constant 28 (2026-10-04): `KT.ClosedTour.eight_mul_sub_28_le_numTurns`,
+  `KT.TwoFactor.eight_mul_le_numTurns_add_28`. CornerTurns.lean (`Lside`, `sum_Lside`,
+  `CornerBound c`, `CornerCert` + `Valid` + `cornerBound`, `cert28`, `cornerBound_seven`) and
+  Turns28.lean (`eight_mul_le_numTurns_add_of_cornerBound`). For a better certificate of the same
+  shape: write a new `CornerCert` value and its two `decide +kernel` checks.
 - Turns: `KT.ClosedTour.eight_mul_sub_64_le_numTurns` (8n-64 ≤ turns, n ≥ 8).
 - Crossings: `KT.ClosedTour.four_mul_sub_two_le_numCrossings`, `KT.TwoFactor....` (4n-2).
 - Flux.lean, TileBudget.lean, LoopCert.lean, Loop.lean, Corner.lean: flux identity, tile budget
