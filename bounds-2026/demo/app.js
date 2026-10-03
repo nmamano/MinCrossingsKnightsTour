@@ -59,8 +59,22 @@
   const STEPNOTE = { X: '', T: 'Shisheng Li\'s block targets crossings only, so it is not a step here.' };
   const KNOWN = { X: { orig: [13, 1], paper: [12, 1], P40: [23, 2], H16a: [9, 1], LF4: [343, 48], FOLD: [19, 3] },
     T: { orig: [19, 2], heel21: [37, 4], T18: [17, 2], TT16: [8, 1] } };
-  const LOWER = { X: [{ name: '4n reference (paper leading term)', f: (n) => 4 * n }, { name: '5n reference (new leading term, Oct 3)', f: (n) => 5 * n }],
-    T: [{ name: '6n reference (paper asymptotic coefficient)', f: (n) => 6 * n }, { name: '8n − 28 lower bound (new)', f: (n) => 8 * n - 28 }] };
+  const LOWER = { X: [{ name: '4n: the paper\'s lower bound', f: (n) => 4 * n }, { name: '5n: new lower bound, Oct 3', f: (n) => 5 * n }],
+    T: [{ name: '6n: the paper\'s lower bound on turns', f: (n) => 6 * n }, { name: '8n − 28: new lower bound', f: (n) => 8 * n - 28 }] };
+  // Smallest n shown when a step is selected (P40: at n = 48 no 4x40 block fits, so 50), and the n rules per step.
+  const NSTART = { P40: 50 };
+  const ALG1 = 'For n ≡ 2 (mod 4) and n ≡ 6 (mod 8), one corner piece uses the original heel.';
+  const NRULE = {
+    orig: 'The demo builds it with Algorithm 1 of the paper at every even n shown.',
+    paper: 'The demo builds it with Algorithm 1 at every even n shown. ' + ALG1,
+    heel21: 'The demo builds it with Algorithm 1 at every even n shown. ' + ALG1,
+    P40: 'The demo builds it with Algorithm 1 at every even n shown; 4×40 blocks are placed where they fit. At n = 48 no block fits, so the tour is the same as step 2 there. ' + ALG1,
+    H16a: 'Proved for every even n ≥ 48 (one base board per residue of n mod 24, then insertion).',
+    LF4: 'Proved for every even n ≥ 96 (one base board per residue of n mod 48, then insertion).',
+    FOLD: 'Proved for every even n ≥ 96 (one base board per residue of n mod 24, then insertion).',
+    T18: 'Proved for every even n ≥ 48 (one base board per residue of n mod 24, then insertion).',
+    TT16: 'Proved for every even n ≥ 48 (base boards per residue of n mod 8, then insertion).',
+  };
   const FIELD = { X: 'crossings', T: 'turns' };
   const NMAX = 200;
 
@@ -123,6 +137,10 @@
     const n = t.n, v = state.view, k = unit();
     ctx.setTransform(k, 0, 0, k, -v.x0 * k, -v.y0 * k);   // now in board units
     ctx.fillStyle = '#ffffff'; ctx.fillRect(0, 0, n, n);
+    if ($('tChecker').checked && k / (window.devicePixelRatio || 1) >= 6) {   // faint checkerboard, a1 = bottom-left dark
+      ctx.fillStyle = 'rgba(40,48,58,0.045)';
+      for (let r = 0; r < n; r++) for (let x = (n - 1 - r) % 2; x < n; x += 2) ctx.fillRect(x, r, 1, 1);
+    }
     if ($('tLayout').checked) drawLayout(n);
     if ($('tSolver').checked) {
       ctx.fillStyle = 'rgba(60,60,58,0.16)';
@@ -235,13 +253,14 @@
       (STEPNOTE[m] ? `<div class="note">${STEPNOTE[m]}</div>` : '') +
       '<div class="note">Step labels show leading terms; exact counts include size-dependent constants. TT16\'s turn count is exactly 8n-14. ' +
       'The demo\'s board-size range is narrower than some constructions\' full range.</div>';
-    $('steps').querySelectorAll('.choice').forEach((b) => b.addEventListener('click', () => { state.key = b.dataset.k; load(true); }));
+    $('steps').querySelectorAll('.choice').forEach((b) => b.addEventListener('click', () => selectKey(b.dataset.k)));
     const r = $('steprange'); r.min = 1; r.max = ks.length; r.value = i + 1;
     $('stepnum').textContent = `step ${i + 1} of ${ks.length}`;
   }
+  function selectKey(k) { state.key = k; state.n = NSTART[k] || C[k].nmin; load(true); }
   function setStep(j) {
     const ks = stepsOf(); j = Math.max(0, Math.min(ks.length - 1, j));
-    if (ks[j] !== state.key) { state.key = ks[j]; load(true); }
+    if (ks[j] !== state.key) selectKey(ks[j]);
   }
   $('steprange').addEventListener('input', (e) => setStep(+e.target.value - 1));
   $('stepprev').addEventListener('click', () => setStep(stepsOf().indexOf(state.key) - 1));
@@ -249,9 +268,8 @@
   document.querySelectorAll('[data-metric]').forEach((b) => b.addEventListener('click', () => {
     if (b.dataset.metric === state.metric) return;
     state.metric = b.dataset.metric;
-    if (!stepsOf().includes(state.key)) state.key = stepsOf()[stepsOf().length - 1];
     $('tCross').checked = state.metric === 'X'; $('tTurns').checked = state.metric === 'T';
-    load(true);
+    if (!stepsOf().includes(state.key)) selectKey(stepsOf()[stepsOf().length - 1]); else load(true);
   }));
   function renderCounts() {
     const t = state.tour, k = state.key, n = t.n;
@@ -282,7 +300,8 @@
     const spec = C[state.key];
     state.n = Math.min(NMAX, Math.max(spec.nmin, state.n - (state.n % 2)));
     for (const el of [$('nrange'), $('nnum')]) { el.min = spec.nmin; el.max = NMAX; el.value = state.n; }
-    $('nnote').textContent = `Even n from ${spec.nmin} to ${NMAX}.` + (spec.nmin > 48 ? ` This construction is certified here for even n ≥ ${spec.nmin}.` : '');
+    $('nnote').innerHTML = `<b>n: even, ${spec.nmin} to ${NMAX} here.</b> Odd n has no closed tour (an odd number of squares). ${NRULE[state.key]}` +
+      (state.key === 'P40' && state.n === 48 ? ' <b>At this n the count equals step 2.</b>' : '');
   }
 
   let loadSeq = 0;
@@ -313,7 +332,7 @@
   $('nnum').addEventListener('change', (e) => setN(e.target.value));
   $('nminus').addEventListener('click', () => setN(state.n - 2));
   $('nplus').addEventListener('click', () => setN(state.n + 2));
-  for (const id of ['tCross', 'tTurns', 'tLayout', 'tSolver']) $(id).addEventListener('change', () => { draw(); writeHash(); });
+  for (const id of ['tCross', 'tTurns', 'tLayout', 'tSolver', 'tChecker']) $(id).addEventListener('change', () => { draw(); writeHash(); });
   $('tColor').addEventListener('change', () => { renderLegend(); draw(); writeHash(); });
   window.addEventListener('resize', resize);
 
@@ -322,8 +341,8 @@
     const m = state.metric;
     $('charttitle').textContent = (m === 'X' ? 'Crossings' : 'Turns') + ' as n grows: tour counts and lower-bound reference lines';
     $('chartnote').textContent = m === 'X'
-      ? 'Crossings: the dashed 4n and 5n lines show leading terms, not finite lower bounds. Proven here: X>=4n-2 and X>=5n-612 (audited, Claim 42).'
-      : 'Turns: 6n is an asymptotic reference, not a finite bound from the paper. The new finite lower bound is T>=8n-28.';
+      ? 'Dashed lines: lower bounds on crossings, drawn by their leading terms. 4n is the paper\'s lower bound; 5n is the new one (Oct 3). Exact statements: X ≥ 4n − 2 and X ≥ 5n − 612 (audited, Claim 42).'
+      : 'Dashed lines: lower bounds on turns. 6n is the leading term of the paper\'s lower bound, (6 − ε)n. 8n − 28 is the new exact lower bound.';
     chart($('chart'), FIELD[m]);
   }
   function chart(svg, f) {
@@ -372,11 +391,11 @@
 
   // ---------- start; the URL hash keeps the state shareable ----------
   // #m=X&k=H16a&n=96&view=edge&show=cross,turns,color,layout,solver
-  const SHOW = [['tCross', 'cross'], ['tTurns', 'turns'], ['tColor', 'color'], ['tLayout', 'layout'], ['tSolver', 'solver']];
+  const SHOW = [['tCross', 'cross'], ['tTurns', 'turns'], ['tColor', 'color'], ['tLayout', 'layout'], ['tSolver', 'solver'], ['tChecker', 'checker']];
   const hp = new URLSearchParams(location.hash.slice(1));
   if (hp.get('m') === 'T') state.metric = 'T';
   state.key = STEPS[state.metric].includes(hp.get('k')) ? hp.get('k') : STEPS[state.metric][STEPS[state.metric].length - 1];
-  if (+hp.get('n')) state.n = +hp.get('n');
+  state.n = +hp.get('n') || NSTART[state.key] || C[state.key].nmin;
   $('tTurns').checked = state.metric === 'T'; $('tCross').checked = state.metric === 'X';
   if (hp.get('show') !== null) { const on = hp.get('show').split(','); for (const [id, nm] of SHOW) $(id).checked = on.includes(nm); }
   let firstView = hp.get('view');
