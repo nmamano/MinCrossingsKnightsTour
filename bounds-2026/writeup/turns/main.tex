@@ -88,7 +88,7 @@ The proof of (a) never uses connectivity.
 
 Section~\ref{sec:lower} proves (a).
 A weaker form, $T\ge 8n-64$, has a one-paragraph proof (Lemma~\ref{lem:four}), and it is formally verified in Lean~4 with Mathlib.
-The constant $28$ needs one finite certificate for a $4\times4$ corner (Lemma~\ref{lem:corner}).
+The constant $28$ needs one finite certificate for a $4\times4$ corner (Lemma~\ref{lem:corner}), and this bound is formally verified too (Section~\ref{sec:lean}).
 Section~\ref{sec:upper} proves (b).
 The construction is periodic.
 Its turn count is a direct sum that the reader can do by hand (Lemma~\ref{lem:count}).
@@ -277,7 +277,15 @@ In the formal definitions, a \texttt{ClosedTour n} is a bijection from positions
 \texttt{numTurns} counts the positions $i$ where the cells at positions $i-1,i,i+1$ are not collinear (collinear means a zero cross product), which is Definition~1 of~\cite{bjmow}.
 \texttt{\#print axioms} reports only \texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound}.
 The project also proves the same bound for every $2$-factor (\texttt{KT.TwoFactor.eight\_mul\_le\_numTurns\_add}) and contains an explicit $8\times8$ tour, so the hypothesis is not empty.
-The corner lemma (constant $28$) is not formalized.
+The corner lemma and Theorem~\ref{thm:main}(a), with the constant $28$, are also verified:
+\begin{verbatim}
+theorem KT.ClosedTour.eight_mul_sub_28_le_numTurns (T : ClosedTour n)
+    (hn : 8 <= n) : 8 * n - 28 <= T.numTurns
+theorem KT.TwoFactor.eight_mul_le_numTurns_add_28 (F : TwoFactor n)
+    (hn : 8 <= n) : 8 * n <= F.numTurns + 28
+\end{verbatim}
+The formal proof contains the certificate of Tables~\ref{tab:alpha} and~\ref{tab:beta}.
+For both theorems, \texttt{\#print axioms} reports only \texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound}.
 
 \section{Upper bound}\label{sec:upper}
 
@@ -497,6 +505,7 @@ Paths are relative to the project repository. \todo{public repository location}
 Theorem~\ref{thm:64}, Lemma~\ref{lem:corner} and the construction with its block-insertion proof were each checked by an independent internal reviewer with separately written code.
 That review rebuilt $\tau_n$ for every even $n$ from $48$ to $134$ and for $n=312,\dots,318$, and compared the full exterior graph after insertion for the four residues.
 The Lean build and the axiom report were rerun by a second person.
+On 2026-10-04 the Lean proof of the bound $8n-28$ was audited in the same way: a clean build of the exported project, the axiom report, and a comparison of the formal certificate with Tables~\ref{tab:alpha} and~\ref{tab:beta}.
 The text of this note, the checker \texttt{check\_corner.py} and the script \texttt{tt16.py} were independently reviewed on 2026-10-02 (hand count, both certificates, the theorem statements); the corrections from that review are applied.
 \todo{external review}
 

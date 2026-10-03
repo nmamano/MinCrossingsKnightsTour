@@ -14,7 +14,7 @@ several cycles. Upper bounds give one Hamiltonian cycle.
 | X >= 14n/3-407 | Proved, closed tours, even n>=32 | Tile and path count; exact strip potentials |
 | X >= 4n-2 | Proved, every tour and 2-factor | Tile-area proof; exact geometry; unconditional Lean theorem |
 | T = 8n-14 | Constructed, even n>=48 | All-size insertion proof; exact turn count |
-| T >= 8n-28 | Proved, tours and 2-factors, n>=8 | Four-column count; exact corner certificate |
+| T >= 8n-28 | Proved, tours and 2-factors, n>=8 | Four-column count; exact corner certificate; unconditional Lean theorem |
 | T >= 8n-64 | Proved, tours and 2-factors, n>=8 | Four-column count; unconditional Lean theorem |
 
 Finite checks support the stated all-size arguments; sampling board sizes
@@ -133,8 +133,10 @@ T>=8n-28. Therefore, for every even n>=48,
 In particular T_min(n)/n tends to 8 through even n.
 
 Proof: [turns paper, lower bound and corner certificate](writeup/turns/main.pdf).
-Audit: Claim 16 in [FINDINGS.md](w-verifier/FINDINGS.md).
-Lean: the sharper corner constant 28 is not formalized. The command
+Audit: Claim 16 in [FINDINGS.md](w-verifier/FINDINGS.md); the Lean proof: Claim 54.
+Lean: [KT.ClosedTour.eight_mul_sub_28_le_numTurns](ktlean/Ktlean/Turns28.lean)
+and `KT.TwoFactor.eight_mul_le_numTurns_add_28` are unconditional, with only
+the standard axioms; see [Lean scope and axioms](ktlean/README.md). The command
 checks all 209 local inequalities in the printed corner certificate.
 
 ```sh
