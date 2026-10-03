@@ -1,4 +1,4 @@
-% SUPERSEDED (2026-10-02): the full proofs now live in writeup/turns/post.mdx, section "Appendix: full proofs".
+% SUPERSEDED (2026-10-02): the full proofs now live in the turns blog post, nilmamano.com/blog/knights-tour-turns (to be published).
 \documentclass[11pt]{article}
 \usepackage[margin=1in]{geometry}
 \usepackage{amsmath,amssymb,amsthm}
@@ -30,11 +30,10 @@
 \begin{abstract}
 A turn of a knight's tour is a cell where the tour changes direction.
 Besa, Johnson, Mamano, Osegueda and Williams~\cite{bjmow} built closed tours of the $n\times n$ board with $9.25n+O(1)$ turns.
-They proved that every tour has at least $(6-\varepsilon)n$ turns, and they conjectured that the minimum is at least $8n$.
+They proved that every tour has at least $(6-\varepsilon)n$ turns, and they conjectured that the minimum is at least $8n$, in its leading factor.
 We prove that the minimum number of turns $\Tmin(n)$ of a closed tour satisfies
 \[ 8n-28 \;\le\; \Tmin(n) \;\le\; 8n-14 \qquad\text{for every even } n\ge 48. \]
-The upper bound shows that the conjecture is tight: $8n-28\le\Tmin(n)\le 8n-14$ for every even $n\ge 48$.
-The lower bound shows that it is true up to an additive constant.
+The lower bound proves the conjecture, and the upper bound shows that it is tight.
 The lower bound comes from a short counting argument in the four columns next to each side.
 The upper bound comes from an explicit periodic construction with an average of two turns per row or column at each side.
 \end{abstract}
