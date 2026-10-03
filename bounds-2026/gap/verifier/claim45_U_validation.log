@@ -1,0 +1,6 @@
+LOCAL {'deltaX': 71, 'deltaBQ': 75, 'deep_quarter_changes': 0, 'port_pairs': 22, 'no_cycles': True, 'unchanged_pairing': True, 'tours': []}
+{'n': 96, 'X': 720, 'patches': [], 'file': 'gap/verifier/claim45_U_patched_n96.json'}
+{'n': 144, 'X': 1024, 'patches': [], 'file': 'gap/verifier/claim45_U_patched_n144.json'}
+{'n': 192, 'X': 1612, 'patches': [{'side': 0, 'sign': 1, 't': 63}, {'side': 1, 'sign': -1, 't': 121}, {'side': 2, 'sign': -1, 't': 121}, {'side': 3, 'sign': 1, 't': 62}], 'file': 'gap/verifier/claim45_U_patched_n192.json'}
+{'n': 240, 'X': 1916, 'patches': [{'side': 0, 'sign': 1, 't': 75}, {'side': 1, 'sign': -1, 't': 145}, {'side': 2, 'sign': -1, 't': 145}, {'side': 3, 'sign': 1, 't': 74}], 'file': 'gap/verifier/claim45_U_patched_n240.json'}
+{'n': 288, 'X': 2504, 'patches': [{'side': 0, 'sign': 1, 't': 87}, {'side': 0, 'sign': 1, 't': 110}, {'side': 1, 'sign': -1, 't': 169}, {'side': 1, 'sign': -1, 't': 193}, {'side': 2, 'sign': -1, 't': 169}, {'side': 2, 'sign': -1, 't': 193}, {'side': 3, 'sign': 1, 't': 86}, {'side': 3, 'sign': 1, 't': 109}], 'file': 'gap/verifier/claim45_U_patched_n288.json'}

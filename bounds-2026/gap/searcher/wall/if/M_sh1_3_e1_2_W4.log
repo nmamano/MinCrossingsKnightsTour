@@ -1,1 +1,528 @@
 shear 1/3 WM=4 KM=1 MODE=nz lambda=1/2: columns u in [-3,6], 59 slots, complete squares s in [-1,2], 2 cost squares per row
+warm-up done: 571104 strict seed states, largest warm layer 7515904, 93s
+  ... 4194304/5489209 states, 6486991 arcs, 104s
+  ... 8388608/8839700 states, 11221770 arcs, 115s
+  ... 12582912/13757025 states, 17167927 arcs, 126s
+  ... 16777216/18061541 states, 23016292 arcs, 142s
+  ... 20971520/22224707 states, 29313896 arcs, 153s
+  ... 25165824/26729833 states, 34786031 arcs, 164s
+  ... 29360128/30060174 states, 39505590 arcs, 175s
+  ... 33554432/33934101 states, 43869624 arcs, 190s
+  ... 37748736/39409918 states, 51084649 arcs, 204s
+  ... 41943040/42196292 states, 55940119 arcs, 214s
+states by warm level: strict 42196292, warm1 0, warm2 0, warm3 0
+graph: states 42196292 arcs 55962318 (rejected: margin 78030916, psi 440084) 215s
+== lambda 1/1
+ try mean 48/1 per row
+  cycle colour current through u = 0: 3 over 30 rows
+  cycle: 300 arcs, 30 rows, crossings 20, waste 47, weight 243 -> mean 243/30
+    (cycle starts at row phase 1; board x = u + floor(1*(phase+row)/3) - floor(1*phase/3))
+    row 0 u 0 (mod) X=0 waste=0: (0,0)-(-1,2)
+    row 0 u 1 (mod) X=0 waste=0: (1,0)-(2,2) (1,0)-(0,2)
+    row 0 u 2 (mod) X=1 waste=0: (2,0)-(4,1) (2,0)-(3,2)
+    row 0 u 3 (mod) X=0 waste=0: (3,0)-(5,1)
+    row 1 u 0 (mod) X=0 waste=0: (0,1)-(-1,3)
+    row 1 u 1 (mod) X=0 waste=0: (1,1)-(2,3) (1,1)-(0,3)
+    row 1 u 2 (mod) X=1 waste=0: (2,1)-(4,2)
+    row 1 u 3 (mod) X=0 waste=0: (3,1)-(5,2)
+    row 1 u 6 (ghost) X=0 waste=2:
+    row 2 u 0 (mod) X=0 waste=0: (1,2)-(2,4) (1,2)-(0,4)
+    row 2 u 1 (mod) X=0 waste=0: (2,2)-(4,3)
+    row 2 u 2 (mod) X=0 waste=0: (3,2)-(5,3)
+    row 2 u 3 (mod) X=0 waste=0: (4,2)-(6,3)
+    row 2 u 6 (ghost) X=0 waste=2:
+    row 3 u 0 (mod) X=0 waste=0: (1,3)-(2,5) (1,3)-(0,5)
+    row 3 u 1 (mod) X=0 waste=0: (2,3)-(4,4)
+    row 3 u 2 (mod) X=1 waste=0: (3,3)-(5,4) (3,3)-(4,5)
+    row 3 u 3 (mod) X=0 waste=0: (4,3)-(6,4)
+    row 3 u 6 (ghost) X=0 waste=2:
+    row 4 u 0 (mod) X=0 waste=0: (1,4)-(2,6) (1,4)-(0,6)
+    row 4 u 1 (mod) X=0 waste=0: (2,4)-(3,6)
+    row 4 u 2 (mod) X=1 waste=0: (3,4)-(5,5) (3,4)-(4,6)
+    row 4 u 3 (mod) X=0 waste=0: (4,4)-(6,5)
+    row 4 u 6 (ghost) X=0 waste=2:
+    row 5 u -1 (ghost) X=0 waste=0: (1,5)-(2,7)
+    row 5 u 0 (mod) X=0 waste=0: (2,5)-(3,7)
+    row 5 u 1 (mod) X=1 waste=0: (3,5)-(5,6) (3,5)-(4,7)
+    row 5 u 2 (mod) X=0 waste=0: (4,5)-(6,6)
+    row 5 u 3 (mod) X=0 waste=0: (5,5)-(7,6)
+    row 6 u 0 (mod) X=0 waste=0: (2,6)-(3,8)
+    row 6 u 1 (mod) X=0 waste=0: (3,6)-(4,8)
+    row 6 u 2 (mod) X=0 waste=0: (4,6)-(6,7)
+    row 6 u 3 (mod) X=0 waste=0: (5,6)-(7,7)
+    row 6 u 6 (ghost) X=0 waste=2:
+    row 7 u 0 (mod) X=0 waste=0: (2,7)-(3,9)
+    row 7 u 1 (mod) X=0 waste=0: (3,7)-(4,9)
+    row 7 u 2 (mod) X=0 waste=0: (4,7)-(5,9)
+    row 7 u 3 (mod) X=0 waste=0: (5,7)-(7,8) (5,7)-(6,9)
+    row 7 u 6 (ghost) X=0 waste=2:
+    row 8 u -1 (ghost) X=0 waste=0: (2,8)-(3,10)
+    row 8 u 0 (mod) X=0 waste=0: (3,8)-(4,10)
+    row 8 u 1 (mod) X=0 waste=0: (4,8)-(5,10)
+    row 8 u 2 (mod) X=2 waste=1: (5,8)-(6,10) (5,8)-(4,10)
+    row 8 u 3 (mod) X=0 waste=0: (6,8)-(8,9) (6,8)-(7,10)
+    row 9 u -2 (ghost) X=0 waste=0: (1,9)-(3,10)
+    row 9 u 0 (mod) X=0 waste=0: (3,9)-(4,11)
+    row 9 u 1 (mod) X=1 waste=1: (4,9)-(5,11)
+    row 9 u 2 (mod) X=0 waste=0: (5,9)-(6,11)
+    row 9 u 3 (mod) X=0 waste=0: (6,9)-(7,11)
+    row 10 u -1 (ghost) X=0 waste=0: (2,10)-(4,11)
+    row 10 u 2 (mod) X=0 waste=0: (5,10)-(6,12)
+    row 10 u 3 (mod) X=0 waste=0: (6,10)-(7,12)
+    row 10 u 6 (ghost) X=0 waste=2:
+    row 11 u -2 (ghost) X=0 waste=0: (2,11)-(4,12)
+    row 11 u -1 (ghost) X=0 waste=0: (3,11)-(5,12)
+    row 11 u 1 (mod) X=0 waste=0: (5,11)-(6,13)
+    row 11 u 2 (mod) X=0 waste=0: (6,11)-(7,13)
+    row 11 u 3 (mod) X=0 waste=0: (7,11)-(8,13)
+    row 11 u 6 (ghost) X=0 waste=2:
+    row 12 u -2 (ghost) X=0 waste=0: (2,12)-(4,13)
+    row 12 u -1 (ghost) X=0 waste=0: (3,12)-(5,13)
+    row 12 u 0 (mod) X=0 waste=0: (4,12)-(6,13)
+    row 12 u 1 (mod) X=1 waste=0: (5,12)-(6,14)
+    row 12 u 2 (mod) X=0 waste=0: (6,12)-(7,14)
+    row 12 u 3 (mod) X=0 waste=0: (7,12)-(8,14)
+    row 12 u 5 (ghost) X=0 waste=0: (9,12)-(8,14)
+    row 13 u -1 (ghost) X=0 waste=0: (3,13)-(5,14)
+    row 13 u 0 (mod) X=0 waste=0: (4,13)-(6,14)
+    row 13 u 1 (mod) X=1 waste=0: (5,13)-(6,15)
+    row 13 u 3 (mod) X=0 waste=0: (7,13)-(8,15)
+    row 13 u 5 (ghost) X=0 waste=0: (9,13)-(8,15)
+    row 13 u 6 (ghost) X=0 waste=2:
+    row 14 u -2 (ghost) X=0 waste=0: (3,14)-(5,15)
+    row 14 u -1 (ghost) X=0 waste=0: (4,14)-(6,15)
+    row 14 u 0 (mod) X=1 waste=0: (5,14)-(7,15)
+    row 14 u 2 (mod) X=0 waste=0: (7,14)-(8,16)
+    row 14 u 4 (ghost) X=0 waste=0: (9,14)-(8,16)
+    row 14 u 6 (ghost) X=0 waste=2:
+    row 15 u -2 (ghost) X=0 waste=0: (3,15)-(5,16)
+    row 15 u -1 (ghost) X=0 waste=0: (4,15)-(6,16)
+    row 15 u 0 (mod) X=0 waste=0: (5,15)-(7,16)
+    row 15 u 2 (mod) X=0 waste=0: (7,15)-(8,17)
+    row 15 u 4 (ghost) X=0 waste=0: (9,15)-(8,17)
+    row 15 u 5 (ghost) X=0 waste=0: (10,15)-(9,17)
+    row 15 u 6 (ghost) X=0 waste=2:
+    row 16 u -1 (ghost) X=0 waste=0: (4,16)-(6,17)
+    row 16 u 0 (mod) X=0 waste=0: (5,16)-(7,17)
+    row 16 u 1 (mod) X=1 waste=0: (6,16)-(7,18)
+    row 16 u 2 (mod) X=0 waste=0: (7,16)-(8,18)
+    row 16 u 4 (ghost) X=0 waste=0: (9,16)-(8,18)
+    row 16 u 5 (ghost) X=0 waste=0: (10,16)-(9,18)
+    row 16 u 6 (ghost) X=0 waste=2:
+    row 17 u -2 (ghost) X=0 waste=0: (4,17)-(6,18)
+    row 17 u -1 (ghost) X=0 waste=0: (5,17)-(7,18)
+    row 17 u 0 (mod) X=1 waste=0: (6,17)-(7,19)
+    row 17 u 1 (mod) X=0 waste=0: (7,17)-(8,19)
+    row 17 u 3 (mod) X=0 waste=0: (9,17)-(8,19)
+    row 17 u 4 (ghost) X=0 waste=0: (10,17)-(9,19)
+    row 18 u 0 (mod) X=0 waste=0: (6,18)-(7,20)
+    row 18 u 3 (mod) X=0 waste=0: (9,18)-(8,20)
+    row 18 u 4 (ghost) X=0 waste=0: (10,18)-(9,20)
+    row 18 u 5 (ghost) X=0 waste=0: (11,18)-(10,20)
+    row 18 u 6 (ghost) X=0 waste=2:
+    row 19 u 0 (mod) X=0 waste=0: (6,19)-(4,20) (6,19)-(7,21)
+    row 19 u 1 (mod) X=0 waste=0: (7,19)-(8,21)
+    row 19 u 3 (mod) X=0 waste=0: (9,19)-(8,21)
+    row 19 u 4 (ghost) X=0 waste=0: (10,19)-(9,21)
+    row 19 u 5 (ghost) X=0 waste=0: (11,19)-(10,21)
+    row 19 u 6 (ghost) X=0 waste=2:
+    row 20 u -1 (ghost) X=0 waste=0: (6,20)-(7,22)
+    row 20 u 0 (mod) X=0 waste=0: (7,20)-(8,22)
+    row 20 u 1 (mod) X=1 waste=1: (8,20)-(9,22)
+    row 20 u 2 (mod) X=1 waste=0: (9,20)-(8,22)
+    row 20 u 3 (mod) X=0 waste=0: (10,20)-(9,22)
+    row 20 u 4 (ghost) X=0 waste=0: (11,20)-(10,22)
+    row 21 u 0 (mod) X=0 waste=0: (7,21)-(8,23)
+    row 21 u 2 (mod) X=1 waste=1: (9,21)-(8,23)
+    row 21 u 3 (mod) X=0 waste=0: (10,21)-(9,23)
+    row 21 u 4 (ghost) X=0 waste=0: (11,21)-(10,23)
+    row 22 u 0 (mod) X=0 waste=0: (7,22)-(8,24)
+    row 22 u 3 (mod) X=0 waste=0: (10,22)-(9,24)
+    row 22 u 4 (ghost) X=0 waste=0: (11,22)-(10,24)
+    row 22 u 6 (ghost) X=0 waste=2:
+    row 23 u -1 (ghost) X=0 waste=0: (7,23)-(8,25)
+    row 23 u 1 (mod) X=0 waste=0: (9,23)-(8,25)
+    row 23 u 2 (mod) X=0 waste=0: (10,23)-(9,25)
+    row 23 u 3 (mod) X=0 waste=0: (11,23)-(13,24) (11,23)-(10,25)
+    row 23 u 6 (ghost) X=0 waste=2:
+    row 24 u 0 (mod) X=1 waste=1: (8,24)-(6,25)
+    row 24 u 1 (mod) X=0 waste=0: (9,24)-(8,26)
+    row 24 u 2 (mod) X=0 waste=0: (10,24)-(9,26)
+    row 24 u 3 (mod) X=0 waste=0: (11,24)-(13,25) (11,24)-(12,26)
+    row 24 u 6 (ghost) X=0 waste=2:
+    row 25 u 1 (mod) X=0 waste=0: (9,25)-(8,27)
+    row 25 u 2 (mod) X=0 waste=0: (10,25)-(9,27)
+    row 25 u 3 (mod) X=0 waste=0: (11,25)-(12,27) (11,25)-(10,27)
+    row 25 u 6 (ghost) X=0 waste=2:
+    row 26 u 0 (mod) X=0 waste=0: (9,26)-(8,28)
+    row 26 u 1 (mod) X=1 waste=1: (10,26)-(11,28) (10,26)-(9,28)
+    row 26 u 2 (mod) X=1 waste=0: (11,26)-(12,28) (11,26)-(10,28)
+    row 26 u 3 (mod) X=0 waste=0: (12,26)-(13,28)
+    row 27 u 0 (mod) X=0 waste=0: (9,27)-(8,29)
+    row 27 u 1 (mod) X=0 waste=0: (10,27)-(9,29)
+    row 27 u 2 (mod) X=1 waste=1: (11,27)-(12,29) (11,27)-(10,29)
+    row 27 u 3 (mod) X=0 waste=0: (12,27)-(13,29)
+    row 28 u 0 (mod) X=0 waste=0: (9,28)-(8,30)
+    row 28 u 1 (mod) X=0 waste=0: (10,28)-(9,30)
+    row 28 u 2 (mod) X=0 waste=0: (11,28)-(10,30)
+    row 28 u 3 (mod) X=0 waste=0: (12,28)-(13,30)
+    row 28 u 6 (ghost) X=0 waste=2:
+    row 29 u 0 (mod) X=0 waste=0: (10,29)-(9,31)
+    row 29 u 1 (mod) X=0 waste=0: (11,29)-(12,31) (11,29)-(10,31)
+    row 29 u 2 (mod) X=0 waste=0: (12,29)-(13,31)
+    row 29 u 3 (mod) X=0 waste=0: (13,29)-(15,30)
+    row 29 u 6 (ghost) X=0 waste=2:
+ try mean 81/10 per row
+  cycle colour current through u = 0: 24 over 18 rows
+  cycle: 180 arcs, 18 rows, crossings 10, waste 20, weight 144 -> mean 144/18
+    (cycle starts at row phase 2; board x = u + floor(1*(phase+row)/3) - floor(1*phase/3))
+    row 0 u -1 (ghost) X=0 waste=0: (-1,0)-(1,1)
+    row 0 u 1 (mod) X=1 waste=0: (1,0)-(3,1) (1,0)-(2,2)
+    row 0 u 3 (mod) X=0 waste=0: (3,0)-(4,2)
+    row 1 u -1 (ghost) X=0 waste=0: (0,1)-(2,2) (0,1)-(1,3)
+    row 1 u 1 (mod) X=0 waste=0: (2,1)-(4,2)
+    row 1 u 3 (mod) X=0 waste=0: (4,1)-(5,3)
+    row 1 u 6 (ghost) X=0 waste=2:
+    row 2 u -2 (ghost) X=0 waste=0: (-1,2)-(1,3)
+    row 2 u 0 (mod) X=0 waste=0: (1,2)-(3,3) (1,2)-(2,4)
+    row 2 u 2 (mod) X=0 waste=0: (3,2)-(5,3) (3,2)-(4,4)
+    row 2 u 6 (ghost) X=0 waste=2:
+    row 3 u -1 (ghost) X=0 waste=0: (0,3)-(2,4)
+    row 3 u 1 (mod) X=0 waste=0: (2,3)-(4,4) (2,3)-(3,5)
+    row 3 u 2 (mod) X=1 waste=0: (3,3)-(4,5)
+    row 3 u 3 (mod) X=0 waste=0: (4,3)-(6,4) (4,3)-(5,5)
+    row 4 u -2 (ghost) X=0 waste=0: (0,4)-(2,5)
+    row 4 u -1 (ghost) X=0 waste=0: (1,4)-(3,5)
+    row 4 u 1 (mod) X=1 waste=0: (3,4)-(5,5) (3,4)-(4,6)
+    row 4 u 3 (mod) X=0 waste=0: (5,4)-(7,5) (5,4)-(6,6)
+    row 5 u -2 (ghost) X=0 waste=0: (0,5)-(2,6)
+    row 5 u -1 (ghost) X=0 waste=0: (1,5)-(3,6)
+    row 5 u 0 (mod) X=0 waste=0: (2,5)-(4,6)
+    row 5 u 2 (mod) X=0 waste=0: (4,5)-(6,6)
+    row 5 u 6 (ghost) X=0 waste=2:
+    row 6 u -1 (ghost) X=0 waste=0: (1,6)-(3,7)
+    row 6 u 0 (mod) X=0 waste=0: (2,6)-(4,7)
+    row 6 u 1 (mod) X=0 waste=0: (3,6)-(5,7)
+    row 6 u 3 (mod) X=0 waste=0: (5,6)-(7,7) (5,6)-(6,8)
+    row 6 u 6 (ghost) X=0 waste=2:
+    row 7 u -1 (ghost) X=0 waste=0: (2,7)-(4,8) (2,7)-(3,9)
+    row 7 u 0 (mod) X=0 waste=0: (3,7)-(5,8)
+    row 7 u 1 (mod) X=1 waste=0: (4,7)-(5,9)
+    row 7 u 2 (mod) X=0 waste=0: (5,7)-(6,9)
+    row 7 u 3 (mod) X=0 waste=0: (6,7)-(8,8) (6,7)-(7,9)
+    row 7 u 6 (ghost) X=0 waste=2:
+    row 8 u -2 (ghost) X=0 waste=0: (1,8)-(3,9)
+    row 8 u 0 (mod) X=0 waste=0: (3,8)-(5,9) (3,8)-(4,10)
+    row 8 u 1 (mod) X=1 waste=0: (4,8)-(5,10)
+    row 8 u 2 (mod) X=0 waste=0: (5,8)-(6,10)
+    row 8 u 3 (mod) X=0 waste=0: (6,8)-(7,10)
+    row 9 u -1 (ghost) X=0 waste=0: (2,9)-(4,10)
+    row 9 u 1 (mod) X=1 waste=0: (4,9)-(6,10) (4,9)-(5,11)
+    row 9 u 3 (mod) X=0 waste=0: (6,9)-(7,11)
+    row 10 u -1 (ghost) X=0 waste=0: (3,10)-(5,11) (3,10)-(4,12)
+    row 10 u 1 (mod) X=0 waste=0: (5,10)-(7,11)
+    row 10 u 3 (mod) X=0 waste=0: (7,10)-(8,12)
+    row 10 u 6 (ghost) X=0 waste=2:
+    row 11 u -2 (ghost) X=0 waste=0: (2,11)-(4,12)
+    row 11 u 0 (mod) X=0 waste=0: (4,11)-(6,12) (4,11)-(5,13)
+    row 11 u 2 (mod) X=0 waste=0: (6,11)-(8,12) (6,11)-(7,13)
+    row 11 u 6 (ghost) X=0 waste=2:
+    row 12 u -1 (ghost) X=0 waste=0: (3,12)-(5,13)
+    row 12 u 1 (mod) X=0 waste=0: (5,12)-(7,13) (5,12)-(6,14)
+    row 12 u 2 (mod) X=1 waste=0: (6,12)-(7,14)
+    row 12 u 3 (mod) X=0 waste=0: (7,12)-(9,13) (7,12)-(8,14)
+    row 13 u -2 (ghost) X=0 waste=0: (3,13)-(5,14)
+    row 13 u -1 (ghost) X=0 waste=0: (4,13)-(6,14)
+    row 13 u 1 (mod) X=1 waste=0: (6,13)-(8,14) (6,13)-(7,15)
+    row 13 u 3 (mod) X=0 waste=0: (8,13)-(10,14) (8,13)-(9,15)
+    row 14 u -2 (ghost) X=0 waste=0: (3,14)-(5,15)
+    row 14 u -1 (ghost) X=0 waste=0: (4,14)-(6,15)
+    row 14 u 0 (mod) X=0 waste=0: (5,14)-(7,15)
+    row 14 u 2 (mod) X=0 waste=0: (7,14)-(9,15)
+    row 14 u 6 (ghost) X=0 waste=2:
+    row 15 u -1 (ghost) X=0 waste=0: (4,15)-(6,16)
+    row 15 u 0 (mod) X=0 waste=0: (5,15)-(7,16)
+    row 15 u 1 (mod) X=0 waste=0: (6,15)-(8,16)
+    row 15 u 3 (mod) X=0 waste=0: (8,15)-(10,16) (8,15)-(9,17)
+    row 15 u 6 (ghost) X=0 waste=2:
+    row 16 u -1 (ghost) X=0 waste=0: (5,16)-(7,17) (5,16)-(6,18)
+    row 16 u 0 (mod) X=0 waste=0: (6,16)-(8,17)
+    row 16 u 1 (mod) X=1 waste=0: (7,16)-(8,18)
+    row 16 u 2 (mod) X=0 waste=0: (8,16)-(9,18)
+    row 16 u 3 (mod) X=0 waste=0: (9,16)-(11,17) (9,16)-(10,18)
+    row 16 u 6 (ghost) X=0 waste=2:
+    row 17 u -2 (ghost) X=0 waste=0: (4,17)-(6,18)
+    row 17 u 0 (mod) X=0 waste=0: (6,17)-(8,18) (6,17)-(7,19)
+    row 17 u 1 (mod) X=1 waste=0: (7,17)-(8,19)
+    row 17 u 2 (mod) X=0 waste=0: (8,17)-(9,19)
+    row 17 u 3 (mod) X=0 waste=0: (9,17)-(10,19)
+ try mean 8/1 per row
+  cycle colour current through u = 0: 10 over 18 rows
+  cycle: 180 arcs, 18 rows, crossings 11, waste 26, weight 142 -> mean 142/18
+    (cycle starts at row phase 2; board x = u + floor(1*(phase+row)/3) - floor(1*phase/3))
+    row 0 u -1 (ghost) X=0 waste=0: (-1,0)-(1,1)
+    row 0 u 0 (mod) X=0 waste=0: (0,0)-(2,1)
+    row 0 u 2 (mod) X=0 waste=0: (2,0)-(4,1) (2,0)-(3,2)
+    row 0 u 3 (mod) X=0 waste=0: (3,0)-(5,1)
+    row 0 u 6 (ghost) X=0 waste=2:
+    row 1 u -2 (ghost) X=0 waste=0: (-1,1)-(1,2)
+    row 1 u -1 (ghost) X=0 waste=0: (0,1)-(2,2)
+    row 1 u 0 (mod) X=0 waste=0: (1,1)-(3,2)
+    row 1 u 1 (mod) X=1 waste=0: (2,1)-(3,3)
+    row 1 u 2 (mod) X=0 waste=0: (3,1)-(5,2) (3,1)-(4,3)
+    row 1 u 3 (mod) X=0 waste=0: (4,1)-(6,2)
+    row 2 u -2 (ghost) X=0 waste=0: (-1,2)-(1,3)
+    row 2 u -1 (ghost) X=0 waste=0: (0,2)-(2,3)
+    row 2 u 0 (mod) X=0 waste=0: (1,2)-(3,3)
+    row 2 u 1 (mod) X=1 waste=0: (2,2)-(3,4)
+    row 2 u 3 (mod) X=0 waste=0: (4,2)-(6,3) (4,2)-(5,4)
+    row 2 u 6 (ghost) X=0 waste=2:
+    row 3 u -1 (ghost) X=0 waste=0: (0,3)-(2,4)
+    row 3 u 0 (mod) X=0 waste=0: (1,3)-(3,4)
+    row 3 u 1 (mod) X=1 waste=0: (2,3)-(4,4)
+    row 3 u 3 (mod) X=0 waste=0: (4,3)-(5,5)
+    row 3 u 6 (ghost) X=0 waste=2:
+    row 4 u -2 (ghost) X=0 waste=0: (0,4)-(2,5)
+    row 4 u -1 (ghost) X=0 waste=0: (1,4)-(3,5)
+    row 4 u 0 (mod) X=0 waste=0: (2,4)-(4,5)
+    row 4 u 2 (mod) X=0 waste=0: (4,4)-(5,6)
+    row 4 u 3 (mod) X=0 waste=0: (5,4)-(7,5)
+    row 4 u 6 (ghost) X=0 waste=2:
+    row 5 u -2 (ghost) X=0 waste=0: (0,5)-(2,6)
+    row 5 u -1 (ghost) X=0 waste=0: (1,5)-(3,6)
+    row 5 u 0 (mod) X=0 waste=0: (2,5)-(4,6)
+    row 5 u 1 (mod) X=0 waste=0: (3,5)-(5,6)
+    row 5 u 2 (mod) X=1 waste=0: (4,5)-(6,6)
+    row 5 u 3 (mod) X=0 waste=0: (5,5)-(7,6)
+    row 6 u 0 (mod) X=0 waste=0: (2,6)-(0,7)
+    row 6 u 1 (mod) X=0 waste=0: (3,6)-(1,7)
+    row 6 u 2 (mod) X=0 waste=0: (4,6)-(2,7)
+    row 6 u 4 (ghost) X=0 waste=0: (6,6)-(4,7)
+    row 6 u 5 (ghost) X=0 waste=0: (7,6)-(5,7)
+    row 6 u 6 (ghost) X=0 waste=4: (8,6)-(6,7)
+    row 7 u -2 (ghost) X=0 waste=0: (1,7)-(3,8)
+    row 7 u -1 (ghost) X=0 waste=0: (2,7)-(4,8)
+    row 7 u 0 (mod) X=1 waste=0: (3,7)-(5,8) (3,7)-(4,9)
+    row 7 u 1 (mod) X=0 waste=0: (4,7)-(6,8)
+    row 7 u 2 (mod) X=0 waste=0: (5,7)-(7,8)
+    row 7 u 3 (mod) X=0 waste=0: (6,7)-(8,8)
+    row 8 u 0 (mod) X=0 waste=0: (3,8)-(4,10)
+    row 8 u 1 (mod) X=0 waste=0: (4,8)-(6,9)
+    row 8 u 2 (mod) X=0 waste=0: (5,8)-(7,9)
+    row 8 u 3 (mod) X=0 waste=0: (6,8)-(8,9)
+    row 8 u 6 (ghost) X=0 waste=2:
+    row 9 u 0 (mod) X=0 waste=0: (3,9)-(1,10) (3,9)-(4,11)
+    row 9 u 1 (mod) X=0 waste=0: (4,9)-(6,10)
+    row 9 u 2 (mod) X=1 waste=0: (5,9)-(7,10) (5,9)-(6,11)
+    row 9 u 3 (mod) X=0 waste=0: (6,9)-(8,10)
+    row 9 u 6 (ghost) X=0 waste=2:
+    row 10 u -2 (ghost) X=0 waste=0: (2,10)-(4,11)
+    row 10 u 0 (mod) X=0 waste=0: (4,10)-(5,12)
+    row 10 u 1 (mod) X=1 waste=0: (5,10)-(7,11) (5,10)-(6,12)
+    row 10 u 2 (mod) X=0 waste=0: (6,10)-(8,11)
+    row 10 u 3 (mod) X=0 waste=0: (7,10)-(9,11)
+    row 10 u 6 (ghost) X=0 waste=2:
+    row 11 u -1 (ghost) X=0 waste=0: (3,11)-(5,12)
+    row 11 u 1 (mod) X=1 waste=0: (5,11)-(7,12) (5,11)-(6,13)
+    row 11 u 2 (mod) X=0 waste=0: (6,11)-(8,12)
+    row 11 u 3 (mod) X=0 waste=0: (7,11)-(9,12)
+    row 12 u 0 (mod) X=0 waste=0: (4,12)-(6,13) (4,12)-(5,14)
+    row 12 u 2 (mod) X=0 waste=0: (6,12)-(8,13)
+    row 12 u 3 (mod) X=0 waste=0: (7,12)-(9,13)
+    row 12 u 6 (ghost) X=0 waste=2:
+    row 13 u -1 (ghost) X=0 waste=0: (4,13)-(5,15)
+    row 13 u 0 (mod) X=0 waste=0: (5,13)-(7,14) (5,13)-(6,15)
+    row 13 u 2 (mod) X=0 waste=0: (7,13)-(9,14) (7,13)-(8,15)
+    row 13 u 3 (mod) X=0 waste=0: (8,13)-(10,14)
+    row 13 u 6 (ghost) X=0 waste=2:
+    row 14 u 0 (mod) X=0 waste=0: (5,14)-(6,16)
+    row 14 u 1 (mod) X=0 waste=0: (6,14)-(8,15) (6,14)-(7,16)
+    row 14 u 2 (mod) X=1 waste=0: (7,14)-(8,16)
+    row 14 u 3 (mod) X=0 waste=0: (8,14)-(10,15) (8,14)-(9,16)
+    row 15 u 0 (mod) X=0 waste=0: (5,15)-(6,17)
+    row 15 u 1 (mod) X=0 waste=0: (6,15)-(7,17)
+    row 15 u 2 (mod) X=1 waste=0: (7,15)-(9,16) (7,15)-(8,17)
+    row 16 u -2 (ghost) X=0 waste=0: (4,16)-(6,17)
+    row 16 u 0 (mod) X=0 waste=0: (6,16)-(7,18)
+    row 16 u 1 (mod) X=1 waste=0: (7,16)-(9,17)
+    row 16 u 2 (mod) X=0 waste=0: (8,16)-(10,17)
+    row 16 u 6 (ghost) X=0 waste=2:
+    row 17 u -2 (ghost) X=0 waste=0: (4,17)-(6,18)
+    row 17 u -1 (ghost) X=0 waste=0: (5,17)-(7,18)
+    row 17 u 1 (mod) X=0 waste=0: (7,17)-(9,18)
+    row 17 u 2 (mod) X=0 waste=0: (8,17)-(10,18)
+    row 17 u 3 (mod) X=0 waste=0: (9,17)-(11,18)
+    row 17 u 6 (ghost) X=0 waste=2:
+ try mean 71/9 per row
+  cycle colour current through u = 0: 4 over 30 rows
+  cycle: 300 arcs, 30 rows, crossings 19, waste 46, weight 232 -> mean 232/30
+    (cycle starts at row phase 1; board x = u + floor(1*(phase+row)/3) - floor(1*phase/3))
+    row 0 u -2 (ghost) X=0 waste=0: (-2,0)-(0,1)
+    row 0 u -1 (ghost) X=0 waste=0: (-1,0)-(1,1)
+    row 0 u 0 (mod) X=0 waste=0: (0,0)-(2,1)
+    row 0 u 1 (mod) X=1 waste=0: (1,0)-(2,2)
+    row 0 u 2 (mod) X=0 waste=0: (2,0)-(3,2)
+    row 0 u 3 (mod) X=0 waste=0: (3,0)-(4,2)
+    row 0 u 5 (ghost) X=0 waste=0: (5,0)-(4,2)
+    row 1 u -1 (ghost) X=0 waste=0: (-1,1)-(1,2)
+    row 1 u 0 (mod) X=0 waste=0: (0,1)-(2,2)
+    row 1 u 1 (mod) X=1 waste=0: (1,1)-(2,3)
+    row 1 u 3 (mod) X=0 waste=0: (3,1)-(4,3)
+    row 1 u 5 (ghost) X=0 waste=0: (5,1)-(4,3)
+    row 1 u 6 (ghost) X=0 waste=2:
+    row 2 u -2 (ghost) X=0 waste=0: (-1,2)-(1,3)
+    row 2 u -1 (ghost) X=0 waste=0: (0,2)-(2,3)
+    row 2 u 0 (mod) X=1 waste=0: (1,2)-(3,3)
+    row 2 u 2 (mod) X=0 waste=0: (3,2)-(4,4)
+    row 2 u 4 (ghost) X=0 waste=0: (5,2)-(4,4)
+    row 2 u 6 (ghost) X=0 waste=2:
+    row 3 u -2 (ghost) X=0 waste=0: (-1,3)-(1,4)
+    row 3 u -1 (ghost) X=0 waste=0: (0,3)-(2,4)
+    row 3 u 0 (mod) X=0 waste=0: (1,3)-(3,4)
+    row 3 u 2 (mod) X=0 waste=0: (3,3)-(4,5)
+    row 3 u 4 (ghost) X=0 waste=0: (5,3)-(4,5)
+    row 3 u 6 (ghost) X=0 waste=2:
+    row 4 u -1 (ghost) X=0 waste=0: (0,4)-(2,5)
+    row 4 u 0 (mod) X=0 waste=0: (1,4)-(3,5)
+    row 4 u 1 (mod) X=1 waste=0: (2,4)-(3,6)
+    row 4 u 2 (mod) X=0 waste=0: (3,4)-(4,6)
+    row 4 u 4 (ghost) X=0 waste=0: (5,4)-(4,6)
+    row 4 u 6 (ghost) X=0 waste=2:
+    row 5 u -2 (ghost) X=0 waste=0: (0,5)-(2,6)
+    row 5 u -1 (ghost) X=0 waste=0: (1,5)-(3,6)
+    row 5 u 0 (mod) X=1 waste=0: (2,5)-(3,7)
+    row 5 u 1 (mod) X=0 waste=0: (3,5)-(4,7)
+    row 5 u 3 (mod) X=0 waste=0: (5,5)-(6,7) (5,5)-(4,7)
+    row 6 u -2 (ghost) X=0 waste=0: (0,6)-(2,7)
+    row 6 u 0 (mod) X=0 waste=0: (2,6)-(3,8)
+    row 6 u 3 (mod) X=0 waste=0: (5,6)-(6,8) (5,6)-(4,8)
+    row 6 u 5 (ghost) X=0 waste=0: (7,6)-(6,8)
+    row 6 u 6 (ghost) X=0 waste=2:
+    row 7 u 0 (mod) X=0 waste=0: (2,7)-(3,9)
+    row 7 u 1 (mod) X=0 waste=0: (3,7)-(4,9)
+    row 7 u 3 (mod) X=0 waste=0: (5,7)-(6,9) (5,7)-(4,9)
+    row 7 u 5 (ghost) X=0 waste=0: (7,7)-(6,9)
+    row 7 u 6 (ghost) X=0 waste=2:
+    row 8 u -1 (ghost) X=0 waste=0: (2,8)-(3,10)
+    row 8 u 0 (mod) X=0 waste=0: (3,8)-(4,10)
+    row 8 u 1 (mod) X=1 waste=1: (4,8)-(5,10)
+    row 8 u 2 (mod) X=1 waste=0: (5,8)-(6,10) (5,8)-(4,10)
+    row 8 u 4 (ghost) X=0 waste=0: (7,8)-(6,10)
+    row 9 u 0 (mod) X=0 waste=0: (3,9)-(4,11)
+    row 9 u 2 (mod) X=1 waste=1: (5,9)-(6,11) (5,9)-(4,11)
+    row 9 u 4 (ghost) X=0 waste=0: (7,9)-(6,11)
+    row 10 u 0 (mod) X=0 waste=0: (3,10)-(4,12)
+    row 10 u 2 (mod) X=0 waste=0: (5,10)-(6,12)
+    row 10 u 4 (ghost) X=0 waste=0: (7,10)-(6,12)
+    row 10 u 6 (ghost) X=0 waste=2:
+    row 11 u -2 (ghost) X=0 waste=0: (2,11)-(4,12)
+    row 11 u 1 (mod) X=0 waste=0: (5,11)-(6,13) (5,11)-(4,13)
+    row 11 u 3 (mod) X=0 waste=0: (7,11)-(9,12) (7,11)-(6,13)
+    row 11 u 6 (ghost) X=0 waste=2:
+    row 12 u 1 (mod) X=0 waste=0: (5,12)-(6,14) (5,12)-(4,14)
+    row 12 u 3 (mod) X=0 waste=0: (7,12)-(9,13) (7,12)-(8,14)
+    row 12 u 6 (ghost) X=0 waste=2:
+    row 13 u 0 (mod) X=0 waste=0: (4,13)-(2,14)
+    row 13 u 1 (mod) X=0 waste=0: (5,13)-(6,15) (5,13)-(4,15)
+    row 13 u 3 (mod) X=0 waste=0: (7,13)-(8,15) (7,13)-(6,15)
+    row 13 u 6 (ghost) X=0 waste=2:
+    row 14 u 0 (mod) X=0 waste=0: (5,14)-(6,16) (5,14)-(4,16)
+    row 14 u 1 (mod) X=1 waste=1: (6,14)-(7,16)
+    row 14 u 2 (mod) X=1 waste=0: (7,14)-(8,16) (7,14)-(6,16)
+    row 14 u 3 (mod) X=0 waste=0: (8,14)-(9,16)
+    row 15 u 0 (mod) X=0 waste=0: (5,15)-(6,17) (5,15)-(4,17)
+    row 15 u 2 (mod) X=1 waste=1: (7,15)-(8,17) (7,15)-(6,17)
+    row 15 u 3 (mod) X=0 waste=0: (8,15)-(9,17)
+    row 16 u 0 (mod) X=0 waste=0: (5,16)-(6,18) (5,16)-(4,18)
+    row 16 u 2 (mod) X=0 waste=0: (7,16)-(6,18)
+    row 16 u 3 (mod) X=0 waste=0: (8,16)-(9,18)
+    row 16 u 6 (ghost) X=0 waste=2:
+    row 17 u -1 (ghost) X=0 waste=0: (5,17)-(6,19)
+    row 17 u 1 (mod) X=0 waste=0: (7,17)-(8,19) (7,17)-(6,19)
+    row 17 u 2 (mod) X=0 waste=0: (8,17)-(9,19)
+    row 17 u 3 (mod) X=0 waste=0: (9,17)-(11,18)
+    row 17 u 6 (ghost) X=0 waste=2:
+    row 18 u 1 (mod) X=0 waste=0: (7,18)-(8,20) (7,18)-(6,20)
+    row 18 u 2 (mod) X=1 waste=0: (8,18)-(10,19) (8,18)-(9,20)
+    row 18 u 3 (mod) X=0 waste=0: (9,18)-(11,19)
+    row 19 u 1 (mod) X=0 waste=0: (7,19)-(8,21) (7,19)-(6,21)
+    row 19 u 2 (mod) X=1 waste=0: (8,19)-(10,20)
+    row 19 u 3 (mod) X=0 waste=0: (9,19)-(11,20)
+    row 19 u 6 (ghost) X=0 waste=2:
+    row 20 u 0 (mod) X=0 waste=0: (7,20)-(8,22) (7,20)-(6,22)
+    row 20 u 1 (mod) X=0 waste=0: (8,20)-(10,21)
+    row 20 u 2 (mod) X=0 waste=0: (9,20)-(11,21)
+    row 20 u 3 (mod) X=0 waste=0: (10,20)-(12,21)
+    row 20 u 6 (ghost) X=0 waste=2:
+    row 21 u 0 (mod) X=0 waste=0: (7,21)-(8,23) (7,21)-(6,23)
+    row 21 u 1 (mod) X=0 waste=0: (8,21)-(10,22)
+    row 21 u 2 (mod) X=1 waste=0: (9,21)-(11,22) (9,21)-(10,23)
+    row 21 u 3 (mod) X=0 waste=0: (10,21)-(12,22)
+    row 21 u 6 (ghost) X=0 waste=2:
+    row 22 u 0 (mod) X=0 waste=0: (7,22)-(8,24) (7,22)-(6,24)
+    row 22 u 1 (mod) X=0 waste=0: (8,22)-(9,24)
+    row 22 u 2 (mod) X=1 waste=0: (9,22)-(11,23) (9,22)-(10,24)
+    row 22 u 3 (mod) X=0 waste=0: (10,22)-(12,23)
+    row 22 u 6 (ghost) X=0 waste=2:
+    row 23 u -1 (ghost) X=0 waste=0: (7,23)-(8,25)
+    row 23 u 0 (mod) X=0 waste=0: (8,23)-(9,25)
+    row 23 u 1 (mod) X=1 waste=0: (9,23)-(11,24) (9,23)-(10,25)
+    row 23 u 2 (mod) X=0 waste=0: (10,23)-(12,24)
+    row 23 u 3 (mod) X=0 waste=0: (11,23)-(13,24)
+    row 24 u 0 (mod) X=0 waste=0: (8,24)-(9,26)
+    row 24 u 1 (mod) X=0 waste=0: (9,24)-(10,26)
+    row 24 u 2 (mod) X=0 waste=0: (10,24)-(12,25)
+    row 24 u 3 (mod) X=0 waste=0: (11,24)-(13,25)
+    row 24 u 6 (ghost) X=0 waste=2:
+    row 25 u 0 (mod) X=0 waste=0: (8,25)-(9,27)
+    row 25 u 1 (mod) X=0 waste=0: (9,25)-(10,27)
+    row 25 u 2 (mod) X=0 waste=0: (10,25)-(11,27)
+    row 25 u 3 (mod) X=0 waste=0: (11,25)-(13,26) (11,25)-(12,27)
+    row 25 u 6 (ghost) X=0 waste=2:
+    row 26 u -1 (ghost) X=0 waste=0: (8,26)-(9,28)
+    row 26 u 0 (mod) X=0 waste=0: (9,26)-(10,28)
+    row 26 u 1 (mod) X=0 waste=0: (10,26)-(11,28)
+    row 26 u 2 (mod) X=2 waste=1: (11,26)-(12,28) (11,26)-(10,28)
+    row 26 u 3 (mod) X=0 waste=0: (12,26)-(14,27) (12,26)-(13,28)
+    row 27 u -2 (ghost) X=0 waste=0: (7,27)-(9,28)
+    row 27 u 0 (mod) X=0 waste=0: (9,27)-(10,29)
+    row 27 u 1 (mod) X=1 waste=1: (10,27)-(11,29)
+    row 27 u 2 (mod) X=0 waste=0: (11,27)-(12,29)
+    row 27 u 3 (mod) X=0 waste=0: (12,27)-(13,29)
+    row 28 u -1 (ghost) X=0 waste=0: (8,28)-(10,29)
+    row 28 u 2 (mod) X=0 waste=0: (11,28)-(12,30)
+    row 28 u 3 (mod) X=0 waste=0: (12,28)-(13,30)
+    row 28 u 6 (ghost) X=0 waste=2:
+    row 29 u -2 (ghost) X=0 waste=0: (8,29)-(10,30)
+    row 29 u -1 (ghost) X=0 waste=0: (9,29)-(11,30)
+    row 29 u 1 (mod) X=0 waste=0: (11,29)-(12,31)
+    row 29 u 2 (mod) X=0 waste=0: (12,29)-(13,31)
+    row 29 u 3 (mod) X=0 waste=0: (13,29)-(14,31)
+    row 29 u 6 (ghost) X=0 waste=2:
+ try mean 116/15 per row
+RESULT A=1 WM=4 KM=1 nz lambda=1/1: min mean weight per row = 116/15 (CERTIFIED: no cycle below); per level (E units) = 116/30 = 3.8667  (233s)
+total 233s
+	Command being timed: "./wifm 1/3 4 1 nz 48 1 90000000"
+	User time (seconds): 218.97
+	System time (seconds): 14.66
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 3:53.76
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 2514008
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 1686681
+	Voluntary context switches: 1
+	Involuntary context switches: 1044
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 96
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+exit=0

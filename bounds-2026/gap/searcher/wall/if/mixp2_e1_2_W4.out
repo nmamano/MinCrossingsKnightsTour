@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+ValueError: not enough values to unpack (expected 2, got 0)
+shear 2/7 e=1/2 CUR=5/28: CAP reached: 90000004 states (processed 88709399) 355s => wall+zone bound per row =  ; 
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+ValueError: not enough values to unpack (expected 2, got 0)
+shear 1/5 e=1/2 CUR=1/5: CAP reached: 90000001 states (processed 88640662) 377s => wall+zone bound per row =  ; 
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+ValueError: not enough values to unpack (expected 2, got 0)
+shear 1/6 e=1/2 CUR=5/24: CAP reached: 90000001 states (processed 87156059) 383s => wall+zone bound per row =  ; 
+shear 3/4 e=1/2 CUR=1/16: 163/8 (CERTIFIED: no cycle below); per level (E units) = 163/16 = 10.1875  (324s) => wall+zone bound per row = 163/256 ;   cycle mixed margin squares: 3 over 8 rows

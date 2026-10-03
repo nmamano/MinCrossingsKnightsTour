@@ -1,0 +1,5 @@
+  states 200000, queue 47611, 57s
+  states 400000, queue 57668, 176s
+  states 600000, queue 73480, 218s
+up: states 687324, arcs 1401483, build 261s
+wrote base_up.bin 687324 1401483

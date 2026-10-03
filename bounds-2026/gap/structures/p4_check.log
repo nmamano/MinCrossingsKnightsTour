@@ -1,0 +1,10 @@
+FOLD24_n96.json n 96 per side (shallow bad squares, uncovered, examples): [(9, 0, []), (14, 0, []), (12, 0, []), (17, 0, [])]
+FIELD_n166_92_155.json n 166 per side (shallow bad squares, uncovered, examples): [(37, 0, []), (12, 0, []), (19, 0, []), (12, 0, [])]
+FOLDB1_n144.json n 144 per side (shallow bad squares, uncovered, examples): [(29, 0, []), (12, 0, []), (19, 2, [(2, 71), (3, 71)]), (25, 0, [])]
+FOLDP_n96.json n 96 per side (shallow bad squares, uncovered, examples): [(21, 0, []), (12, 0, []), (19, 0, []), (15, 0, [])]
+FOLDX_n100.json n 100 per side (shallow bad squares, uncovered, examples): [(30, 0, []), (32, 0, []), (12, 0, []), (12, 0, [])]
+FJOG_n130.json n 130 per side (shallow bad squares, uncovered, examples): [(69, 1, [(4, 59)]), (69, 0, []), (64, 0, []), (72, 0, [])]
+FJOG_n132.json n 132 per side (shallow bad squares, uncovered, examples): [(51, 2, [(3, 61), (3, 62)]), (45, 15, [(3, 64), (3, 65), (3, 66), (3, 67), (3, 69), (3, 94)]), (33, 1, [(4, 66)]), (36, 3, [(3, 37), (4, 37), (4, 38)])]
+LF4_n96.json n 96 per side (shallow bad squares, uncovered, examples): [(0, 0, []), (0, 0, []), (106, 0, []), (135, 0, [])]
+TT16_n72.json n 72 per side (shallow bad squares, uncovered, examples): [(0, 0, []), (0, 0, []), (56, 0, []), (56, 0, [])]
+exit=0

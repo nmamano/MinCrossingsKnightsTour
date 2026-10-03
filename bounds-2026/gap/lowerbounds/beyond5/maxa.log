@@ -1,0 +1,25 @@
+=== up d0=1 c=1/1
+base: 687324 states, 1401483 arcs
+augmented (d0=1, HOLES=4): states 33368066, arcs 67723930
+negative cycle: 30 arcs (6 rows), sum(10w-2-10g+5q3) = 30, sum q3+holes = 6, sum Qfar = 1
+  -> g coefficient <= 5/3 = 1.666667
+negative cycle: 40 arcs (8 rows), sum(10w-2-10g+5q3) = 65, sum q3+holes = 7, sum Qfar = 5
+  -> g coefficient <= 3/2 = 1.500000
+converged after 22 passes
+d0=1 HOLES=4: g coefficient 3/2, c = 1/1 CERTIFIED; potential range -264..0 (units 1/(10*1*2)), states 33368066, arcs 67723930
+=== down d0=1 c=1/1
+base: 1474553 states, 3104392 arcs
+augmented (d0=1, HOLES=4): states 85615194, arcs 172540463
+negative cycle: 30 arcs (6 rows), sum(10w-2-10g+5q3) = 30, sum q3+holes = 6, sum Qfar = 1
+  -> g coefficient <= 5/3 = 1.666667
+negative cycle: 40 arcs (8 rows), sum(10w-2-10g+5q3) = 65, sum q3+holes = 7, sum Qfar = 5
+  -> g coefficient <= 3/2 = 1.500000
+converged after 22 passes
+d0=1 HOLES=4: g coefficient 3/2, c = 1/1 CERTIFIED; potential range -264..0 (units 1/(10*1*2)), states 85615194, arcs 172540463
+=== up d0=2 c=1/1
+base: 687324 states, 1401483 arcs
+augmented (d0=2, HOLES=4): states 63002712, arcs 127832841
+converged after 27 passes
+d0=2 HOLES=4: g coefficient 2/1, c = 1/1 CERTIFIED; potential range -187..0 (units 1/(10*1*1)), states 63002712, arcs 127832841
+=== down d0=2 c=1/1
+base: 1474553 states, 3104392 arcs

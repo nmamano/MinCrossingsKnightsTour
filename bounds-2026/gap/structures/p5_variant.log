@@ -1,0 +1,30 @@
+72 free vertices 216 variables 846 tour edges there 287
+iter 0 OPTIMAL nonP 44 obj 4603 bound 4603 cycles 26 7s
+iter 1 OPTIMAL nonP 44 obj 4604 bound 4604 cycles 27 6s
+iter 2 FEASIBLE nonP 63 obj 6522 bound 6329 cycles 5 180s
+iter 3 FEASIBLE nonP 63 obj 6526 bound 6352 cycles 5 180s
+iter 4 FEASIBLE nonP 63 obj 6534 bound 6354 cycles 2 180s
+iter 5 FEASIBLE nonP 63 obj 6534 bound 6355 cycles 1 180s
+original tour objective 167
+checker (642, 838)
+p5_LF1v0_n72.json n 72 SU 74
+  side 0 {'rows': 56, 'F': 0, 'g': 7, 'owned': 5, 'SU': 1, 'K': 6, 'Nf': 41, 'near': 24, 'Nnear': 49, 'bal': 42}
+  side 1 {'rows': 56, 'F': 0, 'g': 0, 'owned': 0, 'SU': 0, 'K': 0, 'Nf': 0, 'near': 0, 'Nnear': 0, 'bal': -56}
+  side 2 {'rows': 56, 'F': 64, 'g': 37, 'owned': 5, 'SU': 32, 'K': 37, 'Nf': 0, 'near': 19, 'Nnear': 57, 'bal': 18}
+  side 3 {'rows': 56, 'F': 64, 'g': 28, 'owned': 0, 'SU': 41, 'K': 41, 'Nf': 0, 'near': 28, 'Nnear': 56, 'bal': -26}
+  total {'rows': 224, 'F': 128, 'g': 72, 'owned': 10, 'SU': 74, 'K': 84, 'Nf': 41, 'near': 71, 'Nnear': 162, 'bal': -22}  (bal + BQx)/n needs >= 0: bal/n = -0.31
+120 free vertices 360 variables 1422 tour edges there 479
+iter 0 FEASIBLE nonP 69 obj 7221 bound 6922 cycles 49 180s
+iter 1 OPTIMAL nonP 70 obj 7322 bound 7322 cycles 45 47s
+iter 2 FEASIBLE nonP 104 obj 10758 bound 10420 cycles 9 180s
+iter 3 FEASIBLE nonP 104 obj 10766 bound 10420 cycles 7 180s
+iter 4 FEASIBLE nonP 104 obj 10774 bound 10420 cycles 1 180s
+original tour objective 261
+checker (1064, 1422)
+p5_LF1v0_n120.json n 120 SU 159
+  side 0 {'rows': 104, 'F': 0, 'g': 13, 'owned': 11, 'SU': 2, 'K': 13, 'Nf': 89, 'near': 40, 'Nnear': 82, 'bal': 100}
+  side 1 {'rows': 104, 'F': 0, 'g': 0, 'owned': 0, 'SU': 0, 'K': 0, 'Nf': 0, 'near': 0, 'Nnear': 0, 'bal': -104}
+  side 2 {'rows': 104, 'F': 112, 'g': 69, 'owned': 10, 'SU': 68, 'K': 78, 'Nf': 0, 'near': 35, 'Nnear': 105, 'bal': 16}
+  side 3 {'rows': 104, 'F': 112, 'g': 52, 'owned': 0, 'SU': 89, 'K': 89, 'Nf': 0, 'near': 52, 'Nnear': 104, 'bal': -74}
+  total {'rows': 416, 'F': 224, 'g': 134, 'owned': 21, 'SU': 159, 'K': 180, 'Nf': 89, 'near': 127, 'Nnear': 291, 'bal': -62}  (bal + BQx)/n needs >= 0: bal/n = -0.52
+exit=0

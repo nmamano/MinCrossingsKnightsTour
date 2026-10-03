@@ -1,0 +1,20 @@
+shear 1/3 left 02 any word | S0, e=1/2: min = 0 per row; mixed: 0 over 3 rows
+shear 1/3 left 02 any word | S2, e=1/2: min = 0 per row; mixed: 0 over 3 rows
+shear 1/3 left 02 any word | S1, e=1/2: min = 2 per row; mixed: 0 over 3 rows
+shear 1/3 left 02 any word | S3, e=1/2: min = 1 per row; mixed: 0 over 3 rows
+shear 1/3 left 13 any word | S0, e=1/2: min = 1 per row; mixed: 0 over 3 rows
+shear 1/3 left 13 any word | S2, e=1/2: min = 1 per row; mixed: 0 over 6 rows
+shear 1/3 left 13 any word | S1, e=1/2: min = 0 per row; mixed: 0 over 3 rows
+shear 1/3 left 13 any word | S3, e=1/2: min = 0 per row; mixed: 0 over 3 rows
+shear 2/5 left 02 any word | S0, e=1/2: min = 0 per row; mixed: 0 over 5 rows
+shear 2/5 left 02 any word | S2, e=1/2: min = 0 per row; mixed: 0 over 5 rows
+shear 2/5 left 02 any word | S1, e=1/2: min = 4 per row; 
+shear 2/5 left 02 any word | S3, e=1/2: min = 11/10 per row; mixed: 0 over 10 rows
+shear 2/5 left 13 any word | S0, e=1/2: min = 1 per row; mixed: 0 over 5 rows
+shear 2/5 left 13 any word | S2, e=1/2: min = 67/50 per row; mixed: 2 over 5 rows
+shear 2/5 left 13 any word | S1, e=1/2: min = 0 per row; mixed: 0 over 5 rows
+shear 2/5 left 13 any word | S3, e=1/2: min = 0 per row; mixed: 0 over 5 rows
+shear 3/5 left 02 any word | S0, e=1/2: min = 0 per row; mixed: 0 over 5 rows
+shear 3/5 left 02 any word | S2, e=1/2: min = 0 per row; mixed: 0 over 5 rows
+shear 3/5 left 02 any word | S1, e=1/2: min = 4 per row; 
+shear 3/5 left 02 any word | S3, e=1/2: min = 4 per row; 

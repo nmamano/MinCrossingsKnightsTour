@@ -1,0 +1,10 @@
+  states 200000, queue 54469, 56s
+  states 400000, queue 142868, 65s
+  states 600000, queue 89639, 187s
+  states 800000, queue 187367, 198s
+  states 1000000, queue 282907, 208s
+  states 1200000, queue 304265, 221s
+  states 1400000, queue 42655, 318s
+down: states 1474553, arcs 3104392, build 327s
+wrote base_down.bin 1474553 3104392
+done

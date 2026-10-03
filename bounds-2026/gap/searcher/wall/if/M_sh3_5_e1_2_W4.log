@@ -1,0 +1,102 @@
+shear 3/5 WM=4 KM=1 MODE=nz lambda=1/2: columns u in [-3,6], 62 slots, complete squares s in [0,2], 1 cost squares per row
+warm-up done: 501888 strict seed states, largest warm layer 3310016, 42s
+  ... 4194304/7137021 states, 8373156 arcs, 55s
+  ... 8388608/8880042 states, 10539133 arcs, 62s
+  ... 12582912/12929855 states, 16187577 arcs, 77s
+  ... 16777216/19104935 states, 23161015 arcs, 92s
+  ... 20971520/21439406 states, 26425805 arcs, 102s
+  ... 25165824/25343467 states, 30561225 arcs, 110s
+  ... 29360128/29717429 states, 36501150 arcs, 124s
+  ... 33554432/33707668 states, 40903173 arcs, 139s
+  ... 37748736/37905103 states, 46649661 arcs, 154s
+  ... 41943040/44238881 states, 53773144 arcs, 167s
+  ... 46137344/46610130 states, 57079308 arcs, 177s
+  ... 50331648/50504631 states, 61183526 arcs, 185s
+states by warm level: strict 53500847, warm1 0, warm2 0, warm3 0
+graph: states 53500847 arcs 65540107 (rejected: margin 82802532, psi 1464580) 195s
+== lambda 1/1
+ try mean 80/1 per row
+  cycle colour current through u = 0: 4 over 10 rows
+  cycle: 100 arcs, 10 rows, crossings 6, waste 12, weight 124 -> mean 124/10
+    (cycle starts at row phase 3; board x = u + floor(3*(phase+row)/5) - floor(3*phase/5))
+    row 0 u -1 (ghost) X=0 waste=0: (-1,0)-(1,1)
+    row 0 u 0 (mod) X=0 waste=0: (0,0)-(2,1)
+    row 0 u 1 (mod) X=0 waste=0: (1,0)-(3,1)
+    row 0 u 4 (ghost) X=0 waste=0: (4,0)-(3,2)
+    row 0 u 6 (ghost) X=0 waste=2:
+    row 1 u -1 (ghost) X=0 waste=0: (0,1)-(2,2)
+    row 1 u 0 (mod) X=0 waste=0: (1,1)-(3,2)
+    row 1 u 1 (mod) X=1 waste=1: (2,1)-(4,2)
+    row 1 u 3 (mod) X=0 waste=0: (4,1)-(6,2) (4,1)-(5,3)
+    row 1 u 6 (ghost) X=0 waste=1:
+    row 2 u -2 (ghost) X=0 waste=0: (0,2)-(2,3)
+    row 2 u -1 (ghost) X=0 waste=0: (1,2)-(3,3)
+    row 2 u 0 (mod) X=0 waste=0: (2,2)-(4,3)
+    row 2 u 2 (mod) X=0 waste=0: (4,2)-(5,4)
+    row 2 u 3 (mod) X=0 waste=0: (5,2)-(7,3) (5,2)-(6,4)
+    row 2 u 6 (ghost) X=0 waste=2:
+    row 3 u -1 (ghost) X=0 waste=0: (1,3)-(3,4)
+    row 3 u 0 (mod) X=0 waste=0: (2,3)-(4,4)
+    row 3 u 1 (mod) X=0 waste=0: (3,3)-(5,4)
+    row 3 u 2 (mod) X=1 waste=0: (4,3)-(5,5)
+    row 3 u 3 (mod) X=0 waste=0: (5,3)-(6,5)
+    row 3 u 6 (ghost) X=0 waste=0: (8,3)-(6,4)
+    row 4 u -2 (ghost) X=0 waste=0: (1,4)-(3,5)
+    row 4 u -1 (ghost) X=0 waste=0: (2,4)-(4,5)
+    row 4 u 0 (mod) X=0 waste=0: (3,4)-(5,5)
+    row 4 u 1 (mod) X=1 waste=0: (4,4)-(6,5)
+    row 4 u 4 (ghost) X=0 waste=0: (7,4)-(6,6)
+    row 5 u -1 (ghost) X=0 waste=0: (2,5)-(4,6)
+    row 5 u 0 (mod) X=0 waste=0: (3,5)-(5,6)
+    row 5 u 1 (mod) X=0 waste=0: (4,5)-(6,6)
+    row 5 u 4 (ghost) X=0 waste=0: (7,5)-(6,7)
+    row 5 u 6 (ghost) X=0 waste=2:
+    row 6 u -1 (ghost) X=0 waste=0: (3,6)-(5,7)
+    row 6 u 0 (mod) X=0 waste=0: (4,6)-(6,7)
+    row 6 u 1 (mod) X=1 waste=1: (5,6)-(7,7)
+    row 6 u 3 (mod) X=0 waste=0: (7,6)-(9,7) (7,6)-(8,8)
+    row 6 u 6 (ghost) X=0 waste=1:
+    row 7 u -2 (ghost) X=0 waste=0: (3,7)-(5,8)
+    row 7 u -1 (ghost) X=0 waste=0: (4,7)-(6,8)
+    row 7 u 0 (mod) X=0 waste=0: (5,7)-(7,8)
+    row 7 u 2 (mod) X=0 waste=0: (7,7)-(8,9)
+    row 7 u 3 (mod) X=0 waste=0: (8,7)-(10,8) (8,7)-(9,9)
+    row 7 u 6 (ghost) X=0 waste=2:
+    row 8 u -1 (ghost) X=0 waste=0: (4,8)-(6,9)
+    row 8 u 0 (mod) X=0 waste=0: (5,8)-(7,9)
+    row 8 u 1 (mod) X=0 waste=0: (6,8)-(8,9)
+    row 8 u 2 (mod) X=1 waste=0: (7,8)-(8,10)
+    row 8 u 3 (mod) X=0 waste=0: (8,8)-(9,10)
+    row 8 u 6 (ghost) X=0 waste=0: (11,8)-(9,9)
+    row 9 u -2 (ghost) X=0 waste=0: (4,9)-(6,10)
+    row 9 u -1 (ghost) X=0 waste=0: (5,9)-(7,10)
+    row 9 u 0 (mod) X=0 waste=0: (6,9)-(8,10)
+    row 9 u 1 (mod) X=1 waste=0: (7,9)-(9,10)
+    row 9 u 4 (ghost) X=0 waste=0: (10,9)-(9,11)
+ try mean 62/5 per row
+RESULT A=3 WM=4 KM=1 nz lambda=1/1: min mean weight per row = 62/5 (CERTIFIED: no cycle below); per level (E units) = 62/10 = 6.2000  (200s)
+total 200s
+	Command being timed: "./wifm 3/5 4 1 nz 80 1 90000000"
+	User time (seconds): 190.60
+	System time (seconds): 10.23
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 3:21.12
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 3123200
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 1469122
+	Voluntary context switches: 1
+	Involuntary context switches: 1091
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 56
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+exit=0

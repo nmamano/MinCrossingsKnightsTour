@@ -1,0 +1,11 @@
+FOLD24_n96.json n 96 sides [32.0, 34.5, 33.5, 39.5] total {'ex': 146, 'Q3': 267, 'g': 19, 'owned': 7, 'Nf': 102, 'joint': 279.5, 'need_a2c1': 140, 'slack': 139.5}
+claim36_FOLD_n192.json n 192 sides [32.0, 34.5, 33.5, 39.5] total {'ex': 242, 'Q3': 459, 'g': 19, 'owned': 7, 'Nf': 294, 'joint': 471.5, 'need_a2c1': 332, 'slack': 139.5}
+FIELD_n166_92_155.json n 166 sides [23.5, 33.5, 45.5, 33.5] total {'ex': 302, 'Q3': 524, 'g': 92, 'owned': 67, 'Nf': 244, 'joint': 564.0, 'need_a2c1': 428, 'slack': 136.0}
+FOLDB1_n144.json n 144 sides [55.0, 30.5, 46.5, 45.5] total {'ex': 221, 'Q3': 423, 'g': 27, 'owned': 13, 'Nf': 201, 'joint': 432.5, 'need_a2c1': 255, 'slack': 177.5}
+FOLDP_n96.json n 96 sides [48.5, 33.5, 45.5, 34.0] total {'ex': 156, 'Q3': 281, 'g': 19, 'owned': 8, 'Nf': 97, 'joint': 296.5, 'need_a2c1': 135, 'slack': 161.5}
+FOLDX_n100.json n 100 sides [54.5, 36.0, 33.5, 33.5] total {'ex': 160, 'Q3': 325, 'g': 29, 'owned': 11, 'Nf': 107, 'joint': 322.5, 'need_a2c1': 165, 'slack': 157.5}
+FJOG_n130.json n 130 sides [97.5, 86.0, 81.0, 86.5] total {'ex': 210, 'Q3': 584, 'g': 74, 'owned': 27, 'Nf': 3, 'joint': 502.0, 'need_a2c1': 151, 'slack': 351.0}
+FJOG_n132.json n 132 sides [51.5, 44.5, 48.0, 31.5] total {'ex': 108, 'Q3': 301, 'g': 39, 'owned': 17, 'Nf': 5, 'joint': 258.5, 'need_a2c1': 83, 'slack': 175.5}
+LF4_n96.json n 96 sides [0.0, 0.0, 28.0, 76.5] total {'ex': 252, 'Q3': 499, 'g': 118, 'owned': 29, 'Nf': 161, 'joint': 501.5, 'need_a2c1': 397, 'slack': 104.5}
+TT16_n72.json n 72 sides [0.0, 0.0, 129.5, 129.5] total {'ex': 308, 'Q3': 518, 'g': 98, 'owned': 43, 'Nf': 112, 'joint': 567.0, 'need_a2c1': 308, 'slack': 259.0}
+exit=0

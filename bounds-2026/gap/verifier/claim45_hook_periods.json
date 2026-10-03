@@ -1,0 +1,46 @@
+[
+ {
+  "frame": 0,
+  "deep_bad_on_hook_by_radius_mod6": [
+   2,
+   2,
+   2,
+   2,
+   4,
+   4
+  ]
+ },
+ {
+  "frame": 1,
+  "deep_bad_on_hook_by_radius_mod6": [
+   2,
+   2,
+   4,
+   4,
+   2,
+   2
+  ]
+ },
+ {
+  "frame": 2,
+  "deep_bad_on_hook_by_radius_mod6": [
+   2,
+   2,
+   4,
+   4,
+   2,
+   2
+  ]
+ },
+ {
+  "frame": 3,
+  "deep_bad_on_hook_by_radius_mod6": [
+   2,
+   2,
+   2,
+   2,
+   4,
+   4
+  ]
+ }
+]

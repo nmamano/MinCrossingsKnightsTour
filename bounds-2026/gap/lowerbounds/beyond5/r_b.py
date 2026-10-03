@@ -19,6 +19,9 @@ HERE = Path(__file__).resolve().parent; ROOT = HERE.parents[2]
 sys.path.insert(0, str(HERE)); sys.path.insert(0, str(ROOT / 'gap/turnstheory')); sys.path.insert(0, str(ROOT / 'gap/verifier'))
 import tour_scan as TS
 import frac_stab as FS
+from f1v_stab import tile_quarters
+from math import comb
+from itertools import combinations
 from check_hall_v3 import geometry
 from claim38_switch import edge, qs
 from check import MOVES
@@ -58,11 +61,33 @@ def run(f):
     n_, E = TS.load(f)
     Ts = [lambda v: v, lambda v: (n - 1 - v[0], v[1]), lambda v: (v[1], v[0]), lambda v: (n - 1 - v[1], v[0])]
     rows = range(8, n - 8)
-    G = []
+    G = []; X3 = []; Q3S = []
     for sd in range(4):
         loc = [tuple(sorted((Ts[sd](a), Ts[sd](b)), key=lambda p: (p[1], p[0]))) for a, b in E]
         w2 = [(a[0], a[1], b[0], b[1]) for a, b in loc if min(a[0], b[0]) <= 1]
         G.append({r: gfun(w2, r, 'up' if r < n / 2 else 'down') for r in rows})
+        w3 = sorted([(a[0], a[1], b[0], b[1]) for a, b in loc if min(a[0], b[0]) <= 2], key=lambda e: (e[1], e[0]))
+        X3.append(sum(1 for i, f2 in enumerate(w3) if f2[1] in rows for e in w3[:i] if TS.cross(e, f2)))
+        # Q3: quarter atoms of squares x = 0..4, square rows in `rows` (holes 1, X1 pairs 1, W3 binomial(m-1, 2))
+        w5 = [(a[0], a[1], b[0], b[1]) for a, b in loc if min(a[0], b[0]) <= 4]
+        tq = {e: tile_quarters(e) for e in w5}
+        mult = defaultdict(int); byq = defaultdict(list)
+        for e in w5:
+            for t in tq[e]: mult[t] += 1; byq[t].append(e)
+        q3 = 0
+        for r in rows:
+            for x in range(5):
+                for qn in 'brtl':
+                    m = mult[(x, r, qn)]
+                    q3 += 1 if m == 0 else comb(m - 1, 2)
+        seen = set()
+        for t, es in byq.items():
+            if not (0 <= t[0] <= 4 and t[1] in rows): continue
+            for e1, e2 in combinations(es, 2):
+                if (e1, e2) in seen: continue
+                seen.add((e1, e2))
+                if len(tq[e1] & tq[e2]) == 1: q3 += 1
+        Q3S.append(q3)
     # changed ports by collar row (exact nre_scan definition)
     inside = lambda v: all(3 <= z <= n - 4 for z in v)
     adj = defaultdict(set)
@@ -100,9 +125,13 @@ def run(f):
     tot = defaultdict(int)
     for sd in range(4):
         grows = [r for r in rows if G[sd][r]]
-        rec = dict(g=len(grows), owned=owned[sd], G_free=len(grows) - owned[sd], N_re=sum(chg[sd][r] for r in rows))
-        for d0 in (1, 2, 3):
+        rec = dict(X3_minus_rows=X3[sd] - len(rows), g=len(grows), owned=owned[sd], G_free=len(grows) - owned[sd], N_re=sum(chg[sd][r] for r in rows))
+        rec['Q3'] = Q3S[sd]
+        for d0 in (0, 1, 2, 3):
             rec[f'N_free{d0}'] = sum(chg[sd][r] for r in rows if all(abs(r - t) > d0 for t in grows))
+        rec['slack2'] = rec['X3_minus_rows'] - rec['g'] - rec['N_free2'] / 2      # (B5-strip) with d0 = 2, c = 1/2
+        for d0 in (0, 1, 2):     # joint form, g coefficient 2, c = 1
+            rec[f'joint{d0}'] = rec['X3_minus_rows'] + rec['Q3'] / 2 - 2 * rec['g'] - rec[f'N_free{d0}']
         out['sides'].append(rec)
         for k, v in rec.items(): tot[k] += v
     out['total'] = dict(tot)

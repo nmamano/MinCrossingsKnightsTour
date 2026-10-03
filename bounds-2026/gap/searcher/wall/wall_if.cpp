@@ -212,7 +212,7 @@ int main(int argc, char** argv) {
                 ne.clear();
                 for (auto p : rest) { if (merge >= 0 && p.comp == merge) p.comp = label; ne.push_back(p); }
                 for (int m : ch) ne.push_back({x, 0, m, label});
-                int nx = x + 1, sh = 0, nwarm = warm, nph = ph, nqp = qp; if (nx == NC) { nx = 0; sh = 1; if (nwarm) nwarm--; nph = (ph + 1) % SB; if ((ORL || ORR || CUR) && nph == 0) nqp ^= 1; }
+                int nx = x + 1, sh = 0, nwarm = warm, nph = ph, nqp = qp; if (nx == NC) { nx = 0; sh = 1; if (nwarm) nwarm--; nph = (ph + 1) % SB; if ((ORL || ORR || (CUR && !MIXP)) && nph == 0) nqp ^= 1; }
                 for (auto& p : ne) p.ly -= sh;
                 int w = x1c; int mixc = 0;
                 if (sh && (WU - warm) >= 1) {   // square row of absolute row >= 1: all covering edges are represented

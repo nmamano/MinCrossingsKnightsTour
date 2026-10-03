@@ -1,3 +1,11 @@
+# Claim 45 addendum — C5-K also false, 2026-10-03
+
+The same gadget changes C5-K by -60 per copy, giving C5-K=(17/6)n+O(1). Saved n=288 tour: g=51, K=25, N_free=182, BQx=584, count 1102<1152. Section 9.1 scalar ledger passes conditionally; the revised connectivity input fails. Details appended to claim45_report.md; exact counts: claim45_K_check.json.
+
+# Claim 45 — C5-4 counterexample, 2026-10-03
+
+FAIL: a 6x16 U-collar replacement preserves all 22 exterior stub pairs and a single tour cycle; it creates 4 g rows, removes 38 far changed ports, and changes no deep quarters. Independent local C5 change -68 per copy. Pack copies every 24 rows on the audited FOLD family: C5=(5/2)n+O(1), refuting 4n-O(1). Saved closed n=288 tour: G_free=26, N_free=182, BQx=584, C5=1000 versus 4n=1152. S1 global chamber/error accounting remains GAP; S2 local count passes conditionally but not its disjoint-payment use. Report: claim45_report.md; witness: claim45_U_gadget.json and claim45_U_patched_n288.json.
+
 # Claim 44 — beyond-5n connectivity red team, 2026-10-03
 
 GAP for B5/C5. Deep-first quarter packing passes, with actual fractional atom consumption; shallow users remain a linear ownership issue. FAIL deduction: strip coefficient N_free/2 supplies only N_free/4 in the mixed E ledger. Repair the strip coefficient to one or weaken B5 (then original C5 would conditionally give 5+c/8). The existing table computes 2*N_re+BQx, not C5. Gentle-seam replay: currents -1 and 0 each cost 3 crossings and have 12 bad quarters per (3,3) period; no closed-tour counterexample or residual K proof. Report: claim44_report.md; checks: claim44_seam.py/json and claim44_seam_check.py/json.

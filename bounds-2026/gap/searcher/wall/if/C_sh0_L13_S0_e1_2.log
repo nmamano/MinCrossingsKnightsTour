@@ -1,0 +1,74 @@
+shear 0/1 WM=4 KM=1 MODE=any lambda=1/2: columns u in [-2,5], 54 slots, complete squares s in [-1,3], 3 cost squares per row
+warm-up done: 36080 strict seed states, largest warm layer 10493992, 95s
+states by warm level: strict 768276, warm1 0, warm2 0, warm3 0
+graph: states 768276 arcs 1100594 (rejected: margin 46317312, psi 0) 97s
+== lambda 1/1
+ try mean 16/1 per row
+  cycle colour current through u = 0: 0 over 1 rows
+  cycle: 8 arcs, 1 rows, crossings 1, waste 2, weight 4 -> mean 4/1
+    (cycle starts at row phase 0; board x = u + floor(0*(phase+row)/1) - floor(0*phase/1))
+    row 0 u 0 (mod) X=0 waste=0: (0,0)-(2,1) (0,0)-(-2,1)
+    row 0 u 1 (mod) X=1 waste=1: (1,0)-(3,1) (1,0)-(-1,1)
+    row 0 u 2 (mod) X=0 waste=0: (2,0)-(4,1)
+    row 0 u 3 (mod) X=0 waste=0: (3,0)-(5,1)
+    row 0 u 5 (ghost) X=0 waste=1:
+ try mean 4/1 per row
+  cycle colour current through u = 0: 0 over 6 rows
+  cycle: 48 arcs, 6 rows, crossings 5, waste 10, weight 20 -> mean 20/6
+    (cycle starts at row phase 0; board x = u + floor(0*(phase+row)/1) - floor(0*phase/1))
+    row 0 u 0 (mod) X=0 waste=0: (0,0)-(1,2) (0,0)-(-1,2)
+    row 0 u 1 (mod) X=1 waste=0: (1,0)-(3,1) (1,0)-(2,2)
+    row 0 u 2 (mod) X=0 waste=0: (2,0)-(4,1)
+    row 0 u 3 (mod) X=0 waste=0: (3,0)-(5,1)
+    row 0 u 5 (ghost) X=0 waste=2:
+    row 1 u 0 (mod) X=0 waste=0: (0,1)-(1,3) (0,1)-(-1,3)
+    row 1 u 1 (mod) X=1 waste=0: (1,1)-(3,2) (1,1)-(2,3)
+    row 1 u 2 (mod) X=0 waste=0: (2,1)-(4,2)
+    row 1 u 3 (mod) X=0 waste=0: (3,1)-(5,2)
+    row 2 u 0 (mod) X=0 waste=0: (0,2)-(1,4) (0,2)-(-1,4)
+    row 2 u 1 (mod) X=1 waste=0: (1,2)-(3,3)
+    row 2 u 2 (mod) X=0 waste=0: (2,2)-(4,3)
+    row 2 u 3 (mod) X=0 waste=0: (3,2)-(5,3)
+    row 2 u 5 (ghost) X=0 waste=2:
+    row 3 u 0 (mod) X=1 waste=0: (0,3)-(2,4) (0,3)-(-1,5)
+    row 3 u 1 (mod) X=0 waste=0: (1,3)-(3,4)
+    row 3 u 2 (mod) X=0 waste=0: (2,3)-(4,4)
+    row 3 u 3 (mod) X=0 waste=0: (3,3)-(5,4)
+    row 3 u 5 (ghost) X=0 waste=2:
+    row 4 u 0 (mod) X=0 waste=0: (0,4)-(2,5) (0,4)-(-1,6)
+    row 4 u 1 (mod) X=0 waste=0: (1,4)-(3,5)
+    row 4 u 2 (mod) X=0 waste=0: (2,4)-(4,5)
+    row 4 u 3 (mod) X=0 waste=0: (3,4)-(5,5)
+    row 4 u 5 (ghost) X=0 waste=2:
+    row 5 u 0 (mod) X=0 waste=0: (0,5)-(2,6) (0,5)-(-1,7)
+    row 5 u 1 (mod) X=1 waste=0: (1,5)-(3,6) (1,5)-(2,7)
+    row 5 u 2 (mod) X=0 waste=0: (2,5)-(4,6)
+    row 5 u 3 (mod) X=0 waste=0: (3,5)-(5,6)
+    row 5 u 5 (ghost) X=0 waste=2:
+ try mean 10/3 per row
+RESULT A=0 WM=4 KM=1 any lambda=1/1: min mean weight per row = 10/3 (CERTIFIED: no cycle below); per level (E units) = 10/6 = 1.6667  (97s)
+total 97s
+	Command being timed: "./wifm2 0 4 1 any 16 1 90000000"
+	User time (seconds): 93.40
+	System time (seconds): 3.95
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 1:37.38
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 712872
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 633587
+	Voluntary context switches: 1
+	Involuntary context switches: 322
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 16
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+exit=0

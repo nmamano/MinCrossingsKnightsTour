@@ -49,6 +49,8 @@ def chord_path(k, adj, inside):
         nx = next(v for v in adj[cur] if v != prev); prev, cur = cur, nx; path.append(cur)
     return path[:-1]
 
+last_regions = {}
+
 def ledger(f):
     n, rep, exc, cov, Wtot = C.analyse(f)
     _, ports, changed, other, E, adj = port_data(f)
@@ -75,7 +77,7 @@ def ledger(f):
             q = st.pop()
             if q in reg or q in bar or not (3 <= q[0] <= n-5 and 3 <= q[1] <= n-5): continue
             reg.add(q); st.extend([(q[0]+1, q[1]), (q[0]-1, q[1]), (q[0], q[1]+1), (q[0], q[1]-1)])
-        rb = reg | bar
+        rb = reg | bar; last_regions[si, lo, hi] = reg
         sq4 = lambda v: [(v[0]+dx, v[1]+dy) for dx in (-1, 0) for dy in (-1, 0)]
         vin = lambda v: any(q in reg for q in sq4(v)) or all(q in rb for q in sq4(v))
         inn = lambda k: ports.get(k) is not None and ports[k]['side'] == si and lo <= ports[k]['row'] <= hi + 1

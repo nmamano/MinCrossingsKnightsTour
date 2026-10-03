@@ -10,6 +10,7 @@ Base graph = joint_stab.py's width-three graph; each port is RESOLVED exactly on
 local P path completes or fails, at most two rows later) and its +1 goes to the tally of its collar row.
 Augmented state = (base state, tallies of the last D+1 collar rows, g bits of the last D+d0 rows), D = max(2, d0);
 the tally of row r-D is released at the end of row r with weight -c if no g row lies within distance d0.
+env Q3=1: certify X3 - rows + Q3/2 >= #g + c N_free - C (BEYOND5 section 6), Q3 = quarter atoms at depth <= 4
 usage: joint_free.py up|down d0 crit [c0]  |  joint_free.py up|down d0 cert a b
 """
 import sys, time
@@ -26,6 +27,53 @@ from joint_stab import vis, W, UP
 
 XW = 3
 def is_wx(e): return min(e[0], e[2]) <= XW - 1
+import os
+Q3ON = int(os.environ.get('Q3', '0'))   # 1: add Q3/2 (quarter atoms of square row r, depth <= 4) to the left side
+from f1v_stab import tile_quarters
+from math import comb
+Q3C = {}
+
+
+def q3_of(edges):
+    """Quarter-atom units in square row -1 (relative to the new row), squares x = 0..4, from the pending edges.
+    Exact in squares x <= 2 (every edge whose tile meets them is in the model); x = 3, 4: W3 and X1 lower bounds,
+    no holes counted. holes 1, X1 pair 1 (single overlap quarter in this row), W3 binomial(m-1, 2)."""
+    key = tuple(e[:4] for e in edges)
+    if key in Q3C: return Q3C[key]
+    tq = {e: {t for t in tile_quarters(e) if t[1] == -1 and 0 <= t[0] <= 4} for e in key}
+    full = {e: tile_quarters(e) for e in key}
+    mult = {}
+    for e in key:
+        for t in tq[e]: mult[t] = mult.get(t, 0) + 1
+    u = 0
+    for x in range(5):
+        for qn in 'brtl':
+            m = mult.get((x, -1, qn), 0)
+            if m == 0 and x <= 2: u += 1
+            if m >= 3: u += comb(m - 1, 2)
+    for e, f in combinations(key, 2):
+        ov = full[e] & full[f]
+        if len(ov) == 1:
+            (x, y, qn), = ov
+            if y == -1 and 0 <= x <= 4: u += 1
+    Q3C[key] = u
+    return u
+
+
+QN = 'brtl'
+COVROWS = {"r": (-1, 0, 1, 2), "b": (-1, 0, 1), "l": (0, 1), "t": (0, 1, 2)}   # column-3 rows (relative to the square row) whose outside edges can cover that quarter; only b, l are used
+# square row) whose outside edges (3,y)-(4,y+-2), (3,y)-(5,y+-1) can cover that quarter of square (3, s)
+U3C = {}
+
+
+def u3_of(edges):
+    """bitmask of the quarters of square (3, -1) that no pending model edge covers."""
+    key = tuple(e[:4] for e in edges)
+    if key not in U3C:
+        cov = set()
+        for e in key: cov |= {t[2] for t in tile_quarters(e) if t[0] == 3 and t[1] == -1}
+        U3C[key] = sum(1 << i for i, qn in enumerate(QN) if qn not in cov)
+    return U3C[key]
 
 
 def build(orient):
@@ -37,7 +85,7 @@ def build(orient):
         return F, E
     start = (0, (), 0, 0, 0, 0)
     index = {start: 0}; states = [start]; q = deque([0])
-    S, D, Wt, G, C0, C1, C2, RE = [], [], [], [], [], [], [], []
+    S, D, Wt, G, C0, C1, C2, RE, Q3L, SAT, U3 = [], [], [], [], [], [], [], [], [], [], []
     t0 = time.time()
     while q:
         sid = q.popleft()
@@ -130,18 +178,18 @@ def build(orient):
                     index[ns] = len(states); states.append(ns); q.append(index[ns])
                     if len(states) % 200000 == 0:
                         print(f'  states {len(states)}, queue {len(q)}, {time.time() - t0:.0f}s', flush=True)
-                S.append(sid); D.append(index[ns]); Wt.append(w); G.append(g); C0.append(cc[0]); C1.append(cc[1]); C2.append(cc[2]); RE.append(nx == 0)
+                S.append(sid); D.append(index[ns]); Wt.append(w); G.append(g); C0.append(cc[0]); C1.append(cc[1]); C2.append(cc[2]); RE.append(nx == 0); Q3L.append(q3_of(ns[1]) if (Q3ON and nx == 0) else 0); SAT.append(1 if (x == 3 and len(incoming) + r == 2) else 0); U3.append(u3_of(ns[1]) if (Q3ON and nx == 0) else 0)
     print(f'{orient}: states {len(states)}, arcs {len(S)}, build {time.time() - t0:.0f}s', flush=True)
-    return states, np.array(S), np.array(D), np.array(Wt), np.array(G), np.array(C0), np.array(C1), np.array(C2), np.array(RE)
+    return states, np.array(S), np.array(D), np.array(Wt), np.array(G), np.array(C0), np.array(C1), np.array(C2), np.array(RE), np.array(Q3L), np.array(SAT), np.array(U3)
 
 
 
 def augment(base, d0):
-    states, S, D, Wt, G, C0, C1, C2, RE = base
+    states, S, D, Wt, G, C0, C1, C2, RE, Q3L, SAT, U3 = base
     Dn = max(2, d0)
-    order = np.argsort(S, kind='stable'); S, D, Wt, G, C0, C1, C2, RE = (a[order] for a in (S, D, Wt, G, C0, C1, C2, RE))
+    order = np.argsort(S, kind='stable'); S, D, Wt, G, C0, C1, C2, RE, Q3L, SAT, U3 = (a[order] for a in (S, D, Wt, G, C0, C1, C2, RE, Q3L, SAT, U3))
     ptr = np.searchsorted(S, np.arange(len(states) + 1))
-    D, Wt, G, C0, C1, C2, RE = (a.tolist() for a in (D, Wt, G, C0, C1, C2, RE)); ptr = ptr.tolist()
+    D, Wt, G, C0, C1, C2, RE, Q3L, SAT, U3 = (a.tolist() for a in (D, Wt, G, C0, C1, C2, RE, Q3L, SAT, U3)); ptr = ptr.tolist()
     def canon(tl, gb):
         # tl[j] = tally of row R-j (j = 0..Dn), gb[i] = g of row R-1-i (i = 0..Dn+d0-1); R = current row
         tl = list(tl)
@@ -154,24 +202,32 @@ def augment(base, d0):
         return tuple(tl), tuple(keep)
     # compact keys: aug id <-> (base state, buffer code); buffer codes are interned in bufs / bufid
     from array import array
-    z = (tuple([0] * (Dn + 1)), tuple([0] * (Dn + d0)))
+    z = (tuple([0] * (Dn + 1)), tuple([0] * (Dn + d0)), (0, 0, 0, 0))
     bufs = [z]; bufid = {z: 0}
     NBMAX = 1 << 20
     idx = {0: 0}; keyl = array('q', [0]); q = deque([0])
-    AS, AD, AW, AG, AQ, AK = (array('i') for _ in range(6))
+    AS, AD, AW, AG, AQ, AK, A3 = (array('i') for _ in range(7))
     t0 = time.time()
     while q:
-        u = q.popleft(); kv = keyl[u]; s, (tl, gb) = kv // NBMAX, bufs[kv % NBMAX]
+        u = q.popleft(); kv = keyl[u]; s, (tl, gb, hb) = kv // NBMAX, bufs[kv % NBMAX]
         for k in range(ptr[s], ptr[s + 1]):
             t = list(tl); t[0] += C0[k]; t[1] += C1[k]; t[2] += C2[k]
-            qf = 0
+            qf = 0; holes = 0
+            u1, s1, s2, s0 = hb            # u1 = U of square row R-1 (b, l only); s1, s2 = sat of rows R-1, R-2; s0 = row R
+            if SAT[k]: s0 = 1
             if RE[k]:
                 g = G[k]
                 far = all((g if j == 0 else gb[j - 1]) == 0 for j in range(Dn - d0, Dn + d0 + 1))
                 qf = t[Dn] if far else 0
-                nb = canon([0] + t[:Dn], (g,) + gb[:-1])
+                # decide square row R-1: quarter b needs rows R-2, R-1, R saturated; quarter l needs R-1, R
+                if u1:
+                    holes = (1 if (u1 & 1 and s2 and s1 and s0) else 0) + (1 if (u1 & 2 and s1 and s0) else 0)
+                uR = U3[k]
+                uR = (1 if (uR & 1 and s1 and s0) else 0) | (2 if (uR & 8 and s0) else 0)   # bits b, l; known rows only
+                nh = (uR, s0 if uR else 0, s1 if (uR & 1) else 0, 0)
+                nb = canon([0] + t[:Dn], (g,) + gb[:-1]) + (nh,)
             else:
-                nb = (tuple(t), gb)
+                nb = (tuple(t), gb, (u1, s1, s2, s0))
             b = bufid.get(nb)
             if b is None:
                 b = bufid[nb] = len(bufs); bufs.append(nb); assert b < NBMAX
@@ -180,45 +236,49 @@ def augment(base, d0):
             if v is None:
                 v = idx[kk] = len(keyl); keyl.append(kk); q.append(v)
                 if len(keyl) % 1000000 == 0: print(f'  aug states {len(keyl)}, {time.time() - t0:.0f}s', flush=True)
-            AS.append(u); AD.append(v); AW.append(Wt[k]); AG.append(G[k] if RE[k] else 0); AQ.append(qf); AK.append(int(order[k]))
+            AS.append(u); AD.append(v); AW.append(Wt[k]); AG.append(G[k] if RE[k] else 0); AQ.append(qf); AK.append(int(order[k])); A3.append(Q3L[k] + holes)
     del idx
     key = [(kv // NBMAX, bufs[kv % NBMAX]) for kv in keyl] if len(keyl) < 3_000_000 else None
     print(f'augmented (d0 = {d0}): states {len(keyl)}, arcs {len(AS)}, buffers {len(bufs)}, {time.time() - t0:.0f}s', flush=True)
-    return len(keyl), np.frombuffer(AS, dtype=np.int32).astype(np.int64), np.frombuffer(AD, dtype=np.int32).astype(np.int64), np.frombuffer(AW, dtype=np.int32).astype(np.int64), np.frombuffer(AG, dtype=np.int32).astype(np.int64), np.frombuffer(AQ, dtype=np.int32).astype(np.int64), np.frombuffer(AK, dtype=np.int32), (key, keyl, bufs, NBMAX)
+    return len(keyl), np.frombuffer(AS, dtype=np.int32), np.frombuffer(AD, dtype=np.int32), np.frombuffer(AW, dtype=np.int32), np.frombuffer(AG, dtype=np.int32), np.frombuffer(AQ, dtype=np.int32), np.frombuffer(AK, dtype=np.int32), (key, keyl, bufs, NBMAX), np.frombuffer(A3, dtype=np.int32)
 
 
-def weights(Wt, G, Qv, c):
+def weights(Wt, G, Qv, c, Q3v=None):
+    """10b * (w - 1/5 - g + Q3/2 - c Qfar) per arc: certifies X3 - rows + Q3/2 >= #g + c N_free - C."""
     a, b = c.numerator, c.denominator
-    return b * (W * Wt - 1) - W * b * G - W * a * Qv
+    ww = 2 * b * (W * Wt.astype(np.int64) - 1)
+    ww -= 2 * W * b * G.astype(np.int64); ww -= 2 * W * a * Qv.astype(np.int64)
+    if Q3v is not None: ww += W * b * Q3v.astype(np.int64)
+    return ww
 
 
 def main():
     orient, d0, mode = sys.argv[1], int(sys.argv[2]), sys.argv[3]
     base = build(orient)
-    M, S, D, Wt, G, Qv, AK, key = augment(base, d0)
+    M, S, D, Wt, G, Qv, AK, key, Q3v = augment(base, d0)
     used = np.zeros(M, dtype=bool); used[S] = True; used[D] = True
     if mode == 'cert':
         c = Fraction(int(sys.argv[4]), int(sys.argv[5]))
-        res, data, it = FS.neg_cycle(S, D, weights(Wt, G, Qv, c), M)
-        print(f'c = {c}: {res} after {it} passes' + (f'; potential range {data[used].min()}..{data[used].max()} (units 1/(5b))' if res == 'ok' else ''))
+        res, data, it = FS.neg_cycle(S, D, weights(Wt, G, Qv, c, Q3v), M)
+        print(f'c = {c}: {res} after {it} passes' + (f'; potential range {data[used].min()}..{data[used].max()} (units 1/(10b))' if res == 'ok' else ''))
         return
     c = Fraction(sys.argv[4]) if len(sys.argv) > 4 else Fraction(1)
     while True:
-        res, data, it = FS.neg_cycle(S, D, weights(Wt, G, Qv, c), M)
+        res, data, it = FS.neg_cycle(S, D, weights(Wt, G, Qv, c, Q3v), M)
         if res == 'ok':
             print(f'{orient} d0={d0}: CRITICAL c* = {c} = {float(c):.6f}; potential range {data[used].min()}..{data[used].max()} '
-                  f'(units 1/(5b)), {it} passes', flush=True)
-            np.save(f'free_pot_{orient}_d{d0}.npy', data); return
-        num = int((W * Wt[data] - 1 - W * G[data]).sum()); den = int(Qv[data].sum())
-        print(f'  negative cycle: {len(data)} arcs ({len(data) / W:.0f} rows), sum(5w-1-5g) = {num}, sum Qfar = {den}', flush=True)
-        np.save(f'free_cycle_{orient}_d{d0}.npy', np.array(data))
+                  f'(units 1/(10b)), {it} passes', flush=True)
+            np.save(f'free_pot_{orient}_d{d0}_q{Q3ON}.npy', data); return
+        num = int((2 * (W * Wt[data].astype(np.int64) - 1) - 2 * W * G[data] + W * Q3v[data]).sum()); den = int(Qv[data].sum())
+        print(f'  negative cycle: {len(data)} arcs ({len(data) / W:.0f} rows), sum(10w-2-10g+5q3) = {num}, sum Q3 = {int(Q3v[data].sum())}, sum Qfar = {den}', flush=True)
+        np.save(f'free_cycle_{orient}_d{d0}_q{Q3ON}.npy', np.array(data))
         bst, bS, bD = base[0], base[1], base[2]
         for a in data:
             k = AK[a]; x = bst[bS[k]][0]; sh = 1 if x == W - 1 else 0
             ch = [(e[0], e[2] - e[0], e[3] - e[1]) for e in bst[bD[k]][1] if (e[0], e[1]) == (x, -sh)]
-            kv = key[1][S[a]]; print(f'    x={x} chosen {ch} w={Wt[a]} g={G[a]} c=({base[5][k]},{base[6][k]},{base[7][k]}) Qfar={Qv[a]} buf={key[2][kv % key[3]]}')
+            kv = key[1][S[a]]; print(f'    x={x} chosen {ch} w={Wt[a]} g={G[a]} c=({base[5][k]},{base[6][k]},{base[7][k]}) Qfar={Qv[a]} q3={Q3v[a]} buf={key[2][kv % key[3]]}')
         if den <= 0: print('  cycle with Qfar <= 0: g-rate-1 fails?'); return
-        c = Fraction(num, W * den); print(f'  -> c <= {c} = {float(c):.6f}', flush=True)
+        c = Fraction(num, 2 * W * den); print(f'  -> c <= {c} = {float(c):.6f}', flush=True)
 
 
 if __name__ == '__main__':

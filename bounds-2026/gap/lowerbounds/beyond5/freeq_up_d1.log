@@ -1,0 +1,64 @@
+  states 200000, queue 47611, 56s
+  states 400000, queue 57668, 170s
+  states 600000, queue 73480, 207s
+up: states 687324, arcs 1401483, build 250s
+  aug states 1000000, 6s
+  aug states 2000000, 21s
+  aug states 3000000, 28s
+  aug states 4000000, 33s
+  aug states 5000000, 39s
+  aug states 6000000, 75s
+  aug states 7000000, 80s
+  aug states 8000000, 85s
+  aug states 9000000, 91s
+  aug states 10000000, 97s
+  aug states 11000000, 104s
+  aug states 12000000, 154s
+  aug states 13000000, 160s
+augmented (d0 = 1): states 13343669, arcs 27553819, buffers 1800, 178s
+  negative cycle: 20 arcs (4 rows), sum(10w-2-10g+5q3) = 55, sum Q3 = 3, sum Qfar = 6
+    x=3 chosen [(3, -2, 1), (3, -1, 2)] w=0 g=0 c=(0,0,0) Qfar=0 q3=0 buf=((1, 1, 2), (0, 0, 0), (0, 0, 0, 0))
+    x=2 chosen [(2, -2, 1)] w=1 g=0 c=(1,0,0) Qfar=0 q3=0 buf=((0, 1, 2), (0, 0, 0), (0, 0, 0, 0))
+    x=1 chosen [(1, -1, 2)] w=0 g=0 c=(0,0,0) Qfar=0 q3=0 buf=((0, 1, 2), (0, 0, 0), (0, 0, 0, 0))
+    x=0 chosen [] w=0 g=0 c=(0,0,1) Qfar=0 q3=0 buf=((0, 1, 1), (0, 0, 0), (0, 0, 0, 0))
+    x=4 chosen [] w=0 g=0 c=(0,0,0) Qfar=1 q3=2 buf=((1, 1, 1), (0, 0, 0), (3, 1, 1, 0))
+    x=3 chosen [(3, -2, 1)] w=1 g=0 c=(0,0,0) Qfar=0 q3=0 buf=((1, 1, 1), (0, 0, 0), (3, 1, 1, 0))
+    x=2 chosen [(2, -2, 1)] w=1 g=0 c=(1,0,0) Qfar=0 q3=0 buf=((0, 1, 1), (0, 0, 0), (3, 1, 1, 0))
+    x=1 chosen [(1, -1, 2)] w=0 g=0 c=(0,0,0) Qfar=0 q3=0 buf=((0, 1, 1), (0, 0, 0), (3, 1, 1, 0))
+    x=0 chosen [] w=0 g=0 c=(0,0,1) Qfar=0 q3=0 buf=((0, 1, 0), (0, 0, 0), (3, 1, 1, 0))
+    x=4 chosen [] w=0 g=0 c=(0,0,0) Qfar=1 q3=1 buf=((1, 0, 1), (0, 0, 0), (2, 1, 0, 1))
+    x=3 chosen [(3, -2, 1), (3, -1, 2)] w=1 g=0 c=(0,0,0) Qfar=0 q3=0 buf=((1, 0, 1), (0, 0, 0), (2, 1, 0, 0))
+    x=2 chosen [(2, -2, 1)] w=1 g=0 c=(1,0,0) Qfar=0 q3=0 buf=((0, 0, 1), (0, 0, 0), (2, 1, 0, 0))
+    x=1 chosen [(1, -1, 2)] w=0 g=0 c=(0,0,0) Qfar=0 q3=0 buf=((0, 0, 1), (0, 0, 0), (2, 1, 0, 0))
+    x=0 chosen [] w=0 g=0 c=(0,0,0) Qfar=0 q3=0 buf=((0, 0, 1), (0, 0, 0), (2, 1, 0, 0))
+    x=4 chosen [] w=0 g=0 c=(0,0,0) Qfar=2 q3=0 buf=((0, 1, 2), (0, 0, 0), (0, 0, 0, 1))
+    x=3 chosen [(3, -2, 1), (3, -1, 2)] w=1 g=0 c=(0,0,0) Qfar=0 q3=0 buf=((0, 1, 2), (0, 0, 0), (0, 0, 0, 0))
+    x=2 chosen [(2, -2, 1)] w=1 g=0 c=(0,0,0) Qfar=0 q3=0 buf=((0, 1, 2), (0, 0, 0), (0, 0, 0, 0))
+    x=1 chosen [(1, -1, 2)] w=0 g=0 c=(0,0,0) Qfar=0 q3=0 buf=((0, 1, 2), (0, 0, 0), (0, 0, 0, 0))
+    x=0 chosen [] w=0 g=0 c=(0,0,1) Qfar=0 q3=0 buf=((0, 1, 1), (0, 0, 0), (0, 0, 0, 0))
+    x=4 chosen [(4, -2, 1)] w=1 g=0 c=(0,0,0) Qfar=2 q3=0 buf=((1, 1, 2), (0, 0, 0), (0, 0, 0, 1))
+  -> c <= 11/12 = 0.916667
+up d0=1: CRITICAL c* = 11/12 = 0.916667; potential range -1102..0 (units 1/(10b)), 71 passes
+	Command being timed: "timeout 6000 ../../../.venv/bin/python joint_free.py up 1 crit 1"
+	User time (seconds): 617.12
+	System time (seconds): 135.42
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 12:32.65
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 3698004
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 28734350
+	Voluntary context switches: 12
+	Involuntary context switches: 4058
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 208576
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

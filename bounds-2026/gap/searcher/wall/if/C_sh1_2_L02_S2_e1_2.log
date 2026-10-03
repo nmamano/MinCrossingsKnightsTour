@@ -1,0 +1,45 @@
+shear 1/2 WM=4 KM=1 MODE=any lambda=1/2: columns u in [-3,6], 56 slots, complete squares s in [0,2], 1 cost squares per row
+warm-up done: 44640 strict seed states, largest warm layer 3310016, 43s
+states by warm level: strict 475862, warm1 0, warm2 0, warm3 0
+graph: states 475862 arcs 560738 (rejected: margin 22431132, psi 0) 44s
+== lambda 1/1
+ try mean 32/1 per row
+  cycle colour current through u = 0: 0 over 2 rows
+  cycle: 20 arcs, 2 rows, crossings 0, waste 0, weight 0 -> mean 0/2
+    (cycle starts at row phase 1; board x = u + floor(1*(phase+row)/2) - floor(1*phase/2))
+    row 0 u 0 (mod) X=0 waste=0: (0,0)-(1,2)
+    row 0 u 1 (mod) X=0 waste=0: (1,0)-(2,2)
+    row 0 u 2 (mod) X=0 waste=0: (2,0)-(3,2)
+    row 0 u 3 (mod) X=0 waste=0: (3,0)-(4,2)
+    row 1 u 0 (mod) X=0 waste=0: (1,1)-(2,3)
+    row 1 u 1 (mod) X=0 waste=0: (2,1)-(3,3)
+    row 1 u 2 (mod) X=0 waste=0: (3,1)-(4,3)
+    row 1 u 3 (mod) X=0 waste=0: (4,1)-(5,3)
+  zero-cost cycle
+ try mean 0/1 per row
+RESULT A=1 WM=4 KM=1 any lambda=1/1: min mean weight per row = 0/1 (CERTIFIED: no cycle below); per level (E units) = 0/2 = 0.0000  (44s)
+total 44s
+	Command being timed: "./wifm2 1/2 4 1 any 32 1 90000000"
+	User time (seconds): 41.92
+	System time (seconds): 1.83
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:43.76
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 231688
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 220060
+	Voluntary context switches: 1
+	Involuntary context switches: 169
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 16
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+exit=0

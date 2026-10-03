@@ -504,3 +504,44 @@ Consequence for the design: the zone must be priced by its ENDS (each zone ribbo
 also with alternating stripes), i.e. per switched ribbon end, as in BEYOND5_FLUX.md section 4, not per unit of
 net current. For zigzag zones: >= 2/3 per switched end (8.1: Z | '/'V at s = -1/2 is 1/2 per row and switches
 3/4 ribbons per row), i.e. >= 1/3 per zigzag ribbon end.
+
+### 9.4 Wall price versus slope, any fields (lambda = 1, W = 4, MODE nz; if/wallslopes_W4.out, section 7)
+
+| direction | (0,1) | (1,6) | (1,5) | (1,4) | (2,7) | (1,3) | (2,5) | (3,7) | (1,2) | (3,5) | (2,3) | (3,4) | (1,1) |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| crossings per row | 2/3 | 11/18 | 3/5 | 7/12 | 4/7 | 5/9 | 8/15 | 4/7 | **1/2** | 3/5 | 7/12 | 5/8 | 2/3 |
+
+The 1/2 is isolated at (1,2), but every slope strictly between (0,1) and (1,1) is below 2/3. Item A (9.2) says
+these cheap walls need mixed-word fields; so every one of them must pay a zone.
+
+### 9.5 Wall + zone, certified per slope (wall_if.cpp MIXP option; if/mixp_*.out)
+
+Option MIXP=1: at each row end, count the MIXED margin squares (perfect margin square whose two ribbon halves have
+different H/V bits = an alternation between two adjacent ribbons of the field word). Weight per row =
+crossings + tau * mixed, tau = e|1-s|/4 for a wall of direction (s,1). Reason (ARGUMENT, section 4 of
+BEYOND5_FLUX.md): the margin line crosses |1-s| ribbons per row, so alternations per row = mixed * |1-s|; a word
+with A alternations per period has >= A/2 minority ribbons, each must switch its bit at a zone end on that side
+(price >= e per switched end), and at most mu = 2 corners share a zone. So crossings + tau*mixed is a lower bound
+on "wall + its share of the zone ends" per level, for ANY field words (no zigzag assumption, no current).
+Results at e = 1/2 (min mean, CERTIFIED in the model):
+
+| direction | (1,2) | (2,5) | (3,7) | (1,3) | (1,4) | (2,3) | (3,5) | (0,1) |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| wall + zone per level | 5/8 | 193/300 | 95/147 | 29/45 | 65/96 | 61/96 | **31/50** | 2/3 |
+| mixed squares per row in the optimum | 2 | 44/30 | 44/42 | 4/30 | 1 | 30/24 | 4/10 | 0 |
+
+(The (1,2) optimum is still the zigzag witness: 1/2 + 2 * 1/16.)
+More slopes at e = 1/2 (if/mixp2_*, mixp3_*; the first 2/7, 1/5, 1/6 runs hit the 90 M cap because the CUR
+channel also doubled the states by a row-parity bit; fixed: MIXP does not need it, binary wifm2): (2,7) 37/56,
+(1,5) 17/25, (1,6) 583/864, (3,4) 163/256. **Minimum over the 13 slopes: 31/50 = 0.62 at (3,5).** With the
+staircase cap 2/3 (section 4 of the design) the flux price is >= 31/50 per level IF e >= 1/2 and mu <= 2.
+
+### 9.6 Item C (general words): zone ends cost >= e per switched ribbon end (if/zoneC.sh, zoneC*_e1_2.out)
+
+Band with left margin '/' (or '') of ANY word, right margin one straight type, MODE any, lambda = 1, W = 4.
+Weight per row = crossings - (e|1-s|/2) * (mixed left margin squares). Certified min >= 0 means: every
+configuration pays >= e per switched ribbon end at this boundary slope (switched >= alternations / 2).
+e = 1/2: min >= 0 at slopes s = +-1/2, 0, +-2/3 for all 4 straight right types (16 + 8 runs; minima 0 with a
+straight left word, or larger; no negative cycle). Upper limit: the zigzag | '/'V line at s = -1/2 gives
+1/2 - (3/4)e per row, so e <= 2/3 there (8.1). Slopes 1/3, 2/5, 3/5 running; 1/4, 3/4, 1/5 next.
+

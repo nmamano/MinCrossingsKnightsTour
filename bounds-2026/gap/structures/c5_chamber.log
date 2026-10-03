@@ -1,0 +1,25 @@
+    {'side': 0, 'L': 115, 'need': 67, 'twoUin': 56, 'BQx_reg': 403, 'sel_reg': 0, 'BQreg': 490}
+    {'side': 1, 'L': 115, 'need': 75, 'twoUin': 64, 'BQx_reg': 375, 'sel_reg': 0, 'BQreg': 453}
+    {'side': 2, 'L': 119, 'need': 81, 'twoUin': 66, 'BQx_reg': 374, 'sel_reg': 0, 'BQreg': 438}
+    {'side': 3, 'L': 117, 'need': 83, 'twoUin': 72, 'BQx_reg': 365, 'sel_reg': 0, 'BQreg': 451}
+FJOG_n130.json n 130 total {'L': 466, 'need': 306, 'twoUin': 258, 'BQx_reg': 1517, 'sel_reg': 0, 'BQreg': 1832}
+    {'side': 0, 'L': 115, 'need': 83, 'twoUin': 70, 'BQx_reg': 216, 'sel_reg': 0, 'BQreg': 274}
+    {'side': 1, 'L': 121, 'need': 103, 'twoUin': 96, 'BQx_reg': 363, 'sel_reg': 0, 'BQreg': 421}
+    {'side': 2, 'L': 119, 'need': 95, 'twoUin': 88, 'BQx_reg': 267, 'sel_reg': 0, 'BQreg': 311}
+    {'side': 3, 'L': 119, 'need': 99, 'twoUin': 92, 'BQx_reg': 188, 'sel_reg': 0, 'BQreg': 222}
+FJOG_n132.json n 132 total {'L': 474, 'need': 380, 'twoUin': 346, 'BQx_reg': 1034, 'sel_reg': 0, 'BQreg': 1228}
+    {'side': 0, 'L': 79, 'need': 7, 'twoUin': 2, 'BQx_reg': 0, 'sel_reg': 0, 'BQreg': 8}
+    {'side': 1, 'L': 79, 'need': 7, 'twoUin': 2, 'BQx_reg': 0, 'sel_reg': 0, 'BQreg': 10}
+    {'side': 2, 'L': 83, 'need': 1, 'twoUin': 0, 'BQx_reg': 0, 'sel_reg': 0, 'BQreg': 8}
+    {'side': 3, 'L': 79, 'need': 7, 'twoUin': 2, 'BQx_reg': 0, 'sel_reg': 0, 'BQreg': 14}
+FOLD24_n96.json n 96 total {'L': 320, 'need': 22, 'twoUin': 6, 'BQx_reg': 0, 'sel_reg': 0, 'BQreg': 40}
+    {'side': 1, 'L': 155, 'need': 1, 'twoUin': 0, 'BQx_reg': 0, 'sel_reg': 0, 'BQreg': 8}
+    {'side': 2, 'L': 155, 'need': 3, 'twoUin': 2, 'BQx_reg': 0, 'sel_reg': 0, 'BQreg': 8}
+    {'side': 3, 'L': 151, 'need': 5, 'twoUin': 2, 'BQx_reg': 0, 'sel_reg': 0, 'BQreg': 8}
+FIELD_n166_92_155.json n 166 total {'L': 461, 'need': 9, 'twoUin': 4, 'BQx_reg': 0, 'sel_reg': 0, 'BQreg': 24}
+    {'side': 0, 'L': 89, 'need': 15, 'twoUin': 4, 'BQx_reg': 0, 'sel_reg': 0, 'BQreg': 31}
+    {'side': 1, 'L': 87, 'need': 9, 'twoUin': 2, 'BQx_reg': 0, 'sel_reg': 0, 'BQreg': 28}
+    {'side': 2, 'L': 87, 'need': 1, 'twoUin': 0, 'BQx_reg': 0, 'sel_reg': 0, 'BQreg': 8}
+    {'side': 3, 'L': 83, 'need': 5, 'twoUin': 2, 'BQx_reg': 0, 'sel_reg': 0, 'BQreg': 8}
+FOLDX_n100.json n 100 total {'L': 346, 'need': 30, 'twoUin': 8, 'BQx_reg': 0, 'sel_reg': 0, 'BQreg': 75}
+exit=0

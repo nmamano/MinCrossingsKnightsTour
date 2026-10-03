@@ -115,3 +115,17 @@ another corner), so the aggregate statement is the right form; a per-path local 
   together. Design to be agreed with Turns Theory (window size, eligibility radius).
 Proof size if all go through: hand algebra (section 1) + P3 (one-line identity + Integrator's lemma) + a counting
 argument (section 4) + finite certificates A, C (band transfer matrices, about 30 runs). Risk 1 is the hard part.
+
+## 7. Status after the first finite program (2026-10-03; details FINDINGS.md 9.1-9.6)
+
+- B: walls below 2/3 carry colour current, but NET current cancels (z0/z1 stripes): price zones by switched
+  ribbon ends, not by current (risk 4 resolved this way).
+- A (CERTIFIED, W = 4): walls between straight-word fields >= 2/3 at every tested slope.
+- Slope table: every slope strictly between (0,1) and (1,1) is below 2/3 without its zone (min 1/2 at (1,2)).
+- Wall + zone (CERTIFIED per slope for ANY words, given e and mu): crossings + e|1-s|/4 * mixed margin squares.
+  At e = 1/2, mu = 2: minimum over 13 slopes = 31/50 at (3,5). With the staircase cap: flux price per level
+  p* >= 31/50 > 1/2, i.e. X >= 4n + (31/25) n - O(1) = 5.24n - O(1), conditional on the ARGUMENT steps.
+- C (CERTIFIED per boundary slope, W = 4): e >= 1/2 per switched ribbon end for ANY word at slopes 0, +-1/2,
+  +-2/3 (more slopes running). e <= 2/3 is forced by the zigzag | V line at s = -1/2.
+Still ARGUMENT: straight-piece decomposition (bends, curved zone ends), mu <= 2, the staircase LP for general
+back pieces, W = 4 only, and the strip-paid non-deficient paths (risk 6, strip side).

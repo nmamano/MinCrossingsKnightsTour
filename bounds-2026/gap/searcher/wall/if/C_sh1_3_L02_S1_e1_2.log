@@ -1,0 +1,56 @@
+shear 1/3 WM=4 KM=1 MODE=any lambda=1/2: columns u in [-3,6], 59 slots, complete squares s in [-1,2], 2 cost squares per row
+warm-up done: 39936 strict seed states, largest warm layer 7515904, 99s
+states by warm level: strict 458906, warm1 0, warm2 0, warm3 0
+graph: states 458906 arcs 502458 (rejected: margin 41064498, psi 0) 100s
+== lambda 1/1
+ try mean 24/1 per row
+  cycle colour current through u = 0: 0 over 3 rows
+  cycle: 30 arcs, 3 rows, crossings 6, waste 12, weight 36 -> mean 36/3
+    (cycle starts at row phase 2; board x = u + floor(1*(phase+row)/3) - floor(1*phase/3))
+    row 0 u -1 (ghost) X=0 waste=0: (-1,0)-(1,1)
+    row 0 u 0 (mod) X=0 waste=0: (0,0)-(2,1)
+    row 0 u 3 (mod) X=2 waste=2: (3,0)-(1,1)
+    row 0 u 4 (ghost) X=1 waste=1: (4,0)-(2,1)
+    row 0 u 5 (ghost) X=0 waste=0: (5,0)-(3,1)
+    row 0 u 6 (ghost) X=0 waste=1: (6,0)-(4,1)
+    row 1 u -2 (ghost) X=0 waste=0: (-1,1)-(1,2)
+    row 1 u -1 (ghost) X=0 waste=0: (0,1)-(2,2)
+    row 1 u 3 (mod) X=0 waste=0: (4,1)-(2,2)
+    row 1 u 4 (ghost) X=0 waste=0: (5,1)-(3,2)
+    row 1 u 5 (ghost) X=0 waste=0: (6,1)-(4,2)
+    row 1 u 6 (ghost) X=0 waste=4:
+    row 2 u -2 (ghost) X=0 waste=0: (-1,2)-(1,3)
+    row 2 u -1 (ghost) X=0 waste=0: (0,2)-(2,3)
+    row 2 u 0 (mod) X=0 waste=0: (1,2)-(3,3)
+    row 2 u 2 (mod) X=0 waste=0: (3,2)-(4,4)
+    row 2 u 3 (mod) X=2 waste=2: (4,2)-(2,3)
+    row 2 u 4 (ghost) X=1 waste=1: (5,2)-(3,3)
+    row 2 u 5 (ghost) X=0 waste=0: (6,2)-(4,3)
+    row 2 u 6 (ghost) X=0 waste=1:
+ try mean 12/1 per row
+RESULT A=1 WM=4 KM=1 any lambda=1/1: min mean weight per row = 12/1 (CERTIFIED: no cycle below); per level (E units) = 12/2 = 6.0000  (100s)
+total 100s
+	Command being timed: "./wifm2 1/3 4 1 any 24 1 90000000"
+	User time (seconds): 95.76
+	System time (seconds): 4.23
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 1:40.06
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 412228
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 543529
+	Voluntary context switches: 1
+	Involuntary context switches: 614
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 16
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+exit=0

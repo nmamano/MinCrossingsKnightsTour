@@ -1,0 +1,24 @@
+LF4_n96.json n 96 SU 103
+  total {'rows': 320, 'F': 176, 'g': 118, 'owned': 29, 'SU': 103, 'K': 132, 'Nf': 161, 'near': 41, 'Nnear': 160, 'bal': 210}  (bal + BQx)/n needs >= 0: bal/n = 2.19
+TT16_n72.json n 72 SU 41
+  total {'rows': 224, 'F': 130, 'g': 98, 'owned': 43, 'SU': 41, 'K': 84, 'Nf': 112, 'near': 14, 'Nnear': 112, 'bal': 224}  (bal + BQx)/n needs >= 0: bal/n = 3.11
+LF1_n96.json n 96 SU 121
+  total {'rows': 320, 'F': 176, 'g': 93, 'owned': 11, 'SU': 121, 'K': 132, 'Nf': 160, 'near': 67, 'Nnear': 161, 'bal': 108}  (bal + BQx)/n needs >= 0: bal/n = 1.12
+LF2_n96.json n 96 SU 87
+  total {'rows': 320, 'F': 178, 'g': 133, 'owned': 45, 'SU': 87, 'K': 132, 'Nf': 160, 'near': 27, 'Nnear': 161, 'bal': 268}  (bal + BQx)/n needs >= 0: bal/n = 2.79
+LF3_n96.json n 96 SU 95
+  total {'rows': 320, 'F': 176, 'g': 113, 'owned': 37, 'SU': 95, 'K': 132, 'Nf': 160, 'near': 47, 'Nnear': 161, 'bal': 188}  (bal + BQx)/n needs >= 0: bal/n = 1.96
+LF5_n104.json n 104 SU 106
+  total {'rows': 352, 'F': 194, 'g': 123, 'owned': 42, 'SU': 106, 'K': 148, 'Nf': 184, 'near': 49, 'Nnear': 166, 'bal': 212}  (bal + BQx)/n needs >= 0: bal/n = 2.04
+H16a_VerticalEdge_off0_n96.json n 96 SU 99
+  total {'rows': 320, 'F': 178, 'g': 100, 'owned': 33, 'SU': 99, 'K': 132, 'Nf': 161, 'near': 59, 'Nnear': 159, 'bal': 138}  (bal + BQx)/n needs >= 0: bal/n = 1.44
+H16b_VerticalEdge_off0_n96.json n 96 SU 97
+  total {'rows': 320, 'F': 178, 'g': 100, 'owned': 35, 'SU': 97, 'K': 132, 'Nf': 161, 'near': 59, 'Nnear': 159, 'bal': 138}  (bal + BQx)/n needs >= 0: bal/n = 1.44
+FOLD24_n96.json n 96 SU 0
+  total {'rows': 320, 'F': 0, 'g': 19, 'owned': 7, 'SU': 0, 'K': 7, 'Nf': 102, 'near': 39, 'Nnear': 60, 'bal': -54}  (bal + BQx)/n needs >= 0: bal/n = -0.56
+FOLDB1_n144.json n 144 SU 0
+  total {'rows': 512, 'F': 0, 'g': 27, 'owned': 13, 'SU': 0, 'K': 13, 'Nf': 201, 'near': 50, 'Nnear': 74, 'bal': -28}  (bal + BQx)/n needs >= 0: bal/n = -0.19
+FOLDX_n100.json n 100 SU 0
+  total {'rows': 336, 'F': 0, 'g': 29, 'owned': 11, 'SU': 0, 'K': 11, 'Nf': 107, 'near': 47, 'Nnear': 71, 'bal': -28}  (bal + BQx)/n needs >= 0: bal/n = -0.28
+FJOG_n132.json n 132 SU 0
+  total {'rows': 464, 'F': 0, 'g': 39, 'owned': 17, 'SU': 0, 'K': 17, 'Nf': 5, 'near': 50, 'Nnear': 55, 'bal': -332}  (bal + BQx)/n needs >= 0: bal/n = -2.52

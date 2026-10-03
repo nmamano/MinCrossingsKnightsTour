@@ -1,0 +1,64 @@
+  states 200000, queue 54469, 8s
+  states 400000, queue 142868, 16s
+  states 600000, queue 89639, 32s
+  states 800000, queue 187367, 42s
+  states 1000000, queue 282907, 52s
+  states 1200000, queue 304265, 63s
+  states 1400000, queue 42655, 94s
+down: states 1474553, arcs 3104392, build 101s
+  aug states 1000000, 8s
+  aug states 2000000, 15s
+  aug states 3000000, 22s
+  aug states 4000000, 29s
+  aug states 5000000, 37s
+  aug states 6000000, 69s
+  aug states 7000000, 73s
+  aug states 8000000, 77s
+  aug states 9000000, 82s
+  aug states 10000000, 87s
+  aug states 11000000, 93s
+  aug states 12000000, 102s
+  aug states 13000000, 107s
+  aug states 14000000, 115s
+  aug states 15000000, 123s
+  aug states 16000000, 131s
+  aug states 17000000, 138s
+  aug states 18000000, 147s
+  aug states 19000000, 173s
+  aug states 20000000, 230s
+  aug states 21000000, 236s
+  aug states 22000000, 243s
+  aug states 23000000, 255s
+  aug states 24000000, 259s
+  aug states 25000000, 265s
+  aug states 26000000, 272s
+  aug states 27000000, 279s
+  aug states 28000000, 288s
+  aug states 29000000, 342s
+  aug states 30000000, 359s
+augmented (d0 = 2): states 30122257, arcs 64603599, buffers 428, 365s
+c = 1/2: ok after 101 passes; potential range -97..0 (units 1/(5b))
+	Command being timed: "timeout 7000 ../../../.venv/bin/python joint_free.py down 2 cert 1 2"
+	User time (seconds): 945.74
+	System time (seconds): 291.45
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 20:37.39
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 7429036
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 68
+	Minor (reclaiming a frame) page faults: 62786712
+	Voluntary context switches: 80
+	Involuntary context switches: 5671
+	Swaps: 0
+	File system inputs: 10616
+	File system outputs: 136
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+exit=0

@@ -1,0 +1,5 @@
+base: 687324 states, 1401483 arcs
+augmented (d0=1, HOLES=4): states 33368066, arcs 67723930
+converged after 16 passes
+d0=1 HOLES=4: c = 1/1 CERTIFIED; potential range -101..0 (units 1/(10*1)), states 33368066, arcs 67723930
+60.45 s 2438100 KB

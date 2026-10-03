@@ -1,0 +1,8 @@
+base: 687324 states, 1401483 arcs
+augmented (d0=1, HOLES=2): states 13343669, arcs 27553819
+negative cycle: 20 arcs (4 rows), sum(10w-2-10g+5q3) = 55, sum q3+holes = 3, sum Qfar = 6
+  base arcs: 1079635 1199782 622592 752986 928900 1112226 1226502 654041 807538 883887 1079794 1200037 654041 807538 883885 1079790 1200033 654029 807518 883807
+  -> c <= 11/12 = 0.916667
+converged after 15 passes
+d0=1 HOLES=2: c = 11/12 CERTIFIED; potential range -1102..0 (units 1/(10*12)), states 13343669, arcs 27553819
+25.85 s 1198156 KB

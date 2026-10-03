@@ -1,5 +1,91 @@
 # KT Lower Bounds - gap mission findings (gap/lowerbounds/)
 
+## B5c (2026-10-03, BEYOND5 section 6, new R-a): joint currency form - c* = 1 exactly for d0 >= 1 (CERTIFIED)
+
+Statement (B5-strip'), per half side, both orientations:
+    (X3 - rows) + Q3/2 >= #g + c * N_free(d0) - C.
+Q3 = quarter-atom units of the strip squares at depth <= 4 (hole 1, X1 pair 1, W3 binomial(m-1, 2)), booked on
+the square row. The width-three model counts a LOWER bound for Q3 (safe direction): exact holes, X1 and W3 in squares
+x = 0..2 (every edge whose tile meets them is in the model); in squares x = 3, 4 only W3 / X1 of model edges, plus
+holes of square (3, r) when no model edge covers the quarter AND every column-3 vertex whose outside edges
+(3,y)-(4,y+-2), (3,y)-(5,y+-1) could cover it has model degree 2 (rows r-1..r+2; decided at the end of row r+2).
+Shallow-user subtraction (44B) NOT applied.
+**Results (free_aug.cpp, C++ port of joint_free.py; base graph from dump_base.py):**
+| form | d0 | orient | augmented states | result | C per half side |
+|---|---|---|---|---|---|
+| Q3, full column-3 holes | 1 | up | 33,368,066 | c = 1 CERTIFIED | 10.1 |
+| Q3, full column-3 holes | 1 | down | 85,615,194 | c = 1 CERTIFIED | 10.9 |
+| Q3, full column-3 holes | 0 | up | 29,239,390 | c* <= 13/14 (7-row cycle in the relaxed model), 13/14 certified | 12.0 |
+| Q3, holes b, l only | 1 | up | 13,343,669 | c* = 11/12 in that relaxation (artifact, see B5b note) | 9.2 |
+| pure crossing | 2 | up | 13,316,913 | c = 1/2 CERTIFIED (reproduces joint_free.py) | 9.7 |
+| pure crossing | 1 | up | 6,897,753 | c* = 0 (reproduces joint_free.py) | - |
+Upper bound: the U collar has X3 excess 1 per row and Q3 = 2 per row (a hole at quarter t of square (2, r) and an
+X1 pair whose single overlap quarter is b of square (2, r)), with 2 changed ports per row: c <= 1. So **c* = 1
+exactly for every d0 >= 1** (N_free(d0) decreases in d0). This is the target of BEYOND5 section 6: N_free/2 in E.
+Shallow users: the tight cycle's Q3 units lie in squares (2, r), inside the end-zone squares (1..3, r) where a
+shallow user selects its quarters. So the 44B subtraction can act on exactly these atoms; it must be done.
+Cross-checks: free_aug.cpp reproduces the Python state counts and results exactly for HOLES = 2 (13,343,669 states,
+11/12, range -1102) and pure crossing (c = 1/2 at d0 = 2 with C = 9.7; c = 0 at d0 = 1). One implementation of the
+model itself (joint_free.py build); an independent rebuild is still recommended.
+
+```sh
+cd gap/lowerbounds/beyond5
+Q3=1 ../../../.venv/bin/python dump_base.py up; Q3=1 ../../../.venv/bin/python dump_base.py down   # 5 + 10 min
+g++ -O2 -std=c++17 -o free_aug free_aug.cpp
+./free_aug base_up.bin 1 4 1 1 crit        # c = 1 CERTIFIED (aug_up_d1_h4.log; 1 min, 2.4 GB)
+./free_aug base_down.bin 1 4 1 1 crit      # c = 1 CERTIFIED (aug_down_d1_h4.log; 3 min, 5.1 GB)
+./free_aug base_up.bin 2 -1 1 2            # pure crossing, c = 1/2
+```
+
+## B5b (2026-10-03, BEYOND5 requests R-a, R-b of gap/structures/BEYOND5.md section 5)
+
+**R-a (B5-strip): c* = 1/2 exactly for d0 >= 2 (both orientations, CERTIFIED, one implementation); c* = 0 for d0 <= 1.** Statement (per half side):
+    X3 - rows >= #g + c * N_free(d0) - C,
+X3 = crossing pairs of edges that both have an end in columns 0..2; g = F1-V strong test; N_free(d0) = changed
+ports (NLOC: not on a local P / P' collar path; non-steep ports changed) whose collar row is at distance > d0 from
+every g row. Code: beyond5/joint_free.py (width-three graph of joint_stab.py with each port RESOLVED once and
+booked on its collar row; augmented state = tallies of the last 3 collar rows + g bits of the last D + d0 rows).
+- d0 = 2, up: base 687,324 states; augmented 10,931,682 states, 23,639,355 arcs; c = 1/2 CERTIFIED (Bellman-Ford
+  converges, potential range -97..0 in units 1/10, so C = 9.7 per half side). Upper bound: the U collar (no g rows,
+  X3 excess 1 per row, 2 changed ports per row) gives c <= 1/2. So c* = 1/2 exactly.
+- d0 = 2, down: base 1,474,553 states; augmented 30,122,257 states, 64,603,599 arcs; c = 1/2 CERTIFIED (potential
+  range -97..0, C = 9.7 per half side; 21 min, 7.4 GB).
+- d0 = 3: implied (N_free(3) <= N_free(2)), so c* = 1/2; the run was stopped.
+- d0 = 1, up: c* = 0. Zero-slack cycle (5 rows): a P' collar with defects; per period X3 excess 2 = #g 2 and one
+  changed port ('\\' port at A' that fails at B') whose collar row is at distance exactly 2 from the g rows
+  (log free_up_d1.log has the cell-by-cell cycle; read it bottom-up, it is the parent-pointer order).
+Sanity (MEASURED on 13 tours, r_b.py): per side X3 - rows - g - N_free(2)/2 >= 0 on every side (minimum 0.0).
+On the FOLD family it is 76 for n = 96..288 while N_free(2)/2 grows like n, so 1/2 is also tight on FOLD.
+
+**R-b (MEASURED, beyond5/r_b.py, log r_b.log).** g(r) per side = strong test pointing away from the nearer corner
+(up for r < n/2, down above), rows 8..n-9. Lost = not retained (check_hall_v3.retained); deficient = retained with
+< 2 payable quarters (beyond5_ledger.py rule). Each lost / deficient candidate owns one g end row (vertical side
+first). **Claim V check: on all 13 tours every lost / deficient candidate has an end row with g = 1.**
+| tour | n | lost+def | #g | G_free | N_re | N_free(1) | N_free(2) | N_free(3) | X3 - rows | slack (d0 = 2) |
+|---|---|---|---|---|---|---|---|---|---|---|
+| FOLD | 96 | 7 | 19 | 12 | 162 | 118 | 102 | 86 | 146 | 76 |
+| FOLD | 144 | 7 | 19 | 12 | 258 | 214 | 198 | 182 | 194 | 76 |
+| FOLD | 192 | 7 | 19 | 12 | 354 | 310 | 294 | 278 | 242 | 76 |
+| FOLD | 240 | 7 | 19 | 12 | 450 | 406 | 390 | 374 | 290 | 76 |
+| FOLD | 288 | 7 | 19 | 12 | 546 | 502 | 486 | 470 | 338 | 76 |
+| FIELD | 166 | 67 | 92 | 25 | 347 | 261 | 244 | 228 | 302 | 88 |
+| FOLDB1 | 144 | 13 | 27 | 14 | 275 | 222 | 201 | 185 | 221 | 93.5 |
+| FOLDP | 96 | 8 | 19 | 11 | 162 | 116 | 97 | 80 | 156 | 88.5 |
+| FOLDX | 100 | 11 | 29 | 18 | 178 | 126 | 107 | 90 | 160 | 77.5 |
+| FJOG | 130 | 27 | 74 | 47 | 116 | 13 | 3 | 2 | 210 | 134.5 |
+| FJOG | 132 | 17 | 39 | 22 | 60 | 13 | 5 | 3 | 108 | 66.5 |
+| LF4 | 96 | 29 | 118 | 89 | 321 | 172 | 161 | 160 | 252 | 53.5 |
+| TT16 | 72 | 43 | 98 | 55 | 224 | 112 | 112 | 112 | 308 | 154 |
+(N_re here = changed ports in rows 8..n-9 of the four sides; corners excluded.)
+
+```sh
+cd gap/lowerbounds/beyond5
+../../../.venv/bin/python joint_free.py up 2 crit 1/2        # CRITICAL c* = 1/2, range -97..0 (free_up_d2.log; 20 min, 6.6 GB)
+../../../.venv/bin/python joint_free.py down 2 cert 1 2      # free_down_d2.log (30M augmented states, about 7 GB)
+../../../.venv/bin/python joint_free.py up 1 crit 1/2        # c* = 0, zero-slack cycle (free_up_d1.log)
+../../../.venv/bin/python r_b.py ../../../w-integrator/tours/LF4_n96.json    # R-b ledger (r_b.log for all 13)
+```
+
 ## B5 (2026-10-03, beyond 5n): joint side inequality with changed collar ports - NEGATIVE, c* = 0 exactly
 
 Task (CR): certify X_sigma - rows >= #g + c * N_re - C in the strip graph (g = F1-V strong row test, N_re =

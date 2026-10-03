@@ -1,0 +1,69 @@
+  states 200000, queue 54469, 56s
+  states 400000, queue 142868, 65s
+  states 600000, queue 89639, 189s
+  states 800000, queue 187367, 202s
+  states 1000000, queue 282907, 212s
+  states 1200000, queue 304265, 226s
+  states 1400000, queue 42655, 321s
+down: states 1474553, arcs 3104392, build 329s
+  aug states 1000000, 5s
+  aug states 2000000, 21s
+  aug states 3000000, 27s
+  aug states 4000000, 32s
+  aug states 5000000, 37s
+  aug states 6000000, 45s
+  aug states 7000000, 50s
+  aug states 8000000, 56s
+  aug states 9000000, 69s
+  aug states 10000000, 123s
+  aug states 11000000, 129s
+  aug states 12000000, 137s
+  aug states 13000000, 144s
+  aug states 14000000, 149s
+  aug states 15000000, 154s
+  aug states 16000000, 159s
+  aug states 17000000, 165s
+  aug states 18000000, 172s
+  aug states 19000000, 178s
+  aug states 20000000, 185s
+  aug states 21000000, 192s
+  aug states 22000000, 199s
+  aug states 23000000, 215s
+  aug states 24000000, 221s
+  aug states 25000000, 227s
+  aug states 26000000, 359s
+  aug states 27000000, 365s
+  aug states 28000000, 371s
+  aug states 29000000, 376s
+  aug states 30000000, 382s
+  aug states 31000000, 388s
+  aug states 32000000, 395s
+  aug states 33000000, 402s
+  aug states 34000000, 409s
+  aug states 35000000, 415s
+  aug states 36000000, 514s
+Command terminated by signal 15
+	Command being timed: "timeout 7000 ../../../.venv/bin/python joint_free.py down 1 cert 11 12"
+	User time (seconds): 840.80
+	System time (seconds): 31.78
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 14:34.66
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 8245944
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 202
+	Minor (reclaiming a frame) page faults: 2465946
+	Voluntary context switches: 712
+	Involuntary context switches: 3192
+	Swaps: 0
+	File system inputs: 43288
+	File system outputs: 280
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+stopped by hand at 36M states, 8.2 GB (memory budget)

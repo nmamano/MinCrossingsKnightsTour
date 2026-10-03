@@ -1,0 +1,7 @@
+LF1_n96.json n 96 sides [0.0, 0.0, 28.0, 240.0] total {'ex': 307, 'Q3': 614, 'g': 93, 'owned': 11, 'Nf': 160, 'joint': 614.0, 'need_a2c1': 346, 'slack': 268.0}
+LF2_n96.json n 96 sides [0.0, 0.0, 28.0, 80.0] total {'ex': 267, 'Q3': 534, 'g': 133, 'owned': 45, 'Nf': 160, 'joint': 534.0, 'need_a2c1': 426, 'slack': 108.0}
+LF3_n96.json n 96 sides [0.0, 0.0, 28.0, 90.0] total {'ex': 257, 'Q3': 494, 'g': 113, 'owned': 37, 'Nf': 160, 'joint': 504.0, 'need_a2c1': 386, 'slack': 118.0}
+LF5_n104.json n 104 sides [0.0, 0.0, 29.0, 55.0] total {'ex': 265, 'Q3': 498, 'g': 123, 'owned': 42, 'Nf': 184, 'joint': 514.0, 'need_a2c1': 430, 'slack': 84.0}
+H16a_VerticalEdge_off0_n96.json n 96 sides [120.0, 120.0, 60.0, 59.0] total {'ex': 400, 'Q3': 640, 'g': 100, 'owned': 33, 'Nf': 161, 'joint': 720.0, 'need_a2c1': 361, 'slack': 359.0}
+H16b_VerticalEdge_off0_n96.json n 96 sides [120.0, 120.0, 60.0, 59.0] total {'ex': 400, 'Q3': 640, 'g': 100, 'owned': 35, 'Nf': 161, 'joint': 720.0, 'need_a2c1': 361, 'slack': 359.0}
+exit=0
