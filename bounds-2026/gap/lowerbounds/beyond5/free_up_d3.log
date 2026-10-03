@@ -1,0 +1,18 @@
+  states 200000, queue 47611, 9s
+  states 400000, queue 57668, 21s
+  states 600000, queue 73480, 35s
+up: states 687324, arcs 1401483, build 45s
+  aug states 1000000, 9s
+  aug states 2000000, 14s
+  aug states 3000000, 22s
+  aug states 4000000, 34s
+  aug states 5000000, 45s
+  aug states 6000000, 52s
+  aug states 7000000, 57s
+  aug states 8000000, 63s
+  aug states 9000000, 69s
+  aug states 10000000, 75s
+  aug states 11000000, 84s
+  aug states 12000000, 96s
+  aug states 13000000, 105s
+  aug states 14000000, 113s

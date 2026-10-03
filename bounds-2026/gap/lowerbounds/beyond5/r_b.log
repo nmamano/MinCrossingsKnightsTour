@@ -1,0 +1,79 @@
+FOLD24_n96.json n 96 lost 7 deficient 0 no g end []
+  side 0 {'g': 4, 'owned': 2, 'G_free': 2, 'N_re': 38, 'N_free1': 28, 'N_free2': 24, 'N_free3': 20}
+  side 1 {'g': 5, 'owned': 2, 'G_free': 3, 'N_re': 40, 'N_free1': 28, 'N_free2': 24, 'N_free3': 20}
+  side 2 {'g': 4, 'owned': 1, 'G_free': 3, 'N_re': 46, 'N_free1': 36, 'N_free2': 32, 'N_free3': 28}
+  side 3 {'g': 6, 'owned': 2, 'G_free': 4, 'N_re': 38, 'N_free1': 26, 'N_free2': 22, 'N_free3': 18}
+  total {'g': 19, 'owned': 7, 'G_free': 12, 'N_re': 162, 'N_free1': 118, 'N_free2': 102, 'N_free3': 86}
+claim36_FOLD_n144.json n 144 lost 7 deficient 0 no g end []
+  side 0 {'g': 4, 'owned': 2, 'G_free': 2, 'N_re': 62, 'N_free1': 52, 'N_free2': 48, 'N_free3': 44}
+  side 1 {'g': 5, 'owned': 2, 'G_free': 3, 'N_re': 64, 'N_free1': 52, 'N_free2': 48, 'N_free3': 44}
+  side 2 {'g': 4, 'owned': 1, 'G_free': 3, 'N_re': 70, 'N_free1': 60, 'N_free2': 56, 'N_free3': 52}
+  side 3 {'g': 6, 'owned': 2, 'G_free': 4, 'N_re': 62, 'N_free1': 50, 'N_free2': 46, 'N_free3': 42}
+  total {'g': 19, 'owned': 7, 'G_free': 12, 'N_re': 258, 'N_free1': 214, 'N_free2': 198, 'N_free3': 182}
+claim36_FOLD_n192.json n 192 lost 7 deficient 0 no g end []
+  side 0 {'g': 4, 'owned': 2, 'G_free': 2, 'N_re': 86, 'N_free1': 76, 'N_free2': 72, 'N_free3': 68}
+  side 1 {'g': 5, 'owned': 2, 'G_free': 3, 'N_re': 88, 'N_free1': 76, 'N_free2': 72, 'N_free3': 68}
+  side 2 {'g': 4, 'owned': 1, 'G_free': 3, 'N_re': 94, 'N_free1': 84, 'N_free2': 80, 'N_free3': 76}
+  side 3 {'g': 6, 'owned': 2, 'G_free': 4, 'N_re': 86, 'N_free1': 74, 'N_free2': 70, 'N_free3': 66}
+  total {'g': 19, 'owned': 7, 'G_free': 12, 'N_re': 354, 'N_free1': 310, 'N_free2': 294, 'N_free3': 278}
+claim36_FOLD_n240.json n 240 lost 7 deficient 0 no g end []
+  side 0 {'g': 4, 'owned': 2, 'G_free': 2, 'N_re': 110, 'N_free1': 100, 'N_free2': 96, 'N_free3': 92}
+  side 1 {'g': 5, 'owned': 2, 'G_free': 3, 'N_re': 112, 'N_free1': 100, 'N_free2': 96, 'N_free3': 92}
+  side 2 {'g': 4, 'owned': 1, 'G_free': 3, 'N_re': 118, 'N_free1': 108, 'N_free2': 104, 'N_free3': 100}
+  side 3 {'g': 6, 'owned': 2, 'G_free': 4, 'N_re': 110, 'N_free1': 98, 'N_free2': 94, 'N_free3': 90}
+  total {'g': 19, 'owned': 7, 'G_free': 12, 'N_re': 450, 'N_free1': 406, 'N_free2': 390, 'N_free3': 374}
+claim36_FOLD_n288.json n 288 lost 7 deficient 0 no g end []
+  side 0 {'g': 4, 'owned': 2, 'G_free': 2, 'N_re': 134, 'N_free1': 124, 'N_free2': 120, 'N_free3': 116}
+  side 1 {'g': 5, 'owned': 2, 'G_free': 3, 'N_re': 136, 'N_free1': 124, 'N_free2': 120, 'N_free3': 116}
+  side 2 {'g': 4, 'owned': 1, 'G_free': 3, 'N_re': 142, 'N_free1': 132, 'N_free2': 128, 'N_free3': 124}
+  side 3 {'g': 6, 'owned': 2, 'G_free': 4, 'N_re': 134, 'N_free1': 122, 'N_free2': 118, 'N_free3': 114}
+  total {'g': 19, 'owned': 7, 'G_free': 12, 'N_re': 546, 'N_free1': 502, 'N_free2': 486, 'N_free3': 470}
+FIELD_n166_92_155.json n 166 lost 66 deficient 1 no g end []
+  side 0 {'g': 79, 'owned': 65, 'G_free': 14, 'N_re': 113, 'N_free1': 61, 'N_free2': 56, 'N_free3': 52}
+  side 1 {'g': 4, 'owned': 1, 'G_free': 3, 'N_re': 80, 'N_free1': 70, 'N_free2': 66, 'N_free3': 62}
+  side 2 {'g': 5, 'owned': 1, 'G_free': 4, 'N_re': 78, 'N_free1': 64, 'N_free2': 60, 'N_free3': 56}
+  side 3 {'g': 4, 'owned': 0, 'G_free': 4, 'N_re': 76, 'N_free1': 66, 'N_free2': 62, 'N_free3': 58}
+  total {'g': 92, 'owned': 67, 'G_free': 25, 'N_re': 347, 'N_free1': 261, 'N_free2': 244, 'N_free3': 228}
+FOLDB1_n144.json n 144 lost 13 deficient 0 no g end []
+  side 0 {'g': 9, 'owned': 3, 'G_free': 6, 'N_re': 66, 'N_free1': 48, 'N_free2': 42, 'N_free3': 38}
+  side 1 {'g': 7, 'owned': 5, 'G_free': 2, 'N_re': 76, 'N_free1': 64, 'N_free2': 60, 'N_free3': 56}
+  side 2 {'g': 3, 'owned': 1, 'G_free': 2, 'N_re': 67, 'N_free1': 58, 'N_free2': 53, 'N_free3': 49}
+  side 3 {'g': 8, 'owned': 4, 'G_free': 4, 'N_re': 66, 'N_free1': 52, 'N_free2': 46, 'N_free3': 42}
+  total {'g': 27, 'owned': 13, 'G_free': 14, 'N_re': 275, 'N_free1': 222, 'N_free2': 201, 'N_free3': 185}
+FOLDP_n96.json n 96 lost 8 deficient 0 no g end []
+  side 0 {'g': 4, 'owned': 3, 'G_free': 1, 'N_re': 36, 'N_free1': 25, 'N_free2': 19, 'N_free3': 14}
+  side 1 {'g': 4, 'owned': 1, 'G_free': 3, 'N_re': 42, 'N_free1': 32, 'N_free2': 28, 'N_free3': 24}
+  side 2 {'g': 5, 'owned': 2, 'G_free': 3, 'N_re': 44, 'N_free1': 30, 'N_free2': 26, 'N_free3': 22}
+  side 3 {'g': 6, 'owned': 2, 'G_free': 4, 'N_re': 40, 'N_free1': 29, 'N_free2': 24, 'N_free3': 20}
+  total {'g': 19, 'owned': 8, 'G_free': 11, 'N_re': 162, 'N_free1': 116, 'N_free2': 97, 'N_free3': 80}
+FOLDX_n100.json n 100 lost 11 deficient 0 no g end []
+  side 0 {'g': 8, 'owned': 3, 'G_free': 5, 'N_re': 46, 'N_free1': 29, 'N_free2': 23, 'N_free3': 18}
+  side 1 {'g': 13, 'owned': 6, 'G_free': 7, 'N_re': 44, 'N_free1': 29, 'N_free2': 24, 'N_free3': 20}
+  side 2 {'g': 4, 'owned': 1, 'G_free': 3, 'N_re': 46, 'N_free1': 36, 'N_free2': 32, 'N_free3': 28}
+  side 3 {'g': 4, 'owned': 1, 'G_free': 3, 'N_re': 42, 'N_free1': 32, 'N_free2': 28, 'N_free3': 24}
+  total {'g': 29, 'owned': 11, 'G_free': 18, 'N_re': 178, 'N_free1': 126, 'N_free2': 107, 'N_free3': 90}
+FJOG_n130.json n 130 lost 27 deficient 0 no g end []
+  side 0 {'g': 16, 'owned': 7, 'G_free': 9, 'N_re': 32, 'N_free1': 6, 'N_free2': 1, 'N_free3': 0}
+  side 1 {'g': 15, 'owned': 6, 'G_free': 9, 'N_re': 26, 'N_free1': 4, 'N_free2': 2, 'N_free3': 2}
+  side 2 {'g': 21, 'owned': 5, 'G_free': 16, 'N_re': 28, 'N_free1': 1, 'N_free2': 0, 'N_free3': 0}
+  side 3 {'g': 22, 'owned': 9, 'G_free': 13, 'N_re': 30, 'N_free1': 2, 'N_free2': 0, 'N_free3': 0}
+  total {'g': 74, 'owned': 27, 'G_free': 47, 'N_re': 116, 'N_free1': 13, 'N_free2': 3, 'N_free3': 2}
+FJOG_n132.json n 132 lost 17 deficient 0 no g end []
+  side 0 {'g': 16, 'owned': 6, 'G_free': 10, 'N_re': 22, 'N_free1': 2, 'N_free2': 0, 'N_free3': 0}
+  side 1 {'g': 10, 'owned': 6, 'G_free': 4, 'N_re': 14, 'N_free1': 4, 'N_free2': 0, 'N_free3': 0}
+  side 2 {'g': 4, 'owned': 1, 'G_free': 3, 'N_re': 12, 'N_free1': 5, 'N_free2': 5, 'N_free3': 3}
+  side 3 {'g': 9, 'owned': 4, 'G_free': 5, 'N_re': 12, 'N_free1': 2, 'N_free2': 0, 'N_free3': 0}
+  total {'g': 39, 'owned': 17, 'G_free': 22, 'N_re': 60, 'N_free1': 13, 'N_free2': 5, 'N_free3': 3}
+LF4_n96.json n 96 lost 29 deficient 0 no g end []
+  side 0 {'g': 0, 'owned': 0, 'G_free': 0, 'N_re': 160, 'N_free1': 160, 'N_free2': 160, 'N_free3': 160}
+  side 1 {'g': 0, 'owned': 0, 'G_free': 0, 'N_re': 0, 'N_free1': 0, 'N_free2': 0, 'N_free3': 0}
+  side 2 {'g': 53, 'owned': 11, 'G_free': 42, 'N_re': 81, 'N_free1': 1, 'N_free2': 0, 'N_free3': 0}
+  side 3 {'g': 65, 'owned': 18, 'G_free': 47, 'N_re': 80, 'N_free1': 11, 'N_free2': 1, 'N_free3': 0}
+  total {'g': 118, 'owned': 29, 'G_free': 89, 'N_re': 321, 'N_free1': 172, 'N_free2': 161, 'N_free3': 160}
+TT16_n72.json n 72 lost 43 deficient 0 no g end []
+  side 0 {'g': 0, 'owned': 0, 'G_free': 0, 'N_re': 0, 'N_free1': 0, 'N_free2': 0, 'N_free3': 0}
+  side 1 {'g': 0, 'owned': 0, 'G_free': 0, 'N_re': 112, 'N_free1': 112, 'N_free2': 112, 'N_free3': 112}
+  side 2 {'g': 49, 'owned': 21, 'G_free': 28, 'N_re': 56, 'N_free1': 0, 'N_free2': 0, 'N_free3': 0}
+  side 3 {'g': 49, 'owned': 22, 'G_free': 27, 'N_re': 56, 'N_free1': 0, 'N_free2': 0, 'N_free3': 0}
+  total {'g': 98, 'owned': 43, 'G_free': 55, 'N_re': 224, 'N_free1': 112, 'N_free2': 112, 'N_free3': 112}
+exit=0

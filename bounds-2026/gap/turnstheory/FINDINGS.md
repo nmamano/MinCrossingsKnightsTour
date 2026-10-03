@@ -1,3 +1,95 @@
+# Reply to Edge Searcher: beyond-5 pure currency definitions — 2026-10-03
+
+Read gap/searcher/BEYOND5_FLUX.md. Answers (a)–(d), plus a new cheap
+stop test, follow. The proposed algebra is correct, but the cited
+193-tour evidence uses a DIFFERENT pair exclusion.
+
+**(a) Restoration: YES.** With s=|S*|, T=s-4n+2 and retained candidates
+as in PROOF_5N.md, T+1160>=D_loss is audited. T is the pure strip
+surplus, not a mixed currency. Indeed Claim 42 proves the stronger
+T+1139>=D_loss+L_def. E=T+X_out holds exactly for X_out=X-s.
+For 0<=p<=1, F-beyond(p) would imply explicitly
+
+    X >= (4+2p)n-(60p+C+1162),
+
+because E>=D_loss+pL-C-1160>=pN-C-1160. The 1-p coefficient of
+D_loss must be nonnegative; retain the p<=1 restriction.
+
+**(b) Hall data: B, not S*.** The pure experiment used unit crossing
+pairs outside B, the UNION of outermost-column pair sets. Source:
+HALL_CURRENCY_RESULTS.md and compare_hall_currencies.py, which calls
+geometry(..., pair_exclusion='B'). B is a subset of S*. Thus
+
+    X-|B| = X_out + |S* minus B|.
+
+Keep S* in F-beyond if you want the displayed restoration algebra.
+The 193 zero deficits outside B do NOT test that statement. Please
+correct that evidence sentence and its source link (the comparison
+report, not the original mixed HALL_V3_RESULTS.md). Replacing S* by B
+requires a new restoration/budget proof; the extra S* minus B pairs
+are already part of T and cannot be counted twice.
+
+**(c) Aggregate is enough.** A universal scalar X_out>=pL-C with ONE
+absolute C suffices for the coefficient. Radius ten and individual
+payments are optional stronger tools, not obligations of this global
+reduction. A local model still needs a global no-double-counting
+argument and one error, not one error per carrier, run or patch.
+
+**(d) No audited asymptotic counterexample identified here, but the
+saved closed tours give a serious stop test.** Claims 29 and 35 concern
+open patches/plane walls; neither establishes an unbounded deficit
+on retained candidates in closed tours. However, a new read-only
+scan of the 193 saved validated-tour counts gives:
+
+| Family | n | L | X_out (outside S*) | L/2-X_out | 2L/3-X_out |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| LF5 | 156 | 181 | 56 | 34.5 | 194/3 |
+| LF5 | 208 | 256 | 73 | 55 | 293/3 |
+| LF5 | 260 | 332 | 91 | 75 | 391/3 |
+| TT16 | 96 | 65 | 3 | 29.5 | 121/3 |
+
+These are aggregate deficits, with no radius restriction. The LF5
+values increase on the saved sequence even at p=1/2. Finite data
+cannot disprove the existence of an absolute C; do not label this
+an asymptotic refutation. Before carrier computation, derive the
+LF5 or TT16 family counts for unbounded n, or generate larger members
+and then prove their count formula. The statement may be stronger
+than the beyond-5 result needs because it discards strip surplus.
+
+A less restrictive sufficient alternative keeps that surplus:
+let R=T+1160-D_loss>=0 and seek
+
+    X_out+R >= pL-C.
+
+This yields exactly the same bound in (a). It is a scalar joint
+strip/interior target; it permits high-strip-cost tours to use that
+cost instead of forcing all retained paths into X_out. Use the same
+R once, with no second claim on those strip pairs. This is a proposed
+contract, not a proved beyond-5 inequality.
+
+Reproduction (light, saved counts only):
+
+    python3 gap/turnstheory/check_pure_aggregate.py
+
+Output: pure_aggregate_check.json. This does not rerun tour validation
+or geometry; it uses the stored validated snapshot hall_v3_results.json.
+No new flow or heavy computation was run. Proof profile: the reduction
+is two identities and one inequality; the missing global price is the
+substantive theorem. The local wall certificates alone do not prove it.
+
+---
+
+# Reproduction dependencies and author timings added — 2026-10-03
+
+PROOF_5N.md now states the exact third-party imports for f1v_stab.py:
+NumPy and OR-Tools. OR-Tools is a transitive geometry-helper import,
+even though the certificate does not run a SAT solver. Commands use
+the research venv. The document records the Integrator-reported
+31-second UP and 42-second DOWN times separately from the Verifier's
+22-second independent check. No theorem or certificate changed.
+
+---
+
 # Headline proof aligned with audited Claim 42 — 2026-10-03
 
 PROOF_5N.md is now AUDITED (Claims 39, 40 plus scalar addendum, 42):

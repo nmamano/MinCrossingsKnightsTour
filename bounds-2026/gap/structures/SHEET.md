@@ -632,13 +632,19 @@ values are lower bounds for 2-factors; `carrier21.log`, 2026-10-03), bad quarter
 | 6 | 2 | INFEASIBLE | INFEASIBLE | - |
 | 6 | 3 | 3.917 (OPTIMAL) | 2.667 (OPTIMAL) | - |
 | 6 | 4 | 3.167 (bound 2.833) | 2.667 (bound 2.250) | 3.667 (bound 2.417) |
-| 6 | 5 | 2.667 (bound 1.833) | - | - |
+| 6 | 5 | 2.667 (bound 2.000 after 1800 s) | - | - |
 | 12 | 3 | 3.000 (OPTIMAL) | - | - |
 (k = 3 and k = 9 are INFEASIBLE for every J != 0: the current needs an even number of cells per line per period.)
-The rate falls with the band width; whether it stays >= 2 (4 per ribbon) for wide bands is the open finite question,
-and the horizontal (strand-crossing) rate must be >= 4 per unit x (`horiz_carrier.py`, w-structures seam model with a
-forced odd line shift; no result yet: UNKNOWN at 200 s for p = 6, 8, 12, w = 3). A 'no' in either direction would give
-a cheap odd untrapping of an inside block and break (C_T') (not (T*) itself, which the data satisfy with a large slack).
+Horizontal band (strands cross it; `carrier21.py h p w J`, period (p, 0), same relaxation, current J in place of the
+odd line shift, which S8 makes equivalent mod 2), need >= 4 per unit x: p=6 w=2 J=-3: 4.000 OPTIMAL; p=6 w=2 J=+3:
+4.000 (bound 3.833); p=6 w=3: 4.000 (bound 3.000); p=12 w=2: 4.000 (bound 2.333). (The crossing-count version
+`horiz_carrier.py` gives 10 crossings per 6 at p=6 w=3 J=-3, bound 7.)
+Reading: every carrier found costs EXACTLY or more than (K) asks (horizontal 4 = 4 per ribbon; parallel 2.67 >= 2), and
+the proved bounds reach (K) at p=6 w=2 (horizontal) and k=6 w=5 (parallel). So (K) is consistent with all runs and is
+tight for the horizontal carrier: the odd-carrier price is exactly the (T*) price, with no margin. A wider band below
+the threshold would give a cheap odd untrapping of an inside block and break (C_T') (not (T*) itself, which the data
+satisfy with a large slack). Next finite step: the local form of (K) (one ribbon crossed by a cut with odd current costs
+>= 4 bad quarters), which would cover all widths at once.
 Two side notes. Returning the current along the run itself is not free (a second V ribbon from D makes the crossing
 count even). The carrier may reach the side at S'' below the segment and send the current up the collar to S'; then
 the collar rows between S'' and S' carry current (non-P rows, S3), and these rows hold the lower ports of the shifted

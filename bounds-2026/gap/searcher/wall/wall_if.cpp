@@ -24,7 +24,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 typedef long long ll; typedef unsigned long long ull;
-int A, SA = 0, SB = 1, WM, KM;   /* shear SA/SB: cell (u,y) = board cell (u + floor(SA*y/SB), y) */ string MODE; int WU = 2; bool NOLAB = false; int LA = 1, LB = 2; int FLM = 15, FRM = 15; int CLL[4] = {-1,-1,-1,-1}, CLR[4] = {-1,-1,-1,-1}; int ZW = 1; bool SIDE = false; int ORL = 0, ORR = 0;   // ORL/ORR=1: zigzag orientation z0 (colour-0 cells send both edges up), 2: z1; key bit 12 = floor(Y/SB) mod 2   // SIDE=1 (shear 0 only): board side at u = 0, no cells u < 0, no left margin   // CELLL/CELLR: move multiset of the ZW outermost modeled cells per side   // lambda = LA/LB: cost = 2*LA*Xc + (LB-LA)*(G+W3+X1), E share = cost/(2*LB)
+int A, SA = 0, SB = 1, WM, KM;   /* shear SA/SB: cell (u,y) = board cell (u + floor(SA*y/SB), y) */ string MODE; int WU = 2; bool NOLAB = false; int LA = 1, LB = 2; int FLM = 15, FRM = 15; int CLL[4] = {-1,-1,-1,-1}, CLR[4] = {-1,-1,-1,-1}; int ZW = 1; bool SIDE = false; int ORL = 0, ORR = 0; int CTN = 0, CTD = 1, CSG = 1; bool CUR = false; bool MIXP = false;   // MIXP=1: the CUR channel counts MIXED margin squares (two halves with different H/V bits) instead of current   // CUR=TN/TD, CURS=+-1: weight += sign*t*(colour current through the cut u = 0)   // ORL/ORR=1: zigzag orientation z0 (colour-0 cells send both edges up), 2: z1; key bit 12 = floor(Y/SB) mod 2   // SIDE=1 (shear 0 only): board side at u = 0, no cells u < 0, no left margin   // CELLL/CELLR: move multiset of the ZW outermost modeled cells per side   // lambda = LA/LB: cost = 2*LA*Xc + (LB-LA)*(G+W3+X1), E share = cost/(2*LB)
 int ULO, UHI, NC;                         // scan columns u in [ULO, UHI]
 const int MDX[4] = {2, -2, 1, -1}, MDY[4] = {1, 1, 2, 2};
 static bool modeled(int u) { return u >= 0 && u < WM; }
@@ -107,6 +107,8 @@ int main(int argc, char** argv) {
 #endif
     for (int sd = 0; sd < 2; sd++) { const char* f = getenv(sd ? "CELLR" : "CELLL"); if (!f) continue; int* cl = sd ? CLR : CLL; for (int k = 0; k < 4; k++) cl[k] = 0; for (const char* c = f; *c; c++) cl[*c - '0']++; }
     if (getenv("SIDE")) SIDE = true;
+    if (getenv("CUR")) { CUR = true; sscanf(getenv("CUR"), "%d/%d", &CTN, &CTD); } if (getenv("CURS")) CSG = atoi(getenv("CURS"));
+    if (getenv("MIXP")) MIXP = true;
     if (getenv("ORL")) ORL = atoi(getenv("ORL")); if (getenv("ORR")) ORR = atoi(getenv("ORR"));
     if (getenv("ZW")) ZW = atoi(getenv("ZW"));
  if (getenv("WU")) WU = atoi(getenv("WU")); if (getenv("LAM")) sscanf(getenv("LAM"), "%d/%d", &LA, &LB);
@@ -157,10 +159,10 @@ int main(int argc, char** argv) {
     if (getenv("DRY")) return 0;
     // ---- graph
     rehash(20); keys.reserve(min(CAP + 1000000, (size_t)400000000));   // reserve: no doubling peak (untouched pages cost no RSS)
-    vector<ull> off{0}; vector<uint32_t> tgt; vector<uint8_t> wgX, wgW; vector<uint8_t> isRowEnd;
+    vector<ull> off{0}; vector<uint32_t> tgt; vector<uint8_t> wgX, wgW; vector<int8_t> wgQ; vector<uint8_t> isRowEnd;
     vector<PE> s, in, rest, ne;
     long rejM = 0, rejPsi = 0;
-    auto expand = [&](const Key kq, vector<pair<Key, uint16_t>>& outK) {
+    auto expand = [&](const Key kq, vector<pair<Key, uint32_t>>& outK) {
         int x = kq.x & 255, ph = (kq.x >> 8) & 15, qp = (kq.x >> 12) & 1, warm = kq.warm; decode(kq, s);
         in.clear(); rest.clear();
         for (auto& p : s) { auto& S = SL[SID[p.c][p.ly + 2][p.m]]; (S.tc[ph] == x && S.ty == 0 ? in : rest).push_back(p); }
@@ -210,16 +212,16 @@ int main(int argc, char** argv) {
                 ne.clear();
                 for (auto p : rest) { if (merge >= 0 && p.comp == merge) p.comp = label; ne.push_back(p); }
                 for (int m : ch) ne.push_back({x, 0, m, label});
-                int nx = x + 1, sh = 0, nwarm = warm, nph = ph, nqp = qp; if (nx == NC) { nx = 0; sh = 1; if (nwarm) nwarm--; nph = (ph + 1) % SB; if ((ORL || ORR) && nph == 0) nqp ^= 1; }
+                int nx = x + 1, sh = 0, nwarm = warm, nph = ph, nqp = qp; if (nx == NC) { nx = 0; sh = 1; if (nwarm) nwarm--; nph = (ph + 1) % SB; if ((ORL || ORR || CUR) && nph == 0) nqp ^= 1; }
                 for (auto& p : ne) p.ly -= sh;
-                int w = x1c;
+                int w = x1c; int mixc = 0;
                 if (sh && (WU - warm) >= 1) {   // square row of absolute row >= 1: all covering edges are represented
                     // square row Y = -1 (between rows -1 and 0 of the new frame): multiplicities from pending edges
                     int sLo = sLoP[ph], sHi = sHiP[ph];   // square row -1 of the new frame has the phase of the old row 0
-                    int span = sHi - sLo + 1; vector<array<int, 4>> mm(span, {0, 0, 0, 0}); vector<int> mvm(span, 0);
+                    int span = sHi - sLo + 1; vector<array<int, 4>> mm(span, {0, 0, 0, 0}); vector<int> mvm(span, 0); vector<array<int, 4>> mq(span, {-1, -1, -1, -1});
                     for (auto& p : ne) {
                         ll ex = RX(p.c, p.ly, nph);
-                        for (auto& t : TQ[p.m]) { ll X = ex + t[0], Y = p.ly + t[1]; if (Y != -1) continue; ll sidx = X - shf(nph, -1); if (sidx >= sLo && sidx <= sHi) { mm[sidx - sLo][t[2]]++; mvm[sidx - sLo] |= 1 << p.m; } }
+                        for (auto& t : TQ[p.m]) { ll X = ex + t[0], Y = p.ly + t[1]; if (Y != -1) continue; ll sidx = X - shf(nph, -1); if (sidx >= sLo && sidx <= sHi) { mm[sidx - sLo][t[2]]++; mvm[sidx - sLo] |= 1 << p.m; mq[sidx - sLo][t[2]] = p.m; } }
                     }
                     bool fok = true;   // FIELDL / FIELDR: allowed moves of the tiles that cover the margin squares
                     for (int i = 0; i < KM; i++) { if (mvm[i] & ~FLM) fok = false; if (mvm[span - 1 - i] & ~FRM) fok = false; }
@@ -237,19 +239,26 @@ int main(int argc, char** argv) {
                     for (int i = 1; i < span; i++) { int X = sLo + i; int chi = (X & 1) ? -1 : 1; psi += chi * (mm[i - 1][1] + mm[i][3] + 1); }
                     psi = ((psi % 3) + 3) % 3;
                     if ((MODE == "nz" && psi == 0) || (MODE == "zero" && psi != 0)) { rejPsi++; continue; }
+                    if (MIXP) for (int i = 0; i < span; i++) if (sqC[ph][sLo + i + SOFF] == 1) {   // margin square: perfect here
+                        auto& q = mq[i]; bool slash = q[0] == 0 || q[0] == 2; auto vb = [](int m) { return m >= 2; };
+                        if (slash ? vb(q[0]) != vb(q[2]) : vb(q[1]) != vb(q[3])) mixc++; }
                     w += G + W3;
                 }
-                if (warm) { w = 0; xc = 0; }
+                int qc = 0;
+                if (CUR) { int u = x + ULO; int col = (int)(((ll)u + (ll)SA * qp + fdiv((ll)SA * ph, SB) + (ll)SB * qp + ph) & 1); int chl = col ? -1 : 1;
+                    for (int m : ch) { int u2 = u + MDX[m] - shf(ph, MDY[m]); if ((u < 0) != (u2 < 0)) qc += u < 0 ? chl : -chl; } }
+                if (MIXP) qc = mixc;
+                if (warm) { w = 0; xc = 0; qc = 0; }
                 sort(ne.begin(), ne.end(), [&](const PE& a, const PE& b) { return SID[a.c][a.ly + 2][a.m] < SID[b.c][b.ly + 2][b.m]; });
                 int rl[128]; memset(rl, -1, sizeof rl); int nl = 0;
                 for (auto& p : ne) { if (NOLAB) { p.comp = 0; continue; } if (rl[p.comp] < 0) rl[p.comp] = nl++; p.comp = rl[p.comp]; }
                 if (nl > 15 || ne.size() > 32) { printf("label overflow (%zu pending edges)\n", ne.size()); exit(1); }
                 if (w > 255 || xc > 255) { printf("weight overflow\n"); exit(1); }
-                outK.push_back({encode(nx | nph << 8 | nqp << 12, nwarm, ne), (uint16_t)(xc << 8 | w)});
+                outK.push_back({encode(nx | nph << 8 | nqp << 12, nwarm, ne), (uint32_t)((qc + 8) << 16 | xc << 8 | w)});
             }
         }
     };
-    vector<pair<Key, uint16_t>> outK;
+    vector<pair<Key, uint32_t>> outK;
     {   // warm-up layers: expanded one cell position at a time, not stored
         vector<Key> cur; { vector<PE> e0; cur.push_back(encode(0, WU, e0)); }
         size_t seeds = 0, maxLayer = 0;
@@ -274,12 +283,12 @@ int main(int argc, char** argv) {
         if (keys.size() > CAP) { printf("CAP reached: %zu states (processed %zu) %.0fs\n", keys.size(), q, el()); return 0; }
         Key kq = keys[q]; int x = kq.x & 255;
         expand(kq, outK);
-        vector<pair<uint32_t, uint16_t>> outs;
+        vector<pair<uint32_t, uint32_t>> outs;
         for (auto& o : outK) outs.push_back({getId(o.first), o.second});
         sort(outs.begin(), outs.end());
         for (size_t i = 0; i < outs.size(); i++) {
             if (i && outs[i].first == outs[i - 1].first) { if (outs[i].second != outs[i - 1].second) { printf("non-unique arc data\n"); return 1; } continue; }
-            tgt.push_back(outs[i].first); wgX.push_back(outs[i].second >> 8); wgW.push_back(outs[i].second & 255); isRowEnd.push_back(x == NC - 1);
+            tgt.push_back(outs[i].first); wgX.push_back((outs[i].second >> 8) & 255); wgW.push_back(outs[i].second & 255); wgQ.push_back((int)(outs[i].second >> 16) - 8); isRowEnd.push_back(x == NC - 1);
         }
         off.push_back(tgt.size());
         if (q && (q & ((1 << 22) - 1)) == 0) printf("  ... %zu/%zu states, %zu arcs, %.0fs\n", q, keys.size(), tgt.size(), el());
@@ -292,7 +301,7 @@ int main(int argc, char** argv) {
     vector<ll> d(N); vector<uint32_t> par(N), src(M);
     for (size_t u = 0; u < N; u++) for (ull i = off[u]; i < off[u + 1]; i++) src[i] = u;
     vector<uint32_t> cyc;
-    auto WG = [&](size_t i) -> ll { return 2LL * LA * wgX[i] + (ll)(LB - LA) * wgW[i]; };
+    auto WG = [&](size_t i) -> ll { return (ll)CTD * (2LL * LA * wgX[i] + (ll)(LB - LA) * wgW[i]) + (ll)CSG * CTN * wgQ[i]; };
     auto bf = [&](ll p, ll q) {
         fill(d.begin(), d.end(), 0); fill(par.begin(), par.end(), ~0u); vector<uint8_t> col(N);
         for (int pass = 1;; pass++) {
@@ -342,10 +351,11 @@ int main(int argc, char** argv) {
                    A, WM, KM, MODE.c_str(), LA, LB, P, Q, P, 2 * LB * Q * lev, (double)P / (2 * LB * Q * lev), el());
             break;
         }
-        ll sw = 0, sx = 0, sww = 0; int rows = 0; for (auto i : cyc) { sw += WG(i); sx += wgX[i]; sww += wgW[i]; rows += isRowEnd[i]; }
+        ll sw = 0, sx = 0, sww = 0, sq = 0; int rows = 0; for (auto i : cyc) { sw += WG(i); sx += wgX[i]; sww += wgW[i]; sq += wgQ[i]; rows += isRowEnd[i]; }
+        if (CUR) printf("  cycle colour current through u = 0: %lld over %d rows\n", sq, rows);
         printf("  cycle: %zu arcs, %d rows, crossings %lld, waste %lld, weight %lld -> mean %lld/%d\n", cyc.size(), rows, sx, sww, sw, sw, rows);
         if (rows == 0) { printf("  ERROR: cycle without row end\n"); return 1; }
-        ll g = __gcd(sw, (ll)rows); ll P2 = sw / g, Q2 = rows / g;
+        ll g = __gcd(llabs(sw), (ll)rows); ll P2 = sw / g, Q2 = rows / g;
         if (g == 0) { P2 = 0; Q2 = 1; }
         if (P2 * Q >= P * Q2) { printf("  ERROR: ratio did not decrease\n"); return 1; }
         P = P2; Q = Q2;

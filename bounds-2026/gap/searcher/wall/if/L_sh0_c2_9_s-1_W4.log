@@ -1,0 +1,56 @@
+shear 0/1 WM=4 KM=1 MODE=nz lambda=1/2: columns u in [-2,5], 54 slots, complete squares s in [-1,3], 3 cost squares per row
+warm-up done: 472236 strict seed states, largest warm layer 10493992, 97s
+  ... 4194304/6045420 states, 7906896 arcs, 111s
+  ... 8388608/11699397 states, 15947328 arcs, 126s
+  ... 12582912/13744950 states, 18217141 arcs, 134s
+  ... 16777216/18288423 states, 24578269 arcs, 148s
+  ... 20971520/24283442 states, 32894347 arcs, 164s
+  ... 25165824/26062290 states, 35172568 arcs, 172s
+states by warm level: strict 26062290, warm1 0, warm2 0, warm3 0
+graph: states 26062290 arcs 35315357 (rejected: margin 72600368, psi 439396) 174s
+== lambda 1/1
+ try mean 72/1 per row
+  cycle colour current through u = 0: 6 over 4 rows
+  cycle: 32 arcs, 4 rows, crossings 3, waste 6, weight 42 -> mean 42/4
+    (cycle starts at row phase 0; board x = u + floor(0*(phase+row)/1) - floor(0*phase/1))
+    row 0 u 1 (mod) X=0 waste=0: (1,0)-(-1,1) (1,0)-(0,2)
+    row 0 u 3 (mod) X=0 waste=0: (3,0)-(1,1) (3,0)-(2,2)
+    row 0 u 5 (ghost) X=0 waste=2: (5,0)-(3,1)
+    row 1 u 0 (mod) X=0 waste=0: (0,1)-(-2,2) (0,1)-(-1,3)
+    row 1 u 1 (mod) X=0 waste=0: (1,1)-(2,3)
+    row 1 u 2 (mod) X=2 waste=1: (2,1)-(0,2) (2,1)-(1,3)
+    row 1 u 4 (ghost) X=0 waste=0: (4,1)-(2,2) (4,1)-(3,3)
+    row 2 u 1 (mod) X=0 waste=0: (1,2)-(-1,3) (1,2)-(0,4)
+    row 2 u 3 (mod) X=1 waste=1: (3,2)-(1,3) (3,2)-(2,4)
+    row 2 u 5 (ghost) X=0 waste=0: (5,2)-(3,3)
+    row 3 u 0 (mod) X=0 waste=0: (0,3)-(-2,4) (0,3)-(-1,5)
+    row 3 u 2 (mod) X=0 waste=0: (2,3)-(0,4)
+    row 3 u 4 (ghost) X=0 waste=0: (4,3)-(2,4) (4,3)-(3,5)
+    row 3 u 5 (ghost) X=0 waste=2:
+ try mean 21/2 per row
+RESULT A=0 WM=4 KM=1 nz lambda=1/1: min mean weight per row = 21/2 (CERTIFIED: no cycle below); per level (E units) = 21/4 = 5.2500  (179s)
+total 179s
+	Command being timed: "./wifq 0 4 1 nz 72 1 90000000"
+	User time (seconds): 169.37
+	System time (seconds): 9.61
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 2:59.20
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 1562912
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 1298870
+	Voluntary context switches: 0
+	Involuntary context switches: 1156
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 72
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+exit=0

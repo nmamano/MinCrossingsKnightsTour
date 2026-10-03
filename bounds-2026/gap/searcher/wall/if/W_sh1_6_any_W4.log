@@ -1,0 +1,198 @@
+shear 1/6 WM=4 KM=1 MODE=nz lambda=1/2: columns u in [-3,6], 59 slots, complete squares s in [-1,2], 2 cost squares per row
+warm-up done: 472236 strict seed states, largest warm layer 10493992, 100s
+  ... 4194304/5634093 states, 7104879 arcs, 112s
+  ... 8388608/11653435 states, 15843577 arcs, 129s
+  ... 12582912/15730039 states, 20919871 arcs, 138s
+  ... 16777216/17137001 states, 22978564 arcs, 145s
+  ... 20971520/22437028 states, 30746084 arcs, 158s
+  ... 25165824/28129405 states, 37703725 arcs, 171s
+  ... 29360128/30450024 states, 41220248 arcs, 178s
+  ... 33554432/34632455 states, 46924457 arcs, 194s
+  ... 37748736/40127971 states, 54430487 arcs, 207s
+  ... 41943040/42982904 states, 58835212 arcs, 217s
+  ... 46137344/47536237 states, 64503350 arcs, 231s
+  ... 50331648/50906311 states, 69346908 arcs, 245s
+  ... 54525952/56405163 states, 75848518 arcs, 257s
+  ... 58720256/60114263 states, 80682605 arcs, 267s
+  ... 62914560/65427005 states, 87719740 arcs, 282s
+states by warm level: strict 66851468, warm1 0, warm2 0, warm3 0
+graph: states 66851468 arcs 90513072 (rejected: margin 96111042, psi 430954) 289s
+== lambda 1/1
+ try mean 8/1 per row
+  cycle: 120 arcs, 12 rows, crossings 8, waste 16, weight 16 -> mean 16/12
+    (cycle starts at row phase 2; board x = u + floor(1*(phase+row)/6) - floor(1*phase/6))
+    row 0 u -1 (ghost) X=0 waste=0: (-1,0)-(0,2)
+    row 0 u 0 (mod) X=0 waste=0: (0,0)-(2,1) (0,0)-(1,2)
+    row 0 u 2 (mod) X=0 waste=0: (2,0)-(4,1)
+    row 0 u 6 (ghost) X=0 waste=2:
+    row 1 u -1 (ghost) X=0 waste=0: (-1,1)-(0,3)
+    row 1 u 0 (mod) X=0 waste=0: (0,1)-(1,3)
+    row 1 u 1 (mod) X=0 waste=0: (1,1)-(3,2) (1,1)-(2,3)
+    row 1 u 3 (mod) X=0 waste=0: (3,1)-(5,2) (3,1)-(4,3)
+    row 1 u 6 (ghost) X=0 waste=2:
+    row 2 u 0 (mod) X=0 waste=0: (0,2)-(1,4)
+    row 2 u 1 (mod) X=0 waste=0: (1,2)-(2,4)
+    row 2 u 2 (mod) X=0 waste=0: (2,2)-(4,3) (2,2)-(3,4)
+    row 2 u 3 (mod) X=2 waste=1: (3,2)-(2,4)
+    row 3 u 0 (mod) X=0 waste=0: (0,3)-(1,5)
+    row 3 u 1 (mod) X=0 waste=0: (1,3)-(2,5)
+    row 3 u 2 (mod) X=1 waste=1: (2,3)-(3,5)
+    row 3 u 3 (mod) X=0 waste=0: (3,3)-(5,4) (3,3)-(4,5)
+    row 4 u -1 (ghost) X=0 waste=0: (0,4)-(1,6)
+    row 4 u 0 (mod) X=0 waste=0: (1,4)-(2,6)
+    row 4 u 2 (mod) X=0 waste=0: (3,4)-(4,6)
+    row 4 u 3 (mod) X=0 waste=0: (4,4)-(6,5) (4,4)-(5,6)
+    row 4 u 6 (ghost) X=0 waste=2:
+    row 5 u -1 (ghost) X=0 waste=0: (0,5)-(1,7)
+    row 5 u 0 (mod) X=0 waste=0: (1,5)-(2,7)
+    row 5 u 1 (mod) X=0 waste=0: (2,5)-(3,7)
+    row 5 u 2 (mod) X=0 waste=0: (3,5)-(4,7)
+    row 5 u 3 (mod) X=0 waste=0: (4,5)-(5,7)
+    row 5 u 6 (ghost) X=0 waste=2:
+    row 6 u -1 (ghost) X=0 waste=0: (0,6)-(1,8)
+    row 6 u 0 (mod) X=0 waste=0: (1,6)-(2,8)
+    row 6 u 1 (mod) X=0 waste=0: (2,6)-(3,8)
+    row 6 u 2 (mod) X=2 waste=1: (3,6)-(4,8) (3,6)-(2,8)
+    row 6 u 3 (mod) X=0 waste=0: (4,6)-(5,8)
+    row 7 u -2 (ghost) X=0 waste=0: (-1,7)-(1,8)
+    row 7 u 0 (mod) X=0 waste=0: (1,7)-(2,9)
+    row 7 u 1 (mod) X=1 waste=1: (2,7)-(3,9)
+    row 7 u 2 (mod) X=0 waste=0: (3,7)-(4,9)
+    row 7 u 3 (mod) X=0 waste=0: (4,7)-(5,9)
+    row 8 u -1 (ghost) X=0 waste=0: (0,8)-(2,9)
+    row 8 u 2 (mod) X=0 waste=0: (3,8)-(4,10)
+    row 8 u 3 (mod) X=0 waste=0: (4,8)-(5,10)
+    row 8 u 6 (ghost) X=0 waste=2:
+    row 9 u 0 (mod) X=0 waste=0: (1,9)-(3,10) (1,9)-(2,11)
+    row 9 u 2 (mod) X=0 waste=0: (3,9)-(4,11)
+    row 9 u 3 (mod) X=0 waste=0: (4,9)-(5,11)
+    row 9 u 6 (ghost) X=0 waste=2:
+    row 10 u -2 (ghost) X=0 waste=0: (0,10)-(2,11)
+    row 10 u 0 (mod) X=0 waste=0: (2,10)-(4,11) (2,10)-(3,12)
+    row 10 u 1 (mod) X=1 waste=0: (3,10)-(4,12)
+    row 10 u 2 (mod) X=0 waste=0: (4,10)-(5,12)
+    row 10 u 3 (mod) X=0 waste=0: (5,10)-(6,12)
+    row 11 u -1 (ghost) X=0 waste=0: (1,11)-(3,12) (1,11)-(2,13)
+    row 11 u 1 (mod) X=1 waste=0: (3,11)-(5,12) (3,11)-(4,13)
+    row 11 u 3 (mod) X=0 waste=0: (5,11)-(6,13)
+ try mean 4/3 per row
+  cycle: 180 arcs, 18 rows, crossings 11, waste 24, weight 22 -> mean 22/18
+    (cycle starts at row phase 5; board x = u + floor(1*(phase+row)/6) - floor(1*phase/6))
+    row 0 u -1 (ghost) X=0 waste=0: (-1,0)-(1,1)
+    row 0 u 0 (mod) X=0 waste=0: (0,0)-(2,1)
+    row 0 u 2 (mod) X=0 waste=0: (2,0)-(4,1)
+    row 0 u 3 (mod) X=0 waste=0: (3,0)-(5,1)
+    row 0 u 6 (ghost) X=0 waste=2:
+    row 1 u -2 (ghost) X=0 waste=0: (-1,1)-(1,2)
+    row 1 u -1 (ghost) X=0 waste=0: (0,1)-(2,2)
+    row 1 u 0 (mod) X=0 waste=0: (1,1)-(3,2)
+    row 1 u 2 (mod) X=0 waste=0: (3,1)-(5,2) (3,1)-(4,3)
+    row 1 u 3 (mod) X=0 waste=0: (4,1)-(6,2)
+    row 1 u 6 (ghost) X=0 waste=2:
+    row 2 u -2 (ghost) X=0 waste=0: (-1,2)-(1,3)
+    row 2 u -1 (ghost) X=0 waste=0: (0,2)-(2,3)
+    row 2 u 0 (mod) X=0 waste=0: (1,2)-(3,3)
+    row 2 u 1 (mod) X=1 waste=0: (2,2)-(3,4)
+    row 2 u 2 (mod) X=0 waste=0: (3,2)-(4,4)
+    row 2 u 3 (mod) X=0 waste=0: (4,2)-(6,3) (4,2)-(5,4)
+    row 2 u 6 (ghost) X=0 waste=2:
+    row 3 u -2 (ghost) X=0 waste=0: (-1,3)-(1,4)
+    row 3 u -1 (ghost) X=0 waste=0: (0,3)-(2,4)
+    row 3 u 0 (mod) X=1 waste=0: (1,3)-(2,5)
+    row 3 u 1 (mod) X=0 waste=0: (2,3)-(3,5)
+    row 3 u 2 (mod) X=0 waste=0: (3,3)-(4,5)
+    row 3 u 3 (mod) X=0 waste=0: (4,3)-(5,5)
+    row 3 u 6 (ghost) X=0 waste=2:
+    row 4 u -2 (ghost) X=0 waste=0: (-1,4)-(1,5)
+    row 4 u -1 (ghost) X=0 waste=0: (0,4)-(2,5)
+    row 4 u 0 (mod) X=1 waste=0: (1,4)-(2,6)
+    row 4 u 1 (mod) X=0 waste=0: (2,4)-(3,6)
+    row 4 u 2 (mod) X=0 waste=0: (3,4)-(4,6)
+    row 4 u 3 (mod) X=0 waste=0: (4,4)-(5,6)
+    row 5 u 0 (mod) X=0 waste=0: (1,5)-(2,7)
+    row 5 u 2 (mod) X=0 waste=0: (3,5)-(4,7)
+    row 5 u 3 (mod) X=0 waste=0: (4,5)-(5,7)
+    row 5 u 6 (ghost) X=0 waste=2:
+    row 6 u 0 (mod) X=0 waste=0: (1,6)-(-1,7) (1,6)-(2,8)
+    row 6 u 1 (mod) X=0 waste=0: (2,6)-(3,8)
+    row 6 u 2 (mod) X=0 waste=0: (3,6)-(4,8)
+    row 6 u 3 (mod) X=0 waste=0: (4,6)-(5,8)
+    row 6 u 6 (ghost) X=0 waste=2:
+    row 7 u -1 (ghost) X=0 waste=0: (1,7)-(2,9)
+    row 7 u 0 (mod) X=0 waste=0: (2,7)-(3,9)
+    row 7 u 1 (mod) X=2 waste=1: (3,7)-(4,9) (3,7)-(2,9)
+    row 7 u 2 (mod) X=0 waste=0: (4,7)-(5,9)
+    row 7 u 3 (mod) X=0 waste=0: (5,7)-(6,9)
+    row 8 u -1 (ghost) X=0 waste=0: (1,8)-(2,10)
+    row 8 u 0 (mod) X=1 waste=1: (2,8)-(3,10)
+    row 8 u 1 (mod) X=0 waste=0: (3,8)-(4,10)
+    row 8 u 2 (mod) X=0 waste=0: (4,8)-(5,10)
+    row 8 u 3 (mod) X=0 waste=0: (5,8)-(6,10)
+    row 9 u -2 (ghost) X=0 waste=0: (0,9)-(2,10)
+    row 9 u 1 (mod) X=0 waste=0: (3,9)-(4,11)
+    row 9 u 2 (mod) X=0 waste=0: (4,9)-(5,11)
+    row 9 u 3 (mod) X=0 waste=0: (5,9)-(6,11)
+    row 9 u 6 (ghost) X=0 waste=2:
+    row 10 u -1 (ghost) X=0 waste=0: (1,10)-(3,11) (1,10)-(2,12)
+    row 10 u 1 (mod) X=0 waste=0: (3,10)-(4,12)
+    row 10 u 2 (mod) X=0 waste=0: (4,10)-(5,12)
+    row 10 u 3 (mod) X=0 waste=0: (5,10)-(6,12)
+    row 10 u 6 (ghost) X=0 waste=2:
+    row 11 u -2 (ghost) X=0 waste=0: (0,11)-(2,12)
+    row 11 u 0 (mod) X=0 waste=0: (2,11)-(4,12) (2,11)-(3,13)
+    row 11 u 1 (mod) X=1 waste=0: (3,11)-(4,13)
+    row 11 u 2 (mod) X=0 waste=0: (4,11)-(5,13)
+    row 11 u 3 (mod) X=0 waste=0: (5,11)-(6,13)
+    row 12 u -1 (ghost) X=0 waste=0: (1,12)-(3,13)
+    row 12 u 1 (mod) X=1 waste=0: (3,12)-(5,13) (3,12)-(4,14)
+    row 12 u 3 (mod) X=0 waste=0: (5,12)-(6,14)
+    row 13 u -1 (ghost) X=0 waste=0: (2,13)-(4,14) (2,13)-(3,15)
+    row 13 u 1 (mod) X=0 waste=0: (4,13)-(6,14)
+    row 13 u 3 (mod) X=0 waste=0: (6,13)-(7,15)
+    row 13 u 6 (ghost) X=0 waste=2:
+    row 14 u -1 (ghost) X=0 waste=0: (2,14)-(3,16)
+    row 14 u 0 (mod) X=0 waste=0: (3,14)-(5,15) (3,14)-(4,16)
+    row 14 u 2 (mod) X=0 waste=0: (5,14)-(7,15) (5,14)-(6,16)
+    row 14 u 6 (ghost) X=0 waste=2:
+    row 15 u -1 (ghost) X=0 waste=0: (2,15)-(3,17)
+    row 15 u 0 (mod) X=0 waste=0: (3,15)-(4,17)
+    row 15 u 1 (mod) X=0 waste=0: (4,15)-(6,16) (4,15)-(5,17)
+    row 15 u 2 (mod) X=1 waste=0: (5,15)-(6,17)
+    row 15 u 3 (mod) X=0 waste=0: (6,15)-(8,16) (6,15)-(7,17)
+    row 16 u -2 (ghost) X=0 waste=0: (1,16)-(3,17)
+    row 16 u 0 (mod) X=0 waste=0: (3,16)-(4,18)
+    row 16 u 1 (mod) X=0 waste=0: (4,16)-(5,18)
+    row 16 u 2 (mod) X=1 waste=0: (5,16)-(7,17) (5,16)-(6,18)
+    row 17 u -2 (ghost) X=0 waste=0: (1,17)-(3,18)
+    row 17 u -1 (ghost) X=0 waste=0: (2,17)-(4,18)
+    row 17 u 1 (mod) X=0 waste=0: (4,17)-(5,19)
+    row 17 u 2 (mod) X=1 waste=0: (5,17)-(7,18)
+    row 17 u 3 (mod) X=0 waste=0: (6,17)-(8,18)
+    row 17 u 6 (ghost) X=0 waste=2:
+ try mean 11/9 per row
+RESULT A=1 WM=4 KM=1 nz lambda=1/1: min mean weight per row = 11/9 (CERTIFIED: no cycle below); per level (E units) = 11/18 = 0.6111  (305s)
+total 305s
+	Command being timed: "./wifc 1/6 4 1 nz 8 1 90000000"
+	User time (seconds): 286.93
+	System time (seconds): 18.68
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 5:05.76
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 3914016
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 2316004
+	Voluntary context switches: 0
+	Involuntary context switches: 1366
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 136
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+exit=0

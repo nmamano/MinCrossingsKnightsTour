@@ -6,6 +6,12 @@ All dates 2026-10-03.
 
 ## 0. Status summary (latest first)
 
+- 2026-10-03 13:30: CR task "6n with (1,2) walls?" (section 8). Zigzag '/' fields are free next to any field only
+  along (1,1) (the ribbon direction). Every other zone boundary costs >= 1/3 crossing per zigzag-ribbon end (best:
+  Z|'/'V along (-1,2)); colour-balanced turns (zigzag '/'|'\', vertical) 1/2 per end; zigzag at a side +1 per end.
+  Break-even: walls save n/3; zones cost >= 2n/(3m) (m = walls per zigzag ribbon). Chevron layout m = 1: >= 2n/3.
+  Verdict (W = 4 lower bounds + ARGUMENT): no gain below 19n/3 unless m > 2. Engine wall/wall_if.cpp.
+
 - 2026-10-03 10:00: WALL12.md (CR request). (1,2) wall with margins restricted to one field type (W=4, lambda=1):
   1/2 per row needs mixed-word '/' fields (zigzag) on both sides; next to straight knight-line fields the cheapest
   (1,2) wall costs 1 per row ('\' H|V or '/'H|'\'V) or does not exist. wall.cpp: FIELDL/FIELDR, warm-layer hash dedupe,
@@ -379,3 +385,122 @@ in ribbon_ends.out, e.g. (1,2): 5, 2, 2, 2 per row, = 2 mod 3). The optimal vert
   Tool idea: wall.cpp with FIELDL/FIELDR and MODE any (no psi jump) prices a straight interface between two fields of
   given types: run shears 0, 1/2, 1, 1/3, 2/3 (and transposed directions by symmetry). Side: a new one-sided variant
   (modeled strip next to the side, margin on one side only).
+
+## 8. Can (1,2) walls give a 6n layout? Zigzag-zone prices (CR task, 2026-10-03, 10:15-13:30 box time)
+
+Engine `wall/wall_if.cpp` = wall.cpp + three options (build: `g++ -O2 -march=native -std=c++17 -DNOLABK -o wifc wall_if.cpp`):
+- CELLL / CELLR = move multiset of each of the ZW (default 1) outermost modeled cells per side: zigzag '/' = 02 (one
+  (2,1) and one (1,2) edge), zigzag '\' = 13, straight '/'H = 00, '/'V = 22, '\'H = 11, '\'V = 33.
+  Use with FIELDL / FIELDR (margin squares) set to the same moves.
+- ORL / ORR = zigzag orientation: 1 = z0 (cells with x+y even send both edges up), 2 = z1. Row parity is in the key.
+- SIDE=1 (shear 0): board side at u = 0 (no cells u < 0, no left margin): one-sided strip.
+Model as in section 7 (W = 4 cells per row, NOLAB relaxed, ghost cells beyond the margins free, MODE any = no psi
+condition, lambda = 1). Values: crossings per row, CERTIFIED minimum over all periodic configurations IN THIS MODEL.
+"none" = no cycle below 4 per row. Ghost cells are free, so the model does NOT enforce colour balance (KT
+Integrator's lemma, w-integrator/FINDINGS.md); every value is a LOWER bound for transitions of width <= 4 only.
+Calibrations: H|H any 0; zigzag|zigzag any 0; zigzag|zigzag nz (the (1,2) wall) 1/2; z0|z0 wall 1/2, z0|z1 wall
+none (= Integrator's wallcyl); side + '/'H 1 per row (= the fold edge price); Z02|Z13 = Z13|Z02 at every shear
+(180-degree symmetry check).
+
+Geometry: the ribbons of a '/' field run along (1,1) (index x - y, one ribbon per unit). A line of direction (s,1)
+ends |1 - s| ribbons per row. Directions with s < 0 come from Z13 runs by the mirror x -> -x; transposed
+directions (1,s) are the same with H and V exchanged.
+
+### 8.1 Zigzag '/' | straight field, all slopes (logs wall/if/z*_s*_sh*_W4.log; sweep_W4.out, slopes_W4.out)
+
+| direction (s,1) | Z / '/'H | Z / '/'V | Z / '\'H | Z / '\'V | ribbons ended per row | best per zigzag-ribbon end |
+| --- | --- | --- | --- | --- | --- | --- |
+| s = 1 (along ribbons) | **0** | **0** | none | none | 0 | free |
+| s = 5/6, 3/4, 2/3, 3/5, 1/2, 2/5, 1/3, 1/4, 1/5 | none | none | none (s = 1/3, 1/2, 2/3 tested) | none | - | - |
+| s = 1/6 | none | 17/12 | | | 5/6 | 1.7 |
+| s = 0 (vertical) | 1 | 1 | 2 | 1 | 1 | 1 |
+| s = -1/4 | 9/4 | 13/8 | | | 5/4 | 1.3 |
+| s = -1/3 | 11/6 | 4/3 | 11/6 | 11/6 | 4/3 | 1 |
+| s = -2/5 | 8/5 | 6/5 | | | 7/5 | 6/7 |
+| s = -1/2 | 1 | **1/2** | 3/2 | none | 3/2 | **1/3** |
+| s = -3/5 | 1 | 3/5 | | | 8/5 | 3/8 |
+| s = -2/3 | 1 | 2/3 | 5/3 | none | 5/3 | 2/5 |
+| s = -3/4 | 1 | 3/4 | | | 7/4 | 3/7 |
+| s = -1 (across ribbons) | 1 | 1 | 7/4 | 7/4 | 2 | 1/2 |
+| s = -5/6 | 1 | 5/6 | | | 11/6 | 5/11 |
+| s = -1/5, -1/6 | none | none | | | | |
+
+(logs for s = +-1/6, +-5/6: slopes2_W4.out.) Along (1,1) both orientations are free: z0|z1 = 0, z0|'/'H = 0.
+
+### 8.2 Turns and board side
+
+- Zigzag '/' | zigzag '\' (the only colour-balanced way for a zigzag current to change direction): vertical line
+  1 per row, ONLY for one orientation pair (z0 | '\' z1); the other pair none. A vertical turn row ends one '/' and
+  one '\' ribbon: 1/2 per zigzag-ribbon end. Other directions: s = 1/3: 5/3, s = 1: 7/4, s = 2/3: 7/3, s = 1/2: none.
+- Board side (vertical, one-sided strip, field on the right): '/'H 1, '/'V 13/5, zigzag 2 per row (same for '\'
+  by mirror). Zigzag next to a side costs +1 per row = +1 per ribbon end over the straight edge price (lower bound;
+  the Integrator finds zigzag at a side INFEASIBLE with a fixed exterior: colour balance).
+
+### 8.3 Break-even (ARGUMENT, uses the W = 4 prices as lower bounds)
+
+The (1,2) wall costs 1/2 per row only between zigzag '/' fields of the SAME orientation (z0|z0). A zigzag region is
+a union of ribbon segments (free along (1,1)). Every zigzag ribbon segment has two ends; an end sits on a
+non-(1,1) boundary: straight field (>= 1/3 per end, best s = -1/2 with '/'V), turn (1/2 per end, the only
+colour-balanced choice), or board side (+1). So every zigzag ribbon end costs >= 1/3.
+A wall row crosses 1/2 ribbon. Walls of total 2n rows (cost n, saving n/3 over the 2/3 diagonal carrier) cross
+n ribbon-crossings; if each zigzag ribbon carries m walls on average, there are n/m ribbons and 2n/m ends:
+extra >= 2n/(3m). To beat 19n/3: 2n/(3m) < n/3, so m > 2 (m > 3 with colour-balanced turns only).
+In the chevron layout (BL -> (n/4, n/2) -> TL, BR -> TR) the BL and TR (1,2) walls cross disjoint '/' ribbons
+(x - y in [-n/4, 0] and [0, n/4]), the two (-1,2) walls disjoint '\' ribbons: m = 1, extra >= 2n/3, total
+>= 19n/3 + n/3 = 20n/3 - O(1) in this accounting. A layout with m > 2 needs several walls (each crossed by
+different charged paths, at most one wall per path) to cut the same zigzag ribbons. Not excluded; no candidate.
+Verdict: with W <= 4 transitions, (1,2) walls do NOT give a layout below 19n/3 unless m > 2.
+Caveat: W = 4 lower bounds only (W = 5 does not fit in 8 GB, section 7.2); curved or mixed-slope zone boundaries are
+priced by the per-end minimum, which assumes no cheaper corner effects (ARGUMENT, not proved).
+
+Note (KT Integrator's colour-balance lemma, w-integrator/FINDINGS.md): with a fixed exterior, zigzag | straight is
+possible ONLY along (1,1), and zigzag at an axis side is impossible. So the finite non-(1,1) values in 8.1 and 8.2
+are artefacts of the relaxed ghost cells (they let colour leak); they stay valid lower bounds, and the true prices
+are higher (infeasible as straight periodic lines). The verdict of 8.3 only gets stronger. Task closed by the CR.
+
+Commands (gap/searcher/wall/): `if/sweep.sh`, `SHEARS="1/4 1/5 3/4 2/5 3/5 1/6 5/6" if/slopes.sh`, `if/orient.sh`
+(needs `wifo`, same source), `if/side.sh` (needs `wifs`, same source); outputs if/*.out.
+
+## 9. BEYOND5_FLUX.md finite program (CR GO, 2026-10-03)
+
+### 9.1 Item B: colour current of the cheap wall witnesses (wall/colour_current.py, output colour_current.out)
+
+Q = sum of chi(left end) over the edges that cross a cut along the band (cuts at scan column 0 and WM; every
+crossing edge is represented), minus the same sum for a straight '/'H field on the same cut. By the identity
+(edges leaving S) = 2(B_S - W_S), Q is equal on both cuts (checked) = the colour current that crosses the wall.
+
+| wall (W = 4, lambda = 1) | crossings per row | colour current per row | fields (ribbon_ends.out) |
+| --- | --- | --- | --- |
+| (1,2) | 1/2 | 3/4 (= zigzag 3\|a-b\|/2 per step) | zigzag VH both sides |
+| (1,3) | 5/9 | 2/3 | mixed words HVVVHV / HVHHHV |
+| (2,3) | 7/12 | 5/24 | mixed words VVHHVHVV / VHHVVHVH |
+| (1,1) | 2/3 | 0 | '/' parallel |
+| (0,1) | 2/3 | 0 | mixed splits |
+
+Every witness below 2/3 carries colour current; the 2/3 witnesses carry none. Note (2,3): small current (5/24 per
+row) at 7/12. Correction (9.3): NET current is the wrong measure (it can cancel); count switched ribbons (zone ends) instead.
+
+### 9.2 Item A: psi walls between STRAIGHT-word fields (wall/if/straightA.sh, output if/straightA_W4.out)
+
+MODE nz, lambda = 1, W = 4, margins AND outermost modeled cells forced to one straight type per side
+(CELL 00/22/11/33 with FIELD 0/2/1/3), all 10 unordered pairs per shear. Crossings per row (CERTIFIED in the model):
+- (1,3) wall (shear 1/3): min 7/9 ('/'H | '/'V); others 1, 5/4, 4/3 or none.
+- (2,3) wall (shear 2/3): none below 4 for every pair.
+- (3,4) wall (shear 3/4): none below 4 for every pair.
+- (1,2) wall: min 1 (WALL12 section 2).
+With section 7 ((1,1), (0,1) >= 2/3 with ANY fields): **P1 holds at every tested direction: a straight psi wall
+between straight-word fields costs >= 2/3 per level (W = 4).** Every cheaper wall needs mixed-word fields, and by
+9.1 the cheap witnesses carry colour current.
+
+### 9.3 Net colour current cannot price the zone (wall_if.cpp CUR option; if/L_*.log)
+
+Engine option CUR=t, CURS=+-1: weight = crossings + sign*t*(colour current through the cut u = 0), row parity in
+the key. Calibration: the (1,2) witness carries current 3 per 4 rows (= colour_current.py). Runs at t = 2/9:
+(1,2) wall: both signs give 5/12 crossing-equivalent per row (= 1/2 - (2/9)(3/4)); vertical wall: both signs equal.
+Reason: reversing the zigzag orientation (z0 <-> z1) reverses the current at the same cost, and z0 | z1 is free along
+(1,1) (8.2). So a wall can cross alternating z0 and z1 stripes and carry ZERO net current. Max over signs of
+min(cost + sign t Q) is then only cost - t|Q|: no bound. Batch stopped (no value).
+Consequence for the design: the zone must be priced by its ENDS (each zone ribbon segment still has two ends,
+also with alternating stripes), i.e. per switched ribbon end, as in BEYOND5_FLUX.md section 4, not per unit of
+net current. For zigzag zones: >= 2/3 per switched end (8.1: Z | '/'V at s = -1/2 is 1/2 per row and switches
+3/4 ribbons per row), i.e. >= 1/3 per zigzag ribbon end.

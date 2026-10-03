@@ -1,0 +1,4 @@
+shear 1/2 CURS=1 t=2/9: 15/4 = 3.7500  (90s) ; last cycle:   cycle colour current through u = 0: -3 over 4 rows
+shear 1/2 CURS=-1 t=2/9: 15/4 = 3.7500  (89s) ; last cycle:   cycle colour current through u = 0: 3 over 4 rows
+shear 0 CURS=1 t=2/9: 21/4 = 5.2500  (178s) ; last cycle:   cycle colour current through u = 0: -6 over 4 rows
+shear 0 CURS=-1 t=2/9: 21/4 = 5.2500  (179s) ; last cycle:   cycle colour current through u = 0: 6 over 4 rows

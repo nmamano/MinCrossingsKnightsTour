@@ -1,0 +1,2277 @@
+[
+  {
+    "n": 32,
+    "L": 4,
+    "X_out": 97,
+    "T": 54,
+    "deficit_half": "-95",
+    "deficit_two_thirds": "-283/3",
+    "sources": [
+      "w-structures/tours/layoutG_n32.json"
+    ]
+  },
+  {
+    "n": 48,
+    "L": 29,
+    "X_out": 123,
+    "T": 127,
+    "deficit_half": "-217/2",
+    "deficit_two_thirds": "-311/3",
+    "sources": [
+      "w-integrator/tours/FOLDB1_n48.json"
+    ]
+  },
+  {
+    "n": 48,
+    "L": 31,
+    "X_out": 183,
+    "T": 122,
+    "deficit_half": "-335/2",
+    "deficit_two_thirds": "-487/3",
+    "sources": [
+      "w-integrator/tours/FOLDB_n48.json"
+    ]
+  },
+  {
+    "n": 48,
+    "L": 28,
+    "X_out": 179,
+    "T": 182,
+    "deficit_half": "-165",
+    "deficit_two_thirds": "-481/3",
+    "sources": [
+      "w-integrator/tours/FOLD_n48.json"
+    ]
+  },
+  {
+    "n": 48,
+    "L": 27,
+    "X_out": 31,
+    "T": 216,
+    "deficit_half": "-35/2",
+    "deficit_two_thirds": "-13",
+    "sources": [
+      "w-integrator/tours/H16a_VerticalEdge_off0_small_n48.json",
+      "w-integrator/tours/certificates/H16a_VerticalEdge_off0_n48.json"
+    ]
+  },
+  {
+    "n": 48,
+    "L": 17,
+    "X_out": 3,
+    "T": 261,
+    "deficit_half": "11/2",
+    "deficit_two_thirds": "25/3",
+    "sources": [
+      "w-integrator/tours/TT16_n48.json",
+      "w-verifier/claim23a_clean/w-integrator/tours/TT16_n48.json",
+      "w-verifier/claim23a_closeout_clean/w-integrator/tours/TT16_n48.json"
+    ]
+  },
+  {
+    "n": 50,
+    "L": 32,
+    "X_out": 30,
+    "T": 222,
+    "deficit_half": "-14",
+    "deficit_two_thirds": "-26/3",
+    "sources": [
+      "w-integrator/tours/H16a_VerticalEdge_off0_small_n50.json"
+    ]
+  },
+  {
+    "n": 50,
+    "L": 20,
+    "X_out": 1,
+    "T": 273,
+    "deficit_half": "9",
+    "deficit_two_thirds": "37/3",
+    "sources": [
+      "w-integrator/tours/TT16_n50.json",
+      "w-verifier/claim23a_clean/w-integrator/tours/TT16_n50.json",
+      "w-verifier/claim23a_closeout_clean/w-integrator/tours/TT16_n50.json"
+    ]
+  },
+  {
+    "n": 52,
+    "L": 30,
+    "X_out": 35,
+    "T": 234,
+    "deficit_half": "-20",
+    "deficit_two_thirds": "-15",
+    "sources": [
+      "w-integrator/tours/H16a_VerticalEdge_off0_small_n52.json"
+    ]
+  },
+  {
+    "n": 52,
+    "L": 22,
+    "X_out": 1,
+    "T": 287,
+    "deficit_half": "10",
+    "deficit_two_thirds": "41/3",
+    "sources": [
+      "w-integrator/tours/TT16_n52.json",
+      "w-verifier/claim23a_clean/w-integrator/tours/TT16_n52.json",
+      "w-verifier/claim23a_closeout_clean/w-integrator/tours/TT16_n52.json"
+    ]
+  },
+  {
+    "n": 54,
+    "L": 36,
+    "X_out": 34,
+    "T": 241,
+    "deficit_half": "-16",
+    "deficit_two_thirds": "-10",
+    "sources": [
+      "w-integrator/tours/H16a_VerticalEdge_off0_small_n54.json"
+    ]
+  },
+  {
+    "n": 54,
+    "L": 24,
+    "X_out": 3,
+    "T": 299,
+    "deficit_half": "9",
+    "deficit_two_thirds": "13",
+    "sources": [
+      "w-integrator/tours/TT16_n54.json",
+      "w-verifier/claim23a_clean/w-integrator/tours/TT16_n54.json",
+      "w-verifier/claim23a_closeout_clean/w-integrator/tours/TT16_n54.json"
+    ]
+  },
+  {
+    "n": 56,
+    "L": 25,
+    "X_out": 3,
+    "T": 305,
+    "deficit_half": "19/2",
+    "deficit_two_thirds": "41/3",
+    "sources": [
+      "w-integrator/tours/certificates/TT16_n56.json",
+      "w-turnsbuilder/corner_tours/baseline_n56.json",
+      "w-turnsbuilder/corner_tours/g0_Z10_p0100_n56.json",
+      "w-turnsbuilder/corner_tours/g0_Z12_p0100_n56.json",
+      "w-turnsbuilder/corner_tours/g0_Z8_p0100_n56.json"
+    ]
+  },
+  {
+    "n": 58,
+    "L": 26,
+    "X_out": 1,
+    "T": 317,
+    "deficit_half": "12",
+    "deficit_two_thirds": "49/3",
+    "sources": [
+      "w-integrator/tours/certificates/TT16_n58.json",
+      "w-turnsbuilder/corner_tours/baseline_n58.json",
+      "w-turnsbuilder/corner_tours/g0_Z10_p0100_n58.json",
+      "w-turnsbuilder/corner_tours/g0_Z12_p0100_n58.json",
+      "w-turnsbuilder/corner_tours/g0_Z8_p0100_n58.json"
+    ]
+  },
+  {
+    "n": 60,
+    "L": 30,
+    "X_out": 1,
+    "T": 331,
+    "deficit_half": "14",
+    "deficit_two_thirds": "19",
+    "sources": [
+      "w-integrator/tours/certificates/TT16_n60.json",
+      "w-turnsbuilder/corner_tours/baseline_n60.json",
+      "w-turnsbuilder/corner_tours/g0_Z10_p0100_n60.json",
+      "w-turnsbuilder/corner_tours/g0_Z12_p0100_n60.json",
+      "w-turnsbuilder/corner_tours/g0_Z8_p0100_n60.json"
+    ]
+  },
+  {
+    "n": 62,
+    "L": 32,
+    "X_out": 3,
+    "T": 343,
+    "deficit_half": "13",
+    "deficit_two_thirds": "55/3",
+    "sources": [
+      "w-integrator/tours/certificates/TT16_n62.json",
+      "w-turnsbuilder/corner_tours/baseline_n62.json",
+      "w-turnsbuilder/corner_tours/g0_Z12_p0100_n62.json",
+      "w-turnsbuilder/corner_tours/g0_Z8_p0100_n62.json"
+    ]
+  },
+  {
+    "n": 62,
+    "L": 32,
+    "X_out": 5,
+    "T": 346,
+    "deficit_half": "11",
+    "deficit_two_thirds": "49/3",
+    "sources": [
+      "w-turnsbuilder/corner_tours/g0_Z10_p0100_n62.json"
+    ]
+  },
+  {
+    "n": 64,
+    "L": 43,
+    "X_out": 17,
+    "T": 525,
+    "deficit_half": "9/2",
+    "deficit_two_thirds": "35/3",
+    "sources": [
+      "runs/t18/T18_n64.json"
+    ]
+  },
+  {
+    "n": 64,
+    "L": 51,
+    "X_out": 44,
+    "T": 283,
+    "deficit_half": "-37/2",
+    "deficit_two_thirds": "-10",
+    "sources": [
+      "w-integrator/tours/H16a_VerticalEdge_off0_n64.json",
+      "w-integrator/tours/certificates/H16a_VerticalEdge_off0_n64.json"
+    ]
+  },
+  {
+    "n": 64,
+    "L": 49,
+    "X_out": 45,
+    "T": 279,
+    "deficit_half": "-41/2",
+    "deficit_two_thirds": "-37/3",
+    "sources": [
+      "w-integrator/tours/H16b_VerticalEdge_off0_n64.json"
+    ]
+  },
+  {
+    "n": 64,
+    "L": 43,
+    "X_out": 16,
+    "T": 525,
+    "deficit_half": "11/2",
+    "deficit_two_thirds": "38/3",
+    "sources": [
+      "w-integrator/tours/certificates/T18_VerticalEdge_off0_n64.json"
+    ]
+  },
+  {
+    "n": 66,
+    "L": 42,
+    "X_out": 17,
+    "T": 537,
+    "deficit_half": "4",
+    "deficit_two_thirds": "11",
+    "sources": [
+      "runs/t18/T18_n66.json",
+      "w-integrator/tours/certificates/T18_VerticalEdge_off0_n66.json"
+    ]
+  },
+  {
+    "n": 66,
+    "L": 56,
+    "X_out": 42,
+    "T": 290,
+    "deficit_half": "-14",
+    "deficit_two_thirds": "-14/3",
+    "sources": [
+      "w-integrator/tours/H16a_VerticalEdge_off0_n66.json",
+      "w-integrator/tours/certificates/H16a_VerticalEdge_off0_n66.json"
+    ]
+  },
+  {
+    "n": 66,
+    "L": 52,
+    "X_out": 45,
+    "T": 289,
+    "deficit_half": "-19",
+    "deficit_two_thirds": "-31/3",
+    "sources": [
+      "w-integrator/tours/H16b_VerticalEdge_off0_n66.json"
+    ]
+  },
+  {
+    "n": 68,
+    "L": 48,
+    "X_out": 17,
+    "T": 556,
+    "deficit_half": "7",
+    "deficit_two_thirds": "15",
+    "sources": [
+      "runs/t18/T18_n68.json"
+    ]
+  },
+  {
+    "n": 68,
+    "L": 54,
+    "X_out": 47,
+    "T": 302,
+    "deficit_half": "-20",
+    "deficit_two_thirds": "-11",
+    "sources": [
+      "w-integrator/tours/H16a_VerticalEdge_off0_n68.json",
+      "w-integrator/tours/certificates/H16a_VerticalEdge_off0_n68.json"
+    ]
+  },
+  {
+    "n": 68,
+    "L": 58,
+    "X_out": 51,
+    "T": 295,
+    "deficit_half": "-22",
+    "deficit_two_thirds": "-37/3",
+    "sources": [
+      "w-integrator/tours/H16b_VerticalEdge_off0_n68.json"
+    ]
+  },
+  {
+    "n": 68,
+    "L": 48,
+    "X_out": 18,
+    "T": 555,
+    "deficit_half": "6",
+    "deficit_two_thirds": "14",
+    "sources": [
+      "w-integrator/tours/certificates/T18_VerticalEdge_off0_n68.json"
+    ]
+  },
+  {
+    "n": 70,
+    "L": 50,
+    "X_out": 18,
+    "T": 569,
+    "deficit_half": "7",
+    "deficit_two_thirds": "46/3",
+    "sources": [
+      "runs/t18/T18_n70.json"
+    ]
+  },
+  {
+    "n": 70,
+    "L": 60,
+    "X_out": 46,
+    "T": 308,
+    "deficit_half": "-16",
+    "deficit_two_thirds": "-6",
+    "sources": [
+      "w-integrator/tours/H16a_VerticalEdge_off0_n70.json",
+      "w-integrator/tours/certificates/H16a_VerticalEdge_off0_n70.json"
+    ]
+  },
+  {
+    "n": 70,
+    "L": 60,
+    "X_out": 47,
+    "T": 308,
+    "deficit_half": "-17",
+    "deficit_two_thirds": "-7",
+    "sources": [
+      "w-integrator/tours/H16b_VerticalEdge_off0_n70.json"
+    ]
+  },
+  {
+    "n": 70,
+    "L": 50,
+    "X_out": 20,
+    "T": 571,
+    "deficit_half": "5",
+    "deficit_two_thirds": "40/3",
+    "sources": [
+      "w-integrator/tours/certificates/T18_VerticalEdge_off0_n70.json"
+    ]
+  },
+  {
+    "n": 72,
+    "L": 53,
+    "X_out": 18,
+    "T": 593,
+    "deficit_half": "17/2",
+    "deficit_two_thirds": "52/3",
+    "sources": [
+      "runs/t18/T18_n72.json"
+    ]
+  },
+  {
+    "n": 72,
+    "L": 61,
+    "X_out": 49,
+    "T": 318,
+    "deficit_half": "-37/2",
+    "deficit_two_thirds": "-25/3",
+    "sources": [
+      "w-integrator/tours/H16a_VerticalEdge_off0_n72.json"
+    ]
+  },
+  {
+    "n": 72,
+    "L": 63,
+    "X_out": 49,
+    "T": 316,
+    "deficit_half": "-35/2",
+    "deficit_two_thirds": "-7",
+    "sources": [
+      "w-integrator/tours/H16b_VerticalEdge_off0_n72.json"
+    ]
+  },
+  {
+    "n": 72,
+    "L": 77,
+    "X_out": 44,
+    "T": 245,
+    "deficit_half": "-11/2",
+    "deficit_two_thirds": "22/3",
+    "sources": [
+      "w-integrator/tours/LF1_n72.json"
+    ]
+  },
+  {
+    "n": 72,
+    "L": 55,
+    "X_out": 45,
+    "T": 218,
+    "deficit_half": "-35/2",
+    "deficit_two_thirds": "-25/3",
+    "sources": [
+      "w-integrator/tours/LF2_n72.json"
+    ]
+  },
+  {
+    "n": 72,
+    "L": 62,
+    "X_out": 29,
+    "T": 224,
+    "deficit_half": "2",
+    "deficit_two_thirds": "37/3",
+    "sources": [
+      "w-integrator/tours/LF3_n72.json"
+    ]
+  },
+  {
+    "n": 72,
+    "L": 41,
+    "X_out": 3,
+    "T": 393,
+    "deficit_half": "35/2",
+    "deficit_two_thirds": "73/3",
+    "sources": [
+      "w-integrator/tours/TT16_n72.json",
+      "w-verifier/claim23a_clean/w-integrator/tours/TT16_n72.json",
+      "w-verifier/claim23a_closeout_clean/w-integrator/tours/TT16_n72.json"
+    ]
+  },
+  {
+    "n": 74,
+    "L": 54,
+    "X_out": 19,
+    "T": 603,
+    "deficit_half": "8",
+    "deficit_two_thirds": "17",
+    "sources": [
+      "runs/t18/T18_n74.json"
+    ]
+  },
+  {
+    "n": 74,
+    "L": 66,
+    "X_out": 48,
+    "T": 324,
+    "deficit_half": "-15",
+    "deficit_two_thirds": "-4",
+    "sources": [
+      "w-integrator/tours/H16a_VerticalEdge_off0_n74.json"
+    ]
+  },
+  {
+    "n": 74,
+    "L": 66,
+    "X_out": 52,
+    "T": 320,
+    "deficit_half": "-19",
+    "deficit_two_thirds": "-8",
+    "sources": [
+      "w-integrator/tours/H16b_VerticalEdge_off0_n74.json"
+    ]
+  },
+  {
+    "n": 74,
+    "L": 59,
+    "X_out": 45,
+    "T": 225,
+    "deficit_half": "-31/2",
+    "deficit_two_thirds": "-17/3",
+    "sources": [
+      "w-integrator/tours/LF2_n74.json"
+    ]
+  },
+  {
+    "n": 74,
+    "L": 64,
+    "X_out": 29,
+    "T": 233,
+    "deficit_half": "3",
+    "deficit_two_thirds": "41/3",
+    "sources": [
+      "w-integrator/tours/LF3_n74.json"
+    ]
+  },
+  {
+    "n": 74,
+    "L": 42,
+    "X_out": 1,
+    "T": 405,
+    "deficit_half": "20",
+    "deficit_two_thirds": "27",
+    "sources": [
+      "w-integrator/tours/TT16_n74.json",
+      "w-verifier/claim23a_clean/w-integrator/tours/TT16_n74.json",
+      "w-verifier/claim23a_closeout_clean/w-integrator/tours/TT16_n74.json"
+    ]
+  },
+  {
+    "n": 76,
+    "L": 58,
+    "X_out": 18,
+    "T": 625,
+    "deficit_half": "11",
+    "deficit_two_thirds": "62/3",
+    "sources": [
+      "runs/t18/T18_n76.json"
+    ]
+  },
+  {
+    "n": 76,
+    "L": 68,
+    "X_out": 53,
+    "T": 336,
+    "deficit_half": "-19",
+    "deficit_two_thirds": "-23/3",
+    "sources": [
+      "w-integrator/tours/H16a_VerticalEdge_off0_n76.json"
+    ]
+  },
+  {
+    "n": 76,
+    "L": 68,
+    "X_out": 56,
+    "T": 330,
+    "deficit_half": "-22",
+    "deficit_two_thirds": "-32/3",
+    "sources": [
+      "w-integrator/tours/H16b_VerticalEdge_off0_n76.json"
+    ]
+  },
+  {
+    "n": 76,
+    "L": 60,
+    "X_out": 47,
+    "T": 229,
+    "deficit_half": "-17",
+    "deficit_two_thirds": "-7",
+    "sources": [
+      "w-integrator/tours/LF2_n76.json"
+    ]
+  },
+  {
+    "n": 76,
+    "L": 66,
+    "X_out": 29,
+    "T": 236,
+    "deficit_half": "4",
+    "deficit_two_thirds": "15",
+    "sources": [
+      "w-integrator/tours/LF3_n76.json"
+    ]
+  },
+  {
+    "n": 76,
+    "L": 46,
+    "X_out": 1,
+    "T": 419,
+    "deficit_half": "22",
+    "deficit_two_thirds": "89/3",
+    "sources": [
+      "w-integrator/tours/TT16_n76.json",
+      "w-verifier/claim23a_clean/w-integrator/tours/TT16_n76.json",
+      "w-verifier/claim23a_closeout_clean/w-integrator/tours/TT16_n76.json"
+    ]
+  },
+  {
+    "n": 78,
+    "L": 60,
+    "X_out": 19,
+    "T": 640,
+    "deficit_half": "11",
+    "deficit_two_thirds": "21",
+    "sources": [
+      "runs/t18/T18_n78.json"
+    ]
+  },
+  {
+    "n": 78,
+    "L": 72,
+    "X_out": 52,
+    "T": 343,
+    "deficit_half": "-16",
+    "deficit_two_thirds": "-4",
+    "sources": [
+      "w-integrator/tours/H16a_VerticalEdge_off0_n78.json"
+    ]
+  },
+  {
+    "n": 78,
+    "L": 72,
+    "X_out": 55,
+    "T": 340,
+    "deficit_half": "-19",
+    "deficit_two_thirds": "-7",
+    "sources": [
+      "w-integrator/tours/H16b_VerticalEdge_off0_n78.json"
+    ]
+  },
+  {
+    "n": 78,
+    "L": 64,
+    "X_out": 50,
+    "T": 232,
+    "deficit_half": "-18",
+    "deficit_two_thirds": "-22/3",
+    "sources": [
+      "w-integrator/tours/LF2_n78.json"
+    ]
+  },
+  {
+    "n": 78,
+    "L": 70,
+    "X_out": 31,
+    "T": 238,
+    "deficit_half": "4",
+    "deficit_two_thirds": "47/3",
+    "sources": [
+      "w-integrator/tours/LF3_n78.json"
+    ]
+  },
+  {
+    "n": 78,
+    "L": 48,
+    "X_out": 3,
+    "T": 431,
+    "deficit_half": "21",
+    "deficit_two_thirds": "29",
+    "sources": [
+      "w-integrator/tours/TT16_n78.json",
+      "w-verifier/claim23a_clean/w-integrator/tours/TT16_n78.json",
+      "w-verifier/claim23a_closeout_clean/w-integrator/tours/TT16_n78.json"
+    ]
+  },
+  {
+    "n": 80,
+    "L": 63,
+    "X_out": 19,
+    "T": 662,
+    "deficit_half": "25/2",
+    "deficit_two_thirds": "23",
+    "sources": [
+      "runs/t18/T18_n80.json"
+    ]
+  },
+  {
+    "n": 80,
+    "L": 75,
+    "X_out": 54,
+    "T": 353,
+    "deficit_half": "-33/2",
+    "deficit_two_thirds": "-4",
+    "sources": [
+      "w-integrator/tours/H16a_VerticalEdge_off0_n80.json"
+    ]
+  },
+  {
+    "n": 80,
+    "L": 73,
+    "X_out": 57,
+    "T": 347,
+    "deficit_half": "-41/2",
+    "deficit_two_thirds": "-25/3",
+    "sources": [
+      "w-integrator/tours/H16b_VerticalEdge_off0_n80.json"
+    ]
+  },
+  {
+    "n": 82,
+    "L": 62,
+    "X_out": 21,
+    "T": 672,
+    "deficit_half": "10",
+    "deficit_two_thirds": "61/3",
+    "sources": [
+      "runs/t18/T18_n82.json"
+    ]
+  },
+  {
+    "n": 82,
+    "L": 80,
+    "X_out": 53,
+    "T": 359,
+    "deficit_half": "-13",
+    "deficit_two_thirds": "1/3",
+    "sources": [
+      "w-integrator/tours/H16a_VerticalEdge_off0_n82.json"
+    ]
+  },
+  {
+    "n": 82,
+    "L": 76,
+    "X_out": 58,
+    "T": 354,
+    "deficit_half": "-20",
+    "deficit_two_thirds": "-22/3",
+    "sources": [
+      "w-integrator/tours/H16b_VerticalEdge_off0_n82.json"
+    ]
+  },
+  {
+    "n": 84,
+    "L": 68,
+    "X_out": 23,
+    "T": 689,
+    "deficit_half": "11",
+    "deficit_two_thirds": "67/3",
+    "sources": [
+      "runs/t18/T18_n84.json"
+    ]
+  },
+  {
+    "n": 84,
+    "L": 78,
+    "X_out": 59,
+    "T": 370,
+    "deficit_half": "-20",
+    "deficit_two_thirds": "-7",
+    "sources": [
+      "w-integrator/tours/H16a_VerticalEdge_off0_n84.json"
+    ]
+  },
+  {
+    "n": 84,
+    "L": 82,
+    "X_out": 62,
+    "T": 364,
+    "deficit_half": "-21",
+    "deficit_two_thirds": "-22/3",
+    "sources": [
+      "w-integrator/tours/H16b_VerticalEdge_off0_n84.json"
+    ]
+  },
+  {
+    "n": 86,
+    "L": 70,
+    "X_out": 21,
+    "T": 709,
+    "deficit_half": "14",
+    "deficit_two_thirds": "77/3",
+    "sources": [
+      "runs/t18/T18_n86.json"
+    ]
+  },
+  {
+    "n": 86,
+    "L": 84,
+    "X_out": 58,
+    "T": 375,
+    "deficit_half": "-16",
+    "deficit_two_thirds": "-2",
+    "sources": [
+      "w-integrator/tours/H16a_VerticalEdge_off0_n86.json"
+    ]
+  },
+  {
+    "n": 86,
+    "L": 84,
+    "X_out": 61,
+    "T": 373,
+    "deficit_half": "-19",
+    "deficit_two_thirds": "-5",
+    "sources": [
+      "w-integrator/tours/H16b_VerticalEdge_off0_n86.json"
+    ]
+  },
+  {
+    "n": 88,
+    "L": 73,
+    "X_out": 22,
+    "T": 727,
+    "deficit_half": "29/2",
+    "deficit_two_thirds": "80/3",
+    "sources": [
+      "runs/t18/T18_n88.json"
+    ]
+  },
+  {
+    "n": 88,
+    "L": 85,
+    "X_out": 62,
+    "T": 385,
+    "deficit_half": "-39/2",
+    "deficit_two_thirds": "-16/3",
+    "sources": [
+      "w-integrator/tours/H16a_VerticalEdge_off0_n88.json"
+    ]
+  },
+  {
+    "n": 88,
+    "L": 87,
+    "X_out": 63,
+    "T": 381,
+    "deficit_half": "-39/2",
+    "deficit_two_thirds": "-5",
+    "sources": [
+      "w-integrator/tours/H16b_VerticalEdge_off0_n88.json"
+    ]
+  },
+  {
+    "n": 90,
+    "L": 74,
+    "X_out": 25,
+    "T": 737,
+    "deficit_half": "12",
+    "deficit_two_thirds": "73/3",
+    "sources": [
+      "runs/t18/T18_n90.json"
+    ]
+  },
+  {
+    "n": 90,
+    "L": 90,
+    "X_out": 60,
+    "T": 392,
+    "deficit_half": "-15",
+    "deficit_two_thirds": "0",
+    "sources": [
+      "w-integrator/tours/H16a_VerticalEdge_off0_n90.json"
+    ]
+  },
+  {
+    "n": 90,
+    "L": 90,
+    "X_out": 63,
+    "T": 391,
+    "deficit_half": "-18",
+    "deficit_two_thirds": "-3",
+    "sources": [
+      "w-integrator/tours/H16b_VerticalEdge_off0_n90.json"
+    ]
+  },
+  {
+    "n": 92,
+    "L": 78,
+    "X_out": 24,
+    "T": 759,
+    "deficit_half": "15",
+    "deficit_two_thirds": "28",
+    "sources": [
+      "runs/t18/T18_n92.json"
+    ]
+  },
+  {
+    "n": 92,
+    "L": 92,
+    "X_out": 65,
+    "T": 404,
+    "deficit_half": "-19",
+    "deficit_two_thirds": "-11/3",
+    "sources": [
+      "w-integrator/tours/H16a_VerticalEdge_off0_n92.json"
+    ]
+  },
+  {
+    "n": 92,
+    "L": 92,
+    "X_out": 69,
+    "T": 397,
+    "deficit_half": "-23",
+    "deficit_two_thirds": "-23/3",
+    "sources": [
+      "w-integrator/tours/H16b_VerticalEdge_off0_n92.json"
+    ]
+  },
+  {
+    "n": 94,
+    "L": 80,
+    "X_out": 25,
+    "T": 773,
+    "deficit_half": "15",
+    "deficit_two_thirds": "85/3",
+    "sources": [
+      "runs/t18/T18_n94.json"
+    ]
+  },
+  {
+    "n": 94,
+    "L": 96,
+    "X_out": 64,
+    "T": 410,
+    "deficit_half": "-16",
+    "deficit_two_thirds": "0",
+    "sources": [
+      "w-integrator/tours/H16a_VerticalEdge_off0_n94.json"
+    ]
+  },
+  {
+    "n": 94,
+    "L": 96,
+    "X_out": 65,
+    "T": 410,
+    "deficit_half": "-17",
+    "deficit_two_thirds": "-1",
+    "sources": [
+      "w-integrator/tours/H16b_VerticalEdge_off0_n94.json"
+    ]
+  },
+  {
+    "n": 96,
+    "L": 125,
+    "X_out": 179,
+    "T": 159,
+    "deficit_half": "-233/2",
+    "deficit_two_thirds": "-287/3",
+    "sources": [
+      "w-integrator/tours/FOLD24_n96.json",
+      "w-integrator/tours/certificates/FOLD24_n96.json",
+      "w-verifier/claim20_clean/w-integrator/tours/FOLD24_n96.json",
+      "w-verifier/claim21_clean/w-integrator/tours/FOLD24_n96.json",
+      "w-verifier/claim23b_clean/w-integrator/tours/FOLD24_n96.json",
+      "w-verifier/claim23b_closeout_clean/w-integrator/tours/FOLD24_n96.json"
+    ]
+  },
+  {
+    "n": 96,
+    "L": 125,
+    "X_out": 172,
+    "T": 173,
+    "deficit_half": "-219/2",
+    "deficit_two_thirds": "-266/3",
+    "sources": [
+      "w-integrator/tours/FOLDB1_n96.json"
+    ]
+  },
+  {
+    "n": 96,
+    "L": 120,
+    "X_out": 335,
+    "T": 182,
+    "deficit_half": "-275",
+    "deficit_two_thirds": "-255",
+    "sources": [
+      "w-integrator/tours/FOLDB_n96.json"
+    ]
+  },
+  {
+    "n": 96,
+    "L": 124,
+    "X_out": 180,
+    "T": 161,
+    "deficit_half": "-118",
+    "deficit_two_thirds": "-292/3",
+    "sources": [
+      "w-integrator/tours/FOLDP_n96.json"
+    ]
+  },
+  {
+    "n": 96,
+    "L": 119,
+    "X_out": 186,
+    "T": 160,
+    "deficit_half": "-253/2",
+    "deficit_two_thirds": "-320/3",
+    "sources": [
+      "w-integrator/tours/FOLDX_n96.json"
+    ]
+  },
+  {
+    "n": 96,
+    "L": 99,
+    "X_out": 67,
+    "T": 420,
+    "deficit_half": "-35/2",
+    "deficit_two_thirds": "-1",
+    "sources": [
+      "w-integrator/tours/H16a_VerticalEdge_off0_n96.json"
+    ]
+  },
+  {
+    "n": 96,
+    "L": 97,
+    "X_out": 67,
+    "T": 418,
+    "deficit_half": "-37/2",
+    "deficit_two_thirds": "-7/3",
+    "sources": [
+      "w-integrator/tours/H16b_VerticalEdge_off0_n96.json"
+    ]
+  },
+  {
+    "n": 96,
+    "L": 121,
+    "X_out": 59,
+    "T": 322,
+    "deficit_half": "3/2",
+    "deficit_two_thirds": "65/3",
+    "sources": [
+      "w-integrator/tours/LF1_n96.json"
+    ]
+  },
+  {
+    "n": 96,
+    "L": 87,
+    "X_out": 60,
+    "T": 283,
+    "deficit_half": "-33/2",
+    "deficit_two_thirds": "-2",
+    "sources": [
+      "w-integrator/tours/LF2_n96.json"
+    ]
+  },
+  {
+    "n": 96,
+    "L": 95,
+    "X_out": 39,
+    "T": 291,
+    "deficit_half": "17/2",
+    "deficit_two_thirds": "73/3",
+    "sources": [
+      "w-integrator/tours/LF3_n96.json"
+    ]
+  },
+  {
+    "n": 96,
+    "L": 103,
+    "X_out": 64,
+    "T": 261,
+    "deficit_half": "-25/2",
+    "deficit_two_thirds": "14/3",
+    "sources": [
+      "w-integrator/tours/LF4_n96.json"
+    ]
+  },
+  {
+    "n": 96,
+    "L": 65,
+    "X_out": 3,
+    "T": 525,
+    "deficit_half": "59/2",
+    "deficit_two_thirds": "121/3",
+    "sources": [
+      "w-integrator/tours/TT16_n96.json",
+      "w-verifier/claim23a_clean/w-integrator/tours/TT16_n96.json",
+      "w-verifier/claim23a_closeout_clean/w-integrator/tours/TT16_n96.json"
+    ]
+  },
+  {
+    "n": 98,
+    "L": 124,
+    "X_out": 186,
+    "T": 176,
+    "deficit_half": "-124",
+    "deficit_two_thirds": "-310/3",
+    "sources": [
+      "w-integrator/tours/FOLD24_n98.json",
+      "w-integrator/tours/certificates/FOLD24_n98.json",
+      "w-verifier/claim21_clean/w-integrator/tours/FOLD24_n98.json",
+      "w-verifier/claim23b_clean/w-integrator/tours/FOLD24_n98.json",
+      "w-verifier/claim23b_closeout_clean/w-integrator/tours/FOLD24_n98.json"
+    ]
+  },
+  {
+    "n": 98,
+    "L": 125,
+    "X_out": 196,
+    "T": 176,
+    "deficit_half": "-267/2",
+    "deficit_two_thirds": "-338/3",
+    "sources": [
+      "w-integrator/tours/FOLDX_n98.json"
+    ]
+  },
+  {
+    "n": 98,
+    "L": 104,
+    "X_out": 67,
+    "T": 425,
+    "deficit_half": "-15",
+    "deficit_two_thirds": "7/3",
+    "sources": [
+      "w-integrator/tours/H16a_VerticalEdge_off0_n98.json"
+    ]
+  },
+  {
+    "n": 98,
+    "L": 100,
+    "X_out": 70,
+    "T": 422,
+    "deficit_half": "-20",
+    "deficit_two_thirds": "-10/3",
+    "sources": [
+      "w-integrator/tours/H16b_VerticalEdge_off0_n98.json"
+    ]
+  },
+  {
+    "n": 98,
+    "L": 107,
+    "X_out": 61,
+    "T": 270,
+    "deficit_half": "-15/2",
+    "deficit_two_thirds": "31/3",
+    "sources": [
+      "w-integrator/tours/LF4_n98.json"
+    ]
+  },
+  {
+    "n": 100,
+    "L": 127,
+    "X_out": 196,
+    "T": 181,
+    "deficit_half": "-265/2",
+    "deficit_two_thirds": "-334/3",
+    "sources": [
+      "w-integrator/tours/FOLD24_n100.json",
+      "w-integrator/tours/certificates/FOLD24_n100.json",
+      "w-verifier/claim21_clean/w-integrator/tours/FOLD24_n100.json",
+      "w-verifier/claim23b_clean/w-integrator/tours/FOLD24_n100.json",
+      "w-verifier/claim23b_closeout_clean/w-integrator/tours/FOLD24_n100.json"
+    ]
+  },
+  {
+    "n": 100,
+    "L": 129,
+    "X_out": 187,
+    "T": 171,
+    "deficit_half": "-245/2",
+    "deficit_two_thirds": "-101",
+    "sources": [
+      "w-integrator/tours/FOLDX_n100.json"
+    ]
+  },
+  {
+    "n": 100,
+    "L": 102,
+    "X_out": 71,
+    "T": 438,
+    "deficit_half": "-20",
+    "deficit_two_thirds": "-3",
+    "sources": [
+      "w-integrator/tours/H16a_VerticalEdge_off0_n100.json"
+    ]
+  },
+  {
+    "n": 100,
+    "L": 106,
+    "X_out": 74,
+    "T": 432,
+    "deficit_half": "-21",
+    "deficit_two_thirds": "-10/3",
+    "sources": [
+      "w-integrator/tours/H16b_VerticalEdge_off0_n100.json"
+    ]
+  },
+  {
+    "n": 100,
+    "L": 109,
+    "X_out": 62,
+    "T": 278,
+    "deficit_half": "-15/2",
+    "deficit_two_thirds": "32/3",
+    "sources": [
+      "w-integrator/tours/LF4_n100.json"
+    ]
+  },
+  {
+    "n": 102,
+    "L": 136,
+    "X_out": 174,
+    "T": 174,
+    "deficit_half": "-106",
+    "deficit_two_thirds": "-250/3",
+    "sources": [
+      "w-integrator/tours/FOLD24_n102.json",
+      "w-integrator/tours/certificates/FOLD24_n102.json",
+      "w-verifier/claim21_clean/w-integrator/tours/FOLD24_n102.json",
+      "w-verifier/claim23b_clean/w-integrator/tours/FOLD24_n102.json",
+      "w-verifier/claim23b_closeout_clean/w-integrator/tours/FOLD24_n102.json"
+    ]
+  },
+  {
+    "n": 102,
+    "L": 130,
+    "X_out": 208,
+    "T": 180,
+    "deficit_half": "-143",
+    "deficit_two_thirds": "-364/3",
+    "sources": [
+      "w-integrator/tours/FOLDX_n102.json"
+    ]
+  },
+  {
+    "n": 102,
+    "L": 108,
+    "X_out": 70,
+    "T": 445,
+    "deficit_half": "-16",
+    "deficit_two_thirds": "2",
+    "sources": [
+      "w-integrator/tours/H16a_VerticalEdge_off0_n102.json"
+    ]
+  },
+  {
+    "n": 102,
+    "L": 108,
+    "X_out": 73,
+    "T": 442,
+    "deficit_half": "-19",
+    "deficit_two_thirds": "-1",
+    "sources": [
+      "w-integrator/tours/H16b_VerticalEdge_off0_n102.json"
+    ]
+  },
+  {
+    "n": 102,
+    "L": 114,
+    "X_out": 67,
+    "T": 278,
+    "deficit_half": "-10",
+    "deficit_two_thirds": "9",
+    "sources": [
+      "w-integrator/tours/LF4_n102.json"
+    ]
+  },
+  {
+    "n": 104,
+    "L": 139,
+    "X_out": 190,
+    "T": 172,
+    "deficit_half": "-241/2",
+    "deficit_two_thirds": "-292/3",
+    "sources": [
+      "w-integrator/tours/FOLD24_n104.json",
+      "w-verifier/claim21_clean/w-integrator/tours/FOLD24_n104.json",
+      "w-verifier/claim23b_clean/w-integrator/tours/FOLD24_n104.json",
+      "w-verifier/claim23b_closeout_clean/w-integrator/tours/FOLD24_n104.json"
+    ]
+  },
+  {
+    "n": 104,
+    "L": 140,
+    "X_out": 190,
+    "T": 180,
+    "deficit_half": "-120",
+    "deficit_two_thirds": "-290/3",
+    "sources": [
+      "w-integrator/tours/FOLDX_n104.json"
+    ]
+  },
+  {
+    "n": 104,
+    "L": 109,
+    "X_out": 72,
+    "T": 455,
+    "deficit_half": "-35/2",
+    "deficit_two_thirds": "2/3",
+    "sources": [
+      "w-integrator/tours/H16a_VerticalEdge_off0_n104.json"
+    ]
+  },
+  {
+    "n": 104,
+    "L": 111,
+    "X_out": 75,
+    "T": 449,
+    "deficit_half": "-39/2",
+    "deficit_two_thirds": "-1",
+    "sources": [
+      "w-integrator/tours/H16b_VerticalEdge_off0_n104.json"
+    ]
+  },
+  {
+    "n": 104,
+    "L": 106,
+    "X_out": 37,
+    "T": 306,
+    "deficit_half": "16",
+    "deficit_two_thirds": "101/3",
+    "sources": [
+      "w-integrator/tours/LF5_n104.json"
+    ]
+  },
+  {
+    "n": 104,
+    "L": 118,
+    "X_out": 77,
+    "T": 302,
+    "deficit_half": "-18",
+    "deficit_two_thirds": "5/3",
+    "sources": [
+      "w-turnstheory/lf-built/LF4_n104.json"
+    ]
+  },
+  {
+    "n": 106,
+    "L": 142,
+    "X_out": 187,
+    "T": 177,
+    "deficit_half": "-116",
+    "deficit_two_thirds": "-277/3",
+    "sources": [
+      "w-integrator/tours/FOLD24_n106.json",
+      "w-verifier/claim21_clean/w-integrator/tours/FOLD24_n106.json",
+      "w-verifier/claim23b_clean/w-integrator/tours/FOLD24_n106.json",
+      "w-verifier/claim23b_closeout_clean/w-integrator/tours/FOLD24_n106.json"
+    ]
+  },
+  {
+    "n": 106,
+    "L": 146,
+    "X_out": 176,
+    "T": 178,
+    "deficit_half": "-103",
+    "deficit_two_thirds": "-236/3",
+    "sources": [
+      "w-integrator/tours/FOLDX_n106.json"
+    ]
+  },
+  {
+    "n": 106,
+    "L": 114,
+    "X_out": 71,
+    "T": 461,
+    "deficit_half": "-14",
+    "deficit_two_thirds": "5",
+    "sources": [
+      "w-integrator/tours/H16a_VerticalEdge_off0_n106.json"
+    ]
+  },
+  {
+    "n": 106,
+    "L": 114,
+    "X_out": 76,
+    "T": 456,
+    "deficit_half": "-19",
+    "deficit_two_thirds": "0",
+    "sources": [
+      "w-integrator/tours/H16b_VerticalEdge_off0_n106.json"
+    ]
+  },
+  {
+    "n": 106,
+    "L": 122,
+    "X_out": 87,
+    "T": 305,
+    "deficit_half": "-26",
+    "deficit_two_thirds": "-17/3",
+    "sources": [
+      "w-turnstheory/lf-built/LF4_n106.json"
+    ]
+  },
+  {
+    "n": 108,
+    "L": 148,
+    "X_out": 180,
+    "T": 178,
+    "deficit_half": "-106",
+    "deficit_two_thirds": "-244/3",
+    "sources": [
+      "w-integrator/tours/FOLD24_n108.json",
+      "w-verifier/claim21_clean/w-integrator/tours/FOLD24_n108.json",
+      "w-verifier/claim23b_clean/w-integrator/tours/FOLD24_n108.json",
+      "w-verifier/claim23b_closeout_clean/w-integrator/tours/FOLD24_n108.json"
+    ]
+  },
+  {
+    "n": 108,
+    "L": 147,
+    "X_out": 189,
+    "T": 174,
+    "deficit_half": "-231/2",
+    "deficit_two_thirds": "-91",
+    "sources": [
+      "w-integrator/tours/FOLDX_n108.json"
+    ]
+  },
+  {
+    "n": 108,
+    "L": 116,
+    "X_out": 77,
+    "T": 472,
+    "deficit_half": "-19",
+    "deficit_two_thirds": "1/3",
+    "sources": [
+      "w-integrator/tours/H16a_VerticalEdge_off0_n108.json"
+    ]
+  },
+  {
+    "n": 108,
+    "L": 116,
+    "X_out": 80,
+    "T": 466,
+    "deficit_half": "-22",
+    "deficit_two_thirds": "-8/3",
+    "sources": [
+      "w-integrator/tours/H16b_VerticalEdge_off0_n108.json"
+    ]
+  },
+  {
+    "n": 108,
+    "L": 124,
+    "X_out": 91,
+    "T": 308,
+    "deficit_half": "-29",
+    "deficit_two_thirds": "-25/3",
+    "sources": [
+      "w-turnstheory/lf-built/LF4_n108.json"
+    ]
+  },
+  {
+    "n": 110,
+    "L": 152,
+    "X_out": 177,
+    "T": 188,
+    "deficit_half": "-101",
+    "deficit_two_thirds": "-227/3",
+    "sources": [
+      "w-integrator/tours/FOLD24_n110.json",
+      "w-verifier/claim21_clean/w-integrator/tours/FOLD24_n110.json",
+      "w-verifier/claim23b_clean/w-integrator/tours/FOLD24_n110.json",
+      "w-verifier/claim23b_closeout_clean/w-integrator/tours/FOLD24_n110.json"
+    ]
+  },
+  {
+    "n": 110,
+    "L": 149,
+    "X_out": 212,
+    "T": 188,
+    "deficit_half": "-275/2",
+    "deficit_two_thirds": "-338/3",
+    "sources": [
+      "w-integrator/tours/FOLDX_n110.json"
+    ]
+  },
+  {
+    "n": 110,
+    "L": 120,
+    "X_out": 76,
+    "T": 477,
+    "deficit_half": "-16",
+    "deficit_two_thirds": "4",
+    "sources": [
+      "w-integrator/tours/H16a_VerticalEdge_off0_n110.json"
+    ]
+  },
+  {
+    "n": 110,
+    "L": 120,
+    "X_out": 79,
+    "T": 475,
+    "deficit_half": "-19",
+    "deficit_two_thirds": "1",
+    "sources": [
+      "w-integrator/tours/H16b_VerticalEdge_off0_n110.json"
+    ]
+  },
+  {
+    "n": 110,
+    "L": 128,
+    "X_out": 83,
+    "T": 319,
+    "deficit_half": "-19",
+    "deficit_two_thirds": "7/3",
+    "sources": [
+      "w-turnstheory/lf-built/LF4_n110.json"
+    ]
+  },
+  {
+    "n": 112,
+    "L": 154,
+    "X_out": 200,
+    "T": 193,
+    "deficit_half": "-123",
+    "deficit_two_thirds": "-292/3",
+    "sources": [
+      "w-integrator/tours/FOLD24_n112.json",
+      "w-verifier/claim21_clean/w-integrator/tours/FOLD24_n112.json",
+      "w-verifier/claim23b_clean/w-integrator/tours/FOLD24_n112.json",
+      "w-verifier/claim23b_closeout_clean/w-integrator/tours/FOLD24_n112.json"
+    ]
+  },
+  {
+    "n": 112,
+    "L": 123,
+    "X_out": 80,
+    "T": 487,
+    "deficit_half": "-37/2",
+    "deficit_two_thirds": "2",
+    "sources": [
+      "w-integrator/tours/H16a_VerticalEdge_off0_n112.json"
+    ]
+  },
+  {
+    "n": 112,
+    "L": 121,
+    "X_out": 81,
+    "T": 483,
+    "deficit_half": "-41/2",
+    "deficit_two_thirds": "-1/3",
+    "sources": [
+      "w-integrator/tours/H16b_VerticalEdge_off0_n112.json"
+    ]
+  },
+  {
+    "n": 114,
+    "L": 153,
+    "X_out": 222,
+    "T": 188,
+    "deficit_half": "-291/2",
+    "deficit_two_thirds": "-120",
+    "sources": [
+      "w-integrator/tours/FOLD24_n114.json",
+      "w-verifier/claim21_clean/w-integrator/tours/FOLD24_n114.json",
+      "w-verifier/claim23b_clean/w-integrator/tours/FOLD24_n114.json",
+      "w-verifier/claim23b_closeout_clean/w-integrator/tours/FOLD24_n114.json"
+    ]
+  },
+  {
+    "n": 114,
+    "L": 154,
+    "X_out": 224,
+    "T": 192,
+    "deficit_half": "-147",
+    "deficit_two_thirds": "-364/3",
+    "sources": [
+      "w-integrator/tours/FOLDX_n114.json"
+    ]
+  },
+  {
+    "n": 114,
+    "L": 128,
+    "X_out": 78,
+    "T": 494,
+    "deficit_half": "-14",
+    "deficit_two_thirds": "22/3",
+    "sources": [
+      "w-integrator/tours/H16a_VerticalEdge_off0_n114.json"
+    ]
+  },
+  {
+    "n": 116,
+    "L": 162,
+    "X_out": 201,
+    "T": 187,
+    "deficit_half": "-120",
+    "deficit_two_thirds": "-93",
+    "sources": [
+      "w-integrator/tours/FOLD24_n116.json",
+      "w-verifier/claim21_clean/w-integrator/tours/FOLD24_n116.json",
+      "w-verifier/claim23b_clean/w-integrator/tours/FOLD24_n116.json",
+      "w-verifier/claim23b_closeout_clean/w-integrator/tours/FOLD24_n116.json"
+    ]
+  },
+  {
+    "n": 116,
+    "L": 126,
+    "X_out": 86,
+    "T": 503,
+    "deficit_half": "-23",
+    "deficit_two_thirds": "-2",
+    "sources": [
+      "w-integrator/tours/H16a_VerticalEdge_off0_n116.json"
+    ]
+  },
+  {
+    "n": 118,
+    "L": 169,
+    "X_out": 208,
+    "T": 197,
+    "deficit_half": "-247/2",
+    "deficit_two_thirds": "-286/3",
+    "sources": [
+      "w-integrator/tours/FOLD24_n118.json",
+      "w-verifier/claim21_clean/w-integrator/tours/FOLD24_n118.json",
+      "w-verifier/claim23b_clean/w-integrator/tours/FOLD24_n118.json",
+      "w-verifier/claim23b_closeout_clean/w-integrator/tours/FOLD24_n118.json"
+    ]
+  },
+  {
+    "n": 118,
+    "L": 132,
+    "X_out": 82,
+    "T": 512,
+    "deficit_half": "-16",
+    "deficit_two_thirds": "6",
+    "sources": [
+      "w-integrator/tours/H16a_VerticalEdge_off0_n118.json"
+    ]
+  },
+  {
+    "n": 120,
+    "L": 173,
+    "X_out": 211,
+    "T": 183,
+    "deficit_half": "-249/2",
+    "deficit_two_thirds": "-287/3",
+    "sources": [
+      "w-integrator/tours/FOLD24_n120.json",
+      "w-verifier/claim21_clean/w-integrator/tours/FOLD24_n120.json",
+      "w-verifier/claim23b_clean/w-integrator/tours/FOLD24_n120.json",
+      "w-verifier/claim23b_closeout_clean/w-integrator/tours/FOLD24_n120.json"
+    ]
+  },
+  {
+    "n": 120,
+    "L": 167,
+    "X_out": 218,
+    "T": 184,
+    "deficit_half": "-269/2",
+    "deficit_two_thirds": "-320/3",
+    "sources": [
+      "w-integrator/tours/FOLDX_n120.json"
+    ]
+  },
+  {
+    "n": 120,
+    "L": 133,
+    "X_out": 84,
+    "T": 523,
+    "deficit_half": "-35/2",
+    "deficit_two_thirds": "14/3",
+    "sources": [
+      "w-integrator/tours/H16a_VerticalEdge_off0_n120.json"
+    ]
+  },
+  {
+    "n": 120,
+    "L": 165,
+    "X_out": 76,
+    "T": 397,
+    "deficit_half": "13/2",
+    "deficit_two_thirds": "34",
+    "sources": [
+      "w-integrator/tours/LF1_n120.json"
+    ]
+  },
+  {
+    "n": 120,
+    "L": 119,
+    "X_out": 78,
+    "T": 345,
+    "deficit_half": "-37/2",
+    "deficit_two_thirds": "4/3",
+    "sources": [
+      "w-integrator/tours/LF2_n120.json"
+    ]
+  },
+  {
+    "n": 120,
+    "L": 132,
+    "X_out": 49,
+    "T": 358,
+    "deficit_half": "17",
+    "deficit_two_thirds": "39",
+    "sources": [
+      "w-integrator/tours/LF3_n120.json"
+    ]
+  },
+  {
+    "n": 122,
+    "L": 172,
+    "X_out": 218,
+    "T": 200,
+    "deficit_half": "-132",
+    "deficit_two_thirds": "-310/3",
+    "sources": [
+      "w-integrator/tours/FOLD24_n122.json",
+      "w-verifier/claim21_clean/w-integrator/tours/FOLD24_n122.json",
+      "w-verifier/claim23b_clean/w-integrator/tours/FOLD24_n122.json",
+      "w-verifier/claim23b_closeout_clean/w-integrator/tours/FOLD24_n122.json"
+    ]
+  },
+  {
+    "n": 122,
+    "L": 173,
+    "X_out": 228,
+    "T": 200,
+    "deficit_half": "-283/2",
+    "deficit_two_thirds": "-338/3",
+    "sources": [
+      "w-integrator/tours/FOLDX_n122.json"
+    ]
+  },
+  {
+    "n": 122,
+    "L": 138,
+    "X_out": 85,
+    "T": 527,
+    "deficit_half": "-16",
+    "deficit_two_thirds": "7",
+    "sources": [
+      "w-integrator/tours/H16a_VerticalEdge_off0_n122.json"
+    ]
+  },
+  {
+    "n": 124,
+    "L": 175,
+    "X_out": 228,
+    "T": 205,
+    "deficit_half": "-281/2",
+    "deficit_two_thirds": "-334/3",
+    "sources": [
+      "w-integrator/tours/FOLD24_n124.json",
+      "w-verifier/claim21_clean/w-integrator/tours/FOLD24_n124.json",
+      "w-verifier/claim23b_clean/w-integrator/tours/FOLD24_n124.json",
+      "w-verifier/claim23b_closeout_clean/w-integrator/tours/FOLD24_n124.json"
+    ]
+  },
+  {
+    "n": 124,
+    "L": 177,
+    "X_out": 219,
+    "T": 195,
+    "deficit_half": "-261/2",
+    "deficit_two_thirds": "-101",
+    "sources": [
+      "w-integrator/tours/FOLDX_n124.json"
+    ]
+  },
+  {
+    "n": 124,
+    "L": 140,
+    "X_out": 93,
+    "T": 536,
+    "deficit_half": "-23",
+    "deficit_two_thirds": "1/3",
+    "sources": [
+      "w-integrator/tours/H16a_VerticalEdge_off0_n124.json"
+    ]
+  },
+  {
+    "n": 126,
+    "L": 184,
+    "X_out": 206,
+    "T": 198,
+    "deficit_half": "-114",
+    "deficit_two_thirds": "-250/3",
+    "sources": [
+      "w-integrator/tours/FOLD24_n126.json",
+      "w-verifier/claim21_clean/w-integrator/tours/FOLD24_n126.json",
+      "w-verifier/claim23b_clean/w-integrator/tours/FOLD24_n126.json",
+      "w-verifier/claim23b_closeout_clean/w-integrator/tours/FOLD24_n126.json"
+    ]
+  },
+  {
+    "n": 126,
+    "L": 178,
+    "X_out": 240,
+    "T": 204,
+    "deficit_half": "-151",
+    "deficit_two_thirds": "-364/3",
+    "sources": [
+      "w-integrator/tours/FOLDX_n126.json"
+    ]
+  },
+  {
+    "n": 126,
+    "L": 144,
+    "X_out": 90,
+    "T": 545,
+    "deficit_half": "-18",
+    "deficit_two_thirds": "6",
+    "sources": [
+      "w-integrator/tours/H16a_VerticalEdge_off0_n126.json"
+    ]
+  },
+  {
+    "n": 128,
+    "L": 187,
+    "X_out": 222,
+    "T": 196,
+    "deficit_half": "-257/2",
+    "deficit_two_thirds": "-292/3",
+    "sources": [
+      "w-integrator/tours/FOLD24_n128.json",
+      "w-verifier/claim21_clean/w-integrator/tours/FOLD24_n128.json",
+      "w-verifier/claim23b_clean/w-integrator/tours/FOLD24_n128.json",
+      "w-verifier/claim23b_closeout_clean/w-integrator/tours/FOLD24_n128.json"
+    ]
+  },
+  {
+    "n": 128,
+    "L": 188,
+    "X_out": 222,
+    "T": 204,
+    "deficit_half": "-128",
+    "deficit_two_thirds": "-290/3",
+    "sources": [
+      "w-integrator/tours/FOLDX_n128.json"
+    ]
+  },
+  {
+    "n": 128,
+    "L": 147,
+    "X_out": 91,
+    "T": 556,
+    "deficit_half": "-35/2",
+    "deficit_two_thirds": "7",
+    "sources": [
+      "w-integrator/tours/H16a_VerticalEdge_off0_n128.json"
+    ]
+  },
+  {
+    "n": 130,
+    "L": 173,
+    "X_out": 869,
+    "T": 176,
+    "deficit_half": "-1565/2",
+    "deficit_two_thirds": "-2261/3",
+    "sources": [
+      "w-integrator/tours/FJOG_n130.json"
+    ]
+  },
+  {
+    "n": 130,
+    "L": 190,
+    "X_out": 219,
+    "T": 201,
+    "deficit_half": "-124",
+    "deficit_two_thirds": "-277/3",
+    "sources": [
+      "w-integrator/tours/FOLD24_n130.json",
+      "w-verifier/claim21_clean/w-integrator/tours/FOLD24_n130.json",
+      "w-verifier/claim23b_clean/w-integrator/tours/FOLD24_n130.json",
+      "w-verifier/claim23b_closeout_clean/w-integrator/tours/FOLD24_n130.json"
+    ]
+  },
+  {
+    "n": 130,
+    "L": 194,
+    "X_out": 208,
+    "T": 202,
+    "deficit_half": "-111",
+    "deficit_two_thirds": "-236/3",
+    "sources": [
+      "w-integrator/tours/FOLDX_n130.json"
+    ]
+  },
+  {
+    "n": 130,
+    "L": 152,
+    "X_out": 89,
+    "T": 563,
+    "deficit_half": "-13",
+    "deficit_two_thirds": "37/3",
+    "sources": [
+      "w-integrator/tours/H16a_VerticalEdge_off0_n130.json"
+    ]
+  },
+  {
+    "n": 132,
+    "L": 187,
+    "X_out": 584,
+    "T": 115,
+    "deficit_half": "-981/2",
+    "deficit_two_thirds": "-1378/3",
+    "sources": [
+      "w-integrator/tours/FJOG_n132.json"
+    ]
+  },
+  {
+    "n": 132,
+    "L": 196,
+    "X_out": 212,
+    "T": 202,
+    "deficit_half": "-114",
+    "deficit_two_thirds": "-244/3",
+    "sources": [
+      "w-integrator/tours/FOLD24_n132.json",
+      "w-verifier/claim21_clean/w-integrator/tours/FOLD24_n132.json",
+      "w-verifier/claim23b_clean/w-integrator/tours/FOLD24_n132.json",
+      "w-verifier/claim23b_closeout_clean/w-integrator/tours/FOLD24_n132.json"
+    ]
+  },
+  {
+    "n": 132,
+    "L": 195,
+    "X_out": 221,
+    "T": 198,
+    "deficit_half": "-247/2",
+    "deficit_two_thirds": "-91",
+    "sources": [
+      "w-integrator/tours/FOLDX_n132.json"
+    ]
+  },
+  {
+    "n": 132,
+    "L": 150,
+    "X_out": 94,
+    "T": 575,
+    "deficit_half": "-19",
+    "deficit_two_thirds": "6",
+    "sources": [
+      "w-integrator/tours/H16a_VerticalEdge_off0_n132.json"
+    ]
+  },
+  {
+    "n": 134,
+    "L": 200,
+    "X_out": 209,
+    "T": 212,
+    "deficit_half": "-109",
+    "deficit_two_thirds": "-227/3",
+    "sources": [
+      "w-integrator/tours/FOLD24_n134.json",
+      "w-verifier/claim21_clean/w-integrator/tours/FOLD24_n134.json",
+      "w-verifier/claim23b_clean/w-integrator/tours/FOLD24_n134.json",
+      "w-verifier/claim23b_closeout_clean/w-integrator/tours/FOLD24_n134.json"
+    ]
+  },
+  {
+    "n": 134,
+    "L": 156,
+    "X_out": 94,
+    "T": 579,
+    "deficit_half": "-16",
+    "deficit_two_thirds": "10",
+    "sources": [
+      "w-integrator/tours/H16a_VerticalEdge_off0_n134.json"
+    ]
+  },
+  {
+    "n": 136,
+    "L": 202,
+    "X_out": 232,
+    "T": 217,
+    "deficit_half": "-131",
+    "deficit_two_thirds": "-292/3",
+    "sources": [
+      "w-integrator/tours/FOLD24_n136.json",
+      "w-verifier/claim21_clean/w-integrator/tours/FOLD24_n136.json",
+      "w-verifier/claim23b_clean/w-integrator/tours/FOLD24_n136.json",
+      "w-verifier/claim23b_closeout_clean/w-integrator/tours/FOLD24_n136.json"
+    ]
+  },
+  {
+    "n": 136,
+    "L": 157,
+    "X_out": 96,
+    "T": 591,
+    "deficit_half": "-35/2",
+    "deficit_two_thirds": "26/3",
+    "sources": [
+      "w-integrator/tours/H16a_VerticalEdge_off0_n136.json"
+    ]
+  },
+  {
+    "n": 138,
+    "L": 201,
+    "X_out": 254,
+    "T": 212,
+    "deficit_half": "-307/2",
+    "deficit_two_thirds": "-120",
+    "sources": [
+      "w-integrator/tours/FOLD24_n138.json",
+      "w-verifier/claim21_clean/w-integrator/tours/FOLD24_n138.json",
+      "w-verifier/claim23b_clean/w-integrator/tours/FOLD24_n138.json",
+      "w-verifier/claim23b_closeout_clean/w-integrator/tours/FOLD24_n138.json"
+    ]
+  },
+  {
+    "n": 138,
+    "L": 162,
+    "X_out": 96,
+    "T": 596,
+    "deficit_half": "-15",
+    "deficit_two_thirds": "12",
+    "sources": [
+      "w-integrator/tours/H16a_VerticalEdge_off0_n138.json"
+    ]
+  },
+  {
+    "n": 140,
+    "L": 210,
+    "X_out": 233,
+    "T": 211,
+    "deficit_half": "-128",
+    "deficit_two_thirds": "-93",
+    "sources": [
+      "w-integrator/tours/FOLD24_n140.json",
+      "w-verifier/claim21_clean/w-integrator/tours/FOLD24_n140.json",
+      "w-verifier/claim23b_clean/w-integrator/tours/FOLD24_n140.json",
+      "w-verifier/claim23b_closeout_clean/w-integrator/tours/FOLD24_n140.json"
+    ]
+  },
+  {
+    "n": 140,
+    "L": 164,
+    "X_out": 101,
+    "T": 608,
+    "deficit_half": "-19",
+    "deficit_two_thirds": "25/3",
+    "sources": [
+      "w-integrator/tours/H16a_VerticalEdge_off0_n140.json"
+    ]
+  },
+  {
+    "n": 142,
+    "L": 217,
+    "X_out": 240,
+    "T": 221,
+    "deficit_half": "-263/2",
+    "deficit_two_thirds": "-286/3",
+    "sources": [
+      "w-integrator/tours/FOLD24_n142.json",
+      "w-verifier/claim21_clean/w-integrator/tours/FOLD24_n142.json",
+      "w-verifier/claim23b_clean/w-integrator/tours/FOLD24_n142.json",
+      "w-verifier/claim23b_closeout_clean/w-integrator/tours/FOLD24_n142.json"
+    ]
+  },
+  {
+    "n": 142,
+    "L": 168,
+    "X_out": 100,
+    "T": 614,
+    "deficit_half": "-16",
+    "deficit_two_thirds": "12",
+    "sources": [
+      "w-integrator/tours/H16a_VerticalEdge_off0_n142.json"
+    ]
+  },
+  {
+    "n": 144,
+    "L": 221,
+    "X_out": 243,
+    "T": 207,
+    "deficit_half": "-265/2",
+    "deficit_two_thirds": "-287/3",
+    "sources": [
+      "w-integrator/tours/FOLD24_n144.json",
+      "w-verifier/claim21_clean/w-integrator/tours/FOLD24_n144.json",
+      "w-verifier/claim23b_clean/w-integrator/tours/FOLD24_n144.json",
+      "w-verifier/claim23b_closeout_clean/w-integrator/tours/FOLD24_n144.json"
+    ]
+  },
+  {
+    "n": 144,
+    "L": 215,
+    "X_out": 233,
+    "T": 238,
+    "deficit_half": "-251/2",
+    "deficit_two_thirds": "-269/3",
+    "sources": [
+      "w-integrator/tours/FOLDB1_n144.json"
+    ]
+  },
+  {
+    "n": 144,
+    "L": 180,
+    "X_out": 94,
+    "T": 382,
+    "deficit_half": "-4",
+    "deficit_two_thirds": "26",
+    "sources": [
+      "w-integrator/tours/LF4_n144.json"
+    ]
+  },
+  {
+    "n": 146,
+    "L": 220,
+    "X_out": 250,
+    "T": 224,
+    "deficit_half": "-140",
+    "deficit_two_thirds": "-310/3",
+    "sources": [
+      "w-integrator/tours/FOLD24_n146.json",
+      "w-verifier/claim21_clean/w-integrator/tours/FOLD24_n146.json",
+      "w-verifier/claim23b_clean/w-integrator/tours/FOLD24_n146.json",
+      "w-verifier/claim23b_closeout_clean/w-integrator/tours/FOLD24_n146.json"
+    ]
+  },
+  {
+    "n": 148,
+    "L": 223,
+    "X_out": 260,
+    "T": 229,
+    "deficit_half": "-297/2",
+    "deficit_two_thirds": "-334/3",
+    "sources": [
+      "w-integrator/tours/FOLD24_n148.json",
+      "w-verifier/claim21_clean/w-integrator/tours/FOLD24_n148.json",
+      "w-verifier/claim23b_clean/w-integrator/tours/FOLD24_n148.json",
+      "w-verifier/claim23b_closeout_clean/w-integrator/tours/FOLD24_n148.json"
+    ]
+  },
+  {
+    "n": 150,
+    "L": 232,
+    "X_out": 238,
+    "T": 222,
+    "deficit_half": "-122",
+    "deficit_two_thirds": "-250/3",
+    "sources": [
+      "w-integrator/tours/FOLD24_n150.json",
+      "w-verifier/claim21_clean/w-integrator/tours/FOLD24_n150.json",
+      "w-verifier/claim23b_clean/w-integrator/tours/FOLD24_n150.json",
+      "w-verifier/claim23b_closeout_clean/w-integrator/tours/FOLD24_n150.json"
+    ]
+  },
+  {
+    "n": 152,
+    "L": 235,
+    "X_out": 254,
+    "T": 220,
+    "deficit_half": "-273/2",
+    "deficit_two_thirds": "-292/3",
+    "sources": [
+      "w-integrator/tours/FOLD24_n152.json",
+      "w-verifier/claim21_clean/w-integrator/tours/FOLD24_n152.json",
+      "w-verifier/claim23b_clean/w-integrator/tours/FOLD24_n152.json",
+      "w-verifier/claim23b_closeout_clean/w-integrator/tours/FOLD24_n152.json"
+    ]
+  },
+  {
+    "n": 154,
+    "L": 238,
+    "X_out": 251,
+    "T": 225,
+    "deficit_half": "-132",
+    "deficit_two_thirds": "-277/3",
+    "sources": [
+      "w-integrator/tours/FOLD24_n154.json",
+      "w-verifier/claim21_clean/w-integrator/tours/FOLD24_n154.json",
+      "w-verifier/claim23b_clean/w-integrator/tours/FOLD24_n154.json",
+      "w-verifier/claim23b_closeout_clean/w-integrator/tours/FOLD24_n154.json"
+    ]
+  },
+  {
+    "n": 156,
+    "L": 244,
+    "X_out": 244,
+    "T": 226,
+    "deficit_half": "-122",
+    "deficit_two_thirds": "-244/3",
+    "sources": [
+      "w-integrator/tours/FOLD24_n156.json",
+      "w-verifier/claim21_clean/w-integrator/tours/FOLD24_n156.json",
+      "w-verifier/claim23b_clean/w-integrator/tours/FOLD24_n156.json",
+      "w-verifier/claim23b_closeout_clean/w-integrator/tours/FOLD24_n156.json"
+    ]
+  },
+  {
+    "n": 156,
+    "L": 181,
+    "X_out": 56,
+    "T": 443,
+    "deficit_half": "69/2",
+    "deficit_two_thirds": "194/3",
+    "sources": [
+      "w-integrator/tours/LF5_n156.json"
+    ]
+  },
+  {
+    "n": 158,
+    "L": 248,
+    "X_out": 241,
+    "T": 236,
+    "deficit_half": "-117",
+    "deficit_two_thirds": "-227/3",
+    "sources": [
+      "w-integrator/tours/FOLD24_n158.json",
+      "w-verifier/claim21_clean/w-integrator/tours/FOLD24_n158.json",
+      "w-verifier/claim23b_clean/w-integrator/tours/FOLD24_n158.json",
+      "w-verifier/claim23b_closeout_clean/w-integrator/tours/FOLD24_n158.json"
+    ]
+  },
+  {
+    "n": 160,
+    "L": 250,
+    "X_out": 264,
+    "T": 241,
+    "deficit_half": "-139",
+    "deficit_two_thirds": "-292/3",
+    "sources": [
+      "w-integrator/tours/FOLD24_n160.json",
+      "w-verifier/claim21_clean/w-integrator/tours/FOLD24_n160.json",
+      "w-verifier/claim23b_clean/w-integrator/tours/FOLD24_n160.json",
+      "w-verifier/claim23b_closeout_clean/w-integrator/tours/FOLD24_n160.json"
+    ]
+  },
+  {
+    "n": 162,
+    "L": 249,
+    "X_out": 286,
+    "T": 236,
+    "deficit_half": "-323/2",
+    "deficit_two_thirds": "-120",
+    "sources": [
+      "w-integrator/tours/FOLD24_n162.json",
+      "w-verifier/claim21_clean/w-integrator/tours/FOLD24_n162.json",
+      "w-verifier/claim23b_clean/w-integrator/tours/FOLD24_n162.json",
+      "w-verifier/claim23b_closeout_clean/w-integrator/tours/FOLD24_n162.json"
+    ]
+  },
+  {
+    "n": 164,
+    "L": 258,
+    "X_out": 265,
+    "T": 235,
+    "deficit_half": "-136",
+    "deficit_two_thirds": "-93",
+    "sources": [
+      "w-integrator/tours/FOLD24_n164.json",
+      "w-verifier/claim21_clean/w-integrator/tours/FOLD24_n164.json",
+      "w-verifier/claim23b_clean/w-integrator/tours/FOLD24_n164.json",
+      "w-verifier/claim23b_closeout_clean/w-integrator/tours/FOLD24_n164.json"
+    ]
+  },
+  {
+    "n": 166,
+    "L": 206,
+    "X_out": 267,
+    "T": 311,
+    "deficit_half": "-164",
+    "deficit_two_thirds": "-389/3",
+    "sources": [
+      "gap/lowerbounds/conn/FIELD_n166_92_155.json"
+    ]
+  },
+  {
+    "n": 166,
+    "L": 265,
+    "X_out": 272,
+    "T": 245,
+    "deficit_half": "-279/2",
+    "deficit_two_thirds": "-286/3",
+    "sources": [
+      "w-integrator/tours/FOLD24_n166.json",
+      "w-verifier/claim21_clean/w-integrator/tours/FOLD24_n166.json",
+      "w-verifier/claim23b_clean/w-integrator/tours/FOLD24_n166.json",
+      "w-verifier/claim23b_closeout_clean/w-integrator/tours/FOLD24_n166.json"
+    ]
+  },
+  {
+    "n": 208,
+    "L": 256,
+    "X_out": 73,
+    "T": 583,
+    "deficit_half": "55",
+    "deficit_two_thirds": "293/3",
+    "sources": [
+      "w-integrator/tours/LF5_n208.json"
+    ]
+  },
+  {
+    "n": 260,
+    "L": 332,
+    "X_out": 91,
+    "T": 724,
+    "deficit_half": "75",
+    "deficit_two_thirds": "391/3",
+    "sources": [
+      "w-integrator/tours/LF5_n260.json"
+    ]
+  }
+]

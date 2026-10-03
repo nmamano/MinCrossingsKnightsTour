@@ -1,0 +1,7 @@
+{
+ "gap/structures/BEYOND5.md": "04ad7d984a84805d543165411129a10b7f34dcb404f080f35580261a2ec30762",
+ "gap/structures/beyond5_ledger.py": "3a310bdc8ff1cfc358eb8d3243352a06b89f2d8a284b0328c6606692d3717ba8",
+ "gap/structures/beyond5_ledger.log": "a037d07a9603623ec1cfd63fefef8ee06fd0f496729f099045cbed985e2df4bf",
+ "w-structures/FINDINGS.md": "d60b7ae99985b558279ae0437f727f46243ed4a15d41a6b07c964e343e7e5efd",
+ "w-structures/seam_flux.py": "ba0cfe4a68b3b96f06ff520170dde337cb69e34cddd0517d40e7ffe8b72060c4"
+}

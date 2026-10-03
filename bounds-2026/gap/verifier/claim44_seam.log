@@ -1,0 +1,4 @@
+{'target': None, 'status': 'OPTIMAL', 'bound': 3.0, 'X': 3.0, 'current': -1, 'chosen': [7, 11, 16, 19, 27, 31, 36, 39, 47, 51, 56, 59]}
+{'target': -1, 'status': 'OPTIMAL', 'bound': 3.0, 'X': 3.0, 'current': -1, 'chosen': [7, 11, 16, 19, 27, 31, 36, 39, 47, 51, 56, 59]}
+{'target': 0, 'status': 'OPTIMAL', 'bound': 3.0, 'X': 3.0, 'current': 0, 'chosen': [7, 12, 16, 19, 27, 32, 36, 39, 47, 52, 56, 59]}
+{'target': 1, 'status': 'OPTIMAL', 'bound': 9.0, 'X': 9.0, 'current': 1, 'chosen': [7, 12, 15, 19, 27, 32, 35, 39, 47, 52, 55, 59]}

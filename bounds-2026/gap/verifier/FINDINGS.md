@@ -1,3 +1,11 @@
+# Claim 44 — beyond-5n connectivity red team, 2026-10-03
+
+GAP for B5/C5. Deep-first quarter packing passes, with actual fractional atom consumption; shallow users remain a linear ownership issue. FAIL deduction: strip coefficient N_free/2 supplies only N_free/4 in the mixed E ledger. Repair the strip coefficient to one or weaken B5 (then original C5 would conditionally give 5+c/8). The existing table computes 2*N_re+BQx, not C5. Gentle-seam replay: currents -1 and 0 each cost 3 crossings and have 12 bad quarters per (3,3) period; no closed-tour counterexample or residual K proof. Report: claim44_report.md; checks: claim44_seam.py/json and claim44_seam_check.py/json.
+
+# Claim 43 — beyond-5n flux red team, 2026-10-03
+
+GAP for the global conjecture. PASS exact E=T+X_out and reduction. FAIL P6: HHVV and every odd-period word have zero mean current; highly alternating words can have current tending to zero. FAIL the geometric mu<=2 rationale: x-y=40 on n=200 meets BL, BR and TR candidate families. Non-B tests do not certify X_out; S* minus B crossings and shared/end capacities need separate accounting. Bent-carrier joins and uniform arbitrary-width end price remain open. Report: claim43_report.md; light independent checks: claim43_check.py/json/log.
+
 # Claim 42 — strong-test 5n bound, 2026-10-03
 
 PASS with an orientation-join repair: X>=5n-612 for all even n>=32, and hence all positive even n by the trivial smaller range. Claim V includes radii 12..32, so no 42 allowance. Independent graph: 82,516 base states, 184,006 full-mask states, 343,631 arcs. UP potential [-29,0], DOWN [-33,0]; their row-boundary difference is [-4,4]. The joined side bound gives G<=T+1139<=T+1160, which closes the audited ledger. Both orientations and exact VIS geometry checked. Report: claim42_report.md; finite inputs: claim42_check.py/json and two potential arrays. No further F1 price lemma is needed for this global bound.

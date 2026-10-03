@@ -5312,3 +5312,194 @@ The new hand proof is the short deficient-square argument, distinct-row counting
 Checked the current source after the queued update. PASS for the revised separate-half calculation: 4*(29/4)+4*(33/4)=62, hence G<=T+1164, E+582=nu+(T+1164)/2, and X>=5n-614. Its displayed consequence still uses T+1160 and E+580; those lines need the 1164/582 replacement if using only separate-half ranges. No 42 allowance is needed, by 42A–B.
 
 The stronger audited conclusion X>=5n-612 stands: the independent common-mask potentials give h_up-h_down>=-4 at every row boundary, so 42D proves G<=T+1139<=T+1160. This is an additional checked interface input, not a claim that the down width is 29. The source can either use its simpler separate-half proof with constant 614 or cite the checked join for constant 612. No rerun is needed: both orientations and this join were already rebuilt and checked in Claim 42.
+
+
+## Claim 43: red team of BEYOND5_FLUX — 2026-10-03
+
+**Verdict: GAP for F-beyond(p) and for a proof above 5n. PASS for the exact ledger identity and the conditional algebra. FAIL for P6's proposed proportionality to bit alternations, and FAIL for the geometric justification of mu<=2.** These are explicit counterexamples to intermediate claims, not closed-tour counterexamples to F-beyond(p). I found no such tour counterexample in this light audit. The large wall graphs were not rerun.
+
+Sources: gap/searcher/BEYOND5_FLUX.md, WALL12.md, FINDINGS.md sections 7–8, wall/ribbon_ends.out, and the colour-balance lemma in w-integrator/FINDINGS.md. Source hashes: claim43_sources.json. Independent checks: claim43_check.py/json/log.
+
+### 43A. Exact identity and reduction — PROVEN / PASS
+
+With the SAME union S* in both definitions, X_out=X-s and T=s-4n+2. Thus
+
+    E=X-4n+2 = T+X_out
+
+is exact. It agrees with Claim 42's mixed identity: nu(total)=E-T/2=X_out+T/2. The mixed currency does not supply an independent lower bound for X_out; a large T can pay much of the mixed budget.
+
+If X_out>=pL-C, T>=D_loss-1160, and 0<p<=1, then
+
+    E >= p(2n-60)+(1-p)D_loss-C-1160,
+    X >= (4+2p)n-(60p+C+1162).
+
+So the stated reduction to a coefficient above five is correct. This does not require local eligibility or a Hall allocation. It still requires a count of distinct crossing-pair capacity in X_out.
+
+**Currency gap in the evidence and zone-end argument.** The cited tests in the design concern crossings outside B, not outside S*. Since B is a subset of S*, they test a larger resource pool. An explicit pair away from the board corners is
+
+    (0,20)--(2,21), (1,20)--(2,22).
+
+Its two overlapping quarters are L and T of square (1,20). Both edges belong to the width-two left strip; only the first edge touches column zero. Thus the pair is in S* minus B: it contributes to the non-B count and contributes NOTHING to X_out. This exact pair is among the independently enumerated Claim 42 VIS types. Its role here is to distinguish the currencies, not to assert a complete tour containing a prescribed repeated patch.
+
+Likewise an end lying in a corner square need not lie outside S*. The end price must either count only pairs outside S*, or be combined with an explicitly revised joint ledger that accounts for its use of T. Merely locating an end near some retained path does not solve this issue. Aggregate accounting also needs wall and end charges whose combined use of each pair is at most one.
+
+### 43B. Mixed-word current counterexample — PROVEN / FAIL for P6
+
+Use the audited perfect '/' word field. Put t=x-y, c_t=(2,1) for H and c_t=(-1,-2) for V, and give vertex v the neighbours
+
+    v+c_t and v-c_(t-1).
+
+Every word gives a degree-two perfect field, with no bad quarters. For a word of period k, let P=k if k is even and P=2k otherwise. Directly count signed edge stubs across x=1/2, with the sign at the left endpoint, over one P-row period. The mean is
+
+    J_x = -(3/P) * sum_(t=0)^(P-1) (-1)^t [w_t=V].
+
+The same parity imbalance determines the other component. It is NOT the number of bit alternations. One derivation is to orient each t-to-t+1 edge with sign (-1)^t: c_t=(2,1)-3[V_t](1,1), and the constant term cancels over an even period. Equivalently count the finitely many edges crossing the cut, as the independent checker does.
+
+Examples, with this fixed phase convention:
+
+| Word | Cyclic bit alternations | Mean vertical-cut current |
+| --- | ---: | ---: |
+| HV | 2 | 3/2 |
+| HHVV | 2 | 0 |
+| HHV | 2 | 0 |
+| HVVH | 2 | 0 |
+| HVVVHV | 4 | 1 |
+| VVHHVHVV | 4 | -3/8 |
+
+Thus a nonstraight perfect field can have exactly zero current. Every odd-period word has zero mean over its doubled period. The checker tests all 510 binary words of lengths one through eight; 252 mixed words have zero current. It separately checks degrees, reciprocal neighbours, and exact perfect-quarter coverage for the displayed fields.
+
+There is also no uniform positive current density for words with many alternations. For
+
+    w_m = (HV)^(m+1) (VH)^m,
+
+length is 4m+2, the number of cyclic alternations is 4m, and |J_x|=3/(4m+2), tending to zero. For m=2,4,8,16 the exact currents are 3/10, 1/6, 3/34, 1/22. These are perfectly tiled mixed fields, not noisy patches. Opposite zigzag phases can cancel their signed current.
+
+**Repair:** replace P6 by the exact signed parity statistic and prove a quantitative relation between a wall's discount below 2/3 and a noncancelling current demand. The conservation identity alone cannot give that relation. A price per unit of signed net current cannot control all mixed-word regions or provide a uniform positive addition per level without it. These examples do not show that a cheap psi wall can actually use the zero-current words; that is the missing test/theorem.
+
+**Saved-witness caution.** Interpreting the printed (2,3) margin strings literally as repeating full-plane words gives current magnitudes 3/8 for VVHHVHVV and 3/4 for VHHVVHVH. Cyclic shifts or phase reversals cannot remove this magnitude mismatch. Hence these strings cannot, in that interpretation, be the two fixed exteriors of a colour-balanced bounded-width periodic interface along (2,3). The author already notes that the one-column margins have free ghost cells and are not full exterior fields. This calculation makes that limitation concrete. One must construct and check the actual exteriors before using the strings as current evidence. The corresponding (1,3) strings HVVVHV and HVHHHV both give magnitude one; this consistency check does not prove their extension.
+
+### 43C. One straight ribbon can meet three corners — PROVEN / FAIL for the stated mu<=2 rationale
+
+Take n=200 and the single '/' ribbon indexed by square centres with x-y=40. Use the audited corner paths and their square coordinates. The same uninterrupted line meets candidates from:
+
+- BL: radii 41 through 96, for example square (96,56);
+- BR: radii 79 through 96, for example square (119,79);
+- TR: radii 41 through 96, for example square (142,102).
+
+It does not meet TL candidates. These are actual candidate-square intersections, verified by the independent path generator. The BR intersections are between the BL and TR parts along the very same line. Therefore the sentence that a '/' stripe passes near only BL and TR is false. It can pass through a third corner box. This is a geometric counterexample, not an assertion that all the intersected paths are retained in a particular closed tour.
+
+An extra restriction on carrier orientations or which intersections are assigned could still prove a useful bound on sharing, but it must be stated and proved. For straight lines the geometry permits three corner families. If mu counts only distinct corners, mu<=4 is automatic and does not itself need field geometry. Neither observation controls repeated use within one corner when carriers branch, have several components, or revisit the same ribbon.
+
+The displayed linear-fractional calculation IS correct under its premises F>=B>=0 and a valid sharing bound. At c=1/3 and mu=3 it gives 11/18, not 2/3; at mu=4 it gives 7/12. Thus this geometric correction alone does not rule out a coefficient above five. The unresolved issue is proving that those premises cover the actual carrier system and that end prices are private in X_out.
+
+### 43D. Bent carriers, finite regions and shared capacity — ARGUMENT / GAP
+
+**Carrier existence is not automatic.** A retained path is charged modulo three. This implies a bad adjacent quarter; it does not by itself specify one connected curve of defects crossing all its corner's levels. Nor does it imply that every such witness is a crossing outside S*. Before cutting a carrier into straight pieces, define its components, how it is selected from the tour, and how it covers the retained paths. Holes and higher multiplicities remain present in the geometry even if the final currency counts only crossings.
+
+**Periodic prices do not add for arbitrary short pieces.** A minimum-mean certificate for a straight band gives a price times length minus a boundary-potential term for a finite segment. Cutting at k bends can introduce k such terms. Nonnegative crossing counts at the bends do not imply that these boundary terms are nonnegative. Rapid switching can make this a linear loss, not one absolute constant. A valid repair is a common state space and a telescoping potential with checked transition costs at bends and branches, or a direct certificate for the whole nonstraight carrier. Claim 42's explicitly checked orientation join is an example of the additional input needed; reflection alone was not enough even there. No bent knight-wall counterexample was built in this audit.
+
+**Conservation gives a signed constraint, not a price.** The finite-set identity in P3 is correct: internal bipartite edges cancel and the boundary signed count is 2(B_S-W_S). The stated periodic-band consequences need their fixed exteriors and periodic colour balance. For a finite irregular region, current can leave through transverse ends, neighbouring opposite-current zones, or a defect region. An O(width) transverse bound does not exclude a region of width proportional to its length. There is no bound here charging that transport or cancellation to a positive density of crossings outside S*. The HHVV and w_m examples show why the word and sign information cannot be suppressed.
+
+**Uniform end price is still missing.** The width-four straight-interface results are author-certified finite-model results. They do not prove a lower bound for wider interfaces: allowing more width enlarges the configuration set and can reduce the optimum. The finite list of rational slopes does not prove an all-slope theorem. Free ghost cells make the finite model a relaxation of its specified fixed-width transitions, not a relaxation containing every arbitrary-width curved end. A positive price at every fixed width also does not imply one uniform c>0 as width increases.
+
+**Shared ends need joint capacity accounting.** Even if a ribbon segment has two ends, several segments can terminate in one defect region. A turn price already counts ends on both sides of that turn. A wall crossing can also be in the endpoint region. The proposed addition of carrier costs and 2c times segment count requires a simultaneous assignment or one combined inequality preventing reuse of those pairs. The global rather than local target removes the radius constraint; it does not remove this capacity constraint.
+
+### 43E. Labels and next useful test
+
+PROVEN: E=T+X_out and the conditional coefficient calculation; the signed colour identity; the mixed-word zero/small-current examples; the three-corner ribbon geometry; the linear-fractional formula under its assumptions.
+
+FAIL: current proportional to bit alternations (P6); the stated geometric reason for mu<=2; using non-B test success as if it certified X_out.
+
+CERTIFIED only in the author's stated finite models, not independently rebuilt here: the width-four straight-wall and end-price tables. Their arbitrary-width, all-slope and curved-interface extensions remain ARGUMENT. The global F-beyond(p) statement remains CONJECTURE, with no counterexample established here.
+
+Before more straight-slope runs, the most discriminating small test is a charged wall with complete fixed exteriors HHVV (zero current), and then w_m with increasing period and small nonzero current. Measure crossings outside the side strips and the current separately. Independently, a whole-window carrier-and-two-ends model should price all crossings once and allow bent interfaces; separate segment minima cannot answer that question. These are proposed tests, not jobs launched by this audit.
+
+**Pareto profile:** this audit uses a short exact current formula, finite quarter checks, 510 word checks, and one candidate-geometry example. It launches no transfer graph or solver. It adds no crossing coefficient. The above-5n route still needs a uniform carrier/end theorem with the correct currency and sharing rules; completing a finite slope table alone will not supply it.
+
+
+## Claim 44: connectivity surplus in BEYOND5 — 2026-10-03
+
+**Verdict: GAP for B5 and C5. FAIL for the claimed implication from B5-strip to the N_free/2 term in B5: the mixed ledger introduces a factor of two. PASS for deep-first quarter selection, with the capacity and shallow-user qualifications below.** No closed-tour counterexample to C5 was established. The gentle-seam replay confirms that flux can change at zero extra crossing cost, but does not establish vanishing residual BQx.
+
+Sources: gap/structures/BEYOND5.md, beyond5_ledger.py/log, and w-structures/FINDINGS.md S3/S10 with seam_flux.py. Hashes: claim44_sources.json. This is a light audit; no new strip graph was built.
+
+### 44A. What route (i) owns — PASS with precise units and scope
+
+Claim 42 uses the exact identity E=nu+T/2. A retained candidate selects min(2,s_i) PAYABLE QUARTERS and receives one quarter-unit per selection from the prescribed atoms. Deep-first is a valid tie rule. It changes neither the deficient-path condition s_i<2 nor Claim V, which uses all payable quarters on the path.
+
+A selected quarter is not necessarily a whole atom. A two-quarter overlap outside S* has one half-unit pair atom; one selected quarter consumes only one quarter-unit of it. The other quarter may be selected elsewhere using the remainder. Thus the phrase “two quarter atoms” should be replaced by “two quarter requests with their actual atom consumption.” The Claim 39 packing lemma makes this simultaneous fractional use valid.
+
+Each lost or deficient retained candidate owns one distinct strong side-row. That numerical row unit is paid from (T+C)/2, at one half-unit per row. T itself is an excess count, not a separate list of crossing atoms assigned by physical row. The strip potential gives an aggregate inequality. Spatial exclusion from strong rows is therefore a proposed NEW joint certificate condition, not an existing disjointness theorem.
+
+Route (i) can overpay a deficient retained path: when d_i=1/4 it uses its baseline 1/4 plus a full strong-row payment 1/2. This is harmless but must be retained when defining the actual residual budget. Its total is N/2 plus the baseline payments on deficient paths, not always exactly N/2.
+
+**Do not switch to deep-only deficiency.** A path with fewer than two deep quarters can still have two payable shallow quarters and no strong end. Claim V does not classify it as deficient. The source correctly acknowledges these shallow users. The displayed LF4 and TT16 rows have a linear number of them, so an O(1) exception is not a repair.
+
+### 44B. Deep capacity — PASS; shallow ownership remains GAP
+
+At a square of depth at least five from every side, every covering edge endpoint has depth at least four. A width-three strip edge has an endpoint at depth at most two. Thus a pair covering such a deep quarter cannot belong to the width-three crossing union S3. Hole and W3 atoms there also have deep support.
+
+All deep bad quarters are payable. Their simultaneous quarter-unit payments, including selected baseline quarters and the unselected BQx quarters, obey the same packing lemma. Distinct quarters need not use distinct pair atoms; their total usage stays within the pair's half-unit capacity. Accordingly deep baseline plus BQx/4 is sound with actual fractional consumption.
+
+Shallow baseline quarters can use pairs in S3 minus S*. These were legitimate half-unit atoms in nu, but disappear from the analogous outside-S3 currency. A widened strip lemma must subtract their actual usage or jointly include their demands. Merely requiring changed ports to be far from g rows does not remove this conflict. Shallow users need not themselves own a g row. The source identifies this issue as open; it is a real missing input.
+
+### 44C. Factor-of-two defect in the strip-to-E step — FAIL as a deduction
+
+This problem exists even when every retained baseline payment is deep, so it is independent of the shallow-user issue.
+
+Let s3=|S3|, T3=s3-4n+2, Y=s3-s, and define
+
+    nu3 = (X-s3)/2 + E/2 = nu-Y/2.
+
+Then, exactly,
+
+    E = nu3+T3/2.
+
+Deep quarters remain payable from nu3. After summing sides and absorbing corner overcounts into one constant, the requested B5-strip says
+
+    T3 >= g + N_free/2 - O(1).
+
+Put o=D_loss+L_def, so G_free=g-o. The resulting budget is only
+
+    E >= f0 + BQx/4 + g/2 + N_free/4 - O(1)
+      >= N/2 + G_free/2 + N_free/4 + BQx/4 - O(1).
+
+It does NOT supply N_free/2 as written in B5. In general a strip coefficient a on N_free becomes a/2 in this mixed ledger. The extra pairs in Y cannot simply be credited again: Y/2 was exactly what was removed from nu to form nu3.
+
+Two possible repairs are concrete. Ask the strip certificate for coefficient one on N_free, with shallow consumption handled, to obtain B5 as stated. Or retain the requested coefficient one half and weaken B5 to N_free/4. If the original C5 were later proved and the three counts were nonnegative, that weaker B5 would still give a coefficient at least 5+c/8, since
+
+    2G_free+N_free+BQx >= (2G_free+2N_free+BQx)/2.
+
+This is a conditional salvage, not a proof of C5. A stronger joint currency argument could also repair the factor, but none is specified in the design.
+
+### 44D. What the existing table actually tests — FAIL as evidence for C5
+
+beyond5_ledger.py returns C5_ratio=(2*N_re+BQx)/n. It does not compute g rows, G_free, N_free, d0, or the exclusion neighbourhoods. I checked the 11 JSON rows currently in beyond5_ledger.log against that formula. The Markdown table includes additional rows, but has the same proxy column.
+
+There is no supplied inequality converting this proxy to 2(G_free+N_free)+BQx. In particular, many changed ports may lie near already-owned g rows; those ports and rows then contribute to neither free count. Thus the sentence that all tours satisfy C5 with the quoted ratio is not established by this table. Also, the column E-route(i)-N_re/2 omits both BQx/4 and G_free/2; its positivity alone is not a check of full B5.
+
+Repair: implement the requested R-b census using the fixed up/down half-side convention from Claim 42, count every owned row once, and evaluate the exact C5 expression separately for each d0. Use the same deep-first baseline and exact collar partner rule. Do not infer the new counts from T_left or all changed ports. Rows 8..n-9 exclude only O(1) boundary data, but the orientation change and neighbourhood convention still need one fixed definition.
+
+### 44E. Gentle seams and the C5 sharing risk — verified local obstruction, global GAP
+
+I reran the small gentle-seam model with period vector (3,3), width three on each side, one solver worker and a five-second limit per solve. The unconstrained optimum is three crossings per period. Both current -1 and current 0 also have OPTIMAL cost three; current +1 has OPTIMAL cost nine in this phase convention. Saved assignments are in claim44_seam.json. This confirms the precise useful fact: switching between two current classes need not add any crossings to a seam already present for the field transition.
+
+The saved low-cost seams were also unrolled and checked, with independent exact tile-quarter counting. Both have twelve bad quarters per period: six holes and six multiplicity-two quarters. This is four bad quarters per unit seam displacement. This is a local periodic seam test, not a closed tour or a verification of the proposed residual K lemma. No model here includes the actual retained-candidate selections or subtracts their two quarters. Therefore it cannot prove either K in BQx or a counterexample to C5.
+
+The general accounting obstruction is direct: a lower bound on raw bad quarters of a carrier does not survive subtraction of flux-owned quarters without a joint statement. If a carrier supports k freed returns and q retained candidates, a raw bound BQ>=4k yields at best BQx>=4k-2q before any other losses. No relation between q and k, or positive residual density, is proved in the design. The same seam can be relevant to both tasks; separate proofs about it cannot be added.
+
+Nor does a collar odd-current price automatically leave a free row. If its strong rows are the rows already assigned to deficient candidates, K-collar's cost is entirely owned. A constant distance d0 removes some nearby changed ports from consideration; it does not create a new payment for their returns. C5 must show that a one-cycle tour has sufficiently many resources left AFTER these two removals.
+
+The old layout-G computations are not a counterexample: S10 reports that the tested minimal seam templates leave fixed trapped cycles, and the completed n=32 example uses a free seam band with additional cost. Treating those incomplete templates as closed tours would discard exactly the connectivity requirement under examination. Conversely, the finite failures do not prove that all wider or more general sharing layouts are trapped.
+
+### 44F. Labels, repairs and Pareto profile
+
+PROVEN / PASS: the exact mixed identities; deep-first selection among all payable quarters; simultaneous deep-quarter packing; geometric separation of deep quarters from S3; distinct strong-row ownership inherited from Claim 42.
+
+FAIL as stated deductions: B5-strip with coefficient one half implies the requested B5 coefficient one half on N_free; the table's proxy ratio establishes C5. The corrected deductions and required census are above.
+
+CERTIFIED in the small replayed model: two different gentle-seam currents attain the same minimum crossing cost. ARGUMENT / GAP: a uniform residual carrier price after flux subtraction, the ownership version of K-collar, B5 with shallow consumption removed, and C5 for closed tours. No closed-tour refutation was found.
+
+The most useful next action is the exact R-b census, followed by a JOINT small seam window with actual candidate-quarter marks and residual bad-quarter objective. Before building the width-three graph, choose whether the target is coefficient one for the stated B5 or coefficient one half for the weaker conclusion. This audit launches no such graph.
+
+Proof size and finite input: short ledger algebra, a code/data check of the current table, and four small single-worker CP-SAT seam solves plus saved-witness checks. No new crossing coefficient follows. The above-5n connectivity route remains open.

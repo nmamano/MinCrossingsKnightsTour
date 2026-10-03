@@ -39,3 +39,8 @@ k=12 (period x-length 24) w=3 J=+3 obj=bq: OPTIMAL value 72.0 bound 72.0  per un
 k=6 (period x-length 12) w=5 J=+3 obj=bq: FEASIBLE value 32.0 bound 22.0  per unit x 2.667 (bound 1.833)
 k=9 (period x-length 18) w=4 J=+3 obj=bq: INFEASIBLE value None bound None
 exit=0
+horizontal p=6 w=2 J=-3 obj=bq: OPTIMAL value 24.0 bound 24.0  per unit x 4.000 (bound 4.000)
+horizontal p=6 w=3 J=+3 obj=bq: FEASIBLE value 24.0 bound 18.0  per unit x 4.000 (bound 3.000)
+horizontal p=12 w=2 J=+3 obj=bq: FEASIBLE value 48.0 bound 28.0  per unit x 4.000 (bound 2.333)
+k=6 (period x-length 12) w=5 J=+3 obj=bq: FEASIBLE value 32.0 bound 24.0  per unit x 2.667 (bound 2.000)
+exit=0

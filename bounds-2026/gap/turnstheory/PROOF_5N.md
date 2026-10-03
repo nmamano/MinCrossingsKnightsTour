@@ -347,7 +347,20 @@ lemma, which this proof does not use. The exact identity (1) follows
 from its displayed hand calculation; saved-tour checks are checks
 of implementation, not its proof.
 
-For comparison, the author implementation can be run separately:
+For comparison, the author implementation can be run separately.
+Use the research virtual environment, as in the commands below. Its
+third-party requirements are **NumPy** (`numpy`) and **OR-Tools**
+(`ortools`, including `ortools.sat.python.cp_model`). NumPy is used by
+the graph/potential code. OR-Tools is imported transitively by
+`windows/w3_quarters.py` and `windows/w1_enum.py`, although this
+certificate run does not use a SAT solver. The other imports are
+Python standard-library or repository modules. A fresh environment
+needs both packages installed, not NumPy alone.
+
+The Integrator reports 31 seconds for UP and 42 seconds for DOWN on
+2026-10-03 (timings relayed by the Chief Researcher; not remeasured
+here). These author-run timings are separate from the independent
+Verifier's 22-second common-state rebuild and check.
 
 ```
 (cd gap/lowerbounds && ../../.venv/bin/python f1v_stab.py cert 1 1 up)
@@ -372,6 +385,7 @@ the potential join and the exact ledger. Finite input sizes are:
 | Endpoint coefficient identity | Eight contributing edges | Same combined run |
 | Quarter support | Four moves, 16 quarters | Same combined run |
 | Claim 42 geometry | One boundary exception, seven VIS pairs per orientation; every candidate for even n=32..258 | Separate runtime not recorded here |
+| Author certificate runs | 2,095,620 UP arcs; 4,191,240 DOWN arcs | Integrator-reported 31 seconds UP, 42 seconds DOWN, 2026-10-03 |
 | Strong strip certificate | 82,516 base states / 144,674 arcs; 184,006 mask states / 343,631 arcs; two integer potential arrays and their interface | About 22 seconds, one process, independent audit on 2026-10-03 |
 
 The 22-second figure is the Verifier's recorded rebuild and certificate

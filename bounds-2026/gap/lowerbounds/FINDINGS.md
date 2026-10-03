@@ -1,5 +1,61 @@
 # KT Lower Bounds - gap mission findings (gap/lowerbounds/)
 
+## B5 (2026-10-03, beyond 5n): joint side inequality with changed collar ports - NEGATIVE, c* = 0 exactly
+
+Task (CR): certify X_sigma - rows >= #g + c * N_re - C in the strip graph (g = F1-V strong row test, N_re =
+changed collar ports in the Structures definition, gap/structures/SHEET.md section 8). **Result: c* = 0 exactly**,
+in every strip variant tried. c = 0 is F1-V (CERTIFIED). Each variant has an explicit cycle with zero slack and
+changed ports. Code and logs: gap/lowerbounds/beyond5/.
+
+Blocking cycles (all CERTIFIED as exact cycles; slack = sum(crossings - 1 - g) over the period):
+1. **Requested form (S*, all changed ports).** LF4 n = 96, side 2, rows 12..17 repeated (period 6): S* crossings
+   10, g = 4 (up and down), slack 0, 6 ports, all 6 changed (3 non-steep (2,y)-(3,y+2) ports, 3 steep partners).
+   This is a frustrated V side (Structures 9.1). `periodic_check.py` verifies degrees, the absence of finite collar
+   cycles, and N_re by tracing collar paths. LF4 side 3 has the same with period 16 (slack 0, 16 changed ports).
+2. **S* can not see the pairing at all.** The U-turn collar, period 1: collar path (3,y-1)-(1,y)-(0,y+2)-(2,y+1)-(4,y+2).
+   Its S* edges (an end in column 0 or 1) are IDENTICAL to those of the cheap pattern P' (only the column-2 port
+   (2,y+1)-(4,y+2) differs from P', where it is (2,y+1)-(4,y)). So S* crossings = 1 per row, the test passes in
+   both orientations (F = 2, one exception edge, no VIS: g = 0), and both ports per row are changed (the collar
+   path joins a '\\' port to a '/' port). This kills every inequality that counts only S* crossings, for every
+   coefficient of g. Found by `joint_stab.py` (XW=2); recount by `pattern_check.py U`.
+   The U collar is NOT free: with all crossings in a wider window it costs 2 per row against 1 for P
+   (`collar_cost.py`, CP-SAT OPTIMAL, columns 0..K-1 exact, K = 8, 12, 16, periods 6, 8). So its price (1/2 per
+   changed end) exists, but it lies outside S* (it involves a column-2 edge).
+3. **Width-three crossings** (XW=3: pairs of edges with an end in columns 0..2), Q = all ports not on a local P
+   path: period-2 frustrated collar (one steep port per row, internal collar edges (2,y)-(1,y+2)): excess 2 =
+   g 2, 2 changed ports.
+4. **Width three, non-steep ports removed (Q = NLOC - 2 NS >= N_re - 2 NS), Q counted ONLY in rows with g = 0**
+   (all three repairs together): period-6 P' collar with defects. Excess 3 = g 3 (the defect rows), and the
+   neighbouring rows pass the test but have 5 changed steep ports.
+Root cause (ARGUMENT): the g price at rate 1 is tight on collar defect rows (the F1-V critical cycle is exactly
+this), and one collar defect changes the pairing of ports in neighbouring rows that pass the test. A changed
+port is a side effect of a defect that g already uses. In S* the pairing is invisible (cycle 2).
+
+Model (`joint_stab.py`, width-three strip): columns 0..2 collar, degree exactly 2; columns 3, 4 ghost, degree <= 2;
+no connectivity labels (no forest condition; the g-rate-1 inequality still holds in this model: potential range
+-37..0 in units 1/5). 771,890 states, 1,554,528 arcs (802,422 with the row accumulator). Changed ports enter as
+the local over-count NLOC = ports not on a local P path (>= N_re, so the direction is safe). On 8 real tours
+(FOLD n = 96, 192, FIELD, FOLDB1, FOLDP, FOLDX, FJOG, LF4, TT16) NLOC = N_re exactly on every side.
+Tour ledger (`tour_scan.py`, rows 8..n-9 per side, MEASURED): (XS - rows - g)/N_re = 0.79 (FOLD 96), 0.63 (FOLD 192),
+0.57 (FIELD), 0.67 (FOLDB1), 0.74 (FOLDX), 0.78 (FJOG), 0.94 (TT16), but 0.25 (LF4), with slack exactly 0 on the
+two V sides of LF4. With only steep-steep changed pairs (NSS) the per-side ratio is 1/2 on LF4 side 0 and TT16
+side 1, and 0.46 on FIELD side 0 (47 / 103, a side with 79 g rows).
+What could still work (CONJECTURE, not tested): a width-three count AND a changed-port count that excludes ports
+within a fixed distance of a g row (or of a non-steep port). The candidate price is 1/2 per changed end (Claim 28,
+the U collar). This is no longer a strip-local "reserve plus extra" statement; the defects must be shared between
+the deficient-path price and the pairing price.
+
+```sh
+cd gap/lowerbounds/beyond5
+../../../.venv/bin/python tour_scan.py ../../../w-integrator/tours/LF4_n96.json         # per-side ledger
+../../../.venv/bin/python periodic_check.py ../../../w-integrator/tours/LF4_n96.json 2 12 6   # cycle 1: slack 0, NRE 6
+../../../.venv/bin/python joint_stab.py up crit 1                     # cycle 2 (U collar), c* = 0   (joint_up_crit.log)
+../../../.venv/bin/python pattern_check.py U                          # U: 1 S* crossing/row, F = 2, no VIS
+../../../.venv/bin/python collar_cost.py U 12 8 300                   # U interior price: 2 per row (P: 1)
+XW=3 QMODE=all ../../../.venv/bin/python joint_stab.py up crit 1      # cycle 3 (joint_up_XW3_all.log)
+QROW=1 XW=3 QMODE=ns2 ../../../.venv/bin/python joint_stab.py up crit 1   # cycle 4 (joint_up_XW3_ns2_R1.log)
+```
+
 ## F (2026-10-03, phase 2d): F1 replaced by a width-two strip certificate - 5n route closes (pending audit)
 
 Task: R4 / F1 in gap/turnstheory/PROOF_5N_PLAN.md section 4. Result: F1 is NOT needed in its R4 form (residual

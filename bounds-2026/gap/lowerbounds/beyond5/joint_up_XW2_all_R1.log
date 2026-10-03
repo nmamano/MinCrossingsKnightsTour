@@ -1,0 +1,4 @@
+up: states 802422, arcs 1626670, build 47s
+  negative cycle: 5 arcs (1 rows), sum(5w-1-5g) = 0, sum Q = 2
+  -> c <= 0 = 0.000000
+up: CRITICAL c* = 0 = 0.000000; potential range -37..0 (units 1/(5b)), 50 passes

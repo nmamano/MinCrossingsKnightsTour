@@ -1,0 +1,3 @@
+shear 1/2 e=1/2 CUR=1/8: 10/1 (CERTIFIED: no cycle below); per level (E units) = 10/2 = 5.0000  (94s) => wall+zone bound per row = 5/8 ;   cycle mixed margin squares: 8 over 4 rows
+shear 2/5 e=1/2 CUR=3/20: 386/15 (CERTIFIED: no cycle below); per level (E units) = 386/30 = 12.8667  (261s) => wall+zone bound per row = 193/300 ;   cycle mixed margin squares: 44 over 30 rows
+shear 3/7 e=1/2 CUR=1/7: 190/21 (CERTIFIED: no cycle below); per level (E units) = 190/42 = 4.5238  (313s) => wall+zone bound per row = 95/147 ;   cycle mixed margin squares: 44 over 42 rows
