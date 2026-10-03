@@ -1,0 +1,5 @@
+cut states 3136 row arcs 48510 distinct pending edges 12
+up passes 8 potential range -24 0
+down passes 8 potential range -28 0
+interface h_up - h_down range 0 4
+per-side bound: G_sigma <= X_sigma - rows + 28 / 4

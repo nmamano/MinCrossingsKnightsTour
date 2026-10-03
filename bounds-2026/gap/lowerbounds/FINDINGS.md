@@ -1,5 +1,13 @@
 # KT Lower Bounds - gap mission findings (gap/lowerbounds/)
 
+## S1 (2026-10-03): simpler section 5 for PROOF_5N.md - see SIMPLE_STRIP.md
+
+**Result.** No hand proof at rate one found. Best option: a cut-state certificate (state = the set of S-edges that cross
+a row cut; 3,136 states, 48,510 row arcs, NO forest condition, 4 s, 40 MB; side constant 28 instead of 37; CERTIFIED,
+`simple_strip/check_cut_certificate.py`, self-contained). Hand identity (K): 2X_sigma = 2n + 6 + nonnegative local
+terms, so X_sigma >= n+3 by hand (PROVEN; MEASURED exact on 112 tour sides). A Q -> P switch leaves two g-rows unpaid
+for an unbounded number of rows, so bounded-window hand arguments get rate about 1/2 at most (4.5n < 24n/5): route (b) is not useful.
+
 ## B5f (2026-10-03): the U collar is NOT the J-cheapest filling of its width-6 pairing class (BEYOND5 13.4 / 13.5)
 
 **Result (CHECKED two ways).** A period-1 filling R of the same width-6 boundary, with the same U pairing, has

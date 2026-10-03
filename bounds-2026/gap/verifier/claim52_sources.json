@@ -1,0 +1,17 @@
+{
+  "captured_utc": "2026-10-03T18:33:57.157099+00:00",
+  "sha256": {
+    "w-turnstheory/check_knight_tiles.py": "6a1f68faf26e1f7f5bcd8032f701d2116c8ff101d07747f54529e9650a38877c",
+    "w-turnstheory/check_corner_box.py": "499776b5b62318d7be206708c21d4b8e6de86e386ee29a37bdf40e12a072c92e",
+    "w-turnstheory/check_square_defects.py": "2d1845f7db28761ca1e46bee23d77f37a6feb0401f749123ea5f0f7ffe7dc679",
+    "gap/lowerbounds/simple_strip/check_cut_certificate.py": "ee709ae11da7499b9810e2488c98d61cdeed6756a1bed8d756e4d883ae610307",
+    "gap/verifier/claim50_check.py": "b53af5c7b8e153116bc17aa6608056ba7ec07c2a2e7835bfd360b771fb8f7b98",
+    "gap/verifier/claim36_FOLD_n144.json": "c548b9f5738af52bbd454ec56346e380bc731e633c3e8e414679b441a385aa21",
+    "gap/verifier/claim47_patched_n288.json": "fea6b7432e3784f18b60f4da566a7a845ce2e566077f868c3b0aa67b6a70ec3d",
+    "w-integrator/tours/FJOG_n132.json": "f0eea35ebd41ee60408b7b89f6cc6bd5a187f2d8bf05aeb342506f1469abb1d9",
+    "gap/turnstheory/PROOF_5N_V2.md": "6a1cf5384768b3ef5622d2ec5665a2197e23dfd00b82653116d2894a6aea602d",
+    "gap/verifier/claim52_check.py": "42ab2a676e27da801d6cf302f2fe33bd6e71ea70541ba9e7b5acea2ea89fba14",
+    "gap/verifier/claim52_check.json": "8a072f65851656c20310f4278d6867a52107b061cb46f63f161d9b68767c7377",
+    "gap/verifier/claim52_twofactor_n144.json": "aafc3cf852268c606432f835e757a066f643af3e85cc86f712de6ed171a29e98"
+  }
+}

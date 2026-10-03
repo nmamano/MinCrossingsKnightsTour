@@ -1,0 +1,99 @@
+{
+  "date": "2026-10-03",
+  "outer_exception_up": [
+    [
+      [
+        [
+          0,
+          0
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          3
+        ]
+      ]
+    ]
+  ],
+  "outer_exception_down": [
+    [
+      [
+        [
+          0,
+          -1
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      [
+        [
+          0,
+          0
+        ],
+        [
+          2,
+          -1
+        ]
+      ]
+    ]
+  ],
+  "twofactor_components": [
+    19494,
+    1242
+  ],
+  "cross_component_pairs": 72,
+  "kept_paths_meeting_both_cycles": 55,
+  "example_kept_path": [
+    0,
+    0,
+    12
+  ],
+  "scalar_check": {
+    "file": "gap/verifier/claim52_twofactor_n144.json",
+    "n": 144,
+    "X": 1030,
+    "E": 456,
+    "s": 784,
+    "T": 210,
+    "b": 47,
+    "N": 228,
+    "M": 219,
+    "z": 9,
+    "D": 581,
+    "X1": 331,
+    "usable_quarters": 1266,
+    "scalar_bound": 1404,
+    "chosen_quarters": 438,
+    "all_checks_pass": true
+  },
+  "side_crossings": [
+    199,
+    202,
+    207,
+    203
+  ],
+  "all_row_walks_pass": true
+}

@@ -1,0 +1,4 @@
+PASS: all 8 top-end edges straddle the one critical row.
+PASS: top and right end flux = chi(R) for either pattern sign.
+PASS: new endpoint test equals the earlier test plus degree two.
+PASS: outside flux + end flux = 1 + 3 chi(R) = 1 mod 3.

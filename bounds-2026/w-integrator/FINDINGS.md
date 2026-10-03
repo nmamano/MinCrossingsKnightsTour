@@ -438,3 +438,11 @@ Role: KT Integrator; manager = Chief Researcher (agent-1790895858902-etft). Miss
 - Upper-bound wall study closed (no-go), see sections above. knights-tour-bounds archived (CR).
 2026-10-03 16:10 UTC: routine sync pushed 0696598 (191 files, gap/ claims 46-48, wall, beyond5). New rule: fresh-copy audit runs
 gap/verifier/claim*_run/ are excluded in sync_public.sh and ignored in bounds-2026/.gitignore (claim46_run was a 446-file repo copy).
+2026-10-03 (CR): beyond-5n research wound down; final-status sync pushed 1c29f64. NEW HOLD: gap/lowerbounds/SIMPLE_STRIP* and
+gap/turnstheory/PROOF_5N_SIMPLE* (simpler 5n proof drafts) stay unstaged until the CR says they are audited. Staging command now:
+git add -A -- . ':!README.md' ':!bounds-2026/README.md' ':!bounds-2026/RESULTS.md' ':!bounds-2026/writeup' ':!bounds-2026/explain' ':!bounds-2026/gap/lowerbounds/SIMPLE_STRIP*' ':!bounds-2026/gap/turnstheory/PROOF_5N_SIMPLE*'
+2026-10-03 18:30 UTC: routine sync HELD (nothing pushed). All new files are simple-5n work: gap/lowerbounds/simple_strip/,
+gap/turnstheory/PROOF_5N_V2.md, gap/verifier/claim50_*, claim51_* (+ FINDINGS updates). Asked the CR if the hold covers them
+(default: hold all). simple_strip/graph.pkl (16 MB) excluded by the script, reported to the CR.
+2026-10-03 (CR answer): hold ALL simple-5n work (simple_strip/, PROOF_5N_V2.md, claim50/51, FINDINGS updates) until Claim 52
+(audit of PROOF_5N_V2.md) passes; then one push. graph.pkl stays excluded (the checker regenerates it). The CR will say when.

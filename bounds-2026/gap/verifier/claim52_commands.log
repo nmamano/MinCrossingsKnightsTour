@@ -1,0 +1,5 @@
+{'command': 'python3 w-turnstheory/check_knight_tiles.py', 'exit': 0, 'seconds': 0.42398365610279143, 'log': 'gap/verifier/claim52_command_0.log'}
+{'command': 'python3 w-turnstheory/check_corner_box.py', 'exit': 0, 'seconds': 0.07857305882498622, 'log': 'gap/verifier/claim52_command_1.log'}
+{'command': 'python3 w-turnstheory/check_square_defects.py', 'exit': 0, 'seconds': 0.4360817049164325, 'log': 'gap/verifier/claim52_command_2.log'}
+{'command': '.venv/bin/python gap/lowerbounds/simple_strip/check_cut_certificate.py', 'exit': 0, 'seconds': 5.376573265064508, 'log': 'gap/verifier/claim52_command_3.log'}
+{'command': 'python3 gap/verifier/claim50_check.py', 'exit': 0, 'seconds': 8.513036981923506, 'log': 'gap/verifier/claim52_command_4.log'}

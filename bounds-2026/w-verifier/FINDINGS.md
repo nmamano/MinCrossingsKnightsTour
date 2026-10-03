@@ -5980,3 +5980,398 @@ From the research root:
 `claim49_census.py` runs the old depth-3 version; `claim49_census6.py` runs the diagnostic depth-6 version. Saved census JSON files have the matching `claim49_` or `claim49_w6_` prefix. Sources and witness hashes are recorded in `claim49_sources.json`.
 
 Finite input: a finite enumeration of 2,964 switches in one n=144 tour, one saved switched tour, and exact censuses of the listed tours. No transfer graph or new solver certificate was used. The result is a bounded red-team search with a stated scope, not an asymptotic lower-bound proof.
+
+
+## Claim 50: smaller cut-state strip certificate — 2026-10-03
+
+**PASS.** Option C in `gap/lowerbounds/SIMPLE_STRIP.md` is a sound replacement for section 5 of `gap/turnstheory/PROOF_5N.md`. An independent implementation reproduces all 3,136 states, 48,510 row arcs, both potentials and the common-state interface. The hand identity (K) is correct. Section 6 can keep its current algebra and the stated bound X>=5n-612 for even n>=32.
+
+No source proof or blog post was edited. This audit concerns option C, its interface and (K). It does not certify the separate impossibility/optimality claims about proposed hand proofs in SIMPLE_STRIP sections 2.4 and 3.
+
+## 50A. Soundness of the graph — PASS
+
+Fix a physical side and use inward column x and along-side row y. An edge touching column zero or one has both endpoints in columns zero through three. Knight edges have row span one or two and no horizontal edge occurs. There are eight possible edges whose lower endpoint is in a given row: four of span one and four of span two. Therefore the cut below row zero has twelve possible pending edges.
+
+Use relative coordinates at each row r. The state below it consists exactly of selected strip edges with lower row less than r and upper row at least r. A row arc chooses all selected strip edges with lower row r. Its incoming degrees plus chosen outgoing degrees must equal two in columns zero and one and be at most two in columns two and three. Future upper-endpoint loads are at most two. These are necessary conditions for every actual S_sigma. No connectivity, forest, or pairing-label assumption is imposed.
+
+After processing row r, remove edges ending at that row, retain every edge ending above it, and translate y by minus one. This is exactly the state below row r+1. An actual board starts with the empty state below row zero and ends with the empty state above row n-1. Induction on the rows maps its entire S_sigma to a walk in the generated graph. In particular every actual half-side boundary state is reachable from the empty board boundary through the actual preceding rows. The enumeration does not need to contain arbitrary abstract masks that cannot occur in such a prefix.
+
+The potential inequalities hold at every generated state, so the half-side proof permits arbitrary generated start/end states. The initial all-zero Bellman-Ford vector supplies that uniform potential certificate; it must not be confused with the separate reachability argument for the graph itself.
+
+### Crossing ownership
+
+The row weight counts every new-edge/pending-edge proper crossing and every unordered pair of new edges that crosses. Consider any selected crossing pair and the later of its two lower endpoint rows. If those rows differ, the older edge must still be pending: an edge ending below the later row cannot cross the interior of an edge starting at or above that row. If both edges start in the same row, their pair is counted by the new/new term. Thus every proper crossing is counted once, including pairs that straddle the half-side split. Shared endpoints are excluded by the strict determinant test.
+
+The strip walk has n row arcs, not 4n cell arcs. Their total weight is exactly X_sigma. Keeping the common pending set at row n/2 preserves crossing ownership across the orientation change; no crossing term is lost at the join.
+
+### Endpoint tests and VIS
+
+The full set of selected edges meeting row r is the incoming cut set union the new edges. Edges that merely pass through row r, with no endpoint there, are also included. All eight endpoint-test edges, the exception pair and both orientations' VIS edges meet that row. The needed flags are therefore functions of a row arc's mask. They are not asserted to be functions of a single cut state alone.
+
+The independent checker derives VIS directly from exact tile-quarter intersections, rather than copying the author's seven-pair table. It finds seven pairs for square row zero in the up orientation and seven for square row minus one in the down orientation. Those sets agree exactly with the author's table and its reflection. The eight endpoint coefficients agree with the proof's table. Reflection changes the tested geometry; it does not reverse the scan or justify equating the two potentials.
+
+No extra parity state is needed. The endpoint test is F=2 modulo three with the exception absent in either row parity, and VIS has no parity dependence. The parity-sensitive endpoint residue was already handled when deriving which candidates are retained.
+
+## 50B. Independent reconstruction — CERTIFIED
+
+`gap/verifier/claim50_check.py` is a standalone standard-library implementation. It imports neither project modules nor the author's checker. Its construction differs from the author's recursive degree choices: it enumerates all 256 subsets of the eight possible new edges, then filters by present and future degrees. States are 12-bit masks. Potentials are computed by synchronous integer relaxation in Python lists, without NumPy.
+
+For geometry, it constructs each tile's four integer vertices and uses exact convex-hull half-plane tests on quarter centroids scaled by six. Every tile is checked to contain four quarters. It derives both VIS lists from those quarters and uses strict integer determinant tests for proper crossings.
+
+| Quantity | Independent result |
+| --- | ---: |
+| Reachable cut states | 3,136 |
+| Row arcs | 48,510 |
+| Possible pending edges | 12 |
+| Edges meeting a row | 20 |
+| UP / DOWN VIS pairs | 7 / 7 |
+| UP potential range | [-24,0] |
+| DOWN potential range | [-28,0] |
+| Fixed-point passes | 8 / 8 |
+| Minimum arc slack | 0 / 0 |
+| h_up - h_down | [0,4] |
+| Conservative per-side error, scaled by four | 28 |
+
+The independent script checks every inequality
+
+    4w-4-4g+h(u)-h(v) >= 0.
+
+It also maps all rows of all four sides of three saved closed tours to actual graph arcs: FOLD n=144, the Claim 47 patched n=288 tour, and FJOG n=132. On each of these twelve side strips it verifies empty initial/final states, equality of total arc weight with a direct proper-crossing count, both endpoint orientations, and the claimed side bound. These are extra implementation checks; the all-tour map is the argument in 50A.
+
+The independent run, including these geometric and tour checks, took 8.17 seconds on 2026-10-03. The author checker was also rerun successfully, with its output arrays redirected by an isolated working directory under `gap/verifier/claim50_author_run/`. It reproduced its stated values. Finally `claim50_compare.py` matched states by their actual pending-edge sets and compared all row arcs, both flags, crossing weights and every potential value. All agree exactly. The author's saved potential arrays are not inputs to the independent reconstruction.
+
+## 50C. Interface and section 6 — PASS
+
+At the common cut m, sum the UP inequalities before the split and the DOWN inequalities after it:
+
+    4(X_sigma-n-G_sigma)
+      >= h_up(m)-h_up(a)+h_down(z)-h_down(m)
+      >= min(h_up-h_down)-max(h_up)+min(h_down)
+      = 0-0-28 = -28.
+
+Hence each side has G_sigma<=X_sigma-n+7. The four sides give
+
+    G_strong <= sum_sigma X_sigma-4n+28.
+
+The audited corner overlap estimate is unchanged: sum_sigma X_sigma-s<=1104. With T=s-4n+2 this gives
+
+    G_strong <= s-4n+1132 = T+1130 <= T+1160.
+
+Thus option C supplies exactly the scalar input section 6 needs, with a stronger intermediate constant. It uses the same strong flag, the same half-side orientations, the same X_sigma crossing-pair counts and the same union s. No replacement of the quarter capacity nu or additional ownership assumption is required.
+
+Keep the existing identity and inequalities:
+
+    E+580 = nu+(T+1160)/2,
+    nu >= (L-L_def)/2,
+    G_strong >= D_loss+L_def.
+
+The existing conclusion remains
+
+    E+580 >= (L+D_loss)/2 = n-30,
+    X = E+4n-2 >= 5n-612.
+
+No reserve is spent twice. Connectivity is no longer an assumption of the finite strip input, because this graph permits cycles. Any change of the full theorem's stated scope should be made explicitly; it is not needed for this requested replacement.
+
+### Integration details
+
+Replace the cell-graph/forest and full-mask paragraphs with the row-cut construction. Use 4w-4-4g in the row-arc inequality, not the old cell-arc 4w-1-4g. Replace the interface range by [0,4] and the per-side calculation by -28. Equation (8) can display the sharper T+1130<=T+1160. Keeping the old looser T+1139 bound would also remain valid, but would hide the new calculation.
+
+Remove the sentence that the forest condition is where connectivity enters section 5. Explain reachability through the actual whole-board prefix and that g belongs to the row arc. Update the reproduction paragraph to name the new checker and this audit. No change to section 6 or the stated theorem constant is required. The proposed optional 597 constant follows if the reserve identity is correspondingly rewritten with 1130, but this audit does not recommend a constant-only theorem edit.
+
+## 50D. Hand identity (K) — PASS
+
+Let a,b,c,d count strip edges joining column pairs {0,1}, {0,2}, {1,2}, {1,3}. The degree-two equations a+b=2n and a+c+d=2n are correct: each listed edge contributes once to the indicated boundary column. The tile masses in square columns zero and one are respectively 4a+2b and 2b+4c+2d. There are exactly 4(n-1) board quarters in each column, and all tiles meeting them belong to S_sigma.
+
+Writing exc_j=sum(m-1)_+ and H_j for holes in column j gives
+
+    exc0 = 2a+4+H0,
+    exc1 = 4n-4a+2c+4+H1,
+    exc0+exc1 = 2n+6+H0+c+(H1+exc1)/2.
+
+Also H1+exc1=sum_col1 |m-1|. The tile-overlap identity for this strip is
+
+    2X_sigma-X1_sigma = sum_q binom(m(q),2).
+
+For covered quarters in columns zero and one split binom(m,2) into (m-1)+binom(m-1,2); in outer columns leave it unchanged. Substituting the displayed excess sum proves (K), with all the remaining terms nonnegative. Thus X_sigma>=n+3. Board-boundary tile containment is essential to the finite masses above and holds here.
+
+The independent checker verifies exact equality in (K), using integer arithmetic after multiplying by two, on the same twelve actual side strips. This is a light check in addition to the complete algebra above. The identity uses degrees, not connectivity. It proves the base crossing rate; it does not alone prove the extra payment per strong row.
+
+## Evidence, reproduction and proof size
+
+From the research root:
+
+    python3 gap/verifier/claim50_check.py
+    OPENBLAS_NUM_THREADS=1 .venv/bin/python gap/verifier/claim50_compare.py
+
+The comparison command expects the author arrays from the saved isolated rerun. The standalone independent command needs no such arrays or NumPy. Results are in `claim50_check.json`, `claim50_potentials.json`, `claim50_compare.json` and their logs. `claim50_author.log` records the author rerun; `claim50_sources.json` records source hashes.
+
+Proof size: a short row-cut soundness and telescoping argument plus a 3,136-state/48,510-arc integer potential certificate. The author checker is 111 source lines; the independent checker is 134 lines including its tour and hand-identity checks. Compared with Claim 42, this removes path labels, cycle rejection and the separate full-mask state augmentation while keeping the same geometric and scalar proof inputs. It is a genuine simplification of the finite input, not a weaker proof interface.
+
+
+## Claim 51: strong-end filtering and scalar quarter proof — 2026-10-03
+
+**PASS.** Section 1 of `gap/turnstheory/PROOF_5N_SIMPLE.md` correctly proves
+
+    X >= 5n-(32+C/2)
+
+from the stated global strip black box T>=b-C, for even n>=32. In particular C=1160 gives 5n-612. The keep rule, distinct-row injection, usable-quarter exclusion, scalar inequality and final algebra are valid. The black box is exactly the one supplied by Claim 42, or by the smaller certificate audited in Claim 50.
+
+This is a genuine shortening of the hand argument. No deficient-path case split, private resource allocation or good-middle lemma is needed. It still depends on the audited tile/flux/endpoint geometry and the strong strip certificate. No source proof or blog post was changed.
+
+## 51A. KEEP and z<=b — PASS
+
+A row is strong if at least one of the following holds: the oriented F value differs from two modulo three, the endpoint exception is present, or VIS is present. Thus a kept candidate has both ordinary endpoint tests passing, both exceptions absent and both visibility flags zero.
+
+For each corner, the radii 12 through n/2-4 give n/2-15 candidates; over four corners N=2n-60. The squares on one candidate have maximum corner coordinate r. Different radii therefore use different squares. The four corner boxes are disjoint in the stated range.
+
+On a fixed physical side, the two corners use vertex rows in the disjoint intervals
+
+    [12,n/2-4] and [n/2+3,n-13].
+
+Each row in these intervals belongs to one candidate only. Choose one strong endpoint of each discarded candidate. The chosen objects are (physical side, vertex row) pairs, precisely the objects counted by b. This is an injection, even when a discarded candidate has two strong endpoints or a crossing contributes to more than one physical strip. Hence z<=b. Extra strong rows outside the candidate-end intervals only make the inequality easier.
+
+The first interval uses UP and the second DOWN. At a DOWN vertex row t the endpoint square has row t-1, as required by the audited test. No parity bit or unshifted reflection is being substituted.
+
+## 51B. Each kept path supplies two distinct bad quarters — PASS
+
+Write c=(-1)^r. The audited passing-endpoint calculation gives each endpoint residue two modulo three. Their sum is one modulo three, so the internal candidate is charged. This use of the endpoint lemma needs only its passing case, not a retention classification for the other values.
+
+Equivalently, combining the two endpoint and outer-boundary terms gives the congruence
+
+    outside flux = 1+c(F_left+F_bottom+5) modulo three
+                 = 1 modulo three,
+
+because both F values are two modulo three. This also explains the source's representative 1+3c. Only the congruence, and hence nonzero charge, is needed.
+
+If every quarter in the squares traversed by the candidate were good, the local flux identity would give zero modulo three on every dual step. Thus some traversed square has a bad quarter. Every tile contributes equally to the two alternating pairs of quarters in a square; consequently m_B-m_R+m_T-m_L=0. Three multiplicities equal to one force the fourth to equal one. A bad square therefore has at least two bad quarters.
+
+The two selected quarters can be taken from this one bad square. Candidate squares are disjoint, so selecting two per kept path produces 2M distinct quarters, without a matching or allocation argument.
+
+## 51C. No forbidden overlap — PASS
+
+Suppose a quarter on a kept path has multiplicity two and its unique pair belongs to S with a two-quarter overlap. Choose a physical side whose strip contains both edges. Every such strip edge touches vertex column zero or one and reaches vertex depth at most three. Its open quarters have square depth at most two.
+
+A candidate square is (r,j) or (j,r) in its corner frame, with r>=12. If it is within square depth two of a side, that side is the corresponding endpoint side and its along-side square row is the endpoint row in the appropriate orientation. The other local side has depth r, and the opposite board sides have depth at least n-2-r>=n/2+2. Thus no unrelated side can supply the assumed overlap.
+
+There are now exactly the two audited geometric cases:
+
+* If both edges touch the outer column, a pair that reaches a candidate end square is the endpoint exception (or its reflected copy). The ordinary endpoint test would fail.
+* Otherwise the two-quarter overlap is a VIS witness for that endpoint. The end would be strong.
+
+Both contradict KEEP. DOWN uses the reflected square row, not the same square row as UP. Claim 42's one-exception/seven-VIS geometry and Claim 50's independent reflected VIS derivation cover exactly these cases.
+
+Hence every bad quarter on a kept path is usable under the new definition. In particular the 2M quarters from 51B are usable. The proof does not require a separately named outer-column pair set B, a test only at large radii, or an interior-versus-end payment split.
+
+## 51D. D+X1=2E and the scalar count — PASS
+
+All sums here must be over the 4(n-1)^2 quarters of board squares. For an integer multiplicity m>=0, put
+
+    d(m)=binom(m,2)-m+1=(m-1)(m-2)/2.
+
+Then d(0)=1, d(1)=d(2)=0 and d(m)>=1 for m>=3. In particular the summand is nonnegative; the polynomial notation at m=0 is expressly valid in this definition.
+
+There are n^2 selected knight edges and four quarter incidences per tile. The one/two-quarter overlap lemma gives sum binom(m,2)=2X-X1. Therefore
+
+    D = 2X-X1-4n^2+4(n-1)^2 = 2E-X1,
+    D+X1=2E.
+
+This proves E>=0 as well. It includes every hole and every higher-multiplicity term, with no missing boundary correction.
+
+For any set Q of usable bad quarters, split it by multiplicity. The multiplicity-zero and multiplicity-at-least-three quarters number at most D, because each contributes at least one to D. Every remaining quarter has m=2 and a unique covering pair. If that pair is outside S, it can account for at most two such quarters; there are X-s outside pairs. If the pair belongs to S, usability forces a one-quarter overlap, and it accounts for at most one quarter counted by X1. Thus
+
+    |Q| <= D+2(X-s)+X1
+         = 2E+2(X-s)
+         = 4E-2T.
+
+S must be the UNION of within-side crossing-pair sets, as defined in the source. Replacing s by the sum of the four side counts would invalidate this interpretation of X-s. Counting some outside-S one-quarter pairs again in the X1 upper bound causes no problem: the argument is an upper bound on |Q| by larger counts, not a claim of a disjoint capacity allocation.
+
+## 51E. Finish and black-box match — PASS
+
+Apply the scalar inequality to the 2M selected usable quarters, and then use the black box and row injection:
+
+    4E >= 2M+2T
+        >= 2(N-z)+2b-2C
+        >= 2N-2C.
+
+Since N=2n-60 and X=E+4n-2, this is exactly
+
+    E >= n-30-C/2,
+    X >= 5n-(32+C/2).
+
+There is no need for T to be nonnegative and no need to retain all charged paths. Discarding a formerly payable path is harmless because its selected strong row is already covered by the SAME global numerical black box.
+
+The notation matches the certified inputs as follows:
+
+| Simple proof | Audited strip input |
+| --- | --- |
+| S, a union of crossing-pair sets | S* in PROOF_5N.md / Claim 42 |
+| s=|S| | Same union cardinality |
+| b | G_strong, one OR flag per oriented side row |
+| F, exception, VIS | Same eight coefficients, pair and visibility geometry |
+| UP/DOWN split | Same first-half/second-half scan, DOWN square row r-1 |
+| T=s-4n+2 | Same T |
+
+Claim 42 proves b<=T+1139, hence b<=T+1160. Claim 50 proves b<=T+1130, again implying exactly (S) with C=1160. The four-side union correction 1104 is already included in these constants. It is not added or spent again in section 1.
+
+The source's fallback C=1164 is also correct for the old separately bounded half-side potentials: the per-side error is (29+33)/4=31/2; four sides and the corner correction give b<=s-4n+1166=T+1164. This yields 5n-614. No fallback is necessary when using either audited common-state interface.
+
+The direct proof applies for even n>=32. For the two numerical choices C=1160 and C=1164, the stated smaller positive even sizes satisfy the inequality trivially because the right-hand side is negative.
+
+## 51F. Small clarifications for the presentation
+
+No mathematical repair is needed. Two one-line clarifications would make the shorter text fully explicit:
+
+1. Before defining D, add: “All quarter sums are over the 4(n-1)^2 quarters of the board squares.” Otherwise a reader extending m=0 outside the board could misunderstand the summation domain.
+2. Express the passing-case flux statement as a congruence: “The passing endpoint calculation gives outside flux congruent to 1+3*(-1)^r, hence to 1 modulo three.” The proof uses a modular representative, not a fixed exact integer flux value for every passing edge configuration.
+
+The source's “option C awaits independent audit” notes are now superseded by Claim 50. This audit did not edit them.
+
+## 51G. Degree-two scope
+
+The hand proof uses simplicity, legal knight edges, spanning degree two, the finite board and the strip black box. It does not use one-cycle connectivity. In particular n^2 edges and the mod-three zero circulation follow from degree two; all crossing-pair counts include pairs from different components if present.
+
+Claim 50's cut-state input also uses only the strip degree constraints and includes cycles. Thus this simplified proof together with Claim 50 supports the stated section-7 extension to spanning SIMPLE knight 2-factors, with X counting all proper unordered crossing pairs. The old forest certificate alone would not justify that extension. No connected-tour hypothesis is silently used in the new filtering or scalar count.
+
+## 51H. Checks and proof size
+
+The hand arguments above are the audit. As an extra implementation check, `claim51_check.py` uses the independent Claim 50 tile geometry and flags to count the new kept set, all usable quarters, endpoint ownership and both scalar identities on three saved tours:
+
+| Tour | N | M kept | z discarded | b | D | X1 | Usable quarters | 4E-2T |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| FOLD n=144 | 228 | 219 | 9 | 45 | 574 | 326 | 1253 | 1386 |
+| Claim 47 patched n=288 | 516 | 471 | 45 | 81 | 1562 | 898 | 3081 | 3882 |
+| FJOG n=132 | 204 | 169 | 35 | 66 | 1158 | 240 | 2158 | 2566 |
+
+All checks passed. In each case every bad quarter of every kept path is usable, the selected 2M quarters are distinct, the chosen strong rows for discarded paths are distinct, and D+X1=2E exactly. The examples are not a substitute for the all-board proofs above.
+
+Run `python3 gap/verifier/claim51_check.py` from the research root. Results are in `claim51_check.json` and `claim51_check.log`; source hashes are in `claim51_sources.json`.
+
+Proof size: the shared tile/flux/passing-endpoint geometry, a keep/discard injection, one bad-square argument, one exclusion argument and one scalar count. The numerical finite input remains the strong strip certificate; with Claim 50 it has 3,136 states and 48,510 arcs. No new finite theorem, component classification, Hall argument or untrapping lemma is needed for this reorganization.
+
+
+## Claim 52: assembled 5n-597 proof and 2-factor theorem — 2026-10-03
+
+**Closed-tour theorem: PASS.** Every closed knight tour on an even n by n board with n>=32 has X>=5n-597 proper unordered crossing pairs.
+
+**Spanning simple 2-factor theorem: PASS.** The same bound holds for every spanning simple knight 2-factor, with X counting all proper unordered crossing pairs, including pairs whose edges belong to different cycles.
+
+The assembled argument preserves the mathematics audited in Claims 50 and 51. The constant 597 is correct. All five listed reproduction commands passed. Two small text corrections below concern the lattice convention and a checker attribution; neither requires a new mathematical input. No proof or blog source was edited.
+
+## 52A. Audited object and assembly
+
+The object was snapshotted as `gap/verifier/claim52_proof_snapshot.md` at 2026-10-03T18:33:57.157099+00:00. Source hashes are in `claim52_sources.json`. The source is `gap/turnstheory/PROOF_5N_V2.md`.
+
+Section 1 retains the exact full-graph tile count. Its D includes holes through the polynomial value at m=0, and the sum is explicitly over board quarters. S is correctly a union of crossing-pair sets. The usable-quarter inequality is the scalar inequality audited in Claim 51, with no hidden disjoint allocation assumption.
+
+Sections 2 and 3 retain the necessary local flux identity, zero circulation, alternating square identity, eight endpoint coefficients, exception and visibility definitions. The endpoint table agrees with the checked table. DOWN uses square row r-1. The passing-case boundary congruence is written explicitly, so the old residue classification is unnecessary.
+
+Section 4 keeps the correct radii, N=2n-60, disjoint squares and disjoint endpoint rows. A kept path has two non-strong ends, is charged, and supplies two bad quarters. A forbidden two-quarter strip overlap would force the correct endpoint's exception or VIS; all such quarters are therefore usable. No small-radius error, deficient-path argument, or private-payment lemma has been omitted from a place where it is still needed. The new proof genuinely does not require them.
+
+Section 5 matches Claim 50's row graph: twelve possible pending edges, degree two in the first two columns, degree at most two in the next two, all needed edges in the row-arc mask, no cycle restriction, and exact crossing ownership. The actual prefix from an empty board cut establishes reachability of each half-side state. The n arc weights sum to the side's crossing count even across the orientation split. Both strong flags are computed on the same graph. The potentials and their interface have the audited values.
+
+Section 6 uses the same keep/discard elimination as Claim 51. It changes only the numerical black-box constant and the resulting theorem constant.
+
+## 52B. Recompute the new constant
+
+For each physical side, the potentials satisfy
+
+    4w-4-4g+h(u)-h(v) >= 0,
+    h_up in [-24,0], h_down in [-28,0],
+    h_up-h_down in [0,4].
+
+With start, middle and end cut states a,m,z, telescoping gives
+
+    4(X_sigma-n-b_sigma)
+      >= (h_up(m)-h_down(m))-h_up(a)+h_down(z)
+      >= 0-0-28 = -28.
+
+Hence b_sigma<=X_sigma-n+7. Four physical sides contribute error 28, not 28 per side after rescaling. Their overlap correction is at most 1104: opposite strips have no common edges in the size range, and a pair common to adjacent strips lies in their 4-by-4 corner square. There are 24 possible knight edges there, giving at most binom(24,2) per corner. This estimate does not depend on which graph components contain the edges.
+
+Therefore
+
+    b <= sum_sigma X_sigma-4n+28
+      <= s-4n+1104+28
+      = T+1130,
+    C = 28+1104-2 = 1130.
+
+Now M=N-z, z<=b and 4E>=2M+2T imply
+
+    4E >= 2(N-z)+2(b-C) >= 2N-2C,
+    E >= n-30-C/2,
+    X >= 5n-(32+C/2) = 5n-(32+565) = 5n-597.
+
+All quantities and constants have the correct units. There is one global C; no per-run or per-chamber error appears. The new constant uses a valid conservative side estimate, not an unproved sharpness assertion. For smaller positive even n<32, 5n-597 is negative, so the same numerical inequality follows from X>=0.
+
+## 52C. Why the 2-factor theorem is valid
+
+The required hypothesis is a SPANNING SIMPLE degree-two subgraph of the board's knight graph. Counting only crossings within each cycle would be a different statistic and would not satisfy the proof's identities.
+
+1. **Mass and pair counts.** Degree two gives exactly n^2 edges. Each distinct edge contributes four quarters. At a quarter of multiplicity m, binom(m,2) counts every unordered pair of covering edges, regardless of component. Thus D+X1=2E and the usable-quarter bound remain valid with cross-component crossings included.
+
+2. **Flux.** Edges are oriented by the checkerboard sign chi, not by following a tour. The one-edge identity is linear in the selected edge indicators. At any board vertex the graph's signed divergence is chi(v) deg_H(v)=2chi(v). Adding the full unit lattice contributes another 4chi(v), so the combined divergence is 6chi(v), zero modulo three. A finite-set boundary sum telescopes edge by edge; no component needs to be connected to any other component.
+
+3. **Candidate paths meeting several cycles.** A candidate is a path in the grid of square centres, not a path in H. Its flux sums the contributions of every graph edge it crosses. A candidate may cross many cycles, revisit the same cycle, or have quarter multiplicities formed by several cycles. The boundary-divergence identity and local multiplicity formula still apply to their sum. Passing endpoint tests force its total charge to be nonzero. If all its adjacent quarters were good, every local dual step would have zero flux modulo three, a contradiction. Component membership cannot cancel this implication.
+
+4. **Endpoint filtering and overlap exclusion.** The endpoint coefficient identity uses deg_H(0,r)=2, not a traversal of a Hamiltonian cycle. The exception/VIS rules refer to geometric pairs of selected edges and include pairs from different cycles. The square and row disjointness are fixed board geometry.
+
+5. **Finite strip input.** The restriction of a 2-factor has the same exact degrees in columns zero and one and upper degree bounds in columns two and three. It can have a complete component inside the strip, but the cut graph has no labels or cycle rejection. The same induction from the empty bottom cut maps every actual restriction to the graph. New/pending and new/new crossing counts include all components. No connectivity filter is hidden in either the author checker or the independent reconstruction.
+
+6. **Final counts.** The corner union correction, z<=b and scalar elimination are set/cardinality arguments. They impose no additional topological hypothesis.
+
+These points discharge the six re-check items in PROOF_5N_SIMPLE section 7. Claims 50 and 51 provide the finite and hand audits respectively; the assembly does not reintroduce the old forest assumption.
+
+### Additional disconnected example
+
+As an implementation check, `claim52_check.py` makes a degree-preserving two-edge change to the saved FOLD n=144 tour that splits it into two cycles of lengths 19,494 and 1,242. The saved spanning simple 2-factor has X=1030, including 72 crossing pairs between components. Of its 219 kept candidates, 55 have squares meeting tiles from both cycles.
+
+The script checks every actual side row against the cut-state transitions, verifies empty start/end cuts and equality of side arc weights with direct side crossing counts, and rechecks the scalar keep/usable-quarter argument. All pass. This example is supporting evidence; the degree-only argument above proves the theorem for all spanning simple 2-factors.
+
+## 52D. Reproduction — all listed commands PASS
+
+Each displayed command was run from an isolated copy rooted at a folder named `bounds-2026`, containing the same relative sources and the saved fixtures required by the independent checker. The copy uses the research virtual environment. Generated potentials and reports remained inside the verifier's isolated directory, so the shared source outputs were not overwritten.
+
+| Command | Exit | Seconds, 2026-10-03 |
+| --- | ---: | ---: |
+| `python3 w-turnstheory/check_knight_tiles.py` | 0 | 0.42 |
+| `python3 w-turnstheory/check_corner_box.py` | 0 | 0.08 |
+| `python3 w-turnstheory/check_square_defects.py` | 0 | 0.44 |
+| `.venv/bin/python gap/lowerbounds/simple_strip/check_cut_certificate.py` | 0 | 5.38 |
+| `python3 gap/verifier/claim50_check.py` | 0 | 8.51 |
+
+The graph output is 3,136 states and 48,510 arcs; both potentials stabilize in eight passes, with ranges [-24,0]/[-28,0], interface [0,4], and side error 28 in units of one quarter. The independent script also checks twelve actual side strips and the optional identity (K).
+
+This is a reproduction with the local repository sources and installed research environment, not a fresh dependency installation or a check of a remote public checkout. The author command needs NumPy. The independent command needs only the standard library and its three repository fixture files.
+
+Logs are `claim52_command_0.log` through `_4.log`; the command report is `claim52_commands.json`. The added exception/2-factor check is reproducible with
+
+    python3 gap/verifier/claim52_check.py
+
+Its report is `claim52_check.json`, and its fixture is `claim52_twofactor_n144.json`.
+
+## 52E. Two precise text corrections
+
+The numerical theorems pass. These changes make the standalone proof and reproduction claims exact.
+
+**1. State the full-lattice convention and restrict the divergence sum.** Section 2's degree-plus-four identity uses all unit edges of the infinite square lattice, including those leading outside the board. The degree-two condition applies only to board vertices. Replace the opening orientation sentence and the start of the finite-set sentence by:
+
+> Orient the graph edges and all unit edges of the infinite square lattice from chi=1 to chi=-1.
+
+> For a finite vertex set A contained in the board, the total boundary flux is `sum_(v in A) chi(v)*(deg_H(v)+4)=6 sum_(v in A) chi(v)`, hence zero modulo three.
+
+All vertex sets needed for the candidate corner argument are contained in the board. This makes explicit the convention inherited from the audited proof; it does not change the argument.
+
+**2. Correct the outer-column exception check attribution.** Claim 50's standalone checker derives the seven VIS pairs per orientation, but it does not independently enumerate the uniqueness of the outer-column exception. Its exception indicator uses the specified pair. That uniqueness was checked in Claim 42 and was independently rechecked here: the sole up pair touching a depth-one candidate square is `(0,0)--(2,1), (0,1)--(2,0)`, with one overlap quarter in square column zero and one in column one. Its reflection is the sole down pair, at square row -1. Neither reaches square column two.
+
+Replace section 4's sentence “The exact exception/VIS enumeration is part of the independent strip check in Section 7” by:
+
+> The outer-column exception enumeration is audited in Claims 42 and 52. The independent strip checker in Section 7 derives both VIS lists from tile geometry.
+
+In section 7 replace “it checks the strip certificate and exact exception/VIS geometry without author imports” by:
+
+> It checks the strip certificate and derives both VIS lists without author imports.
+
+If the displayed commands are intended to rerun every local enumeration directly, add `python3 gap/verifier/claim52_check.py` to that list. Otherwise the cited prior geometry audits already supply the stated fact. No new package is needed for the added command.
+
+## Proof size and finite inputs
+
+The assembled proof consists of tile incidence counting, a local flux and passing-endpoint lemma, the strong-end filter, one scalar inequality and one cut-state certificate. The only substantial finite graph has 3,136 states and 48,510 arcs. The small tile, endpoint, square, exception and VIS checks are exact geometric checks. There is no forest state, private-payment machinery, higher-width strip certificate, or beyond-5n hypothesis. Both theorem verdicts are PASS with the two presentation corrections above recorded for the author.

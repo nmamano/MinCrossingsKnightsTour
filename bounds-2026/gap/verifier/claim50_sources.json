@@ -1,0 +1,7 @@
+{
+  "gap/lowerbounds/SIMPLE_STRIP.md": "e2f5cf9279c64795f6395589a1789f8e7f00b601f24dd2284c69481136d220cb",
+  "gap/lowerbounds/simple_strip/check_cut_certificate.py": "ee709ae11da7499b9810e2488c98d61cdeed6756a1bed8d756e4d883ae610307",
+  "gap/turnstheory/PROOF_5N.md": "43642dbf635d2b91a46e7d78633b81bc823fd0bc6870b9e8d4e4a9b4a252e7c9",
+  "gap/verifier/claim50_check.py": "b53af5c7b8e153116bc17aa6608056ba7ec07c2a2e7835bfd360b771fb8f7b98",
+  "gap/verifier/claim50_compare.py": "b01e270fd8b47c286839b1d2287ac23c9b83f9fc0af21886f1aeea83425f86ba"
+}

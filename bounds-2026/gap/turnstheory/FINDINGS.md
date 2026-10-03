@@ -1,3 +1,80 @@
+# Simplified proof assembled: 5n-597 — 2026-10-03
+
+PROOF_5N_V2.md is written (1,655 whitespace-delimited words). It
+combines Claim 51's strong-end filtering and scalar quarter count
+with Claim 50's cut-state certificate as Section 5. The exact audited
+constants give C=28+1104-2=1130 in T>=b-C, hence
+X>=5n-(32+C/2)=5n-597 for even n>=32.
+
+The closed-tour theorem is stated first. The separate spanning simple
+2-factor theorem is explicitly marked pending Claim 52. Identity K
+is omitted because the proof does not use it. The reproduction section
+names the author cut checker, independent Claim 50 checker and small
+geometry checks. No new certificate run was needed; the constant was
+recomputed exactly. PROOF_5N.md and both blog posts are untouched.
+
+---
+
+# S2 addition: connectivity audit, option C and identity K — 2026-10-03
+
+PROOF_5N_SIMPLE.md now includes Sections 7–9. Every hand step in
+PROOF_5N.md Sections 1–4 and 6 is mapped to its actual hypothesis:
+geometry, degree two, or counting. NONE needs a single tour cycle.
+Only the old Section 5 forest certificate needed connectivity.
+
+Read Lower Bounds SIMPLE_STRIP.md 1.2–1.4 and the complete option C
+source. Its row-cut model has no cycle rejection or component labels.
+The reported 3,136 states / 48,510 arcs and potentials give per-side
+error 7, global T+1130>=b, hence the same T+1160 black box. These are
+author-certified inputs pending independent audit, not relabelled as
+audited here. No new certificate run was made.
+
+Candidate scope: X>=5n-612 for every spanning simple knight 2-factor
+on an even n>=32 board, counting crossings BETWEEN different cycles
+as well as within cycles. Six exact re-check obligations cover the
+cycle-free enumeration restriction removal, finite-board walk mapping,
+crossing ownership, predicate geometry, potential interface, and hand
+proof hypotheses. The candidate theorem remains pending those checks.
+
+Identity (K) is checked algebraically in Section 9: strip degree and
+tile mass equations give X_sigma>=n+3 without connectivity. I include
+it as an optional hand explanation of the base rate. It does not pay
+strong rows, and its row-local kappa experiments are not proof inputs.
+The best proposed outline is the new scalar hand proof plus option C;
+PROOF_5N.md and both blog posts remain untouched.
+
+---
+
+# S2: simpler hand proof of 5n, same strip black box — 2026-10-03
+
+Delivered PROOF_5N_SIMPLE.md, best option first. PROOF REORGANIZATION
+submitted for audit; no change to PROOF_5N.md or either blog post.
+Beyond-5n research remains stopped.
+
+The simplification: discard every candidate with a strong end before
+counting quarters. Each survivor is charged and has no two-quarter
+strip overlap anywhere on its squares. Two bad quarters are therefore
+usable. Count them with one scalar bound |Q|<=4E-2T, proved from
+D=sum_q[binom(m(q),2)-m(q)+1]=2E-X1. This removes the h-residue
+retention rule, deficient paths, nu atoms, individual allocations,
+locality and the good-middle detour. With z discarded paths, z<=b
+and T>=b-C give 4E>=2(N-z)+2T>=2N-2C.
+
+Result: the SAME 5n-612 from the audited C=1160 black box. Taking
+C=1164 gives 5n-614 and avoids the potential-interface requirement.
+The note includes the dependency map, a ladder Pareto table with
+measured graph sizes and estimated hand pages, and the exact scalar
+contract for Lower Bounds' hand replacement. For strip rate beta in
+(0,1], the same argument gives (4+beta)n-(30beta+2+C/2), explicitly
+quantifying the coefficient trade. No new finite input or computation.
+
+The new parts for the Verifier are the stronger initial filtering,
+its exclusion of all forbidden overlaps, and the scalar inequality.
+SIMPLE_STRIP.md was not present at preparation time; no result from
+that parallel task is assumed. No POST attempted, per the request.
+
+---
+
 # C5-J L3/L4 proof task: exact pairing and conditional chamber count — 2026-10-03
 
 POST delivery to the Chief Researcher was attempted as requested,

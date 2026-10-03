@@ -1,6 +1,8 @@
 # Five crossings per side length from quarter payments and strip stability
 
 2026-10-03. **AUDITED — Claims 39, 40 and its scalar addendum, 42.**
+A shorter proof with a better constant, X >= 5n-597, also for knight
+2-factors, is in PROOF_5N_V2.md (audited, Claim 52).
 Every closed knight tour on an n by n board, for even n>=32, satisfies
 
     X >= 5n-612.

@@ -1,0 +1,147 @@
+{
+  "date": "2026-10-03",
+  "states": 3136,
+  "arcs": 48510,
+  "VIS_counts": [
+    7,
+    7
+  ],
+  "potentials": [
+    {
+      "passes": 8,
+      "range": [
+        -24,
+        0
+      ],
+      "min_arc_slack": 0
+    },
+    {
+      "passes": 8,
+      "range": [
+        -28,
+        0
+      ],
+      "min_arc_slack": 0
+    }
+  ],
+  "interface": [
+    0,
+    4
+  ],
+  "side_error_scaled4": 28,
+  "empty_potentials": [
+    -12,
+    -12
+  ],
+  "tour_checks": [
+    {
+      "file": "gap/verifier/claim36_FOLD_n144.json",
+      "n": 144,
+      "side": 0,
+      "X": 196,
+      "G": 8,
+      "K_verified": true,
+      "side_slack": 51
+    },
+    {
+      "file": "gap/verifier/claim36_FOLD_n144.json",
+      "n": 144,
+      "side": 1,
+      "X": 202,
+      "G": 11,
+      "K_verified": true,
+      "side_slack": 54
+    },
+    {
+      "file": "gap/verifier/claim36_FOLD_n144.json",
+      "n": 144,
+      "side": 2,
+      "X": 207,
+      "G": 13,
+      "K_verified": true,
+      "side_slack": 57
+    },
+    {
+      "file": "gap/verifier/claim36_FOLD_n144.json",
+      "n": 144,
+      "side": 3,
+      "X": 203,
+      "G": 13,
+      "K_verified": true,
+      "side_slack": 53
+    },
+    {
+      "file": "gap/verifier/claim47_patched_n288.json",
+      "n": 288,
+      "side": 0,
+      "X": 418,
+      "G": 17,
+      "K_verified": true,
+      "side_slack": 120
+    },
+    {
+      "file": "gap/verifier/claim47_patched_n288.json",
+      "n": 288,
+      "side": 1,
+      "X": 424,
+      "G": 20,
+      "K_verified": true,
+      "side_slack": 123
+    },
+    {
+      "file": "gap/verifier/claim47_patched_n288.json",
+      "n": 288,
+      "side": 2,
+      "X": 429,
+      "G": 22,
+      "K_verified": true,
+      "side_slack": 126
+    },
+    {
+      "file": "gap/verifier/claim47_patched_n288.json",
+      "n": 288,
+      "side": 3,
+      "X": 425,
+      "G": 22,
+      "K_verified": true,
+      "side_slack": 122
+    },
+    {
+      "file": "w-integrator/tours/FJOG_n132.json",
+      "n": 132,
+      "side": 0,
+      "X": 173,
+      "G": 24,
+      "K_verified": true,
+      "side_slack": 24
+    },
+    {
+      "file": "w-integrator/tours/FJOG_n132.json",
+      "n": 132,
+      "side": 1,
+      "X": 169,
+      "G": 17,
+      "K_verified": true,
+      "side_slack": 27
+    },
+    {
+      "file": "w-integrator/tours/FJOG_n132.json",
+      "n": 132,
+      "side": 2,
+      "X": 161,
+      "G": 12,
+      "K_verified": true,
+      "side_slack": 24
+    },
+    {
+      "file": "w-integrator/tours/FJOG_n132.json",
+      "n": 132,
+      "side": 3,
+      "X": 160,
+      "G": 13,
+      "K_verified": true,
+      "side_slack": 22
+    }
+  ],
+  "seconds": 8.173536530928686
+}

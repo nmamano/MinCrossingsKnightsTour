@@ -1,0 +1,8 @@
+{
+  "states": 3136,
+  "arcs": 48510,
+  "all_arcs_equal": true,
+  "all_potentials_equal": true,
+  "coefficients_equal": true,
+  "VIS_geometry_equal": true
+}
