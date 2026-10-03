@@ -1,0 +1,33 @@
+PASS: TT16 one closed tour with 8n-14 turns for n = 48 .. 102
+  n= 48 turns=370 (= 8n-14) turns in the four 6x6 corner squares=82
+  n= 50 turns=386 (= 8n-14) turns in the four 6x6 corner squares=82
+  n= 52 turns=402 (= 8n-14) turns in the four 6x6 corner squares=82
+  n= 54 turns=418 (= 8n-14) turns in the four 6x6 corner squares=82
+  n= 56 turns=434 (= 8n-14) turns in the four 6x6 corner squares=82
+  n= 58 turns=450 (= 8n-14) turns in the four 6x6 corner squares=82
+  n= 60 turns=466 (= 8n-14) turns in the four 6x6 corner squares=82
+  n= 62 turns=482 (= 8n-14) turns in the four 6x6 corner squares=82
+  n= 64 turns=498 (= 8n-14) turns in the four 6x6 corner squares=82
+  n= 66 turns=514 (= 8n-14) turns in the four 6x6 corner squares=82
+  n= 68 turns=530 (= 8n-14) turns in the four 6x6 corner squares=82
+  n= 70 turns=546 (= 8n-14) turns in the four 6x6 corner squares=82
+  n= 72 turns=562 (= 8n-14) turns in the four 6x6 corner squares=82
+  n= 74 turns=578 (= 8n-14) turns in the four 6x6 corner squares=82
+  n= 76 turns=594 (= 8n-14) turns in the four 6x6 corner squares=82
+  n= 78 turns=610 (= 8n-14) turns in the four 6x6 corner squares=82
+  n= 80 turns=626 (= 8n-14) turns in the four 6x6 corner squares=82
+  n= 82 turns=642 (= 8n-14) turns in the four 6x6 corner squares=82
+  n= 84 turns=658 (= 8n-14) turns in the four 6x6 corner squares=82
+  n= 86 turns=674 (= 8n-14) turns in the four 6x6 corner squares=82
+  n= 88 turns=690 (= 8n-14) turns in the four 6x6 corner squares=82
+  n= 90 turns=706 (= 8n-14) turns in the four 6x6 corner squares=82
+  n= 92 turns=722 (= 8n-14) turns in the four 6x6 corner squares=82
+  n= 94 turns=738 (= 8n-14) turns in the four 6x6 corner squares=82
+  n= 96 turns=754 (= 8n-14) turns in the four 6x6 corner squares=82
+  n= 98 turns=770 (= 8n-14) turns in the four 6x6 corner squares=82
+  n=100 turns=786 (= 8n-14) turns in the four 6x6 corner squares=82
+  n=102 turns=802 (= 8n-14) turns in the four 6x6 corner squares=82
+/home/nil/.config/matplotlib is not a writable directory
+Matplotlib created a temporary cache directory at /tmp/matplotlib-4phbnsvo because there was an issue with the default path (/home/nil/.config/matplotlib); it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+Matplotlib is building the font cache; this may take a moment.
+wrote corner_tables.tex, lemma.pdf, tour48.pdf, band_bottom.pdf, band_left.pdf

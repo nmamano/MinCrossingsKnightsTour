@@ -1,0 +1,8 @@
+  negative cycle: length 12 arcs, sum(4w-1) = 12, failed rows = 3 -> beta <= 1 = 1.000000
+up: beta = 1 = 1.000000 converged; potential range -29..0 (units 1/(4q))
+  negative cycle: length 12 arcs, sum(4w-1) = 24, failed rows = 3 -> beta <= 2 = 2.000000
+  negative cycle: length 12 arcs, sum(4w-1) = 12, failed rows = 3 -> beta <= 1 = 1.000000
+down: beta = 1 = 1.000000 converged; potential range -29..0 (units 1/(4q))
+  negative cycle: length 16 arcs, sum(4w-1) = 20, failed rows = 4 -> beta <= 5/4 = 1.250000
+  negative cycle: length 12 arcs, sum(4w-1) = 12, failed rows = 3 -> beta <= 1 = 1.000000
+both: beta = 1 = 1.000000 converged; potential range -29..0 (units 1/(4q))

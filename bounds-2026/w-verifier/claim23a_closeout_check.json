@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-02",
+  "numbered_replacements": {
+    "1": true,
+    "2": true,
+    "3": true,
+    "4": true,
+    "5": true,
+    "6": true,
+    "7": true,
+    "8": true,
+    "9": true,
+    "10": true,
+    "11": true,
+    "12": true,
+    "13": true
+  },
+  "normalization": "whitespace and curly versus straight quotation marks only",
+  "all_code_blocks_unchanged": true,
+  "changed_since_claim23a": [
+    "writeup/turns/post.mdx"
+  ],
+  "repository_links_present": 2,
+  "body_search_claim_removed": true
+}

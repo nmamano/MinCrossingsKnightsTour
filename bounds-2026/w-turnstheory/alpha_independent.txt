@@ -1,0 +1,2 @@
+cycle arcs: 8
+alpha=1/5: no negative cycle; potential range -149..0 (units 1/(4q))

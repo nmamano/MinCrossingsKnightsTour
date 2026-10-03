@@ -1,0 +1,2 @@
+states 82516 cycle arcs 8
+per-row beta=1/2: converged after 11 passes, no negative cycle; range -46..0 (units 1/(4q))

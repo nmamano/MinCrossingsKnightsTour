@@ -1,0 +1,2 @@
+PASS: crossings post compiles with the site MDX compiler and options.
+PASS: two complete proof blocks, collapsed by default. Site files were not changed.

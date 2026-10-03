@@ -1,0 +1,96 @@
+  base round 0: X=766
+  base round 1: X=725
+  base round 2: X=724
+  base round 3: X=720
+FOLD24: n0=96 p=6; transplant to n0 + 24k
+  n=96: valid=True X=720 T=1251
+  n=120: valid=True X=872 T=1555
+  n=144: valid=True X=1024 T=1859
+  base round 0: X=798
+  base round 1: X=753
+  base round 2: X=752
+  base round 3: X=752
+FOLD24: n0=98 p=6; transplant to n0 + 24k
+  n=98: valid=True X=752 T=1265
+  n=122: valid=True X=904 T=1569
+  n=146: valid=True X=1056 T=1873
+  base round 0: X=820
+  base round 1: X=785
+  base round 2: X=775
+  base round 3: X=775
+FOLD24: n0=100 p=6; transplant to n0 + 24k
+  n=100: valid=True X=775 T=1319
+  n=124: valid=True X=927 T=1623
+  n=148: valid=True X=1079 T=1927
+  base round 0: X=822
+  base round 1: X=779
+  base round 2: X=762
+  base round 3: X=754
+FOLD24: n0=102 p=6; transplant to n0 + 24k
+  n=102: valid=True X=754 T=1310
+  n=126: valid=True X=906 T=1614
+  n=150: valid=True X=1058 T=1918
+  base round 0: X=863
+  base round 1: X=797
+  base round 2: X=784
+  base round 3: X=776
+FOLD24: n0=104 p=6; transplant to n0 + 24k
+  n=104: valid=True X=776 T=1352
+  n=128: valid=True X=928 T=1656
+  n=152: valid=True X=1080 T=1960
+  base round 0: X=836
+  base round 1: X=786
+  base round 2: X=786
+  base round 3: X=786
+FOLD24: n0=106 p=6; transplant to n0 + 24k
+  n=106: valid=True X=786 T=1383
+  n=130: valid=True X=938 T=1687
+  n=154: valid=True X=1090 T=1991
+  base round 0: X=843
+  base round 1: X=797
+  base round 2: X=788
+  base round 3: X=788
+FOLD24: n0=108 p=6; transplant to n0 + 24k
+  n=108: valid=True X=788 T=1386
+  n=132: valid=True X=940 T=1690
+  n=156: valid=True X=1092 T=1994
+  base round 0: X=865
+  base round 1: X=824
+  base round 2: X=813
+  base round 3: X=803
+FOLD24: n0=110 p=6; transplant to n0 + 24k
+  n=110: valid=True X=803 T=1402
+  n=134: valid=True X=955 T=1706
+  n=158: valid=True X=1107 T=2010
+  base round 0: X=882
+  base round 1: X=854
+  base round 2: X=841
+  base round 3: X=839
+FOLD24: n0=112 p=6; transplant to n0 + 24k
+  n=112: valid=True X=839 T=1459
+  n=136: valid=True X=991 T=1763
+  n=160: valid=True X=1143 T=2067
+  base round 0: X=902
+  base round 1: X=881
+  base round 2: X=865
+  base round 3: X=864
+FOLD24: n0=114 p=6; transplant to n0 + 24k
+  n=114: valid=True X=864 T=1500
+  n=138: valid=True X=1016 T=1804
+  n=162: valid=True X=1168 T=2108
+  base round 0: X=901
+  base round 1: X=855
+  base round 2: X=850
+  base round 3: X=850
+FOLD24: n0=116 p=6; transplant to n0 + 24k
+  n=116: valid=True X=850 T=1507
+  n=140: valid=True X=1002 T=1811
+  n=164: valid=True X=1154 T=2115
+  base round 0: X=927
+  base round 1: X=897
+  base round 2: X=881
+  base round 3: X=875
+FOLD24: n0=118 p=6; transplant to n0 + 24k
+  n=118: valid=True X=875 T=1529
+  n=142: valid=True X=1027 T=1833
+  n=166: valid=True X=1179 T=2137

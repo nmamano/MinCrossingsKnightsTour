@@ -1,0 +1,12 @@
+{
+ "w-turnstheory/PROOF_crossings_lower.md": "f21a5a8891675393dbc692c1c3aca9d90b99cc6d6d72974c1b6aebb821a624ec",
+ "w-turnstheory/check_crossings_lower.py": "594372332f536a920e805bec7ce44035a8b28fea679339e12959271547e293da",
+ "w-turnstheory/check_knight_tiles.py": "6a1f68faf26e1f7f5bcd8032f701d2116c8ff101d07747f54529e9650a38877c",
+ "w-turnstheory/check_one_row_strip.py": "dc0619d41e446acde0af1e311a9463b7e0740c60c7ac05ae006fa16d23f674b4",
+ "w-turnstheory/check_corner_box.py": "499776b5b62318d7be206708c21d4b8e6de86e386ee29a37bdf40e12a072c92e",
+ "w-turnstheory/check_col0_squares.py": "d78257820086325c1b452b33d532ca124ec87274e7e02d7e23f49daa391dc2fc",
+ "w-turnstheory/check_square_defects.py": "2d1845f7db28761ca1e46bee23d77f37a6feb0401f749123ea5f0f7ffe7dc679",
+ "w-turnstheory/check_lower_stability.py": "3eced7fca4f9cbad9e6e320f784deeae4ee0f224ba3fcd4e4fbaabb736e04ed6",
+ "w-lowerbounds/endpoint_independent.py": "3ffaee637f08d8e08e8dacece44e1fe8a1bbee9aabb799ce1952dd613063eded",
+ "w-lowerbounds/strip2_independent.py": "0f68b1538ee95e5de8faaaca0ce458028ba327297fb0aba0b764c66c9585f41a"
+}

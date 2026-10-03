@@ -1,0 +1,4 @@
+n=32 pre: {'comps': 36, 'closed': 20, 'bad': 25, 'clusters': 5, 'free': 431, 'X_pre': 135}
+  LNS: X 336 -> 277
+n=32 valid=True X=277 X/n=8.656 (17n/3=181, 19n/3=203) T=422 {'status': 'FEASIBLE', 'corner_obj': 263, 'corner_turns': None, 'obj': 263000.0, 'bound': 17.0, 'secs': 240.1} 779s
+exit=0

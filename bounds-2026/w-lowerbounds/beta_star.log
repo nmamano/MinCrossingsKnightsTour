@@ -1,0 +1,4 @@
+cycle arcs 8
+note: search uses an iteration cap; final lo is certified by convergence
+beta* in [ 10233/20480 , 2563/5120 ] 0.499658203125 0.5005859375
+exit=0

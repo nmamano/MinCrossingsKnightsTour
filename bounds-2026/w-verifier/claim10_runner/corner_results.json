@@ -1,0 +1,170 @@
+[
+ {
+  "program": "primary",
+  "left": "P",
+  "bottom": "P",
+  "R": 12,
+  "Q_mod3": 1
+ },
+ {
+  "program": "primary",
+  "left": "P",
+  "bottom": "P",
+  "R": 13,
+  "Q_mod3": 1
+ },
+ {
+  "program": "primary",
+  "left": "P",
+  "bottom": "P",
+  "R": 14,
+  "Q_mod3": 1
+ },
+ {
+  "program": "primary",
+  "left": "P",
+  "bottom": "P",
+  "R": 15,
+  "Q_mod3": 1
+ },
+ {
+  "program": "primary",
+  "left": "P",
+  "bottom": "Q",
+  "R": 12,
+  "Q_mod3": 1
+ },
+ {
+  "program": "primary",
+  "left": "P",
+  "bottom": "Q",
+  "R": 13,
+  "Q_mod3": 1
+ },
+ {
+  "program": "primary",
+  "left": "P",
+  "bottom": "Q",
+  "R": 14,
+  "Q_mod3": 1
+ },
+ {
+  "program": "primary",
+  "left": "P",
+  "bottom": "Q",
+  "R": 15,
+  "Q_mod3": 1
+ },
+ {
+  "program": "primary",
+  "left": "Q",
+  "bottom": "P",
+  "R": 12,
+  "Q_mod3": 1
+ },
+ {
+  "program": "primary",
+  "left": "Q",
+  "bottom": "P",
+  "R": 13,
+  "Q_mod3": 1
+ },
+ {
+  "program": "primary",
+  "left": "Q",
+  "bottom": "P",
+  "R": 14,
+  "Q_mod3": 1
+ },
+ {
+  "program": "primary",
+  "left": "Q",
+  "bottom": "P",
+  "R": 15,
+  "Q_mod3": 1
+ },
+ {
+  "program": "primary",
+  "left": "Q",
+  "bottom": "Q",
+  "R": 12,
+  "Q_mod3": 1
+ },
+ {
+  "program": "primary",
+  "left": "Q",
+  "bottom": "Q",
+  "R": 13,
+  "Q_mod3": 1
+ },
+ {
+  "program": "primary",
+  "left": "Q",
+  "bottom": "Q",
+  "R": 14,
+  "Q_mod3": 1
+ },
+ {
+  "program": "primary",
+  "left": "Q",
+  "bottom": "Q",
+  "R": 15,
+  "Q_mod3": 1
+ },
+ {
+  "program": "rational",
+  "left": "P",
+  "bottom": "P",
+  "R": 12,
+  "Q_mod3": 1
+ },
+ {
+  "program": "rational",
+  "left": "P",
+  "bottom": "P",
+  "R": 13,
+  "Q_mod3": 1
+ },
+ {
+  "program": "rational",
+  "left": "P",
+  "bottom": "Q",
+  "R": 12,
+  "Q_mod3": 1
+ },
+ {
+  "program": "rational",
+  "left": "P",
+  "bottom": "Q",
+  "R": 13,
+  "Q_mod3": 1
+ },
+ {
+  "program": "rational",
+  "left": "Q",
+  "bottom": "P",
+  "R": 12,
+  "Q_mod3": 1
+ },
+ {
+  "program": "rational",
+  "left": "Q",
+  "bottom": "P",
+  "R": 13,
+  "Q_mod3": 1
+ },
+ {
+  "program": "rational",
+  "left": "Q",
+  "bottom": "Q",
+  "R": 12,
+  "Q_mod3": 1
+ },
+ {
+  "program": "rational",
+  "left": "Q",
+  "bottom": "Q",
+  "R": 13,
+  "Q_mod3": 1
+ }
+]

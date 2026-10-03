@@ -1,0 +1,207 @@
+{
+  "date": "2026-10-02",
+  "tours": {
+    "paper72": {
+      "n": 72,
+      "crossings": 880,
+      "turns": 670,
+      "source": "kt.gentour / Sequence1Opt",
+      "grid_sha256": "cef5e6b3160c54c033a512f65bc1bb8330bfbab391d61cbd63309f8316b1ac5c"
+    },
+    "shisheng72": {
+      "n": 72,
+      "crossings": 860,
+      "turns": 680,
+      "source": "kt.gentour / SequenceP40 on BOTH horizontal sides",
+      "grid_sha256": "e9a97863c77ff96dd8ea179655b82320218890204d20f0115cb2c5738e674aac"
+    },
+    "H16a72": {
+      "n": 72,
+      "crossings": 653,
+      "turns": 711,
+      "source": "w-integrator/tours/H16a_VerticalEdge_off0_n72.json",
+      "grid_sha256": "66dcef32f65f983e6331b122e62be636d0b1a23d372e2511bf31365c4311435d"
+    },
+    "LF2_72": {
+      "n": 72,
+      "crossings": 549,
+      "turns": 765,
+      "source": "w-integrator/tours/LF2_n72.json",
+      "grid_sha256": "78150c28e388c525c77a80d938cc9bdf419b9bb0c33f1601c0d7e7565bf5b8b4"
+    },
+    "TT16_56": {
+      "n": 56,
+      "crossings": 530,
+      "turns": 434,
+      "source": "w-integrator/tours/certificates/TT16_n56.json",
+      "grid_sha256": "fdce9552af9619ea6ee3d2e20ac451ddb8fffa32e424147c39da7056b8c067c1"
+    },
+    "T18_64": {
+      "n": 64,
+      "crossings": 795,
+      "turns": 527,
+      "source": "w-integrator/tours/certificates/T18_VerticalEdge_off0_n64.json",
+      "grid_sha256": "794722ff958f25320686228268a09029919311244efb77bbf43a1670cbf363e8"
+    },
+    "paper16": {
+      "n": 16,
+      "crossings": 208,
+      "turns": 138,
+      "source": "kt.gentour / Sequence1Opt",
+      "grid_sha256": "c115167ba1d1a1b0cec7c42e03e3ce6a89340a9ad37679a691021b541e66ad29"
+    }
+  },
+  "strips": {
+    "paper": {
+      "columns": 40,
+      "crossings": 140,
+      "turns": 110,
+      "colored_terminal_pairs": [
+        [
+          24,
+          21
+        ],
+        [
+          25,
+          20
+        ],
+        [
+          26,
+          23
+        ],
+        [
+          27,
+          22
+        ]
+      ]
+    },
+    "Shisheng": {
+      "columns": 40,
+      "crossings": 130,
+      "turns": 115,
+      "colored_terminal_pairs": [
+        [
+          24,
+          21
+        ],
+        [
+          25,
+          20
+        ],
+        [
+          26,
+          23
+        ],
+        [
+          27,
+          22
+        ]
+      ]
+    },
+    "H16a": {
+      "columns": 40,
+      "crossings": 80,
+      "turns": 125,
+      "colored_terminal_pairs": [
+        [
+          24,
+          28
+        ],
+        [
+          25,
+          31
+        ],
+        [
+          26,
+          29
+        ],
+        [
+          27,
+          30
+        ]
+      ]
+    },
+    "T18": {
+      "columns": 40,
+      "crossings": 155,
+      "turns": 90,
+      "colored_terminal_pairs": [
+        [
+          24,
+          31
+        ],
+        [
+          25,
+          28
+        ],
+        [
+          26,
+          30
+        ],
+        [
+          27,
+          29
+        ]
+      ]
+    },
+    "T16": {
+      "columns": 40,
+      "crossings": 130,
+      "turns": 80,
+      "colored_terminal_pairs": [
+        [
+          24,
+          33
+        ],
+        [
+          25,
+          16
+        ],
+        [
+          26,
+          19
+        ],
+        [
+          27,
+          34
+        ]
+      ]
+    },
+    "LF2_bottom": {
+      "display_units": 24,
+      "display_crossings": 44,
+      "rate": 1.8333333333333333
+    },
+    "LF2_top": {
+      "display_units": 24,
+      "display_crossings": 60,
+      "rate": 2.5
+    },
+    "LF2_left": {
+      "display_units": 24,
+      "display_crossings": 48,
+      "rate": 2.0
+    },
+    "LF2_right": {
+      "display_units": 24,
+      "display_crossings": 24,
+      "rate": 1.0
+    }
+  },
+  "certificate": {
+    "local_cases_checked": 209,
+    "sum_alpha": -7,
+    "lower_bound": "8n-28"
+  },
+  "lemma": {
+    "n": 16,
+    "column_turns": [
+      16,
+      15,
+      7,
+      7
+    ],
+    "B": 16,
+    "strip_turns": 45
+  }
+}

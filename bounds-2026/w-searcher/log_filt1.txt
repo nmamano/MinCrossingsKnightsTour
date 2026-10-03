@@ -1,0 +1,15 @@
+== {'P': 6, 'D': 4, 'vs': 'L3odd', 'name': 'vsL3odd: d3even+d1,5,7,9', 'rule': [2, [[0, 3], [0, 1], [1, 1], [0, 5], [1, 5], [0, 7], [1, 7], [0, 9], [1, 9]]]}
+  iter 0: X=15 bound=0.0 status=FEASIBLE accept=False
+  iter 1: X=15 bound=0.0 status=FEASIBLE accept=True
+{"kind": "bottom", "P": 6, "D": 4, "rule": "vsL3odd: d3even+d1,5,7,9", "vs": "L3odd", "status": "FEASIBLE", "stamp": "2026-10-02 03:22", "X": 15, "T": 21, "bound": 0.0, "rate": 2.5, "tpl": ["56 36 56 36 56 36", "13 23 13 23 13 23", "27 26 27 26 27 26", "67 67 67 67 67 67"], "pairing": [[1, 7], [3, 7], [5, 7]], "cper": 6, "check": {"paths_ok": true, "X": 15}, "accept": {"(0, 0)": 2, "(2, 0)": 2, "(4, 0)": 2}}
+== {'P': 8, 'D': 4, 'vs': 'L3odd', 'name': 'vsL3odd: d3even+d1,5,7,9', 'rule': [2, [[0, 3], [0, 1], [1, 1], [0, 5], [1, 5], [0, 7], [1, 7], [0, 9], [1, 9]]]}
+  iter 0: X=19 bound=0.0 status=FEASIBLE accept=False
+  iter 1: X=19 bound=0.0 status=FEASIBLE accept=True
+{"kind": "bottom", "P": 8, "D": 4, "rule": "vsL3odd: d3even+d1,5,7,9", "vs": "L3odd", "status": "FEASIBLE", "stamp": "2026-10-02 03:24", "X": 19, "T": 23, "bound": 0.0, "rate": 2.375, "tpl": ["36 36 36 26 26 26 36 26", "34 36 23 23 23 36 26 36", "26 27 27 27 26 26 26 27", "67 67 67 67 67 67 67 06"], "pairing": [[0, 3], [2, 3], [6, 3], [7, 5]], "cper": 8, "check": {"paths_ok": true, "X": 19}, "accept": {"(0, 0)": 2, "(2, 0)": 2, "(4, 0)": 2, "(6, 0)": 2}}
+== {'P': 4, 'D': 4, 'vs': 'L3odd', 'name': 'vsL3odd: d3even+d1,5,7,9', 'rule': [2, [[0, 3], [0, 1], [1, 1], [0, 5], [1, 5], [0, 7], [1, 7], [0, 9], [1, 9]]]}
+  iter 0: X=10 bound=10.0 status=OPTIMAL accept=True
+{"kind": "bottom", "P": 4, "D": 4, "rule": "vsL3odd: d3even+d1,5,7,9", "vs": "L3odd", "status": "OPTIMAL", "stamp": "2026-10-02 03:24", "X": 10, "T": 14, "bound": 10.0, "rate": 2.5, "tpl": ["56 36 56 36", "13 23 13 23", "27 26 27 26", "67 67 67 67"], "pairing": [[1, 7], [3, 7]], "cper": 4, "check": {"paths_ok": true, "X": 10}, "accept": {"(0, 0)": 2, "(2, 0)": 2}}
+== {'P': 12, 'D': 4, 'vs': 'L3odd', 'name': 'vsL3odd: d3even+d1,5,7,9', 'rule': [2, [[0, 3], [0, 1], [1, 1], [0, 5], [1, 5], [0, 7], [1, 7], [0, 9], [1, 9]]], 'tl': 120}
+  iter 0: X=29 bound=0.0 status=FEASIBLE accept=False
+  iter 1: X=29 bound=0.0 status=FEASIBLE accept=True
+{"kind": "bottom", "P": 12, "D": 4, "rule": "vsL3odd: d3even+d1,5,7,9", "vs": "L3odd", "status": "FEASIBLE", "stamp": "2026-10-02 03:28", "X": 29, "T": 35, "bound": 0.0, "rate": 2.4166666666666665, "tpl": ["36 26 26 26 26 36 36 36 36 26 26 26", "26 36 23 36 36 36 36 35 23 23 23 36", "26 27 26 25 26 12 27 27 27 27 26 26", "67 16 67 67 67 67 67 67 67 67 67 67"], "pairing": [[0, 3], [1, 7], [2, 3], [4, 3], [6, 3], [10, 1]], "cper": 12, "check": {"paths_ok": true, "X": 29}, "accept": {"(0, 0)": 2, "(2, 0)": 2, "(4, 0)": 2, "(6, 0)": 2, "(8, 0)": 2, "(10, 0)": 2}}

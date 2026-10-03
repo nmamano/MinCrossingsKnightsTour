@@ -1,0 +1,5180 @@
+{
+ "paper": {
+  "48": {
+   "key": "paper",
+   "n": 48,
+   "valid": true,
+   "crossings": 592,
+   "turns": 442,
+   "brute_crossings": null
+  },
+  "50": {
+   "key": "paper",
+   "n": 50,
+   "valid": true,
+   "crossings": 596,
+   "turns": 452,
+   "brute_crossings": null
+  },
+  "52": {
+   "key": "paper",
+   "n": 52,
+   "valid": true,
+   "crossings": 625,
+   "turns": 475,
+   "brute_crossings": null
+  },
+  "56": {
+   "key": "paper",
+   "n": 56,
+   "valid": true,
+   "crossings": 688,
+   "turns": 518,
+   "brute_crossings": null
+  },
+  "54": {
+   "key": "paper",
+   "n": 54,
+   "valid": true,
+   "crossings": 646,
+   "turns": 491,
+   "brute_crossings": null
+  },
+  "58": {
+   "key": "paper",
+   "n": 58,
+   "valid": true,
+   "crossings": 692,
+   "turns": 528,
+   "brute_crossings": null
+  },
+  "60": {
+   "key": "paper",
+   "n": 60,
+   "valid": true,
+   "crossings": 721,
+   "turns": 551,
+   "brute_crossings": null
+  },
+  "62": {
+   "key": "paper",
+   "n": 62,
+   "valid": true,
+   "crossings": 742,
+   "turns": 567,
+   "brute_crossings": null
+  },
+  "64": {
+   "key": "paper",
+   "n": 64,
+   "valid": true,
+   "crossings": 784,
+   "turns": 594,
+   "brute_crossings": null
+  },
+  "66": {
+   "key": "paper",
+   "n": 66,
+   "valid": true,
+   "crossings": 788,
+   "turns": 604,
+   "brute_crossings": null
+  },
+  "68": {
+   "key": "paper",
+   "n": 68,
+   "valid": true,
+   "crossings": 817,
+   "turns": 627,
+   "brute_crossings": null
+  },
+  "70": {
+   "key": "paper",
+   "n": 70,
+   "valid": true,
+   "crossings": 838,
+   "turns": 643,
+   "brute_crossings": null
+  },
+  "72": {
+   "key": "paper",
+   "n": 72,
+   "valid": true,
+   "crossings": 880,
+   "turns": 670,
+   "brute_crossings": null
+  },
+  "74": {
+   "key": "paper",
+   "n": 74,
+   "valid": true,
+   "crossings": 884,
+   "turns": 680,
+   "brute_crossings": null
+  },
+  "76": {
+   "key": "paper",
+   "n": 76,
+   "valid": true,
+   "crossings": 913,
+   "turns": 703,
+   "brute_crossings": null
+  },
+  "78": {
+   "key": "paper",
+   "n": 78,
+   "valid": true,
+   "crossings": 934,
+   "turns": 719,
+   "brute_crossings": null
+  },
+  "80": {
+   "key": "paper",
+   "n": 80,
+   "valid": true,
+   "crossings": 976,
+   "turns": 746,
+   "brute_crossings": null
+  },
+  "82": {
+   "key": "paper",
+   "n": 82,
+   "valid": true,
+   "crossings": 980,
+   "turns": 756,
+   "brute_crossings": null
+  },
+  "84": {
+   "key": "paper",
+   "n": 84,
+   "valid": true,
+   "crossings": 1009,
+   "turns": 779,
+   "brute_crossings": null
+  },
+  "86": {
+   "key": "paper",
+   "n": 86,
+   "valid": true,
+   "crossings": 1030,
+   "turns": 795,
+   "brute_crossings": null
+  },
+  "88": {
+   "key": "paper",
+   "n": 88,
+   "valid": true,
+   "crossings": 1072,
+   "turns": 822,
+   "brute_crossings": null
+  },
+  "90": {
+   "key": "paper",
+   "n": 90,
+   "valid": true,
+   "crossings": 1076,
+   "turns": 832,
+   "brute_crossings": null
+  },
+  "92": {
+   "key": "paper",
+   "n": 92,
+   "valid": true,
+   "crossings": 1105,
+   "turns": 855,
+   "brute_crossings": null
+  },
+  "94": {
+   "key": "paper",
+   "n": 94,
+   "valid": true,
+   "crossings": 1126,
+   "turns": 871,
+   "brute_crossings": null
+  },
+  "96": {
+   "key": "paper",
+   "n": 96,
+   "valid": true,
+   "crossings": 1168,
+   "turns": 898,
+   "brute_crossings": 1168
+  },
+  "98": {
+   "key": "paper",
+   "n": 98,
+   "valid": true,
+   "crossings": 1172,
+   "turns": 908,
+   "brute_crossings": 1172
+  },
+  "100": {
+   "key": "paper",
+   "n": 100,
+   "valid": true,
+   "crossings": 1201,
+   "turns": 931,
+   "brute_crossings": null
+  },
+  "102": {
+   "key": "paper",
+   "n": 102,
+   "valid": true,
+   "crossings": 1222,
+   "turns": 947,
+   "brute_crossings": null
+  },
+  "104": {
+   "key": "paper",
+   "n": 104,
+   "valid": true,
+   "crossings": 1264,
+   "turns": 974,
+   "brute_crossings": null
+  },
+  "106": {
+   "key": "paper",
+   "n": 106,
+   "valid": true,
+   "crossings": 1268,
+   "turns": 984,
+   "brute_crossings": null
+  },
+  "108": {
+   "key": "paper",
+   "n": 108,
+   "valid": true,
+   "crossings": 1297,
+   "turns": 1007,
+   "brute_crossings": null
+  },
+  "110": {
+   "key": "paper",
+   "n": 110,
+   "valid": true,
+   "crossings": 1318,
+   "turns": 1023,
+   "brute_crossings": null
+  },
+  "112": {
+   "key": "paper",
+   "n": 112,
+   "valid": true,
+   "crossings": 1360,
+   "turns": 1050,
+   "brute_crossings": null
+  },
+  "114": {
+   "key": "paper",
+   "n": 114,
+   "valid": true,
+   "crossings": 1364,
+   "turns": 1060,
+   "brute_crossings": null
+  },
+  "116": {
+   "key": "paper",
+   "n": 116,
+   "valid": true,
+   "crossings": 1393,
+   "turns": 1083,
+   "brute_crossings": null
+  },
+  "118": {
+   "key": "paper",
+   "n": 118,
+   "valid": true,
+   "crossings": 1414,
+   "turns": 1099,
+   "brute_crossings": null
+  },
+  "122": {
+   "key": "paper",
+   "n": 122,
+   "valid": true,
+   "crossings": 1460,
+   "turns": 1136,
+   "brute_crossings": null
+  },
+  "124": {
+   "key": "paper",
+   "n": 124,
+   "valid": true,
+   "crossings": 1489,
+   "turns": 1159,
+   "brute_crossings": null
+  },
+  "126": {
+   "key": "paper",
+   "n": 126,
+   "valid": true,
+   "crossings": 1510,
+   "turns": 1175,
+   "brute_crossings": null
+  },
+  "128": {
+   "key": "paper",
+   "n": 128,
+   "valid": true,
+   "crossings": 1552,
+   "turns": 1202,
+   "brute_crossings": null
+  },
+  "130": {
+   "key": "paper",
+   "n": 130,
+   "valid": true,
+   "crossings": 1556,
+   "turns": 1212,
+   "brute_crossings": null
+  },
+  "132": {
+   "key": "paper",
+   "n": 132,
+   "valid": true,
+   "crossings": 1585,
+   "turns": 1235,
+   "brute_crossings": null
+  },
+  "134": {
+   "key": "paper",
+   "n": 134,
+   "valid": true,
+   "crossings": 1606,
+   "turns": 1251,
+   "brute_crossings": null
+  },
+  "136": {
+   "key": "paper",
+   "n": 136,
+   "valid": true,
+   "crossings": 1648,
+   "turns": 1278,
+   "brute_crossings": null
+  },
+  "138": {
+   "key": "paper",
+   "n": 138,
+   "valid": true,
+   "crossings": 1652,
+   "turns": 1288,
+   "brute_crossings": null
+  },
+  "140": {
+   "key": "paper",
+   "n": 140,
+   "valid": true,
+   "crossings": 1681,
+   "turns": 1311,
+   "brute_crossings": null
+  },
+  "142": {
+   "key": "paper",
+   "n": 142,
+   "valid": true,
+   "crossings": 1702,
+   "turns": 1327,
+   "brute_crossings": null
+  },
+  "144": {
+   "key": "paper",
+   "n": 144,
+   "valid": true,
+   "crossings": 1744,
+   "turns": 1354,
+   "brute_crossings": null
+  },
+  "146": {
+   "key": "paper",
+   "n": 146,
+   "valid": true,
+   "crossings": 1748,
+   "turns": 1364,
+   "brute_crossings": null
+  },
+  "148": {
+   "key": "paper",
+   "n": 148,
+   "valid": true,
+   "crossings": 1777,
+   "turns": 1387,
+   "brute_crossings": null
+  },
+  "150": {
+   "key": "paper",
+   "n": 150,
+   "valid": true,
+   "crossings": 1798,
+   "turns": 1403,
+   "brute_crossings": null
+  },
+  "152": {
+   "key": "paper",
+   "n": 152,
+   "valid": true,
+   "crossings": 1840,
+   "turns": 1430,
+   "brute_crossings": null
+  },
+  "120": {
+   "key": "paper",
+   "n": 120,
+   "valid": true,
+   "crossings": 1456,
+   "turns": 1126,
+   "brute_crossings": 1456
+  },
+  "154": {
+   "key": "paper",
+   "n": 154,
+   "valid": true,
+   "crossings": 1844,
+   "turns": 1440,
+   "brute_crossings": null
+  },
+  "156": {
+   "key": "paper",
+   "n": 156,
+   "valid": true,
+   "crossings": 1873,
+   "turns": 1463,
+   "brute_crossings": null
+  },
+  "158": {
+   "key": "paper",
+   "n": 158,
+   "valid": true,
+   "crossings": 1894,
+   "turns": 1479,
+   "brute_crossings": null
+  },
+  "160": {
+   "key": "paper",
+   "n": 160,
+   "valid": true,
+   "crossings": 1936,
+   "turns": 1506,
+   "brute_crossings": null
+  },
+  "162": {
+   "key": "paper",
+   "n": 162,
+   "valid": true,
+   "crossings": 1940,
+   "turns": 1516,
+   "brute_crossings": null
+  },
+  "164": {
+   "key": "paper",
+   "n": 164,
+   "valid": true,
+   "crossings": 1969,
+   "turns": 1539,
+   "brute_crossings": null
+  },
+  "166": {
+   "key": "paper",
+   "n": 166,
+   "valid": true,
+   "crossings": 1990,
+   "turns": 1555,
+   "brute_crossings": null
+  },
+  "168": {
+   "key": "paper",
+   "n": 168,
+   "valid": true,
+   "crossings": 2032,
+   "turns": 1582,
+   "brute_crossings": null
+  },
+  "170": {
+   "key": "paper",
+   "n": 170,
+   "valid": true,
+   "crossings": 2036,
+   "turns": 1592,
+   "brute_crossings": null
+  },
+  "172": {
+   "key": "paper",
+   "n": 172,
+   "valid": true,
+   "crossings": 2065,
+   "turns": 1615,
+   "brute_crossings": null
+  },
+  "174": {
+   "key": "paper",
+   "n": 174,
+   "valid": true,
+   "crossings": 2086,
+   "turns": 1631,
+   "brute_crossings": null
+  },
+  "176": {
+   "key": "paper",
+   "n": 176,
+   "valid": true,
+   "crossings": 2128,
+   "turns": 1658,
+   "brute_crossings": null
+  },
+  "178": {
+   "key": "paper",
+   "n": 178,
+   "valid": true,
+   "crossings": 2132,
+   "turns": 1668,
+   "brute_crossings": null
+  },
+  "180": {
+   "key": "paper",
+   "n": 180,
+   "valid": true,
+   "crossings": 2161,
+   "turns": 1691,
+   "brute_crossings": null
+  },
+  "182": {
+   "key": "paper",
+   "n": 182,
+   "valid": true,
+   "crossings": 2182,
+   "turns": 1707,
+   "brute_crossings": null
+  },
+  "184": {
+   "key": "paper",
+   "n": 184,
+   "valid": true,
+   "crossings": 2224,
+   "turns": 1734,
+   "brute_crossings": null
+  },
+  "186": {
+   "key": "paper",
+   "n": 186,
+   "valid": true,
+   "crossings": 2228,
+   "turns": 1744,
+   "brute_crossings": null
+  },
+  "188": {
+   "key": "paper",
+   "n": 188,
+   "valid": true,
+   "crossings": 2257,
+   "turns": 1767,
+   "brute_crossings": null
+  },
+  "190": {
+   "key": "paper",
+   "n": 190,
+   "valid": true,
+   "crossings": 2278,
+   "turns": 1783,
+   "brute_crossings": null
+  },
+  "192": {
+   "key": "paper",
+   "n": 192,
+   "valid": true,
+   "crossings": 2320,
+   "turns": 1810,
+   "brute_crossings": null
+  },
+  "194": {
+   "key": "paper",
+   "n": 194,
+   "valid": true,
+   "crossings": 2324,
+   "turns": 1820,
+   "brute_crossings": null
+  },
+  "196": {
+   "key": "paper",
+   "n": 196,
+   "valid": true,
+   "crossings": 2353,
+   "turns": 1843,
+   "brute_crossings": null
+  },
+  "198": {
+   "key": "paper",
+   "n": 198,
+   "valid": true,
+   "crossings": 2374,
+   "turns": 1859,
+   "brute_crossings": null
+  },
+  "200": {
+   "key": "paper",
+   "n": 200,
+   "valid": true,
+   "crossings": 2416,
+   "turns": 1886,
+   "brute_crossings": null
+  }
+ },
+ "H16a": {
+  "48": {
+   "key": "H16a",
+   "n": 48,
+   "valid": true,
+   "crossings": 437,
+   "turns": 465,
+   "brute_crossings": null
+  },
+  "50": {
+   "key": "H16a",
+   "n": 50,
+   "valid": true,
+   "crossings": 450,
+   "turns": 486,
+   "brute_crossings": null
+  },
+  "52": {
+   "key": "H16a",
+   "n": 52,
+   "valid": true,
+   "crossings": 475,
+   "turns": 507,
+   "brute_crossings": null
+  },
+  "54": {
+   "key": "H16a",
+   "n": 54,
+   "valid": true,
+   "crossings": 489,
+   "turns": 526,
+   "brute_crossings": null
+  },
+  "56": {
+   "key": "H16a",
+   "n": 56,
+   "valid": true,
+   "crossings": 509,
+   "turns": 549,
+   "brute_crossings": null
+  },
+  "58": {
+   "key": "H16a",
+   "n": 58,
+   "valid": true,
+   "crossings": 522,
+   "turns": 568,
+   "brute_crossings": null
+  },
+  "60": {
+   "key": "H16a",
+   "n": 60,
+   "valid": true,
+   "crossings": 547,
+   "turns": 589,
+   "brute_crossings": null
+  },
+  "62": {
+   "key": "H16a",
+   "n": 62,
+   "valid": true,
+   "crossings": 559,
+   "turns": 605,
+   "brute_crossings": null
+  },
+  "64": {
+   "key": "H16a",
+   "n": 64,
+   "valid": true,
+   "crossings": 581,
+   "turns": 630,
+   "brute_crossings": null
+  },
+  "66": {
+   "key": "H16a",
+   "n": 66,
+   "valid": true,
+   "crossings": 594,
+   "turns": 650,
+   "brute_crossings": null
+  },
+  "68": {
+   "key": "H16a",
+   "n": 68,
+   "valid": true,
+   "crossings": 619,
+   "turns": 679,
+   "brute_crossings": null
+  },
+  "70": {
+   "key": "H16a",
+   "n": 70,
+   "valid": true,
+   "crossings": 632,
+   "turns": 692,
+   "brute_crossings": null
+  },
+  "72": {
+   "key": "H16a",
+   "n": 72,
+   "valid": true,
+   "crossings": 653,
+   "turns": 711,
+   "brute_crossings": null
+  },
+  "74": {
+   "key": "H16a",
+   "n": 74,
+   "valid": true,
+   "crossings": 666,
+   "turns": 732,
+   "brute_crossings": null
+  },
+  "76": {
+   "key": "H16a",
+   "n": 76,
+   "valid": true,
+   "crossings": 691,
+   "turns": 753,
+   "brute_crossings": null
+  },
+  "78": {
+   "key": "H16a",
+   "n": 78,
+   "valid": true,
+   "crossings": 705,
+   "turns": 772,
+   "brute_crossings": null
+  },
+  "80": {
+   "key": "H16a",
+   "n": 80,
+   "valid": true,
+   "crossings": 725,
+   "turns": 795,
+   "brute_crossings": null
+  },
+  "82": {
+   "key": "H16a",
+   "n": 82,
+   "valid": true,
+   "crossings": 738,
+   "turns": 814,
+   "brute_crossings": null
+  },
+  "84": {
+   "key": "H16a",
+   "n": 84,
+   "valid": true,
+   "crossings": 763,
+   "turns": 835,
+   "brute_crossings": null
+  },
+  "86": {
+   "key": "H16a",
+   "n": 86,
+   "valid": true,
+   "crossings": 775,
+   "turns": 851,
+   "brute_crossings": null
+  },
+  "88": {
+   "key": "H16a",
+   "n": 88,
+   "valid": true,
+   "crossings": 797,
+   "turns": 876,
+   "brute_crossings": null
+  },
+  "90": {
+   "key": "H16a",
+   "n": 90,
+   "valid": true,
+   "crossings": 810,
+   "turns": 896,
+   "brute_crossings": null
+  },
+  "92": {
+   "key": "H16a",
+   "n": 92,
+   "valid": true,
+   "crossings": 835,
+   "turns": 925,
+   "brute_crossings": null
+  },
+  "94": {
+   "key": "H16a",
+   "n": 94,
+   "valid": true,
+   "crossings": 848,
+   "turns": 938,
+   "brute_crossings": null
+  },
+  "96": {
+   "key": "H16a",
+   "n": 96,
+   "valid": true,
+   "crossings": 869,
+   "turns": 957,
+   "brute_crossings": 869
+  },
+  "98": {
+   "key": "H16a",
+   "n": 98,
+   "valid": true,
+   "crossings": 882,
+   "turns": 978,
+   "brute_crossings": 882
+  },
+  "100": {
+   "key": "H16a",
+   "n": 100,
+   "valid": true,
+   "crossings": 907,
+   "turns": 999,
+   "brute_crossings": null
+  },
+  "102": {
+   "key": "H16a",
+   "n": 102,
+   "valid": true,
+   "crossings": 921,
+   "turns": 1018,
+   "brute_crossings": null
+  },
+  "104": {
+   "key": "H16a",
+   "n": 104,
+   "valid": true,
+   "crossings": 941,
+   "turns": 1041,
+   "brute_crossings": null
+  },
+  "106": {
+   "key": "H16a",
+   "n": 106,
+   "valid": true,
+   "crossings": 954,
+   "turns": 1060,
+   "brute_crossings": null
+  },
+  "108": {
+   "key": "H16a",
+   "n": 108,
+   "valid": true,
+   "crossings": 979,
+   "turns": 1081,
+   "brute_crossings": null
+  },
+  "110": {
+   "key": "H16a",
+   "n": 110,
+   "valid": true,
+   "crossings": 991,
+   "turns": 1097,
+   "brute_crossings": null
+  },
+  "112": {
+   "key": "H16a",
+   "n": 112,
+   "valid": true,
+   "crossings": 1013,
+   "turns": 1122,
+   "brute_crossings": null
+  },
+  "114": {
+   "key": "H16a",
+   "n": 114,
+   "valid": true,
+   "crossings": 1026,
+   "turns": 1142,
+   "brute_crossings": null
+  },
+  "116": {
+   "key": "H16a",
+   "n": 116,
+   "valid": true,
+   "crossings": 1051,
+   "turns": 1171,
+   "brute_crossings": null
+  },
+  "118": {
+   "key": "H16a",
+   "n": 118,
+   "valid": true,
+   "crossings": 1064,
+   "turns": 1184,
+   "brute_crossings": null
+  },
+  "122": {
+   "key": "H16a",
+   "n": 122,
+   "valid": true,
+   "crossings": 1098,
+   "turns": 1224,
+   "brute_crossings": null
+  },
+  "124": {
+   "key": "H16a",
+   "n": 124,
+   "valid": true,
+   "crossings": 1123,
+   "turns": 1245,
+   "brute_crossings": null
+  },
+  "126": {
+   "key": "H16a",
+   "n": 126,
+   "valid": true,
+   "crossings": 1137,
+   "turns": 1264,
+   "brute_crossings": null
+  },
+  "128": {
+   "key": "H16a",
+   "n": 128,
+   "valid": true,
+   "crossings": 1157,
+   "turns": 1287,
+   "brute_crossings": null
+  },
+  "130": {
+   "key": "H16a",
+   "n": 130,
+   "valid": true,
+   "crossings": 1170,
+   "turns": 1306,
+   "brute_crossings": null
+  },
+  "132": {
+   "key": "H16a",
+   "n": 132,
+   "valid": true,
+   "crossings": 1195,
+   "turns": 1327,
+   "brute_crossings": null
+  },
+  "134": {
+   "key": "H16a",
+   "n": 134,
+   "valid": true,
+   "crossings": 1207,
+   "turns": 1343,
+   "brute_crossings": null
+  },
+  "136": {
+   "key": "H16a",
+   "n": 136,
+   "valid": true,
+   "crossings": 1229,
+   "turns": 1368,
+   "brute_crossings": null
+  },
+  "138": {
+   "key": "H16a",
+   "n": 138,
+   "valid": true,
+   "crossings": 1242,
+   "turns": 1388,
+   "brute_crossings": null
+  },
+  "140": {
+   "key": "H16a",
+   "n": 140,
+   "valid": true,
+   "crossings": 1267,
+   "turns": 1417,
+   "brute_crossings": null
+  },
+  "142": {
+   "key": "H16a",
+   "n": 142,
+   "valid": true,
+   "crossings": 1280,
+   "turns": 1430,
+   "brute_crossings": null
+  },
+  "144": {
+   "key": "H16a",
+   "n": 144,
+   "valid": true,
+   "crossings": 1301,
+   "turns": 1449,
+   "brute_crossings": null
+  },
+  "146": {
+   "key": "H16a",
+   "n": 146,
+   "valid": true,
+   "crossings": 1314,
+   "turns": 1470,
+   "brute_crossings": null
+  },
+  "148": {
+   "key": "H16a",
+   "n": 148,
+   "valid": true,
+   "crossings": 1339,
+   "turns": 1491,
+   "brute_crossings": null
+  },
+  "150": {
+   "key": "H16a",
+   "n": 150,
+   "valid": true,
+   "crossings": 1353,
+   "turns": 1510,
+   "brute_crossings": null
+  },
+  "120": {
+   "key": "H16a",
+   "n": 120,
+   "valid": true,
+   "crossings": 1085,
+   "turns": 1203,
+   "brute_crossings": 1085
+  },
+  "152": {
+   "key": "H16a",
+   "n": 152,
+   "valid": true,
+   "crossings": 1373,
+   "turns": 1533,
+   "brute_crossings": null
+  },
+  "154": {
+   "key": "H16a",
+   "n": 154,
+   "valid": true,
+   "crossings": 1386,
+   "turns": 1552,
+   "brute_crossings": null
+  },
+  "156": {
+   "key": "H16a",
+   "n": 156,
+   "valid": true,
+   "crossings": 1411,
+   "turns": 1573,
+   "brute_crossings": null
+  },
+  "158": {
+   "key": "H16a",
+   "n": 158,
+   "valid": true,
+   "crossings": 1423,
+   "turns": 1589,
+   "brute_crossings": null
+  },
+  "160": {
+   "key": "H16a",
+   "n": 160,
+   "valid": true,
+   "crossings": 1445,
+   "turns": 1614,
+   "brute_crossings": null
+  },
+  "162": {
+   "key": "H16a",
+   "n": 162,
+   "valid": true,
+   "crossings": 1458,
+   "turns": 1634,
+   "brute_crossings": null
+  },
+  "164": {
+   "key": "H16a",
+   "n": 164,
+   "valid": true,
+   "crossings": 1483,
+   "turns": 1663,
+   "brute_crossings": null
+  },
+  "166": {
+   "key": "H16a",
+   "n": 166,
+   "valid": true,
+   "crossings": 1496,
+   "turns": 1676,
+   "brute_crossings": null
+  },
+  "168": {
+   "key": "H16a",
+   "n": 168,
+   "valid": true,
+   "crossings": 1517,
+   "turns": 1695,
+   "brute_crossings": null
+  },
+  "170": {
+   "key": "H16a",
+   "n": 170,
+   "valid": true,
+   "crossings": 1530,
+   "turns": 1716,
+   "brute_crossings": null
+  },
+  "172": {
+   "key": "H16a",
+   "n": 172,
+   "valid": true,
+   "crossings": 1555,
+   "turns": 1737,
+   "brute_crossings": null
+  },
+  "174": {
+   "key": "H16a",
+   "n": 174,
+   "valid": true,
+   "crossings": 1569,
+   "turns": 1756,
+   "brute_crossings": null
+  },
+  "176": {
+   "key": "H16a",
+   "n": 176,
+   "valid": true,
+   "crossings": 1589,
+   "turns": 1779,
+   "brute_crossings": null
+  },
+  "178": {
+   "key": "H16a",
+   "n": 178,
+   "valid": true,
+   "crossings": 1602,
+   "turns": 1798,
+   "brute_crossings": null
+  },
+  "180": {
+   "key": "H16a",
+   "n": 180,
+   "valid": true,
+   "crossings": 1627,
+   "turns": 1819,
+   "brute_crossings": null
+  },
+  "182": {
+   "key": "H16a",
+   "n": 182,
+   "valid": true,
+   "crossings": 1639,
+   "turns": 1835,
+   "brute_crossings": null
+  },
+  "184": {
+   "key": "H16a",
+   "n": 184,
+   "valid": true,
+   "crossings": 1661,
+   "turns": 1860,
+   "brute_crossings": null
+  },
+  "186": {
+   "key": "H16a",
+   "n": 186,
+   "valid": true,
+   "crossings": 1674,
+   "turns": 1880,
+   "brute_crossings": null
+  },
+  "188": {
+   "key": "H16a",
+   "n": 188,
+   "valid": true,
+   "crossings": 1699,
+   "turns": 1909,
+   "brute_crossings": null
+  },
+  "190": {
+   "key": "H16a",
+   "n": 190,
+   "valid": true,
+   "crossings": 1712,
+   "turns": 1922,
+   "brute_crossings": null
+  },
+  "192": {
+   "key": "H16a",
+   "n": 192,
+   "valid": true,
+   "crossings": 1733,
+   "turns": 1941,
+   "brute_crossings": null
+  },
+  "194": {
+   "key": "H16a",
+   "n": 194,
+   "valid": true,
+   "crossings": 1746,
+   "turns": 1962,
+   "brute_crossings": null
+  },
+  "196": {
+   "key": "H16a",
+   "n": 196,
+   "valid": true,
+   "crossings": 1771,
+   "turns": 1983,
+   "brute_crossings": null
+  },
+  "198": {
+   "key": "H16a",
+   "n": 198,
+   "valid": true,
+   "crossings": 1785,
+   "turns": 2002,
+   "brute_crossings": null
+  },
+  "200": {
+   "key": "H16a",
+   "n": 200,
+   "valid": true,
+   "crossings": 1805,
+   "turns": 2025,
+   "brute_crossings": null
+  }
+ },
+ "TT16": {
+  "48": {
+   "key": "TT16",
+   "n": 48,
+   "valid": true,
+   "crossings": 454,
+   "turns": 370,
+   "brute_crossings": null
+  },
+  "50": {
+   "key": "TT16",
+   "n": 50,
+   "valid": true,
+   "crossings": 472,
+   "turns": 386,
+   "brute_crossings": null
+  },
+  "52": {
+   "key": "TT16",
+   "n": 52,
+   "valid": true,
+   "crossings": 494,
+   "turns": 402,
+   "brute_crossings": null
+  },
+  "54": {
+   "key": "TT16",
+   "n": 54,
+   "valid": true,
+   "crossings": 516,
+   "turns": 418,
+   "brute_crossings": null
+  },
+  "56": {
+   "key": "TT16",
+   "n": 56,
+   "valid": true,
+   "crossings": 530,
+   "turns": 434,
+   "brute_crossings": null
+  },
+  "58": {
+   "key": "TT16",
+   "n": 58,
+   "valid": true,
+   "crossings": 548,
+   "turns": 450,
+   "brute_crossings": null
+  },
+  "60": {
+   "key": "TT16",
+   "n": 60,
+   "valid": true,
+   "crossings": 570,
+   "turns": 466,
+   "brute_crossings": null
+  },
+  "62": {
+   "key": "TT16",
+   "n": 62,
+   "valid": true,
+   "crossings": 592,
+   "turns": 482,
+   "brute_crossings": null
+  },
+  "64": {
+   "key": "TT16",
+   "n": 64,
+   "valid": true,
+   "crossings": 606,
+   "turns": 498,
+   "brute_crossings": null
+  },
+  "66": {
+   "key": "TT16",
+   "n": 66,
+   "valid": true,
+   "crossings": 624,
+   "turns": 514,
+   "brute_crossings": null
+  },
+  "68": {
+   "key": "TT16",
+   "n": 68,
+   "valid": true,
+   "crossings": 646,
+   "turns": 530,
+   "brute_crossings": null
+  },
+  "70": {
+   "key": "TT16",
+   "n": 70,
+   "valid": true,
+   "crossings": 668,
+   "turns": 546,
+   "brute_crossings": null
+  },
+  "72": {
+   "key": "TT16",
+   "n": 72,
+   "valid": true,
+   "crossings": 682,
+   "turns": 562,
+   "brute_crossings": null
+  },
+  "74": {
+   "key": "TT16",
+   "n": 74,
+   "valid": true,
+   "crossings": 700,
+   "turns": 578,
+   "brute_crossings": null
+  },
+  "76": {
+   "key": "TT16",
+   "n": 76,
+   "valid": true,
+   "crossings": 722,
+   "turns": 594,
+   "brute_crossings": null
+  },
+  "78": {
+   "key": "TT16",
+   "n": 78,
+   "valid": true,
+   "crossings": 744,
+   "turns": 610,
+   "brute_crossings": null
+  },
+  "80": {
+   "key": "TT16",
+   "n": 80,
+   "valid": true,
+   "crossings": 758,
+   "turns": 626,
+   "brute_crossings": null
+  },
+  "82": {
+   "key": "TT16",
+   "n": 82,
+   "valid": true,
+   "crossings": 776,
+   "turns": 642,
+   "brute_crossings": null
+  },
+  "84": {
+   "key": "TT16",
+   "n": 84,
+   "valid": true,
+   "crossings": 798,
+   "turns": 658,
+   "brute_crossings": null
+  },
+  "86": {
+   "key": "TT16",
+   "n": 86,
+   "valid": true,
+   "crossings": 820,
+   "turns": 674,
+   "brute_crossings": null
+  },
+  "88": {
+   "key": "TT16",
+   "n": 88,
+   "valid": true,
+   "crossings": 834,
+   "turns": 690,
+   "brute_crossings": null
+  },
+  "90": {
+   "key": "TT16",
+   "n": 90,
+   "valid": true,
+   "crossings": 852,
+   "turns": 706,
+   "brute_crossings": null
+  },
+  "92": {
+   "key": "TT16",
+   "n": 92,
+   "valid": true,
+   "crossings": 874,
+   "turns": 722,
+   "brute_crossings": null
+  },
+  "94": {
+   "key": "TT16",
+   "n": 94,
+   "valid": true,
+   "crossings": 896,
+   "turns": 738,
+   "brute_crossings": null
+  },
+  "96": {
+   "key": "TT16",
+   "n": 96,
+   "valid": true,
+   "crossings": 910,
+   "turns": 754,
+   "brute_crossings": 910
+  },
+  "98": {
+   "key": "TT16",
+   "n": 98,
+   "valid": true,
+   "crossings": 928,
+   "turns": 770,
+   "brute_crossings": 928
+  },
+  "100": {
+   "key": "TT16",
+   "n": 100,
+   "valid": true,
+   "crossings": 950,
+   "turns": 786,
+   "brute_crossings": null
+  },
+  "102": {
+   "key": "TT16",
+   "n": 102,
+   "valid": true,
+   "crossings": 972,
+   "turns": 802,
+   "brute_crossings": null
+  },
+  "104": {
+   "key": "TT16",
+   "n": 104,
+   "valid": true,
+   "crossings": 986,
+   "turns": 818,
+   "brute_crossings": null
+  },
+  "106": {
+   "key": "TT16",
+   "n": 106,
+   "valid": true,
+   "crossings": 1004,
+   "turns": 834,
+   "brute_crossings": null
+  },
+  "108": {
+   "key": "TT16",
+   "n": 108,
+   "valid": true,
+   "crossings": 1026,
+   "turns": 850,
+   "brute_crossings": null
+  },
+  "110": {
+   "key": "TT16",
+   "n": 110,
+   "valid": true,
+   "crossings": 1048,
+   "turns": 866,
+   "brute_crossings": null
+  },
+  "112": {
+   "key": "TT16",
+   "n": 112,
+   "valid": true,
+   "crossings": 1062,
+   "turns": 882,
+   "brute_crossings": null
+  },
+  "114": {
+   "key": "TT16",
+   "n": 114,
+   "valid": true,
+   "crossings": 1080,
+   "turns": 898,
+   "brute_crossings": null
+  },
+  "116": {
+   "key": "TT16",
+   "n": 116,
+   "valid": true,
+   "crossings": 1102,
+   "turns": 914,
+   "brute_crossings": null
+  },
+  "118": {
+   "key": "TT16",
+   "n": 118,
+   "valid": true,
+   "crossings": 1124,
+   "turns": 930,
+   "brute_crossings": null
+  },
+  "122": {
+   "key": "TT16",
+   "n": 122,
+   "valid": true,
+   "crossings": 1156,
+   "turns": 962,
+   "brute_crossings": null
+  },
+  "124": {
+   "key": "TT16",
+   "n": 124,
+   "valid": true,
+   "crossings": 1178,
+   "turns": 978,
+   "brute_crossings": null
+  },
+  "126": {
+   "key": "TT16",
+   "n": 126,
+   "valid": true,
+   "crossings": 1200,
+   "turns": 994,
+   "brute_crossings": null
+  },
+  "128": {
+   "key": "TT16",
+   "n": 128,
+   "valid": true,
+   "crossings": 1214,
+   "turns": 1010,
+   "brute_crossings": null
+  },
+  "130": {
+   "key": "TT16",
+   "n": 130,
+   "valid": true,
+   "crossings": 1232,
+   "turns": 1026,
+   "brute_crossings": null
+  },
+  "132": {
+   "key": "TT16",
+   "n": 132,
+   "valid": true,
+   "crossings": 1254,
+   "turns": 1042,
+   "brute_crossings": null
+  },
+  "134": {
+   "key": "TT16",
+   "n": 134,
+   "valid": true,
+   "crossings": 1276,
+   "turns": 1058,
+   "brute_crossings": null
+  },
+  "136": {
+   "key": "TT16",
+   "n": 136,
+   "valid": true,
+   "crossings": 1290,
+   "turns": 1074,
+   "brute_crossings": null
+  },
+  "138": {
+   "key": "TT16",
+   "n": 138,
+   "valid": true,
+   "crossings": 1308,
+   "turns": 1090,
+   "brute_crossings": null
+  },
+  "140": {
+   "key": "TT16",
+   "n": 140,
+   "valid": true,
+   "crossings": 1330,
+   "turns": 1106,
+   "brute_crossings": null
+  },
+  "142": {
+   "key": "TT16",
+   "n": 142,
+   "valid": true,
+   "crossings": 1352,
+   "turns": 1122,
+   "brute_crossings": null
+  },
+  "144": {
+   "key": "TT16",
+   "n": 144,
+   "valid": true,
+   "crossings": 1366,
+   "turns": 1138,
+   "brute_crossings": null
+  },
+  "146": {
+   "key": "TT16",
+   "n": 146,
+   "valid": true,
+   "crossings": 1384,
+   "turns": 1154,
+   "brute_crossings": null
+  },
+  "148": {
+   "key": "TT16",
+   "n": 148,
+   "valid": true,
+   "crossings": 1406,
+   "turns": 1170,
+   "brute_crossings": null
+  },
+  "150": {
+   "key": "TT16",
+   "n": 150,
+   "valid": true,
+   "crossings": 1428,
+   "turns": 1186,
+   "brute_crossings": null
+  },
+  "120": {
+   "key": "TT16",
+   "n": 120,
+   "valid": true,
+   "crossings": 1138,
+   "turns": 946,
+   "brute_crossings": 1138
+  },
+  "152": {
+   "key": "TT16",
+   "n": 152,
+   "valid": true,
+   "crossings": 1442,
+   "turns": 1202,
+   "brute_crossings": null
+  },
+  "154": {
+   "key": "TT16",
+   "n": 154,
+   "valid": true,
+   "crossings": 1460,
+   "turns": 1218,
+   "brute_crossings": null
+  },
+  "156": {
+   "key": "TT16",
+   "n": 156,
+   "valid": true,
+   "crossings": 1482,
+   "turns": 1234,
+   "brute_crossings": null
+  },
+  "158": {
+   "key": "TT16",
+   "n": 158,
+   "valid": true,
+   "crossings": 1504,
+   "turns": 1250,
+   "brute_crossings": null
+  },
+  "160": {
+   "key": "TT16",
+   "n": 160,
+   "valid": true,
+   "crossings": 1518,
+   "turns": 1266,
+   "brute_crossings": null
+  },
+  "162": {
+   "key": "TT16",
+   "n": 162,
+   "valid": true,
+   "crossings": 1536,
+   "turns": 1282,
+   "brute_crossings": null
+  },
+  "164": {
+   "key": "TT16",
+   "n": 164,
+   "valid": true,
+   "crossings": 1558,
+   "turns": 1298,
+   "brute_crossings": null
+  },
+  "166": {
+   "key": "TT16",
+   "n": 166,
+   "valid": true,
+   "crossings": 1580,
+   "turns": 1314,
+   "brute_crossings": null
+  },
+  "168": {
+   "key": "TT16",
+   "n": 168,
+   "valid": true,
+   "crossings": 1594,
+   "turns": 1330,
+   "brute_crossings": null
+  },
+  "170": {
+   "key": "TT16",
+   "n": 170,
+   "valid": true,
+   "crossings": 1612,
+   "turns": 1346,
+   "brute_crossings": null
+  },
+  "172": {
+   "key": "TT16",
+   "n": 172,
+   "valid": true,
+   "crossings": 1634,
+   "turns": 1362,
+   "brute_crossings": null
+  },
+  "174": {
+   "key": "TT16",
+   "n": 174,
+   "valid": true,
+   "crossings": 1656,
+   "turns": 1378,
+   "brute_crossings": null
+  },
+  "176": {
+   "key": "TT16",
+   "n": 176,
+   "valid": true,
+   "crossings": 1670,
+   "turns": 1394,
+   "brute_crossings": null
+  },
+  "178": {
+   "key": "TT16",
+   "n": 178,
+   "valid": true,
+   "crossings": 1688,
+   "turns": 1410,
+   "brute_crossings": null
+  },
+  "180": {
+   "key": "TT16",
+   "n": 180,
+   "valid": true,
+   "crossings": 1710,
+   "turns": 1426,
+   "brute_crossings": null
+  },
+  "182": {
+   "key": "TT16",
+   "n": 182,
+   "valid": true,
+   "crossings": 1732,
+   "turns": 1442,
+   "brute_crossings": null
+  },
+  "184": {
+   "key": "TT16",
+   "n": 184,
+   "valid": true,
+   "crossings": 1746,
+   "turns": 1458,
+   "brute_crossings": null
+  },
+  "186": {
+   "key": "TT16",
+   "n": 186,
+   "valid": true,
+   "crossings": 1764,
+   "turns": 1474,
+   "brute_crossings": null
+  },
+  "188": {
+   "key": "TT16",
+   "n": 188,
+   "valid": true,
+   "crossings": 1786,
+   "turns": 1490,
+   "brute_crossings": null
+  },
+  "190": {
+   "key": "TT16",
+   "n": 190,
+   "valid": true,
+   "crossings": 1808,
+   "turns": 1506,
+   "brute_crossings": null
+  },
+  "192": {
+   "key": "TT16",
+   "n": 192,
+   "valid": true,
+   "crossings": 1822,
+   "turns": 1522,
+   "brute_crossings": null
+  },
+  "194": {
+   "key": "TT16",
+   "n": 194,
+   "valid": true,
+   "crossings": 1840,
+   "turns": 1538,
+   "brute_crossings": null
+  },
+  "196": {
+   "key": "TT16",
+   "n": 196,
+   "valid": true,
+   "crossings": 1862,
+   "turns": 1554,
+   "brute_crossings": null
+  },
+  "198": {
+   "key": "TT16",
+   "n": 198,
+   "valid": true,
+   "crossings": 1884,
+   "turns": 1570,
+   "brute_crossings": null
+  },
+  "200": {
+   "key": "TT16",
+   "n": 200,
+   "valid": true,
+   "crossings": 1898,
+   "turns": 1586,
+   "brute_crossings": null
+  }
+ },
+ "FOLD": {
+  "96": {
+   "key": "FOLD",
+   "n": 96,
+   "valid": true,
+   "crossings": 720,
+   "turns": 1251,
+   "brute_crossings": 720
+  },
+  "100": {
+   "key": "FOLD",
+   "n": 100,
+   "valid": true,
+   "crossings": 775,
+   "turns": 1319,
+   "brute_crossings": null
+  },
+  "98": {
+   "key": "FOLD",
+   "n": 98,
+   "valid": true,
+   "crossings": 752,
+   "turns": 1265,
+   "brute_crossings": 752
+  },
+  "102": {
+   "key": "FOLD",
+   "n": 102,
+   "valid": true,
+   "crossings": 754,
+   "turns": 1310,
+   "brute_crossings": null
+  },
+  "104": {
+   "key": "FOLD",
+   "n": 104,
+   "valid": true,
+   "crossings": 776,
+   "turns": 1352,
+   "brute_crossings": null
+  },
+  "106": {
+   "key": "FOLD",
+   "n": 106,
+   "valid": true,
+   "crossings": 786,
+   "turns": 1383,
+   "brute_crossings": null
+  },
+  "108": {
+   "key": "FOLD",
+   "n": 108,
+   "valid": true,
+   "crossings": 788,
+   "turns": 1386,
+   "brute_crossings": null
+  },
+  "110": {
+   "key": "FOLD",
+   "n": 110,
+   "valid": true,
+   "crossings": 803,
+   "turns": 1402,
+   "brute_crossings": null
+  },
+  "112": {
+   "key": "FOLD",
+   "n": 112,
+   "valid": true,
+   "crossings": 839,
+   "turns": 1459,
+   "brute_crossings": null
+  },
+  "114": {
+   "key": "FOLD",
+   "n": 114,
+   "valid": true,
+   "crossings": 864,
+   "turns": 1500,
+   "brute_crossings": null
+  },
+  "116": {
+   "key": "FOLD",
+   "n": 116,
+   "valid": true,
+   "crossings": 850,
+   "turns": 1507,
+   "brute_crossings": null
+  },
+  "118": {
+   "key": "FOLD",
+   "n": 118,
+   "valid": true,
+   "crossings": 875,
+   "turns": 1529,
+   "brute_crossings": null
+  },
+  "122": {
+   "key": "FOLD",
+   "n": 122,
+   "valid": true,
+   "crossings": 904,
+   "turns": 1569,
+   "brute_crossings": null
+  },
+  "124": {
+   "key": "FOLD",
+   "n": 124,
+   "valid": true,
+   "crossings": 927,
+   "turns": 1623,
+   "brute_crossings": null
+  },
+  "126": {
+   "key": "FOLD",
+   "n": 126,
+   "valid": true,
+   "crossings": 906,
+   "turns": 1614,
+   "brute_crossings": null
+  },
+  "128": {
+   "key": "FOLD",
+   "n": 128,
+   "valid": true,
+   "crossings": 928,
+   "turns": 1656,
+   "brute_crossings": null
+  },
+  "130": {
+   "key": "FOLD",
+   "n": 130,
+   "valid": true,
+   "crossings": 938,
+   "turns": 1687,
+   "brute_crossings": null
+  },
+  "132": {
+   "key": "FOLD",
+   "n": 132,
+   "valid": true,
+   "crossings": 940,
+   "turns": 1690,
+   "brute_crossings": null
+  },
+  "134": {
+   "key": "FOLD",
+   "n": 134,
+   "valid": true,
+   "crossings": 955,
+   "turns": 1706,
+   "brute_crossings": null
+  },
+  "136": {
+   "key": "FOLD",
+   "n": 136,
+   "valid": true,
+   "crossings": 991,
+   "turns": 1763,
+   "brute_crossings": null
+  },
+  "120": {
+   "key": "FOLD",
+   "n": 120,
+   "valid": true,
+   "crossings": 872,
+   "turns": 1555,
+   "brute_crossings": 872
+  },
+  "138": {
+   "key": "FOLD",
+   "n": 138,
+   "valid": true,
+   "crossings": 1016,
+   "turns": 1804,
+   "brute_crossings": null
+  },
+  "140": {
+   "key": "FOLD",
+   "n": 140,
+   "valid": true,
+   "crossings": 1002,
+   "turns": 1811,
+   "brute_crossings": null
+  },
+  "142": {
+   "key": "FOLD",
+   "n": 142,
+   "valid": true,
+   "crossings": 1027,
+   "turns": 1833,
+   "brute_crossings": null
+  },
+  "144": {
+   "key": "FOLD",
+   "n": 144,
+   "valid": true,
+   "crossings": 1024,
+   "turns": 1859,
+   "brute_crossings": null
+  },
+  "146": {
+   "key": "FOLD",
+   "n": 146,
+   "valid": true,
+   "crossings": 1056,
+   "turns": 1873,
+   "brute_crossings": null
+  },
+  "148": {
+   "key": "FOLD",
+   "n": 148,
+   "valid": true,
+   "crossings": 1079,
+   "turns": 1927,
+   "brute_crossings": null
+  },
+  "150": {
+   "key": "FOLD",
+   "n": 150,
+   "valid": true,
+   "crossings": 1058,
+   "turns": 1918,
+   "brute_crossings": null
+  },
+  "152": {
+   "key": "FOLD",
+   "n": 152,
+   "valid": true,
+   "crossings": 1080,
+   "turns": 1960,
+   "brute_crossings": null
+  },
+  "154": {
+   "key": "FOLD",
+   "n": 154,
+   "valid": true,
+   "crossings": 1090,
+   "turns": 1991,
+   "brute_crossings": null
+  },
+  "156": {
+   "key": "FOLD",
+   "n": 156,
+   "valid": true,
+   "crossings": 1092,
+   "turns": 1994,
+   "brute_crossings": null
+  },
+  "158": {
+   "key": "FOLD",
+   "n": 158,
+   "valid": true,
+   "crossings": 1107,
+   "turns": 2010,
+   "brute_crossings": null
+  },
+  "160": {
+   "key": "FOLD",
+   "n": 160,
+   "valid": true,
+   "crossings": 1143,
+   "turns": 2067,
+   "brute_crossings": null
+  },
+  "162": {
+   "key": "FOLD",
+   "n": 162,
+   "valid": true,
+   "crossings": 1168,
+   "turns": 2108,
+   "brute_crossings": null
+  },
+  "164": {
+   "key": "FOLD",
+   "n": 164,
+   "valid": true,
+   "crossings": 1154,
+   "turns": 2115,
+   "brute_crossings": null
+  },
+  "166": {
+   "key": "FOLD",
+   "n": 166,
+   "valid": true,
+   "crossings": 1179,
+   "turns": 2137,
+   "brute_crossings": null
+  },
+  "168": {
+   "key": "FOLD",
+   "n": 168,
+   "valid": true,
+   "crossings": 1176,
+   "turns": 2163,
+   "brute_crossings": null
+  },
+  "170": {
+   "key": "FOLD",
+   "n": 170,
+   "valid": true,
+   "crossings": 1208,
+   "turns": 2177,
+   "brute_crossings": null
+  },
+  "172": {
+   "key": "FOLD",
+   "n": 172,
+   "valid": true,
+   "crossings": 1231,
+   "turns": 2231,
+   "brute_crossings": null
+  },
+  "174": {
+   "key": "FOLD",
+   "n": 174,
+   "valid": true,
+   "crossings": 1210,
+   "turns": 2222,
+   "brute_crossings": null
+  },
+  "176": {
+   "key": "FOLD",
+   "n": 176,
+   "valid": true,
+   "crossings": 1232,
+   "turns": 2264,
+   "brute_crossings": null
+  },
+  "178": {
+   "key": "FOLD",
+   "n": 178,
+   "valid": true,
+   "crossings": 1242,
+   "turns": 2295,
+   "brute_crossings": null
+  },
+  "180": {
+   "key": "FOLD",
+   "n": 180,
+   "valid": true,
+   "crossings": 1244,
+   "turns": 2298,
+   "brute_crossings": null
+  },
+  "182": {
+   "key": "FOLD",
+   "n": 182,
+   "valid": true,
+   "crossings": 1259,
+   "turns": 2314,
+   "brute_crossings": null
+  },
+  "184": {
+   "key": "FOLD",
+   "n": 184,
+   "valid": true,
+   "crossings": 1295,
+   "turns": 2371,
+   "brute_crossings": null
+  },
+  "186": {
+   "key": "FOLD",
+   "n": 186,
+   "valid": true,
+   "crossings": 1320,
+   "turns": 2412,
+   "brute_crossings": null
+  },
+  "188": {
+   "key": "FOLD",
+   "n": 188,
+   "valid": true,
+   "crossings": 1306,
+   "turns": 2419,
+   "brute_crossings": null
+  },
+  "190": {
+   "key": "FOLD",
+   "n": 190,
+   "valid": true,
+   "crossings": 1331,
+   "turns": 2441,
+   "brute_crossings": null
+  },
+  "192": {
+   "key": "FOLD",
+   "n": 192,
+   "valid": true,
+   "crossings": 1328,
+   "turns": 2467,
+   "brute_crossings": null
+  },
+  "194": {
+   "key": "FOLD",
+   "n": 194,
+   "valid": true,
+   "crossings": 1360,
+   "turns": 2481,
+   "brute_crossings": null
+  },
+  "196": {
+   "key": "FOLD",
+   "n": 196,
+   "valid": true,
+   "crossings": 1383,
+   "turns": 2535,
+   "brute_crossings": null
+  },
+  "198": {
+   "key": "FOLD",
+   "n": 198,
+   "valid": true,
+   "crossings": 1362,
+   "turns": 2526,
+   "brute_crossings": null
+  },
+  "200": {
+   "key": "FOLD",
+   "n": 200,
+   "valid": true,
+   "crossings": 1384,
+   "turns": 2568,
+   "brute_crossings": null
+  }
+ },
+ "orig": {
+  "48": {
+   "key": "orig",
+   "n": 48,
+   "valid": true,
+   "crossings": 624,
+   "turns": 442,
+   "brute_crossings": null
+  },
+  "50": {
+   "key": "orig",
+   "n": 50,
+   "valid": true,
+   "crossings": 632,
+   "turns": 452,
+   "brute_crossings": null
+  },
+  "52": {
+   "key": "orig",
+   "n": 52,
+   "valid": true,
+   "crossings": 665,
+   "turns": 475,
+   "brute_crossings": null
+  },
+  "54": {
+   "key": "orig",
+   "n": 54,
+   "valid": true,
+   "crossings": 686,
+   "turns": 491,
+   "brute_crossings": null
+  },
+  "56": {
+   "key": "orig",
+   "n": 56,
+   "valid": true,
+   "crossings": 728,
+   "turns": 518,
+   "brute_crossings": null
+  },
+  "58": {
+   "key": "orig",
+   "n": 58,
+   "valid": true,
+   "crossings": 736,
+   "turns": 528,
+   "brute_crossings": null
+  },
+  "60": {
+   "key": "orig",
+   "n": 60,
+   "valid": true,
+   "crossings": 769,
+   "turns": 551,
+   "brute_crossings": null
+  },
+  "62": {
+   "key": "orig",
+   "n": 62,
+   "valid": true,
+   "crossings": 790,
+   "turns": 567,
+   "brute_crossings": null
+  },
+  "64": {
+   "key": "orig",
+   "n": 64,
+   "valid": true,
+   "crossings": 832,
+   "turns": 594,
+   "brute_crossings": null
+  },
+  "66": {
+   "key": "orig",
+   "n": 66,
+   "valid": true,
+   "crossings": 840,
+   "turns": 604,
+   "brute_crossings": null
+  },
+  "68": {
+   "key": "orig",
+   "n": 68,
+   "valid": true,
+   "crossings": 873,
+   "turns": 627,
+   "brute_crossings": null
+  },
+  "70": {
+   "key": "orig",
+   "n": 70,
+   "valid": true,
+   "crossings": 894,
+   "turns": 643,
+   "brute_crossings": null
+  },
+  "72": {
+   "key": "orig",
+   "n": 72,
+   "valid": true,
+   "crossings": 936,
+   "turns": 670,
+   "brute_crossings": null
+  },
+  "74": {
+   "key": "orig",
+   "n": 74,
+   "valid": true,
+   "crossings": 944,
+   "turns": 680,
+   "brute_crossings": null
+  },
+  "76": {
+   "key": "orig",
+   "n": 76,
+   "valid": true,
+   "crossings": 977,
+   "turns": 703,
+   "brute_crossings": null
+  },
+  "78": {
+   "key": "orig",
+   "n": 78,
+   "valid": true,
+   "crossings": 998,
+   "turns": 719,
+   "brute_crossings": null
+  },
+  "80": {
+   "key": "orig",
+   "n": 80,
+   "valid": true,
+   "crossings": 1040,
+   "turns": 746,
+   "brute_crossings": null
+  },
+  "82": {
+   "key": "orig",
+   "n": 82,
+   "valid": true,
+   "crossings": 1048,
+   "turns": 756,
+   "brute_crossings": null
+  },
+  "84": {
+   "key": "orig",
+   "n": 84,
+   "valid": true,
+   "crossings": 1081,
+   "turns": 779,
+   "brute_crossings": null
+  },
+  "86": {
+   "key": "orig",
+   "n": 86,
+   "valid": true,
+   "crossings": 1102,
+   "turns": 795,
+   "brute_crossings": null
+  },
+  "88": {
+   "key": "orig",
+   "n": 88,
+   "valid": true,
+   "crossings": 1144,
+   "turns": 822,
+   "brute_crossings": null
+  },
+  "90": {
+   "key": "orig",
+   "n": 90,
+   "valid": true,
+   "crossings": 1152,
+   "turns": 832,
+   "brute_crossings": null
+  },
+  "92": {
+   "key": "orig",
+   "n": 92,
+   "valid": true,
+   "crossings": 1185,
+   "turns": 855,
+   "brute_crossings": null
+  },
+  "94": {
+   "key": "orig",
+   "n": 94,
+   "valid": true,
+   "crossings": 1206,
+   "turns": 871,
+   "brute_crossings": null
+  },
+  "100": {
+   "key": "orig",
+   "n": 100,
+   "valid": true,
+   "crossings": 1289,
+   "turns": 931,
+   "brute_crossings": null
+  },
+  "102": {
+   "key": "orig",
+   "n": 102,
+   "valid": true,
+   "crossings": 1310,
+   "turns": 947,
+   "brute_crossings": null
+  },
+  "104": {
+   "key": "orig",
+   "n": 104,
+   "valid": true,
+   "crossings": 1352,
+   "turns": 974,
+   "brute_crossings": null
+  },
+  "106": {
+   "key": "orig",
+   "n": 106,
+   "valid": true,
+   "crossings": 1360,
+   "turns": 984,
+   "brute_crossings": null
+  },
+  "108": {
+   "key": "orig",
+   "n": 108,
+   "valid": true,
+   "crossings": 1393,
+   "turns": 1007,
+   "brute_crossings": null
+  },
+  "110": {
+   "key": "orig",
+   "n": 110,
+   "valid": true,
+   "crossings": 1414,
+   "turns": 1023,
+   "brute_crossings": null
+  },
+  "112": {
+   "key": "orig",
+   "n": 112,
+   "valid": true,
+   "crossings": 1456,
+   "turns": 1050,
+   "brute_crossings": null
+  },
+  "114": {
+   "key": "orig",
+   "n": 114,
+   "valid": true,
+   "crossings": 1464,
+   "turns": 1060,
+   "brute_crossings": null
+  },
+  "116": {
+   "key": "orig",
+   "n": 116,
+   "valid": true,
+   "crossings": 1497,
+   "turns": 1083,
+   "brute_crossings": null
+  },
+  "118": {
+   "key": "orig",
+   "n": 118,
+   "valid": true,
+   "crossings": 1518,
+   "turns": 1099,
+   "brute_crossings": null
+  },
+  "96": {
+   "key": "orig",
+   "n": 96,
+   "valid": true,
+   "crossings": 1248,
+   "turns": 898,
+   "brute_crossings": 1248
+  },
+  "98": {
+   "key": "orig",
+   "n": 98,
+   "valid": true,
+   "crossings": 1256,
+   "turns": 908,
+   "brute_crossings": 1256
+  },
+  "122": {
+   "key": "orig",
+   "n": 122,
+   "valid": true,
+   "crossings": 1568,
+   "turns": 1136,
+   "brute_crossings": null
+  },
+  "124": {
+   "key": "orig",
+   "n": 124,
+   "valid": true,
+   "crossings": 1601,
+   "turns": 1159,
+   "brute_crossings": null
+  },
+  "126": {
+   "key": "orig",
+   "n": 126,
+   "valid": true,
+   "crossings": 1622,
+   "turns": 1175,
+   "brute_crossings": null
+  },
+  "128": {
+   "key": "orig",
+   "n": 128,
+   "valid": true,
+   "crossings": 1664,
+   "turns": 1202,
+   "brute_crossings": null
+  },
+  "130": {
+   "key": "orig",
+   "n": 130,
+   "valid": true,
+   "crossings": 1672,
+   "turns": 1212,
+   "brute_crossings": null
+  },
+  "132": {
+   "key": "orig",
+   "n": 132,
+   "valid": true,
+   "crossings": 1705,
+   "turns": 1235,
+   "brute_crossings": null
+  },
+  "134": {
+   "key": "orig",
+   "n": 134,
+   "valid": true,
+   "crossings": 1726,
+   "turns": 1251,
+   "brute_crossings": null
+  },
+  "136": {
+   "key": "orig",
+   "n": 136,
+   "valid": true,
+   "crossings": 1768,
+   "turns": 1278,
+   "brute_crossings": null
+  },
+  "138": {
+   "key": "orig",
+   "n": 138,
+   "valid": true,
+   "crossings": 1776,
+   "turns": 1288,
+   "brute_crossings": null
+  },
+  "140": {
+   "key": "orig",
+   "n": 140,
+   "valid": true,
+   "crossings": 1809,
+   "turns": 1311,
+   "brute_crossings": null
+  },
+  "142": {
+   "key": "orig",
+   "n": 142,
+   "valid": true,
+   "crossings": 1830,
+   "turns": 1327,
+   "brute_crossings": null
+  },
+  "144": {
+   "key": "orig",
+   "n": 144,
+   "valid": true,
+   "crossings": 1872,
+   "turns": 1354,
+   "brute_crossings": null
+  },
+  "146": {
+   "key": "orig",
+   "n": 146,
+   "valid": true,
+   "crossings": 1880,
+   "turns": 1364,
+   "brute_crossings": null
+  },
+  "148": {
+   "key": "orig",
+   "n": 148,
+   "valid": true,
+   "crossings": 1913,
+   "turns": 1387,
+   "brute_crossings": null
+  },
+  "150": {
+   "key": "orig",
+   "n": 150,
+   "valid": true,
+   "crossings": 1934,
+   "turns": 1403,
+   "brute_crossings": null
+  },
+  "152": {
+   "key": "orig",
+   "n": 152,
+   "valid": true,
+   "crossings": 1976,
+   "turns": 1430,
+   "brute_crossings": null
+  },
+  "154": {
+   "key": "orig",
+   "n": 154,
+   "valid": true,
+   "crossings": 1984,
+   "turns": 1440,
+   "brute_crossings": null
+  },
+  "156": {
+   "key": "orig",
+   "n": 156,
+   "valid": true,
+   "crossings": 2017,
+   "turns": 1463,
+   "brute_crossings": null
+  },
+  "158": {
+   "key": "orig",
+   "n": 158,
+   "valid": true,
+   "crossings": 2038,
+   "turns": 1479,
+   "brute_crossings": null
+  },
+  "160": {
+   "key": "orig",
+   "n": 160,
+   "valid": true,
+   "crossings": 2080,
+   "turns": 1506,
+   "brute_crossings": null
+  },
+  "162": {
+   "key": "orig",
+   "n": 162,
+   "valid": true,
+   "crossings": 2088,
+   "turns": 1516,
+   "brute_crossings": null
+  },
+  "164": {
+   "key": "orig",
+   "n": 164,
+   "valid": true,
+   "crossings": 2121,
+   "turns": 1539,
+   "brute_crossings": null
+  },
+  "166": {
+   "key": "orig",
+   "n": 166,
+   "valid": true,
+   "crossings": 2142,
+   "turns": 1555,
+   "brute_crossings": null
+  },
+  "168": {
+   "key": "orig",
+   "n": 168,
+   "valid": true,
+   "crossings": 2184,
+   "turns": 1582,
+   "brute_crossings": null
+  },
+  "120": {
+   "key": "orig",
+   "n": 120,
+   "valid": true,
+   "crossings": 1560,
+   "turns": 1126,
+   "brute_crossings": 1560
+  },
+  "170": {
+   "key": "orig",
+   "n": 170,
+   "valid": true,
+   "crossings": 2192,
+   "turns": 1592,
+   "brute_crossings": null
+  },
+  "172": {
+   "key": "orig",
+   "n": 172,
+   "valid": true,
+   "crossings": 2225,
+   "turns": 1615,
+   "brute_crossings": null
+  },
+  "174": {
+   "key": "orig",
+   "n": 174,
+   "valid": true,
+   "crossings": 2246,
+   "turns": 1631,
+   "brute_crossings": null
+  },
+  "176": {
+   "key": "orig",
+   "n": 176,
+   "valid": true,
+   "crossings": 2288,
+   "turns": 1658,
+   "brute_crossings": null
+  },
+  "178": {
+   "key": "orig",
+   "n": 178,
+   "valid": true,
+   "crossings": 2296,
+   "turns": 1668,
+   "brute_crossings": null
+  },
+  "180": {
+   "key": "orig",
+   "n": 180,
+   "valid": true,
+   "crossings": 2329,
+   "turns": 1691,
+   "brute_crossings": null
+  },
+  "182": {
+   "key": "orig",
+   "n": 182,
+   "valid": true,
+   "crossings": 2350,
+   "turns": 1707,
+   "brute_crossings": null
+  },
+  "184": {
+   "key": "orig",
+   "n": 184,
+   "valid": true,
+   "crossings": 2392,
+   "turns": 1734,
+   "brute_crossings": null
+  },
+  "186": {
+   "key": "orig",
+   "n": 186,
+   "valid": true,
+   "crossings": 2400,
+   "turns": 1744,
+   "brute_crossings": null
+  },
+  "188": {
+   "key": "orig",
+   "n": 188,
+   "valid": true,
+   "crossings": 2433,
+   "turns": 1767,
+   "brute_crossings": null
+  },
+  "190": {
+   "key": "orig",
+   "n": 190,
+   "valid": true,
+   "crossings": 2454,
+   "turns": 1783,
+   "brute_crossings": null
+  },
+  "192": {
+   "key": "orig",
+   "n": 192,
+   "valid": true,
+   "crossings": 2496,
+   "turns": 1810,
+   "brute_crossings": null
+  },
+  "194": {
+   "key": "orig",
+   "n": 194,
+   "valid": true,
+   "crossings": 2504,
+   "turns": 1820,
+   "brute_crossings": null
+  },
+  "196": {
+   "key": "orig",
+   "n": 196,
+   "valid": true,
+   "crossings": 2537,
+   "turns": 1843,
+   "brute_crossings": null
+  },
+  "198": {
+   "key": "orig",
+   "n": 198,
+   "valid": true,
+   "crossings": 2558,
+   "turns": 1859,
+   "brute_crossings": null
+  },
+  "200": {
+   "key": "orig",
+   "n": 200,
+   "valid": true,
+   "crossings": 2600,
+   "turns": 1886,
+   "brute_crossings": null
+  }
+ },
+ "heel21": {
+  "48": {
+   "key": "heel21",
+   "n": 48,
+   "valid": true,
+   "crossings": 616,
+   "turns": 434,
+   "brute_crossings": null
+  },
+  "50": {
+   "key": "heel21",
+   "n": 50,
+   "valid": true,
+   "crossings": 623,
+   "turns": 443,
+   "brute_crossings": null
+  },
+  "52": {
+   "key": "heel21",
+   "n": 52,
+   "valid": true,
+   "crossings": 655,
+   "turns": 465,
+   "brute_crossings": null
+  },
+  "54": {
+   "key": "heel21",
+   "n": 54,
+   "valid": true,
+   "crossings": 676,
+   "turns": 481,
+   "brute_crossings": null
+  },
+  "56": {
+   "key": "heel21",
+   "n": 56,
+   "valid": true,
+   "crossings": 718,
+   "turns": 508,
+   "brute_crossings": null
+  },
+  "58": {
+   "key": "heel21",
+   "n": 58,
+   "valid": true,
+   "crossings": 725,
+   "turns": 517,
+   "brute_crossings": null
+  },
+  "60": {
+   "key": "heel21",
+   "n": 60,
+   "valid": true,
+   "crossings": 757,
+   "turns": 539,
+   "brute_crossings": null
+  },
+  "64": {
+   "key": "heel21",
+   "n": 64,
+   "valid": true,
+   "crossings": 820,
+   "turns": 582,
+   "brute_crossings": null
+  },
+  "62": {
+   "key": "heel21",
+   "n": 62,
+   "valid": true,
+   "crossings": 778,
+   "turns": 555,
+   "brute_crossings": null
+  },
+  "66": {
+   "key": "heel21",
+   "n": 66,
+   "valid": true,
+   "crossings": 827,
+   "turns": 591,
+   "brute_crossings": null
+  },
+  "68": {
+   "key": "heel21",
+   "n": 68,
+   "valid": true,
+   "crossings": 859,
+   "turns": 613,
+   "brute_crossings": null
+  },
+  "70": {
+   "key": "heel21",
+   "n": 70,
+   "valid": true,
+   "crossings": 880,
+   "turns": 629,
+   "brute_crossings": null
+  },
+  "72": {
+   "key": "heel21",
+   "n": 72,
+   "valid": true,
+   "crossings": 922,
+   "turns": 656,
+   "brute_crossings": null
+  },
+  "74": {
+   "key": "heel21",
+   "n": 74,
+   "valid": true,
+   "crossings": 929,
+   "turns": 665,
+   "brute_crossings": null
+  },
+  "76": {
+   "key": "heel21",
+   "n": 76,
+   "valid": true,
+   "crossings": 961,
+   "turns": 687,
+   "brute_crossings": null
+  },
+  "78": {
+   "key": "heel21",
+   "n": 78,
+   "valid": true,
+   "crossings": 982,
+   "turns": 703,
+   "brute_crossings": null
+  },
+  "80": {
+   "key": "heel21",
+   "n": 80,
+   "valid": true,
+   "crossings": 1024,
+   "turns": 730,
+   "brute_crossings": null
+  },
+  "82": {
+   "key": "heel21",
+   "n": 82,
+   "valid": true,
+   "crossings": 1031,
+   "turns": 739,
+   "brute_crossings": null
+  },
+  "84": {
+   "key": "heel21",
+   "n": 84,
+   "valid": true,
+   "crossings": 1063,
+   "turns": 761,
+   "brute_crossings": null
+  },
+  "86": {
+   "key": "heel21",
+   "n": 86,
+   "valid": true,
+   "crossings": 1084,
+   "turns": 777,
+   "brute_crossings": null
+  },
+  "88": {
+   "key": "heel21",
+   "n": 88,
+   "valid": true,
+   "crossings": 1126,
+   "turns": 804,
+   "brute_crossings": null
+  },
+  "90": {
+   "key": "heel21",
+   "n": 90,
+   "valid": true,
+   "crossings": 1133,
+   "turns": 813,
+   "brute_crossings": null
+  },
+  "92": {
+   "key": "heel21",
+   "n": 92,
+   "valid": true,
+   "crossings": 1165,
+   "turns": 835,
+   "brute_crossings": null
+  },
+  "94": {
+   "key": "heel21",
+   "n": 94,
+   "valid": true,
+   "crossings": 1186,
+   "turns": 851,
+   "brute_crossings": null
+  },
+  "100": {
+   "key": "heel21",
+   "n": 100,
+   "valid": true,
+   "crossings": 1267,
+   "turns": 909,
+   "brute_crossings": null
+  },
+  "102": {
+   "key": "heel21",
+   "n": 102,
+   "valid": true,
+   "crossings": 1288,
+   "turns": 925,
+   "brute_crossings": null
+  },
+  "104": {
+   "key": "heel21",
+   "n": 104,
+   "valid": true,
+   "crossings": 1330,
+   "turns": 952,
+   "brute_crossings": null
+  },
+  "106": {
+   "key": "heel21",
+   "n": 106,
+   "valid": true,
+   "crossings": 1337,
+   "turns": 961,
+   "brute_crossings": null
+  },
+  "108": {
+   "key": "heel21",
+   "n": 108,
+   "valid": true,
+   "crossings": 1369,
+   "turns": 983,
+   "brute_crossings": null
+  },
+  "110": {
+   "key": "heel21",
+   "n": 110,
+   "valid": true,
+   "crossings": 1390,
+   "turns": 999,
+   "brute_crossings": null
+  },
+  "112": {
+   "key": "heel21",
+   "n": 112,
+   "valid": true,
+   "crossings": 1432,
+   "turns": 1026,
+   "brute_crossings": null
+  },
+  "114": {
+   "key": "heel21",
+   "n": 114,
+   "valid": true,
+   "crossings": 1439,
+   "turns": 1035,
+   "brute_crossings": null
+  },
+  "116": {
+   "key": "heel21",
+   "n": 116,
+   "valid": true,
+   "crossings": 1471,
+   "turns": 1057,
+   "brute_crossings": null
+  },
+  "118": {
+   "key": "heel21",
+   "n": 118,
+   "valid": true,
+   "crossings": 1492,
+   "turns": 1073,
+   "brute_crossings": null
+  },
+  "96": {
+   "key": "heel21",
+   "n": 96,
+   "valid": true,
+   "crossings": 1228,
+   "turns": 878,
+   "brute_crossings": 1228
+  },
+  "98": {
+   "key": "heel21",
+   "n": 98,
+   "valid": true,
+   "crossings": 1235,
+   "turns": 887,
+   "brute_crossings": 1235
+  },
+  "122": {
+   "key": "heel21",
+   "n": 122,
+   "valid": true,
+   "crossings": 1541,
+   "turns": 1109,
+   "brute_crossings": null
+  },
+  "124": {
+   "key": "heel21",
+   "n": 124,
+   "valid": true,
+   "crossings": 1573,
+   "turns": 1131,
+   "brute_crossings": null
+  },
+  "126": {
+   "key": "heel21",
+   "n": 126,
+   "valid": true,
+   "crossings": 1594,
+   "turns": 1147,
+   "brute_crossings": null
+  },
+  "128": {
+   "key": "heel21",
+   "n": 128,
+   "valid": true,
+   "crossings": 1636,
+   "turns": 1174,
+   "brute_crossings": null
+  },
+  "130": {
+   "key": "heel21",
+   "n": 130,
+   "valid": true,
+   "crossings": 1643,
+   "turns": 1183,
+   "brute_crossings": null
+  },
+  "132": {
+   "key": "heel21",
+   "n": 132,
+   "valid": true,
+   "crossings": 1675,
+   "turns": 1205,
+   "brute_crossings": null
+  },
+  "134": {
+   "key": "heel21",
+   "n": 134,
+   "valid": true,
+   "crossings": 1696,
+   "turns": 1221,
+   "brute_crossings": null
+  },
+  "136": {
+   "key": "heel21",
+   "n": 136,
+   "valid": true,
+   "crossings": 1738,
+   "turns": 1248,
+   "brute_crossings": null
+  },
+  "138": {
+   "key": "heel21",
+   "n": 138,
+   "valid": true,
+   "crossings": 1745,
+   "turns": 1257,
+   "brute_crossings": null
+  },
+  "140": {
+   "key": "heel21",
+   "n": 140,
+   "valid": true,
+   "crossings": 1777,
+   "turns": 1279,
+   "brute_crossings": null
+  },
+  "142": {
+   "key": "heel21",
+   "n": 142,
+   "valid": true,
+   "crossings": 1798,
+   "turns": 1295,
+   "brute_crossings": null
+  },
+  "144": {
+   "key": "heel21",
+   "n": 144,
+   "valid": true,
+   "crossings": 1840,
+   "turns": 1322,
+   "brute_crossings": null
+  },
+  "146": {
+   "key": "heel21",
+   "n": 146,
+   "valid": true,
+   "crossings": 1847,
+   "turns": 1331,
+   "brute_crossings": null
+  },
+  "148": {
+   "key": "heel21",
+   "n": 148,
+   "valid": true,
+   "crossings": 1879,
+   "turns": 1353,
+   "brute_crossings": null
+  },
+  "150": {
+   "key": "heel21",
+   "n": 150,
+   "valid": true,
+   "crossings": 1900,
+   "turns": 1369,
+   "brute_crossings": null
+  },
+  "152": {
+   "key": "heel21",
+   "n": 152,
+   "valid": true,
+   "crossings": 1942,
+   "turns": 1396,
+   "brute_crossings": null
+  },
+  "154": {
+   "key": "heel21",
+   "n": 154,
+   "valid": true,
+   "crossings": 1949,
+   "turns": 1405,
+   "brute_crossings": null
+  },
+  "156": {
+   "key": "heel21",
+   "n": 156,
+   "valid": true,
+   "crossings": 1981,
+   "turns": 1427,
+   "brute_crossings": null
+  },
+  "158": {
+   "key": "heel21",
+   "n": 158,
+   "valid": true,
+   "crossings": 2002,
+   "turns": 1443,
+   "brute_crossings": null
+  },
+  "160": {
+   "key": "heel21",
+   "n": 160,
+   "valid": true,
+   "crossings": 2044,
+   "turns": 1470,
+   "brute_crossings": null
+  },
+  "162": {
+   "key": "heel21",
+   "n": 162,
+   "valid": true,
+   "crossings": 2051,
+   "turns": 1479,
+   "brute_crossings": null
+  },
+  "164": {
+   "key": "heel21",
+   "n": 164,
+   "valid": true,
+   "crossings": 2083,
+   "turns": 1501,
+   "brute_crossings": null
+  },
+  "166": {
+   "key": "heel21",
+   "n": 166,
+   "valid": true,
+   "crossings": 2104,
+   "turns": 1517,
+   "brute_crossings": null
+  },
+  "168": {
+   "key": "heel21",
+   "n": 168,
+   "valid": true,
+   "crossings": 2146,
+   "turns": 1544,
+   "brute_crossings": null
+  },
+  "170": {
+   "key": "heel21",
+   "n": 170,
+   "valid": true,
+   "crossings": 2153,
+   "turns": 1553,
+   "brute_crossings": null
+  },
+  "120": {
+   "key": "heel21",
+   "n": 120,
+   "valid": true,
+   "crossings": 1534,
+   "turns": 1100,
+   "brute_crossings": 1534
+  },
+  "172": {
+   "key": "heel21",
+   "n": 172,
+   "valid": true,
+   "crossings": 2185,
+   "turns": 1575,
+   "brute_crossings": null
+  },
+  "174": {
+   "key": "heel21",
+   "n": 174,
+   "valid": true,
+   "crossings": 2206,
+   "turns": 1591,
+   "brute_crossings": null
+  },
+  "176": {
+   "key": "heel21",
+   "n": 176,
+   "valid": true,
+   "crossings": 2248,
+   "turns": 1618,
+   "brute_crossings": null
+  },
+  "178": {
+   "key": "heel21",
+   "n": 178,
+   "valid": true,
+   "crossings": 2255,
+   "turns": 1627,
+   "brute_crossings": null
+  },
+  "180": {
+   "key": "heel21",
+   "n": 180,
+   "valid": true,
+   "crossings": 2287,
+   "turns": 1649,
+   "brute_crossings": null
+  },
+  "182": {
+   "key": "heel21",
+   "n": 182,
+   "valid": true,
+   "crossings": 2308,
+   "turns": 1665,
+   "brute_crossings": null
+  },
+  "184": {
+   "key": "heel21",
+   "n": 184,
+   "valid": true,
+   "crossings": 2350,
+   "turns": 1692,
+   "brute_crossings": null
+  },
+  "186": {
+   "key": "heel21",
+   "n": 186,
+   "valid": true,
+   "crossings": 2357,
+   "turns": 1701,
+   "brute_crossings": null
+  },
+  "188": {
+   "key": "heel21",
+   "n": 188,
+   "valid": true,
+   "crossings": 2389,
+   "turns": 1723,
+   "brute_crossings": null
+  },
+  "190": {
+   "key": "heel21",
+   "n": 190,
+   "valid": true,
+   "crossings": 2410,
+   "turns": 1739,
+   "brute_crossings": null
+  },
+  "192": {
+   "key": "heel21",
+   "n": 192,
+   "valid": true,
+   "crossings": 2452,
+   "turns": 1766,
+   "brute_crossings": null
+  },
+  "194": {
+   "key": "heel21",
+   "n": 194,
+   "valid": true,
+   "crossings": 2459,
+   "turns": 1775,
+   "brute_crossings": null
+  },
+  "196": {
+   "key": "heel21",
+   "n": 196,
+   "valid": true,
+   "crossings": 2491,
+   "turns": 1797,
+   "brute_crossings": null
+  },
+  "198": {
+   "key": "heel21",
+   "n": 198,
+   "valid": true,
+   "crossings": 2512,
+   "turns": 1813,
+   "brute_crossings": null
+  },
+  "200": {
+   "key": "heel21",
+   "n": 200,
+   "valid": true,
+   "crossings": 2554,
+   "turns": 1840,
+   "brute_crossings": null
+  }
+ },
+ "P40": {
+  "48": {
+   "key": "P40",
+   "n": 48,
+   "valid": true,
+   "crossings": 592,
+   "turns": 442,
+   "brute_crossings": null
+  },
+  "50": {
+   "key": "P40",
+   "n": 50,
+   "valid": true,
+   "crossings": 586,
+   "turns": 457,
+   "brute_crossings": null
+  },
+  "52": {
+   "key": "P40",
+   "n": 52,
+   "valid": true,
+   "crossings": 605,
+   "turns": 485,
+   "brute_crossings": null
+  },
+  "54": {
+   "key": "P40",
+   "n": 54,
+   "valid": true,
+   "crossings": 636,
+   "turns": 496,
+   "brute_crossings": null
+  },
+  "56": {
+   "key": "P40",
+   "n": 56,
+   "valid": true,
+   "crossings": 668,
+   "turns": 528,
+   "brute_crossings": null
+  },
+  "58": {
+   "key": "P40",
+   "n": 58,
+   "valid": true,
+   "crossings": 672,
+   "turns": 538,
+   "brute_crossings": null
+  },
+  "60": {
+   "key": "P40",
+   "n": 60,
+   "valid": true,
+   "crossings": 701,
+   "turns": 561,
+   "brute_crossings": null
+  },
+  "62": {
+   "key": "P40",
+   "n": 62,
+   "valid": true,
+   "crossings": 722,
+   "turns": 577,
+   "brute_crossings": null
+  },
+  "64": {
+   "key": "P40",
+   "n": 64,
+   "valid": true,
+   "crossings": 764,
+   "turns": 604,
+   "brute_crossings": null
+  },
+  "66": {
+   "key": "P40",
+   "n": 66,
+   "valid": true,
+   "crossings": 768,
+   "turns": 614,
+   "brute_crossings": null
+  },
+  "68": {
+   "key": "P40",
+   "n": 68,
+   "valid": true,
+   "crossings": 797,
+   "turns": 637,
+   "brute_crossings": null
+  },
+  "70": {
+   "key": "P40",
+   "n": 70,
+   "valid": true,
+   "crossings": 818,
+   "turns": 653,
+   "brute_crossings": null
+  },
+  "72": {
+   "key": "P40",
+   "n": 72,
+   "valid": true,
+   "crossings": 860,
+   "turns": 680,
+   "brute_crossings": null
+  },
+  "74": {
+   "key": "P40",
+   "n": 74,
+   "valid": true,
+   "crossings": 864,
+   "turns": 690,
+   "brute_crossings": null
+  },
+  "76": {
+   "key": "P40",
+   "n": 76,
+   "valid": true,
+   "crossings": 893,
+   "turns": 713,
+   "brute_crossings": null
+  },
+  "78": {
+   "key": "P40",
+   "n": 78,
+   "valid": true,
+   "crossings": 914,
+   "turns": 729,
+   "brute_crossings": null
+  },
+  "80": {
+   "key": "P40",
+   "n": 80,
+   "valid": true,
+   "crossings": 956,
+   "turns": 756,
+   "brute_crossings": null
+  },
+  "82": {
+   "key": "P40",
+   "n": 82,
+   "valid": true,
+   "crossings": 960,
+   "turns": 766,
+   "brute_crossings": null
+  },
+  "84": {
+   "key": "P40",
+   "n": 84,
+   "valid": true,
+   "crossings": 989,
+   "turns": 789,
+   "brute_crossings": null
+  },
+  "86": {
+   "key": "P40",
+   "n": 86,
+   "valid": true,
+   "crossings": 1010,
+   "turns": 805,
+   "brute_crossings": null
+  },
+  "88": {
+   "key": "P40",
+   "n": 88,
+   "valid": true,
+   "crossings": 1052,
+   "turns": 832,
+   "brute_crossings": null
+  },
+  "90": {
+   "key": "P40",
+   "n": 90,
+   "valid": true,
+   "crossings": 1046,
+   "turns": 847,
+   "brute_crossings": null
+  },
+  "92": {
+   "key": "P40",
+   "n": 92,
+   "valid": true,
+   "crossings": 1065,
+   "turns": 875,
+   "brute_crossings": null
+  },
+  "94": {
+   "key": "P40",
+   "n": 94,
+   "valid": true,
+   "crossings": 1096,
+   "turns": 886,
+   "brute_crossings": null
+  },
+  "100": {
+   "key": "P40",
+   "n": 100,
+   "valid": true,
+   "crossings": 1161,
+   "turns": 951,
+   "brute_crossings": null
+  },
+  "102": {
+   "key": "P40",
+   "n": 102,
+   "valid": true,
+   "crossings": 1182,
+   "turns": 967,
+   "brute_crossings": null
+  },
+  "104": {
+   "key": "P40",
+   "n": 104,
+   "valid": true,
+   "crossings": 1224,
+   "turns": 994,
+   "brute_crossings": null
+  },
+  "106": {
+   "key": "P40",
+   "n": 106,
+   "valid": true,
+   "crossings": 1228,
+   "turns": 1004,
+   "brute_crossings": null
+  },
+  "108": {
+   "key": "P40",
+   "n": 108,
+   "valid": true,
+   "crossings": 1257,
+   "turns": 1027,
+   "brute_crossings": null
+  },
+  "110": {
+   "key": "P40",
+   "n": 110,
+   "valid": true,
+   "crossings": 1278,
+   "turns": 1043,
+   "brute_crossings": null
+  },
+  "96": {
+   "key": "P40",
+   "n": 96,
+   "valid": true,
+   "crossings": 1128,
+   "turns": 918,
+   "brute_crossings": 1128
+  },
+  "114": {
+   "key": "P40",
+   "n": 114,
+   "valid": true,
+   "crossings": 1324,
+   "turns": 1080,
+   "brute_crossings": null
+  },
+  "112": {
+   "key": "P40",
+   "n": 112,
+   "valid": true,
+   "crossings": 1320,
+   "turns": 1070,
+   "brute_crossings": null
+  },
+  "116": {
+   "key": "P40",
+   "n": 116,
+   "valid": true,
+   "crossings": 1353,
+   "turns": 1103,
+   "brute_crossings": null
+  },
+  "118": {
+   "key": "P40",
+   "n": 118,
+   "valid": true,
+   "crossings": 1374,
+   "turns": 1119,
+   "brute_crossings": null
+  },
+  "122": {
+   "key": "P40",
+   "n": 122,
+   "valid": true,
+   "crossings": 1420,
+   "turns": 1156,
+   "brute_crossings": null
+  },
+  "98": {
+   "key": "P40",
+   "n": 98,
+   "valid": true,
+   "crossings": 1132,
+   "turns": 928,
+   "brute_crossings": 1132
+  },
+  "124": {
+   "key": "P40",
+   "n": 124,
+   "valid": true,
+   "crossings": 1449,
+   "turns": 1179,
+   "brute_crossings": null
+  },
+  "126": {
+   "key": "P40",
+   "n": 126,
+   "valid": true,
+   "crossings": 1470,
+   "turns": 1195,
+   "brute_crossings": null
+  },
+  "128": {
+   "key": "P40",
+   "n": 128,
+   "valid": true,
+   "crossings": 1512,
+   "turns": 1222,
+   "brute_crossings": null
+  },
+  "130": {
+   "key": "P40",
+   "n": 130,
+   "valid": true,
+   "crossings": 1506,
+   "turns": 1237,
+   "brute_crossings": null
+  },
+  "132": {
+   "key": "P40",
+   "n": 132,
+   "valid": true,
+   "crossings": 1525,
+   "turns": 1265,
+   "brute_crossings": null
+  },
+  "134": {
+   "key": "P40",
+   "n": 134,
+   "valid": true,
+   "crossings": 1556,
+   "turns": 1276,
+   "brute_crossings": null
+  },
+  "136": {
+   "key": "P40",
+   "n": 136,
+   "valid": true,
+   "crossings": 1588,
+   "turns": 1308,
+   "brute_crossings": null
+  },
+  "138": {
+   "key": "P40",
+   "n": 138,
+   "valid": true,
+   "crossings": 1592,
+   "turns": 1318,
+   "brute_crossings": null
+  },
+  "140": {
+   "key": "P40",
+   "n": 140,
+   "valid": true,
+   "crossings": 1621,
+   "turns": 1341,
+   "brute_crossings": null
+  },
+  "142": {
+   "key": "P40",
+   "n": 142,
+   "valid": true,
+   "crossings": 1642,
+   "turns": 1357,
+   "brute_crossings": null
+  },
+  "144": {
+   "key": "P40",
+   "n": 144,
+   "valid": true,
+   "crossings": 1684,
+   "turns": 1384,
+   "brute_crossings": null
+  },
+  "146": {
+   "key": "P40",
+   "n": 146,
+   "valid": true,
+   "crossings": 1688,
+   "turns": 1394,
+   "brute_crossings": null
+  },
+  "148": {
+   "key": "P40",
+   "n": 148,
+   "valid": true,
+   "crossings": 1717,
+   "turns": 1417,
+   "brute_crossings": null
+  },
+  "150": {
+   "key": "P40",
+   "n": 150,
+   "valid": true,
+   "crossings": 1738,
+   "turns": 1433,
+   "brute_crossings": null
+  },
+  "152": {
+   "key": "P40",
+   "n": 152,
+   "valid": true,
+   "crossings": 1780,
+   "turns": 1460,
+   "brute_crossings": null
+  },
+  "154": {
+   "key": "P40",
+   "n": 154,
+   "valid": true,
+   "crossings": 1784,
+   "turns": 1470,
+   "brute_crossings": null
+  },
+  "156": {
+   "key": "P40",
+   "n": 156,
+   "valid": true,
+   "crossings": 1813,
+   "turns": 1493,
+   "brute_crossings": null
+  },
+  "158": {
+   "key": "P40",
+   "n": 158,
+   "valid": true,
+   "crossings": 1834,
+   "turns": 1509,
+   "brute_crossings": null
+  },
+  "160": {
+   "key": "P40",
+   "n": 160,
+   "valid": true,
+   "crossings": 1876,
+   "turns": 1536,
+   "brute_crossings": null
+  },
+  "162": {
+   "key": "P40",
+   "n": 162,
+   "valid": true,
+   "crossings": 1880,
+   "turns": 1546,
+   "brute_crossings": null
+  },
+  "164": {
+   "key": "P40",
+   "n": 164,
+   "valid": true,
+   "crossings": 1909,
+   "turns": 1569,
+   "brute_crossings": null
+  },
+  "166": {
+   "key": "P40",
+   "n": 166,
+   "valid": true,
+   "crossings": 1930,
+   "turns": 1585,
+   "brute_crossings": null
+  },
+  "168": {
+   "key": "P40",
+   "n": 168,
+   "valid": true,
+   "crossings": 1972,
+   "turns": 1612,
+   "brute_crossings": null
+  },
+  "120": {
+   "key": "P40",
+   "n": 120,
+   "valid": true,
+   "crossings": 1416,
+   "turns": 1146,
+   "brute_crossings": 1416
+  },
+  "170": {
+   "key": "P40",
+   "n": 170,
+   "valid": true,
+   "crossings": 1966,
+   "turns": 1627,
+   "brute_crossings": null
+  },
+  "172": {
+   "key": "P40",
+   "n": 172,
+   "valid": true,
+   "crossings": 1985,
+   "turns": 1655,
+   "brute_crossings": null
+  },
+  "174": {
+   "key": "P40",
+   "n": 174,
+   "valid": true,
+   "crossings": 2016,
+   "turns": 1666,
+   "brute_crossings": null
+  },
+  "176": {
+   "key": "P40",
+   "n": 176,
+   "valid": true,
+   "crossings": 2048,
+   "turns": 1698,
+   "brute_crossings": null
+  },
+  "178": {
+   "key": "P40",
+   "n": 178,
+   "valid": true,
+   "crossings": 2052,
+   "turns": 1708,
+   "brute_crossings": null
+  },
+  "180": {
+   "key": "P40",
+   "n": 180,
+   "valid": true,
+   "crossings": 2081,
+   "turns": 1731,
+   "brute_crossings": null
+  },
+  "182": {
+   "key": "P40",
+   "n": 182,
+   "valid": true,
+   "crossings": 2102,
+   "turns": 1747,
+   "brute_crossings": null
+  },
+  "184": {
+   "key": "P40",
+   "n": 184,
+   "valid": true,
+   "crossings": 2144,
+   "turns": 1774,
+   "brute_crossings": null
+  },
+  "186": {
+   "key": "P40",
+   "n": 186,
+   "valid": true,
+   "crossings": 2148,
+   "turns": 1784,
+   "brute_crossings": null
+  },
+  "188": {
+   "key": "P40",
+   "n": 188,
+   "valid": true,
+   "crossings": 2177,
+   "turns": 1807,
+   "brute_crossings": null
+  },
+  "190": {
+   "key": "P40",
+   "n": 190,
+   "valid": true,
+   "crossings": 2198,
+   "turns": 1823,
+   "brute_crossings": null
+  },
+  "192": {
+   "key": "P40",
+   "n": 192,
+   "valid": true,
+   "crossings": 2240,
+   "turns": 1850,
+   "brute_crossings": null
+  },
+  "194": {
+   "key": "P40",
+   "n": 194,
+   "valid": true,
+   "crossings": 2244,
+   "turns": 1860,
+   "brute_crossings": null
+  },
+  "196": {
+   "key": "P40",
+   "n": 196,
+   "valid": true,
+   "crossings": 2273,
+   "turns": 1883,
+   "brute_crossings": null
+  },
+  "198": {
+   "key": "P40",
+   "n": 198,
+   "valid": true,
+   "crossings": 2294,
+   "turns": 1899,
+   "brute_crossings": null
+  },
+  "200": {
+   "key": "P40",
+   "n": 200,
+   "valid": true,
+   "crossings": 2336,
+   "turns": 1926,
+   "brute_crossings": null
+  }
+ },
+ "LF4": {
+  "100": {
+   "key": "LF4",
+   "n": 100,
+   "valid": true,
+   "crossings": 738,
+   "turns": 1048,
+   "brute_crossings": null
+  },
+  "102": {
+   "key": "LF4",
+   "n": 102,
+   "valid": true,
+   "crossings": 751,
+   "turns": 1072,
+   "brute_crossings": null
+  },
+  "104": {
+   "key": "LF4",
+   "n": 104,
+   "valid": true,
+   "crossings": 769,
+   "turns": 1089,
+   "brute_crossings": null
+  },
+  "106": {
+   "key": "LF4",
+   "n": 106,
+   "valid": true,
+   "crossings": 783,
+   "turns": 1112,
+   "brute_crossings": null
+  },
+  "108": {
+   "key": "LF4",
+   "n": 108,
+   "valid": true,
+   "crossings": 798,
+   "turns": 1136,
+   "brute_crossings": null
+  },
+  "98": {
+   "key": "LF4",
+   "n": 98,
+   "valid": true,
+   "crossings": 721,
+   "turns": 1028,
+   "brute_crossings": 721
+  },
+  "110": {
+   "key": "LF4",
+   "n": 110,
+   "valid": true,
+   "crossings": 814,
+   "turns": 1156,
+   "brute_crossings": null
+  },
+  "112": {
+   "key": "LF4",
+   "n": 112,
+   "valid": true,
+   "crossings": 821,
+   "turns": 1176,
+   "brute_crossings": null
+  },
+  "114": {
+   "key": "LF4",
+   "n": 114,
+   "valid": true,
+   "crossings": 835,
+   "turns": 1198,
+   "brute_crossings": null
+  },
+  "116": {
+   "key": "LF4",
+   "n": 116,
+   "valid": true,
+   "crossings": 854,
+   "turns": 1220,
+   "brute_crossings": null
+  },
+  "118": {
+   "key": "LF4",
+   "n": 118,
+   "valid": true,
+   "crossings": 866,
+   "turns": 1238,
+   "brute_crossings": null
+  },
+  "96": {
+   "key": "LF4",
+   "n": 96,
+   "valid": true,
+   "crossings": 707,
+   "turns": 1010,
+   "brute_crossings": 707
+  },
+  "122": {
+   "key": "LF4",
+   "n": 122,
+   "valid": true,
+   "crossings": 899,
+   "turns": 1284,
+   "brute_crossings": null
+  },
+  "124": {
+   "key": "LF4",
+   "n": 124,
+   "valid": true,
+   "crossings": 912,
+   "turns": 1306,
+   "brute_crossings": null
+  },
+  "126": {
+   "key": "LF4",
+   "n": 126,
+   "valid": true,
+   "crossings": 927,
+   "turns": 1330,
+   "brute_crossings": null
+  },
+  "128": {
+   "key": "LF4",
+   "n": 128,
+   "valid": true,
+   "crossings": 937,
+   "turns": 1348,
+   "brute_crossings": null
+  },
+  "130": {
+   "key": "LF4",
+   "n": 130,
+   "valid": true,
+   "crossings": 949,
+   "turns": 1368,
+   "brute_crossings": null
+  },
+  "132": {
+   "key": "LF4",
+   "n": 132,
+   "valid": true,
+   "crossings": 967,
+   "turns": 1394,
+   "brute_crossings": null
+  },
+  "134": {
+   "key": "LF4",
+   "n": 134,
+   "valid": true,
+   "crossings": 982,
+   "turns": 1410,
+   "brute_crossings": null
+  },
+  "136": {
+   "key": "LF4",
+   "n": 136,
+   "valid": true,
+   "crossings": 996,
+   "turns": 1433,
+   "brute_crossings": null
+  },
+  "140": {
+   "key": "LF4",
+   "n": 140,
+   "valid": true,
+   "crossings": 1028,
+   "turns": 1478,
+   "brute_crossings": null
+  },
+  "138": {
+   "key": "LF4",
+   "n": 138,
+   "valid": true,
+   "crossings": 1012,
+   "turns": 1458,
+   "brute_crossings": null
+  },
+  "142": {
+   "key": "LF4",
+   "n": 142,
+   "valid": true,
+   "crossings": 1041,
+   "turns": 1500,
+   "brute_crossings": null
+  },
+  "144": {
+   "key": "LF4",
+   "n": 144,
+   "valid": true,
+   "crossings": 1050,
+   "turns": 1526,
+   "brute_crossings": null
+  },
+  "146": {
+   "key": "LF4",
+   "n": 146,
+   "valid": true,
+   "crossings": 1064,
+   "turns": 1544,
+   "brute_crossings": null
+  },
+  "148": {
+   "key": "LF4",
+   "n": 148,
+   "valid": true,
+   "crossings": 1081,
+   "turns": 1564,
+   "brute_crossings": null
+  },
+  "150": {
+   "key": "LF4",
+   "n": 150,
+   "valid": true,
+   "crossings": 1094,
+   "turns": 1588,
+   "brute_crossings": null
+  },
+  "152": {
+   "key": "LF4",
+   "n": 152,
+   "valid": true,
+   "crossings": 1112,
+   "turns": 1605,
+   "brute_crossings": null
+  },
+  "154": {
+   "key": "LF4",
+   "n": 154,
+   "valid": true,
+   "crossings": 1126,
+   "turns": 1628,
+   "brute_crossings": null
+  },
+  "156": {
+   "key": "LF4",
+   "n": 156,
+   "valid": true,
+   "crossings": 1141,
+   "turns": 1652,
+   "brute_crossings": null
+  },
+  "158": {
+   "key": "LF4",
+   "n": 158,
+   "valid": true,
+   "crossings": 1157,
+   "turns": 1672,
+   "brute_crossings": null
+  },
+  "160": {
+   "key": "LF4",
+   "n": 160,
+   "valid": true,
+   "crossings": 1164,
+   "turns": 1692,
+   "brute_crossings": null
+  },
+  "162": {
+   "key": "LF4",
+   "n": 162,
+   "valid": true,
+   "crossings": 1178,
+   "turns": 1714,
+   "brute_crossings": null
+  },
+  "164": {
+   "key": "LF4",
+   "n": 164,
+   "valid": true,
+   "crossings": 1197,
+   "turns": 1736,
+   "brute_crossings": null
+  },
+  "166": {
+   "key": "LF4",
+   "n": 166,
+   "valid": true,
+   "crossings": 1209,
+   "turns": 1754,
+   "brute_crossings": null
+  },
+  "120": {
+   "key": "LF4",
+   "n": 120,
+   "valid": true,
+   "crossings": 882,
+   "turns": 1263,
+   "brute_crossings": 882
+  },
+  "168": {
+   "key": "LF4",
+   "n": 168,
+   "valid": true,
+   "crossings": 1225,
+   "turns": 1779,
+   "brute_crossings": null
+  },
+  "170": {
+   "key": "LF4",
+   "n": 170,
+   "valid": true,
+   "crossings": 1242,
+   "turns": 1800,
+   "brute_crossings": null
+  },
+  "172": {
+   "key": "LF4",
+   "n": 172,
+   "valid": true,
+   "crossings": 1255,
+   "turns": 1822,
+   "brute_crossings": null
+  },
+  "174": {
+   "key": "LF4",
+   "n": 174,
+   "valid": true,
+   "crossings": 1270,
+   "turns": 1846,
+   "brute_crossings": null
+  },
+  "176": {
+   "key": "LF4",
+   "n": 176,
+   "valid": true,
+   "crossings": 1280,
+   "turns": 1864,
+   "brute_crossings": null
+  },
+  "178": {
+   "key": "LF4",
+   "n": 178,
+   "valid": true,
+   "crossings": 1292,
+   "turns": 1884,
+   "brute_crossings": null
+  },
+  "180": {
+   "key": "LF4",
+   "n": 180,
+   "valid": true,
+   "crossings": 1310,
+   "turns": 1910,
+   "brute_crossings": null
+  },
+  "182": {
+   "key": "LF4",
+   "n": 182,
+   "valid": true,
+   "crossings": 1325,
+   "turns": 1926,
+   "brute_crossings": null
+  },
+  "184": {
+   "key": "LF4",
+   "n": 184,
+   "valid": true,
+   "crossings": 1339,
+   "turns": 1949,
+   "brute_crossings": null
+  },
+  "186": {
+   "key": "LF4",
+   "n": 186,
+   "valid": true,
+   "crossings": 1355,
+   "turns": 1974,
+   "brute_crossings": null
+  },
+  "188": {
+   "key": "LF4",
+   "n": 188,
+   "valid": true,
+   "crossings": 1371,
+   "turns": 1994,
+   "brute_crossings": null
+  },
+  "190": {
+   "key": "LF4",
+   "n": 190,
+   "valid": true,
+   "crossings": 1384,
+   "turns": 2016,
+   "brute_crossings": null
+  },
+  "192": {
+   "key": "LF4",
+   "n": 192,
+   "valid": true,
+   "crossings": 1393,
+   "turns": 2042,
+   "brute_crossings": null
+  },
+  "194": {
+   "key": "LF4",
+   "n": 194,
+   "valid": true,
+   "crossings": 1407,
+   "turns": 2060,
+   "brute_crossings": null
+  },
+  "196": {
+   "key": "LF4",
+   "n": 196,
+   "valid": true,
+   "crossings": 1424,
+   "turns": 2080,
+   "brute_crossings": null
+  },
+  "198": {
+   "key": "LF4",
+   "n": 198,
+   "valid": true,
+   "crossings": 1437,
+   "turns": 2104,
+   "brute_crossings": null
+  },
+  "200": {
+   "key": "LF4",
+   "n": 200,
+   "valid": true,
+   "crossings": 1455,
+   "turns": 2121,
+   "brute_crossings": null
+  }
+ },
+ "T18": {
+  "48": {
+   "key": "T18",
+   "n": 48,
+   "valid": true,
+   "crossings": 591,
+   "turns": 391,
+   "brute_crossings": null
+  },
+  "50": {
+   "key": "T18",
+   "n": 50,
+   "valid": true,
+   "crossings": 612,
+   "turns": 406,
+   "brute_crossings": null
+  },
+  "52": {
+   "key": "T18",
+   "n": 52,
+   "valid": true,
+   "crossings": 639,
+   "turns": 423,
+   "brute_crossings": null
+  },
+  "54": {
+   "key": "T18",
+   "n": 54,
+   "valid": true,
+   "crossings": 663,
+   "turns": 439,
+   "brute_crossings": null
+  },
+  "56": {
+   "key": "T18",
+   "n": 56,
+   "valid": true,
+   "crossings": 694,
+   "turns": 459,
+   "brute_crossings": null
+  },
+  "58": {
+   "key": "T18",
+   "n": 58,
+   "valid": true,
+   "crossings": 714,
+   "turns": 474,
+   "brute_crossings": null
+  },
+  "60": {
+   "key": "T18",
+   "n": 60,
+   "valid": true,
+   "crossings": 749,
+   "turns": 491,
+   "brute_crossings": null
+  },
+  "62": {
+   "key": "T18",
+   "n": 62,
+   "valid": true,
+   "crossings": 765,
+   "turns": 507,
+   "brute_crossings": null
+  },
+  "64": {
+   "key": "T18",
+   "n": 64,
+   "valid": true,
+   "crossings": 795,
+   "turns": 527,
+   "brute_crossings": null
+  },
+  "66": {
+   "key": "T18",
+   "n": 66,
+   "valid": true,
+   "crossings": 816,
+   "turns": 542,
+   "brute_crossings": null
+  },
+  "68": {
+   "key": "T18",
+   "n": 68,
+   "valid": true,
+   "crossings": 843,
+   "turns": 559,
+   "brute_crossings": null
+  },
+  "70": {
+   "key": "T18",
+   "n": 70,
+   "valid": true,
+   "crossings": 869,
+   "turns": 575,
+   "brute_crossings": null
+  },
+  "72": {
+   "key": "T18",
+   "n": 72,
+   "valid": true,
+   "crossings": 897,
+   "turns": 595,
+   "brute_crossings": null
+  },
+  "74": {
+   "key": "T18",
+   "n": 74,
+   "valid": true,
+   "crossings": 918,
+   "turns": 610,
+   "brute_crossings": null
+  },
+  "76": {
+   "key": "T18",
+   "n": 76,
+   "valid": true,
+   "crossings": 945,
+   "turns": 627,
+   "brute_crossings": null
+  },
+  "78": {
+   "key": "T18",
+   "n": 78,
+   "valid": true,
+   "crossings": 969,
+   "turns": 643,
+   "brute_crossings": null
+  },
+  "80": {
+   "key": "T18",
+   "n": 80,
+   "valid": true,
+   "crossings": 1000,
+   "turns": 663,
+   "brute_crossings": null
+  },
+  "82": {
+   "key": "T18",
+   "n": 82,
+   "valid": true,
+   "crossings": 1020,
+   "turns": 678,
+   "brute_crossings": null
+  },
+  "86": {
+   "key": "T18",
+   "n": 86,
+   "valid": true,
+   "crossings": 1071,
+   "turns": 711,
+   "brute_crossings": null
+  },
+  "84": {
+   "key": "T18",
+   "n": 84,
+   "valid": true,
+   "crossings": 1055,
+   "turns": 695,
+   "brute_crossings": null
+  },
+  "88": {
+   "key": "T18",
+   "n": 88,
+   "valid": true,
+   "crossings": 1101,
+   "turns": 731,
+   "brute_crossings": null
+  },
+  "90": {
+   "key": "T18",
+   "n": 90,
+   "valid": true,
+   "crossings": 1122,
+   "turns": 746,
+   "brute_crossings": null
+  },
+  "92": {
+   "key": "T18",
+   "n": 92,
+   "valid": true,
+   "crossings": 1149,
+   "turns": 763,
+   "brute_crossings": null
+  },
+  "94": {
+   "key": "T18",
+   "n": 94,
+   "valid": true,
+   "crossings": 1175,
+   "turns": 779,
+   "brute_crossings": null
+  },
+  "100": {
+   "key": "T18",
+   "n": 100,
+   "valid": true,
+   "crossings": 1251,
+   "turns": 831,
+   "brute_crossings": null
+  },
+  "102": {
+   "key": "T18",
+   "n": 102,
+   "valid": true,
+   "crossings": 1275,
+   "turns": 847,
+   "brute_crossings": null
+  },
+  "104": {
+   "key": "T18",
+   "n": 104,
+   "valid": true,
+   "crossings": 1306,
+   "turns": 867,
+   "brute_crossings": null
+  },
+  "106": {
+   "key": "T18",
+   "n": 106,
+   "valid": true,
+   "crossings": 1326,
+   "turns": 882,
+   "brute_crossings": null
+  },
+  "108": {
+   "key": "T18",
+   "n": 108,
+   "valid": true,
+   "crossings": 1361,
+   "turns": 899,
+   "brute_crossings": null
+  },
+  "110": {
+   "key": "T18",
+   "n": 110,
+   "valid": true,
+   "crossings": 1377,
+   "turns": 915,
+   "brute_crossings": null
+  },
+  "96": {
+   "key": "T18",
+   "n": 96,
+   "valid": true,
+   "crossings": 1203,
+   "turns": 799,
+   "brute_crossings": 1203
+  },
+  "112": {
+   "key": "T18",
+   "n": 112,
+   "valid": true,
+   "crossings": 1407,
+   "turns": 935,
+   "brute_crossings": null
+  },
+  "114": {
+   "key": "T18",
+   "n": 114,
+   "valid": true,
+   "crossings": 1428,
+   "turns": 950,
+   "brute_crossings": null
+  },
+  "116": {
+   "key": "T18",
+   "n": 116,
+   "valid": true,
+   "crossings": 1455,
+   "turns": 967,
+   "brute_crossings": null
+  },
+  "118": {
+   "key": "T18",
+   "n": 118,
+   "valid": true,
+   "crossings": 1481,
+   "turns": 983,
+   "brute_crossings": null
+  },
+  "122": {
+   "key": "T18",
+   "n": 122,
+   "valid": true,
+   "crossings": 1530,
+   "turns": 1018,
+   "brute_crossings": null
+  },
+  "98": {
+   "key": "T18",
+   "n": 98,
+   "valid": true,
+   "crossings": 1224,
+   "turns": 814,
+   "brute_crossings": 1224
+  },
+  "124": {
+   "key": "T18",
+   "n": 124,
+   "valid": true,
+   "crossings": 1557,
+   "turns": 1035,
+   "brute_crossings": null
+  },
+  "126": {
+   "key": "T18",
+   "n": 126,
+   "valid": true,
+   "crossings": 1581,
+   "turns": 1051,
+   "brute_crossings": null
+  },
+  "128": {
+   "key": "T18",
+   "n": 128,
+   "valid": true,
+   "crossings": 1612,
+   "turns": 1071,
+   "brute_crossings": null
+  },
+  "130": {
+   "key": "T18",
+   "n": 130,
+   "valid": true,
+   "crossings": 1632,
+   "turns": 1086,
+   "brute_crossings": null
+  },
+  "132": {
+   "key": "T18",
+   "n": 132,
+   "valid": true,
+   "crossings": 1667,
+   "turns": 1103,
+   "brute_crossings": null
+  },
+  "134": {
+   "key": "T18",
+   "n": 134,
+   "valid": true,
+   "crossings": 1683,
+   "turns": 1119,
+   "brute_crossings": null
+  },
+  "136": {
+   "key": "T18",
+   "n": 136,
+   "valid": true,
+   "crossings": 1713,
+   "turns": 1139,
+   "brute_crossings": null
+  },
+  "138": {
+   "key": "T18",
+   "n": 138,
+   "valid": true,
+   "crossings": 1734,
+   "turns": 1154,
+   "brute_crossings": null
+  },
+  "140": {
+   "key": "T18",
+   "n": 140,
+   "valid": true,
+   "crossings": 1761,
+   "turns": 1171,
+   "brute_crossings": null
+  },
+  "142": {
+   "key": "T18",
+   "n": 142,
+   "valid": true,
+   "crossings": 1787,
+   "turns": 1187,
+   "brute_crossings": null
+  },
+  "144": {
+   "key": "T18",
+   "n": 144,
+   "valid": true,
+   "crossings": 1815,
+   "turns": 1207,
+   "brute_crossings": null
+  },
+  "146": {
+   "key": "T18",
+   "n": 146,
+   "valid": true,
+   "crossings": 1836,
+   "turns": 1222,
+   "brute_crossings": null
+  },
+  "148": {
+   "key": "T18",
+   "n": 148,
+   "valid": true,
+   "crossings": 1863,
+   "turns": 1239,
+   "brute_crossings": null
+  },
+  "150": {
+   "key": "T18",
+   "n": 150,
+   "valid": true,
+   "crossings": 1887,
+   "turns": 1255,
+   "brute_crossings": null
+  },
+  "152": {
+   "key": "T18",
+   "n": 152,
+   "valid": true,
+   "crossings": 1918,
+   "turns": 1275,
+   "brute_crossings": null
+  },
+  "154": {
+   "key": "T18",
+   "n": 154,
+   "valid": true,
+   "crossings": 1938,
+   "turns": 1290,
+   "brute_crossings": null
+  },
+  "156": {
+   "key": "T18",
+   "n": 156,
+   "valid": true,
+   "crossings": 1973,
+   "turns": 1307,
+   "brute_crossings": null
+  },
+  "158": {
+   "key": "T18",
+   "n": 158,
+   "valid": true,
+   "crossings": 1989,
+   "turns": 1323,
+   "brute_crossings": null
+  },
+  "160": {
+   "key": "T18",
+   "n": 160,
+   "valid": true,
+   "crossings": 2019,
+   "turns": 1343,
+   "brute_crossings": null
+  },
+  "162": {
+   "key": "T18",
+   "n": 162,
+   "valid": true,
+   "crossings": 2040,
+   "turns": 1358,
+   "brute_crossings": null
+  },
+  "164": {
+   "key": "T18",
+   "n": 164,
+   "valid": true,
+   "crossings": 2067,
+   "turns": 1375,
+   "brute_crossings": null
+  },
+  "166": {
+   "key": "T18",
+   "n": 166,
+   "valid": true,
+   "crossings": 2093,
+   "turns": 1391,
+   "brute_crossings": null
+  },
+  "120": {
+   "key": "T18",
+   "n": 120,
+   "valid": true,
+   "crossings": 1509,
+   "turns": 1003,
+   "brute_crossings": 1509
+  },
+  "168": {
+   "key": "T18",
+   "n": 168,
+   "valid": true,
+   "crossings": 2121,
+   "turns": 1411,
+   "brute_crossings": null
+  },
+  "170": {
+   "key": "T18",
+   "n": 170,
+   "valid": true,
+   "crossings": 2142,
+   "turns": 1426,
+   "brute_crossings": null
+  },
+  "172": {
+   "key": "T18",
+   "n": 172,
+   "valid": true,
+   "crossings": 2169,
+   "turns": 1443,
+   "brute_crossings": null
+  },
+  "174": {
+   "key": "T18",
+   "n": 174,
+   "valid": true,
+   "crossings": 2193,
+   "turns": 1459,
+   "brute_crossings": null
+  },
+  "178": {
+   "key": "T18",
+   "n": 178,
+   "valid": true,
+   "crossings": 2244,
+   "turns": 1494,
+   "brute_crossings": null
+  },
+  "176": {
+   "key": "T18",
+   "n": 176,
+   "valid": true,
+   "crossings": 2224,
+   "turns": 1479,
+   "brute_crossings": null
+  },
+  "180": {
+   "key": "T18",
+   "n": 180,
+   "valid": true,
+   "crossings": 2279,
+   "turns": 1511,
+   "brute_crossings": null
+  },
+  "182": {
+   "key": "T18",
+   "n": 182,
+   "valid": true,
+   "crossings": 2295,
+   "turns": 1527,
+   "brute_crossings": null
+  },
+  "184": {
+   "key": "T18",
+   "n": 184,
+   "valid": true,
+   "crossings": 2325,
+   "turns": 1547,
+   "brute_crossings": null
+  },
+  "186": {
+   "key": "T18",
+   "n": 186,
+   "valid": true,
+   "crossings": 2346,
+   "turns": 1562,
+   "brute_crossings": null
+  },
+  "190": {
+   "key": "T18",
+   "n": 190,
+   "valid": true,
+   "crossings": 2399,
+   "turns": 1595,
+   "brute_crossings": null
+  },
+  "188": {
+   "key": "T18",
+   "n": 188,
+   "valid": true,
+   "crossings": 2373,
+   "turns": 1579,
+   "brute_crossings": null
+  },
+  "192": {
+   "key": "T18",
+   "n": 192,
+   "valid": true,
+   "crossings": 2427,
+   "turns": 1615,
+   "brute_crossings": null
+  },
+  "194": {
+   "key": "T18",
+   "n": 194,
+   "valid": true,
+   "crossings": 2448,
+   "turns": 1630,
+   "brute_crossings": null
+  },
+  "196": {
+   "key": "T18",
+   "n": 196,
+   "valid": true,
+   "crossings": 2475,
+   "turns": 1647,
+   "brute_crossings": null
+  },
+  "198": {
+   "key": "T18",
+   "n": 198,
+   "valid": true,
+   "crossings": 2499,
+   "turns": 1663,
+   "brute_crossings": null
+  },
+  "200": {
+   "key": "T18",
+   "n": 200,
+   "valid": true,
+   "crossings": 2530,
+   "turns": 1683,
+   "brute_crossings": null
+  }
+ }
+}

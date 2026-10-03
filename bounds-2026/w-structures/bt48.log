@@ -1,0 +1,9 @@
+windows [256, 191, 191, 191, 191]
+n 48 pre: comps 60 closed 16 bad 116 clusters 13 free 1020 imb [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] X(pre) 248
+  round 0: FEASIBLE obj 430.0 comps 36
+  round 1: FEASIBLE obj 591.0 comps 31
+  round 2: FEASIBLE obj 591.0 comps 20
+  round 3: FEASIBLE obj 549.0 comps 15
+  round 4: FEASIBLE obj 614.0 comps 12
+  round 5: FEASIBLE obj 628.0 comps 16
+  round 6: FEASIBLE obj 629.0 comps 10

@@ -1,0 +1,9 @@
+n=96 pre: {'comps': 32, 'closed': 0, 'bad': 52, 'clusters': 13, 'free': 1920, 'imb': [-1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, -1, 0], 'X_pre': 432}
+n=96 FAIL completion UNKNOWN after 180.3s
+n=48 pre: {'comps': 32, 'closed': 0, 'bad': 52, 'clusters': 13, 'free': 1204, 'imb': [-1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, -1, 0], 'X_pre': 192}
+   lns round 0: 55 windows changed
+   lns round 1: 16 windows changed
+   lns round 2: 6 windows changed
+  LNS: X 1003 -> 495
+n=48 valid=True X=495 X/n=10.312 T=852 {'status': 'FEASIBLE', 'corner_obj': 955, 'corner_turns': None, 'obj': 955000.0, 'bound': 102.0, 'secs': 180.2} 612s Xbrute=495
+n=144 pre: {'comps': 32, 'closed': 0, 'bad': 52, 'clusters': 13, 'free': 2592, 'imb': [-1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, -1, 0], 'X_pre': 672}

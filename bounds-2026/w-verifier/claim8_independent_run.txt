@@ -1,0 +1,25 @@
+96 707 -> 144 1050 b 21 exterior exact
+98 721 -> 146 1064 b 497/24 exterior exact
+100 738 -> 148 1081 b 281/12 exterior exact
+102 751 -> 150 1094 b 177/8 exterior exact
+104 769 -> 152 1112 b 155/6 exterior exact
+106 783 -> 154 1126 b 613/24 exterior exact
+108 798 -> 156 1141 b 105/4 exterior exact
+110 814 -> 158 1157 b 671/24 exterior exact
+112 821 -> 160 1164 b 62/3 exterior exact
+114 835 -> 162 1178 b 163/8 exterior exact
+116 854 -> 164 1197 b 301/12 exterior exact
+118 866 -> 166 1209 b 547/24 exterior exact
+120 882 -> 168 1225 b 49/2 exterior exact
+122 899 -> 170 1242 b 653/24 exterior exact
+124 912 -> 172 1255 b 311/12 exterior exact
+126 927 -> 174 1270 b 213/8 exterior exact
+128 937 -> 176 1280 b 67/3 exterior exact
+130 949 -> 178 1292 b 481/24 exterior exact
+132 967 -> 180 1310 b 95/4 exterior exact
+134 982 -> 182 1325 b 587/24 exterior exact
+136 996 -> 184 1339 b 145/6 exterior exact
+138 1012 -> 186 1355 b 207/8 exterior exact
+140 1028 -> 188 1371 b 331/12 exterior exact
+142 1041 -> 190 1384 b 631/24 exterior exact
+PASS: all 48 independently assembled tours and all 24 exterior-graph transports.

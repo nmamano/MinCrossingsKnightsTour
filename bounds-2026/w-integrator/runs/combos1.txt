@@ -1,0 +1,48 @@
+         l_free_P4D2   left per=4 X/unit=1.000 pi=1 valid=True pairs=[(1, 4), (3, 6), (5, 8), (7, 10)]
+   l_d=1low%2=0_P4D3   left per=4 X/unit=2.000 pi=1 valid=True pairs=[(0, 1), (2, 3), (4, 5), (6, 7)]
+   l_d=5low%2=0_P4D2   left per=4 X/unit=2.000 pi=1 valid=True pairs=[(0, 5), (2, 7), (4, 9), (6, 11)]
+   l_d=7low%2=1_P4D3   left per=4 X/unit=3.000 pi=1 valid=True pairs=[(1, 8), (3, 10), (5, 12), (7, 14)]
+   l_lanes=2o=1_P4D4   left per=4 X/unit=2.500 pi=0 valid=True pairs=[(1, 4), (2, 3), (5, 8), (6, 7)]
+   l_lanes=2o=3_P4D4   left per=4 X/unit=2.500 pi=0 valid=True pairs=[(0, 1), (3, 6), (4, 5), (7, 10)]
+   l_lanes=4o=0_P4D2   left per=4 X/unit=2.500 pi=1 valid=True pairs=[(0, 5), (1, 4), (2, 7), (3, 6)]
+   l_lanes=4o=1_P8D4   left per=8 X/unit=3.250 pi=0 valid=True pairs=[(1, 8), (2, 6), (3, 7), (4, 5), (9, 13), (10, 14), (11, 15), (12, 16)]
+   l_lanes=4o=2_P4D2   left per=4 X/unit=2.500 pi=1 valid=True pairs=[(2, 7), (3, 6), (4, 9), (5, 8)]
+   l_lanes=4o=3_P8D4   left per=8 X/unit=3.250 pi=0 valid=True pairs=[(3, 7), (4, 8), (5, 9), (6, 10), (11, 18), (12, 16), (13, 17), (14, 15)]
+   l_lanes=4o=4_P4D2   left per=4 X/unit=2.500 pi=1 valid=True pairs=[(4, 9), (5, 8), (6, 11), (7, 10)]
+   l_lanes=4o=5_P8D4   left per=8 X/unit=3.250 pi=0 valid=True pairs=[(0, 4), (5, 12), (6, 10), (7, 11), (8, 9), (13, 17), (14, 18), (15, 19)]
+   l_lanes=4o=6_P4D2   left per=4 X/unit=2.500 pi=1 valid=True pairs=[(0, 5), (1, 4), (6, 11), (7, 10)]
+   l_lanes=4o=7_P8D4   left per=8 X/unit=3.250 pi=0 valid=True pairs=[(0, 4), (1, 5), (2, 3), (7, 11), (8, 12), (9, 13), (10, 14), (15, 22)]
+         b_free_P6D4 bottom per=6 X/unit=1.833 pi=0 valid=True pairs=[(3, 6), (4, 7), (5, 8)]
+   b_d=1low%2=0_P6D4 bottom per=6 X/unit=3.000 pi=1 valid=True pairs=[(0, 1), (2, 3), (4, 5)]
+   b_d=1low%2=1_P6D4 bottom per=6 X/unit=3.000 pi=0 valid=True pairs=[(1, 2), (3, 4), (5, 6)]
+                H16a bottom per=8 X/unit=2.000 pi=1 valid=True pairs=[(0, 4), (1, 7), (2, 5), (3, 6)]
+                H16b bottom per=8 X/unit=2.000 pi=1 valid=True pairs=[(0, 6), (1, 4), (2, 5), (3, 7)]
+           PaperHeel bottom per=8 X/unit=3.500 pi=1 valid=True pairs=[(4, 9), (5, 8), (6, 11), (7, 10)]
+        VerticalEdge   left per=4 X/unit=2.500 pi=1 valid=True pairs=[(0, 5), (1, 4), (2, 7), (3, 6)]
+
+4212 combos pass the MID parity rule; checking phases for the best 25
+slope 5.667  B=b_free_P6D4 T=b_free_P6D4 L=l_free_P4D2 R=l_free_P4D2  n=96: None  n=98: None
+slope 5.833  B=b_free_P6D4 T=H16a L=l_free_P4D2 R=l_free_P4D2  n=96: None  n=98: None
+slope 5.833  B=b_free_P6D4 T=H16b L=l_free_P4D2 R=l_free_P4D2  n=96: None  n=98: None
+slope 5.833  B=H16a T=b_free_P6D4 L=l_free_P4D2 R=l_free_P4D2  n=96: None  n=98: None
+slope 5.833  B=H16b T=b_free_P6D4 L=l_free_P4D2 R=l_free_P4D2  n=96: None  n=98: None
+slope 6.000  B=H16a T=H16a L=l_free_P4D2 R=l_free_P4D2  n=96: None  n=98: None
+slope 6.000  B=H16a T=H16b L=l_free_P4D2 R=l_free_P4D2  n=96: None  n=98: None
+slope 6.000  B=H16b T=H16a L=l_free_P4D2 R=l_free_P4D2  n=96: None  n=98: None
+slope 6.000  B=H16b T=H16b L=l_free_P4D2 R=l_free_P4D2  n=96: None  n=98: None
+slope 6.667  B=b_free_P6D4 T=b_free_P6D4 L=l_free_P4D2 R=l_d=1low%2=0_P4D3  n=96: None  n=98: None
+slope 6.667  B=b_free_P6D4 T=b_free_P6D4 L=l_free_P4D2 R=l_d=5low%2=0_P4D2  n=96: None  n=98: None
+slope 6.667  B=b_free_P6D4 T=b_free_P6D4 L=l_d=1low%2=0_P4D3 R=l_free_P4D2  n=96: None  n=98: None
+slope 6.667  B=b_free_P6D4 T=b_free_P6D4 L=l_d=5low%2=0_P4D2 R=l_free_P4D2  n=96: None  n=98: None
+slope 6.833  B=b_free_P6D4 T=b_d=1low%2=0_P6D4 L=l_free_P4D2 R=l_free_P4D2  n=96: None  n=98: None
+slope 6.833  B=b_free_P6D4 T=b_d=1low%2=1_P6D4 L=l_free_P4D2 R=l_free_P4D2  n=96: None  n=98: None
+slope 6.833  B=b_free_P6D4 T=H16a L=l_free_P4D2 R=l_d=1low%2=0_P4D3  n=96: None  n=98: None
+slope 6.833  B=b_free_P6D4 T=H16a L=l_free_P4D2 R=l_d=5low%2=0_P4D2  n=96: None  n=98: None
+slope 6.833  B=b_free_P6D4 T=H16a L=l_d=1low%2=0_P4D3 R=l_free_P4D2  n=96: None  n=98: None
+slope 6.833  B=b_free_P6D4 T=H16a L=l_d=5low%2=0_P4D2 R=l_free_P4D2  n=96: None  n=98: None
+slope 6.833  B=b_free_P6D4 T=H16b L=l_free_P4D2 R=l_d=1low%2=0_P4D3  n=96: None  n=98: None
+slope 6.833  B=b_free_P6D4 T=H16b L=l_free_P4D2 R=l_d=5low%2=0_P4D2  n=96: None  n=98: None
+slope 6.833  B=b_free_P6D4 T=H16b L=l_d=1low%2=0_P4D3 R=l_free_P4D2  n=96: None  n=98: None
+slope 6.833  B=b_free_P6D4 T=H16b L=l_d=5low%2=0_P4D2 R=l_free_P4D2  n=96: None  n=98: None
+slope 6.833  B=b_d=1low%2=0_P6D4 T=b_free_P6D4 L=l_free_P4D2 R=l_free_P4D2  n=96: None  n=98: None
+slope 6.833  B=b_d=1low%2=1_P6D4 T=b_free_P6D4 L=l_free_P4D2 R=l_free_P4D2  n=96: None  n=98: None

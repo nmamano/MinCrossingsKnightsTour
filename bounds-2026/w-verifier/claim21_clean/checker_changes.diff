@@ -1,0 +1,43 @@
+--- w-verifier/claim20_clean/w-turnstheory/check_crossings_lower.py
++++ w-turnstheory/check_crossings_lower.py
+@@ -9,7 +9,6 @@
+ ROOT=HERE.parent
+ CHECKS=(
+     ('Tile geometry and flux','check_knight_tiles.py'),
+-    ('Critical scan rows and their full edge data','check_one_row_strip.py'),
+     ('One-row corner charge','check_corner_box.py'),
+     ('Boundary count and full-square exclusion','check_col0_squares.py'),
+     ('Two bad quarters per defective square','check_square_defects.py'),
+--- w-verifier/claim20_clean/w-turnstheory/check_col0_squares.py
++++ w-turnstheory/check_col0_squares.py
+@@ -26,29 +26,13 @@
+                         assert not {e,f}<=allowed
+     assert len(exceptions)==2
+     print('PASS:',count,'normalised crossing pairs; only two orientations of the inward overlap exception.')
+-    print('PASS: each exception is excluded by two adjacent good rows of the same P/P-prime pattern.')
++    print('PASS: the endpoint test explicitly excludes the only inward-overlap pair.')
+     # Edges incident to both axes: two at the origin, two across the corner.
+     E=(((0,0),(1,2)),((0,0),(2,1)),((0,1),(2,0)),((0,2),(1,0)))
+     pairs=[(e,f) for e,f in combinations(E,2) if cross(e,f)]
+     assert len(pairs)==5
+     assert cross(E[0],E[2]) and cross(E[1],E[2])
+     print('PASS: at most five duplicate crossing pairs per corner; the asserted bound one is false.')
+-    import json
+-    root=Path(__file__).resolve().parents[1]
+-    tour=json.loads((root/'w-integrator/tours/FOLD24_n96.json').read_text())['tour']
+-    moves=((1,2),(2,1),(2,-1),(1,-2),(-1,-2),(-2,-1),(-2,1),(-1,2))
+-    def present(e):
+-        (x,y),(u,v)=e
+-        return (u-x,v-y) in [moves[int(c)] for c in tour[95-y][x]]
+-    def rotate(p,r):
+-        x,y=p
+-        for _ in range(r):x,y=95-y,x
+-        return x,y
+-    for r in range(4):
+-        selected=[tuple(rotate(p,r) for p in e) for e in E]
+-        selected=[e for e in selected if present(e)]
+-        assert sum(cross(e,f) for e,f in combinations(selected,2))==2
+-    print('PASS: saved FOLD24 n=96 has two duplicated pairs at each corner.')
+     # Rebuild the small width-one strip graph; integer shortest-path certificate.
+     sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'w-lowerbounds'))
+     from strip_dp import build

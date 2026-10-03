@@ -1,0 +1,178 @@
+{
+  "chevrons.png": {
+    "old_size": [
+      1073,
+      719
+    ],
+    "new_size": [
+      1073,
+      719
+    ],
+    "same_pixels": true
+  },
+  "count.png": {
+    "old_size": [
+      949,
+      505
+    ],
+    "new_size": [
+      949,
+      505
+    ],
+    "same_pixels": true
+  },
+  "edge_uturn.png": {
+    "old_size": [
+      577,
+      401
+    ],
+    "new_size": [
+      577,
+      401
+    ],
+    "same_pixels": true
+  },
+  "flux.png": {
+    "old_size": [
+      1145,
+      558
+    ],
+    "new_size": [
+      1145,
+      558
+    ],
+    "same_pixels": true
+  },
+  "fold_closeup.png": {
+    "old_size": [
+      598,
+      598
+    ],
+    "new_size": [
+      598,
+      598
+    ],
+    "same_pixels": true
+  },
+  "fold_field.png": {
+    "old_size": [
+      749,
+      573
+    ],
+    "new_size": [
+      749,
+      573
+    ],
+    "same_pixels": true
+  },
+  "heels.png": {
+    "old_size": [
+      759,
+      602
+    ],
+    "new_size": [
+      759,
+      602
+    ],
+    "same_pixels": true
+  },
+  "lb_corner_box.png": {
+    "old_size": [
+      598,
+      574
+    ],
+    "new_size": [
+      598,
+      574
+    ],
+    "same_pixels": true
+  },
+  "lb_nested.png": {
+    "old_size": [
+      648,
+      648
+    ],
+    "new_size": [
+      648,
+      648
+    ],
+    "same_pixels": true
+  },
+  "lb_numberline.png": {
+    "old_size": [
+      880,
+      266
+    ],
+    "new_size": [
+      880,
+      266
+    ],
+    "same_pixels": true
+  },
+  "lb_overlap.png": {
+    "old_size": [
+      928,
+      430
+    ],
+    "new_size": [
+      928,
+      430
+    ],
+    "same_pixels": true
+  },
+  "lb_square.png": {
+    "old_size": [
+      776,
+      398
+    ],
+    "new_size": [
+      776,
+      398
+    ],
+    "same_pixels": true
+  },
+  "lb_strip.png": {
+    "old_size": [
+      649,
+      653
+    ],
+    "new_size": [
+      649,
+      653
+    ],
+    "same_pixels": true
+  },
+  "lb_tile.png": {
+    "old_size": [
+      850,
+      299
+    ],
+    "new_size": [
+      850,
+      299
+    ],
+    "same_pixels": true
+  },
+  "lb_tiled.png": {
+    "old_size": [
+      850,
+      558
+    ],
+    "new_size": [
+      850,
+      558
+    ],
+    "same_pixels": true
+  },
+  "tour96.png": {
+    "old_size": [
+      845,
+      875
+    ],
+    "new_size": [
+      845,
+      875
+    ],
+    "same_pixels": true
+  }
+}

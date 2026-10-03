@@ -1,0 +1,5 @@
+START beta_primary
+PASS beta_primary
+START beta_separate
+PASS beta_separate
+PASS own augmented graph

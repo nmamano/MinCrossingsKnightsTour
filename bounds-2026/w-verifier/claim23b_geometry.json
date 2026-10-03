@@ -1,0 +1,163 @@
+{
+ "date": "2026-10-02",
+ "knight_routes_checked": 32,
+ "dual_steps_per_route": 200,
+ "top_end_coefficients": [
+  [
+   [
+    [
+     0,
+     -1
+    ],
+    [
+     1,
+     1
+    ]
+   ],
+   -1
+  ],
+  [
+   [
+    [
+     0,
+     0
+    ],
+    [
+     1,
+     2
+    ]
+   ],
+   1
+  ],
+  [
+   [
+    [
+     0,
+     0
+    ],
+    [
+     2,
+     1
+    ]
+   ],
+   1
+  ],
+  [
+   [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     -1
+    ]
+   ],
+   1
+  ],
+  [
+   [
+    [
+     0,
+     1
+    ],
+    [
+     2,
+     0
+    ]
+   ],
+   1
+  ],
+  [
+   [
+    [
+     0,
+     2
+    ],
+    [
+     1,
+     0
+    ]
+   ],
+   -1
+  ],
+  [
+   [
+    [
+     1,
+     0
+    ],
+    [
+     2,
+     2
+    ]
+   ],
+   -1
+  ],
+  [
+   [
+    [
+     1,
+     1
+    ],
+    [
+     2,
+     -1
+    ]
+   ],
+   -1
+  ]
+ ],
+ "coefficient_identity": "end flux = F + degree(0,0)",
+ "larger_boxes": [
+  {
+   "R": 12,
+   "outside_grid_flux": 2,
+   "end_grid_flux": 0,
+   "Q_charge_mod3": 1
+  },
+  {
+   "R": 13,
+   "outside_grid_flux": 0,
+   "end_grid_flux": 0,
+   "Q_charge_mod3": 1
+  },
+  {
+   "R": 14,
+   "outside_grid_flux": 2,
+   "end_grid_flux": 0,
+   "Q_charge_mod3": 1
+  },
+  {
+   "R": 15,
+   "outside_grid_flux": 0,
+   "end_grid_flux": 0,
+   "Q_charge_mod3": 1
+  },
+  {
+   "R": 24,
+   "outside_grid_flux": 2,
+   "end_grid_flux": 0,
+   "Q_charge_mod3": 1
+  },
+  {
+   "R": 25,
+   "outside_grid_flux": 0,
+   "end_grid_flux": 0,
+   "Q_charge_mod3": 1
+  },
+  {
+   "R": 100,
+   "outside_grid_flux": 2,
+   "end_grid_flux": 0,
+   "Q_charge_mod3": 1
+  },
+  {
+   "R": 101,
+   "outside_grid_flux": 0,
+   "end_grid_flux": 0,
+   "Q_charge_mod3": 1
+  }
+ ],
+ "exact_bound": "14n/3 - 1219/3"
+}

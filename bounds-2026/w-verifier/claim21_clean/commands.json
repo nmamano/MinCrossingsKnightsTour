@@ -1,0 +1,58 @@
+[
+  {
+    "command": [
+      "python3",
+      "w-turnstheory/check_knight_tiles.py"
+    ],
+    "exit": 0,
+    "seconds": 0.33
+  },
+  {
+    "command": [
+      "python3",
+      "w-turnstheory/check_corner_box.py"
+    ],
+    "exit": 0,
+    "seconds": 0.07
+  },
+  {
+    "command": [
+      "python3",
+      "w-turnstheory/check_col0_squares.py"
+    ],
+    "exit": 0,
+    "seconds": 0.09
+  },
+  {
+    "command": [
+      "python3",
+      "w-turnstheory/check_square_defects.py"
+    ],
+    "exit": 0,
+    "seconds": 0.38
+  },
+  {
+    "command": [
+      "python3",
+      "w-turnstheory/check_lower_stability.py"
+    ],
+    "exit": 0,
+    "seconds": 9.36
+  },
+  {
+    "command": [
+      "python3",
+      "w-turnstheory/check_crossings_lower.py"
+    ],
+    "exit": 0,
+    "seconds": 10.51
+  },
+  {
+    "command": [
+      "python3",
+      "w-turnstheory/check_fold_proof.py"
+    ],
+    "exit": 0,
+    "seconds": 29.8
+  }
+]

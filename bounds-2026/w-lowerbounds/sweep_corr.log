@@ -1,0 +1,3 @@
+mid p=6 w=3 current=base+0: OPTIMAL crossings/period 0.0 bound 0.0
+mid p=6 w=3 current=base+1: FEASIBLE crossings/period 7.0 bound 0.0
+mid p=6 w=3 current=base+2: FEASIBLE crossings/period 6.0 bound 0.0

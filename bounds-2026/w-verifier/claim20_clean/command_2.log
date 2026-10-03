@@ -1,0 +1,10 @@
+states 82516 arcs 144674
+potential range (x1/4): -1 135
+rho (x1/4): 4
+tight cyclic components: [4, 4]
+PASS: one critical row fixes every selected and absent edge crossing its row; sign 1
+PASS: critical row has pattern 1 and pending crossing [((0, -2), (1, 0)), ((0, -1), (2, 0))]
+PASS: one critical row fixes every selected and absent edge crossing its row; sign -1
+PASS: critical row has pattern -1 and pending crossing [((0, 1), (1, -1)), ((0, 0), (2, -1))]
+T* = 37
+PASS: bad rows <= 112 times reduced cost + 111.

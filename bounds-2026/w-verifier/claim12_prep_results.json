@@ -1,0 +1,847 @@
+{
+ "date": "2026-10-02",
+ "tours": [
+  {
+   "file": "w-integrator/tours/FOLD24_n96.json",
+   "n": 96,
+   "crossings": 720,
+   "turns": 1251,
+   "b": "112",
+   "valid": true,
+   "sha256": "402b592f90cb3b2c4799e824466cdf05674a43e83fa885e8b5cc680545b92f2d"
+  },
+  {
+   "file": "w-integrator/tours/FOLD24_n98.json",
+   "n": 98,
+   "crossings": 752,
+   "turns": 1265,
+   "b": "394/3",
+   "valid": true,
+   "sha256": "3c2c384abe5fbe833201a36e1b0ab5680d4b0da52498b0eee41f84815769f853"
+  },
+  {
+   "file": "w-integrator/tours/FOLD24_n100.json",
+   "n": 100,
+   "crossings": 775,
+   "turns": 1319,
+   "b": "425/3",
+   "valid": true,
+   "sha256": "25c7af341854da8a13b955ec0bf3619905d3b3390cf6827f0d7cf45ac44bb35b"
+  },
+  {
+   "file": "w-integrator/tours/FOLD24_n102.json",
+   "n": 102,
+   "crossings": 754,
+   "turns": 1310,
+   "b": "108",
+   "valid": true,
+   "sha256": "c7ff06d1b4539db2069c79586bf64f144477d178d07104bae2fd58ff9b8fd8b3"
+  },
+  {
+   "file": "w-integrator/tours/FOLD24_n104.json",
+   "n": 104,
+   "crossings": 776,
+   "turns": 1352,
+   "b": "352/3",
+   "valid": true,
+   "sha256": "62b31ed404814b90c0a7ccb3cb0f9b51edf351866584d93c3b59f5be355b63d2"
+  },
+  {
+   "file": "w-integrator/tours/FOLD24_n106.json",
+   "n": 106,
+   "crossings": 786,
+   "turns": 1383,
+   "b": "344/3",
+   "valid": true,
+   "sha256": "9aef6fca079a6dd19b0a0e350a5c2568783af8c1a87f27927ac609375fc6d35b"
+  },
+  {
+   "file": "w-integrator/tours/FOLD24_n108.json",
+   "n": 108,
+   "crossings": 788,
+   "turns": 1386,
+   "b": "104",
+   "valid": true,
+   "sha256": "179b13c2ac02734ed61db07ebb34b65a149cb7d526c453d3712b455ac16066e6"
+  },
+  {
+   "file": "w-integrator/tours/FOLD24_n110.json",
+   "n": 110,
+   "crossings": 803,
+   "turns": 1402,
+   "b": "319/3",
+   "valid": true,
+   "sha256": "d47a44429f577910cc67cffbb244e90c3efa3532fd6c934c373d8bf6d2e2b8a9"
+  },
+  {
+   "file": "w-integrator/tours/FOLD24_n112.json",
+   "n": 112,
+   "crossings": 839,
+   "turns": 1459,
+   "b": "389/3",
+   "valid": true,
+   "sha256": "45e2a500cd57a49793efba30d82559c4d2154b8195b3219daed9bee5d784d336"
+  },
+  {
+   "file": "w-integrator/tours/FOLD24_n114.json",
+   "n": 114,
+   "crossings": 864,
+   "turns": 1500,
+   "b": "142",
+   "valid": true,
+   "sha256": "8d52a9997b6536fa684bc29f517fca59a490df4ce68da55f181ad035e00aa026"
+  },
+  {
+   "file": "w-integrator/tours/FOLD24_n116.json",
+   "n": 116,
+   "crossings": 850,
+   "turns": 1507,
+   "b": "346/3",
+   "valid": true,
+   "sha256": "ced4f1405a74ef9dbc8e84ed9652ba468080f27db2b64ea98d516266d1c5ceb4"
+  },
+  {
+   "file": "w-integrator/tours/FOLD24_n118.json",
+   "n": 118,
+   "crossings": 875,
+   "turns": 1529,
+   "b": "383/3",
+   "valid": true,
+   "sha256": "0b06124476afa0655ea91e8312d7a2ccce4734b709349798708f6d6848bbfdb9"
+  },
+  {
+   "file": "w-integrator/tours/FOLD24_n120.json",
+   "n": 120,
+   "crossings": 872,
+   "turns": 1555,
+   "b": "112",
+   "valid": true,
+   "sha256": "36b731b5146975819d1b22ee338455966aad632894fa0664429398e932fe6c78"
+  },
+  {
+   "file": "w-integrator/tours/FOLD24_n122.json",
+   "n": 122,
+   "crossings": 904,
+   "turns": 1569,
+   "b": "394/3",
+   "valid": true,
+   "sha256": "3307b0e629138148112e4de9840199f9befd307f6eccffa700b8be0ca94bb01d"
+  },
+  {
+   "file": "w-integrator/tours/FOLD24_n124.json",
+   "n": 124,
+   "crossings": 927,
+   "turns": 1623,
+   "b": "425/3",
+   "valid": true,
+   "sha256": "bc3b4a0ca390991f139afdfb2a38697e59ed35805d289d46377ec832f9de1fc8"
+  },
+  {
+   "file": "w-integrator/tours/FOLD24_n126.json",
+   "n": 126,
+   "crossings": 906,
+   "turns": 1614,
+   "b": "108",
+   "valid": true,
+   "sha256": "a53b3a3e1be03899cbb007f97a3a4efbe029ff484380a88714c3300ef5641682"
+  },
+  {
+   "file": "w-integrator/tours/FOLD24_n128.json",
+   "n": 128,
+   "crossings": 928,
+   "turns": 1656,
+   "b": "352/3",
+   "valid": true,
+   "sha256": "12a1e34d2fca1bbfd88a0b8091fcfbe915f9ca27bf4ffa4c2cdd21134d290e62"
+  },
+  {
+   "file": "w-integrator/tours/FOLD24_n130.json",
+   "n": 130,
+   "crossings": 938,
+   "turns": 1687,
+   "b": "344/3",
+   "valid": true,
+   "sha256": "8113bf2f0717f4169a38a667816c010de99860797bfcbec8d38c9d867e3bc977"
+  },
+  {
+   "file": "w-integrator/tours/FOLD24_n132.json",
+   "n": 132,
+   "crossings": 940,
+   "turns": 1690,
+   "b": "104",
+   "valid": true,
+   "sha256": "2cef686885508768989e7a86a7a5bdda681a4ad7e7371514926dcc94e3c81920"
+  },
+  {
+   "file": "w-integrator/tours/FOLD24_n134.json",
+   "n": 134,
+   "crossings": 955,
+   "turns": 1706,
+   "b": "319/3",
+   "valid": true,
+   "sha256": "411d91d96d0bba7e363a230eb7b239c372b85a2fc537a3350e464c83b4f5d8c5"
+  },
+  {
+   "file": "w-integrator/tours/FOLD24_n136.json",
+   "n": 136,
+   "crossings": 991,
+   "turns": 1763,
+   "b": "389/3",
+   "valid": true,
+   "sha256": "08cf19cb7f1c9ce00cba7a85eaf2e20c193705bce65b22150dc4e38e82ce3e17"
+  },
+  {
+   "file": "w-integrator/tours/FOLD24_n138.json",
+   "n": 138,
+   "crossings": 1016,
+   "turns": 1804,
+   "b": "142",
+   "valid": true,
+   "sha256": "9edaf53a649c2a186355f01b7eca125aba7d79f05fadd99570ddc02b1b8fa980"
+  },
+  {
+   "file": "w-integrator/tours/FOLD24_n140.json",
+   "n": 140,
+   "crossings": 1002,
+   "turns": 1811,
+   "b": "346/3",
+   "valid": true,
+   "sha256": "350eb856acf330f9a4cb663b9bef0c25c0add51ac5fe81d724740520a18e0aaa"
+  },
+  {
+   "file": "w-integrator/tours/FOLD24_n142.json",
+   "n": 142,
+   "crossings": 1027,
+   "turns": 1833,
+   "b": "383/3",
+   "valid": true,
+   "sha256": "bac845d8f268863293470c6cd938885508d7a23bbe730ca40d2480a8f3fb3436"
+  },
+  {
+   "file": "w-integrator/tours/FOLD24_n144.json",
+   "n": 144,
+   "crossings": 1024,
+   "turns": 1859,
+   "b": "112",
+   "valid": true,
+   "sha256": "d5dd87650f481966f31fc69009d3d16cfe9733d8f00923833e4769c8cc5cc025"
+  },
+  {
+   "file": "w-integrator/tours/FOLD24_n146.json",
+   "n": 146,
+   "crossings": 1056,
+   "turns": 1873,
+   "b": "394/3",
+   "valid": true,
+   "sha256": "0d234d0e29617c1ef4d71f1925e7d8d2525fdc112ff20836b6699834344c5195"
+  },
+  {
+   "file": "w-integrator/tours/FOLD24_n148.json",
+   "n": 148,
+   "crossings": 1079,
+   "turns": 1927,
+   "b": "425/3",
+   "valid": true,
+   "sha256": "aa17ccc5a344513780bb429c53f6d1a03c509b3f32e65d6730613797b2efe076"
+  },
+  {
+   "file": "w-integrator/tours/FOLD24_n150.json",
+   "n": 150,
+   "crossings": 1058,
+   "turns": 1918,
+   "b": "108",
+   "valid": true,
+   "sha256": "37abd780687b4a60da1bd92a9861055d8bd0341b666ee914956aac7337a5121a"
+  },
+  {
+   "file": "w-integrator/tours/FOLD24_n152.json",
+   "n": 152,
+   "crossings": 1080,
+   "turns": 1960,
+   "b": "352/3",
+   "valid": true,
+   "sha256": "b57462d350c2c1856809070fa955777bf2e257b1adf176f75a3dfe640a388faa"
+  },
+  {
+   "file": "w-integrator/tours/FOLD24_n154.json",
+   "n": 154,
+   "crossings": 1090,
+   "turns": 1991,
+   "b": "344/3",
+   "valid": true,
+   "sha256": "e6a4c9f8fba86d12e9dbd5305ff466a8a0b642a48c951064bb6e676f6d18bfc3"
+  },
+  {
+   "file": "w-integrator/tours/FOLD24_n156.json",
+   "n": 156,
+   "crossings": 1092,
+   "turns": 1994,
+   "b": "104",
+   "valid": true,
+   "sha256": "b3a38c982d45e6f47e42f8ccaa5b90fbf02c5315c53637fd274a2f1c8467c8dc"
+  },
+  {
+   "file": "w-integrator/tours/FOLD24_n158.json",
+   "n": 158,
+   "crossings": 1107,
+   "turns": 2010,
+   "b": "319/3",
+   "valid": true,
+   "sha256": "89925f56ee3b5ea55577c10731330eecd2819dd9ab99aebcf01931a705d8d668"
+  },
+  {
+   "file": "w-integrator/tours/FOLD24_n160.json",
+   "n": 160,
+   "crossings": 1143,
+   "turns": 2067,
+   "b": "389/3",
+   "valid": true,
+   "sha256": "9fb686d40e10c7dfb20aed5ba8854d1bbc8ff7341bafcd07629b6b97ac710553"
+  },
+  {
+   "file": "w-integrator/tours/FOLD24_n162.json",
+   "n": 162,
+   "crossings": 1168,
+   "turns": 2108,
+   "b": "142",
+   "valid": true,
+   "sha256": "d86628e1eac64550000593f39f9f9d3471c7124505985bdc10f5a79891404b05"
+  },
+  {
+   "file": "w-integrator/tours/FOLD24_n164.json",
+   "n": 164,
+   "crossings": 1154,
+   "turns": 2115,
+   "b": "346/3",
+   "valid": true,
+   "sha256": "013cef7625b1051ad8ff9551940835b2ac8427814653f0881e500e3fd8cf169c"
+  },
+  {
+   "file": "w-integrator/tours/FOLD24_n166.json",
+   "n": 166,
+   "crossings": 1179,
+   "turns": 2137,
+   "b": "383/3",
+   "valid": true,
+   "sha256": "d52d4cd5241c028f762bd29523e8919c2fc553314fcf2beb3c98859189b7e76e"
+  }
+ ],
+ "residues": [
+  {
+   "residue": 0,
+   "base": 96,
+   "b": "112",
+   "crossings": [
+    720,
+    872,
+    1024
+   ],
+   "turns": [
+    1251,
+    1555,
+    1859
+   ]
+  },
+  {
+   "residue": 2,
+   "base": 98,
+   "b": "394/3",
+   "crossings": [
+    752,
+    904,
+    1056
+   ],
+   "turns": [
+    1265,
+    1569,
+    1873
+   ]
+  },
+  {
+   "residue": 4,
+   "base": 100,
+   "b": "425/3",
+   "crossings": [
+    775,
+    927,
+    1079
+   ],
+   "turns": [
+    1319,
+    1623,
+    1927
+   ]
+  },
+  {
+   "residue": 6,
+   "base": 102,
+   "b": "108",
+   "crossings": [
+    754,
+    906,
+    1058
+   ],
+   "turns": [
+    1310,
+    1614,
+    1918
+   ]
+  },
+  {
+   "residue": 8,
+   "base": 104,
+   "b": "352/3",
+   "crossings": [
+    776,
+    928,
+    1080
+   ],
+   "turns": [
+    1352,
+    1656,
+    1960
+   ]
+  },
+  {
+   "residue": 10,
+   "base": 106,
+   "b": "344/3",
+   "crossings": [
+    786,
+    938,
+    1090
+   ],
+   "turns": [
+    1383,
+    1687,
+    1991
+   ]
+  },
+  {
+   "residue": 12,
+   "base": 108,
+   "b": "104",
+   "crossings": [
+    788,
+    940,
+    1092
+   ],
+   "turns": [
+    1386,
+    1690,
+    1994
+   ]
+  },
+  {
+   "residue": 14,
+   "base": 110,
+   "b": "319/3",
+   "crossings": [
+    803,
+    955,
+    1107
+   ],
+   "turns": [
+    1402,
+    1706,
+    2010
+   ]
+  },
+  {
+   "residue": 16,
+   "base": 112,
+   "b": "389/3",
+   "crossings": [
+    839,
+    991,
+    1143
+   ],
+   "turns": [
+    1459,
+    1763,
+    2067
+   ]
+  },
+  {
+   "residue": 18,
+   "base": 114,
+   "b": "142",
+   "crossings": [
+    864,
+    1016,
+    1168
+   ],
+   "turns": [
+    1500,
+    1804,
+    2108
+   ]
+  },
+  {
+   "residue": 20,
+   "base": 116,
+   "b": "346/3",
+   "crossings": [
+    850,
+    1002,
+    1154
+   ],
+   "turns": [
+    1507,
+    1811,
+    2115
+   ]
+  },
+  {
+   "residue": 22,
+   "base": 118,
+   "b": "383/3",
+   "crossings": [
+    875,
+    1027,
+    1179
+   ],
+   "turns": [
+    1529,
+    1833,
+    2137
+   ]
+  }
+ ],
+ "certificate_copies": [
+  {
+   "file": "w-integrator/tours/certificates/FOLD24_n100.json",
+   "n": 100,
+   "crossings": 775,
+   "turns": 1319,
+   "same_grid": true,
+   "sha256": "25c7af341854da8a13b955ec0bf3619905d3b3390cf6827f0d7cf45ac44bb35b"
+  },
+  {
+   "file": "w-integrator/tours/certificates/FOLD24_n102.json",
+   "n": 102,
+   "crossings": 754,
+   "turns": 1310,
+   "same_grid": true,
+   "sha256": "c7ff06d1b4539db2069c79586bf64f144477d178d07104bae2fd58ff9b8fd8b3"
+  },
+  {
+   "file": "w-integrator/tours/certificates/FOLD24_n96.json",
+   "n": 96,
+   "crossings": 720,
+   "turns": 1251,
+   "same_grid": true,
+   "sha256": "402b592f90cb3b2c4799e824466cdf05674a43e83fa885e8b5cc680545b92f2d"
+  },
+  {
+   "file": "w-integrator/tours/certificates/FOLD24_n98.json",
+   "n": 98,
+   "crossings": 752,
+   "turns": 1265,
+   "same_grid": true,
+   "sha256": "3c2c384abe5fbe833201a36e1b0ab5680d4b0da52498b0eee41f84815769f853"
+  }
+ ],
+ "base_data": [
+  {
+   "file": "w-integrator/corners/FOLD24_base_n100.json",
+   "n0": 100,
+   "p": 6,
+   "lo": 8,
+   "band": 1,
+   "rad": 4,
+   "template_cells": 72,
+   "component_sizes": [
+    60,
+    60,
+    60,
+    60,
+    63,
+    63,
+    63,
+    63,
+    78,
+    78,
+    78,
+    78,
+    204
+   ],
+   "sha256": "0b9e3aa1afaef5a2bb5bd13bbd2e757326c1850a73c4a4482bd103f5c9682822"
+  },
+  {
+   "file": "w-integrator/corners/FOLD24_base_n102.json",
+   "n0": 102,
+   "p": 6,
+   "lo": 8,
+   "band": 1,
+   "rad": 4,
+   "template_cells": 72,
+   "component_sizes": [
+    60,
+    60,
+    60,
+    60,
+    63,
+    63,
+    63,
+    63,
+    78,
+    78,
+    78,
+    78,
+    204
+   ],
+   "sha256": "1fe7ad3cdfdde19a674907c7e014253f0bb9acc080f4bdb7b40f806fc38b3fe1"
+  },
+  {
+   "file": "w-integrator/corners/FOLD24_base_n104.json",
+   "n0": 104,
+   "p": 6,
+   "lo": 8,
+   "band": 1,
+   "rad": 4,
+   "template_cells": 72,
+   "component_sizes": [
+    60,
+    60,
+    60,
+    60,
+    63,
+    63,
+    63,
+    63,
+    78,
+    78,
+    78,
+    78,
+    204
+   ],
+   "sha256": "889749edc0b9389719090596d9f9a03248aa9ae2bc5b0df1d6a2befd49ccc1fd"
+  },
+  {
+   "file": "w-integrator/corners/FOLD24_base_n106.json",
+   "n0": 106,
+   "p": 6,
+   "lo": 8,
+   "band": 1,
+   "rad": 4,
+   "template_cells": 72,
+   "component_sizes": [
+    60,
+    60,
+    60,
+    60,
+    63,
+    63,
+    63,
+    63,
+    78,
+    78,
+    78,
+    78,
+    204
+   ],
+   "sha256": "a4d270ea3066fbe94ba067dc7d3596d64fd3b10c6230ed30cc38d736174b7124"
+  },
+  {
+   "file": "w-integrator/corners/FOLD24_base_n108.json",
+   "n0": 108,
+   "p": 6,
+   "lo": 8,
+   "band": 1,
+   "rad": 4,
+   "template_cells": 72,
+   "component_sizes": [
+    60,
+    60,
+    60,
+    60,
+    63,
+    63,
+    63,
+    63,
+    78,
+    78,
+    78,
+    78,
+    204
+   ],
+   "sha256": "34e4680167fcfa1ff5cc4809fd6fbfca1b56f4aaa1746c1f9792ca7c2689a054"
+  },
+  {
+   "file": "w-integrator/corners/FOLD24_base_n110.json",
+   "n0": 110,
+   "p": 6,
+   "lo": 8,
+   "band": 1,
+   "rad": 4,
+   "template_cells": 72,
+   "component_sizes": [
+    60,
+    60,
+    60,
+    60,
+    63,
+    63,
+    63,
+    63,
+    78,
+    78,
+    78,
+    78,
+    204
+   ],
+   "sha256": "6dcf4b89a6b0b2fcbc06d9b4403247028ef544a3ab1d51a5fed51c2d63208371"
+  },
+  {
+   "file": "w-integrator/corners/FOLD24_base_n112.json",
+   "n0": 112,
+   "p": 6,
+   "lo": 8,
+   "band": 1,
+   "rad": 4,
+   "template_cells": 72,
+   "component_sizes": [
+    60,
+    60,
+    60,
+    60,
+    63,
+    63,
+    63,
+    63,
+    78,
+    78,
+    78,
+    78,
+    204
+   ],
+   "sha256": "8b3cb8fc1903e598478a75ca999481b2dde179acd36332bf8798dc39ef95e15e"
+  },
+  {
+   "file": "w-integrator/corners/FOLD24_base_n114.json",
+   "n0": 114,
+   "p": 6,
+   "lo": 8,
+   "band": 1,
+   "rad": 4,
+   "template_cells": 72,
+   "component_sizes": [
+    60,
+    60,
+    60,
+    60,
+    63,
+    63,
+    63,
+    63,
+    78,
+    78,
+    78,
+    78,
+    204
+   ],
+   "sha256": "02009fdccbc542fc1bdde4ce3edb97be26eccac09516373d7fd6b0ad71c61268"
+  },
+  {
+   "file": "w-integrator/corners/FOLD24_base_n116.json",
+   "n0": 116,
+   "p": 6,
+   "lo": 8,
+   "band": 1,
+   "rad": 4,
+   "template_cells": 72,
+   "component_sizes": [
+    60,
+    60,
+    60,
+    60,
+    63,
+    63,
+    63,
+    63,
+    78,
+    78,
+    78,
+    78,
+    204
+   ],
+   "sha256": "4e124447c01884fc05a4e6217ac03ecb8a26b3af32171dccf74ee16c0cb13f6f"
+  },
+  {
+   "file": "w-integrator/corners/FOLD24_base_n118.json",
+   "n0": 118,
+   "p": 6,
+   "lo": 8,
+   "band": 1,
+   "rad": 4,
+   "template_cells": 72,
+   "component_sizes": [
+    60,
+    60,
+    60,
+    60,
+    63,
+    63,
+    63,
+    63,
+    78,
+    78,
+    78,
+    78,
+    204
+   ],
+   "sha256": "b68b4a41fd6081b48434dbfdc145639437555102ca5622bbe29fabd6b6d88662"
+  },
+  {
+   "file": "w-integrator/corners/FOLD24_base_n96.json",
+   "n0": 96,
+   "p": 6,
+   "lo": 8,
+   "band": 1,
+   "rad": 4,
+   "template_cells": 72,
+   "component_sizes": [
+    60,
+    60,
+    60,
+    60,
+    63,
+    63,
+    63,
+    63,
+    78,
+    78,
+    78,
+    78,
+    204
+   ],
+   "sha256": "52fd287150bac825918ad0d038b46957a6c15ddc17ee9df100c66f076ff5b8fc"
+  },
+  {
+   "file": "w-integrator/corners/FOLD24_base_n98.json",
+   "n0": 98,
+   "p": 6,
+   "lo": 8,
+   "band": 1,
+   "rad": 4,
+   "template_cells": 72,
+   "component_sizes": [
+    60,
+    60,
+    60,
+    60,
+    63,
+    63,
+    63,
+    63,
+    78,
+    78,
+    78,
+    78,
+    204
+   ],
+   "sha256": "361547916623b7704309d73541fedccc80e10d8f3ea013fc868b5b1bba303cce"
+  }
+ ]
+}

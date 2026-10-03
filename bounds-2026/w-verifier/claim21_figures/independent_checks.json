@@ -1,0 +1,104 @@
+{
+  "date": "2026-10-02",
+  "tours": {
+    "paper48": {
+      "n": 48,
+      "X": 592,
+      "T": 442
+    },
+    "H16a64": {
+      "n": 64,
+      "X": 581,
+      "T": 630
+    },
+    "FOLD96": {
+      "n": 96,
+      "X": 720,
+      "T": 1251
+    }
+  },
+  "heels": {
+    "paper48": [
+      28,
+      28,
+      28
+    ],
+    "H16a64": [
+      16,
+      16,
+      16
+    ]
+  },
+  "fields": {
+    "32_0": {
+      "X": 100,
+      "left_chevrons": 4
+    },
+    "32_1": {
+      "X": 112,
+      "left_chevrons": 0
+    },
+    "48_0": {
+      "X": 164,
+      "left_chevrons": 8
+    },
+    "48_1": {
+      "X": 192,
+      "left_chevrons": 0
+    }
+  },
+  "strips": {
+    "normal": {
+      "X_per_row": 1,
+      "tests": [
+        {
+          "F": -1,
+          "pass": true
+        },
+        {
+          "F": -1,
+          "pass": true
+        }
+      ]
+    },
+    "abnormal": {
+      "X_per_row": 2,
+      "tests": [
+        {
+          "F": -2,
+          "pass": false
+        },
+        {
+          "F": -2,
+          "pass": false
+        }
+      ]
+    }
+  },
+  "figures": {
+    "flux_crop": {
+      "crossings": 10,
+      "columns": 16
+    },
+    "edge_rows": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "tile_crop_multiplicities": {
+      "1": 540,
+      "3": 16,
+      "2": 53,
+      "0": 31
+    },
+    "overlap_quarters": [
+      1,
+      2
+    ]
+  }
+}

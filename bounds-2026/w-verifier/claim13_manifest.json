@@ -1,0 +1,13 @@
+{
+ "date": "2026-10-02",
+ "sha256": {
+  "w-verifier/claim13_runner/check_witness.py": "9cbecc06ff41df775a8e3665bac88c7c2cd6ef0ece7be8425066449a1a20c81c",
+  "w-verifier/claim13_runner/alpha_star.py": "5981eb8bcef0935bccdf714b767ab3eacdcfa1c73c952bcf1b5a9cda2b4e5fab",
+  "w-verifier/claim13_runner/beta_star.py": "8365b5890cc813f545d9c9e7a923d8332897bdd9de7c4892c8b1fd63441897ba",
+  "w-verifier/claim13_runner/strip_dp.py": "8a2dc95105dbfbfb0581cb4760f6f32302badfad72003a8b925069b78d4989a6",
+  "w-verifier/claim13_runner/strip2_independent.py": "a06db3141498843368d262401a97abe313618570e260bff18c82b5e9828a94f5",
+  "w-verifier/claim13_runner/run_all.py": "56e81a23b84173617ffaf26a602d5e6d55a1e32226b591126d90ec31896020d4",
+  "w-verifier/claim13_runner/beta_cert.py": "00696fe8355f89df86602d4746b809191a0a90632cb644919eee32c54dae9b85",
+  "w-verifier/claim13_rows.py": "ff92e8a148064517cc4076414498f657f8757aca20697b7e67549c4688088dc8"
+ }
+}

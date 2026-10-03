@@ -1,0 +1,32 @@
+{
+  "date": "2026-10-02",
+  "board_checks": [
+    {
+      "file": "w-integrator/tours/certificates/TT16_n56.json",
+      "n": 56,
+      "X": 530,
+      "G": 183,
+      "excess": 627,
+      "pair_overlap_quarters": 706,
+      "gap_bound": 616
+    },
+    {
+      "file": "w-integrator/tours/H16a_VerticalEdge_off0_small_n48.json",
+      "n": 48,
+      "X": 437,
+      "G": 230,
+      "excess": 610,
+      "pair_overlap_quarters": 689,
+      "gap_bound": 494
+    }
+  ],
+  "scope_counterexample": {
+    "tour": "w-integrator/tours/certificates/TT16_n56.json",
+    "n": 56,
+    "X": 530,
+    "B_size": 530,
+    "U_outside_size": 617,
+    "claimed_bad_triangle_bound": 616,
+    "construction": "U={(56+j,0,0): j=0,...,616}; B is all crossing pairs; all U triangles are uncovered and all B overlaps avoid U."
+  }
+}

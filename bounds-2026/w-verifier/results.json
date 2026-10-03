@@ -1,0 +1,692 @@
+[
+  {
+    "file": "H16a_VerticalEdge_off0_n100.json",
+    "n": 100,
+    "X": 907,
+    "T": 999,
+    "b": 7,
+    "Z": 6,
+    "valid": true,
+    "sha256": "73132092ced5b7322b09fc748c4b58f13bf40ad006bd8aa354e17e4ac11a2bfd"
+  },
+  {
+    "file": "H16a_VerticalEdge_off0_n102.json",
+    "n": 102,
+    "X": 921,
+    "T": 1018,
+    "b": 3,
+    "Z": 6,
+    "valid": true,
+    "sha256": "54430ff867193fc9d495e9551097be590b09db7ade834a7fbf610c1b53fb93db"
+  },
+  {
+    "file": "H16a_VerticalEdge_off0_n104.json",
+    "n": 104,
+    "X": 941,
+    "T": 1041,
+    "b": 5,
+    "Z": 6,
+    "valid": true,
+    "sha256": "5e7baccf240948bdcfd5431f1b7e3c2ed2b5dca574fe54ae644feb25ba80b7d4"
+  },
+  {
+    "file": "H16a_VerticalEdge_off0_n106.json",
+    "n": 106,
+    "X": 954,
+    "T": 1060,
+    "b": 0,
+    "Z": 6,
+    "valid": true,
+    "sha256": "5f54675ca22c5b8a2da1332dae27fe72cb8ba9da1db69d86d175f66ad256ae42"
+  },
+  {
+    "file": "H16a_VerticalEdge_off0_n108.json",
+    "n": 108,
+    "X": 979,
+    "T": 1081,
+    "b": 7,
+    "Z": 6,
+    "valid": true,
+    "sha256": "d383a2fd4745f10d10288d10da1ecd99ed00d3d505cbed55e25dfff584f1c5bb"
+  },
+  {
+    "file": "H16a_VerticalEdge_off0_n110.json",
+    "n": 110,
+    "X": 991,
+    "T": 1097,
+    "b": 1,
+    "Z": 6,
+    "valid": true,
+    "sha256": "0b9857031e70ff2e50e01a3c957ff9e4e59160130fa3f7a456ef90e131d19b70"
+  },
+  {
+    "file": "H16a_VerticalEdge_off0_n112.json",
+    "n": 112,
+    "X": 1013,
+    "T": 1122,
+    "b": 5,
+    "Z": 6,
+    "valid": true,
+    "sha256": "03971408a0c80ecd72bfba7fe16bd8627be1db7c2681370e5d634e043fc5bf66"
+  },
+  {
+    "file": "H16a_VerticalEdge_off0_n114.json",
+    "n": 114,
+    "X": 1026,
+    "T": 1142,
+    "b": 0,
+    "Z": 6,
+    "valid": true,
+    "sha256": "5bf1a7fe40e4384614d7c5caadaed39d2f2e57452d78b53a205e9df42ee2e22b"
+  },
+  {
+    "file": "H16a_VerticalEdge_off0_n116.json",
+    "n": 116,
+    "X": 1051,
+    "T": 1176,
+    "b": 7,
+    "Z": 6,
+    "valid": true,
+    "sha256": "a19615db4b9f08d7570ec77ca4f5ec74c0153f316064c1cc7ae1ff869ffe07cc"
+  },
+  {
+    "file": "H16a_VerticalEdge_off0_n118.json",
+    "n": 118,
+    "X": 1064,
+    "T": 1184,
+    "b": 2,
+    "Z": 6,
+    "valid": true,
+    "sha256": "2902be3474565062efa35d177073db4d5533046a64c171625c66ba9ab7d4c0c4"
+  },
+  {
+    "file": "H16a_VerticalEdge_off0_n120.json",
+    "n": 120,
+    "X": 1085,
+    "T": 1215,
+    "b": 5,
+    "Z": 6,
+    "valid": true,
+    "sha256": "f4f1ce5c717e07610b3ce1a7d124b9faced83157838c14a71d2af09ca6c33505"
+  },
+  {
+    "file": "H16a_VerticalEdge_off0_n122.json",
+    "n": 122,
+    "X": 1098,
+    "T": 1224,
+    "b": 0,
+    "Z": 6,
+    "valid": true,
+    "sha256": "d42d4608b71f7bc6269dd4c5210ecdeea09436daa278acc593a130da425722ef"
+  },
+  {
+    "file": "H16a_VerticalEdge_off0_n124.json",
+    "n": 124,
+    "X": 1123,
+    "T": 1255,
+    "b": 7,
+    "Z": 6,
+    "valid": true,
+    "sha256": "c68dc622c310fc92a87175501866bb3393edf19e33cfe46e3e6550691da79df6"
+  },
+  {
+    "file": "H16a_VerticalEdge_off0_n126.json",
+    "n": 126,
+    "X": 1137,
+    "T": 1272,
+    "b": 3,
+    "Z": 6,
+    "valid": true,
+    "sha256": "26c6cec07374e675524015593a8d9a24b7730c8af57aa91a8c12c668d44965a3"
+  },
+  {
+    "file": "H16a_VerticalEdge_off0_n128.json",
+    "n": 128,
+    "X": 1157,
+    "T": 1297,
+    "b": 5,
+    "Z": 6,
+    "valid": true,
+    "sha256": "7fb19572cb809432efc19dae0e1c94165dddc97d24645fb14044944f8cdcb93e"
+  },
+  {
+    "file": "H16a_VerticalEdge_off0_n130.json",
+    "n": 130,
+    "X": 1170,
+    "T": 1306,
+    "b": 0,
+    "Z": 6,
+    "valid": true,
+    "sha256": "c35efd60fa74cf354a926d8724283d215ee72fea7b1cd5a6349ecaddacd4d50b"
+  },
+  {
+    "file": "H16a_VerticalEdge_off0_n132.json",
+    "n": 132,
+    "X": 1195,
+    "T": 1334,
+    "b": 7,
+    "Z": 6,
+    "valid": true,
+    "sha256": "aa86034a883c70e432c834e04336983c2823969d9c04eb896684fd32c9db5560"
+  },
+  {
+    "file": "H16a_VerticalEdge_off0_n134.json",
+    "n": 134,
+    "X": 1207,
+    "T": 1343,
+    "b": 1,
+    "Z": 6,
+    "valid": true,
+    "sha256": "d273cfa910bd068061024dd5d279420e2c8b18eba3342552fbc9c43a8fcba428"
+  },
+  {
+    "file": "H16a_VerticalEdge_off0_n136.json",
+    "n": 136,
+    "X": 1229,
+    "T": 1378,
+    "b": 5,
+    "Z": 6,
+    "valid": true,
+    "sha256": "3e10603a593e05f496fd598e2cbc6f6334d78de97c5d5b5b30ff425aaf7f06e9"
+  },
+  {
+    "file": "H16a_VerticalEdge_off0_n138.json",
+    "n": 138,
+    "X": 1242,
+    "T": 1388,
+    "b": 0,
+    "Z": 6,
+    "valid": true,
+    "sha256": "0e780294346860271163a292dbac41b495b73884fa99862bba5e8e57221e140c"
+  },
+  {
+    "file": "H16a_VerticalEdge_off0_n140.json",
+    "n": 140,
+    "X": 1267,
+    "T": 1418,
+    "b": 7,
+    "Z": 6,
+    "valid": true,
+    "sha256": "0b1563674b2b25d2b61dc0dca0d2204cbd06f13b1611220482d6e445c84e6540"
+  },
+  {
+    "file": "H16a_VerticalEdge_off0_n142.json",
+    "n": 142,
+    "X": 1280,
+    "T": 1430,
+    "b": 2,
+    "Z": 6,
+    "valid": true,
+    "sha256": "edd200ead49582158d15ae648c16d1deb9b531f38d64e7e5a034209384803b84"
+  },
+  {
+    "file": "H16a_VerticalEdge_off0_n64.json",
+    "n": 64,
+    "X": 581,
+    "T": 630,
+    "b": 5,
+    "Z": 6,
+    "valid": true,
+    "sha256": "976b773a21f0aab7a150f039052fe1b5fbee1ad64dccff8e842137e01225ee94"
+  },
+  {
+    "file": "H16a_VerticalEdge_off0_n66.json",
+    "n": 66,
+    "X": 594,
+    "T": 650,
+    "b": 0,
+    "Z": 6,
+    "valid": true,
+    "sha256": "3122cf47f455e8a747346b12b69627811a3883fc1a1f671f01d975f518e77b19"
+  },
+  {
+    "file": "H16a_VerticalEdge_off0_n68.json",
+    "n": 68,
+    "X": 619,
+    "T": 679,
+    "b": 7,
+    "Z": 6,
+    "valid": true,
+    "sha256": "7d64e4759d41a259d3592b0ba63b3f31338b5fc2ece53669c07eac409e913ef3"
+  },
+  {
+    "file": "H16a_VerticalEdge_off0_n70.json",
+    "n": 70,
+    "X": 632,
+    "T": 692,
+    "b": 2,
+    "Z": 6,
+    "valid": true,
+    "sha256": "facd7663cae1c0316d9f8e7d23057e2bf9158f17c7c35fb8de72be5df4a45ca1"
+  },
+  {
+    "file": "H16a_VerticalEdge_off0_n72.json",
+    "n": 72,
+    "X": 653,
+    "T": 711,
+    "b": 5,
+    "Z": 6,
+    "valid": true,
+    "sha256": "3d1e00b88e56f7f8c4a2b6f1ef5bf13b0541e16f4acd91684204a55b0725467c"
+  },
+  {
+    "file": "H16a_VerticalEdge_off0_n74.json",
+    "n": 74,
+    "X": 666,
+    "T": 732,
+    "b": 0,
+    "Z": 6,
+    "valid": true,
+    "sha256": "60a54a09bb018f260afdec7673c413bcc590181ba686a46553aaa07383f2f785"
+  },
+  {
+    "file": "H16a_VerticalEdge_off0_n76.json",
+    "n": 76,
+    "X": 691,
+    "T": 753,
+    "b": 7,
+    "Z": 6,
+    "valid": true,
+    "sha256": "d5b3cf040c86bd574906e73d74e6818af83c063693a6f896dd34925a75231f45"
+  },
+  {
+    "file": "H16a_VerticalEdge_off0_n78.json",
+    "n": 78,
+    "X": 705,
+    "T": 772,
+    "b": 3,
+    "Z": 6,
+    "valid": true,
+    "sha256": "fb41e34b4eb2a9cdec5f85f12f98e7f9ea7a5c6b28b566724640ab9da739c236"
+  },
+  {
+    "file": "H16a_VerticalEdge_off0_n80.json",
+    "n": 80,
+    "X": 725,
+    "T": 795,
+    "b": 5,
+    "Z": 6,
+    "valid": true,
+    "sha256": "1df16a1c5248a2c6e83d3ea81e018491c694782a4328b8ba6e1d6c17f0ec260b"
+  },
+  {
+    "file": "H16a_VerticalEdge_off0_n82.json",
+    "n": 82,
+    "X": 738,
+    "T": 814,
+    "b": 0,
+    "Z": 6,
+    "valid": true,
+    "sha256": "63c0fcc0b37279d79465ee5a531ffe1ef39d81549085f2d5e206e7588e9e113e"
+  },
+  {
+    "file": "H16a_VerticalEdge_off0_n84.json",
+    "n": 84,
+    "X": 763,
+    "T": 835,
+    "b": 7,
+    "Z": 6,
+    "valid": true,
+    "sha256": "39b26c7beb46a07d9429ab68c2afa2305c7f78a114b63b757777524435539e76"
+  },
+  {
+    "file": "H16a_VerticalEdge_off0_n86.json",
+    "n": 86,
+    "X": 775,
+    "T": 851,
+    "b": 1,
+    "Z": 6,
+    "valid": true,
+    "sha256": "328b5a2808050719cfdbdf8b4041332963d2c06e52d7ad25db971d8e7721be94"
+  },
+  {
+    "file": "H16a_VerticalEdge_off0_n88.json",
+    "n": 88,
+    "X": 797,
+    "T": 876,
+    "b": 5,
+    "Z": 6,
+    "valid": true,
+    "sha256": "a9fc79c8d0b2b3f8d48d1f75b1996e6c796dd85668e631d801d074b356537306"
+  },
+  {
+    "file": "H16a_VerticalEdge_off0_n90.json",
+    "n": 90,
+    "X": 810,
+    "T": 896,
+    "b": 0,
+    "Z": 6,
+    "valid": true,
+    "sha256": "64c7c9cebc5f0707857f2631810f662996de7bd0e9b1600dd62f4e47e613f6bd"
+  },
+  {
+    "file": "H16a_VerticalEdge_off0_n92.json",
+    "n": 92,
+    "X": 835,
+    "T": 925,
+    "b": 7,
+    "Z": 6,
+    "valid": true,
+    "sha256": "ff5f59a7a5180e0b7c862bdb6fc96ed62e4f80bde79dcf848ed115df0088e669"
+  },
+  {
+    "file": "H16a_VerticalEdge_off0_n94.json",
+    "n": 94,
+    "X": 848,
+    "T": 938,
+    "b": 2,
+    "Z": 6,
+    "valid": true,
+    "sha256": "2f77abac8fc1844d34869e2c960d67098069a2e26d810818d5b0f581a1be3b64"
+  },
+  {
+    "file": "H16a_VerticalEdge_off0_n96.json",
+    "n": 96,
+    "X": 869,
+    "T": 957,
+    "b": 5,
+    "Z": 6,
+    "valid": true,
+    "sha256": "7dfc1e91dd0e356df346f53bd06983b1d9c3b9d2f1f62923678dd5f105d64df5"
+  },
+  {
+    "file": "H16a_VerticalEdge_off0_n98.json",
+    "n": 98,
+    "X": 882,
+    "T": 978,
+    "b": 0,
+    "Z": 6,
+    "valid": true,
+    "sha256": "ce2edb2652b7cfe1c75aa19f9973fdc254577a1f990cd1116e568009bf8289ca"
+  },
+  {
+    "file": "H16a_VerticalEdge_off0_small_n48.json",
+    "n": 48,
+    "X": 437,
+    "T": 465,
+    "b": 5,
+    "Z": 6,
+    "valid": true,
+    "sha256": "1925595f59d2deab22c88a9bcc4718a79fe8abba026e1047a9acfa5deaf34ef8"
+  },
+  {
+    "file": "H16a_VerticalEdge_off0_small_n50.json",
+    "n": 50,
+    "X": 450,
+    "T": 486,
+    "b": 0,
+    "Z": 6,
+    "valid": true,
+    "sha256": "2fd3d5a6e20b4309004a4ec1fd65733ae49a1ba057dbbab476ccd75510760fea"
+  },
+  {
+    "file": "H16a_VerticalEdge_off0_small_n52.json",
+    "n": 52,
+    "X": 475,
+    "T": 507,
+    "b": 7,
+    "Z": 6,
+    "valid": true,
+    "sha256": "0bf3fc37bd8d015db6e9c5fbb71662116edacb4c4cd67c1990ae27de091ad197"
+  },
+  {
+    "file": "H16a_VerticalEdge_off0_small_n54.json",
+    "n": 54,
+    "X": 489,
+    "T": 526,
+    "b": 3,
+    "Z": 6,
+    "valid": true,
+    "sha256": "8485a778b1588ec3e45ec9b727bed7a5b8380cca6207e11ea169f6e4b2d1ee99"
+  },
+  {
+    "file": "H16b_VerticalEdge_off0_n100.json",
+    "n": 100,
+    "X": 904,
+    "T": 1048,
+    "b": 4,
+    "Z": 6,
+    "valid": true,
+    "sha256": "d61006c4d98061ec29da8a03c81b1439299643d7e0fc0344abdfacfa6a5a03ed"
+  },
+  {
+    "file": "H16b_VerticalEdge_off0_n102.json",
+    "n": 102,
+    "X": 921,
+    "T": 1071,
+    "b": 3,
+    "Z": 6,
+    "valid": true,
+    "sha256": "d67b7d9ea8cecdd850f3fba4901ed39ae54f8a3a6a5996f031af715f0ace9a64"
+  },
+  {
+    "file": "H16b_VerticalEdge_off0_n104.json",
+    "n": 104,
+    "X": 938,
+    "T": 1093,
+    "b": 2,
+    "Z": 6,
+    "valid": true,
+    "sha256": "7e34ef73fba36f2df8197c503fe33acf72b691188c81924ac1b8f5b1591076d8"
+  },
+  {
+    "file": "H16b_VerticalEdge_off0_n106.json",
+    "n": 106,
+    "X": 954,
+    "T": 1116,
+    "b": 0,
+    "Z": 6,
+    "valid": true,
+    "sha256": "b437d74a2a99cbc7b1d3636d5f664a04b6127565b9d495c7048e46e670b3206e"
+  },
+  {
+    "file": "H16b_VerticalEdge_off0_n108.json",
+    "n": 108,
+    "X": 976,
+    "T": 1134,
+    "b": 4,
+    "Z": 6,
+    "valid": true,
+    "sha256": "40a2a4ab26de5579358e89ef7e32651880b7f4b573729da76bf4863ce59ac698"
+  },
+  {
+    "file": "H16b_VerticalEdge_off0_n110.json",
+    "n": 110,
+    "X": 992,
+    "T": 1160,
+    "b": 2,
+    "Z": 6,
+    "valid": true,
+    "sha256": "f69337ad64350b5cddfdb4c0cbfb0519a08d644c8451078284ead01e834b2f48"
+  },
+  {
+    "file": "H16b_VerticalEdge_off0_n112.json",
+    "n": 112,
+    "X": 1010,
+    "T": 1179,
+    "b": 2,
+    "Z": 6,
+    "valid": true,
+    "sha256": "48889d2f74fdaaae2034f495dd77bc3784cf986326e160ab228d0d41c0c0fb67"
+  },
+  {
+    "file": "H16b_VerticalEdge_off0_n64.json",
+    "n": 64,
+    "X": 578,
+    "T": 663,
+    "b": 2,
+    "Z": 6,
+    "valid": true,
+    "sha256": "440743f56429af5957493be8f6faf0098c4538b44291dd085d80f05843268af6"
+  },
+  {
+    "file": "H16b_VerticalEdge_off0_n66.json",
+    "n": 66,
+    "X": 596,
+    "T": 679,
+    "b": 2,
+    "Z": 6,
+    "valid": true,
+    "sha256": "48034844a6d9c1a03878240cbd20561d1ed9fd85b99a585b6ea6625ef0e2d296"
+  },
+  {
+    "file": "H16b_VerticalEdge_off0_n68.json",
+    "n": 68,
+    "X": 616,
+    "T": 706,
+    "b": 4,
+    "Z": 6,
+    "valid": true,
+    "sha256": "86e353f2ac0ac3ee914c6dc25cd823f719952cbcdf0ad9856168e545a87cd321"
+  },
+  {
+    "file": "H16b_VerticalEdge_off0_n70.json",
+    "n": 70,
+    "X": 633,
+    "T": 731,
+    "b": 3,
+    "Z": 6,
+    "valid": true,
+    "sha256": "9aa8f95f42b4eb6d348af3e29b199045c58397f25d596b558a4ed7c1241c9786"
+  },
+  {
+    "file": "H16b_VerticalEdge_off0_n72.json",
+    "n": 72,
+    "X": 651,
+    "T": 751,
+    "b": 3,
+    "Z": 6,
+    "valid": true,
+    "sha256": "7f59663b4d0df3da0079f4b0ed46ca65170aec4ae17f319defa86521debd3a04"
+  },
+  {
+    "file": "H16b_VerticalEdge_off0_n74.json",
+    "n": 74,
+    "X": 666,
+    "T": 772,
+    "b": 0,
+    "Z": 6,
+    "valid": true,
+    "sha256": "8b94b33cf3c77367012366035301d5a9ad31e7241e0c226a31faf7694a719d4d"
+  },
+  {
+    "file": "H16b_VerticalEdge_off0_n76.json",
+    "n": 76,
+    "X": 688,
+    "T": 790,
+    "b": 4,
+    "Z": 6,
+    "valid": true,
+    "sha256": "bf8153874265953692995792e9708f8d8b0678d1366b22e8c4cc0b1805ec4142"
+  },
+  {
+    "file": "H16b_VerticalEdge_off0_n78.json",
+    "n": 78,
+    "X": 705,
+    "T": 813,
+    "b": 3,
+    "Z": 6,
+    "valid": true,
+    "sha256": "ee5d106d744fcbb86de1d7ea990259767a50eceb1fb1754017824b23fa3deb49"
+  },
+  {
+    "file": "H16b_VerticalEdge_off0_n80.json",
+    "n": 80,
+    "X": 722,
+    "T": 835,
+    "b": 2,
+    "Z": 6,
+    "valid": true,
+    "sha256": "ea1d40380e329344877a1e60fc4a3a911930cbb3e11329455a9abe62987e1d5b"
+  },
+  {
+    "file": "H16b_VerticalEdge_off0_n82.json",
+    "n": 82,
+    "X": 738,
+    "T": 858,
+    "b": 0,
+    "Z": 6,
+    "valid": true,
+    "sha256": "7cdae9224ca9aa59470c42a94d9a265f9b330f7dae5399e68d37bdd8d723b646"
+  },
+  {
+    "file": "H16b_VerticalEdge_off0_n84.json",
+    "n": 84,
+    "X": 760,
+    "T": 876,
+    "b": 4,
+    "Z": 6,
+    "valid": true,
+    "sha256": "44f5b9a489e7e9da7293beb1b641dce03daf2c8c943be082ab658ec29511eb27"
+  },
+  {
+    "file": "H16b_VerticalEdge_off0_n86.json",
+    "n": 86,
+    "X": 776,
+    "T": 902,
+    "b": 2,
+    "Z": 6,
+    "valid": true,
+    "sha256": "9f13ec0338e12b8da35b6f68a49f1d486bad3892d739729ad46f3eb74de15cd8"
+  },
+  {
+    "file": "H16b_VerticalEdge_off0_n88.json",
+    "n": 88,
+    "X": 794,
+    "T": 921,
+    "b": 2,
+    "Z": 6,
+    "valid": true,
+    "sha256": "801ed0f26a6b29a186ac212d3e7d14d51e5567d6faa159baa6b1c9ab18b8821f"
+  },
+  {
+    "file": "H16b_VerticalEdge_off0_n90.json",
+    "n": 90,
+    "X": 812,
+    "T": 937,
+    "b": 2,
+    "Z": 6,
+    "valid": true,
+    "sha256": "35e033ac2448acb2bc72072fae84d67747c01e7aeedc7ec91d57d2196c44e2bb"
+  },
+  {
+    "file": "H16b_VerticalEdge_off0_n92.json",
+    "n": 92,
+    "X": 832,
+    "T": 964,
+    "b": 4,
+    "Z": 6,
+    "valid": true,
+    "sha256": "b167e8d7c10c9a7f4ea179426da412879a904a3da090bba27700ced1b33ceb35"
+  },
+  {
+    "file": "H16b_VerticalEdge_off0_n94.json",
+    "n": 94,
+    "X": 849,
+    "T": 989,
+    "b": 3,
+    "Z": 6,
+    "valid": true,
+    "sha256": "efc58be27d42ad766a0d56b5e95614189fd8a563c68702f2f5f4694d7ef75249"
+  },
+  {
+    "file": "H16b_VerticalEdge_off0_n96.json",
+    "n": 96,
+    "X": 867,
+    "T": 1009,
+    "b": 3,
+    "Z": 6,
+    "valid": true,
+    "sha256": "c119371c2b260499a6607257b4cfc882f35f3d50664569177144059fcbab2c44"
+  },
+  {
+    "file": "H16b_VerticalEdge_off0_n98.json",
+    "n": 98,
+    "X": 882,
+    "T": 1030,
+    "b": 0,
+    "Z": 6,
+    "valid": true,
+    "sha256": "cfa26738d868380d418263c26149ee848b5c8f4f284381fcf46b9694c156ac36"
+  }
+]

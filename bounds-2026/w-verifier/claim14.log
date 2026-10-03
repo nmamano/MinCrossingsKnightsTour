@@ -1,0 +1,4 @@
+boundary {'states': 259, 'arcs': 1554, 'unrestricted_minimum': -3, 'forest_states': 330, 'forest_arcs': 580, 'forest_start_potential_scaled3': -3, 'crossing_pairs': 115, 'right_square_overlap_quarters': [3], 'max_duplicate_pair_per_corner': 1}
+geometry [{'n': 32, 'dual_edges': 88, 'quarters': 176, 'maximum_run_overhead': 0}, {'n': 48, 'dual_edges': 1080, 'quarters': 2160, 'maximum_run_overhead': 3}, {'n': 64, 'dual_edges': 2584, 'quarters': 5168, 'maximum_run_overhead': 3}, {'n': 96, 'dual_edges': 7128, 'quarters': 14256, 'maximum_run_overhead': 3}, {'n': 120, 'dual_edges': 11880, 'quarters': 23760, 'maximum_run_overhead': 3}]
+run graph 330064 578696
+potential -167 0 witness 20 7 7 [1, 0, 1, 1, 1] negative -68

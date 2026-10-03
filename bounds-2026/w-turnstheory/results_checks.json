@@ -1,0 +1,51 @@
+[
+  {
+    "date": "2026-10-02",
+    "command": "python3 w-turnstheory/check_fold_proof.py",
+    "exit_code": 0,
+    "seconds": 34.03,
+    "log": "w-turnstheory/results_check_fold_proof.log"
+  },
+  {
+    "date": "2026-10-02",
+    "command": "python3 w-turnstheory/check_upper_proofs.py",
+    "exit_code": 0,
+    "seconds": 17.41,
+    "log": "w-turnstheory/results_check_upper_proofs.log"
+  },
+  {
+    "date": "2026-10-02",
+    "command": "python3 w-turnstheory/check_lf_proof.py",
+    "exit_code": 0,
+    "seconds": 29.94,
+    "log": "w-turnstheory/results_check_lf_proof.log"
+  },
+  {
+    "date": "2026-10-02",
+    "command": "python3 w-turnstheory/check_crossings_lower.py",
+    "exit_code": 0,
+    "seconds": 11.84,
+    "log": "w-turnstheory/results_check_crossings_lower.log"
+  },
+  {
+    "date": "2026-10-02",
+    "command": "python3 w-turnstheory/check_knight_tiles.py",
+    "exit_code": 0,
+    "seconds": 0.36,
+    "log": "w-turnstheory/results_check_knight_tiles.log"
+  },
+  {
+    "date": "2026-10-02",
+    "command": "python3 writeup/turns/check_corner.py",
+    "exit_code": 0,
+    "seconds": 0.06,
+    "log": "w-turnstheory/results_check_corner.log"
+  },
+  {
+    "date": "2026-10-02",
+    "command": "python3 w-turnstheory/check_proof.py",
+    "exit_code": 0,
+    "seconds": 0.16,
+    "log": "w-turnstheory/results_check_proof.log"
+  }
+]

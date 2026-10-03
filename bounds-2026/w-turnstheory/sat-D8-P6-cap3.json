@@ -1,0 +1,11 @@
+{
+  "D": 8,
+  "P": 6,
+  "flux": 1,
+  "max_crossings": 3,
+  "force_long": false,
+  "satisfiable": false,
+  "variables": 3697,
+  "clauses": 7136,
+  "seconds": 3.02965563791804
+}

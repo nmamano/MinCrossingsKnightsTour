@@ -1,0 +1,7 @@
+  base round 0: X=1799
+  base round 1: X=1644
+  base round 2: X=1589
+  base round 3: X=1563
+FJOG: n0=130 p=6; transplant to n0 + 12k
+  n=130: valid=True X=1563 T=2512
+  n=142: valid=False X=1627 T=2664

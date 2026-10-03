@@ -1,0 +1,1 @@
+{"p": 6, "w": 4, "current": 1, "status": "FEASIBLE", "X": 4, "T": 22, "rate_per_unit": 0.6666666666666666, "stamp": "2026-10-02 08:44"}

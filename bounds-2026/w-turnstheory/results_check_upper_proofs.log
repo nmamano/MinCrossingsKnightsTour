@@ -1,0 +1,2 @@
+PASS: 64 base tours; 48 regional transfers; exact local costs {'TT16': {'bottom': (8, 16, 26), 'top': (8, 16, 26), 'left': (4, 8, 4), 'right': (4, 8, 8)}, 'H16a': {'bottom': (8, 25, 16), 'top': (8, 25, 16), 'left': (4, 8, 10), 'right': (4, 8, 10)}}
+Certificate details: /home/nil/nil/knight-formation-research/w-turnstheory/upper_proof_checks.json

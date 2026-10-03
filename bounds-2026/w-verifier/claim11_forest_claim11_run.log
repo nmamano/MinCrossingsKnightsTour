@@ -1,0 +1,3 @@
+graph 82516 144674
+{'states': 82516, 'arcs': 144674, 'ordinary_potential_scaled4': [-1, 135], 'T': 37, 'alpha_potential_scaled20': [-149, 0], 'critical_arcs': 8}
+sharp witness 12 5 10 negative at 201/1000: -40

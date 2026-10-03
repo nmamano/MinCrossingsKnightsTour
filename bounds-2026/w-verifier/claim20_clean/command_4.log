@@ -1,0 +1,6 @@
+PASS: 20 normalised crossing pairs; only two orientations of the inward overlap exception.
+PASS: each exception is excluded by two adjacent good rows of the same P/P-prime pattern.
+PASS: at most five duplicate crossing pairs per corner; the asserted bound one is false.
+PASS: saved FOLD24 n=96 has two duplicated pairs at each corner.
+PASS: width-one potential minimum -3 in units 1/3; each side has at least n-1 crossings.
+Therefore the union B has at least 4n-24 crossing pairs, and avoids the retained paths' whole squares.

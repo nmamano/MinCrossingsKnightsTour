@@ -1,0 +1,260 @@
+{
+  "date": "2026-10-02",
+  "strip": {
+    "turns": 18,
+    "crossings": 31,
+    "terminal_pairs": [
+      [
+        0,
+        7
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        4,
+        1
+      ],
+      [
+        5,
+        3
+      ],
+      [
+        6,
+        2
+      ],
+      [
+        7,
+        0
+      ]
+    ],
+    "covered_period_cells": 32
+  },
+  "tours": [
+    {
+      "file": "runs/t18/T18_n64.json",
+      "n": 64,
+      "X": 796,
+      "T": 529,
+      "T_minus_8_5n": -15.0,
+      "strips": [
+        141,
+        139,
+        153,
+        151
+      ],
+      "info": {
+        "status": "FEASIBLE",
+        "corner_obj": 122,
+        "bound": 111.0,
+        "secs": 60.1,
+        "Z": 6,
+        "phases": null
+      },
+      "sha256": "a56d4b500f0c7902fe899b1f2a59554a6867e0db60d92cf7304e32cd873a4718",
+      "corner_turns": 88,
+      "outside_turn_offset": -103.0
+    },
+    {
+      "file": "runs/t18/T18_n66.json",
+      "n": 66,
+      "X": 816,
+      "T": 542,
+      "T_minus_8_5n": -19.0,
+      "strips": [
+        141,
+        142,
+        155,
+        155
+      ],
+      "info": {
+        "status": "FEASIBLE",
+        "corner_obj": 110,
+        "bound": 100.0,
+        "secs": 60.0,
+        "Z": 6,
+        "phases": null
+      },
+      "sha256": "2e2812f202a0c21f7d2e07504aae1af71cc910c318df9ba808c9726b80bdab76",
+      "corner_turns": 82,
+      "outside_turn_offset": -101.0
+    },
+    {
+      "file": "runs/t18/T18_n68.json",
+      "n": 68,
+      "X": 843,
+      "T": 560,
+      "T_minus_8_5n": -18.0,
+      "strips": [
+        146,
+        145,
+        160,
+        160
+      ],
+      "info": {
+        "status": "FEASIBLE",
+        "corner_obj": 117,
+        "bound": 108.0,
+        "secs": 60.1,
+        "Z": 6,
+        "phases": null
+      },
+      "sha256": "57d66f0498f61c6294a63fc527f089ad578209e0551d6975a65d459d5b78417f",
+      "corner_turns": 84,
+      "outside_turn_offset": -102.0
+    },
+    {
+      "file": "runs/t18/T18_n72.json",
+      "n": 72,
+      "X": 897,
+      "T": 597,
+      "T_minus_8_5n": -15.0,
+      "strips": [
+        155,
+        155,
+        170,
+        170
+      ],
+      "info": {
+        "status": "FEASIBLE",
+        "corner_obj": 121,
+        "bound": 111.0,
+        "secs": 60.1,
+        "Z": 6,
+        "phases": null
+      },
+      "sha256": "ade906e0ca16a86259fdaf5391202292927fe529a70e2fcc8d50bf98531c48cb",
+      "corner_turns": 88,
+      "outside_turn_offset": -103.0
+    },
+    {
+      "file": "runs/t18/T18_n74.json",
+      "n": 74,
+      "X": 916,
+      "T": 612,
+      "T_minus_8_5n": -17.0,
+      "strips": [
+        158,
+        158,
+        174,
+        174
+      ],
+      "info": {
+        "status": "FEASIBLE",
+        "corner_obj": 108,
+        "bound": 100.0,
+        "secs": 60.1,
+        "Z": 6,
+        "phases": null
+      },
+      "sha256": "f079bb0d6221e376091c617161b27c936e254c1be794bec5ba7165b06caa4294",
+      "corner_turns": 84,
+      "outside_turn_offset": -101.0
+    },
+    {
+      "file": "runs/t18/T18_n80.json",
+      "n": 80,
+      "X": 999,
+      "T": 666,
+      "T_minus_8_5n": -14.0,
+      "strips": [
+        172,
+        171,
+        188,
+        189
+      ],
+      "info": {
+        "status": "FEASIBLE",
+        "corner_obj": 121,
+        "bound": 111.0,
+        "secs": 60.0,
+        "Z": 6,
+        "phases": null
+      },
+      "sha256": "cbde9d77735a017e502cdb5c6bcac8f32a2d7dfbf8dcc04a6f1664dd9408b6ca",
+      "corner_turns": 89,
+      "outside_turn_offset": -103.0
+    },
+    {
+      "file": "runs/t18/T18_n82.json",
+      "n": 82,
+      "X": 1019,
+      "T": 679,
+      "T_minus_8_5n": -18.0,
+      "strips": [
+        173,
+        174,
+        192,
+        191
+      ],
+      "info": {
+        "status": "FEASIBLE",
+        "corner_obj": 109,
+        "bound": 100.0,
+        "secs": 60.0,
+        "Z": 6,
+        "phases": null
+      },
+      "sha256": "ede79a31d6dd4b421d19cd7500cc6bee19bdc7e853de9104c96d418c8c993be2",
+      "corner_turns": 83,
+      "outside_turn_offset": -101.0
+    },
+    {
+      "file": "runs/t18/T18_n88.json",
+      "n": 88,
+      "X": 1099,
+      "T": 735,
+      "T_minus_8_5n": -13.0,
+      "strips": [
+        190,
+        187,
+        208,
+        206
+      ],
+      "info": {
+        "status": "FEASIBLE",
+        "corner_obj": 119,
+        "bound": 111.0,
+        "secs": 60.2,
+        "Z": 6,
+        "phases": null
+      },
+      "sha256": "c1fd9a59ab7f4ea0c3e62ac36d740dfe0592891dd7fbec040c143a66c3bbe583",
+      "corner_turns": 90,
+      "outside_turn_offset": -103.0
+    },
+    {
+      "file": "runs/t18/T18_n90.json",
+      "n": 90,
+      "X": 1120,
+      "T": 748,
+      "T_minus_8_5n": -17.0,
+      "strips": [
+        189,
+        189,
+        210,
+        210
+      ],
+      "info": {
+        "status": "FEASIBLE",
+        "corner_obj": 108,
+        "bound": 100.0,
+        "secs": 60.1,
+        "Z": 6,
+        "phases": null
+      },
+      "sha256": "5867151328093170d6e70783d3d1a6f10630d039d8cf35c5dc73dbf770016f8e",
+      "corner_turns": 84,
+      "outside_turn_offset": -101.0
+    }
+  ]
+}

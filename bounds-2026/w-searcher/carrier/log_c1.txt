@@ -1,0 +1,5 @@
+{"kind": "c1", "p": 2, "W": 3, "rel": 1, "plain_current": 1, "status": "OPTIMAL", "cuts": 0, "secs": 0.1, "stamp": "2026-10-02 10:07", "X": 4, "bound": 4.0, "rate_per_step": 2.0, "current": 2, "windings": [-1, 1, 1, 1, 1, 1]}
+{"kind": "c1", "p": 2, "W": 3, "rel": -1, "plain_current": 1, "status": "OPTIMAL", "cuts": 0, "secs": 0.0, "stamp": "2026-10-02 10:07", "X": 4, "bound": 4.0, "rate_per_step": 2.0, "current": 0, "windings": [1, 1, 1, 1, 1, 1]}
+{"kind": "c1", "p": 4, "W": 3, "rel": 1, "plain_current": 1, "status": "OPTIMAL", "cuts": 0, "secs": 2.7, "stamp": "2026-10-02 10:08", "X": 8, "bound": 8.0, "rate_per_step": 2.0, "current": 2, "windings": [1, 1, 1, 1, 1, 2]}
+{"kind": "c1", "p": 4, "W": 3, "rel": -1, "plain_current": 1, "status": "OPTIMAL", "cuts": 0, "secs": 2.5, "stamp": "2026-10-02 10:08", "X": 8, "bound": 8.0, "rate_per_step": 2.0, "current": 0, "windings": [1, 1, 1, 1, 1, 2]}
+{"kind": "c1", "p": 6, "W": 3, "rel": 1, "plain_current": 1, "status": "FEASIBLE", "cuts": 0, "secs": 240.5, "stamp": "2026-10-02 10:12", "X": 12, "bound": 0.0, "rate_per_step": 2.0, "current": 2, "windings": [-1, 1, 1, 1, 1, 1]}

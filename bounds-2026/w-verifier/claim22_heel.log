@@ -1,0 +1,10 @@
+VerticalEdge {'X': 10, 'T': 8}
+Sequence1Default {'X': 32, 'T': 22, 'pairing': {0: -3, 1: -4, 2: -1, 3: -2, 4: 9, 5: 8, 6: 11, 7: 10}}
+Sequence1Opt {'X': 28, 'T': 22, 'pairing': {0: -3, 1: -4, 2: -1, 3: -2, 4: 9, 5: 8, 6: 11, 7: 10}}
+SequenceP40 {'X': 130, 'T': 115}
+heel21 {'X': 31, 'T': 21, 'pairing': {0: -3, 1: -4, 2: -1, 3: -2, 4: 9, 5: 8, 6: 11, 7: 10}}
+PDF Sequence1Default {'edges': 36, 'best_mismatches': 0, 'phase': 0, 'directed_tests': 62, 'examples': []}
+PDF heel21 {'edges': 36, 'best_mismatches': 12, 'phase': 0, 'directed_tests': 62, 'examples': [((2, 0), (3, 2), '16'), ((3, 2), (2, 0), '26'), ((0, 1), (1, 3), '12'), ((1, 3), (0, 1), '26'), ((2, 2), (4, 1), '35'), ((4, 1), (2, 2), '25'), ((1, 1), (3, 2), '27'), ((3, 2), (1, 1), '26')]}
+PDF Sequence1Opt {'edges': 36, 'best_mismatches': 0, 'phase': 0, 'directed_tests': 62, 'examples': []}
+PRINTED CENTER ['26 46 26 26 26 26 26 26', '36 46 26 45 26 26 36 46', '02 12 25 25 26 25 56 56', '01 17 06 16 16 16 06 67'] degrees {2: 30, 0: 2}
+PRINTED CENTER COUNTS 31 21

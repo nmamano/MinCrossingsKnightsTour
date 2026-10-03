@@ -1,0 +1,27 @@
+left P 4 D 2 off 0 {'status': 'OPTIMAL', 'time': 0.0, 'obj': 10.0, 'bound': 10.0, 'X': 10, 'T': 8}
+23 24
+23 24
+02 27
+02 27
+left P 4 D 2 off 1 {'status': 'INFEASIBLE', 'time': 0.0}
+left P 4 D 3 off 0 {'status': 'OPTIMAL', 'time': 0.0, 'obj': 10.0, 'bound': 10.0, 'X': 10, 'T': 8}
+23 24 26
+23 24 26
+02 27 26
+02 27 26
+left P 4 D 3 off 1 {'status': 'OPTIMAL', 'time': 0.0, 'obj': 14.0, 'bound': 14.0, 'X': 14, 'T': 10}
+23 24 25
+13 24 26
+02 27 25
+01 27 26
+left P 4 D 4 off 0 {'status': 'OPTIMAL', 'time': 0.0, 'obj': 10.0, 'bound': 10.0, 'X': 10, 'T': 8}
+23 24 26 26
+23 24 26 26
+02 27 26 26
+02 27 26 26
+left P 4 D 4 off 1 {'status': 'OPTIMAL', 'time': 0.0, 'obj': 14.0, 'bound': 14.0, 'X': 14, 'T': 10}
+23 24 25 26
+13 24 26 26
+02 27 25 26
+01 27 26 26
+exit=0

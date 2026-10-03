@@ -1,0 +1,33 @@
+
+CHECK: Tile geometry and flux
+PASS: 1292 edge pairs; overlap quarter-triangle counts {0: 1256, 1: 24, 2: 12} ; maximum intersection area 2/4
+PASS: 648 single-edge local flux identities (both dual directions).
+
+CHECK: One-row corner charge
+PASS: all 8 top-end edges straddle the one critical row.
+PASS: top and right end flux = chi(R) for either pattern sign.
+PASS: new endpoint test equals the earlier test plus degree two.
+PASS: outside flux + end flux = 1 + 3 chi(R) = 1 mod 3.
+
+CHECK: Boundary count and full-square exclusion
+PASS: 20 normalised crossing pairs; only two orientations of the inward overlap exception.
+PASS: the endpoint test explicitly excludes the only inward-overlap pair.
+PASS: at most five duplicate crossing pairs per corner; the asserted bound one is false.
+PASS: width-one potential minimum -3 in units 1/3; each side has at least n-1 crossings.
+Therefore the union B has at least 4n-24 crossing pairs, and avoids the retained paths' whole squares.
+
+CHECK: Two bad quarters per defective square
+PASS: 16 translated edge types; two adjacent quarters per visited square.
+PASS: 36 overlapping tile pairs; their dual edges have a common vertex.
+PASS: corner paths are vertex-disjoint; all incident squares avoid boundary tile overlaps.
+PASS: degree-two gentle seam; J=Q=0; height jump 1 mod 3; one half-area crossing per (1,1) period.
+The arbitrary-size disjointness and alternating-sum implications are proved in section 9.
+
+CHECK: Joint endpoint strip stability
+base states 82516 arcs 144674
+augmented nodes 167782 arcs 315389
+both beta=1/1: converged after 7 passes, no negative cycle; potential range -29..0 (units 1/(4q))
+PASS: exact endpoint error 29/4, coefficient 1 per failed joint endpoint test.
+PASS: 24 knight edges per 4-by-4 corner; strip overcount at most 1104.
+
+PASS: all finite inputs and arithmetic for X >= 14n/3 - 407.

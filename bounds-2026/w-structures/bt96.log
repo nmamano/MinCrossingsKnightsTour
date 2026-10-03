@@ -1,0 +1,6 @@
+windows [165, 84, 105, 165, 105, 165, 400, 105, 165, 84, 105, 84, 84]
+n 96 pre: comps 40 closed 0 bad 108 clusters 13 free 1816 imb [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] X(pre) 544
+circuit: OPTIMAL obj 0.0 bound 0.0 23 s nodes 1816 chains 296
+feasible tour X 2187
+LNS pass 0 X 1199
+LNS pass 1 X 1067

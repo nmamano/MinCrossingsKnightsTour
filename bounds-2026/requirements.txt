@@ -1,0 +1,11 @@
+# Versions used in the session (Python 3.12.3).
+# Searches and checks:
+ortools==9.15.6755
+python-sat>=1.8
+numpy==2.5.3
+scipy==1.18.1
+networkx==3.7
+# Figures and some audit scripts only:
+matplotlib==3.11.2
+pillow==12.3.0
+pypdf==6.19.0

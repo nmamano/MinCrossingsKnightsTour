@@ -1,0 +1,4 @@
+8 0 2 {'status': 'OPTIMAL', 'time': 0.0, 'obj': 20.0, 'bound': 20.0, 'X': 20, 'T': 16} rate/row 2.5 check (True, 20)
+8 0 3 {'status': 'OPTIMAL', 'time': 0.0, 'obj': 20.0, 'bound': 20.0, 'X': 20, 'T': 16} rate/row 2.5 check (True, 20)
+8 0 4 {'status': 'OPTIMAL', 'time': 0.1, 'obj': 20.0, 'bound': 20.0, 'X': 20, 'T': 16} rate/row 2.5 check (True, 20)
+8 0 5 {'status': 'FEASIBLE', 'time': 120.0, 'obj': 20.0, 'bound': 3.0, 'X': 20, 'T': 16} rate/row 2.5 check (True, 20)

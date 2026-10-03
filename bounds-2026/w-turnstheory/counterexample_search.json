@@ -1,0 +1,52 @@
+[
+  {
+    "D": 8,
+    "P": 6,
+    "flux": 1,
+    "zero": false,
+    "force_long": false,
+    "cap": 3,
+    "status": "UNKNOWN",
+    "seconds": 4.001458068
+  },
+  {
+    "D": 12,
+    "P": 6,
+    "flux": 1,
+    "zero": false,
+    "force_long": false,
+    "cap": 3,
+    "status": "UNKNOWN",
+    "seconds": 4.000065427
+  },
+  {
+    "D": 8,
+    "P": 9,
+    "flux": 1,
+    "zero": false,
+    "force_long": false,
+    "cap": 5,
+    "status": "UNKNOWN",
+    "seconds": 4.005257859
+  },
+  {
+    "D": 6,
+    "P": 5,
+    "flux": 1,
+    "zero": false,
+    "force_long": false,
+    "cap": 3,
+    "status": "UNKNOWN",
+    "seconds": 3.9981523820000002
+  },
+  {
+    "D": 6,
+    "P": 7,
+    "flux": 1,
+    "zero": false,
+    "force_long": false,
+    "cap": 4,
+    "status": "UNKNOWN",
+    "seconds": 4.003184372000001
+  }
+]

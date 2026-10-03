@@ -1,0 +1,5 @@
+per-8-line strand permutation in each region (formation positions 0..3), and its order:
+  n=64: BL [1, 2, 0, 3] order 3;  MID [0, 1, 2, 3] order 1;  TR [0, 2, 3, 1] order 3
+  n=66: BL [1, 2, 0, 3] order 3;  MID [0, 1, 2, 3] order 1;  TR [3, 1, 0, 2] order 3
+  n=68: BL [1, 2, 0, 3] order 3;  MID [0, 1, 2, 3] order 1;  TR [0, 2, 3, 1] order 3
+  n=70: BL [1, 2, 0, 3] order 3;  MID [0, 1, 2, 3] order 1;  TR [3, 1, 0, 2] order 3

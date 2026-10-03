@@ -1,0 +1,21 @@
+{
+ "date": "2026-10-02",
+ "sha256": {
+  "w-verifier/claim12_full.py": "db4f6c44397cbbee2a4efc7a8301c50b673f3fa1e729c08416b5365a4eff0d18",
+  "w-verifier/claim12_supplied.py": "bbe9b833e8b6a66894d3da2dfd22fe808eb4c8d21b79488c270e28df0363d559",
+  "w-turnstheory/PROOF_fold.md": "5a933c4bbdb940beae5d8a2c1c67b6d194b867975865f3af017ad63560ab15c1",
+  "w-integrator/corners/FOLD24_base_n96.json": "52fd287150bac825918ad0d038b46957a6c15ddc17ee9df100c66f076ff5b8fc",
+  "w-integrator/corners/FOLD24_base_n112.json": "8b3cb8fc1903e598478a75ca999481b2dde179acd36332bf8798dc39ef95e15e",
+  "w-integrator/corners/FOLD24_base_n106.json": "a4d270ea3066fbe94ba067dc7d3596d64fd3b10c6230ed30cc38d736174b7124",
+  "w-integrator/corners/FOLD24_base_n114.json": "02009fdccbc542fc1bdde4ce3edb97be26eccac09516373d7fd6b0ad71c61268",
+  "w-integrator/corners/FOLD24_base_n108.json": "34e4680167fcfa1ff5cc4809fd6fbfca1b56f4aaa1746c1f9792ca7c2689a054",
+  "w-integrator/corners/FOLD24_base_n104.json": "889749edc0b9389719090596d9f9a03248aa9ae2bc5b0df1d6a2befd49ccc1fd",
+  "w-integrator/corners/FOLD24_base_n98.json": "361547916623b7704309d73541fedccc80e10d8f3ea013fc868b5b1bba303cce",
+  "w-integrator/corners/FOLD24_base_n100.json": "0b9e3aa1afaef5a2bb5bd13bbd2e757326c1850a73c4a4482bd103f5c9682822",
+  "w-integrator/corners/FOLD24_base_n110.json": "6dcf4b89a6b0b2fcbc06d9b4403247028ef544a3ab1d51a5fed51c2d63208371",
+  "w-integrator/corners/FOLD24_base_n102.json": "1fe7ad3cdfdde19a674907c7e014253f0bb9acc080f4bdb7b40f806fc38b3fe1",
+  "w-integrator/corners/FOLD24_base_n118.json": "b68b4a41fd6081b48434dbfdc145639437555102ca5622bbe29fabd6b6d88662",
+  "w-integrator/corners/FOLD24_base_n116.json": "4e124447c01884fc05a4e6217ac03ecb8a26b3af32171dccf74ee16c0cb13f6f",
+  "w-verifier/claim12_affine_margins.py": "3e7bab6e6c7b86dbfcbc19c90c8f505677bcccf30fe4a84acf286cf98c53e28b"
+ }
+}

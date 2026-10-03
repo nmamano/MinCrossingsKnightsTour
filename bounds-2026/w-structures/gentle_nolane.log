@@ -1,0 +1,6 @@
+gentle p=1 w=4 s=0 off2=0 cells=9 OPTIMAL 0.0s X=1 T=3 bound=1.0 X/p=1.000 T/p=3.000 chk(strands_ok=False,X=1,T=3,bad=0) chosen=[7, 11, 15, 19, 24, 27]
+gentle p=2 w=4 s=0 off2=0 cells=18 OPTIMAL 0.1s X=2 T=6 bound=2.0 X/p=1.000 T/p=3.000 chk(strands_ok=False,X=2,T=6,bad=0) chosen=[7, 11, 15, 19, 23, 26, 35, 39, 43, 47, 51, 54]
+gentle p=3 w=4 s=0 off2=0 cells=27 OPTIMAL 0.2s X=3 T=9 bound=3.0 X/p=1.000 T/p=3.000 chk(strands_ok=False,X=3,T=9,bad=0) chosen=[7, 12, 16, 20, 24, 27, 35, 40, 44, 48, 52, 55, 63, 68, 72, 76, 80, 83]
+gentle p=6 w=4 s=0 off2=0 cells=54 OPTIMAL 205.0s X=6 T=18 bound=6.0 X/p=1.000 T/p=3.000 chk(strands_ok=False,X=6,T=18,bad=0) chosen=[7, 11, 15, 20, 24, 27, 35, 39, 43, 48, 52, 55, 63, 67, 71, 76, 80, 83, 91, 95, 99, 104, 108, 111, 119, 123, 127, 132, 136, 139, 147, 151, 155, 160, 164, 167]
+gentle p=8 w=4 s=0 off2=0 cells=72 FEASIBLE 300.0s X=19 T=31 bound=0.0 X/p=2.375 T/p=3.875 chk(strands_ok=False,X=19,T=31,bad=0) chosen=[7, 16, 20, 27, 35, 40, 44, 48, 52, 55, 63, 68, 72, 76, 80, 83, 91, 96, 100, 104, 108, 111, 119, 124, 128, 132, 136, 139, 147, 152, 156, 160, 163, 167, 175, 179, 180, 183, 187, 192, 195, 200, 201, 203, 210, 213, 220, 223]
+exit=0

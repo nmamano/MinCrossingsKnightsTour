@@ -1,0 +1,289 @@
+paper n= 48 valid=True X=592 T=442
+paper n= 50 valid=True X=596 T=452
+paper n= 52 valid=True X=625 T=475
+paper n= 56 valid=True X=688 T=518
+paper n= 54 valid=True X=646 T=491
+paper n= 58 valid=True X=692 T=528
+paper n= 60 valid=True X=721 T=551
+paper n= 62 valid=True X=742 T=567
+paper n= 64 valid=True X=784 T=594
+paper n= 66 valid=True X=788 T=604
+paper n= 68 valid=True X=817 T=627
+paper n= 70 valid=True X=838 T=643
+paper n= 72 valid=True X=880 T=670
+paper n= 74 valid=True X=884 T=680
+paper n= 76 valid=True X=913 T=703
+paper n= 78 valid=True X=934 T=719
+paper n= 80 valid=True X=976 T=746
+paper n= 82 valid=True X=980 T=756
+paper n= 84 valid=True X=1009 T=779
+paper n= 86 valid=True X=1030 T=795
+paper n= 88 valid=True X=1072 T=822
+paper n= 90 valid=True X=1076 T=832
+paper n= 92 valid=True X=1105 T=855
+paper n= 94 valid=True X=1126 T=871
+paper n= 96 valid=True X=1168 T=898 brute=1168
+paper n= 98 valid=True X=1172 T=908 brute=1172
+paper n=100 valid=True X=1201 T=931
+paper n=102 valid=True X=1222 T=947
+paper n=104 valid=True X=1264 T=974
+paper n=106 valid=True X=1268 T=984
+paper n=108 valid=True X=1297 T=1007
+paper n=110 valid=True X=1318 T=1023
+paper n=112 valid=True X=1360 T=1050
+paper n=114 valid=True X=1364 T=1060
+paper n=116 valid=True X=1393 T=1083
+paper n=118 valid=True X=1414 T=1099
+paper n=122 valid=True X=1460 T=1136
+paper n=124 valid=True X=1489 T=1159
+paper n=126 valid=True X=1510 T=1175
+paper n=128 valid=True X=1552 T=1202
+paper n=130 valid=True X=1556 T=1212
+paper n=132 valid=True X=1585 T=1235
+paper n=134 valid=True X=1606 T=1251
+paper n=136 valid=True X=1648 T=1278
+paper n=138 valid=True X=1652 T=1288
+paper n=140 valid=True X=1681 T=1311
+paper n=142 valid=True X=1702 T=1327
+paper n=144 valid=True X=1744 T=1354
+paper n=146 valid=True X=1748 T=1364
+paper n=148 valid=True X=1777 T=1387
+paper n=150 valid=True X=1798 T=1403
+paper n=152 valid=True X=1840 T=1430
+paper n=120 valid=True X=1456 T=1126 brute=1456
+paper n=154 valid=True X=1844 T=1440
+paper n=156 valid=True X=1873 T=1463
+paper n=158 valid=True X=1894 T=1479
+paper n=160 valid=True X=1936 T=1506
+paper n=162 valid=True X=1940 T=1516
+paper n=164 valid=True X=1969 T=1539
+paper n=166 valid=True X=1990 T=1555
+paper n=168 valid=True X=2032 T=1582
+paper n=170 valid=True X=2036 T=1592
+paper n=172 valid=True X=2065 T=1615
+paper n=174 valid=True X=2086 T=1631
+paper n=176 valid=True X=2128 T=1658
+paper n=178 valid=True X=2132 T=1668
+paper n=180 valid=True X=2161 T=1691
+paper n=182 valid=True X=2182 T=1707
+paper n=184 valid=True X=2224 T=1734
+paper n=186 valid=True X=2228 T=1744
+paper n=188 valid=True X=2257 T=1767
+paper n=190 valid=True X=2278 T=1783
+paper n=192 valid=True X=2320 T=1810
+paper n=194 valid=True X=2324 T=1820
+paper n=196 valid=True X=2353 T=1843
+paper n=198 valid=True X=2374 T=1859
+ H16a n= 48 valid=True X=437 T=465
+ H16a n= 50 valid=True X=450 T=486
+ H16a n= 52 valid=True X=475 T=507
+paper n=200 valid=True X=2416 T=1886
+ H16a n= 54 valid=True X=489 T=526
+ H16a n= 56 valid=True X=509 T=549
+ H16a n= 58 valid=True X=522 T=568
+ H16a n= 60 valid=True X=547 T=589
+ H16a n= 62 valid=True X=559 T=605
+ H16a n= 64 valid=True X=581 T=630
+ H16a n= 66 valid=True X=594 T=650
+ H16a n= 68 valid=True X=619 T=679
+ H16a n= 70 valid=True X=632 T=692
+ H16a n= 72 valid=True X=653 T=711
+ H16a n= 74 valid=True X=666 T=732
+ H16a n= 76 valid=True X=691 T=753
+ H16a n= 78 valid=True X=705 T=772
+ H16a n= 80 valid=True X=725 T=795
+ H16a n= 82 valid=True X=738 T=814
+ H16a n= 84 valid=True X=763 T=835
+ H16a n= 86 valid=True X=775 T=851
+ H16a n= 88 valid=True X=797 T=876
+ H16a n= 90 valid=True X=810 T=896
+ H16a n= 92 valid=True X=835 T=925
+ H16a n= 94 valid=True X=848 T=938
+ H16a n= 96 valid=True X=869 T=957 brute=869
+ H16a n= 98 valid=True X=882 T=978 brute=882
+ H16a n=100 valid=True X=907 T=999
+ H16a n=102 valid=True X=921 T=1018
+ H16a n=104 valid=True X=941 T=1041
+ H16a n=106 valid=True X=954 T=1060
+ H16a n=108 valid=True X=979 T=1081
+ H16a n=110 valid=True X=991 T=1097
+ H16a n=112 valid=True X=1013 T=1122
+ H16a n=114 valid=True X=1026 T=1142
+ H16a n=116 valid=True X=1051 T=1171
+ H16a n=118 valid=True X=1064 T=1184
+ H16a n=122 valid=True X=1098 T=1224
+ H16a n=124 valid=True X=1123 T=1245
+ H16a n=126 valid=True X=1137 T=1264
+ H16a n=128 valid=True X=1157 T=1287
+ H16a n=130 valid=True X=1170 T=1306
+ H16a n=132 valid=True X=1195 T=1327
+ H16a n=134 valid=True X=1207 T=1343
+ H16a n=136 valid=True X=1229 T=1368
+ H16a n=138 valid=True X=1242 T=1388
+ H16a n=140 valid=True X=1267 T=1417
+ H16a n=142 valid=True X=1280 T=1430
+ H16a n=144 valid=True X=1301 T=1449
+ H16a n=146 valid=True X=1314 T=1470
+ H16a n=148 valid=True X=1339 T=1491
+ H16a n=150 valid=True X=1353 T=1510
+ H16a n=120 valid=True X=1085 T=1203 brute=1085
+ H16a n=152 valid=True X=1373 T=1533
+ H16a n=154 valid=True X=1386 T=1552
+ H16a n=156 valid=True X=1411 T=1573
+ H16a n=158 valid=True X=1423 T=1589
+ H16a n=160 valid=True X=1445 T=1614
+ H16a n=162 valid=True X=1458 T=1634
+ H16a n=164 valid=True X=1483 T=1663
+ H16a n=166 valid=True X=1496 T=1676
+ H16a n=168 valid=True X=1517 T=1695
+ H16a n=170 valid=True X=1530 T=1716
+ H16a n=172 valid=True X=1555 T=1737
+ H16a n=174 valid=True X=1569 T=1756
+ H16a n=176 valid=True X=1589 T=1779
+ H16a n=178 valid=True X=1602 T=1798
+ H16a n=180 valid=True X=1627 T=1819
+ H16a n=182 valid=True X=1639 T=1835
+ H16a n=184 valid=True X=1661 T=1860
+ H16a n=186 valid=True X=1674 T=1880
+ H16a n=188 valid=True X=1699 T=1909
+ H16a n=190 valid=True X=1712 T=1922
+ H16a n=192 valid=True X=1733 T=1941
+ H16a n=194 valid=True X=1746 T=1962
+ H16a n=196 valid=True X=1771 T=1983
+ H16a n=198 valid=True X=1785 T=2002
+ TT16 n= 48 valid=True X=454 T=370
+ TT16 n= 50 valid=True X=472 T=386
+ TT16 n= 52 valid=True X=494 T=402
+ TT16 n= 54 valid=True X=516 T=418
+ TT16 n= 56 valid=True X=530 T=434
+ TT16 n= 58 valid=True X=548 T=450
+ H16a n=200 valid=True X=1805 T=2025
+ TT16 n= 60 valid=True X=570 T=466
+ TT16 n= 62 valid=True X=592 T=482
+ TT16 n= 64 valid=True X=606 T=498
+ TT16 n= 66 valid=True X=624 T=514
+ TT16 n= 68 valid=True X=646 T=530
+ TT16 n= 70 valid=True X=668 T=546
+ TT16 n= 72 valid=True X=682 T=562
+ TT16 n= 74 valid=True X=700 T=578
+ TT16 n= 76 valid=True X=722 T=594
+ TT16 n= 78 valid=True X=744 T=610
+ TT16 n= 80 valid=True X=758 T=626
+ TT16 n= 82 valid=True X=776 T=642
+ TT16 n= 84 valid=True X=798 T=658
+ TT16 n= 86 valid=True X=820 T=674
+ TT16 n= 88 valid=True X=834 T=690
+ TT16 n= 90 valid=True X=852 T=706
+ TT16 n= 92 valid=True X=874 T=722
+ TT16 n= 94 valid=True X=896 T=738
+ TT16 n= 96 valid=True X=910 T=754 brute=910
+ TT16 n= 98 valid=True X=928 T=770 brute=928
+ TT16 n=100 valid=True X=950 T=786
+ TT16 n=102 valid=True X=972 T=802
+ TT16 n=104 valid=True X=986 T=818
+ TT16 n=106 valid=True X=1004 T=834
+ TT16 n=108 valid=True X=1026 T=850
+ TT16 n=110 valid=True X=1048 T=866
+ TT16 n=112 valid=True X=1062 T=882
+ TT16 n=114 valid=True X=1080 T=898
+ TT16 n=116 valid=True X=1102 T=914
+ TT16 n=118 valid=True X=1124 T=930
+ TT16 n=122 valid=True X=1156 T=962
+ TT16 n=124 valid=True X=1178 T=978
+ TT16 n=126 valid=True X=1200 T=994
+ TT16 n=128 valid=True X=1214 T=1010
+ TT16 n=130 valid=True X=1232 T=1026
+ TT16 n=132 valid=True X=1254 T=1042
+ TT16 n=134 valid=True X=1276 T=1058
+ TT16 n=136 valid=True X=1290 T=1074
+ TT16 n=138 valid=True X=1308 T=1090
+ TT16 n=140 valid=True X=1330 T=1106
+ TT16 n=142 valid=True X=1352 T=1122
+ TT16 n=144 valid=True X=1366 T=1138
+ TT16 n=146 valid=True X=1384 T=1154
+ TT16 n=148 valid=True X=1406 T=1170
+ TT16 n=150 valid=True X=1428 T=1186
+ TT16 n=120 valid=True X=1138 T=946 brute=1138
+ TT16 n=152 valid=True X=1442 T=1202
+ TT16 n=154 valid=True X=1460 T=1218
+ TT16 n=156 valid=True X=1482 T=1234
+ TT16 n=158 valid=True X=1504 T=1250
+ TT16 n=160 valid=True X=1518 T=1266
+ TT16 n=162 valid=True X=1536 T=1282
+ TT16 n=164 valid=True X=1558 T=1298
+ TT16 n=166 valid=True X=1580 T=1314
+ TT16 n=168 valid=True X=1594 T=1330
+ TT16 n=170 valid=True X=1612 T=1346
+ TT16 n=172 valid=True X=1634 T=1362
+ TT16 n=174 valid=True X=1656 T=1378
+ TT16 n=176 valid=True X=1670 T=1394
+ TT16 n=178 valid=True X=1688 T=1410
+ TT16 n=180 valid=True X=1710 T=1426
+ TT16 n=182 valid=True X=1732 T=1442
+ TT16 n=184 valid=True X=1746 T=1458
+ TT16 n=186 valid=True X=1764 T=1474
+ TT16 n=188 valid=True X=1786 T=1490
+ TT16 n=190 valid=True X=1808 T=1506
+ TT16 n=192 valid=True X=1822 T=1522
+ TT16 n=194 valid=True X=1840 T=1538
+ TT16 n=196 valid=True X=1862 T=1554
+ TT16 n=198 valid=True X=1884 T=1570
+ TT16 n=200 valid=True X=1898 T=1586
+ FOLD n= 96 valid=True X=720 T=1251 brute=720
+ FOLD n=100 valid=True X=775 T=1319
+ FOLD n= 98 valid=True X=752 T=1265 brute=752
+ FOLD n=102 valid=True X=754 T=1310
+ FOLD n=104 valid=True X=776 T=1352
+ FOLD n=106 valid=True X=786 T=1383
+ FOLD n=108 valid=True X=788 T=1386
+ FOLD n=110 valid=True X=803 T=1402
+ FOLD n=112 valid=True X=839 T=1459
+ FOLD n=114 valid=True X=864 T=1500
+ FOLD n=116 valid=True X=850 T=1507
+ FOLD n=118 valid=True X=875 T=1529
+ FOLD n=122 valid=True X=904 T=1569
+ FOLD n=124 valid=True X=927 T=1623
+ FOLD n=126 valid=True X=906 T=1614
+ FOLD n=128 valid=True X=928 T=1656
+ FOLD n=130 valid=True X=938 T=1687
+ FOLD n=132 valid=True X=940 T=1690
+ FOLD n=134 valid=True X=955 T=1706
+ FOLD n=136 valid=True X=991 T=1763
+ FOLD n=120 valid=True X=872 T=1555 brute=872
+ FOLD n=138 valid=True X=1016 T=1804
+ FOLD n=140 valid=True X=1002 T=1811
+ FOLD n=142 valid=True X=1027 T=1833
+ FOLD n=144 valid=True X=1024 T=1859
+ FOLD n=146 valid=True X=1056 T=1873
+ FOLD n=148 valid=True X=1079 T=1927
+ FOLD n=150 valid=True X=1058 T=1918
+ FOLD n=152 valid=True X=1080 T=1960
+ FOLD n=154 valid=True X=1090 T=1991
+ FOLD n=156 valid=True X=1092 T=1994
+ FOLD n=158 valid=True X=1107 T=2010
+ FOLD n=160 valid=True X=1143 T=2067
+ FOLD n=162 valid=True X=1168 T=2108
+ FOLD n=164 valid=True X=1154 T=2115
+ FOLD n=166 valid=True X=1179 T=2137
+ FOLD n=168 valid=True X=1176 T=2163
+ FOLD n=170 valid=True X=1208 T=2177
+ FOLD n=172 valid=True X=1231 T=2231
+ FOLD n=174 valid=True X=1210 T=2222
+ FOLD n=176 valid=True X=1232 T=2264
+ FOLD n=178 valid=True X=1242 T=2295
+ FOLD n=180 valid=True X=1244 T=2298
+ FOLD n=182 valid=True X=1259 T=2314
+ FOLD n=184 valid=True X=1295 T=2371
+ FOLD n=186 valid=True X=1320 T=2412
+ FOLD n=188 valid=True X=1306 T=2419
+ FOLD n=190 valid=True X=1331 T=2441
+ FOLD n=192 valid=True X=1328 T=2467
+ FOLD n=194 valid=True X=1360 T=2481
+ FOLD n=196 valid=True X=1383 T=2535
+ FOLD n=198 valid=True X=1362 T=2526
+ FOLD n=200 valid=True X=1384 T=2568
+paper: 77 tours, invalid [], brute mismatches [], slopes per 8: {'crossings': ['12'], 'turns': ['19/2']}
+H16a: 77 tours, invalid [], brute mismatches [], slopes per 24: {'crossings': ['9'], 'turns': ['41/4']}
+TT16: 77 tours, invalid [], brute mismatches [], slopes per 8: {'crossings': ['19/2'], 'turns': ['8']}
+FOLD: 53 tours, invalid [], brute mismatches [], slopes per 24: {'crossings': ['19/3'], 'turns': ['38/3']}
+exit=0

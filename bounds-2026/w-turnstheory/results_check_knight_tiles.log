@@ -1,0 +1,2 @@
+PASS: 1292 edge pairs; overlap quarter-triangle counts {0: 1256, 1: 24, 2: 12} ; maximum intersection area 2/4
+PASS: 648 single-edge local flux identities (both dual directions).

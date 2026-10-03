@@ -1,0 +1,7 @@
+/home/nil/.config/matplotlib is not a writable directory
+Matplotlib created a temporary cache directory at /tmp/matplotlib-2j6da4x4 because there was an issue with the default path (/home/nil/.config/matplotlib); it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+Matplotlib is building the font cache; this may take a moment.
+wrote ['chevrons.png', 'count.png', 'edge_uturn.png', 'flux.png', 'fold_closeup.png', 'fold_field.png', 'tour96.png'] tour96 crossings 720
+wrote ['lb_corner_box.png', 'lb_nested.png', 'lb_numberline.png', 'lb_overlap.png', 'lb_square.png', 'lb_strip.png', 'lb_tile.png', 'lb_tiled.png']
+wrote heels.png
+Source data and all figure labels exported.

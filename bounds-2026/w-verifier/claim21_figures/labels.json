@@ -1,0 +1,108 @@
+{
+  "fold_field.png": [
+    "(2,1)",
+    "(2,-1)",
+    "(1,2)",
+    "(1,-2)",
+    "dashed: fold lines"
+  ],
+  "fold_closeup.png": [
+    "fold line"
+  ],
+  "edge_uturn.png": [
+    "1",
+    "1",
+    "1",
+    "1",
+    "1",
+    "1",
+    "1",
+    "1"
+  ],
+  "chevrons.png": [
+    "no fix: 8 closed loops",
+    "arch flips: 0 closed loops"
+  ],
+  "flux.png": [
+    "-1",
+    "+1",
+    "-1",
+    "+1",
+    "0",
+    "corner imbalance, carried to the centre",
+    "corridor on the diagonal: 10 crossings in 16 steps"
+  ],
+  "tour96.png": [
+    "n = 96: 720 crossings"
+  ],
+  "count.png": [
+    "edges",
+    "U-turns, 1 crossing per row",
+    "4n",
+    "arch flips",
+    "a quarter of each edge, +1 per row",
+    "+n",
+    "corridors",
+    "4 half-diagonals, 2/3 per unit x",
+    "4n/3",
+    "folds",
+    "dashed lines, no crossings",
+    "0",
+    "4n + n + 4n/3 = 19n/3 (+ a constant)"
+  ],
+  "lb_tile.png": [
+    "a move and its tile (area 1)",
+    "the same tile = 4 quarter triangles"
+  ],
+  "lb_overlap.png": [
+    "crossing moves: overlap 1 quarter (area 1/4)",
+    "crossing moves: overlap 2 quarters (area 2/4)"
+  ],
+  "lb_tiled.png": [],
+  "lb_square.png": [
+    "m0",
+    "m1",
+    "m2",
+    "m3",
+    "m0 - m1 + m2 - m3 = 0",
+    "1",
+    "2",
+    "2",
+    "1",
+    "one bad quarter forces a second"
+  ],
+  "lb_strip.png": [
+    "normal rows:\n1 crossing per row",
+    "abnormal rows:\n2 crossings per row"
+  ],
+  "lb_corner_box.png": [
+    "charged path",
+    "end row",
+    "end row",
+    "box [0,R]\u00b2\n(R = 7)"
+  ],
+  "lb_nested.png": [
+    "abnormal end row:\none path lost"
+  ],
+  "lb_numberline.png": [
+    "4n",
+    "5n",
+    "6n",
+    "7n",
+    "8n",
+    "9n",
+    "10n",
+    "11n",
+    "12n",
+    "paper (lower)",
+    "lower now",
+    "upper now",
+    "new heel",
+    "Shisheng",
+    "paper (upper)"
+  ],
+  "heels.png": [
+    "the paper's heel: 28 crossings per 8 columns",
+    "the new heel: 16 crossings per 8 columns"
+  ]
+}

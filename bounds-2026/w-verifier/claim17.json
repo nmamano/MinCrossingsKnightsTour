@@ -1,0 +1,48 @@
+{
+ "date": "2026-10-02",
+ "uniform_field": {
+  "quarter_multiplicity": 1,
+  "raw_H_flux": 1,
+  "Q_flux": -1,
+  "height_charge_mod3": 0
+ },
+ "seam_per_1_1_period": {
+  "gap_quarters": 2,
+  "double_quarters": 2,
+  "bad_quarters": 4,
+  "crossings": 1,
+  "net_translation_Manhattan": 2
+ },
+ "route_length_counterexample": {
+  "endpoints": [
+   [
+    0,
+    0
+   ],
+   [
+    2,
+    0
+   ]
+  ],
+  "route": [
+   [
+    0,
+    0
+   ],
+   [
+    0,
+    2
+   ],
+   [
+    2,
+    2
+   ],
+   [
+    2,
+    0
+   ]
+  ],
+  "route_length": 6,
+  "shortest_Manhattan_length": 2
+ }
+}

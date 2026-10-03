@@ -1,0 +1,9 @@
+  base round 0: X=775
+  base round 1: X=729
+  base round 2: X=718
+  base round 3: X=717
+FOLDX: n0=96 p=6; transplant to n0 + 12k
+  n=96: valid=True X=717 T=1243
+  n=108: valid=True X=793 T=1395
+  n=120: valid=True X=869 T=1547
+  n=132: valid=True X=945 T=1699

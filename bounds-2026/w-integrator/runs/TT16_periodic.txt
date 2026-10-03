@@ -1,0 +1,7 @@
+TT16: phases (0, 1, 0, 0); n with failing region rules or closed fixed cycles: []
+smallest period of the outside matching in n (checked n = 56..200): 8
+objective turns first. res n0 | n0+8k: valid, X, T
+  0  56 OPTIMAL | 56:ok X=530 T=434 | 64:ok X=606 T=498 | 72:ok X=682 T=562 | 80:ok X=758 T=626 | 88:ok X=834 T=690 | 96:ok X=910 T=754 | 104:ok X=986 T=818 | 112:ok X=1062 T=882 | 120:ok X=1138 T=946 | 128:ok X=1214 T=1010 | 136:ok X=1290 T=1074
+  2  58 OPTIMAL | 58:ok X=548 T=450 | 66:ok X=624 T=514 | 74:ok X=700 T=578 | 82:ok X=776 T=642 | 90:ok X=852 T=706 | 98:ok X=928 T=770 | 106:ok X=1004 T=834 | 114:ok X=1080 T=898 | 122:ok X=1156 T=962 | 130:ok X=1232 T=1026 | 138:ok X=1308 T=1090
+  4  60 OPTIMAL | 60:ok X=570 T=466 | 68:ok X=646 T=530 | 76:ok X=722 T=594 | 84:ok X=798 T=658 | 92:ok X=874 T=722 | 100:ok X=950 T=786 | 108:ok X=1026 T=850 | 116:ok X=1102 T=914 | 124:ok X=1178 T=978 | 132:ok X=1254 T=1042 | 140:ok X=1330 T=1106
+  6  62 OPTIMAL | 62:ok X=592 T=482 | 70:ok X=668 T=546 | 78:ok X=744 T=610 | 86:ok X=820 T=674 | 94:ok X=896 T=738 | 102:ok X=972 T=802 | 110:ok X=1048 T=866 | 118:ok X=1124 T=930 | 126:ok X=1200 T=994 | 134:ok X=1276 T=1058 | 142:ok X=1352 T=1122

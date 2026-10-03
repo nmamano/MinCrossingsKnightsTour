@@ -1,0 +1,79 @@
+[
+  {
+    "D": 3,
+    "P": 6,
+    "flux": 1,
+    "max_crossings": 0,
+    "force_long": false,
+    "satisfiable": false,
+    "variables": 112,
+    "clauses": 200,
+    "seconds": 0.010096274083480239
+  },
+  {
+    "D": 6,
+    "P": 6,
+    "flux": 1,
+    "max_crossings": 0,
+    "force_long": false,
+    "satisfiable": false,
+    "variables": 1138,
+    "clauses": 2120,
+    "seconds": 0.08208389789797366
+  },
+  {
+    "D": 10,
+    "P": 6,
+    "flux": 1,
+    "max_crossings": 0,
+    "force_long": false,
+    "satisfiable": false,
+    "variables": 3106,
+    "clauses": 5864,
+    "seconds": 0.2843836909160018
+  },
+  {
+    "D": 10,
+    "P": 6,
+    "flux": 0,
+    "max_crossings": 0,
+    "force_long": true,
+    "satisfiable": false,
+    "variables": 3108,
+    "clauses": 5869,
+    "seconds": 0.39051608298905194
+  },
+  {
+    "D": 4,
+    "P": 6,
+    "flux": 1,
+    "max_crossings": 3,
+    "force_long": false,
+    "satisfiable": false,
+    "variables": 721,
+    "clauses": 1376,
+    "seconds": 0.03599590598605573
+  },
+  {
+    "D": 6,
+    "P": 6,
+    "flux": 1,
+    "max_crossings": 3,
+    "force_long": false,
+    "satisfiable": false,
+    "variables": 2137,
+    "clauses": 4112,
+    "seconds": 0.49671991681680083
+  },
+  {
+    "D": 4,
+    "P": 12,
+    "flux": 1,
+    "max_crossings": 7,
+    "force_long": false,
+    "satisfiable": false,
+    "variables": 2301,
+    "clauses": 4468,
+    "seconds": 0.4332201930228621
+  }
+]
