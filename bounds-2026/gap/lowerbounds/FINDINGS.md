@@ -1,5 +1,27 @@
 # KT Lower Bounds - gap mission findings (gap/lowerbounds/)
 
+## STATE AT THE PIVOT (2026-10-03): strip work stopped by order; nothing running
+
+Done: L1 (11.3, beta=1 exact), L2 (field survives in a closed tour), L3 (R1, beta=4/3), L4 (combined credit,
+beta=16/11, C++ match by Edge Searcher; audited by the Verifier as Claim 27). Half-done: L5 below.
+
+## L5 (2026-10-03, HALF-DONE at the pivot): Edge Searcher's joint model (columns 0..5, exact F23/J crossings)
+
+Spec agreed with KT Edge Searcher (their gap/searcher/FINDINGS.md 6.3): S, F23 = col2-col3, J = col3-col4/5;
+cols 0,1,3 degree exactly 2, cols 2,4,5 <= 2; row weight q(4W-4)+p(4W0-4)+4q*Wx-2pt. Edge Searcher (first
+implementation, up only, labels on S only) reports beta* = 2 exact, critical cycle = the period-6 field of L4.
+
+My data (MEASURED, CP-SAT, joint/field_joint_cost.py; S fixed to a field, cheapest F23+J completion, column 3
+exact on all rows but 3 at each end, lazy no-cycle cuts):
+- period-6 c=0 field of L4: wx = 0, 2, 4 for 24, 36, 48 rows (all OPTIMAL): 1 crossing per 6 rows, so its
+  joint ratio is (4+1)/(5/2) = 2. This agrees with Edge Searcher's critical cycle.
+- saturated field: wx = 14, 38 for 24, 48 rows (FEASIBLE only, slope about 1 per row, as the interval lemma says).
+- cheap field (mirror P): wx = 0.
+Not done: my second implementation (joint/joint_graph.py, a from-spec state enumerator, written but never run
+to completion; no state count yet), the down orientation, and the reduction (Turns Theory R3).
+Resume: run `../../../.venv/bin/python joint/joint_graph.py` for the state count, then add the row-level
+endpoint/parity augmentation as in combo_stab.py.
+
 ## L4 (2026-10-03): combined credit (N1)/(N2) certified at beta = 16/11; 16/11 is exact in this model
 
 Task: gap/turnstheory/FINDINGS.md "Route past 52/11: combine the two credits". **Finite certificate:

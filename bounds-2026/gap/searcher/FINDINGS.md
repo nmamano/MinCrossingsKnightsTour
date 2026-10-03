@@ -6,6 +6,8 @@ All dates 2026-10-03.
 
 ## 0. Status summary (latest first)
 
+- 2026-10-03 PIVOT (gap/PIVOT_BRIEF.md): phase-1 plan for piece 1 is gap/searcher/PLAN.md. New exact identity
+  E = X - 4n + 2 = (G + X1 + W3)/2 (PLAN section 1), checked on the n = 166 tour (check_identity.py).
 - 2026-10-03 LOWER side: R2 second implementation MATCHES KT Lower Bounds: beta* = 16/11 exact, both orientations
   (section 6). New C++ engine `lower/jr.cpp` reproduces R1 exactly (beta* = 4/3). Joint model (columns 0..5,
   inner boundary strip counted exactly): UP orientation gives beta* = 2 (section 6.3). STOPPED at the CR's

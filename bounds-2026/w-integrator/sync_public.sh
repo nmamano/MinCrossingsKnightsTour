@@ -9,12 +9,16 @@ BINX=$(mktemp)
 trap 'rm -f "$BINX"' EXIT
 (cd "$SRC" && find . \( -path ./.venv -o -path ./ktlean/.lake -o -path ./ktlean/.git \) -prune -o -type f -size +0 -print \
   | while read -r f; do if head -c4 "$f" | grep -q ELF; then echo "/${f#./}"; fi; done) > "$BINX"
+# Data files over 5 MB stay out (rebuildable; the claim reports hold their hashes). Report them to the CR.
+BIG=$(cd "$SRC" && find . \( -path ./.venv -o -path ./ktlean/.lake -o -path ./ktlean/.git \) -prune -o -type f -size +5M \
+  ! -name '*.npy' ! -name '*.bin' -print | sed 's|^\./|/|')
+[ -z "$BIG" ] || { echo "$BIG" >> "$BINX"; echo "EXCLUDED (over 5 MB):"; echo "$BIG"; }
 # Repo-only files (.gitignore, README.md, requirements.txt) are excluded, so --delete keeps them.
 rsync -a --delete "$@" --exclude-from="$BINX" \
   --exclude=/.gitignore --exclude=/README.md --exclude=/requirements.txt \
   --exclude=/.venv/ --exclude=/ktlean/.lake/ --exclude=/ktlean/.git/ --exclude=/CR_STATE.md \
   --exclude=/paper.pdf --exclude=/paper.txt --exclude=/board-patched.js \
-  --exclude=__pycache__/ --exclude='*.npy' \
+  --exclude=__pycache__/ --exclude='*.npy' --exclude='*.bin' \
   --exclude=/w-searcher/tm --exclude=/w-searcher/cert/certify --exclude=/w-searcher/cert/certify2 \
   --exclude=/w-searcher/cert/corner_charge --exclude=/w-searcher/cert/strip2 \
   --exclude=/w-searcher/carrier/band --exclude=/w-searcher/carrier/band2 \

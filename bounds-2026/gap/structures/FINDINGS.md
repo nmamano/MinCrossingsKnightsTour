@@ -150,3 +150,31 @@ Consequence: a corner's charge can leave the region inside gamma_R only through 
 an interior carrier that crosses every gamma_R, or through edge rows that FAIL the test (non-P rows, i.e. an edge
 carrier, measured +1/row). Changing the corner type cannot remove a corner from the flux network; only carrier
 rates matter (Edge Searcher; Claim 17 floor). This closes option (b). Command: `python corner_test.py`.
+
+## G8 (2026-10-03, HALF-DONE, stopped by the pivot): adversary for the 52n/11 proof - a refined endpoint penalty
+
+Task (CR): find where the 52/11 method (gap/turnstheory/PROOF_52_11.md) stops. Status: ARGUMENT + small
+enumeration; NOT checked by Turns Theory, Lower Bounds or the Verifier.
+1. Tightness of the 52/11 bound needs E = 8n/11 with A - R = 6n/11 and ALL strip excess crossings supplying bad
+   quarters inside U (squares of retained paths). The blocking saturated period-one field cannot do this:
+   col0_credit.py shows that its non-B crossing puts q = 2 bad quarters in the endpoint square [1,2]x[r,r+1] of
+   EVERY row r, i.e. on the path gamma_r of its own row, and in a tight pairing that path is discarded.
+   The period-4 (L1) field has q = 0 but R = A per row. The cheap pattern has q = 0, a = 0.
+2. Proposed lemma (ARGUMENT): let q(end) = number of quarters of the endpoint square that are uncovered or lie in
+   the overlap of a crossing pair NOT in B. Replace the endpoint penalty a by a' = max(0, a - q/2). Then
+   (9) still holds: 4n <= 4E + 2(A' - R) + O(1). Proof sketch: per radius, 2[retained] + [discarded](qL + qB)
+   >= 2 - 2(a'L + a'B) (discarded => aL + aB >= 1); endpoint squares of discarded paths are disjoint from U and
+   from each other; the counted quarters are holes (<= G <= 2E) or non-B overlap quarters (<= 2(X - |B|)), and
+   B overlaps (incl. the depth-one exceptional pair) are not counted. Square column 1 is covered only by edges
+   of S_sigma, so q is local to the strip state.
+3. Evidence (stripenum.py, all periodic width-two fields, both orientations, both parity phases):
+   periods 1, 2, 3 (18, 382, 4014 raw fields): with the old a the minimum D0/(A - R) is 4/3 (agrees with L3);
+   with a' NO field has A' - R > 0. Period 4 was started and stopped by the pivot (about 10 min with 1 core:
+   `python stripenum.py 4`).
+4. If a transfer-graph certificate beta'*(A' - R) <= D0 + O(1) holds, then X >= [4 + 2beta'/(2beta'+1)]n; any
+   beta' > 4/3 passes 52/11, and A' - R <= O(1) would give 5n. Next steps to resume: (a) Turns Theory checks the
+   lemma in step 2; (b) Lower Bounds adds q to the R1 strip state (endpoint square needs edges of rows r-2..r+3)
+   and certifies beta' or finds the blocking cycle; (c) finish period 4/5 enumeration as a cross-check.
+Pending repairs (low priority): Verifier Claim 28 (w-verifier/FINDINGS.md "## Claim 28") - G7 PROVEN with a
+flux-sign correction; G2 universal arch >= n stays ARGUMENT. Apply both to G2/G7.
+Commands: `python col0_credit.py`, `python stripenum.py 3`.
