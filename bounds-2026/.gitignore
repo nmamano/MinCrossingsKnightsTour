@@ -26,3 +26,6 @@ w-searcher/carrier/band2
 !*.nav
 !*.snm
 !*-converted-to.*
+
+# fresh-copy audit runs (duplicates of the repo)
+gap/verifier/claim*_run/

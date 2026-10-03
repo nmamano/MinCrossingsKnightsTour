@@ -1,0 +1,89 @@
+shear 1/5 WM=4 KM=1 MODE=any lambda=1/2: columns u in [-3,6], 59 slots, complete squares s in [-1,2], 2 cost squares per row
+warm-up done: 63140 strict seed states, largest warm layer 10493992, 105s
+states by warm level: strict 1713545, warm1 0, warm2 0, warm3 0
+graph: states 1713545 arcs 2167699 (rejected: margin 42303848, psi 0) 108s
+== lambda 1/1
+ try mean 40/1 per row
+  cycle colour current through u = 0: 0 over 10 rows
+  cycle: 100 arcs, 10 rows, crossings 6, waste 12, weight 60 -> mean 60/10
+    (cycle starts at row phase 3; board x = u + floor(1*(phase+row)/5) - floor(1*phase/5))
+    row 0 u 0 (mod) X=0 waste=0: (0,0)-(1,2)
+    row 0 u 2 (mod) X=0 waste=0: (2,0)-(1,2)
+    row 0 u 3 (mod) X=0 waste=0: (3,0)-(2,2)
+    row 0 u 4 (ghost) X=0 waste=0: (4,0)-(3,2)
+    row 0 u 5 (ghost) X=0 waste=0: (5,0)-(4,2)
+    row 1 u 0 (mod) X=0 waste=0: (0,1)-(1,3)
+    row 1 u 2 (mod) X=0 waste=0: (2,1)-(1,3)
+    row 1 u 3 (mod) X=0 waste=0: (3,1)-(2,3)
+    row 1 u 4 (ghost) X=0 waste=0: (4,1)-(3,3)
+    row 1 u 5 (ghost) X=0 waste=0: (5,1)-(4,3)
+    row 2 u -1 (ghost) X=0 waste=0: (0,2)-(1,4)
+    row 2 u 1 (mod) X=1 waste=1: (2,2)-(3,4)
+    row 2 u 2 (mod) X=1 waste=0: (3,2)-(2,4)
+    row 2 u 3 (mod) X=0 waste=0: (4,2)-(3,4)
+    row 2 u 4 (ghost) X=0 waste=0: (5,2)-(4,4)
+    row 2 u 6 (ghost) X=0 waste=2:
+    row 3 u -1 (ghost) X=0 waste=0: (0,3)-(1,5)
+    row 3 u 1 (mod) X=1 waste=1: (2,3)-(3,5)
+    row 3 u 2 (mod) X=2 waste=1: (3,3)-(2,5)
+    row 3 u 3 (mod) X=0 waste=0: (4,3)-(3,5)
+    row 3 u 4 (ghost) X=0 waste=0: (5,3)-(4,5)
+    row 3 u 6 (ghost) X=0 waste=4:
+    row 4 u -1 (ghost) X=0 waste=0: (0,4)-(1,6)
+    row 4 u 0 (mod) X=0 waste=0: (1,4)-(2,6)
+    row 4 u 1 (mod) X=1 waste=1: (2,4)-(3,6)
+    row 4 u 3 (mod) X=0 waste=0: (4,4)-(3,6)
+    row 4 u 4 (ghost) X=0 waste=0: (5,4)-(4,6)
+    row 4 u 6 (ghost) X=0 waste=2:
+    row 5 u 0 (mod) X=0 waste=0: (1,5)-(2,7)
+    row 5 u 1 (mod) X=0 waste=0: (2,5)-(3,7)
+    row 5 u 3 (mod) X=0 waste=0: (4,5)-(3,7)
+    row 5 u 4 (ghost) X=0 waste=0: (5,5)-(4,7)
+    row 5 u 5 (ghost) X=0 waste=0: (6,5)-(5,7)
+    row 6 u 0 (mod) X=0 waste=0: (1,6)-(2,8)
+    row 6 u 1 (mod) X=0 waste=0: (2,6)-(3,8)
+    row 6 u 3 (mod) X=0 waste=0: (4,6)-(3,8)
+    row 6 u 4 (ghost) X=0 waste=0: (5,6)-(4,8)
+    row 6 u 5 (ghost) X=0 waste=0: (6,6)-(5,8)
+    row 7 u -1 (ghost) X=0 waste=0: (1,7)-(2,9)
+    row 7 u 0 (mod) X=0 waste=0: (2,7)-(3,9)
+    row 7 u 2 (mod) X=0 waste=0: (4,7)-(3,9)
+    row 7 u 3 (mod) X=0 waste=0: (5,7)-(4,9)
+    row 7 u 4 (ghost) X=0 waste=0: (6,7)-(5,9)
+    row 8 u -1 (ghost) X=0 waste=0: (1,8)-(2,10)
+    row 8 u 0 (mod) X=0 waste=0: (2,8)-(3,10)
+    row 8 u 2 (mod) X=0 waste=0: (4,8)-(3,10)
+    row 8 u 3 (mod) X=0 waste=0: (5,8)-(4,10)
+    row 8 u 4 (ghost) X=0 waste=0: (6,8)-(5,10)
+    row 9 u -1 (ghost) X=0 waste=0: (1,9)-(2,11)
+    row 9 u 0 (mod) X=0 waste=0: (2,9)-(3,11)
+    row 9 u 2 (mod) X=0 waste=0: (4,9)-(3,11)
+    row 9 u 3 (mod) X=0 waste=0: (5,9)-(4,11)
+    row 9 u 4 (ghost) X=0 waste=0: (6,9)-(5,11)
+ try mean 6/1 per row
+RESULT A=1 WM=4 KM=1 any lambda=1/1: min mean weight per row = 6/1 (CERTIFIED: no cycle below); per level (E units) = 6/2 = 3.0000  (109s)
+total 109s
+	Command being timed: "./wifm2 1/5 4 1 any 40 1 90000000"
+	User time (seconds): 103.48
+	System time (seconds): 4.99
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 1:48.64
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 712556
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 753909
+	Voluntary context switches: 1
+	Involuntary context switches: 642
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 16
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+exit=0

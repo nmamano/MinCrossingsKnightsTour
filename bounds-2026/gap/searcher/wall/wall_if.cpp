@@ -24,7 +24,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 typedef long long ll; typedef unsigned long long ull;
-int A, SA = 0, SB = 1, WM, KM;   /* shear SA/SB: cell (u,y) = board cell (u + floor(SA*y/SB), y) */ string MODE; int WU = 2; bool NOLAB = false; int LA = 1, LB = 2; int FLM = 15, FRM = 15; int CLL[4] = {-1,-1,-1,-1}, CLR[4] = {-1,-1,-1,-1}; int ZW = 1; bool SIDE = false; int ORL = 0, ORR = 0; int CTN = 0, CTD = 1, CSG = 1; bool CUR = false; bool MIXP = false;   // MIXP=1: the CUR channel counts MIXED margin squares (two halves with different H/V bits) instead of current   // CUR=TN/TD, CURS=+-1: weight += sign*t*(colour current through the cut u = 0)   // ORL/ORR=1: zigzag orientation z0 (colour-0 cells send both edges up), 2: z1; key bit 12 = floor(Y/SB) mod 2   // SIDE=1 (shear 0 only): board side at u = 0, no cells u < 0, no left margin   // CELLL/CELLR: move multiset of the ZW outermost modeled cells per side   // lambda = LA/LB: cost = 2*LA*Xc + (LB-LA)*(G+W3+X1), E share = cost/(2*LB)
+int A, SA = 0, SB = 1, WM, KM;   /* shear SA/SB: cell (u,y) = board cell (u + floor(SA*y/SB), y) */ string MODE; int WU = 2; bool NOLAB = false; int LA = 1, LB = 2; int FLM = 15, FRM = 15; int CLL[4] = {-1,-1,-1,-1}, CLR[4] = {-1,-1,-1,-1}; int ZW = 1; bool SIDE = false; int ORL = 0, ORR = 0; int CTN = 0, CTD = 1, CSG = 1; bool CUR = false; bool MIXP = false; string WORDL, WORDR; int WPHL = 0, WPHR = 0; string WSQ; int WSQL = 0, WSQR = 0;   // WSQ: word bits imposed on the margin squares (ribbon r = Y - X), phases WSQL / WSQR   // WORDL/WORDR: fixed '/' word (Verifier 43B) on the ZW outermost cells, period 1, 2 or 4; key bits 12-13 = floor(Y/SB) mod 4   // MIXP=1: the CUR channel counts MIXED margin squares (two halves with different H/V bits) instead of current   // CUR=TN/TD, CURS=+-1: weight += sign*t*(colour current through the cut u = 0)   // ORL/ORR=1: zigzag orientation z0 (colour-0 cells send both edges up), 2: z1; key bit 12 = floor(Y/SB) mod 2   // SIDE=1 (shear 0 only): board side at u = 0, no cells u < 0, no left margin   // CELLL/CELLR: move multiset of the ZW outermost modeled cells per side   // lambda = LA/LB: cost = 2*LA*Xc + (LB-LA)*(G+W3+X1), E share = cost/(2*LB)
 int ULO, UHI, NC;                         // scan columns u in [ULO, UHI]
 const int MDX[4] = {2, -2, 1, -1}, MDY[4] = {1, 1, 2, 2};
 static bool modeled(int u) { return u >= 0 && u < WM; }
@@ -109,6 +109,8 @@ int main(int argc, char** argv) {
     if (getenv("SIDE")) SIDE = true;
     if (getenv("CUR")) { CUR = true; sscanf(getenv("CUR"), "%d/%d", &CTN, &CTD); } if (getenv("CURS")) CSG = atoi(getenv("CURS"));
     if (getenv("MIXP")) MIXP = true;
+    if (getenv("WSQ")) WSQ = getenv("WSQ"); if (getenv("WSQL")) WSQL = atoi(getenv("WSQL")); WSQR = getenv("WSQR") ? atoi(getenv("WSQR")) : WSQL;
+    if (getenv("WORDL")) WORDL = getenv("WORDL"); if (getenv("WORDR")) WORDR = getenv("WORDR"); if (getenv("WPHL")) WPHL = atoi(getenv("WPHL")); if (getenv("WPHR")) WPHR = atoi(getenv("WPHR"));
     if (getenv("ORL")) ORL = atoi(getenv("ORL")); if (getenv("ORR")) ORR = atoi(getenv("ORR"));
     if (getenv("ZW")) ZW = atoi(getenv("ZW"));
  if (getenv("WU")) WU = atoi(getenv("WU")); if (getenv("LAM")) sscanf(getenv("LAM"), "%d/%d", &LA, &LB);
@@ -163,7 +165,7 @@ int main(int argc, char** argv) {
     vector<PE> s, in, rest, ne;
     long rejM = 0, rejPsi = 0;
     auto expand = [&](const Key kq, vector<pair<Key, uint32_t>>& outK) {
-        int x = kq.x & 255, ph = (kq.x >> 8) & 15, qp = (kq.x >> 12) & 1, warm = kq.warm; decode(kq, s);
+        int x = kq.x & 255, ph = (kq.x >> 8) & 15, qp = (kq.x >> 12) & 3, warm = kq.warm; decode(kq, s);
         in.clear(); rest.clear();
         for (auto& p : s) { auto& S = SL[SID[p.c][p.ly + 2][p.m]]; (S.tc[ph] == x && S.ty == 0 ? in : rest).push_back(p); }
         int din = in.size(); bool isMod = modeled(x + ULO);
@@ -184,6 +186,16 @@ int main(int argc, char** argv) {
                     int u = x + ULO; int* cl = u < ZW ? CLL : (u >= WM - ZW ? CLR : nullptr);
                     if (cl && cl[0] >= 0) { int cnt[4] = {0, 0, 0, 0}; for (auto& p : in) cnt[p.m]++; for (int m : ch) cnt[m]++;
                         if (cnt[0] != cl[0] || cnt[1] != cl[1] || cnt[2] != cl[2] || cnt[3] != cl[3]) continue; }
+                    const string& WD = u < ZW ? WORDL : (u >= WM - ZW ? WORDR : WORDL);
+                    if ((u < ZW || u >= WM - ZW) && !WD.empty()) { int kW = WD.size(), wph = u < ZW ? WPHL : WPHR;
+                        ll X = (ll)u + (ll)SA * qp + fdiv((ll)SA * ph, SB), Y = (ll)SB * qp + ph;
+                        int t = (int)((((X - Y + wph) % kW) + kW) % kW), t1 = (t + kW - 1) % kW;
+                        int nch[4] = {0, 0, 0, 0}, nin[4] = {0, 0, 0, 0}; for (int m : ch) nch[m]++; for (auto& pp : in) nin[pp.m]++;
+                        int ech[4] = {0, 0, 0, 0}, ein[4] = {0, 0, 0, 0};
+                        if (WD[t] == 'H') ech[0]++; else ein[2]++;
+                        if (WD[t1] == 'H') ein[0]++; else ech[2]++;
+                        bool okw = true; for (int k = 0; k < 4; k++) if (nch[k] != ech[k] || nin[k] != ein[k]) okw = false;
+                        if (!okw) continue; }
                     int orr = u < ZW ? ORL : (u >= WM - ZW ? ORR : 0);
                     if (orr) { int col = (int)(((ll)u + (ll)SA * qp + fdiv((ll)SA * ph, SB) + (ll)SB * qp + ph) & 1);   // colour of board cell (x + y) mod 2
                         bool up = (int)ch.size() == 2, dn = din == 2; bool want0up = orr == 1;
@@ -212,7 +224,7 @@ int main(int argc, char** argv) {
                 ne.clear();
                 for (auto p : rest) { if (merge >= 0 && p.comp == merge) p.comp = label; ne.push_back(p); }
                 for (int m : ch) ne.push_back({x, 0, m, label});
-                int nx = x + 1, sh = 0, nwarm = warm, nph = ph, nqp = qp; if (nx == NC) { nx = 0; sh = 1; if (nwarm) nwarm--; nph = (ph + 1) % SB; if ((ORL || ORR || (CUR && !MIXP)) && nph == 0) nqp ^= 1; }
+                int nx = x + 1, sh = 0, nwarm = warm, nph = ph, nqp = qp; if (nx == NC) { nx = 0; sh = 1; if (nwarm) nwarm--; nph = (ph + 1) % SB; if (nph == 0) { if (!WORDL.empty() || !WORDR.empty() || !WSQ.empty()) nqp = (qp + 1) & 3; else if (ORL || ORR || (CUR && !MIXP)) nqp ^= 1; } }
                 for (auto& p : ne) p.ly -= sh;
                 int w = x1c; int mixc = 0;
                 if (sh && (WU - warm) >= 1) {   // square row of absolute row >= 1: all covering edges are represented
@@ -239,6 +251,13 @@ int main(int argc, char** argv) {
                     for (int i = 1; i < span; i++) { int X = sLo + i; int chi = (X & 1) ? -1 : 1; psi += chi * (mm[i - 1][1] + mm[i][3] + 1); }
                     psi = ((psi % 3) + 3) % 3;
                     if ((MODE == "nz" && psi == 0) || (MODE == "zero" && psi != 0)) { rejPsi++; continue; }
+                    if (!WSQ.empty()) { int kW = WSQ.size(); bool okw = true;
+                        for (int i = 0; i < span && okw; i++) if (sqC[ph][sLo + i + SOFF] == 1) {
+                            ll Ya = (ll)SB * qp + ph, Xa = (ll)(sLo + i) + (ll)SA * qp + fdiv((ll)SA * ph, SB); int phs = 2 * i < span ? WSQL : WSQR;
+                            auto& q = mq[i]; if (q[0] < 0 || q[2] < 0) { okw = false; break; }
+                            int r = (int)((((Ya - Xa + phs) % kW) + kW) % kW);
+                            if ((q[0] >= 2) != (WSQ[r] == 'V') || (q[2] >= 2) != (WSQ[(r + 1) % kW] == 'V')) okw = false; }
+                        if (!okw) { rejM++; continue; } }
                     if (MIXP) for (int i = 0; i < span; i++) if (sqC[ph][sLo + i + SOFF] == 1) {   // margin square: perfect here
                         auto& q = mq[i]; bool slash = q[0] == 0 || q[0] == 2; auto vb = [](int m) { return m >= 2; };
                         if (slash ? vb(q[0]) != vb(q[2]) : vb(q[1]) != vb(q[3])) mixc++; }

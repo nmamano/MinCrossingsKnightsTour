@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-03",
+  "method": "Whitespace-delimited source tokens; body starts at In my and ends before Appendix; total appendix includes its introduction and both details blocks. MDX markup and code count as source tokens.",
+  "before": {
+    "body": 2770,
+    "appendix_total": 4664,
+    "appendix_B": 2340,
+    "part_2": 1384
+  },
+  "after": {
+    "body": 2385,
+    "appendix_total": 5043,
+    "appendix_B": 2719,
+    "part_2": 1006
+  },
+  "appendix_A_byte_identical": true,
+  "before_sha256": "e0a384148b170768609cecce638bfbb29c23f8f745a35120fb77aef56bdaef97",
+  "after_sha256": "759b42443e866ec390f9520fc29a0357b83c9b747abf7edd555ff73fa4a834e8"
+}

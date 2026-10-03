@@ -415,3 +415,24 @@ Milestone plan (CR, 2026-10-03; apply only when the CR names the post-audit mile
   "| X >= 5n-612 | Proved, closed tours, even n>=32 | gap/turnstheory/PROOF_5N.md; audit Claim 42 |", keep 14n/3.
 - Then sync, run the 13 appendix commands + PROOF_5N.md section 7 commands from a git-ls-files copy, privacy scan,
   commit (README.md, bounds-2026/README.md, RESULTS.md, writeup/, explain/ included) and push.
+
+## STATE FOR A FRESH SESSION (2026-10-03 ~17:30 UTC, handoff at ~55% context)
+Role: KT Integrator; manager = Chief Researcher (agent-1790895858902-etft). Mission now: public repo + demo + post figures.
+- Repo ~/nil/MinCrossingsKnightsTour (master, push as Nil; no branches). Last push 39e6b0e (demo = Pages landing page).
+  Sync: `sh w-integrator/sync_public.sh` (excludes in the script; also writes the root index.html from demo/index.html).
+- HELD until the CR names the post-audit milestone (do NOT stage/push): README.md (5n line), bounds-2026/README.md
+  (5n row; its demo-link line IS pushed), bounds-2026/RESULTS.md, bounds-2026/writeup/, bounds-2026/explain/.
+  Routine sync staging: git add -A -- . ':!README.md' ':!bounds-2026/README.md' ':!bounds-2026/RESULTS.md'
+  ':!bounds-2026/writeup' ':!bounds-2026/explain' ; privacy scan the staged diff; commit; push; at most every ~2 h.
+  At the milestone: apply the pending RESULTS.md 5n row (see "Milestone plan" above), sync, run the 13 appendix
+  commands + PROOF_5N.md section 7 from a git-ls-files copy, privacy scan, commit everything, push.
+- Posts: Nil edits writeup/{turns,crossings}/post.mdx himself. Edit only when the CR asks; re-read right before editing;
+  report exact changed lines; check MDX (node writeup/crossings/check_mdx.mjs; turns via the same serializer) and the
+  preview http://127.0.0.1:21019/blog/knights-tour-{turns,crossings} (200).
+- Figures made today (scripts next to them): writeup/turns/figures/{heel21_fig,blocks_fig,heel_original_fig}.py;
+  writeup/crossings/figures/lower_figs.py (text INK, lower now = 5n); explain/progress_charts.py (5n rows).
+  blocks.png is made but NOT inserted (Nil decides the text).
+- Demo: demo/ (office app knight-demo, restart after changes: POST /api/apps/knight-demo/restart); check with
+  `node demo/check.js`; browser tests with playwright-core from ~/nil/isomux/node_modules + /usr/bin/google-chrome
+  (scripts in /tmp/demotest may be gone; rewrite as needed). Pages: https://nmamano.github.io/MinCrossingsKnightsTour/
+- Upper-bound wall study closed (no-go), see sections above. knights-tour-bounds archived (CR).

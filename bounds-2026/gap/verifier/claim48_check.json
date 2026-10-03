@@ -1,0 +1,74 @@
+{
+  "date": "2026-10-03",
+  "X_base": 1936,
+  "X_patched": 2380,
+  "patches": [
+    {
+      "patch": {
+        "side": 0,
+        "sign": 1,
+        "t": 87
+      },
+      "lost": 29,
+      "gained": 140,
+      "delta": 111
+    },
+    {
+      "patch": {
+        "side": 1,
+        "sign": -1,
+        "t": 177
+      },
+      "lost": 29,
+      "gained": 140,
+      "delta": 111
+    },
+    {
+      "patch": {
+        "side": 2,
+        "sign": -1,
+        "t": 177
+      },
+      "lost": 29,
+      "gained": 140,
+      "delta": 111
+    },
+    {
+      "patch": {
+        "side": 3,
+        "sign": 1,
+        "t": 86
+      },
+      "lost": 29,
+      "gained": 140,
+      "delta": 111
+    }
+  ],
+  "slacks": [
+    {
+      "file": "gap/verifier/claim36_FOLD_n288.json",
+      "X3_minus_rows": 338,
+      "Q3": 696,
+      "g": 19,
+      "Nfree0": 532,
+      "slack_d0": 116,
+      "min_side_slack": 26.0
+    },
+    {
+      "file": "gap/verifier/claim47_patched_n288.json",
+      "X3_minus_rows": 598,
+      "Q3": 1584,
+      "g": 55,
+      "Nfree0": 388,
+      "slack_d0": 892,
+      "min_side_slack": 220.0
+    }
+  ],
+  "slack_scope": "Arithmetic from prior independent Claim 47 census; no fresh quarter census",
+  "sha256": {
+    "gap/verifier/claim36_FOLD_n288.json": "2ce4b831b87ba47b2622a182cd761a4e6a985f6a590e6ec69f4e31d94ef7fe94",
+    "gap/verifier/claim47_patched_n288.json": "fea6b7432e3784f18b60f4da566a7a845ce2e566077f868c3b0aa67b6a70ec3d",
+    "gap/verifier/claim47_U_gadget_24.json": "e8cc3900742a84230d86c48852e10e666b24b6272ef5ab613cf5099f8b2cedab",
+    "gap/verifier/claim47_scan.json": "57024bf50215a001e43cbdc830a4eef5d8d0d223aa0a6cbb97d95cdbfe83ee28"
+  }
+}

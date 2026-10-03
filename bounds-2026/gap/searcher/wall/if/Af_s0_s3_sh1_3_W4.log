@@ -1,0 +1,54 @@
+shear 1/3 WM=4 KM=1 MODE=nz lambda=1/2: columns u in [-3,6], 59 slots, complete squares s in [-1,2], 2 cost squares per row
+warm-up done: 13968 strict seed states, largest warm layer 7515904, 91s
+states by warm level: strict 803378, warm1 0, warm2 0, warm3 0
+graph: states 803378 arcs 949903 (rejected: margin 41517561, psi 6804) 92s
+== lambda 1/1
+ try mean 8/1 per row
+  cycle: 30 arcs, 3 rows, crossings 3, waste 6, weight 6 -> mean 6/3
+    (cycle starts at row phase 2; board x = u + floor(1*(phase+row)/3) - floor(1*phase/3))
+    row 0 u -1 (ghost) X=0 waste=0: (-1,0)-(1,1)
+    row 0 u 0 (mod) X=0 waste=0: (0,0)-(2,1)
+    row 0 u 1 (mod) X=1 waste=1: (1,0)-(3,1)
+    row 0 u 3 (mod) X=1 waste=1: (3,0)-(2,2)
+    row 0 u 4 (ghost) X=0 waste=0: (4,0)-(3,2)
+    row 0 u 5 (ghost) X=0 waste=0: (5,0)-(4,2)
+    row 1 u -2 (ghost) X=0 waste=0: (-1,1)-(1,2)
+    row 1 u -1 (ghost) X=0 waste=0: (0,1)-(2,2)
+    row 1 u 0 (mod) X=1 waste=1: (1,1)-(3,2)
+    row 1 u 3 (mod) X=0 waste=0: (4,1)-(3,3)
+    row 1 u 4 (ghost) X=0 waste=0: (5,1)-(4,3)
+    row 1 u 6 (ghost) X=0 waste=1:
+    row 2 u -2 (ghost) X=0 waste=0: (-1,2)-(1,3)
+    row 2 u -1 (ghost) X=0 waste=0: (0,2)-(2,3)
+    row 2 u 0 (mod) X=0 waste=0: (1,2)-(3,3)
+    row 2 u 3 (mod) X=0 waste=0: (4,2)-(3,4)
+    row 2 u 4 (ghost) X=0 waste=0: (5,2)-(4,4)
+    row 2 u 5 (ghost) X=0 waste=0: (6,2)-(5,4)
+    row 2 u 6 (ghost) X=0 waste=2:
+ try mean 2/1 per row
+RESULT A=1 WM=4 KM=1 nz lambda=1/1: min mean weight per row = 2/1 (CERTIFIED: no cycle below); per level (E units) = 2/2 = 1.0000  (93s)
+total 93s
+	Command being timed: "./wifc 1/3 4 1 nz 8 1 90000000"
+	User time (seconds): 86.73
+	System time (seconds): 3.98
+	Percent of CPU this job got: 98%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 1:32.51
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 412048
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 548931
+	Voluntary context switches: 3
+	Involuntary context switches: 2751
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 16
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+exit=0

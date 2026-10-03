@@ -1,0 +1,55 @@
+shear 1/4 WM=4 KM=1 MODE=any lambda=1/2: columns u in [-3,6], 59 slots, complete squares s in [-1,2], 2 cost squares per row
+warm-up done: 52360 strict seed states, largest warm layer 8553073, 91s
+states by warm level: strict 1599285, warm1 0, warm2 0, warm3 0
+graph: states 1599285 arcs 2092472 (rejected: margin 35944889, psi 0) 95s
+== lambda 1/1
+ try mean 64/1 per row
+  cycle colour current through u = 0: 0 over 4 rows
+  cycle: 40 arcs, 4 rows, crossings 0, waste 0, weight 0 -> mean 0/4
+    (cycle starts at row phase 3; board x = u + floor(1*(phase+row)/4) - floor(1*phase/4))
+    row 0 u 0 (mod) X=0 waste=0: (0,0)-(1,2)
+    row 0 u 1 (mod) X=0 waste=0: (1,0)-(2,2)
+    row 0 u 2 (mod) X=0 waste=0: (2,0)-(3,2)
+    row 0 u 3 (mod) X=0 waste=0: (3,0)-(4,2)
+    row 1 u -1 (ghost) X=0 waste=0: (0,1)-(1,3)
+    row 1 u 0 (mod) X=0 waste=0: (1,1)-(2,3)
+    row 1 u 1 (mod) X=0 waste=0: (2,1)-(3,3)
+    row 1 u 2 (mod) X=0 waste=0: (3,1)-(4,3)
+    row 1 u 3 (mod) X=0 waste=0: (4,1)-(5,3)
+    row 2 u -1 (ghost) X=0 waste=0: (0,2)-(1,4)
+    row 2 u 0 (mod) X=0 waste=0: (1,2)-(2,4)
+    row 2 u 1 (mod) X=0 waste=0: (2,2)-(3,4)
+    row 2 u 2 (mod) X=0 waste=0: (3,2)-(4,4)
+    row 2 u 3 (mod) X=0 waste=0: (4,2)-(5,4)
+    row 3 u 0 (mod) X=0 waste=0: (1,3)-(2,5)
+    row 3 u 1 (mod) X=0 waste=0: (2,3)-(3,5)
+    row 3 u 2 (mod) X=0 waste=0: (3,3)-(4,5)
+    row 3 u 3 (mod) X=0 waste=0: (4,3)-(5,5)
+  zero-cost cycle
+ try mean 0/1 per row
+RESULT A=1 WM=4 KM=1 any lambda=1/1: min mean weight per row = 0/1 (CERTIFIED: no cycle below); per level (E units) = 0/2 = 0.0000  (95s)
+total 95s
+	Command being timed: "./wifm2 1/4 4 1 any 64 1 90000000"
+	User time (seconds): 91.36
+	System time (seconds): 3.85
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 1:35.29
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 583028
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 571731
+	Voluntary context switches: 1
+	Involuntary context switches: 379
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 24
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+exit=0

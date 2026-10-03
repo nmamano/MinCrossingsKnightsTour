@@ -1,0 +1,6 @@
+(1,2) wall word HV phases 0 0: 1/2 = 0.5000  (43s)
+(1,2) wall word HV phases 0 1: 8/2 = 4.0000  (43s)
+(1,2) wall word HHVV phases 0 0: 8/2 = 4.0000  (41s)
+(1,2) wall word HHVV phases 1 1: 8/2 = 4.0000  (43s)
+(1,2) wall word HHVV phases 2 2: 8/2 = 4.0000  (45s)
+(1,2) wall word HHVV phases 3 3: 8/2 = 4.0000  (45s)

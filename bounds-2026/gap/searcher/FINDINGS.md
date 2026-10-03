@@ -387,6 +387,7 @@ in ribbon_ends.out, e.g. (1,2): 5, 2, 2, 2 per row, = 2 mod 3). The optimal vert
   (modeled strip next to the side, margin on one side only).
 
 ## 8. Can (1,2) walls give a 6n layout? Zigzag-zone prices (CR task, 2026-10-03, 10:15-13:30 box time)
+**[CELL model (2 free columns) only; NOT a width-4 bound; rerun pending]** (CR, 2026-10-03: the CELL option fixed the outermost modeled cells u = 0 and u = WM-1, so only 2 columns were free.)
 
 Engine `wall/wall_if.cpp` = wall.cpp + three options (build: `g++ -O2 -march=native -std=c++17 -DNOLABK -o wifc wall_if.cpp`):
 - CELLL / CELLR = move multiset of each of the ZW (default 1) outermost modeled cells per side: zigzag '/' = 02 (one
@@ -481,6 +482,7 @@ Every witness below 2/3 carries colour current; the 2/3 witnesses carry none. No
 row) at 7/12. Correction (9.3): NET current is the wrong measure (it can cancel); count switched ribbons (zone ends) instead.
 
 ### 9.2 Item A: psi walls between STRAIGHT-word fields (wall/if/straightA.sh, output if/straightA_W4.out)
+**[CELL model (2 free columns) only; NOT a width-4 bound; rerun pending]** (CR, 2026-10-03: the CELL option fixed the outermost modeled cells u = 0 and u = WM-1, so only 2 columns were free.)
 
 MODE nz, lambda = 1, W = 4, margins AND outermost modeled cells forced to one straight type per side
 (CELL 00/22/11/33 with FIELD 0/2/1/3), all 10 unordered pairs per shear. Crossings per row (CERTIFIED in the model):
@@ -537,11 +539,52 @@ channel also doubled the states by a row-parity bit; fixed: MIXP does not need i
 staircase cap 2/3 (section 4 of the design) the flux price is >= 31/50 per level IF e >= 1/2 and mu <= 2.
 
 ### 9.6 Item C (general words): zone ends cost >= e per switched ribbon end (if/zoneC.sh, zoneC*_e1_2.out)
+**[CELL model (2 free columns) only; NOT a width-4 bound; rerun pending]** (CR, 2026-10-03: the CELL option fixed the outermost modeled cells u = 0 and u = WM-1, so only 2 columns were free.)
 
 Band with left margin '/' (or '') of ANY word, right margin one straight type, MODE any, lambda = 1, W = 4.
 Weight per row = crossings - (e|1-s|/2) * (mixed left margin squares). Certified min >= 0 means: every
 configuration pays >= e per switched ribbon end at this boundary slope (switched >= alternations / 2).
-e = 1/2: min >= 0 at slopes s = +-1/2, 0, +-2/3 for all 4 straight right types (16 + 8 runs; minima 0 with a
+e = 1/2: min >= 0 at slopes s = 0, +-1/5, +-1/4, +-1/3, +-2/5, +-1/2, +-3/5, +-2/3, +-3/4 for all 4 straight right types (72 runs, zoneC*_e1_2.out; minima 0 with a
 straight left word, or larger; no negative cycle). Upper limit: the zigzag | '/'V line at s = -1/2 gives
-1/2 - (3/4)e per row, so e <= 2/3 there (8.1). Slopes 1/3, 2/5, 3/5 running; 1/4, 3/4, 1/5 next.
+1/2 - (3/4)e per row, so e <= 2/3 there (8.1). All tested slopes pass. Not tested: slopes with denominators 6, 7 (state cap), arbitrary widths.
 
+
+### 9.7 Answer to Verifier Claim 43 (2026-10-03): what MIXP uses, and the value of mu
+
+**P6 (FAIL) is not used by MIXP.** MIXP charges bit ALTERNATIONS of the field word at the margin, not colour
+current. Its premise is combinatorial: a word with A cyclic alternations per period has A/2 minority runs, so
+>= A/2 minority ribbons, and a zone that returns to a straight word must switch >= A/2 ribbons. This holds for
+every word, including the zero-current words HHVV, HHV and the Verifier's w_m (which have MANY alternations and
+are charged MORE). Section 9.3 already dropped the current measure for the same reason (cancellation).
+
+**mu (FAIL for "<= 2").** Accepted: one '/' ribbon can meet BL, BR and TR candidates (43C). Counting distinct corners
+only, mu <= 4 holds automatically. The MIXP minimum f(tau) = min (crossings + tau * mixed) is a minimum of affine
+functions of tau, so it is concave, with f(0) = the plain wall price w0. For a sharing bound mu' >= 2 the weight is
+tau' = (2/mu') tau, and concavity gives f(tau') >= (2/mu') f(tau) + (1 - 2/mu') w0. From 9.4 and 9.5 (e = 1/2):
+
+| mu' | (1,2) | (2,5) | (3,5) | (1,3) | (2,3) | min over the 13 slopes | X coefficient 4 + 2p |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 2 | 5/8 | 0.643 | 31/50 | 0.644 | 0.635 | 31/50 = 0.620 | 5.24 |
+| 3 | 7/12 | 0.607 | 0.613 | 0.615 | 0.618 | 7/12 = 0.583 (1,2) | 5.17 |
+| 4 | 9/16 | 0.588 | 0.610 | 0.600 | 0.609 | 9/16 = 0.5625 (1,2) | 5.125 |
+
+(These are concavity lower bounds from the certified mu = 2 runs; direct runs at tau' can only be higher.) So
+mu <= 4 by corner count gives p >= 9/16 IF the other premises hold. Not covered by any mu: re-use of one ribbon
+segment by the SAME corner (branching, revisiting); the staircase LP of the design treats only straight forward
+and back pieces (ARGUMENT).
+
+**Still open, from 43A/43D (agreed):** (i) currency: zone ends must be paid by pairs OUTSIDE S*; the item C bands
+are interior (no side), but zone ends AT a side are in S* and compete with F1-V's use of T (not priced);
+(ii) bends: periodic minimum-mean prices do not add over short pieces (boundary potential terms); a whole-window
+model of carrier + both zone ends is the right test (item D); (iii) W = 4 and finite slope lists only;
+(iv) joint capacity: wall and end charges must not use the same pair twice.
+
+### 9.8 Item D pilot (whole band with free bends): CP-SAT cannot certify at useful widths (2026-10-03)
+
+Copy of the Integrator's wallcyl.py (wall/D/; periodic cylinder, fixed straight exteriors, free band, psi jump
+forced, all crossings counted once, no subtour constraint). Vertical band, WM = 8, period 12 rows, '/'H | '/'H,
+2 workers, 540 s: FEASIBLE 16 per period (4/3 per level), lower bound 0. The known vertical wall gives 2/3, so the
+solver is far from optimal and proves nothing. Width 8 is the smallest width at which a cheap wall plus a zone of
+both ends could fit; the transfer-matrix engine stops at W = 4 (W = 5 > 8 GB). So item D is NOT feasible with the
+present tools. A certificate for bent carriers needs a different method (a common state space with checked bend
+transitions, as the Verifier suggests), not a bigger solver run.

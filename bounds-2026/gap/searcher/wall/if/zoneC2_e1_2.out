@@ -18,3 +18,7 @@ shear 3/5 left 02 any word | S0, e=1/2: min = 0 per row; mixed: 0 over 5 rows
 shear 3/5 left 02 any word | S2, e=1/2: min = 0 per row; mixed: 0 over 5 rows
 shear 3/5 left 02 any word | S1, e=1/2: min = 4 per row; 
 shear 3/5 left 02 any word | S3, e=1/2: min = 4 per row; 
+shear 3/5 left 13 any word | S0, e=1/2: min = 151/100 per row; mixed: 9 over 10 rows
+shear 3/5 left 13 any word | S2, e=1/2: min = 4 per row; 
+shear 3/5 left 13 any word | S1, e=1/2: min = 0 per row; mixed: 0 over 5 rows
+shear 3/5 left 13 any word | S3, e=1/2: min = 0 per row; mixed: 0 over 5 rows

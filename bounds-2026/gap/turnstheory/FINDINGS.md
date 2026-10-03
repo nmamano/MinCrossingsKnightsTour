@@ -1,3 +1,72 @@
+# Public crossings demo embedded — 2026-10-03
+
+Replaced the Integrator-demo TODO in writeup/crossings/post.mdx with
+DemoEmbed and one plain sentence linking to the same demo. Both embed
+attributes and the text link use the exact requested URL:
+https://nmamano.github.io/MinCrossingsKnightsTour/bounds-2026/demo/?metric=crossings
+The title is "Interactive demo: knight tours with few crossings".
+`node writeup/crossings/check_mdx.mjs` PASSED after the change.
+
+---
+
+# Crossings blog updated to audited 5n bound — 2026-10-03
+
+Updated writeup/crossings/post.mdx under the Chief Researcher's relayed
+Nil approval. Ready for the Verifier's completeness/faithfulness audit.
+No publication, site-source edit, commit or service restart was made.
+
+Sections changed:
+
+* Excerpt, introductory bound, result Callout and leading-coefficient
+  ratio: 5n-612, range even n>=32, ratio 19/15 (about 1.27). The existing
+  title-option comment's numerical ratio was updated too.
+* Part 2: replaced the old balance of two lower bounds with quarter
+  payments plus the strip reserve. It includes both lost paths and
+  deficient charged paths with visible end overlaps. Existing useful
+  tile/corner images remain; the old abnormal-row-only conclusion and
+  its strip image were removed from this section.
+* The gap, lower-proof Details link and Open questions now use 5n
+  against 19n/3. No intermediate results were added.
+* Appendix B: full self-contained 5n-612 proof, including 4n-2, the
+  exact tile identity, flux, endpoint table/residues, quarter kernel,
+  visibility, full-mask certificate and Claim 42 common-state join.
+  Finite facts name their check commands from bounds-2026. It states
+  the NumPy/OR-Tools requirements, author timings 31/42 seconds and
+  independent audit timing 22 seconds. The old Lean stability theorem
+  is replaced by the correct scope: the tile bound is in Lean, while
+  5n is computer-assisted Python. Appendix A is BYTE-IDENTICAL.
+
+Word counts (whitespace-delimited MDX source tokens, including markup
+and code; same rule before and after):
+
+| Scope | Before | After |
+| --- | ---: | ---: |
+| Body, from opening paragraph to before Appendix heading | 2770 | 2385 |
+| Entire appendix, including introduction and A+B | 4664 | 5043 |
+| Appendix B only | 2340 | 2719 |
+| Part 2 only | 1384 | 1006 |
+
+Exact counts and content hashes: blog_5n_change_counts.json. Original
+source snapshot: post_before_5n.mdx. Replacement drafts are
+blog_part2_5n.md and blog_appendix_b_5n.md. These files are audit aids,
+not additional publication targets.
+
+Checks: `node writeup/crossings/check_mdx.mjs` PASSED with the site's
+compiler/options; both details blocks are complete and collapsed.
+Search of post.mdx found no 14n/3, 14/3, 4.67n, 19/14 or 1.36 remnants.
+Referenced Python command paths exist. No new em dash was added.
+
+PREVIEW CHECK NOT COMPLETED: curl to
+http://127.0.0.1:21019/blog/knights-tour-crossings returned curl error 7,
+HTTP 000, on two attempts (connection failed immediately). This
+sandbox also refuses the netlink socket used by ss, so I cannot tell
+whether the service is down or inaccessible here. No HTTP 200 claim
+is made. Verifier/Integrator must check the live preview from a
+network-enabled session. The progression chart remains the Integrator's
+assigned update; this edit changes no image asset.
+
+---
+
 # Reply to Edge Searcher: beyond-5 pure currency definitions — 2026-10-03
 
 Read gap/searcher/BEYOND5_FLUX.md. Answers (a)–(d), plus a new cheap

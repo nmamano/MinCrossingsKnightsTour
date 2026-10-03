@@ -367,9 +367,187 @@ connectivity statement besides the row ledger: trap parity of the through strand
          gap of (d) needs a_F >= 0.6; a_F = 3/4 is the natural target (data allow 0.76). This is a finite strip
          question for Lower Bounds (frustrated boundary half imposed).
 
-**10.5 Recommendation (for the Chief Researcher).** P5 first: it is the only gap where (C5-K) may be FALSE, not just
+**10.5 Recommendation (for the Chief Researcher).** [Done: section 11 settles P5; (C5-K) is false, repair (C5-K+).] P5 first: it is the only gap where (C5-K) may be FALSE, not just
 unproved, and it is testable by construction. Step 1 (Structures, moderate: a CP-SAT / DP search for collar paths in
 columns 0..2 with prescribed port pairs): build the LF1 variant of S7 (d) from the trap_h.py pair list (re-pair only
 the trapped vertical pairs, minimise collar crossings), check it is one cycle, and measure #g, N_free, (C5-K)
 and (B5-joint). Step 2 (Lower Bounds, only if step 1 breaks (C5-K)): the a_F strip run. P1' and P2 then follow in the
 FOLD regime, where K = O(1) and the section 8 plan stands.
+
+## 11. P5 settled: (C5-K) is FALSE; repair by a near-port term (2026-10-03, KT Structures; CHECK + REQUEST)
+
+Scripts: `p5_variant.py` (rebuild one vertical collar: all edges at x <= 2, rows ylo..n-1-ylo, are variables, the rest
+of the tour is fixed; CP-SAT, 2 workers; objective 100 * (collar edges outside the P pattern) + collar crossings;
+degree 2; lazy subtour cuts until one cycle), log `p5_variant.log`; `b5plus_check.py` (q3_check.py + per side
+N_near(2) and F'), log `b5plus_check.log`. Tours: `p5_LF1v0_n72.json`, `p5_LF1v0_n96.json`, `p5_LF1v0_n120.json`.
+
+**11.1 First finding: the U collar is not a trap-parity choice, it is fixed by the corners (CHECK).** With rows 3..n-4
+of LF1 side 0 free (corners fixed), the closest collar to P is the U collar itself, even WITHOUT the one-cycle
+constraint. So between the corners the collar carries a conserved quantity (the collar current of SHEET 13.4,
+K-collar), and P5's trap count 2(c - 1) of 10.4 S7 (c) is not the binding constraint there. When the corner rows
+0..2 are also free (ylo = 0), the closest-to-P collar has 56 non-P edges and 37 cycles; one cycle needs about 63 / 83
+/ 104 non-P edges (n = 72 / 96 / 120). These three tours are the P5 test family.
+
+**11.2 The family (CHECK, 2026-10-03; all three pass w-verifier/check.py: one closed tour).**
+| n | X | E / n | #g | owned | K | N_free(2) | BQx | (C5-K) left side | 4n | deficit |
+|---|---|---|---|---|---|---|---|---|---|---|
+| 72 | 642 | 4.94 | 72 | 10 | 84 | 41 | 0 | 202 | 288 | 86 |
+| 96 | 850 | 4.88 | 103 | 16 | 132 | 65 | 0 | 278 | 384 | 106 |
+| 120 | 1064 | 4.88 | 134 | 21 | 180 | 89 | 0 | 354 | 480 | 126 |
+The left side is (19/6) n - 26 exactly on the three sizes, so the deficit is (5/6) n + 26: linear. **(C5-K) is false.**
+The tours are expensive (X about 8.9 n), so X >= 6n is not in question; the split (B5-joint) + (C5-K) is wrong.
+What breaks: the rebuilt side 0 has a few g rows (7 / 10 / 13), and each one removes about 6 changed ports (2 per row
+over 3 rows) from N_free(2): side 0 has N_near = 49 / 66 / 82, which (C5-K) does not pay at all. In the strip the same
+ports are expensive: the (B5-joint) slack of side 0 is 147 / 204 / 267.
+
+**11.3 Repair: credit the near ports on both sides of the ledger.** Let N_near(2) = changed ports within distance 2
+of a g row of their side (= N_re - N_free(2)). Ask the strip lemma for
+    (B5-joint+)  per half side:  (X3 - rows) + Q3'/2 >= 2 #g + N_free(2) + b N_near(2) - C,
+and use
+    (C5-K+)  4 #g + 2 N_free(2) + 2b N_near(2) + BQx - 2K >= 4n - C    (with (B5-joint+): X >= 6n - O(1)).
+Data (b5plus_check.log, per side slack / N_near):
+  - the binding sides are the frustrated sides with g rows on most rows: LF1 side 2 slack 20 / 28 / 36 against N_near
+    57 / 81 / 105 (n = 72 / 96 / 120), i.e. slack = N_near/3 + 1 exactly; LF5 side 2: 29 / 88; LF4 side 2: 28 / 81. So
+    b <= 1/3 on the data, and b = 1/3 is tight (within the per-side constant) on these frustrated sides;
+  - the family needs b >= 0.154 asymptotically (N_near = 162 / 227 / 291, slope about 2.7 per unit n; deficit slope
+    5/6); with b = 1/3 the (C5-K+) left side is 310 / 429 / 548 >= 4n on the three tours (margin 22 / 45 / 68);
+  - all other tours only gain from the new term.
+Alternative term (same rows on frustrated sides): F' = non-g rows with no p24 port (2,y)-(4,y+-1); side 2 slack =
+F' + 1 on the family, so a_F <= 1, and the family needs a_F >= 1/2 asymptotically. F' is 0 on the rebuilt side 0,
+so b is the more general currency. Request b first.
+Caveat: the family minimises non-P collar edges, not the (C5-K+) left side. A collar search that minimises the left
+side directly (more g rows on side 0, each costing the strip but removing near ports from N_free) is the next
+red-team step after LB returns b.
+
+**11.4 Request for KT Lower Bounds (R-d).** In the joint strip graph of B5b / section 9 (columns 0..2 collar, ghost
+columns 3, 4; quarter units hole 1, X1 1, W3 binomial(m-1, 2) in local squares x = 0..4; d0 = 2), certify the largest b
+in (B5-joint+) with a = 2 on #g and c = 1 on N_free(2), both orientations. Target b = 1/3; any b >= 0.16 repairs the
+family. If b* = 0, return the critical cycle (it is then a pattern where near ports are free in the strip, and I will
+build it into a closed tour). Second, if cheap: the largest a_F with b = 0.
+
+## 12. Redesign of the split after Verifier Claim 45 (2026-10-03, KT Structures; CHECK + REQUEST R-e)
+
+Scripts: `b5plus_check.py` (per side: J = (X3 - rows) + Q3'/2, #g, changed ports by distance to the nearest g row,
+p24 rows), log `b5raw_20tours.log`; `split_eval.py`, `split_eval2.py`, `split_eval3.py` (logs `split_eval2.log`,
+`split_eval3.log`). 20 tours: FOLD n = 96, 192, 288; Claim 45 patched FOLD n = 192, 288; FOLDB1, FOLDX, FJOG 132;
+LF1-5, TT16, H16a/b; the P5 family (11.2) n = 72, 96, 120 and a second P5 variant (n = 72, crossings weighted).
+
+**12.1 What Claim 45 and section 11 have in common.** Both families delete changed ports by putting g rows next to
+them (Claim 45: 4 g rows per 6 x 16 patch, 38 far ports lost; P5 family: 7 to 13 g rows on the rebuilt side). Any
+distance exclusion (d0 >= 1) with weight 0 loses the ports of the neighbour rows. The patch costs 71 crossings
+(Claim 45; my strip measure: J grows by 105 per copy), while (B5-joint) credits it -9: the strip has the capacity,
+the split throws it away. Three facts from the data fix the shape of the repair:
+  (1) Only the ports at distance 1 are the problem. With weights c1 at distance 1, c2 at distance 2, 1 beyond, and 0
+      on the g row itself, the data strip slack stays >= 0 on every side of the 20 tours along the frontier
+      a + 3 c1 / 4 <= about 2.5 (c2 = 1): a = 2, c1 <= 0.66; a = 1.5, c1 <= 1.33; a = 1, c1 <= 2. Distance 2 at full weight
+      costs nothing on the data.
+  (2) The binding sides are always the LF / H16 frustrated sides (all rows with no p24 port are near g rows there;
+      J = 2#g + N_free(2) + 28 on LF1 side 2). The U-collar and patched sides have large slack.
+  (3) A "happy-row" exemption (near ports on rows WITH a p24 port count fully) is 0 on every frustrated side and
+      would repair both families too (split_eval2.log), but a red team can move the near ports to rows without a
+      p24 port inside a patch (the Claim 45 patch already has 12 such ports per copy). The distance weights are
+      simpler and need no field information; I recommend them.
+
+**12.2 The new split (STATEMENT; strip half is a request, connectivity half is CHECKED on data only).**
+    (S-W)  per half side:  (X3 - rows) + Q3'/2 >= a #g + c1 P1 + P2 + P3 - C,
+           P1 / P2 = changed ports at distance exactly 1 / 2 from the nearest g row of the side, P3 = N_free(2);
+           ports on g rows weigh 0 (the g row's own weight a pays for them).
+    (C5-W) 2a #g + 2c1 P1 + 2(P2 + P3) + BQx - 2K >= 4n - C.
+(S-W) + (C5-W) give E >= (N - K)/2 + BQx/4 + J/2 >= 2n - O(1), i.e. X >= 6n - O(1) (same algebra as 9.1, no shallow
+subtraction, K as in 10.1). Target point: a = 2, c1 = 1/2 (or 2/3).
+Data at (a, c1) = (2, 1/2) (split_eval3.log, CHECK 2026-10-03):
+  - strip: slack >= 0 on every side of the 20 tours (least 5 / 7 / 9 on LF1 side 2 for n = 72 / 96 / 120);
+  - (C5-W)/n: FOLD 5.90 (n = 192), 5.71 (n = 288); Claim 45 patched 5.52 / 5.21; LF1 5.31; LF2-5 6.0-6.6; TT16 6.42;
+    H16a/b 6.22; P5 family 4.32 / 4.42 / 4.48 (n = 72 / 96 / 120); FJOG 11.43. Least: the P5 family, growing.
+  - families: per Claim 45 copy (C5-W) changes by -18 (was -60), so the patched FOLD family has (C5-W) = (4 + 7/12) n
+    + O(1); the P5 family grows at +0.73 per unit n.
+**12.3 Red-team arithmetic for (C5-W) (ARGUMENT).** The most damaging periodic pattern in a U collar (2 changed ports
+per row, worth 4 per row) is a g row every 3 rows: every other row is at distance 1. Per row it is worth
+2(a + 4 c1)/3. FOLD has a margin of 4n/3 over a collar length of about n, so (C5-W) survives such a collar (if it
+exists) iff a + 4 c1 >= 4: at a = 2 this is c1 >= 1/2 (tight), and c1 = 2/3 leaves margin. A g row every 2 rows needs
+a + 2 c1 >= 8/3. So the target is (a, c1) = (2, 2/3), and (2, 1/2) is the minimum.
+**12.4 Request R-e for KT Lower Bounds.** Joint strip graph of B5c (free_aug.cpp: columns 0..2 collar, ghost 3, 4;
+Q3 as in B5c), both orientations. Replace the d0 exclusion by per-distance weights: a per g row, c1 per changed port
+at distance 1 from the nearest g row, c2 = 1 at distance 2, 1 beyond, 0 on g rows. Certify the largest c1 for a = 2
+(targets: 2/3, minimum 1/2), then the largest c1 for a = 3/2 (data allow 1.33; useful only if a = 2 fails).
+Return the critical cycle at each point. B5c's d0 = 0 result (a = 1, uniform c <= 13/14) says the model has a 7-row
+pattern where a port next to a g row is cheap; tell me whether its cheap ports are at distance 1 (then c1 is the
+whole question) or on the g row.
+
+## 13. Verdict after Verifier Claim 47: the (g, port) connectivity count is dead (2026-10-03, KT Structures)
+
+Sources: Verifier gap/verifier/claim47_report.md (6 x 24 pairing-preserving U-collar patch, period 28: per period
+g = 9, P0 = 18, P1 = 9, P2 = 5, P3 = 6, i.e. 38 changed ports instead of 56; (C5-W) = (313/84) n at (2, 1/2)); Lower
+Bounds B5d (joint strip slack per Claim 45 copy +114 / +128 / +142 at d0 = 0 / 1 / 2; certified a* = 2 at c = 1, d0 = 2;
+a* = 3/2 at c = 1, d0 = 1). My files: `c5w_gadget.py` (Verifier's patch model with a (C5-W) objective), `c5w_insert.py`,
+`c5w_patched16_n192.json`, `c5w_patched16_n288.json`, `c5w_b5.log`, `c5w_gadget_bh.log`, `split_eval4.py` / `.log`.
+
+**13.1 Verdict (ARGUMENT from CHECKED numbers).** No connectivity count of the form "weights on g rows and on changed
+ports by distance to g" can serve, for three reasons:
+  (a) What the patches do. A pairing-preserving collar patch keeps the collar's connection service and REMOVES changed
+      ports (Claim 47: 38 instead of 56 per 28 rows), and puts g rows in their place. The patch pays with its own
+      crossings and quarter atoms: LB measures +114 to +142 of joint strip slack per Claim 45 copy; on my measure a Claim 45
+      copy adds about 105 to J and a c5w copy (13.1, last paragraph) about 87. A (g, port) proxy sees none of this.
+  (b) Two-sided squeeze. Claim 47 needs a + c1 >= 79/27 (at c2 = 1). The strip data frontier (12.1; binding on the
+      LF / H16 frustrated sides, where every near port is cheap) is c1 <= 2 - 4(a - 1)/3. Both hold only for
+      a <= 11/9 with c1 >= about 1.7: a port next to a g row would have to be worth almost two far ports. Lower Bounds
+      B5c already has a model cycle with uniform c <= 13/14 at a = 1, d0 = 0, so this corner is very likely empty.
+      Any such sliver would also meet the next patch: Claim 47's own search used a surrogate objective.
+  (c) Field-dependent weights do not help. The "happy-row" variant (near ports on rows with a p24 port count fully,
+      12.1 (3)) passes all 22 tours and the three known families at (a, bh, bf) = (2, 1, 0) (split_eval4.log). But my
+      patch search against that objective (c5w_gadget.py 16 2 0 600 1 0) finds a 6 x 16 patch with g rows
+      1, 4, 6, 9, 13 that loses 40 units per copy on the model count (FEASIBLE, surrogate count: every collar-cut port
+      is charged as changed). At spacing 20 that is 2 per row, more than the FOLD margin of 4/3 per row.
+  Also checked: my own c5w patch for (2, 1/2) (g rows 1, 3, 6, 11, 14; X + 65 per copy) inserted at spacing 20 into
+  FOLD n = 192 / 288 is a closed tour, and it changes (C5-W) by exactly -32 per copy, i.e. (16/3 - 32/20) n = 3.73 n.
+  This is a second, independent refutation of (C5-W) at (2, 1/2).
+
+**13.2 What pays for the removed ports: the strip capacity itself.** The 9.1 ledger already contains it:
+    E >= (N - K)/2 + BQx/4 + J/2 - O(1),   J = sum over sides of (X3 - rows) + Q3'/2   (rows 8..n-9),
+(Claim 45 addendum: PASS as a scalar deduction, conditional on the Q3 atom ownership and the global corner error).
+So the honest connectivity target, with no proxy, is
+    (C5-J)  2J + BQx - 2K >= 4n - C          (gives X >= 6n - O(1)).
+Data (CHECK, 2026-10-03, 22 tours incl. both patch families and the P5 family): (C5-J)/n >= 6.46 (FOLD n = 288, the
+least; FOLD tends to 16/3), LF4 7.70, LF5 7.04, Claim 45 patched 12.30, c5w patched 11.87, P5 family 12.1-13.2.
+A pairing-preserving patch can only RAISE (C5-J) unless it removes collar crossings and quarter atoms; that is the
+property every proxy lacked. (C5-J) is not a split: it says "a closed tour pays at least 2n - O(1) in strip capacity,
+deep surplus and deep candidate payments". Its proof must lower-bound the strip cost J of a collar from what the
+collar does for connectivity.
+**13.3 Proposed currency for that proof (DESIGN, not checked): the collar current.** The service a collar segment
+gives is its port pairing, and the pairing fixes, for every row cut r + 1/2, the number s(r) of collar paths (strip
+columns 0..w-1) whose two ports lie on opposite sides of the cut. s(r) is invariant under any pairing-preserving patch
+of width <= w. A P collar has s(r) = s_P; a U collar has s(r) = s_P + 2 (I have not checked the constant). The plan:
+  (i) strip lemma (finite, Lower Bounds): J >= mu * sum_r (s(r) - s_P)^+ + (other terms) - C, with mu = 1 on the
+      U collar (X3 excess 1 per row + Q3 2 per row = 2 per row against s - s_P = 2);
+  (ii) connectivity lemma: chambers, trap parity, and through-run ends need sum_r (s(r) - s_P)^+ >= 2n - O(1) from the
+      side collars when BQx and K give nothing (the H regime needs the frustrated sides' own J as well).
+The current is the K-collar quantity of SHEET 13.4 and 11.1 here (the U collar is forced by the corner current).
+Before any of this: measure s(r) on the 22 tours and both patch families (one script), and ask Lower Bounds whether
+(i) can be added to the B5c graph (the graph already tracks pairing labels for N_free).
+**13.4 First measurement of the collar current (CHECK, `collar_current.py`, 2026-10-03).** The plain straddle count
+s(r) does not work as the currency of 13.3:
+  - at strip width 3 it separates the collars (P collar s = 1 on every row, U collar s = 3: LF1 sides 1 / 0; FOLD has
+    18-23 rows with s = 3 per side at n = 96), but it is not invariant under the width-6 patches (Claim 45 patched
+    n = 288: the excess sum drops by 10 per copy);
+  - at width 6 it is invariant (Claim 45 patched = base, 2190 = 2190) but blind: U and P rows both give s = 2, and the
+    width-6 port pairing has the same local type on every row of every FOLD side ((4,6)-(5,7) ports, dy = 2) and on
+    both vertical sides of LF1.
+Reading: at the depth-5 line the U collar and the P collar give the same local pairing type, so the changed ports of a
+U collar are partly a gauge choice at width 3. The same connection service can be bought with defects in columns 3..5
+(the Claim 45 / 47 patches are partial versions). Their cost appears in J (shallow) or in BQx (depth >= 5), so
+(C5-J) sees it and the port proxies do not. So the useful local fact for (C5-J) is: among all fillings of a width-6
+strip segment with the same boundary pairing, the U collar (J = 2 per row) is the cheapest, up to O(1) per segment.
+Next test (cheap, one CP-SAT model = Verifier's patch model with objective J of the box): minimise J over
+pairing-preserving patches of a U-collar box (6 x H, H = 16..32). If the minimum change is >= -O(1) for every H, the
+mechanism of (C5-J) holds locally in FOLD; if J can drop linearly in H, (C5-J) is in danger too.
+**13.5 The U collar is J-minimal in its pairing class (CHECK, `c5j_patch.py`, log `c5j_patch.log`, 2026-10-03).**
+Model: the Verifier's pairing-preserving patch model (boxes 0 <= x < 6, 0 <= y < H in the pure U field; boundary-stub
+pairing fixed, no internal cycle), objective 2J of rows -4..H+3 = 2 X3 + Q3 (Q3 in squares x = 0..4: holes, W3,
+X1), only terms that touch a variable edge. Validation: forcing the known patches reproduces my tour measurements:
+Claim 45 patch +105 J per copy (6.56 per row), Claim 47 patch +157 (6.54 per row), my c5w patch +86.5 (5.41 per row).
+Result: for H = 6, 8, 10, 12 the minimum is OPTIMAL and equal to the U collar (change 0). For H = 16 the solver found
+nothing below the U collar in 300 s (FEASIBLE only). So no pairing-preserving width-6 filling of a U-collar segment of
+height <= 12 is cheaper in J, and every known patch is far more expensive (5.4 to 6.6 per row). This is the local
+mechanism (C5-J) needs, at width 6. It does not cover wider patches: a patch that reaches column >= 6 changes
+depth-5 squares, so its cost must be read in BQx; the same model with the BQx quarters of squares x = 5, 6 added is
+the next check (H = 14, 16 are running).

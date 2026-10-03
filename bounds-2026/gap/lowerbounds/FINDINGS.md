@@ -1,5 +1,62 @@
 # KT Lower Bounds - gap mission findings (gap/lowerbounds/)
 
+## B5e (2026-10-03): R-f (Claim 47 gadget) and R-d (near ports)
+
+**R-f (MEASURED; r_b.py and check_hall_v3.geometry on gap/verifier/claim47_patched_n288.json, 4 copies, one per
+side, against claim36_FOLD_n288.json).**
+| tour | X | X - 5n | E | X3 - rows | Q3 | #g | N_free(0/1/2) | joint slack, a = 2, c = 1, d0 = 0 / 1 / 2 |
+|---|---|---|---|---|---|---|---|---|
+| FOLD n = 288 | 1936 | 496 | 786 | 338 | 696 | 19 | 532 / 502 / 486 | 116 / 146 / 162 |
+| Claim 47 patched n = 288 | 2380 | 940 | 1230 | 598 | 1584 | 55 | 388 / 322 / 286 | 892 / 958 / 994 |
+| Claim 45 patched n = 288 (8 copies) | 2504 | 1064 | 1354 | 666 | 1832 | 51 | 452 / 310 / 182 | 1028 / 1170 / 1298 |
+Per Claim 47 copy: X +111, E +111, X3 - rows +65, Q3 +222 (Q3/2 +111), #g +9, and the joint strip slack RISES by
++194 / +203 / +208 (d0 = 0 / 1 / 2). Minimum per-side joint slack on the patched tour: 220 (d0 = 0).
+Answer: yes, the strip half keeps (and gains) far more slack than the -45 / -42 per copy that the connectivity
+statistic C5-W loses. The lost C5-W units are paid many times over by the gadget's own collar crossings and quarter
+atoms, which the strip ledger counts and C5-W does not. The family is far above 5n: with m = n/28 copies the patched
+tours have X = X_FOLD + 111 m + O(1), about 6.33n + 3.96n. So Claims 45 and 47 refute the split "strip lemma with
+fixed weights + connectivity count", not X >= (5 + c)n. ARGUMENT for a repair: the connectivity side must be allowed
+to use the strip SURPLUS (X3 - rows) + Q3/2 - 2#g - N_free directly, not only the counts g, P_j.
+
+**R-d (CERTIFIED, up orientation; free_aug2.cpp mode b, rd_up_b.log): b* = 0** in
+    (X3 - rows) + Q3/2 >= 2#g + N_free(2) + b N_near(2) - C   (N_near = changed ports - N_free(2)).
+Dinkelbach from b = 1: a 4-row cycle gives b <= 1/4, then a 5-row cycle with ZERO slack and 6 near ports gives
+b <= 0; b = 0 is the a = 2, c = 1 certificate (potential range -187..0). Since b* is the minimum over orientations,
+b* = 0 exactly; the down run is not needed. Zero-slack cycle (cells x = 0..4 per row, chosen up-edges written as
+(x, dx, dy); scan order, start inside a row):
+  x3 (3,-1,2) | x4 - || x0 - x1 (1,-1,2) x2 (2,-2,1) x3 - x4 - || x0 - x1 (1,-1,2) x2 (2,-2,1) x3 (3,-2,1) x4 (4,-2,1) ||
+  x0 - x1 (1,-1,2) x2 (2,-2,1) x3 (3,-2,1) x4 - || x0 - x1 (1,-1,2) x2 (2,-2,1),(2,-1,2) x3 (3,-2,1),(3,-1,2) x4 - ||
+  x0 - x1 (1,-1,2) x2 (2,-2,1),(2,-1,2) [then x3 (3,-1,2) closes the cycle]
+It is again a P' collar with defects: the defect rows are g rows paying exactly 2 each, and their near ports are free.
+free_aug2.cpp: compact-arc C++ version (uint32 offsets, 7 bytes per arc, hash table freed after the search);
+it reproduces free_aug.cpp exactly (d0 = 2, a = 2, c = 1: 63,002,712 states, 127,832,841 arcs, range -187..0)
+at 2.2 GB. Runs use `ulimit -v 8300000` as the memory watchdog.
+
+## B5d (2026-10-03): g coefficient a in the joint form, and the Claim 45 gadget
+
+Form (per half side, both orientations, Q3 as in B5c, no shallow-user subtraction):
+    (X3 - rows) + Q3/2 >= a #g + c N_free(d0) - C.
+**Largest a (CERTIFIED, free_aug.cpp maxa mode, logs maxa.log, maxa2.log):**
+| c | d0 | a* | C per half side (up / down) | blocking cycles |
+|---|---|---|---|---|
+| 1 | 2 | **2 exactly** | 18.7 / 17.7 | 4- and 5-row cycles with NO far ports: X3 excess + Q3/2 = 2 #g |
+| 1 | 1 | 3/2 | 13.2 / 13.2 | 8-row cycle, 5 far ports |
+| 1/2 | 0 | 3/2 | 9.7 / 10.7 | - |
+So BEYOND5 9.1's strip form (a = 2, c = 1, d0 = 2) is CERTIFIED, and a = 2 is the cap: a g row pays exactly 2 in
+this currency. The pure-crossing form fails at d0 <= 1 already for a = 1 (B5b), so it has no a >= 1 there.
+Resource note: the down run at d0 = 2 has 164,924,391 augmented states and 332,839,369 arcs. Its memory was not
+measured; by its data structures it was probably above the 8 GB worker budget. Do not rerun it without a check.
+
+**Claim 45 gadget (MEASURED, r_b.py on gap/verifier/claim45_U_patched_n288.json vs claim36_FOLD_n288.json, 8 copies):**
+joint slack (X3 - rows) + Q3/2 - 2 #g - N_free(d0), summed over the 4 sides (rows 8..n-9):
+| tour | X3 - rows | Q3 | #g | N_free(0) | N_free(1) | N_free(2) | slack d0=0 | d0=1 | d0=2 |
+|---|---|---|---|---|---|---|---|---|---|
+| FOLD n = 288 | 338 | 696 | 19 | 532 | 502 | 486 | 116 | 146 | 162 |
+| patched n = 288 | 666 | 1832 | 51 | 452 | 310 | 182 | 1028 | 1170 | 1298 |
+Per copy the slack RISES by 114 (d0 = 0), 128 (d0 = 1), 142 (d0 = 2): the gadget's 71 extra crossings and their quarter
+atoms pay its 4 g rows many times over. Minimum per-side slack on the patched tour: 254. So the gadget refutes
+only the connectivity count (C5), not the strip form; the strip form has a large unused surplus on it.
+
 ## B5c (2026-10-03, BEYOND5 section 6, new R-a): joint currency form - c* = 1 exactly for d0 >= 1 (CERTIFIED)
 
 Statement (B5-strip'), per half side, both orientations:

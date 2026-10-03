@@ -1,0 +1,10 @@
+  expanded 5000000 states 9143333 arcs 9649552 rss 992 MB 23s
+  expanded 10000000 states 18835604 arcs 20274771 rss 2035 MB 51s
+  expanded 15000000 states 24908649 arcs 26893031 rss 2615 MB 69s
+  expanded 20000000 states 29365506 arcs 31707026 rss 3050 MB 80s
+  expanded 25000000 states 32592536 arcs 34934056 rss 3374 MB 91s
+  expanded 30000000 states 37542772 arcs 39989050 rss 4139 MB 116s
+  expanded 35000000 states 43993184 arcs 47128725 rss 4752 MB 130s
+  expanded 40000000 states 52387476 arcs 57187467 rss 5543 MB 151s
+CAP 60000000 reached: states 60000000 arcs 67735158 rss 6270 MB
+exit=3

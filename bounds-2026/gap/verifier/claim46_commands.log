@@ -1,0 +1,12 @@
+{'index': 0, 'command': 'python3 w-turnstheory/check_fold_proof.py', 'exit': 0, 'seconds': 29.417760922107846, 'log': 'gap/verifier/claim46_command_00.log'}
+{'index': 1, 'command': 'python3 w-turnstheory/check_fold_margins.py', 'exit': 0, 'seconds': 0.3264629871118814, 'log': 'gap/verifier/claim46_command_01.log'}
+{'index': 2, 'command': '(cd ktlean && lake env lean Axioms.lean)', 'exit': 'TIMEOUT', 'seconds': 180.00569546082988, 'log': 'gap/verifier/claim46_command_02.log'}
+{'index': 3, 'command': 'python3 w-turnstheory/check_knight_tiles.py', 'exit': 0, 'seconds': 0.3197897949721664, 'log': 'gap/verifier/claim46_command_03.log'}
+{'index': 4, 'command': 'python3 w-turnstheory/check_square_defects.py', 'exit': 0, 'seconds': 0.3693840089254081, 'log': 'gap/verifier/claim46_command_04.log'}
+{'index': 5, 'command': 'python3 w-turnstheory/check_corner_box.py', 'exit': 0, 'seconds': 0.07038904703222215, 'log': 'gap/verifier/claim46_command_05.log'}
+{'index': 6, 'command': '.venv/bin/python gap/verifier/claim42_geometry.py', 'exit': 0, 'seconds': 0.22431843099184334, 'log': 'gap/verifier/claim46_command_06.log'}
+{'index': 7, 'command': 'python3 gap/turnstheory/check_quarter_payment_support.py', 'exit': 0, 'seconds': 0.0670413279440254, 'log': 'gap/verifier/claim46_command_07.log'}
+{'index': 8, 'command': 'python3 gap/verifier/claim39_check.py', 'exit': 0, 'seconds': 1.94176612701267, 'log': 'gap/verifier/claim46_command_08.log'}
+{'index': 9, 'command': 'OPENBLAS_NUM_THREADS=1 .venv/bin/python gap/verifier/claim42_check.py', 'exit': 0, 'seconds': 15.689875395968556, 'log': 'gap/verifier/claim46_command_09.log'}
+{'index': 10, 'command': '(cd gap/lowerbounds && ../../.venv/bin/python f1v_stab.py cert 1 1 up)', 'exit': 0, 'seconds': 29.668579749995843, 'log': 'gap/verifier/claim46_command_10.log'}
+{'index': 11, 'command': '(cd gap/lowerbounds && ../../.venv/bin/python f1v_stab.py cert 1 1 down)', 'exit': 0, 'seconds': 44.80495784012601, 'log': 'gap/verifier/claim46_command_11.log'}

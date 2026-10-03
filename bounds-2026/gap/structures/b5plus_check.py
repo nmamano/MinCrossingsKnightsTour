@@ -7,7 +7,7 @@ from pathlib import Path
 from collections import Counter, defaultdict
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]/'lowerbounds'/'beyond5'))
 import r_b
-src = inspect.getsource(r_b.run).replace("out = dict(tour=", "out = dict(G=G, chg=chg, rows=rows, tour=")
+src = inspect.getsource(r_b.run).replace("out = dict(tour=", "out = dict(G=G, chg=chg, chgS=chgS, rows=rows, tour=").replace("    chg = [defaultdict(int) for _ in range(4)]", "    chg = [defaultdict(int) for _ in range(4)]; chgS = [defaultdict(int) for _ in range(4)]").replace("        if not ok: chg[p['side']][p['row']] += 1", "        if not ok:\n            chg[p['side']][p['row']] += 1\n            if p['steep']: chgS[p['side']][p['row']] += 1")
 ns = dict(vars(r_b)); exec(src, ns); run = ns['run']
 import fold_exact_scan as F
 for f in sys.argv[1:]:
@@ -15,6 +15,23 @@ for f in sys.argv[1:]:
     grid = json.loads(Path(f).read_text())['tour']
     E = {F.edge((x, n-1-y), (x+F.MOVES[int(v)][1], n-1-y-F.MOVES[int(v)][0])) for y, row in enumerate(grid) for x, code in enumerate(row) for v in code}
     T = [lambda v: v, lambda v: (n-1-v[0], v[1]), lambda v: (v[1], v[0]), lambda v: (n-1-v[1], v[0])]
+    chgS = out['chgS']; nsd = []
+    for sd in range(4):
+        gr = [r for r in rows if G[sd][r]]
+        d = {}
+        for d0 in (1, 2):
+            near = [r for r in rows if any(abs(r - t) <= d0 for t in gr)]
+            d[f'steep_near{d0}'] = sum(chgS[sd][r] for r in near); d[f'all_near{d0}'] = sum(chg[sd][r] for r in near)
+        d['steep_all'] = sum(chgS[sd][r] for r in rows)
+        d['Nf0'] = sum(chg[sd][r] for r in rows if not G[sd][r])
+        hp = set()
+        for a_, b_ in E:
+            a_, b_ = sorted((T[sd](a_), T[sd](b_)))
+            if (a_[0], b_[0]) == (2, 4): hp.add(a_[1])
+        for d0 in (1, 2):
+            near = [r for r in rows if any(abs(r - t) <= d0 for t in gr)]
+            d[f'hnear{d0}'] = sum(chg[sd][r] for r in near if r in hp)
+        nsd.append(d)
     tot = Counter(); lines = []
     for sd in range(4):
         own = defaultdict(list)
@@ -40,4 +57,5 @@ for f in sys.argv[1:]:
         Nnear = sides['N_re'] - Nf
         rec = dict(Fp=Fp, Nnear=Nnear, ex=ex, Q3=Q3, g=g, owned=sides['owned'], Nf=Nf, joint=ex + Q3/2, need_a2c1=2*g + Nf, slack=ex + Q3/2 - 2*g - Nf)
         lines.append(rec); tot.update(rec)
+    print('RAW', json.dumps(dict(tour=Path(f).name, n=n, sides=[dict(J=l['joint'], g=l['g'], owned=l['owned'], Nre=out['sides'][i]['N_re'], Nf1=out['sides'][i]['N_free1'], Nf2=out['sides'][i]['N_free2'], Fp=l['Fp'], NS=nsd[i]) for i, l in enumerate(lines)])), flush=True)
     print(Path(f).name, 'n', n, 'per side (slack, Fp, Nnear):', [(round(l['slack'], 1), l['Fp'], l['Nnear']) for l in lines], 'total', {k: tot[k] for k in ('slack', 'Fp', 'Nnear', 'g', 'Nf')}, flush=True)

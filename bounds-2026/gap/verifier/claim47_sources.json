@@ -1,0 +1,8 @@
+{
+  "gap/structures/BEYOND5.md": "1c82531540718e63b9116114616df32b990df60f533a1616ea7a42adbc5f82ca",
+  "gap/verifier/claim47_U_gadget_24.json": "e8cc3900742a84230d86c48852e10e666b24b6272ef5ab613cf5099f8b2cedab",
+  "gap/verifier/claim47_check.py": "aaeeacf96a6e7d2af6dece40b7806d272da14f313bb9aa789be0bcdcae6a31e0",
+  "gap/verifier/claim47_period.py": "f3c1c529f93c3c2b33ba3159d46f49c098a36250bee334d1433bee7af20359bb",
+  "gap/verifier/claim47_scan.py": "19967c1febed180fcba92bd0ee36e0d666546a011f83996625fdaa574d7cd195",
+  "gap/verifier/claim45_hook_periods.json": "d9e0656dc7978cb368a4c878929650360dca15766ca4920a9cde84762fa0f368"
+}

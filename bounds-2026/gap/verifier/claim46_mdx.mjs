@@ -1,0 +1,20 @@
+// Read-only use of the site's installed MDX compiler and its actual options.
+import fs from 'node:fs';
+import {createRequire} from 'node:module';
+import {pathToFileURL, fileURLToPath} from 'node:url';
+import path from 'node:path';
+const site='/home/nil/nil/nilmamano.com';
+const require=createRequire(path.join(site,'package.json'));
+const {serialize}=await import(pathToFileURL(require.resolve('next-mdx-remote/serialize')));
+const {default:remarkGfm}=await import(pathToFileURL(require.resolve('remark-gfm')));
+const matter=require('gray-matter');
+const file='/home/nil/nil/knight-formation-research/gap/verifier/claim46_crossings_snapshot.mdx';
+const {content}=matter(fs.readFileSync(file,'utf8'));
+const result=await serialize(content,{blockJS:false,mdxOptions:{remarkPlugins:[remarkGfm],rehypePlugins:[]}},true);
+if(!result.compiledSource)throw new Error('No compiled output');
+const appendices=content.slice(content.indexOf('## Appendix: full proofs'));
+if((appendices.match(/<details\b/g)||[]).length!==2)throw new Error('Expected two proof blocks');
+if(/<details[^>]*\bopen\b/.test(appendices))throw new Error('Proof blocks must be collapsed');
+if((appendices.match(/<\/details>/g)||[]).length!==2)throw new Error('Unclosed proof block');
+console.log('PASS: crossings post compiles with the site MDX compiler and options.');
+console.log('PASS: two complete proof blocks, collapsed by default. Site files were not changed.');

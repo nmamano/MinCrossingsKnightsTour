@@ -1,0 +1,5 @@
+base: 687324 states, 1401483 arcs, mode b
+augmented (d0=2): states 63002712, arcs 127832841
+converged after 27 passes
+d0=2 A=2 Cc=1 mode b: parameter 0/1 CERTIFIED; potential range -187..0 (units 1/(10*1)); states 63002712, arcs 127832841
+184.35 s, max RSS 2245868 KB
