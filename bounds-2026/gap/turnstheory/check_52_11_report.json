@@ -1,6 +1,6 @@
 {
   "date": "2026-10-03",
-  "status": "finite checks passed; all-size proof awaiting external audit",
+  "status": "finite checks passed; all-size proof audited PASS in Claim 26",
   "checks": [
     {
       "check": "tile_geometry",

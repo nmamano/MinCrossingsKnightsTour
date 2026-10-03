@@ -11,7 +11,21 @@ import sys
 from collections import Counter
 from itertools import combinations
 sys.path[:0] = ['../../w-turnstheory']
-from check_knight_tiles import microtiles, cross
+from check_knight_tiles import microtiles as _mt, cross as _cross
+from functools import lru_cache
+@lru_cache(maxsize=None)
+def _mt0(e):
+    return frozenset(_mt(e))
+def microtiles(e):
+    dy = e[0][1]
+    t = _mt0(((e[0][0], 0), (e[1][0], e[1][1] - dy)))
+    return {(i, j + dy, k) for i, j, k in t}
+@lru_cache(maxsize=None)
+def _cr0(e, f):
+    return _cross(e, f)
+def cross(e, f):
+    dy = e[0][1]
+    return _cr0(((e[0][0], 0), (e[1][0], e[1][1] - dy)), ((f[0][0], f[0][1] - dy), (f[1][0], f[1][1] - dy)))
 
 COEF = {((0,-1),(1,1)): -1, ((0,0),(1,-2)): -1, ((0,0),(2,-1)): -1, ((0,1),(1,-1)): 1,
         ((0,1),(2,0)): 1, ((0,2),(1,0)): -1, ((1,0),(2,2)): -1, ((1,1),(2,-1)): -1}
@@ -83,7 +97,7 @@ def has_cycle(E):
     return False
 
 def evaluate(S, p, orient):
-    U = unroll(S, p, -6, 7)
+    U = unroll(S, p, -(8 // p) - 2, (8 // p) + 3)
     if orient == 'down':
         U = {norm(((a[0], -a[1]), (b[0], -b[1]))) for a, b in U}
     lo, hi = 0, (p if p % 2 == 0 else 2 * p)   # whole periods covering both row parities
@@ -127,7 +141,7 @@ if __name__ == '__main__':
     print(p, 'raw fields', len(F))
     rows = []
     for S in F:
-        if has_cycle(unroll(S, p, -6, 7)): continue
+        if has_cycle(unroll(S, p, -(12 // p) - 2, (12 // p) + 3)): continue
         for orient in ('up', 'down'):
             D0, R, (A, A2, ph) = evaluate(S, p, orient)
             rows.append((D0, R, A, A2, orient, ph, S))

@@ -6,6 +6,15 @@ All dates 2026-10-03.
 
 ## 0. Status summary (latest first)
 
+- 2026-10-03 LOWER side: R2 second implementation MATCHES KT Lower Bounds: beta* = 16/11 exact, both orientations
+  (section 6). New C++ engine `lower/jr.cpp` reproduces R1 exactly (beta* = 4/3). Joint model (columns 0..5,
+  inner boundary strip counted exactly): UP orientation gives beta* = 2 (section 6.3). STOPPED at the CR's
+  pivot order; down orientation and the budget review are not done. No claim.
+- 2026-10-03 HANDOFF: upper-side work closed (CR). Next role: C++ engine for the LOWER side, second implementation
+  of KT Lower Bounds' combined-credit certificate N1/N2 (gap/turnstheory/FINDINGS.md "Route past 52/11").
+  Binaries are not kept: build with `g++ -O2 -std=c++17 -o corr2 corr2.cpp` (same for arch.cpp).
+- 2026-10-03: certified edge re-pairing price X >= rows + N_re/2 (W <= 4), section 5; sent to the Verifier by the CR.
+
 - 2026-10-03: exact transfer matrix `corr2.cpp` (own code, F12 corridor model, all periods, widths up to 6).
   CERTIFIED: diagonal fold carrier 2/3 per (1,1) step at W = 3..6; steep edge carrier +1 per row at W <= 5;
   axis fold (midfold) 3/4 per row at W <= 5; shallow edge 11/6 per row at W = 4, 5. Wider bands give nothing.
@@ -109,3 +118,111 @@ free). Layout B'/B: field (1,2) for x < h, field (1,-2) for x >= h (free vertica
   two of the three line classes, so 1/3 or 2/3 of the nest is trapped. Every fix found costs more than the gain
   n/6. Structural fact worth keeping: shallow-steep corner nests are trapped by cheap patterns (compare
   w-structures S10, gentle-seam nests).
+
+## 5. Edge re-pairing price: certified input for KT Structures G2 step 3 (2026-10-03)
+
+Quantity certified. Edge strip model `edge` of corr2 (left wall, free cells 0 <= x < W, each with degree 2, field
+(2,1) fixed for x >= W, base U-turns P = (0,y)-(1,y+2), no finite cycle). Index lines by c = x - 2y. Every line
+has exactly one end in the strip (its last edge into the strip is forced). In P the strip joins line c to its
+P-partner: c+3 if c is odd, c-3 if c is even. For a configuration, N_re = number of line ends whose strip partner
+is NOT their P-partner. Claim:
+    X >= rows + N_re / 2                          (per period, every period; base current class)
+CERTIFIED for W = 2, 3, 4 (arch.cpp: corr2 transitions plus the origin line of every open strand end; transition
+weight 2X - (number of ends of a strand just closed that are not P-paired); minimum mean per row = 2, exact
+integer Bellman-Ford certificate, LAMBDA=2/1, current filter = base class: W=3 current -1, W=4 current 0).
+Relaxation (keeps the bound valid): an end whose origin is older than RMAX/2 rows, or comes from the warm-up, counts
+as re-paired. Results equal for RMAX = 10 and 16 at W = 4 (18.6 M states without the current filter).
+For finite stretches the same certificate gives X >= rows + N_re/2 - C on paths between steady core states,
+C = potential range / 2: C = 6 (W=3), 6.5 (W=4) crossings.
+Sharp: P (X = rows, N_re = 0) and the full flip (X = 2 rows, N_re = 2 per row) both meet it with equality.
+Other current classes (same runs, all periods): 2X - N_re >= 3 per row at W = 3, 4, so they are more expensive.
+Use in G2. For the left-midpoint chevron nest with P on both arms, line u is trapped with partner P(u) at both
+ends, so every arch line that is untrapped by edge re-pairing needs at least one re-paired end. With the claim,
+each untrapped arch line costs >= 1/2 crossing; n/2 arch lines per midpoint give >= n/4 per midpoint, n in total.
+This replaces the G2 step-3 "measured +1 per non-P row" by a certified per-end price for every depth W <= 4 and
+every period, and it also covers partial re-pairings (rows that are only partly non-P). Mechanisms through
+non-base current are the other case of G2 step 2: those classes cost >= +1 per row (corr2 edge, W <= 5).
+Not covered: W >= 5 for the pairing claim (state count about 500 M); the junction constants between stretches
+of different classes; interior mechanisms other than the S8 corridors of G2 step 2.
+Independent check: not yet; the Chief Researcher sent it to the Verifier (2026-10-03). Suggested: CP-SAT with exact pairing labels for fixed periods (w-structures
+classphase-style), minimise 2X - N_re for p <= 8, W = 4.
+Commands: `g++ -O2 -std=c++17 -o arch arch.cpp; RMAX=16 LAMBDA=2/1 ./arch edge 4 100000000 0`
+(without LAMBDA: Howard, witness = P).
+
+## 6. LOWER side: independent C++ checks of R1/R2 and the joint model (2026-10-03)
+
+All code in `gap/searcher/lower/`, written from the written definitions (w-lowerbounds F1; w-turnstheory
+FINDINGS 10.2, 10.4, 11.1-11.2, QUESTIONS.md; gap/turnstheory/REQUESTS.md R1, R2). No code of KT Lower Bounds
+was read. Base strip graph = my audited `w-searcher/cert/strip2.cpp` (82,516 states, 144,674 arcs).
+
+### 6.1 R2 (combined boundary and interval credit): beta* = 16/11, PROVEN (second implementation)
+
+`r2.cpp`: augmented state = (base state, mask of listed edges pending at row start, parity, g history 4 bits,
+z history 2 bits, run counter s <= 4, current g bit). The endpoint test of row R is evaluated at the row end
+from the SET of listed edges: (pending at the start of row R) U (pending at the start of row R+1). Every listed
+edge straddles row R, so this is the full set. Weight q(4w-1) + p(4w0-1) + 4qk - 2pt. Exact integer
+Bellman-Ford with negative-cycle extraction from the parent graph; Dinkelbach steps to the critical ratio;
+final re-check of all reduced costs.
+
+| orientation | starts | nodes | arcs | beta* | potential range at 16/11 (units 1/44) |
+| --- | --- | ---: | ---: | --- | --- |
+| up | zero history | 13,791,098 | 26,554,646 | 16/11 | [-667, 0] |
+| up | all histories | 13,817,578 | 26,603,962 | 16/11 | [-667, 0] |
+| down | zero history | 20,619,156 | 40,081,158 | 16/11 | [-687, 0] |
+| down | all histories | 20,645,732 | 40,130,652 | 16/11 | [-687, 0] |
+
+Blocking cycle (8 rows): (1,y)-(0,y+2), (2,y)-(0,y+1) for all y; (2,y)-(1,y+2) for y != 7 mod 8;
+(3,y)-(1,y+1) for y = 0 mod 8. Per period sum(4w-1) = 32, sum(4w0-1) = 0, k = 0, sum t = 11: ratio 32/22.
+This is KT Lower Bounds' field shifted by 5 rows. The ranges differ from their row-level -596 (cell-level
+graph: walks can start and end inside a row); beta* and the cycle agree.
+
+```sh
+cd gap/searcher/lower && g++ -O2 -march=native -std=c++17 -o r2 r2.cpp
+./r2 up crit 8 3            # 25 s, 1.2 GB: 8/3 -> 11/7 -> 16/11 converged   (crit_up.log)
+./r2 down crit 8 3          # 32 s: 8/3 -> 16/7 -> 32/17 -> 16/11 converged  (crit_down.log)
+./r2 up crit 8 3 allhist    # same with every initial history and counter    (crit_*_allhist.log)
+```
+
+### 6.2 Joint engine jr.cpp, validated on R1
+
+`jr.cpp`: generic strip (DEG per column E = exactly 2 / L = at most 2, allowed column pairs, path labels on
+all edges or on S edges only), compact 16-byte state keys, augmented variants (lost listed-edge bits, parity)
+as a bit set per base state, arcs generated from the base CSR. Weight q(4w-1) + p(4w0-1) + 4q*wx - 2pt,
+wx = new crossing pairs with at least one edge outside S.
+Validation: `./jr EELL 01,02,12,13 full up crit 3 2` gives beta* = 4/3, range [-155,0] (down: [-159,0]), with
+188,112 / 338,200 (up) and 335,564 / 630,778 (down) augmented nodes / arcs: identical to KT Lower Bounds L3
+and to their frac_independent counts.
+
+Normalisation of the baseline: the "-1 per transition" of the 4-column graph is moved to the row end as
+-4q - 4p per row, so the per-row totals are q(4W-4) + p(4W0-4) + 4q*Wx - 2pt for any number of columns.
+(First joint run used -1 per cell with 6 cells per row: wrong, discarded.) With this placement the R1
+check still gives beta* = 4/3; its ranges become [-176,0] up and [-180,0] down (walks may stop inside a row).
+
+### 6.3 Joint model (columns 0..5): HALF-DONE, stopped by the CR's pivot (2026-10-03, 06:25)
+
+Model (agreed with KT Lower Bounds and the CR): edges S (an end in column 0 or 1), F23 (column 2 - column 3),
+J (column 3 - columns 4, 5); not modelled: column 2 - column 4, column 4 - column 5. Degrees: columns 0, 1, 3
+exactly 2 (all 8 neighbours of a column-3 cell are in columns 1, 2, 4, 5), column 2 at most 2, columns 4, 5 at
+most 2. Path labels on S edges only (relaxation: acyclicity of the width-two part, as in the base model).
+Weight per row q(4W-4) + p(4W0-4) + 4q*Wx - 2pt, Wx = crossing pairs with at least one edge in F23 u J.
+
+Result so far (ARGUMENT-level, not a claim):
+- UP orientation: beta* = 2/1 EXACT in this model. Base 35,372,696 states / 71,090,636 arcs; augmented
+  83,780,188 nodes / 171,579,088 arcs; 4 min, 3.1 GB. Dinkelbach 8/3 -> 5/2 -> 2, Bellman-Ford converges at 2,
+  potential range [-104, 0] (units 1/(4q) = 1/4), 0 violated arcs (joint_up.log).
+- Critical cycle at 2: period 6 rows, per period W = 10, W0 = 6, Wx = 1, sum t = 5 (a = 5/2):
+  ratio (16 + 4)/10 = 2. KT Lower Bounds reports the same ratio 2 for its period-6 field with a CP-SAT completion
+  cost of 1 J crossing per 6 rows (independent agreement; I did not print the edge list of my cycle).
+- IF the budget argument holds (Turns Theory must confirm: per-side edge sets with an end in columns 0..3 are
+  disjoint up to O(1) corner pairs) AND the down orientation also gives beta >= 2, then
+  X >= [4 + 2beta/(2beta+1)] n - O(1) = 24n/5 - O(1) (4.8n). This is CONDITIONAL and not checked.
+
+To resume:
+```sh
+cd gap/searcher/lower && g++ -O2 -march=native -std=c++17 -o jr jr.cpp
+./run_wd.sh joint_down.log 11 ./jr EELELL 01,02,12,13,23,34,35 slab down crit 8 3   # about 5 min, about 3-4 GB
+./jr EELELL 01,02,12,13,23,34,35 slab up cert 2 1                                    # certificate only
+```
+Then: print the edge list of the critical cycle (printCycle shows only base ids and weights: add the decode
+of the introduced edges, as in r2.cpp); optional stronger variant with column 2 - column 4 edges
+(DEG EEEELL, PAIRS 01,02,12,13,23,24,34,35): measure the state count first (CR condition: under 8 GB).

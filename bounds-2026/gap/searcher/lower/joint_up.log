@@ -1,0 +1,119 @@
+DEG EELELL PAIRS 01,02,12,13,23,34,35 labels S-only: 36 slots
+  base ... 4194304/6052761 states, 10242176 arcs, 16s
+  base ... 8388608/10274947 states, 17924806 arcs, 29s
+  base ... 12582912/15010096 states, 25984282 arcs, 42s
+  base ... 16777216/19733067 states, 37352645 arcs, 63s
+  base ... 20971520/23897729 states, 45498851 arcs, 76s
+  base ... 25165824/28030461 states, 51733247 arcs, 87s
+  base ... 29360128/31030206 states, 59128425 arcs, 100s
+  base ... 33554432/34234845 states, 68047786 arcs, 124s
+base: states 35372696 arcs 71090636 (129s)
+orient up: 9 listed edges, lost-bit edges 2
+reachability: 4 sweeps
+augmented: nodes 83780188 arcs 171579088 (unreached base states 0) 137s
+ try beta = 8/3 = 2.666667
+  negative cycle after 4 passes (151s)
+  cycle: 36 arcs, 6 rows, sum(4w-1)=24 sum(4w0-1)=0 sum wx=4 sum t=8 -> ratio 40/16
+    row 0 x 0: base 33456010 -> 34121942  w=0 w0=0 wx=0
+    row 0 x 1: base 34121942 -> 13741949  w=0 w0=0 wx=0
+    row 0 x 2: base 13741949 -> 16507004  w=2 w0=1 wx=0
+    row 0 x 3: base 16507004 -> 19610378  w=0 w0=0 wx=0
+    row 0 x 4: base 19610378 -> 22644013  w=0 w0=0 wx=0
+    row 0 x 5: base 22644013 -> 25344548  w=0 w0=0 wx=0  | row end par=0 t=2
+    row 1 x 0: base 25344548 -> 28249484  w=0 w0=0 wx=0
+    row 1 x 1: base 28249484 -> 12655019  w=0 w0=0 wx=0
+    row 1 x 2: base 12655019 -> 15096956  w=2 w0=1 wx=0
+    row 1 x 3: base 15096956 -> 18235695  w=0 w0=0 wx=0
+    row 1 x 4: base 18235695 -> 21174756  w=0 w0=0 wx=0
+    row 1 x 5: base 21174756 -> 24058068  w=0 w0=0 wx=1  | row end par=1 t=1
+    row 2 x 0: base 24058068 -> 26877098  w=0 w0=0 wx=0
+    row 2 x 1: base 26877098 -> 29041066  w=0 w0=0 wx=0
+    row 2 x 2: base 29041066 -> 30849719  w=2 w0=1 wx=0
+    row 2 x 3: base 30849719 -> 32191042  w=0 w0=0 wx=0
+    row 2 x 4: base 32191042 -> 32969972  w=0 w0=0 wx=0
+    row 2 x 5: base 32969972 -> 33644040  w=0 w0=0 wx=1  | row end par=0 t=2
+    row 3 x 0: base 33644040 -> 34348988  w=0 w0=0 wx=0
+    row 3 x 1: base 34348988 -> 13727966  w=0 w0=0 wx=0
+    row 3 x 2: base 13727966 -> 16485586  w=2 w0=1 wx=0
+    row 3 x 3: base 16485586 -> 19599656  w=0 w0=0 wx=0
+    row 3 x 4: base 19599656 -> 22623485  w=0 w0=0 wx=0
+    row 3 x 5: base 22623485 -> 25343882  w=0 w0=0 wx=0  | row end par=1 t=1
+    row 4 x 0: base 25343882 -> 28248718  w=0 w0=0 wx=0
+    row 4 x 1: base 28248718 -> 12651843  w=0 w0=0 wx=0
+    row 4 x 2: base 12651843 -> 14382138  w=2 w0=1 wx=0
+    row 4 x 3: base 14382138 -> 17410127  w=0 w0=0 wx=0
+    row 4 x 4: base 17410127 -> 20378540  w=0 w0=0 wx=0
+    row 4 x 5: base 20378540 -> 23366442  w=0 w0=0 wx=1  | row end par=0 t=2
+    row 5 x 0: base 23366442 -> 26049404  w=0 w0=0 wx=0
+    row 5 x 1: base 26049404 -> 28881200  w=0 w0=0 wx=0
+    row 5 x 2: base 28881200 -> 30672032  w=1 w0=1 wx=0
+    row 5 x 3: base 30672032 -> 31981020  w=1 w0=0 wx=0
+    row 5 x 4: base 31981020 -> 32760368  w=0 w0=0 wx=0
+    row 5 x 5: base 32760368 -> 33456010  w=0 w0=0 wx=1  | row end par=1 t=0
+ try beta = 5/2 = 2.500000
+  negative cycle after 8 passes (171s)
+  cycle: 36 arcs, 6 rows, sum(4w-1)=16 sum(4w0-1)=0 sum wx=1 sum t=5 -> ratio 20/10
+    row 0 x 0: base 9513917 -> 11566335  w=0 w0=0 wx=0
+    row 0 x 1: base 11566335 -> 2584889  w=0 w0=0 wx=0
+    row 0 x 2: base 2584889 -> 3841734  w=2 w0=1 wx=0
+    row 0 x 3: base 3841734 -> 5661764  w=0 w0=0 wx=0
+    row 0 x 4: base 5661764 -> 7616849  w=0 w0=0 wx=0
+    row 0 x 5: base 7616849 -> 9505456  w=0 w0=0 wx=0  | row end par=1 t=1
+    row 1 x 0: base 9505456 -> 11555330  w=0 w0=0 wx=0
+    row 1 x 1: base 11555330 -> 2588922  w=0 w0=0 wx=0
+    row 1 x 2: base 2588922 -> 3804415  w=2 w0=1 wx=0
+    row 1 x 3: base 3804415 -> 5597842  w=0 w0=0 wx=0
+    row 1 x 4: base 5597842 -> 7571559  w=0 w0=0 wx=0
+    row 1 x 5: base 7571559 -> 9464402  w=0 w0=0 wx=0  | row end par=0 t=2
+    row 2 x 0: base 9464402 -> 11513794  w=0 w0=0 wx=0
+    row 2 x 1: base 11513794 -> 2392858  w=0 w0=0 wx=0
+    row 2 x 2: base 2392858 -> 409890  w=1 w0=1 wx=0
+    row 2 x 3: base 409890 -> 704778  w=0 w0=0 wx=0
+    row 2 x 4: base 704778 -> 1040170  w=0 w0=0 wx=0
+    row 2 x 5: base 1040170 -> 1367199  w=0 w0=0 wx=0  | row end par=1 t=0
+    row 3 x 0: base 1367199 -> 1810510  w=0 w0=0 wx=0
+    row 3 x 1: base 1810510 -> 2391978  w=0 w0=0 wx=0
+    row 3 x 2: base 2391978 -> 409890  w=1 w0=1 wx=0
+    row 3 x 3: base 409890 -> 704778  w=0 w0=0 wx=0
+    row 3 x 4: base 704778 -> 1040170  w=0 w0=0 wx=0
+    row 3 x 5: base 1040170 -> 1367199  w=0 w0=0 wx=0  | row end par=0 t=0
+    row 4 x 0: base 1367199 -> 1810510  w=0 w0=0 wx=0
+    row 4 x 1: base 1810510 -> 2391978  w=0 w0=0 wx=0
+    row 4 x 2: base 2391978 -> 3457706  w=1 w0=1 wx=0
+    row 4 x 3: base 3457706 -> 5084178  w=1 w0=0 wx=0
+    row 4 x 4: base 5084178 -> 7002450  w=0 w0=0 wx=0
+    row 4 x 5: base 7002450 -> 8858806  w=0 w0=0 wx=1  | row end par=1 t=0
+    row 5 x 0: base 8858806 -> 10818572  w=0 w0=0 wx=0
+    row 5 x 1: base 10818572 -> 2616878  w=0 w0=0 wx=0
+    row 5 x 2: base 2616878 -> 3917335  w=2 w0=1 wx=0
+    row 5 x 3: base 3917335 -> 5739671  w=0 w0=0 wx=0
+    row 5 x 4: base 5739671 -> 7687392  w=0 w0=0 wx=0
+    row 5 x 5: base 7687392 -> 9513917  w=0 w0=0 wx=0  | row end par=0 t=2
+ try beta = 2/1 = 2.000000
+  converged after 28 passes (248s)
+up: beta* = 2/1 = 2.000000, potential range [-104, 0] (units 1/(4q)), violated arcs 0
+total 251s
+	Command being timed: "./jr EELELL 01,02,12,13,23,34,35 slab up crit 8 3"
+	User time (seconds): 235.86
+	System time (seconds): 15.40
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 4:11.89
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 3083552
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 1775602
+	Voluntary context switches: 1
+	Involuntary context switches: 1367
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 112
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+exit=0

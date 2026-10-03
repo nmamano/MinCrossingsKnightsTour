@@ -1,0 +1,2 @@
+PASS: all 4096 twelve-flag sequences; all thirteen split positions.
+PASS: 4096 six-row degree-bit pairs; long blocked runs and preserved split histories.

@@ -1,0 +1,8 @@
+{
+  "date": "2026-10-03",
+  "base_states": 82516,
+  "base_arcs": 144674,
+  "row_states": 21420,
+  "row_arcs": 250990,
+  "elapsed_seconds": 11.615353045985103
+}

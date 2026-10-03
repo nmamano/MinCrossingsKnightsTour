@@ -1,4 +1,0 @@
-kind d21_-2 A=-2 W=4 OFF=-2 positions/row 12: -4g(up1,dn0) -3g(up1,dn0) -2g(up1,dn0) -1g(up1,dn0) 0b(up1,dn1) 1b(up1,dn1) 2b(up1,dn1) 3b(up1,dn1) 4g(up0,dn1) 5g(up0,dn1) 6g(up0,dn1) 7g(up0,dn1)
-states 322
-    howard: 0 iterations, cycle 0/24, 0.0s
-    certified 0/24 after 0 refinements, 0.0s

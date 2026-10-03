@@ -1,0 +1,47 @@
+base: states 82516 arcs 144674
+orient down: 9 listed edges: (1,-1)-(0,1)-1 (0,0)-(1,2)-1 (0,0)-(2,1)-1 (0,-1)-(1,1)+1 (0,-1)-(2,0)+1 (0,-2)-(1,0)-1 (2,-2)-(1,0)-1 (1,-1)-(2,1)-1 (2,-1)-(0,0)+0; exceptional 8,4
+  ... 4194304 nodes, 8740762 arcs, 7s
+  ... 8388608 nodes, 16834674 arcs, 12s
+  ... 12582912 nodes, 24624643 arcs, 16s
+  ... 16777216 nodes, 33083835 arcs, 21s
+augmented: nodes 20645732 arcs 40130652 (all-history starts), built in 24s
+ try beta = 8/3 = 2.666667
+  negative cycle after 4 passes (26s)
+  cycle: 32 arcs, 8 rows, sum(4w-1)=32 sum k=0 sum(4w0-1)=0 sum t=11 -> ratio 32/22
+  field (edges introduced per cell; row index relative to cycle start):
+    row 0 x 0: w=0 w0=0
+    row 0 x 1: w=0 w0=0 (1,0)-(0,2)
+    row 0 x 2: w=2 w0=1 (2,0)-(0,1) (2,0)-(1,2)
+    row 0 x 3: w=0 w0=0   | row end: par=1 t=0 k=0 g=1 z=1 s=2
+    row 1 x 0: w=0 w0=0
+    row 1 x 1: w=0 w0=0 (1,1)-(0,3)
+    row 1 x 2: w=2 w0=1 (2,1)-(0,2) (2,1)-(1,3)
+    row 1 x 3: w=0 w0=0   | row end: par=0 t=2 k=0 g=1 z=1 s=0
+    row 2 x 0: w=0 w0=0
+    row 2 x 1: w=0 w0=0 (1,2)-(0,4)
+    row 2 x 2: w=2 w0=1 (2,2)-(0,3) (2,2)-(1,4)
+    row 2 x 3: w=0 w0=0   | row end: par=1 t=1 k=0 g=1 z=1 s=0
+    row 3 x 0: w=0 w0=0
+    row 3 x 1: w=0 w0=0 (1,3)-(0,5)
+    row 3 x 2: w=2 w0=1 (2,3)-(0,4) (2,3)-(1,5)
+    row 3 x 3: w=0 w0=0   | row end: par=0 t=2 k=0 g=1 z=1 s=1
+    row 4 x 0: w=0 w0=0
+    row 4 x 1: w=0 w0=0 (1,4)-(0,6)
+    row 4 x 2: w=2 w0=1 (2,4)-(0,5) (2,4)-(1,6)
+    row 4 x 3: w=0 w0=0   | row end: par=1 t=1 k=0 g=1 z=1 s=2
+    row 5 x 0: w=0 w0=0
+    row 5 x 1: w=0 w0=0 (1,5)-(0,7)
+    row 5 x 2: w=2 w0=1 (2,5)-(0,6) (2,5)-(1,7)
+    row 5 x 3: w=0 w0=0   | row end: par=0 t=2 k=0 g=1 z=1 s=3
+    row 6 x 0: w=0 w0=0
+    row 6 x 1: w=0 w0=0 (1,6)-(0,8)
+    row 6 x 2: w=2 w0=1 (2,6)-(0,7)
+    row 6 x 3: w=0 w0=0   | row end: par=1 t=1 k=0 g=0 z=1 s=0
+    row 7 x 0: w=0 w0=0
+    row 7 x 1: w=0 w0=0 (1,7)-(0,9)
+    row 7 x 2: w=1 w0=1 (2,7)-(0,8) (2,7)-(1,9)
+    row 7 x 3: w=1 w0=0 (3,7)-(1,8)   | row end: par=0 t=2 k=0 g=1 z=0 s=1
+ try beta = 16/11 = 1.454545
+  converged after 20 passes (33s)
+down: beta* = 16/11 = 1.454545, potential range [-687, 0] (units 1/(4q)), violated arcs 0
+total 33s

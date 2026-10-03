@@ -1,0 +1,44 @@
+{
+  "date": "2026-10-03",
+  "full_run_minima_1_through_16": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "period8_mask": [
+    0,
+    1,
+    1,
+    0,
+    0,
+    1,
+    1,
+    1
+  ],
+  "window_length": 16,
+  "phase_minima": [
+    2,
+    2,
+    2,
+    3,
+    3,
+    2,
+    1,
+    1
+  ],
+  "uniform_window_credit": 1,
+  "scope": "assigned crossing minima in the soft width-one strip"
+}

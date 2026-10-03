@@ -1,18 +1,19 @@
 # Boundary crossing credit gives 52n/11-O(1)
 
-2026-10-03. **Proof submitted for independent review.** The new strip
-certificate has passed two implementations. The geometric reduction
-below is under KT Verifier's Claim 26 review. No audited result or published
-document is changed by this draft.
+2026-10-03. **AUDITED — Claim 26, PASS.** KT Verifier checked the full
+proof and independently rebuilt the finite certificate. The two Section
+4 wording repairs requested by the audit are applied below. This is a
+Python-certified mathematical proof for closed Hamiltonian tours; no
+Lean theorem or extension to disconnected two-factors is claimed.
 
-**Claim.** For every even `n>=32`, a closed knight tour on an `n` by `n`
+**Theorem.** For every even `n>=32`, a closed knight tour on an `n` by `n`
 board has at least
 
 ```
 X >= 52n/11 - 360
 ```
 
-proper crossing pairs. In particular the proposed leading coefficient
+proper crossing pairs. In particular the leading coefficient
 is `52/11`, which exceeds `14/3` by `2/33`.
 
 The change is to retain the actual number of outer-boundary crossings
@@ -246,8 +247,7 @@ have degree at most two. Let `X_sigma` count its crossing pairs.
 Scan rows increasingly, and columns zero through three within each row.
 A state records the next column, the selected pending edges from
 processed to future cells, and the partition of their pending ends into
-paths. The transition chooses edges to later cells, meets the degree
-rule, and rejects cycle closure and excess future degrees. Canonical
+paths. The transition chooses only legal knight edges to later cells that have an endpoint in column zero or one. It meets the stated degree rule and rejects cycle closure and excess future degrees. Canonical
 component labels and relative row coordinates make the state set finite.
 Start at the empty state. There are 82,516 reachable base states and
 144,674 arcs in the separate checker.
@@ -261,8 +261,7 @@ agreement with the base transition weight before it computes `w0`.
 
 Augment the state by the selected endpoint-test edges seen so far in
 the row and a parity bit. At row start, initialise the test set from
-pending edges; add newly introduced test edges during the row. Every
-test edge straddles the tested row, so none is omitted. At row end
+pending edges; add newly introduced test edges during the row. Every test edge has minimum row at most the tested row and maximum row at least the tested row. It is therefore pending at row start or is selected during that row. At row end
 charge `t=2a`, reset the test set, and toggle parity. Both possible
 initial parities are included at every base state at a row boundary.
 Separate graphs use up and down test data.
@@ -376,7 +375,11 @@ runner. KT Lower Bounds ran that implementation, and its logs are listed
 in `gap/lowerbounds/FINDINGS.md`, L3. All required component checks passed
 on 2026-10-03. The report is `gap/turnstheory/check_52_11_report.json`.
 
-KT Verifier should review, in particular, the actual-set budget (8)–(9),
-the far-half parity and state treatment in (11), and the cancellation of
-`R` in (12)–(13). Passing the finite checks alone does not replace those
-all-size arguments.
+Claim 26 checked the actual-set budget (8)–(9), the far-half parity and
+state treatment in (11), and the cancellation of `R` in (12)–(13), as
+well as every finite input. Its consolidated-document verdict confirms
+the exact numerator 3958 used here and the rounded constant 360. The
+audit also derives the optional sharper numerator 3954 by using the
+separate orientation errors. This document retains its checked common
+error and constants. The audit record is in `w-verifier/FINDINGS.md`,
+under Claim 26 and its consolidated-document verdict.

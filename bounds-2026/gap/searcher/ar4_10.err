@@ -1,0 +1,33 @@
+kind edge A=0 W=4 OFF=0 positions/row 6: 0b(up0,dn0) 1b(up0,dn0) 2b(up1,dn0) 3b(up1,dn0) 4g(up0,dn1) 5g(up0,dn1)
+warm-up states 73354, steady seeds 25681
+  q=2000000 states=2208309 edges=2486597 arena=60MB 11s
+states 3116125 edges 3770120 arena 85MB, BFS 16s
+steady states 3116125 of 3116125
+  current -4: core 12
+    howard: 0 iterations, cycle 10/12, 0.1s
+    certified 10/12 after 0 refinements, 0.2s
+  current -3: core 2311
+    howard: 4 iterations, cycle 28/36, 0.2s
+    certified 28/36 after 0 refinements, 0.3s
+  current -2: core 49853
+    howard: 10 iterations, cycle 8/12, 0.5s
+    certified 8/12 after 0 refinements, 0.6s
+  current -1: core 229620
+    howard: 13 iterations, cycle 6/12, 1.8s
+    certified 6/12 after 0 refinements, 1.9s
+  current 0: core 370972
+    howard: 8 iterations, cycle 4/12, 1.4s
+    certified 4/12 after 0 refinements, 1.5s
+  current 1: core 229620
+    howard: 13 iterations, cycle 6/12, 1.5s
+    certified 6/12 after 0 refinements, 1.6s
+  current 2: core 49853
+    howard: 10 iterations, cycle 8/12, 0.4s
+    certified 8/12 after 0 refinements, 0.5s
+  current 3: core 2311
+    howard: 4 iterations, cycle 28/36, 0.2s
+    certified 28/36 after 0 refinements, 0.3s
+  current 4: core 12
+    howard: 0 iterations, cycle 10/12, 0.1s
+    certified 10/12 after 0 refinements, 0.2s
+26.22s 415128KB

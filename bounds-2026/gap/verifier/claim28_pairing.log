@@ -1,0 +1,8 @@
+{'period': 1, 'width': 4, 'status': 'OPTIMAL', 'seconds': 0.023, 'best_bound': 2.0, 'workers': 2, 'objective': '2X-N_re', 'current': 0, 'X': 1, 'N_re': 0, 'objective_value': 2.0, 'independent_cover_check': 'PASS'}
+{'period': 2, 'width': 4, 'status': 'OPTIMAL', 'seconds': 0.03, 'best_bound': 4.0, 'workers': 2, 'objective': '2X-N_re', 'current': 0, 'X': 2, 'N_re': 0, 'objective_value': 4.0, 'independent_cover_check': 'PASS'}
+{'period': 3, 'width': 4, 'status': 'OPTIMAL', 'seconds': 0.063, 'best_bound': 6.0, 'workers': 2, 'objective': '2X-N_re', 'current': 0, 'X': 3, 'N_re': 0, 'objective_value': 6.0, 'independent_cover_check': 'PASS'}
+{'period': 4, 'width': 4, 'status': 'OPTIMAL', 'seconds': 0.133, 'best_bound': 8.0, 'workers': 2, 'objective': '2X-N_re', 'current': 0, 'X': 4, 'N_re': 0, 'objective_value': 8.0, 'independent_cover_check': 'PASS'}
+{'period': 5, 'width': 4, 'status': 'OPTIMAL', 'seconds': 0.455, 'best_bound': 10.0, 'workers': 2, 'objective': '2X-N_re', 'current': 0, 'X': 5, 'N_re': 0, 'objective_value': 10.0, 'independent_cover_check': 'PASS'}
+{'period': 6, 'width': 4, 'status': 'OPTIMAL', 'seconds': 1.307, 'best_bound': 12.0, 'workers': 2, 'objective': '2X-N_re', 'current': 0, 'X': 6, 'N_re': 0, 'objective_value': 12.0, 'independent_cover_check': 'PASS'}
+{'period': 7, 'width': 4, 'status': 'OPTIMAL', 'seconds': 3.985, 'best_bound': 14.0, 'workers': 2, 'objective': '2X-N_re', 'current': 0, 'X': 7, 'N_re': 0, 'objective_value': 14.0, 'independent_cover_check': 'PASS'}
+{'period': 8, 'width': 4, 'status': 'OPTIMAL', 'seconds': 10.638, 'best_bound': 16.0, 'workers': 2, 'objective': '2X-N_re', 'current': 0, 'X': 8, 'N_re': 0, 'objective_value': 16.0, 'independent_cover_check': 'PASS'}

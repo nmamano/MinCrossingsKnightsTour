@@ -1,0 +1,4 @@
+PASS: valid strip field; per 6 rows X = 10, B = 6, no blocked row
+  up: max sum a = 5/2; ratio = 8/5
+  down: max sum a = 5/2; ratio = 8/5
+(up must be 8/5; down is reported for information)

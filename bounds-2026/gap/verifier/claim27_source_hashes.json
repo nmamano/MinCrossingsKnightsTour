@@ -1,0 +1,11 @@
+{
+  "gap/turnstheory/PROOF_N1.md": "c9e72712b5204618348331b3d54fec221938cbf9e13eac1a8096bb65c3e3a753",
+  "gap/turnstheory/check_inner_boundary.py": "0909e10051ff22ce0d2d55a057e80d811de9ad3faad36dec3998e090f0906905",
+  "gap/turnstheory/verify_inner_boundary.py": "c3478b093ddf2c6584bd4a8f6483deb34f3ec6b405b2014d0221e95bf7256353",
+  "gap/turnstheory/check_r2_history.py": "7bc893145eb44cbd21c0c5d4fd8b73789f68ac651a07857b74fde6c66bb3f8d2",
+  "gap/lowerbounds/FINDINGS.md": "8b4f2facf87ceb5940915d9153646cab37cdd4b15a57496e661599c3b71d5c84",
+  "gap/lowerbounds/combo_stab.py": "7a7304ec8179cd8d13c51ea78a783abc9dcbf8f2f49a070a1d6c2c12bfdb9f44",
+  "gap/lowerbounds/check_combo_obstruction.py": "7772ea9e221cef25a0ba4bbe76ca654378c25e6905de2322737efae3f91cee59",
+  "gap/lowerbounds/check_combo_history.py": "c1656dddeec51531037d7de758beb923fa9956f111fc056d1a53d98d34389853",
+  "gap/searcher/lower/r2.cpp": "9f530e03eafcdb33876d968a1fb9ddea7f022cb0fdf5b6a9818a655882bab629"
+}

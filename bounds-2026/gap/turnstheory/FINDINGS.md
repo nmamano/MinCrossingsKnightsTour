@@ -1,4 +1,154 @@
-# Audit request to Chief Researcher — 2026-10-03: proposed 52n/11 bound
+# R3 budget confirmed; six-cell weights corrected — 2026-10-03
+
+**R3 is written at the top of REQUESTS.md.** The joint edge set is
+exactly the selected edges incident to columns {0,1,3}; its seven allowed
+column pairs are 01,02,12,13,23,34,35. The tour restriction has degree
+two in columns 0,1,3 and at most two in columns 2,4,5, and is a forest.
+Its complete crossing count includes mixed S/F23/J crossing pairs.
+The four-side count is at most X+12640, since only adjacent-side pairs
+overlap and their edges lie in six-by-six corner squares.
+
+**Required correction:** a six-cell scan must use
+`q(6w-1)+p(6w0-1)+6q*wx-3p*t`, or the equivalent row-level weight in
+R3. Using the old four-cell baseline on all six phases subtracts 3/2
+per row. Also, w must count only S/S pairs; wx counts every remaining
+pair exactly once. These conditions make the proposed budget valid.
+
+If that certificate has beta=p/q and half-walk error C, the precise
+conclusion is
+
+```
+X >= [4+2beta/(2beta+1)]n
+     -2-(12638+8C+78beta)/(2beta+1),
+```
+
+for every even n>=32 and closed Hamiltonian tours. No interval lemma is
+needed for R3. No new beta is certified yet.
+
+I checked the period-six obstruction directly. It has X_S=10, B=6,
+no blocked rows, and penalty 5/2 per period in the costly phase in both
+orientations. Thus credits based only on blocked flags cannot pass
+beta=8/5. R3 requests its completion in the joint model as a diagnostic:
+the added edges' mixed crossings may supply the missing cost, but no
+positive completion cost is asserted without a certificate.
+
+**N1 finite input update:** I read KT Edge Searcher's independent C++
+source and both all-history logs. They confirm beta=16/11 and zero
+violated arcs. PROOF_N1.md now names that implementation and its commands.
+Its full-state ranges are -667..0 and -687..0 in units of 1/44; the
+Python row-level range is -596..0. The proof's constant 12993 uses the
+Python range. The second implementation confirms the coefficient but
+does not reproduce that smaller numerical range. Claim 27 should check
+the latter if it retains the exact constant. Only the interval/N1 proof
+audit is pending; the coefficient now has two finite implementations.
+
+Checks on 2026-10-03 confirmed the seven column pairs, the 80-edge corner
+enumeration, the R3 coefficient/constant algebra, and the explicit
+period-six field. The field output is `cap0_field_check.log`.
+
+---
+
+# N1 consolidated; sharper short-run results — 2026-10-03
+
+**For Claim 27:** `PROOF_N1.md` now contains the tile/charge proof, the
+interval lemma, all four-side budget constants, the exact N1 half-walk
+reduction, and the producing beta=16/11 input. Its explicit CONDITIONAL
+theorem is `X>=204n/43-12993` for every even n>=32, closed Hamiltonian
+tours. The interval/reduction audit and the second combined-certificate
+implementation remain pending. The large constant is deliberately
+conservative; no stronger audited result is asserted.
+
+**New local findings, two implementation checks, pending audit:**
+`PROOF_SHORT_RUNS.md` records three results.
+
+1. Loss four is sharp for crossings assigned inside one full-degree
+   interval: four such rows can have zero assigned crossings.
+2. The TOTAL inner-strip crossings do pay `sum max(0,l-3)` exactly, with
+   no O(1) loss for a finite forest. A 520-state, 4,800-arc potential in
+   [-4,0] passes both graph builders. Generic run constants 0, 1, and 2
+   fail on repeatable zero-crossing cycles. Cap three still gives zero
+   for the new period-eight obstruction's runs of lengths two and three.
+3. Two repeats of the period-eight blocked word in a sixteen-row window
+   force at least one assigned inner crossing, in every phase. Exact
+   minima are 2,2,2,3,3,2,1,1. Thus a charge for short runs TOGETHER is
+   possible even though a charge for each short run is not.
+
+The last result gives a precise possible next task: replace K4 by
+`K4/2+M/32`, where M counts matching sixteen-row windows. This raises
+the known period-eight obstruction's ratio to 3/2 while the saturated
+field permits beta up to 2. A finite pattern matcher can supply the
+extra row charge. No new combined certificate is claimed. REQUESTS.md
+contains the exact integer weight and the boundary conditions.
+
+Checks passed on 2026-10-03:
+
+```
+python3 gap/turnstheory/check_run_credit.py
+python3 gap/turnstheory/check_short_windows.py
+```
+
+Their reports are `run_credit_certificate.json` and
+`short_window_checks.json`. The first code is new; the two underlying
+strip builders are separate implementations. The second checker repeats
+the window calculation on each graph. All edits remain in this worker's
+directory. The currently audited theorem remains 52n/11-360 (Claim 26).
+
+---
+
+# Claim 26 repairs applied — 2026-10-03
+
+**AUDITED (Claim 26):** `PROOF_52_11.md` now states the PASS status and
+contains both Section 4 wording repairs exactly as quoted by KT
+Verifier. Its theorem is `X>=52n/11-360` for every even n>=32 and closed
+Hamiltonian tours. The common-error numerator 3958 is retained, so the
+proof and reproduction arithmetic stay aligned. This is Python-certified,
+not a Lean theorem and not a theorem for disconnected two-factors.
+
+I read the full-draft follow-up and consolidated-document audit verdict
+before applying the repairs. RESULTS.md and the posts were not changed.
+R2 remains assigned to KT Lower Bounds; `PROOF_INTERVAL.md` and the R2
+history specification are ready for Claim 27. No coefficient beyond
+52/11 is claimed.
+
+---
+
+# Claim 27 ready and R2 specified — 2026-10-03
+
+**Claim 27 submission:** `PROOF_INTERVAL.md` gives the standalone
+interval lemma `W(I)>=length(I)-4`, its exact 330-state certificate,
+the blocked-row test, and the application to four sides. The last step
+has the explicit conservative bound `D0+K<=E+50558` for n>=32. The
+certificate has a separate implementation check; the proof awaits
+KT Verifier's review.
+
+**R2 is active, as assigned by Chief Researcher.** `REQUESTS.md` now
+specifies six ghost-degree history bits, a capped run counter, the exact
+two-row delay, and the full-side initial and terminal conditions. It
+retains the actual history across the middle split, so the halves sum
+to exactly K. The far-half scan still runs in increasing physical row
+order. No additional endpoint loss is hidden in the delay.
+
+The check commands are
+
+```
+python3 gap/turnstheory/check_inner_boundary.py
+python3 gap/turnstheory/verify_inner_boundary.py
+python3 gap/turnstheory/check_r2_history.py
+```
+
+The earlier instruction to wait for Claim 26 is superseded by Chief
+Researcher's parallel assignment. No combined-credit certificate, and
+no coefficient beyond 52/11, is claimed here.
+
+Checks on 2026-10-03 passed: the separate interval checker verified all
+580 hard arcs and the 80-edge corner count; the new history checker
+verified all 4096 twelve-flag sequences with every split, all 4096
+six-row degree-bit pairs, and long blocked runs. The certificate
+generator and its full saved potential are unchanged.
+
+---
+
+# Claim 26 audit request — 2026-10-03: proposed 52n/11 bound
 
 **Full proof ready for KT Verifier: `PROOF_52_11.md`.** KT Lower Bounds
 certified request R1 at beta=4/3 in both orientations and both initial
@@ -40,8 +190,8 @@ session; its default command reruns them. No check was omitted.
 
 ## Request status
 
-R1 is complete at beta=4/3. No additional finite computation is requested
-until the proof audit is complete. The saturated period-one field proves
+R1 is complete at beta=4/3. R2 is now assigned in parallel with the audit.
+The saturated period-one field proves
 that 4/3 is the exact limit of R1. Combining the inner-boundary lemma
 with R1 is a possible later task, but is not an input to this proof.
 
@@ -72,8 +222,8 @@ q*(4w-1) + p*(4w0-1) + 4q*k - 2p*t.                 (N2)
 ```
 
 The ghost-degree history and run counter needed for k are specified in
-Section 4 of the earlier report below. This augmentation is larger than
-R1, so it should wait until Claim 26 is complete.
+R2 of REQUESTS.md. This augmentation is larger than R1. Chief Researcher
+assigned its computation in parallel with Claim 26.
 
 On the saturated field, `D0/length=1`, `K/length -> 1`, `R/length=0`,
 and `A/length=3/4`; it imposes only beta<=8/3 on (N1). On the period-4

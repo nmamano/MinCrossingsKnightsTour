@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-03",
+  "states": 330,
+  "arcs": 700,
+  "hard_arcs": 580,
+  "passes": 6,
+  "potential_range": [
+    -12,
+    0
+  ],
+  "row_boundary_potential_range": [
+    -12,
+    0
+  ],
+  "interval_error_numerator": 12,
+  "interval_error_denominator": 3
+}
+PASS: separate builder, 330 states, 580 hard arcs; interval loss <= 4.
+PASS: 80 possible corner edges; conservative four-side overcount 50560.

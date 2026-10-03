@@ -1,0 +1,4 @@
+CAP=3 orient=up: row arcs 250990, aug arcs 32126720, node slots 10562048, blocked-k arcs 2202640, built in 16s
+  negative cycle: 8 rows, sum(4w-1)=32, sum k=0, sum(4w0-1)=0, sum t=11
+    -> beta <= 16/11 = 1.454545
+up: beta = 16/11 = 1.454545 converged after 34 passes; potential range -588..0 (units 1/(4q))

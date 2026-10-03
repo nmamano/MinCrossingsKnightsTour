@@ -1,0 +1,6 @@
+kind edge A=0 W=2 OFF=0 positions/row 4: 0b(up1,dn0) 1b(up1,dn0) 2g(up0,dn1) 3g(up0,dn1)
+warm-up states 55, steady seeds 6
+states 48 edges 48 arena 0MB, BFS 0s
+steady states 48 of 48
+  current 0: core 48
+    certified 2/4 after 0 refinements, 0.0s; potential range 24 (units of 1/L = 1/4 of a weight unit)

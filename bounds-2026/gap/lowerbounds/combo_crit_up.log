@@ -1,0 +1,29 @@
+orient=up: row arcs 250990, aug arcs 40158400, node slots 13202560, blocked-k arcs 2202640, built in 18s
+  negative cycle: 18 rows, sum(4w-1)=72, sum k=0, sum(4w0-1)=0, sum t=24
+    -> beta <= 3/2 = 1.500000
+  negative cycle: 8 rows, sum(4w-1)=32, sum k=0, sum(4w0-1)=0, sum t=11
+    -> beta <= 16/11 = 1.454545
+up: beta = 16/11 = 1.454545 converged after 41 passes; potential range -596..0 (units 1/(4q))
+	Command being timed: "../../.venv/bin/python combo_stab.py crit up 8/3"
+	User time (seconds): 104.96
+	System time (seconds): 109.68
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 3:35.87
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 2549052
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 11
+	Minor (reclaiming a frame) page faults: 23734065
+	Voluntary context switches: 21
+	Involuntary context switches: 2325
+	Swaps: 0
+	File system inputs: 2320
+	File system outputs: 206328
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

@@ -1,6 +1,6 @@
 # Independent verification — 2026-10-02
 
-**Latest audit, 2026-10-03: Claim 26 below is PASS. Every closed knight's tour on an even n by n board, n>=32, satisfies 11X >= 52n-3954, hence X >= 52n/11-360. The U1 boundary-surplus reduction is valid. An independent standard-library rebuild checked all 687,262 integer arc inequalities in each orientation and reproduced the ranges -155..0 and -159..0, with both initial parities. Both author independent-check commands also passed. Proof, constants, scope clarifications, and evidence are in Claim 26 and gap/verifier/claim26_*. No Lean result is claimed.**
+**Latest audit, 2026-10-03: Claim 27 is PASS. For every closed Hamiltonian knight tour on an even n by n board, n>=32, 43X >= 204n-558664, hence X >= 204n/43-12993. The interval lemma and separate crossing budget are valid. An independent row-graph rebuild checked all 40,158,400 augmented arc inequalities in each orientation and reproduced both potential ranges [-596,0]. Both C++ all-history runs also passed. Claim 28's universal arch floor remains ARGUMENT / GAP; its strip certificate remains PASS. See Claim 27 and gap/verifier/claim27_* for the proof audit and evidence. No Lean result is claimed.**
 
 ## Claim 1: full tours with 9n + O(1) crossings
 
@@ -3538,3 +3538,247 @@ These are the document's own constants, using the common half-walk error 53/4. C
 I checked check_52_11_report.json: all eight component checks are listed as passed, with the correct potential ranges and exact constant 3958/11. That aggregate report reuses its two stability logs. My Claim 26 audit freshly reran both stability checks and all six local checks, and also rebuilt the certificate independently, so its verdict does not depend on accepting those reused logs without verification.
 
 The two Section 4 wording clarifications already quoted in Claim 26 remain applicable. They make the strip-edge restriction and inclusive row-incidence condition explicit; the surrounding definitions and checked implementation already supply those conditions. They do not change the PASS verdict. The author can update the draft's pending-review status and the results index after applying them. No author document was edited. The document audit is complete.
+
+
+## Claim 28: the proposed arch floor for the fold family — 2026-10-03
+
+**Verdict: PASS / CERTIFIED for the stated periodic edge-strip repair price at W<=4; PASS for the requested independent W=4 checks at periods 1 through 8. GAP / ARGUMENT for the proposed universal arch floor. G7's local non-neutrality conclusion is PROVEN; its carrier-network consequence is still ARGUMENT.**
+
+Sources: gap/structures/FINDINGS.md G2 and G7; gap/searcher/FINDINGS.md Section 5; gap/searcher/arch.cpp; gap/searcher/RATES.md. The endpoint lemma is from the audited w-turnstheory/PROOF_crossings_lower.md, Section 3. Claim 27 is reserved and is not part of this audit. This audit does not change the proved upper construction or Claim 26's lower bound.
+
+### 28A. What the edge certificate measures
+
+The strip has free columns 0 through W-1, degree two at each cell, and the fixed (2,1) field outside. The two forced exterior ports per row lie at columns W-2 and W-1. A line has index c=x-2y. Its cheap P partner is c+3 for odd c and c-3 for even c. N_re counts port ends whose actual strip partner differs from this partner. Each wrongly paired strand contributes two ends. This is not the number of locally non-P rows, changed edges, or current-carrying rows.
+
+The transition weight in arch.cpp is 2 times newly counted crossings, minus a bonus of two when two exterior rays close into a non-P pair. The code keeps the origin c+2r of each pending ray. At closure a known pair is P precisely when its origins differ by three and the smaller origin is odd. Origins age by two per row. An origin above RMAX, or an unspecified warm-up origin, becomes unknown; a closure with an unknown origin receives the non-P bonus. Thus the machine certifies 2X-N_tilde, where N_tilde is the closure reward and can overcount the true N_re. This relaxation has the correct direction: a lower bound for 2X-N_tilde also bounds 2X-N_re from below. Equal results at two cutoffs are useful checks, but are not needed to justify this direction.
+
+The scan records pending edges and their pair connections, rejects a finite cycle, enforces degree two after warm-up, and counts each proper crossing when the later edge is inserted. The exterior ghosts supply the fixed line ends. At W<=4 a component with no exterior port can only occupy columns 0 and 1; its degree-two continuation is infinite, so this case does not introduce an untested finite cycle. Translation parity is in the state. An odd geometric period can be represented by doubling it.
+
+The steady graph is pruned to its directed core, with the base current class selected. Exact integer relaxation checks the arc inequalities for the target mean two per row. No floating-point minimum-mean result is needed for the LAMBDA=2/1 run. Consequently, every periodic strip in this model satisfies
+
+    2X-N_re >= 2p, or X >= p+N_re/2.
+
+This is exactly the per-end price needed by a *fixed-chevron, edge-repair-only* version of G2 step 3. It does not establish G2 step 2 for arbitrary interior changes.
+
+I copied arch.cpp without changes, compiled it, and reran all three base classes with RMAX=16 and LAMBDA=2/1:
+
+| W | Base current | States | Arcs | Core states | Integer potential range | Crossing error C |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| 2 | 0 | 48 | 48 | 48 | 24 | 3 |
+| 3 | -1 | 3,488 | 3,972 | 1,444 | 60 | 6 |
+| 4 | 0 | 6,950,475 | 8,546,081 | 2,429,580 | 78 | 6.5 |
+
+All runs certify the target without refinement. The integer potential unit is 1/(W+2) of an objective-weight unit. Hence C=range/[2(W+2)]. Width 4 took about 38 seconds for graph generation, using one CPU core. Logs and JSON output are claim28_arch_w2.*, claim28_arch_w3.*, and claim28_arch_w4.* under gap/verifier/.
+
+**Required finite-interval wording repair.** The error 6.5 applies to a path of complete rows between states of this current-class core, with N_tilde counted when strands close in that path. It does not directly apply to N_re defined as repaired port ends whose physical rows lie in the interval. A strand can enter before the interval and close inside it, or enter inside and close afterward. Changing counting conventions requires a frontier correction depending on W. The finite statement must either retain the closure-reward convention or prove and include that correction. Transient states and joins between current classes also need a bound. On a whole period, these endpoint distinctions disappear and the advertised inequality is valid.
+
+The output and comments should call the optimized weight 2X-N_re (or its relaxed closure form), rather than crossings. The code's arithmetic is correct; generic output labels can hide the quantity being proved.
+
+### 28B. Independent CP-SAT check with lifted pairing labels
+
+New code: gap/verifier/claim28_pairing.py. It imports no worker implementation. It builds all internal knight-edge orbits on four columns and p rows, fixes the exterior edges, and imposes the degree constraints. A perfect matching of the 2p port vertices specifies their partners. Selected edges propagate pairing labels. Integer row lifts impose the actual vertical displacement along every port-bearing path. The test for P uses integer c values in the infinite cover, not c modulo the period. This distinction matters at small periods.
+
+This model covers every periodic configuration in the stated width-4 class. A quotient component containing ports is a path with exactly two degree-one ports and at most 4p vertices. Its lift displacement is less than 8p, so the lift range [-10,10] loses no such path. Components without ports may use a separate label; at this width their lifts are infinite paths in columns 0 and 1. Parallel quotient edges retain their distinct vertical displacement. The base current is imposed at the cut below row zero; odd periods cause no problem for the zero class.
+
+The objective is 2X-N_re. Boolean conjunctions count proper crossing pairs, with orbit multiplicity. There is no imposed lower bound of 2p. After solving, a separate traversal traces each actual lifted port-to-port path and recounts N_re. It also checks that a portless component has nonzero winding. A second crossing count uses a different row-ownership convention.
+
+Command:
+
+    .venv/bin/python gap/verifier/claim28_pairing.py 8 90
+
+Each solve used two workers. Every status was OPTIMAL, with matching objective and lower bound:
+
+| Period p | Minimum 2X-N_re | Objective per row |
+| --- | ---: | ---: |
+| 1 | 2 | 2 |
+| 2 | 4 | 2 |
+| 3 | 6 | 2 |
+| 4 | 8 | 2 |
+| 5 | 10 | 2 |
+| 6 | 12 | 2 |
+| 7 | 14 | 2 |
+| 8 | 16 | 2 |
+
+All extracted cover checks passed. Total solve time was about 17 seconds. The P witnesses have X=p and N_re=0. As a separate check that the model permits nonzero repairs and their lifts, I forced N_re=2p at p=1 and p=2. Both solves were OPTIMAL with X=2p and objective 2p, and both cover checks passed. Results are claim28_pairing.json, claim28_pairing.log, and claim28_pairing_calibration.json. These finite solves independently support the all-period certificate; they do not alone prove the all-period theorem.
+
+### 28C. G2, step by step
+
+| Step | Status | Scope and repair |
+| --- | --- | --- |
+| Difference of two degree-two colour currents is divergence-free | PROVEN | Apply to a region on which the base configuration has degree two; handle base defects explicitly. Closing an arch by an outside segment then gives zero net difference current through its boundary. |
+| Uniform through-corridor shift has the same parity as its current | PROVEN within the S8 corridor hypotheses | It is a statement about a uniform field and a specified through-corridor with matching cuts. It is not a classification of all changes to a tour. |
+| Every possible way to untrap a line produces the required edge repair | ARGUMENT | Conservation and shift parity do not establish this for branches, returning paths, glides, arbitrary local surgery, or a combination of them. G2 itself admits interior loop merges. A measured cost for one rung-swap construction is not a lower bound for all interior merges. |
+| Every strand in a fixed P-compatible chevron nest needs a changed end if only edge pairings change | PROVEN | If a strand retains its P partner at both ends, the matching involutions also force its partner to retain those same two connections. These two strands remain an isolated closed component. A larger single tour cannot retain it. Thus each strand has at least one changed end, apart from exceptional components in a bounded endpoint region. |
+| Changed port ends cost at least 1/2 crossing each above the edge baseline | CERTIFIED | True per period in the specified W<=4 base-current strip. For finite intervals use the closure convention and frontier/core qualifications in 28A. A locally non-P row need not change its ultimate port pairing. |
+| Four standard midpoint nests contain 2n arch strands in total, up to bounded rounding | PROVEN for that fixed layout | Each midpoint contains n/2 strands. The edge-only matching argument and strip price then give n extra crossings, provided a bounded number of admissible strips and controlled joins cover the repairs. |
+| Every free-fold steep layout with chevrons has this count and satisfies these repair hypotheses | ARGUMENT | Neither G1's net-step theorem nor G2 supplies a classification with total chevron edge length 2n. Cancelling fold pairs and glides remain possible. Merely having chevrons does not specify the four standard nests. |
+| The universal family pays arch >= n-O(1), and this adds to an independent flux floor | ARGUMENT | Widths >=5, general interior repairs, joins, the layout count, and separation of crossing charges remain unproved. A constant loss per segment is O(number of segments), not automatically O(1). The same crossings may contribute to both repair and flux costs. |
+
+The repaired conditional conclusion is useful: for the standard fixed nests, repairs made solely by strip re-pairings at depth at most four pay at least half a crossing per repaired end. With a bounded number of core stretches and controlled endpoints, this yields arch >= n-O(1). It is not a theorem about every free-fold layout or every untrapping mechanism.
+
+The rates in RATES.md concern fixed straight bands at the listed widths and currents. They do not remove these qualifications. I checked their scope against the proposed use; I did not rerun every carrier entry in that table as part of this light audit. In particular, a non-base-current price per row is not by itself an additional per-repaired-end price, and the two must not be added without a joint charge inequality.
+
+### 28D. G7: a charged corner, not a general carrier decomposition
+
+**PROVEN:** If both local endpoint windows of the audited corner path gamma_R are P or P-prime, the path is charged, whatever lies inside the corner. This holds for 12<=R<=n/2-4, with the board, orientation, and endpoint conventions of the audited proof. Both cheap patterns have F=2 modulo three and lack the forbidden pair. The up and down tests both pass, so reflection and transposition give all four corners.
+
+I reran corner_test.py and independently substituted the two patterns into the audited eight-edge coefficient table. The independent check covers both scan directions and both row parities; see claim28_corner_check.py and its JSON output.
+
+**Sign repair:** With gamma_R oriented as in the audited proof, the complementary path Q_R has flux 1 modulo three. The closed-boundary flux is zero, so gamma_R has flux -1=2 modulo three, not 1. Reversing orientation changes the sign. G7 should state “nonzero modulo three” unless it fixes the orientation. This does not affect its non-neutrality conclusion.
+
+**ARGUMENT:** Nonzero flux across each such gamma_R does not alone produce a single carrier crossing them all, or an unrestricted network with the measured band rates. If an endpoint test fails, its window is not P/P-prime; the converse does not hold. Nor does that failure establish a uniform extra crossing per row or a changed port partner. G7 excludes a neutral corner behind two cheap tested windows. Its sentence “only carrier rates matter” requires the missing general decomposition and accounting theorem; Claim 17's gap remains.
+
+### Repairs and audit evidence
+
+Replace G2 step 3's local non-P-row price by the precise per-end certificate, restricted to W<=4. State the fixed-chevron matching lemma separately. Keep the universal mechanism claim, the universal layout count, and the additive flux-plus-arch floor labelled ARGUMENT. State finite-strip errors with their closure convention and account for joins. In G7 change the signed residue or state only nonzero charge, and separate that theorem from the proposed carrier consequence.
+
+All new code and logs are under gap/verifier/ with prefix claim28_. claim28_source_hashes.json records the inspected source versions and independent checker hashes. The copied arch.cpp matches the author file byte for byte. No author source, construction, or blog post was edited. The requested checks are complete; a universal arch floor still needs the listed mathematical steps.
+
+
+## Claim 27: interval credit gives 204n/43-O(1) crossings — 2026-10-03
+
+**Audit object: gap/turnstheory/PROOF_N1.md. Verdict: PASS.** For every closed Hamiltonian knight tour on an even n by n board with n>=32,
+
+    43X >= 204n-558664,
+    X >= 204n/43-558664/43 >= 204n/43-12993.
+
+The theorem, its size range, and its explicit constant pass as submitted. The coefficient exceeds 52/11 by 8/473. The argument uses connectivity to exclude cycles in proper tour subgraphs; no result for arbitrary disconnected 2-factors is established. The finite certificates are checked by integer computation. No Lean result is claimed.
+
+The audited proof's SHA-256 is c9e72712b5204618348331b3d54fec221938cbf9e13eac1a8096bb65c3e3a753. Its Sections 1–3 are byte-identical to the corresponding sections of PROOF_52_11.md as read in this audit. These are the tile budget, endpoint residues and fractional loss, retained boundary surplus, and the inequality
+
+    4n <= 4E+2(A-R)+156,    E=X-4n+2.
+
+Their Claim 26 audit therefore applies unchanged. The new material is checked below.
+
+### 27A. Interval lemma, including arbitrary interval ends
+
+**PASS.** The lemma applies to a finite forest whose edges join column zero to column one or two and whose vertex degrees are at most two. The scan permits degrees zero and one in column zero outside the chosen intervals. This soft rule is necessary: a run can begin or end at an arbitrary pending-edge state, rather than at an empty state.
+
+The state contains the current column, each pending edge, and the path-component partition of pending edges. Maximum row span two makes the state space finite. A new edge can only reach a future vertex. Thus a component with no pending edge can be forgotten. Two incoming edges in the same component would close a cycle and are rejected. Otherwise the transition merges their component labels, checks future endpoint degrees, and records the selected outgoing edges. This represents every legal forest prefix.
+
+Each crossing is counted when its later edge is added. An edge already completed before the current cell cannot properly cross a new edge: its largest row is at most the new edge's smallest row. Incoming edges share the current endpoint with the new edges. Comparing new edges with the other pending edges therefore counts all proper crossings exactly once. The row assignment is valid even when one edge started before the interval.
+
+The complete soft graph has 330 states and 700 arcs. A hard arc either processes a ghost column or completes degree two in column zero. There are 580 hard arcs. The saved integer potential satisfies
+
+    3w-1+p(u)-p(v) >= 0
+
+on every hard arc. Its row-boundary range is [-12,0]. A blocked interval of length l follows 3l hard arcs, so telescoping gives W(I)>=l-4. Applying this only to intervals longer than four, and using nonnegative crossing weights on all other transitions, gives
+
+    X_J >= sum_runs max(0,l-4).
+
+Disjoint row intervals have disjoint assigned transition sets. There is no crossing counted twice when these interval lower bounds are summed.
+
+I reran the author's generator and its separate verifier from copies under gap/verifier/. I also rebuilt the soft graph with the verifier's own forest transition code, without importing either author's builder, and checked the saved potential against all 580 hard arcs. The independent state set is exactly the saved 330-state set, and the row-boundary range is exactly [-12,0]. Evidence: claim27_interval.log, claim27_interval_independent.log, claim27_interval.py, and inner_boundary_certificate.json.
+
+### 27B. Why blocked rows supply separate crossings
+
+**PASS.** Let S_sigma contain all tour edges incident to depth zero or one, and let d_x(y) denote degree in this edge set. At a blocked centre row y,
+
+    d_3(y)=0,    d_2(y-2)=d_2(y+2)=2.
+
+All legal neighbours of (3,y) to its left are (1,y-1), (1,y+1), (2,y-2), and (2,y+2). The first condition excludes the two column-one edges. The other two vertices already have their full tour degree in S_sigma, so neither can supply a new edge to (3,y). Its two tour neighbours must therefore be in columns four or five.
+
+The graph J_sigma of all selected edges joining column three to columns four or five has maximum degree two and is a proper subgraph of the Hamiltonian cycle. It is a forest. After translation by three columns it has exactly the form of the interval lemma. This translation is applied to the entire J_sigma, not only to edges induced by the blocked rows. The latter restriction would lose the lemma's interval assignment. Each blocked run has degree two at all its column-three boundary vertices, so X_(J_sigma)>=K_sigma follows.
+
+For the same physical side, S_sigma and J_sigma share no edge. A crossing pair internal to one set therefore cannot be a crossing pair internal to the other. There is also direct geometric separation: S_sigma has endpoints at depths at most three, while a proper crossing internal to J_sigma lies strictly deeper than three. No K credit is taken from X_(S_sigma) on that side.
+
+Opposite sides' S/J sets cannot share an edge for n>=32. A crossing pair shared by sets from adjacent sides must have both its edges wholly inside the six-by-six corner square. That square contains 80 possible knight edges. The bound 3160=binomial(80,2) on a shared pair set is conservative and valid; it need not test whether every such pair crosses. Four adjacent side pairs and four choices of S/J give overcount at most 50560. For a pair present in m sets, m-1<=binomial(m,2), so pairwise intersection bounds control all multiplicities, including any higher-order overlap.
+
+It follows that
+
+    sum_sigma [X_(S_sigma)+X_(J_sigma)] <= X+50560,
+    D0+K <= X-4n+50560 = E+50558.
+
+Thus the separate budget N0 is valid, with the stated constant. Crossings credited to K may belong to the other side's strip near a corner; the proof does not assume otherwise and pays for that overlap explicitly. No K term is added to the square-area budget. It is used only in this separate crossing-count inequality, which prevents double use of the extra credit in N1.
+
+### 27C. Raw blocked rows, compressed history, and half splits
+
+**PASS.** After row r, the compressed state is
+
+    (cand_(r-1), cand_r, g_(r-1), g_r),
+    cand_y=z_y*g_(y-2),    g_y=[d2(y)=2], z_y=[d3(y)=0].
+
+At row r+1, its emitted flag is cand_(r-1)*g_(r+1), exactly z_(r-1)*g_(r-3)*g_(r+1). This is the raw blocked condition for centre y=r-1. Its new candidate is z_(r+1)*g_(r-1). The state update therefore preserves the defining identity. Ghost degrees are measured when the corresponding cell is processed, as incoming plus newly selected edges; they are final degrees in S_sigma.
+
+Zero initial history makes the first four emitted flags zero. Rows 4 through n-1 emit exactly centre rows 2 through n-3, so there are no unproved boundary flags and no artificial terminal rows. The counter starts at zero, increments on a blocked flag, resets on an unblocked flag, and is capped at four. It pays one on the fifth and each later flag in a run. Hence its total equals sum max(0,l-4), including a run that ends at the final emitted flag.
+
+I checked the compression identity on all 64 raw history-bit states, all four next degree-bit inputs, and all five counter states (1280 cases). I checked all 4096 length-twelve flag words against direct run lengths and all thirteen split positions. The two author history checks also passed, including their longer runs and 18,000 random degree sequences. These finite checks verify the implementation; the displayed update identity proves it for arbitrary sequences.
+
+At n/2 the actual base state, history, and counter must continue. The proof does this. A k charge emitted in the far half can concern a centre row in the near half. That causes no error: the certificate uses additive transition weights and never requires the penalty a and credit k on one transition to have the same geometric centre row. Summing both halves recovers K_sigma exactly.
+
+Near-half parity is the physical row parity. Far-half parity is the local radius parity (n-1-y) mod two, which is opposite for even n. Both certificates include both initial phases and every history/counter at every base row-boundary state. They therefore include the actual split state with the required phase. Test-edge data are initialized from pending edges at the new orientation's first row; the state is not emptied.
+
+### 27D. Combined weights and independent certificate
+
+**PASS.** On a row arc, W=4(sum w-1), W0=4(sum w0-1), and t=2a. Here w0 counts a crossing pair if and only if BOTH of its edges are incident to column zero, counted once with the same later-edge assignment as w. It is not a count of pairs with only one boundary edge.
+
+For beta=16/11 the exact integer inequality is
+
+    11W+16W0+44k-32t+p(u)-p(v) >= 0.
+
+Dividing its sum by 44 gives exactly
+
+    X_H-m+(16/11)(b_H-m)+K_H
+        >= (16/11) sum_H a - 149/11.
+
+X_H and b_H here mean crossings assigned to the half's transitions, not crossings in a subgraph induced by its rows. The coefficient of K_H is one and the coefficient of sum a is 16/11, as N1 requires. No scale factor is missing.
+
+I read combo_stab.py and the C++ implementation. The Python graph adds four cell transitions per row, accumulates the listed endpoint edges, obtains both ghost degrees, and attaches the compressed history. Its endpoint coefficient and exception rules agree with Section 2. Its exact fixed-point relaxation has the correct potential-inequality direction.
+
+I then rebuilt the graph independently. claim27_rows.py uses the verifier's previously audited Claim 26 forest transition routine, with no worker implementation imports. It retains the full selected edge set over each row and recomputes both endpoint orientations from that set. It records the ghost degrees directly, along with both crossing counts. It gives 82,516 base states, 144,674 cell arcs, 21,420 row-boundary states, and 250,990 complete row paths.
+
+claim27_relax.cpp forms the product with both parities, all sixteen compressed histories, and all five counters. It keeps this graph implicit and starts an integer potential of zero at every node. It uses in-place relaxation and then checks every arc again. This differs from the author's array-based Python relaxation. No author potential is used. The results are:
+
+| Orientation | Nodes | Checked augmented row arcs | Passes | Potential range | Minimum reduced cost |
+| --- | ---: | ---: | ---: | --- | ---: |
+| up | 3,427,200 | 40,158,400 | 20 | -596..0 | 0 |
+| down | 3,427,200 | 40,158,400 | 19 | -596..0 | 0 |
+
+The graph includes all row-boundary histories, even combinations that do not arise on an actual tour. This can only strengthen the certificate requirement. The potential error is exactly 596/44=149/11 in each orientation. The deterministic row records and both potential arrays are saved with hashes.
+
+I also compiled a byte-identical copy of gap/searcher/lower/r2.cpp and reran both allhist certificate commands. Up used 13,817,578 nodes and 26,603,962 arcs; down used 20,645,732 nodes and 40,130,652 arcs. Both converged with zero violated arcs. Their full cell-state ranges are [-667,0] and [-687,0]. Those larger ranges are consistent with a different graph and are not used for the theorem's constant. The independent row rebuild above directly validates the smaller ranges that the theorem needs.
+
+The C++ allhist option seeds every raw history at the empty base state and then explores reachable states; the Python and new verifier row graphs seed every history at every base row-boundary state. These are different state sets. Actual whole-side scans and their intermediate half starts are covered by the former, while the latter explicitly supplies the stronger arbitrary row-state statement used in the proof. There is no need to identify their potential ranges.
+
+### 27E. N1, final constants, and the blocking field
+
+The eight oriented half walks partition all full-side transitions. Their w sums give sum X_sigma, their w0 sums give sum b_sigma, and their delayed k sums give K. All penalties are nonnegative, so the penalty total over all scanned rows is at least A, the total over candidate endpoints only. Summing the eight half inequalities gives
+
+    (16/11)(A-R) <= D0+K+1192/11.
+
+Combining N0 yields
+
+    (16/11)(A-R) <= E+50558+1192/11,
+    A-R <= (11/16)E+557330/16.
+
+Substitution into the unchanged square budget gives
+
+    32n <= 43E+558578,
+    43X >= 204n-558664.
+
+All constants were recomputed with exact rational arithmetic. The constant 558664/43 is at most 12993. The required size is even n>=32: it supplies the candidate path range, separated corner boxes, and all opposite-side separation conditions. No additional size restriction enters the interval lemma or certificate.
+
+The period-eight field in check_combo_obstruction.py also passes. I reran that checker and independently enumerated its degrees, crossings, boundary pairs, blocked flags, and both endpoint orientations/phases. Per eight rows it has X=16, b=8, blocked rows {1,2,5,6,7} modulo eight, runs of length two and three, and K=0. Up penalties are 11/2 and 5 in the two phases; down penalties are 5 and 11/2. Thus its ratio is 8/(11/2)=16/11.
+
+Its forest property is not limited to a finite test window: following a nonterminal strand through successive column-zero vertices changes their row by three in one direction. The replaced edge terminates such a strand at a ghost port. No finite cycle can occur. The periodic field therefore obstructs beta>16/11 for this strip method. Optimality is not needed for the all-tour theorem, whose proof uses only the verified certificate.
+
+### Reproduction and repairs
+
+No mathematical repair to the submitted theorem is required. The author can change its conditional status to audited PASS. Keep the existing definitions of assigned crossing counts, the empty initial history, preserved split history, and the Hamiltonian-tour scope; these are essential to the proof.
+
+Run the independent certificate from the research root:
+
+    .venv/bin/python gap/verifier/claim27_rows.py
+    g++ -O2 -std=c++17 gap/verifier/claim27_relax.cpp -o gap/verifier/claim27_relax
+    gap/verifier/claim27_relax
+    .venv/bin/python gap/verifier/claim27_interval.py
+    .venv/bin/python gap/verifier/claim27_local.py
+
+The interval checker reads the copied interval potential in gap/verifier/inner_boundary_certificate.json. The copied generator and separate verifier can regenerate and recheck it. The two C++ author-check commands are:
+
+    gap/verifier/claim27_r2 up cert 16 11 allhist
+    gap/verifier/claim27_r2 down cert 16 11 allhist
+
+The author's fixed-beta combo_stab.py command reports convergence but does not print or save the potential range in that command branch. For reproducible constants, use its critical branch or add an explicit range and final-arc report. This is a reporting improvement, not a defect in the checked inequalities. The verifier commands above print and assert the range and all-arc check directly.
+
+Sources are copied in gap/verifier/claim27_sources/. Logs, row records, potentials, exact local results, and hashes have prefix claim27_. No author file, proof post, or result index was edited. Heavy jobs ran sequentially, one process at a time. Claim 27 is complete. The remaining publication action is for the proof author or integrator to update the theorem's status and result index with this audited bound.

@@ -1,0 +1,10 @@
+base: states 82516 arcs 144674
+orient down: 9 listed edges: (1,-1)-(0,1)-1 (0,0)-(1,2)-1 (0,0)-(2,1)-1 (0,-1)-(1,1)+1 (0,-1)-(2,0)+1 (0,-2)-(1,0)-1 (2,-2)-(1,0)-1 (1,-1)-(2,1)-1 (2,-1)-(0,0)+0; exceptional 8,4
+  ... 4194304 nodes, 8740762 arcs, 8s
+  ... 8388608 nodes, 16834674 arcs, 13s
+  ... 12582912 nodes, 24624643 arcs, 17s
+  ... 16777216 nodes, 33083835 arcs, 21s
+augmented: nodes 20645732 arcs 40130652 (all-history starts), built in 26s
+  converged after 20 passes (34s)
+down beta=16/11: CERTIFIED, potential range [-687, 0] (units 1/(4q)), violated arcs 0
+total 34s

@@ -1,0 +1,143 @@
+{
+  "date": "2026-10-03",
+  "states": 330,
+  "row_arcs": 1200,
+  "augmented_nodes": 520,
+  "checked_arcs": 4800,
+  "cap": 3,
+  "potential_range": [
+    -4,
+    0
+  ],
+  "arbitrary_subwalk_error": 4,
+  "finite_forest_error": 0,
+  "excluded_caps": {
+    "0": [
+      [
+        0,
+        [
+          24,
+          128,
+          0,
+          false,
+          0
+        ]
+      ],
+      [
+        -1,
+        [
+          128,
+          24,
+          0,
+          true,
+          0
+        ]
+      ]
+    ],
+    "1": [
+      [
+        -1,
+        [
+          20,
+          24,
+          0,
+          true,
+          1
+        ]
+      ],
+      [
+        0,
+        [
+          24,
+          128,
+          0,
+          false,
+          1
+        ]
+      ],
+      [
+        0,
+        [
+          128,
+          13,
+          0,
+          false,
+          0
+        ]
+      ],
+      [
+        0,
+        [
+          13,
+          20,
+          0,
+          true,
+          0
+        ]
+      ]
+    ],
+    "2": [
+      [
+        -1,
+        [
+          20,
+          24,
+          0,
+          true,
+          2
+        ]
+      ],
+      [
+        0,
+        [
+          24,
+          128,
+          0,
+          false,
+          2
+        ]
+      ],
+      [
+        0,
+        [
+          128,
+          14,
+          0,
+          false,
+          0
+        ]
+      ],
+      [
+        0,
+        [
+          14,
+          113,
+          0,
+          false,
+          0
+        ]
+      ],
+      [
+        0,
+        [
+          113,
+          13,
+          0,
+          true,
+          0
+        ]
+      ],
+      [
+        0,
+        [
+          13,
+          20,
+          0,
+          true,
+          1
+        ]
+      ]
+    ]
+  }
+}
+PASS: two builders; cap-3 finite-forest credit with zero error; arbitrary subwalk error 4; caps 0,1,2 have negative cycles.

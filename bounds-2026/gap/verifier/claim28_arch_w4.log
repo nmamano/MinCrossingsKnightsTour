@@ -1,0 +1,9 @@
+kind edge A=0 W=4 OFF=0 positions/row 6: 0b(up0,dn0) 1b(up0,dn0) 2b(up1,dn0) 3b(up1,dn0) 4g(up0,dn1) 5g(up0,dn1)
+warm-up states 73354, steady seeds 6665
+  q=2000000 states=2239435 edges=2506454 arena=61MB 11s
+  q=4000000 states=4476151 edges=5192432 arena=121MB 23s
+  q=6000000 states=6244291 edges=7503907 arena=171MB 33s
+states 6950475 edges 8546081 arena 192MB, BFS 38s
+steady states 6950475 of 6950475
+  current 0: core 2429580
+    certified 2/6 after 0 refinements, 0.4s; potential range 78 (units of 1/L = 1/6 of a weight unit)

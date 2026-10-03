@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-03",
+  "history_transitions": 1280,
+  "flag_words": 4096,
+  "split_positions": 13,
+  "obstruction_X": 16,
+  "obstruction_B": 8,
+  "blocked": [
+    1,
+    2,
+    5,
+    6,
+    7
+  ],
+  "penalty_sums": {
+    "1": [
+      "11/2",
+      "5"
+    ],
+    "-1": [
+      "5",
+      "11/2"
+    ]
+  },
+  "corner_edges": 80,
+  "overcount": 50560,
+  "coefficient": "204/43",
+  "exact_constant": "558664/43",
+  "rounded_constant": 12993,
+  "status": "PASS"
+}

@@ -74,11 +74,11 @@ def main():
     assert coefficient_E==Fraction(11,2) and total_error==1968
     assert coefficient_X==Fraction(52,11) and constant_X==Fraction(3958,11)<360
     assert coefficient_X-Fraction(14,3)==Fraction(2,33)
-    report=dict(date='2026-10-03',status='finite checks passed; all-size proof awaiting external audit',
+    report=dict(date='2026-10-03',status='finite checks passed; all-size proof audited PASS in Claim 26',
                 checks=results,coefficient=str(coefficient_X),exact_subtracted_constant=str(constant_X),
                 rounded_subtracted_constant=360)
     (HERE/'check_52_11_report.json').write_text(json.dumps(report,indent=2)+'\n')
-    print('PASS: exact constants; proposed X >= 52n/11 - 360.')
+    print('PASS: exact constants; audited X >= 52n/11 - 360 (Claim 26).')
 
 if __name__=='__main__':
     main()
