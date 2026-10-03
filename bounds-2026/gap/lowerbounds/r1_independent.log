@@ -1,0 +1,6 @@
+base states 82516 arcs 144674 (w recomputed and matched)
+augmented nodes 188112 arcs 338200
+up beta=4/3: converged after 26 passes, no negative cycle; potential range -155..0 (units 1/(4q))
+base states 82516 arcs 144674 (w recomputed and matched)
+augmented nodes 335564 arcs 630778
+down beta=4/3: converged after 13 passes, no negative cycle; potential range -159..0 (units 1/(4q))

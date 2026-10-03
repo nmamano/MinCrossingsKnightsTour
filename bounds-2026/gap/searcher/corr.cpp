@@ -195,6 +195,80 @@ template <class CB> void trans(const St& s, CB cb) {
     }
 }
 
+// Minimum mean cycle over alive states. Howard (approximate, capped) gives a start cycle; then exact
+// refinement: Bellman-Ford/SPFA on integer weights L*w - S finds a cycle of smaller mean if one exists.
+// On return, cert = true means no cycle has mean < S/L (exact integer certificate).
+static double tnow() { return chrono::duration<double>(chrono::steady_clock::now().time_since_epoch()).count(); }
+void mmc(int N, const vector<vector<pii>>& G2, const vector<char>& alive, int NA, vector<int>& cyc, ll& S, int& L, bool& cert) {
+    double t0 = tnow();
+    typedef long double LD; const LD eps = 1e-7;
+    vector<int> pol(N, -1); vector<LD> eta(N), xv(N);
+    for (int u = 0; u < N; u++) if (alive[u]) { int bj = -1; for (int j = 0; j < (int)G2[u].size(); j++) if (alive[G2[u][j].first] && (bj < 0 || G2[u][j].second < G2[u][bj].second)) bj = j; pol[u] = bj; }
+    int it;
+    for (it = 0; it < 200; it++) {
+        vector<char> color(N, 0); vector<int> path;
+        for (int s0i = 0; s0i < N; s0i++) if (alive[s0i] && !color[s0i]) {
+            path.clear(); int u = s0i;
+            while (!color[u]) { color[u] = 1; path.push_back(u); u = G2[u][pol[u]].first; }
+            if (color[u] == 1) {
+                LD sum = 0; int len = 0, v = u; do { sum += G2[v][pol[v]].second; len++; v = G2[v][pol[v]].first; } while (v != u);
+                LD e = sum / len; vector<int> cy; v = u; do { cy.push_back(v); v = G2[v][pol[v]].first; } while (v != u);
+                eta[u] = e; xv[u] = 0; color[u] = 2;
+                for (int i = cy.size() - 1; i >= 1; i--) { int w = cy[i]; eta[w] = e; xv[w] = G2[w][pol[w]].second - e + xv[G2[w][pol[w]].first]; color[w] = 2; }
+            }
+            for (int i = path.size() - 1; i >= 0; i--) { int w = path[i]; if (color[w] == 2) continue; int nx = G2[w][pol[w]].first; eta[w] = eta[nx]; xv[w] = G2[w][pol[w]].second - eta[nx] + xv[nx]; color[w] = 2; }
+        }
+        bool ch = false;
+        for (int u = 0; u < N; u++) if (alive[u]) { int bj = pol[u]; LD be = eta[G2[u][bj].first]; for (int j = 0; j < (int)G2[u].size(); j++) { int v = G2[u][j].first; if (alive[v] && eta[v] < be - eps) { be = eta[v]; bj = j; } } if (bj != pol[u]) { pol[u] = bj; ch = true; } }
+        if (!ch) for (int u = 0; u < N; u++) if (alive[u]) { int bj = pol[u]; LD bv = G2[u][bj].second - eta[u] + xv[G2[u][bj].first];
+            for (int j = 0; j < (int)G2[u].size(); j++) { int v = G2[u][j].first; if (!alive[v] || fabsl(eta[v] - eta[u]) > eps) continue; LD val = G2[u][j].second - eta[u] + xv[v]; if (val < bv - eps) { bv = val; bj = j; } }
+            if (bj != pol[u]) { pol[u] = bj; ch = true; } }
+        if (!ch) break;
+    }
+    int bu = -1; for (int u = 0; u < N; u++) if (alive[u] && (bu < 0 || eta[u] < eta[bu])) bu = u;
+    { vector<char> seen(N, 0); int u = bu; while (!seen[u]) { seen[u] = 1; u = G2[u][pol[u]].first; } bu = u; }
+    cyc.clear(); { int u = bu; do { cyc.push_back(u); u = G2[u][pol[u]].first; } while (u != bu); }
+    S = 0; for (int u : cyc) S += G2[u][pol[u]].second; L = cyc.size();
+    fprintf(stderr, "    howard: %d iterations, cycle %lld/%d, %.1fs\n", it, S, L, tnow() - t0);
+    // exact refinement
+    for (int round = 0; round < 1000; round++) {
+        vector<ll> d(N, 0); vector<int> par(N, -1), parw(N, 0), cnt(N, 0); vector<char> inq(N, 0); deque<int> q;
+        for (int u = 0; u < N; u++) if (alive[u]) { q.push_back(u); inq[u] = 1; }
+        int bad = -1; long relax = 0;
+        while (!q.empty() && bad < 0) {
+            int u = q.front(); q.pop_front(); inq[u] = 0;
+            for (auto& a : G2[u]) if (alive[a.first]) {
+                ll w = (ll)a.second * L - S;
+                if (d[u] + w < d[a.first]) {
+                    d[a.first] = d[u] + w; par[a.first] = u; parw[a.first] = a.second;
+                    if (++relax % (4L * NA + 16) == 0) {
+                        // look for a cycle in the parent graph
+                        vector<int> mark(N, 0); int stamp = 0;
+                        for (int s0 = 0; s0 < N && bad < 0; s0++) if (alive[s0] && !mark[s0]) {
+                            ++stamp; int v = s0; while (v >= 0 && !mark[v]) { mark[v] = stamp + 1000000; v = par[v]; }
+                            if (v >= 0 && mark[v] == stamp + 1000000) bad = v;
+                            v = s0; while (v >= 0 && mark[v] == stamp + 1000000) { mark[v] = 1; v = par[v]; }
+                        }
+                        if (bad >= 0) break;
+                    }
+                    if (!inq[a.first]) { q.push_back(a.first); inq[a.first] = 1; }
+                }
+            }
+        }
+        if (bad < 0) { cert = true; fprintf(stderr, "    certified %lld/%d after %d refinements, %.1fs\n", S, L, round, tnow() - t0); return; }
+        // parent cycle through bad (edges par[v] -> v)
+        vector<int> cy; int v = bad; do { cy.push_back(v); v = par[v]; } while (v != bad);
+        reverse(cy.begin(), cy.end());
+        ll s2 = 0; for (int x : cy) s2 += parw[x];   // weight of edge par[x] -> x
+        // reorder so that cyc[i] -> cyc[i+1]: cy is in forward order after reverse; edge into cy[i] from cy[i-1]
+        int L2 = cy.size();
+        if (s2 * L >= S * (ll)L2) { fprintf(stderr, "    parent cycle not better (%lld/%d); stop\n", s2, L2); cert = false; return; }
+        S = s2; L = L2; cyc = cy;
+        fprintf(stderr, "    refined to %lld/%d\n", S, L);
+    }
+    cert = false;
+}
+
 int main(int argc, char** argv) {
     setvbuf(stdout, NULL, _IONBF, 0);
     if (argc < 3) { fprintf(stderr, "usage: corr KIND W [maxstates] [target]\n"); return 1; }
@@ -267,41 +341,11 @@ int main(int argc, char** argv) {
             for (auto& a : G2[u]) if (alive[a.first] && --ind[a.first] == 0) { alive[a.first] = 0; dq.push_back(a.first); } }
         int NA = 0; for (int u = 0; u < N; u++) NA += alive[u];
         if (!NA) { printf("{\"kind\":\"%s\",\"W\":%d,\"current\":%d,\"status\":\"NO_CYCLE\"}\n", kind.c_str(), W, c); continue; }
-        typedef long double LD; const LD eps = 1e-9;
-        vector<int> pol(N, -1); vector<LD> eta(N), xv(N);
-        for (int u = 0; u < N; u++) if (alive[u]) { int bj = -1; for (int j = 0; j < (int)G2[u].size(); j++) if (alive[G2[u][j].first] && (bj < 0 || G2[u][j].second < G2[u][bj].second)) bj = j; pol[u] = bj; }
-        for (int it = 0; it < 100000; it++) {
-            vector<int> color(N, 0), path;
-            for (int s0i = 0; s0i < N; s0i++) if (alive[s0i] && !color[s0i]) {
-                path.clear(); int u = s0i;
-                while (!color[u]) { color[u] = 1; path.push_back(u); u = G2[u][pol[u]].first; }
-                if (color[u] == 1) {
-                    LD sum = 0; int len = 0, v = u; do { sum += G2[v][pol[v]].second; len++; v = G2[v][pol[v]].first; } while (v != u);
-                    LD e = sum / len; vector<int> cyc; v = u; do { cyc.push_back(v); v = G2[v][pol[v]].first; } while (v != u);
-                    eta[u] = e; xv[u] = 0; color[u] = 2;
-                    for (int i = cyc.size() - 1; i >= 1; i--) { int w = cyc[i]; eta[w] = e; xv[w] = G2[w][pol[w]].second - e + xv[G2[w][pol[w]].first]; color[w] = 2; }
-                }
-                for (int i = path.size() - 1; i >= 0; i--) { int w = path[i]; if (color[w] == 2) continue; int nx = G2[w][pol[w]].first; eta[w] = eta[nx]; xv[w] = G2[w][pol[w]].second - eta[nx] + xv[nx]; color[w] = 2; }
-            }
-            bool ch = false;
-            for (int u = 0; u < N; u++) if (alive[u]) { int bj = pol[u]; LD be = eta[G2[u][bj].first]; for (int j = 0; j < (int)G2[u].size(); j++) { int v = G2[u][j].first; if (alive[v] && eta[v] < be - eps) { be = eta[v]; bj = j; } } if (bj != pol[u]) { pol[u] = bj; ch = true; } }
-            if (!ch) for (int u = 0; u < N; u++) if (alive[u]) { int bj = pol[u]; LD bv = G2[u][bj].second - eta[u] + xv[G2[u][bj].first];
-                for (int j = 0; j < (int)G2[u].size(); j++) { int v = G2[u][j].first; if (!alive[v] || fabsl(eta[v] - eta[u]) > eps) continue; LD val = G2[u][j].second - eta[u] + xv[v]; if (val < bv - eps) { bv = val; bj = j; } }
-                if (bj != pol[u]) { pol[u] = bj; ch = true; } }
-            if (!ch) break;
-        }
-        int bu = -1; for (int u = 0; u < N; u++) if (alive[u] && (bu < 0 || eta[u] < eta[bu])) bu = u;
-        { vector<char> seen(N, 0); int u = bu; while (!seen[u]) { seen[u] = 1; u = G2[u][pol[u]].first; } bu = u; }
-        // rotate cycle to start at a row boundary
-        vector<int> cyc; { int u = bu; do { cyc.push_back(u); u = G2[u][pol[u]].first; } while (u != bu); }
+        vector<int> cyc; ll sumC; int L; bool cert;
+        mmc(N, G2, alive, NA, cyc, sumC, L, cert);
         { int k = 0; while (k < (int)cyc.size() && dec(keys[cyc[k]]).pos != 0) k++; rotate(cyc.begin(), cyc.begin() + (k % cyc.size()), cyc.end()); }
-        ll sumC = 0; for (int u : cyc) sumC += G2[u][pol[u]].second; int L = cyc.size();
-        bool cert = true;
-        { vector<ll> d(N, 0); vector<char> inq(N, 0); vector<int> cnt(N, 0); deque<int> q;
-          for (int u = 0; u < N; u++) if (alive[u]) { q.push_back(u); inq[u] = 1; }
-          while (!q.empty() && cert) { int u = q.front(); q.pop_front(); inq[u] = 0;
-            for (auto& a : G2[u]) if (alive[a.first]) { ll w = (ll)a.second * L - sumC; if (d[u] + w < d[a.first]) { d[a.first] = d[u] + w;
-                if (!inq[a.first]) { if (++cnt[a.first] > NA + 1) { cert = false; break; } q.push_back(a.first); inq[a.first] = 1; } } } } }
+        vector<int> pol(N, -1);
+        for (int i = 0; i < L; i++) { int u = cyc[i], v = cyc[(i + 1) % L]; int bj = -1; for (int j = 0; j < (int)G2[u].size(); j++) if (G2[u][j].first == v && (bj < 0 || G2[u][j].second < G2[u][bj].second)) bj = j; pol[u] = bj; }
         // witness: edges (x1,y1,x2,y2) in planar coordinates, rows counted from 0 at the cycle start
         int rows = L / NP;
         printf("{\"kind\":\"%s\",\"W\":%d,\"A\":%d,\"OFF\":%d,\"current\":%d,\"status\":\"%s\",\"states\":%d,\"core\":%d,\"rows\":%d,\"crossings\":%lld,\"rate_per_row\":\"%lld/%d\",\"rate\":%.6f,\"edges\":[",

@@ -1,0 +1,6 @@
+kind diag A=1 W=5 OFF=-2 positions/row 7: -1g(up1,dn0) 0b(up0,dn1) 1b(up0,dn0) 2b(up0,dn0) 3b(up0,dn0) 4b(up0,dn1) 5g(up1,dn0)
+states 1053130 edges 1473406 arena 21MB, BFS 7s
+  current -2: core 157022
+    howard: 31 iterations, cycle 4/42, 0.8s
+    certified 4/42 after 0 refinements, 0.8s
+8.12s 155748KB

@@ -1,0 +1,44 @@
+[
+  {
+    "path": "w-turnstheory/check_knight_tiles.py",
+    "sha256": "6a1f68faf26e1f7f5bcd8032f701d2116c8ff101d07747f54529e9650a38877c",
+    "exit": 0,
+    "seconds": 0.387,
+    "log": "gap/verifier/claim26_local_check_knight_tiles.log"
+  },
+  {
+    "path": "w-turnstheory/check_corner_box.py",
+    "sha256": "499776b5b62318d7be206708c21d4b8e6de86e386ee29a37bdf40e12a072c92e",
+    "exit": 0,
+    "seconds": 0.078,
+    "log": "gap/verifier/claim26_local_check_corner_box.log"
+  },
+  {
+    "path": "w-turnstheory/check_col0_squares.py",
+    "sha256": "f8e03430469aa15863a0ea0480bb4999b1ec0e27660509fa741e42b18a80fa1e",
+    "exit": 0,
+    "seconds": 0.113,
+    "log": "gap/verifier/claim26_local_check_col0_squares.log"
+  },
+  {
+    "path": "w-turnstheory/check_square_defects.py",
+    "sha256": "2d1845f7db28761ca1e46bee23d77f37a6feb0401f749123ea5f0f7ffe7dc679",
+    "exit": 0,
+    "seconds": 0.486,
+    "log": "gap/verifier/claim26_local_check_square_defects.log"
+  },
+  {
+    "path": "w-turnstheory/check_endpoint_loss.py",
+    "sha256": "2e6d61e7aa265c17d3e86dab4773ecbeec865aae5cd52da4077c8ca7db51bcd4",
+    "exit": 0,
+    "seconds": 0.059,
+    "log": "gap/verifier/claim26_local_check_endpoint_loss.log"
+  },
+  {
+    "path": "gap/turnstheory/check_boundary_credit.py",
+    "sha256": "ba6993077a2ed00ca8c0d2dfe9d674f582d57aa7ea26f7de9dc65846e849eb71",
+    "exit": 0,
+    "seconds": 0.28,
+    "log": "gap/verifier/claim26_local_check_boundary_credit.log"
+  }
+]

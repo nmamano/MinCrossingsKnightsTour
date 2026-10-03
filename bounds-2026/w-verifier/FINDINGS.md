@@ -1,6 +1,6 @@
 # Independent verification — 2026-10-02
 
-**Latest audit, 2026-10-03: Claim 24 below. G1 is GAP as written. PASS for the corrected theorem: a geometrically simple free-fold return from (2,1) to a steep left-facing direction has net cycle step +1. Four-fold returns are excluded. Seven total folds are possible; seven net steps are excluded. The reflection linear part passes, but the claimed general defect-cost consequence needs a separate proof. Evidence: `gap/verifier/claim24_check.py/json` and `gap/verifier/claim24_author_output.txt`. No numerical bound changes.**
+**Latest audit, 2026-10-03: Claim 26 below is PASS. Every closed knight's tour on an even n by n board, n>=32, satisfies 11X >= 52n-3954, hence X >= 52n/11-360. The U1 boundary-surplus reduction is valid. An independent standard-library rebuild checked all 687,262 integer arc inequalities in each orientation and reproduced the ranges -155..0 and -159..0, with both initial parities. Both author independent-check commands also passed. Proof, constants, scope clarifications, and evidence are in Claim 26 and gap/verifier/claim26_*. No Lean result is claimed.**
 
 ## Claim 1: full tours with 9n + O(1) crossings
 
@@ -3162,3 +3162,379 @@ Both requested commands passed from a fresh copied project root with a clean env
 The generated margin report is identical to my independent Claim 23B report. The full fold report is identical to the original Claim 23B report. No source changed during this closeout. Evidence is in `claim23b_closeout.py`, the two `claim23b_closeout_*.diff` files, and `claim23b_closeout_clean/` (hashes, literal-text checks, command logs, report comparisons, and exits).
 
 No author source was edited. No further Claim 23B correction is required.
+
+# Claim 24: G1 same-edge free-fold nests — 2026-10-03
+
+**Verdict: GAP as written. PASS for the corrected net-step theorem and its reflection linear part. FAIL for a literal ban on seven total folds. GAP for the general defect-cost consequence.**
+
+I read `gap/BRIEF.md`, G1 in `gap/structures/FINDINGS.md`, its full `turning.py`, LB F3/F10/F13/F14, and Structures S8/S9. This is a light audit, with no solver and no change to an audited numerical bound. The audited G1 SHA-256 is `e78239dee547be28346117519b559a2406af38dab6ea7c206d0de0a666801637`; its script SHA-256 is `c4bc5143465421e149dba6510060ae461020fe13a6f8f2149b61180b93f4716f`.
+
+## Correct statement and all-length proof
+
+Replace the statement with:
+
+> Let P be a finite polygonal arc made of knight moves, with no geometric self-intersection, from A=(0,a) to a distinct B=(0,b), contained in x>=0. Its first direction is (2,1), its last direction is one of (-2,1), (-2,-1), and every nonstraight transition is a free fold on the stated eight-direction cycle. Orient the cycle as printed in F10a. Then b>a, the last direction is (-2,1), the total tangent rotation is 180 degrees minus 2 atan(1/2), and the signed net step count on the cycle is +1.
+
+Here atan is expressed in degrees. A path that is simple as a graph can have geometric crossings; that weaker meaning of simple is insufficient. Straight moves contribute zero rotation and zero cycle steps. Put the free-fold assumption in the first sentence: without it, the first assertion of G1 is false. For example, the simple knight arc `(0,2),(2,3),(4,2),(2,1),(0,0)` starts in (2,1), ends in (-2,-1), and returns below its start.
+
+1. Close P by B to A on the boundary if P meets that segment only at its endpoints. Otherwise use the outside detour `B -> (-epsilon,b) -> (-epsilon,a) -> A`, with epsilon>0. This detour is disjoint from P. In both cases the closed polygon is simple. Its rotation is +360 degrees for b>a and -360 degrees for b<a. Thus the argument works even if P has other contacts with x=0. The direct boundary closure in G1 requires the extra contact condition.
+
+2. Write theta=atan(1/2), so 0<theta<45 degrees. Subtracting the closing turns gives this exact table. The outside detour gives the same table as the direct closure.
+
+| End direction | b>a | b<a |
+| --- | --- | --- |
+| (-2,1) | 180-2theta | -180-2theta |
+| (-2,-1) | 180 | -180 |
+
+3. The eight positive cycle increments alternate between `180-2theta` and `90+2theta`. Their total is 1080 degrees. Reverse steps give the negatives of the same increments. Lift a direction walk to the integer line of cycle indices. A potential on this line shows that its rotation depends only on its net displacement k, even if the walk goes around the cycle many times. For every integer m, including negative m,
+
+```
+R(2m)   = 270m,
+R(2m+1) = 270m + 180 - 2theta.
+```
+
+4. Every positive increment is positive. Thus k>=2 gives R(k)>=270; k<=-2 gives R(k)<=-270. Every entry in the steep-end table is strictly between -270 and 270. Only k=-1,0,1 remain. Their endpoints are respectively (-1,-2), (2,1), (-2,1). Only k=1 is a steep left-facing endpoint, and its rotation selects b>a. This proves the result for arbitrary length. Enumeration through length 11 is not the all-length proof.
+
+This closes the four-fold spiral lead of S9 and upgrades the corresponding exclusion in LB F14a from measurement to proof. It does not prove a lower bound on the arch term.
+
+## Total folds versus net steps
+
+Four total folds in a return with the stated steep ports would require net displacement +4 or -4; both are excluded. A reduced seven-step return is also excluded. But seven total folds can have net displacement +1.
+
+A counterexample to the literal seven-fold ban has these successive leg endpoints:
+
+```
+(0,0), (8,4), (6,5), (8,6), (6,7),
+(8,8), (6,9), (8,10), (0,14).
+```
+
+Subdivide each leg into knight moves. The directions alternate between (2,1) and (-2,1); the leg lengths in moves are `4,1,1,1,1,1,1,4`. There are exactly seven horizontal free folds. Every move increases y by one, all intermediate vertices have x>0, and the path is geometrically simple. Its cycle word is `+,-,+,-,+,-,+`, of net +1. Horizontal layers with these alternating directions are free-fold fields, so this example is not just an abstract word.
+
+Replace the title by **“A simple free-fold same-edge return with steep ports has net cycle step +1.”** Replace each unqualified “7-fold” exclusion by “seven net cycle steps” or “a reduced seven-step walk.” Extra cancelling pairs remain possible.
+
+## Script check
+
+`python3 gap/structures/turning.py 11` ran successfully on 2026-10-03. Its arithmetic and enumeration are correct. However, `left = [d for d in CYC if d[0] < 0]` includes shallow ends. The actual output contains three cases:
+
+| End | Position of B | Net steps | Walk count, lengths 1 through 11 |
+| --- | --- | --- | --- |
+| (-2,1) | above | +1 | 637 |
+| (-1,-2) | below | -1 | 637 |
+| (-1,2) | below | -2 | 286 |
+
+Thus its final list is `[-2,-1,1]`, not `[1]`. To make its output match the theorem, filter both the printed table and the enumeration to `d in {(-2,1),(-2,-1)}`. Or retain the broader output and state explicitly that only the steep-end case is relevant. The script enumerates direction words, not geometric embeddings. A hit is a necessary rotation condition, not a proof of a realizable nest. The script currently prints results without assertions.
+
+The independent standard-library check `gap/verifier/claim24_check.py` rebuilds the free-fold graph from the integer-normal equations `n.u=n.v=1`, verifies the exact symbolic rotation formula for all words through length 11, reproduces the three counts, and checks the seven-fold counterexample. It imports no worker code. Exact angle coefficient pairs decide equality; floating point only selects principal angle branches. The all-length result is the proof above. Commands:
+
+```sh
+python3 gap/structures/turning.py 11
+python3 gap/verifier/claim24_check.py
+```
+
+Both ran as light single-process jobs. The saved outputs are `gap/verifier/claim24_author_output.txt` and `gap/verifier/claim24_check.json`.
+
+## Reflection consequence and remaining gap
+
+The composite fold isometry has linear part `(x,y) -> (x,-y)`: PASS. To make this explicit, reflection in a fold line sends the incoming direction to the negative of the outgoing direction. An arc of net step +1 has an odd number of folds. Therefore the linear part sends (2,1) to -(-2,1)=(2,-1). It is an orientation-reversing orthogonal map, so it is the horizontal reflection. Hence the full isometry has the form `g(x,y)=(x+t_x,-y+t_y)`, a horizontal reflection or glide reflection.
+
+The remainder of G1 does not follow from this result. Cancelling opposite cycle steps cancels rotation, but reflections in parallel lines at different positions leave a translation. This explains how a glide can remain. It does not show that each algebraic pair is a separate physical corridor with the hypotheses of S8. Also, a nonzero glide need not have odd shift; nor does odd integer current alone imply nonzero current modulo three (a current of 3 is odd). S8 itself allows a free current of plus or minus 3 along a jog band.
+
+To prove the claimed general cost consequence, supply a geometric decomposition into corridors, check the uniform exterior and strand hypotheses needed for the S8 parity argument, and prove an endpoint charge budget that permits cancellation between corridors and does not count an endpoint twice. No such argument is in G1 or `turning.py`. Replace that part by:
+
+> The net-step theorem rules out reduced four-step and seven-step steep same-edge returns. It allows additional fold pairs and a horizontal glide. Whether every such glide forces a defect structure, and what total crossing cost those structures require, needs a separate proof.
+
+No author file was edited. Claim 24 is complete. The next action is for Structures to apply these statement and scope repairs; the general defect-cost claim remains open.
+
+# Claim 25: fractional endpoint strip limit — 2026-10-03
+
+**Verdict: PASS for the four requested results, with the precise model and proof details below. The endpoint-table route has optimal coefficient beta=1. It does not improve the crossing lower bound 14n/3-O(1).**
+
+I checked L1 in `gap/lowerbounds/FINDINGS.md`, the source of both fractional certificate programs, both explicit obstruction programs, and Sections 11.1--11.4 of `w-turnstheory/FINDINGS.md`. This audit concerns the stated side-strip relaxation and the same residue test. It does not assert that the blocking strips extend to a closed tour, or that they obstruct a different global lower-bound method. Source hashes are in `gap/verifier/claim25_check.json`.
+
+## 1. Beta=1 and C=29/4: PASS
+
+There is a short verification that uses the already audited certificate. Let b be the old oriented failure flag: b=1 if F is not 2 modulo three or the inward exception is present. For either parity, F=2 and no exception give h=2 and a=0. In every other case a<=1=b. Thus `a<=b` for each row and each orientation, including arbitrary initial parity.
+
+Claim 23B independently checked integer potentials of range `[-29,0]` for the up, down, and joint binary tests. Its report `w-verifier/claim23b_stability.json` and run log `w-verifier/claim23b_clean/extra_2.log` agree. On each arc that certificate satisfies
+
+```
+4w - 1 - 4b + p(u) - p(v) >= 0.
+```
+
+Replacing b by a only increases the left side. Lift the state to include row parity; keep the same potential. On a walk of N complete rows, telescoping gives
+
+```
+X_strip - N >= sum_rows a - 29/4.
+```
+
+This proves the requested beta=1, C=29/4 result for both orientations and both initial parities. It also covers subwalks that begin at an internal row state, as needed for the eight half-side walks in 11.3. The constant is a valid error bound; this audit does not claim it is the smallest possible one.
+
+The source of `frac_independent.py` correctly initializes pending test edges at row start, adds newly selected edges once, reflects the full test for the down orientation, charges `t=2a` only at row end, toggles parity, and uses integer weight `q(4w-1)-2pt`. Both parity choices are seeded at all base row states. Its finite graph and Bellman-Ford construction are sound. `frac_stab.py` uses the same charge with a larger accumulator graph; its extra accumulator states strengthen the check. Both base graph source files are byte-identical to the copies audited in Claim 23B.
+
+I read the supplied convergence logs but did not rerun the large fractional graph searches or check the saved NumPy arrays. The office load was above 10 throughout these checks, so I used the stronger prior certificate and the independent 12-case local dominance check. This is a proof of the requested inequality, not a claim of a fresh run of the two fractional implementations.
+
+## 2. Period-four obstruction: PASS
+
+The given field has one long edge at each cell in columns 0 and 1. Its short edges pair every such cell exactly once. Consequently those columns have degree two and the two ghost columns have degree one. Every component has one short edge and two long edges ending at ghosts, so the infinite field is a forest. This proves acyclicity for all rows, beyond the finite unroll used by the script.
+
+There are exactly eight proper crossing pairs per four rows, counted once by the later of the two lower endpoint rows. Thus a period has X_strip=8 and excess X_strip-4=4. There is no inward exception. For the printed field, the up test with phase 0 has h=1 at every row; the down test with phase 1 does too. Each period therefore has sum a=4. A proposed coefficient beta>1 gives period weight
+
+```
+(X_strip-4) - beta*sum a = 4(1-beta) < 0.
+```
+
+Repeating the field defeats every fixed endpoint error C. Translating the field by one row supplies the other initial parity in each orientation. The independent check tests all four orientation/parity cases. It also gives finite starting caps for both translates in width two: they change only rows 0 through 6, have valid degrees and no cycle, and then join the periodic field. Thus the obstruction is reachable from the empty strip scan; it is not merely a cycle in an unreachable state component.
+
+The author script correctly establishes an obstruction for one phase in each orientation, which already defeats a certificate required to cover both phases. Add the one-row translation argument when claiming the result separately for either fixed initial parity.
+
+## 3. Any common additive table a_c(h): PASS with the following explicit proof
+
+The scope is a table used to bound the discarded-path indicator by the sum of its two endpoint entries, with the same table at both ends and with c the parity of the common radius. In the no-exception case, the lost pair (1,2) requires
+
+```
+a_even(1)+a_even(2) >= 1,
+a_odd(1)+a_odd(2) >= 1.
+```
+
+The cheap field has h=2 at every row and zero excess. A valid strip certificate with beta>0 therefore requires
+
+```
+a_even(2)+a_odd(2) <= 0.
+```
+
+Summing the first two inequalities now gives
+
+```
+a_even(1)+a_odd(1) >= 2.
+```
+
+The blocking field has h=1 at every row, with equal numbers of even and odd rows, and excess one per row. Its mean table penalty is at least one, so beta<=1. This proof even allows signed table entries, provided the stated loss and strip inequalities hold.
+
+L1 instead says the cheap pattern forces each a_c(2)=0. That pointwise conclusion needs a nonnegativity step: for an ordinary nonnegative penalty table it follows immediately; it also follows from requiring the loss inequality for the retained pair (2,2), since `0<=2a_c(2)`. State that step, or replace the paragraph by the averaged proof above. The averaged proof is enough and avoids any added assumption.
+
+An exception-dependent extension of the table cannot evade this obstruction: the witness and cheap field both have no exception. This is a limit of this residue-based additive loss bound, not of all possible endpoint data, joint corner tests, or nonadditive bounds.
+
+## 4. Every fixed wider strip: PASS
+
+For S_k, k>=2, the full long-edge family can be written
+
+```
+(x,y)--(x+2,y-1),  0<=x<=k-1,
+```
+
+together with exactly the same short joins between columns 0 and 1. All long edges lie on parallel lines x+2y=constant. Cells in columns 2 through k-1 have one long edge toward smaller x and one toward larger x. Each ghost cell has only its edge toward smaller x. Each cell in columns 0 and 1 keeps its long edge and one short join. These statements give the required degrees for every k, including odd k.
+
+Each component consists of one short join and two long chains. Moving away from that join increases x by two until a ghost column is reached. The chains cannot merge: distinct chains have distinct line labels, and the two start columns have opposite label parity. Hence no component is a cycle. This supplies the all-width acyclicity argument missing from the brief sentence in L1.
+
+Added long edges cannot cross one another or an old long edge because they are parallel. They lie in x>=2, whereas short joins lie in 0<=x<=1, so they cannot cross a short join. Thus the crossing rate remains eight per four rows for every k. Every test edge has both endpoints in columns 0 through 2; none of the added edges is a test edge. Residues and penalties stay unchanged.
+
+The cheap field extends by the same long chains, retaining its zero excess and h=2. Therefore the additive-table argument applies at each fixed width. Use the row-normalized inequality `X_strip-N >= beta*sum a-C_k`. A scan of S_k has k+2 transitions per row, so its baseline per transition is `1/(k+2)`, not `1/4` when k differs from two. Repetition removes any finite C_k. The statement concerns the periodic strip relaxation with its existing degree and forest conditions; extra conditions from a full tour are outside this obstruction.
+
+## Check record and required scope wording
+
+On 2026-10-03, these commands all passed, sequentially, with one Python process and no solver:
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 python3 gap/lowerbounds/check_frac_obstruction.py
+PYTHONDONTWRITEBYTECODE=1 python3 gap/lowerbounds/check_frac_obstruction_wide.py
+python3 gap/verifier/claim25_check.py
+```
+
+The author logs are `gap/verifier/claim25_obstruction.log` and `gap/verifier/claim25_wide.log`. The independent standard-library script imports no worker code. It checks the twelve penalty-dominance cases, reconstructs both periodic fields, checks their degrees and forests, counts crossings by exact determinants for widths 2 through 8, checks all orientation/parity cases, and checks the two width-two starting caps. Its report is `gap/verifier/claim25_check.json`. The proof above, rather than those seven sampled widths, establishes the extension to every fixed k.
+
+Keep the last part of L1 labelled ARGUMENT. The residue sum `1+2=0 mod 3` does show that these local endpoint data discard every affected candidate path. It does not prove that a completed tour realizes those data on two adjacent sides or attains equality in the complete area and path budget. Replace “the loss is also real” by “the endpoint-residue loss bound is also tight for these local data.”
+
+No author file was edited. Claim 25 is complete. Lower Bounds should add the parity translation, the averaged table proof (or the nonnegativity step), the all-width forest argument, and the local-data scope wording. The strip route closes at beta=1; a new lower-bound improvement needs information beyond this additive residue test.
+
+# Claim 26: boundary surplus gives 52n/11-O(1) crossings — 2026-10-03
+
+**Verdict: PASS, both parts. For every even n>=32, every closed knight's tour on an n by n board satisfies**
+
+    11X >= 52n - 3954,
+    X >= 52n/11 - 360.
+
+The leading coefficient is 52/11, strictly larger than 14/3 by 2/33. This is a computer-certified mathematical proof. It uses the previously audited tile and charge lemmas and a new independently rebuilt finite potential. No Lean theorem for this result was checked or claimed. The forest condition retains the Hamiltonian-tour scope; this audit does not extend the result to all spanning 2-factors.
+
+I checked U1 and its U2-to-U3 implication in gap/turnstheory/FINDINGS.md, request R1, L3 in gap/lowerbounds/FINDINGS.md, both R1 programs and their fractional-state dependencies, and appendix B of the audited crossings post. The audit input copies and SHA-256 hashes are in gap/verifier/claim26_sources/.
+
+## A. Boundary surplus and retained paths
+
+### Actual boundary sets and the exact union error
+
+Keep the audited definitions. S_sigma consists of all tour edges with an endpoint in column 0 or 1 in side sigma's coordinates, and X_sigma counts crossing pairs within it. B_sigma consists of all crossing pairs whose two edges each have an endpoint in column 0. Put b_sigma=|B_sigma| and B=union_sigma B_sigma. Here b_sigma is a boundary crossing count, not the old failed-row count from appendix B.5.
+
+Opposite boundary sets are disjoint for n>=32. An edge common to two adjacent boundary edge sets must be one of the four corner edges listed in appendix B.6. Those four edges have five possible crossing pairs. Thus each adjacent set intersection has size at most five, and the elementary union bound gives
+
+    |B| >= sum_sigma b_sigma - 20.
+
+This uses all actual boundary crossing pairs. It does not select a smaller subset of size n-1 per side. No sign assumption on their surplus is needed. Define
+
+    R = sum_sigma b_sigma - 4n,
+    D = sum_sigma X_sigma - 4n,
+    E = X - 4n + 2.
+
+Then |B| >= 4n+R-20. In particular, R is allowed to be negative.
+
+### Fractional loss and full-square avoidance
+
+At each corner retain the candidate curves gamma_r from the audited proof, for 12<=r<=n/2-4. There are exactly 2n-60 candidates, with disjoint dual vertices and whole squares inside the board. For each endpoint let c=(-1)^r, let F be its correctly oriented eight-edge sum, and set
+
+    h = (1+c)/2 + c*(F+2) modulo 3.
+
+The exact endpoint identity in appendix B.3 gives integral_Q omega = h_left+h_bottom modulo 3, without requiring F=2. Let e be its oriented inward-exception indicator. Use the Section 11 penalty: a=1 when e=1; otherwise a is 1/2, 1, or 0 for h=0, 1, or 2 respectively.
+
+Discard a candidate if either endpoint has e=1 or its two residues sum to zero. Define A to be the sum of a over the two endpoints of every candidate, including discarded candidates. The 36 residue/exception cases give discard_indicator <= a_left+a_bottom. Therefore
+
+    L >= 2n - 60 - A.
+
+Every retained path is charged. More importantly for this change, its whole squares avoid the tile overlap of EVERY pair in B. The boundary overlap lemma is independent of the old F=2 test: a pair from B_sigma can enter a depth-one square only through the stated exceptional pair, and cannot enter a square at depth two or more. Retention excludes that exception at both endpoints. The other path squares are too far from all four boundary strips. Enlarging B to its actual size therefore does not invalidate the exclusion. The independent geometry check enumerates all ten unordered boundary crossing types up to translation, equivalent to the author's twenty anchored orders, and confirms the unique inward exception.
+
+The fractional rule is essential here. One must use these charged, nonexceptional paths rather than silently retain the old rule that discards every failure of the joint binary test.
+
+### Square budget with the surplus retained
+
+The audited tile identity gives at most 2E uncovered quarters. If U is the union of the whole squares on retained paths, each multiply covered quarter in U belongs to a crossing pair outside B, and each such pair accounts for at most two quarters. Each charged path forces two bad quarters in its own squares. Consequently
+
+    2L <= bad(U) <= 2E + 2(X-|B|)
+       <= 2E + 2[(4n-2+E)-(4n+R-20)]
+        = 4E - 2R + 36.
+
+Combining this with the bound on L yields the explicit U1 inequality
+
+    4n <= 4E + 2(A-R) + 156.                       (26.1)
+
+This is a direct use of the old area budget before replacing |B| by its minimum. The same R will occur in the strip certificate and cancel algebraically; no assumption that the two inequalities use separate crossing pairs is needed.
+
+For the width-two strip counts, the audited overcount bound remains unchanged. A pair counted at two adjacent sides has both edges in that corner's 4 by 4 square. It contains 24 possible knight edges, so the total excess count is at most 4*binomial(24,2)=1104. Opposite strips cannot share a pair. Thus
+
+    sum_sigma X_sigma <= X+1104,
+    D <= E+1102.                                    (26.2)
+
+## B. R1 weights, parity, and half walks
+
+### Exact crossing ownership
+
+Scan each full side in increasing (row,column) order, with four transitions per row. Every edge is selected once, at its earlier endpoint. The transition that selects the later edge of a crossing pair owns that pair. An edge whose endpoints were both processed cannot cross a new edge because their open row intervals are disjoint. Edges that end at the current cell share that cell with new edges and cannot cross them properly. Therefore it is sufficient to compare new edges with still-pending edges and with earlier new edges at that transition.
+
+The new weight w0 counts such a pair if and only if BOTH of its edges have an endpoint in column zero. This is precisely membership in B_sigma, not merely incidence of one edge, nor incidence of the crossing point. The author code uses the correct test. The independent program counts w and w0 directly while it generates chosen edges; it does not recover w0 from an author graph or an author weight array.
+
+Summed over the full side, w gives X_sigma and w0 gives b_sigma, each pair once. Splitting at row n/2 preserves those totals, including pairs with edges on both sides of the split. For a half walk, call these assigned counts X_H and b_H. They need not equal counts in the subgraph induced by the half-board cells.
+
+### Normalization of the potential inequality
+
+Let a be the fractional penalty above and charge t=2a only at row end. For beta=p/q the proposed integer arc cost is
+
+    q*(4w-1) + p*(4w0-1) - 2p*t.
+
+The constants -q and -p occur on every transition. Over m complete rows, division by 4q therefore gives exactly
+
+    (X_H-m) + beta*(b_H-m) - beta*sum_H a.
+
+At p=4, q=3 the cost is 12w+16w0-7-8t. An integer potential of width M gives
+
+    (X_H-m) + (4/3)*(b_H-m) >= (4/3)*sum_H a - M/12. (26.3)
+
+This is exactly U2's required cost. There is no missing factor of four, extra boundary baseline, or double row-end penalty.
+
+### Both orientations and both initial parities
+
+Use the up test on scan rows 0..n/2-1 and the down test on rows n/2..n-1. The near-corner candidate endpoint rows are 12..n/2-4; the far rows are n/2+3..n-13. They are disjoint and lie in the respective halves. The far corner's local radius is n-1-y, so its parity is opposite to the global row parity when n is even. At the start y=n/2 of that half its radius parity is (n/2-1) mod 2, and it toggles on every row. The certificates explicitly permit either initial parity, so they cover this choice.
+
+Both half walks keep the actual pending edges and component labels from the full scan. They do not restart the strip at an empty state. The row accumulator is initialized from pending test edges at that row, and both certificates cover every reachable base state at row start with either parity. Thus a midline cut introduces only the potential endpoint error. It introduces no additional crossing or row-history error.
+
+All a are nonnegative. The eight half walks pay for every row, so their penalty sum is at least A, the smaller sum over candidate endpoint rows. With four up halves and four down halves, summing (26.3) gives
+
+    (4/3)*A <= D + (4/3)*R + C_total,
+    C_total = 4*(155/12) + 4*(159/12) = 314/3.        (26.4)
+
+Using the common bound 53/4 for every half is also valid; it gives C_total=106 instead.
+
+## C. Independent finite certificate and source audit
+
+gap/verifier/claim26_certificate.py is a new standard-library checker with no worker imports. It generates all legal degree-two choices in columns 0 and 1 and degree-at-most-two choices in columns 2 and 3, using only edges incident to the first two columns. Pending component labels reject cycle closure. The graph starts from the empty state. The independent transition construction is the same mathematical forest model as the audited proof.
+
+It rebuilds 82,516 base states and 144,674 base arcs. Its augmentation retains all twenty possible edges that meet the current row, and also its parity. It seeds both parities at every base row-start state. This gives 368,012 augmented states and 687,262 arcs. It has more states than the author's test-edge-only graphs; it does not copy their accumulator implementation.
+
+The checker independently derives both oriented penalties from the retained row edges. Bellman-Ford uses exact integers and a virtual source to all nodes. After convergence it checks EVERY arc inequality again. On 2026-10-03 the results were:
+
+| Orientation | Potential range | Arc inequalities checked | Error C |
+| --- | --- | ---: | --- |
+| up | [-155,0] | 687,262 | 155/12 |
+| down | [-159,0] | 687,262 | 159/12=53/4 |
+
+Both minimum reduced costs are zero. The range is over all generated states, not only the empty start or one parity. The exact potential arrays are retained as claim26_potential_up.json.gz and claim26_potential_down.json.gz, in the deterministic node order defined by the checker. Their uncompressed hashes are in claim26_certificate.json.
+
+I also reran r1_independent.py up 4 3 and r1_independent.py down 4 3, sequentially on one core. Both independently rebuilt author graphs and reproduced their stated ranges. The audit wrapper required the convergence text and exact range, not just exit code zero. The author logs are claim26_author_up.log and claim26_author_down.log; command results are in claim26_author_runs.json.
+
+The source checks of r1_stab.py and r1_independent.py pass: both use the correct two-edge boundary-incidence test, reconstruct new versus pending edges in a common row frame, verify their reconstructed total w against the base weight, and charge t only at row end. Their reflected tests and parity updates agree with the independent checker. The former maps each accumulator copy back to the proper base arc when adding w0. I did not rerun the NumPy Dinkelbach search, since the direct certificate and sharp witness settle the requested coefficient.
+
+The independent checker also checks the old saturated field over two rows: X_H=4, b_H=2, and sum a=3/2 in each orientation and either parity phase. Thus the boundary surplus is zero and its certificate ratio is 2/(3/2)=4/3. This proves that beta=4/3 is the limit of this particular strip inequality. Its optimality is not needed for the global lower bound.
+
+## D. Explicit final algebra
+
+Combine (26.2) and (26.4):
+
+    (4/3)*(A-R) <= E + 1102 + 314/3 = E + 3620/3,
+    A-R <= (3/4)*E + 905.
+
+Insert this into (26.1):
+
+    4n <= 4E + 2*((3/4)*E+905) + 156
+        = (11/2)*E + 1966,
+    8n <= 11E + 3932,
+    11X = 44n-22+11E >= 52n-3954.
+
+Hence X >= (52n-3954)/11 >= 52n/11-360. If one uses 53/4 uniformly for all eight halves, the same proof gives 11X >= 52n-3958, which still implies the displayed rounded bound. The sharper constant 3954 uses the separate orientation ranges and no extra assumption.
+
+The constants 20, 1104, 60, 155, and 159 have distinct sources: boundary-set duplication, width-two strip duplication, omitted candidate radii, and the two potential widths. No corner or half-walk error is omitted. The size condition n>=32 is the same sufficient condition used for the audited candidate paths and strip separation.
+
+## Evidence and required presentation repairs
+
+Commands from the project root:
+
+~~~sh
+python3 gap/verifier/claim26_certificate.py
+PYTHONDONTWRITEBYTECODE=1 python3 gap/verifier/claim26_geometry.py
+PYTHONDONTWRITEBYTECODE=1 python3 gap/lowerbounds/r1_independent.py up 4 3
+PYTHONDONTWRITEBYTECODE=1 python3 gap/lowerbounds/r1_independent.py down 4 3
+~~~
+
+All passed on 2026-10-03, sequentially with at most one computation process at a time. claim26_geometry.py uses only earlier verifier tile/tour helpers and the new independent scan. It checks boundary overlap types, the two corner overcount constants, the endpoint coefficient identity at both parities, all 36 loss cases, candidate geometry and far-half parity for even n=32..100, and the exact final arithmetic. It also validates the saved n=96 and n=98 tours independently, then checks every scan transition on all four sides against their selected edges. The direct crossing counts equal the assigned half-walk totals for both w and w0. These finite examples verify the implementation; the all-n scope follows from the proof above.
+
+Reports and logs are gap/verifier/claim26_certificate.json/log and gap/verifier/claim26_geometry.json/log. No author proof or program was edited.
+
+For the final proof, define A as the candidate-endpoint sum, distinguish the new b_sigma from the old failed-row variable, use assigned half-walk counts in L3's display, and give the explicit far-half parity rule. Replace U1's pending status only with the theorem and certificate scope established here. This is a new Python-certified bound; the existing Lean statements remain unchanged. The next action is for the proof authors to add this audited reduction and certificate to the proof and result index before publication. Claim 26 is complete.
+
+### Claim 26: full draft and reproduction follow-up, same audit
+
+Turns Theory added PROOF_52_11.md and check_52_11.py during this audit. I read both. The draft's geometric reduction, penalty definition, far-half parity, state continuity across the split, and common-error constant 3958/11 agree with the proof above. Its section-by-section comparison correctly identifies the changes to the audited 14/3 proof. The new text already supplies the A, b_sigma, and half-walk scope clarifications requested above. Its coefficient and rounded constant need no change. Using the separate orientation ranges would optionally improve its exact numerator from 3958 to 3954.
+
+Two small definitions should be made explicit in Section 4. Replace “The transition chooses edges to later cells, meets the degree rule, and rejects cycle closure and excess future degrees.” with:
+
+> The transition chooses only legal knight edges to later cells that have an endpoint in column zero or one. It meets the stated degree rule and rejects cycle closure and excess future degrees.
+
+Replace “Every test edge straddles the tested row, so none is omitted.” with:
+
+> Every test edge has minimum row at most the tested row and maximum row at least the tested row. It is therefore pending at row start or is selected during that row.
+
+Some test edges touch the tested row only at an endpoint. The implementation correctly includes them. These are presentation clarifications, not failed proof steps.
+
+I ran all six local component commands listed in the new draft: tile geometry, corner flux, boundary overlap, square defects, endpoint loss, and boundary credit. All passed. Their logs, source hashes, and exits are in gap/verifier/claim26_local_runs.json and the six claim26_local_*.log files. Together with the two author certificate runs already completed, this reruns all eight component commands required by the new runner. I also inspected its exact rational calculation and its assertions on convergence and potential range. I did not invoke the aggregate runner itself because it writes to the author's directory, which is read-only for this audit.
+
+Final source comparison found only additions to Turns Theory's FINDINGS.md and REQUESTS.md: the new full-proof status, the reproduction summary, and a separate future proposal. The U1 proof and R1 request body audited here did not change; all lower-bound implementation inputs stayed byte-identical to the snapshots. The two new proof/runner files are also copied into claim26_sources/. The separate future proposal is outside Claim 26. Final verdict remains PASS.
+
+
+## Claim 26 consolidated-document verdict — 2026-10-03
+
+**Audit object: gap/turnstheory/PROOF_52_11.md. Verdict: PASS.** U1--U3 and L3 are its supporting sources. The current document is byte-identical to the full draft read during Claim 26; its SHA-256 is 761f3d3f6c590aa1ff5319b3394ff352598581b4f3c85a09cc2a814bd6e246a6.
+
+The document proves, for every closed knight's tour on an even n by n board with n>=32,
+
+    11X >= 52n-3958,
+    X >= 52n/11-360.
+
+These are the document's own constants, using the common half-walk error 53/4. Claim 26's optional sharper numerator 3954 uses the separate orientation errors; it is not the numerator printed in this document. Both versions have the same rounded constant 360 and the same size range.
+
+I checked check_52_11_report.json: all eight component checks are listed as passed, with the correct potential ranges and exact constant 3958/11. That aggregate report reuses its two stability logs. My Claim 26 audit freshly reran both stability checks and all six local checks, and also rebuilt the certificate independently, so its verdict does not depend on accepting those reused logs without verification.
+
+The two Section 4 wording clarifications already quoted in Claim 26 remain applicable. They make the strip-edge restriction and inclusive row-incidence condition explicit; the surrounding definitions and checked implementation already supply those conditions. They do not change the PASS verdict. The author can update the draft's pending-review status and the results index after applying them. No author document was edited. The document audit is complete.

@@ -1,0 +1,59 @@
+{
+  "date": "2026-10-03",
+  "status": "finite checks passed; all-size proof awaiting external audit",
+  "checks": [
+    {
+      "check": "tile_geometry",
+      "status": "passed",
+      "reused": false
+    },
+    {
+      "check": "endpoint_flux",
+      "status": "passed",
+      "reused": false
+    },
+    {
+      "check": "boundary_overlap",
+      "status": "passed",
+      "reused": false
+    },
+    {
+      "check": "square_defects",
+      "status": "passed",
+      "reused": false
+    },
+    {
+      "check": "endpoint_loss",
+      "status": "passed",
+      "reused": false
+    },
+    {
+      "check": "boundary_credit",
+      "status": "passed",
+      "reused": false
+    },
+    {
+      "check": "stability_up",
+      "status": "passed",
+      "reused": true,
+      "potential_range": [
+        -155,
+        0
+      ],
+      "potential_denominator": 12
+    },
+    {
+      "check": "stability_down",
+      "status": "passed",
+      "reused": true,
+      "potential_range": [
+        -159,
+        0
+      ],
+      "potential_denominator": 12
+    }
+  ],
+  "coefficient": "52/11",
+  "exact_subtracted_constant": "3958/11",
+  "rounded_subtracted_constant": 360
+}

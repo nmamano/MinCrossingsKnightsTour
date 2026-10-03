@@ -1,0 +1,16 @@
+kind mid A=0 W=5 OFF=-2 positions/row 7: -1g(up1,dn0) 0b(up0,dn1) 1b(up0,dn0) 2b(up0,dn0) 3b(up0,dn0) 4b(up0,dn1) 5g(up1,dn0)
+warm-up states 4136046, steady seeds 448748
+  q=2000000 states=2861521 edges=3227660 arena=76MB 16s
+  q=4000000 states=4766027 edges=6138486 arena=122MB 29s
+  q=6000000 states=6762506 edges=8316084 arena=175MB 38s
+  q=8000000 states=9110127 edges=12259773 arena=236MB 58s
+  q=10000000 states=10476920 edges=15155660 arena=270MB 70s
+  q=12000000 states=12571050 edges=18149910 arena=325MB 82s
+  q=14000000 states=14235232 edges=21025693 arena=369MB 96s
+states 14725791 edges 22079123 arena 382MB, BFS 101s
+steady states 14725791 of 14725791
+  current 1: core 9395648
+    howard: 200 iterations, cycle 3/28, 506.3s
+    certified 3/28 after 0 refinements, 507.8s
+656.09s 2287452KB
+exit=0

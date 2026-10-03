@@ -1,0 +1,6 @@
+cells 1641 free edges 4968
+objective of the original tour T: 194
+pair vars 19763 built in 2 s
+  round: 7 components, obj 259.0, bound 133.0, 503s
+  round: 9 components, obj 258.0, bound 133.0, 1003s
+  round: 7 components, obj 259.0, bound 133.0, 1503s

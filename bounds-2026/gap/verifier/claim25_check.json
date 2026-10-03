@@ -1,0 +1,59 @@
+{
+  "date": "2026-10-03",
+  "dominance_cases": 12,
+  "widths": [
+    {
+      "k": 2,
+      "crossings_per_period": 8,
+      "all_orientation_parity_cases": "PASS"
+    },
+    {
+      "k": 3,
+      "crossings_per_period": 8,
+      "all_orientation_parity_cases": "PASS"
+    },
+    {
+      "k": 4,
+      "crossings_per_period": 8,
+      "all_orientation_parity_cases": "PASS"
+    },
+    {
+      "k": 5,
+      "crossings_per_period": 8,
+      "all_orientation_parity_cases": "PASS"
+    },
+    {
+      "k": 6,
+      "crossings_per_period": 8,
+      "all_orientation_parity_cases": "PASS"
+    },
+    {
+      "k": 7,
+      "crossings_per_period": 8,
+      "all_orientation_parity_cases": "PASS"
+    },
+    {
+      "k": 8,
+      "crossings_per_period": 8,
+      "all_orientation_parity_cases": "PASS"
+    }
+  ],
+  "empty_start_caps": "PASS: both translates; only rows 0..6 changed",
+  "additive_table_proof": [
+    "a_even(2)+a_odd(2) <= 0",
+    "a_even(1)+a_even(2) >= 1",
+    "a_odd(1)+a_odd(2) >= 1",
+    "a_even(1)+a_odd(1) >= 2",
+    "beta <= 1"
+  ],
+  "sha256": {
+    "gap/lowerbounds/FINDINGS.md": "524833ea28ee789173d699f64f9cdb0dd11a980012afea8e600aa843fc3237ed",
+    "gap/lowerbounds/frac_stab.py": "6649e6e34305934b3b73238902fc4cf16425ee7f30bd9d0670ed685f240768b2",
+    "gap/lowerbounds/frac_independent.py": "3f13305b3515c0f2c64a5ac99568de0c000001c95327eeede9f99719019273db",
+    "gap/lowerbounds/check_frac_obstruction.py": "f369027c792b7d1cf000185d13d4d23565af1b7eb449f2ee298054f557d97aff",
+    "gap/lowerbounds/check_frac_obstruction_wide.py": "f44806adc1dbfb1df5b2fa09bf184ef2cbc431ffe7edb89d1afdd639118fd815",
+    "w-verifier/claim23b_stability.py": "5c70e0e6a89a4e7151bb8fbabcdb3eec6dc17d154be30c36124d14d5cefd3172",
+    "w-verifier/claim23b_stability.json": "2b00d6c02d909828ccf1f83ddc181e9c35530b5cfc2f75bf972c6bb3497baa63"
+  },
+  "status": "PASS"
+}

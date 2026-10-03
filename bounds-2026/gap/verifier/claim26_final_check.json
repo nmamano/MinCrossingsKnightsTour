@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-03",
+  "potentials_and_reports": "PASS",
+  "source_changes_after_snapshot": [
+    "gap/turnstheory/FINDINGS.md",
+    "gap/turnstheory/REQUESTS.md"
+  ],
+  "claim26_count": 1,
+  "source_change_review": "PASS: additions only; audited U1 and R1 bodies unchanged",
+  "local_component_runs": 6,
+  "full_draft_review": "PASS with two definition clarifications",
+  "artifact_sha256": {
+    "gap/verifier/claim26_certificate.py": "ecba5336d243b95e524fc79f03289e372d8062e6411a940b689965aee20ace3f",
+    "gap/verifier/claim26_geometry.py": "3fd870862fd5d382f80323abb6206439b261b9db6680e4ee6a68e2ebfdcc1be3",
+    "gap/verifier/claim26_certificate.json": "c8022b144e0c68d4b0a24ebf88e4f7539654219e2308fdbc1350ea3610c257ff",
+    "gap/verifier/claim26_geometry.json": "15dd5ccc5fc2ebe4241e09662c61651a53b82dda2e24279a60f6c675ee4ec126"
+  },
+  "report_line": 3349
+}

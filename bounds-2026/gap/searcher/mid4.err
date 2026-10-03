@@ -1,0 +1,44 @@
+kind mid A=0 W=4 OFF=-2 positions/row 6: -1g(up1,dn0) 0b(up0,dn1) 1b(up0,dn0) 2b(up0,dn0) 3b(up0,dn1) 4g(up1,dn0)
+warm-up states 86066, steady seeds 51944
+states 715529 edges 968763 arena 15MB, BFS 3s
+steady states 715529 of 715529
+  current -6: core 12
+    howard: 0 iterations, cycle 6/12, 0.0s
+    certified 6/12 after 0 refinements, 0.0s
+  current -5: core 229
+    howard: 1 iterations, cycle 11/24, 0.0s
+    certified 11/24 after 0 refinements, 0.0s
+  current -4: core 1807
+    howard: 5 iterations, cycle 4/12, 0.0s
+    certified 4/12 after 0 refinements, 0.1s
+  current -3: core 9463
+    howard: 7 iterations, cycle 7/24, 0.1s
+    certified 7/24 after 0 refinements, 0.1s
+  current -2: core 38385
+    howard: 9 iterations, cycle 2/12, 0.2s
+    certified 2/12 after 0 refinements, 0.2s
+  current -1: core 82559
+    howard: 200 iterations, cycle 3/24, 6.5s
+    certified 3/24 after 0 refinements, 6.5s
+  current 0: core 105918
+    howard: 9 iterations, cycle 0/12, 0.5s
+    certified 0/12 after 0 refinements, 0.6s
+  current 1: core 82559
+    howard: 200 iterations, cycle 3/24, 7.1s
+    certified 3/24 after 0 refinements, 7.1s
+  current 2: core 38385
+    howard: 200 iterations, cycle 2/12, 4.2s
+    certified 2/12 after 0 refinements, 4.3s
+  current 3: core 9463
+    howard: 6 iterations, cycle 7/24, 0.1s
+    certified 7/24 after 0 refinements, 0.1s
+  current 4: core 1807
+    howard: 200 iterations, cycle 4/12, 0.8s
+    certified 4/12 after 0 refinements, 0.8s
+  current 5: core 229
+    howard: 1 iterations, cycle 11/24, 0.0s
+    certified 11/24 after 0 refinements, 0.0s
+  current 6: core 12
+    howard: 0 iterations, cycle 6/12, 0.0s
+    certified 6/12 after 0 refinements, 0.0s
+24.78s 110172KB

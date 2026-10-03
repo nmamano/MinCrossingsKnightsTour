@@ -1,0 +1,3 @@
+  round: 4 components, obj 72.0, bound 34.0, 90s
+  round: 4 components, obj 72.0, bound 36.0, 180s
+{'status': 'FEASIBLE', 'K': 6, 'rows': 16, 's': 0, 'X': 1228, 'X0': 1179, 'dX': 49, 'obj': 76.0, 'bound': 36.0, 'cuts': 8, 'sum_a': 14, 'changed': 17, 'secs': 278}

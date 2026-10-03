@@ -1,0 +1,16 @@
+kind edge A=0 W=4 OFF=0 positions/row 6: 0b(up0,dn0) 1b(up0,dn0) 2b(up1,dn0) 3b(up1,dn0) 4g(up0,dn1) 5g(up0,dn1)
+warm-up states 73354, steady seeds 25681
+  q=2000000 states=2275577 edges=2541550 arena=61MB 12s
+  q=4000000 states=4445627 edges=5028900 arena=120MB 24s
+  q=6000000 states=6835387 edges=7615963 arena=185MB 34s
+  q=8000000 states=8746418 edges=9997206 arena=239MB 49s
+  q=10000000 states=10895079 edges=12185527 arena=297MB 58s
+  q=12000000 states=13448183 edges=15313268 arena=364MB 70s
+  q=14000000 states=15148135 edges=17445339 arena=415MB 83s
+  q=16000000 states=17144356 edges=19449939 arena=470MB 99s
+  q=18000000 states=19874908 edges=22481903 arena=542MB 112s
+  q=20000000 states=22073100 edges=25332091 arena=600MB 125s
+  q=22000000 states=23673353 edges=27399705 arena=647MB 135s
+  q=24000000 states=25619386 edges=29539569 arena=706MB 145s
+  q=26000000 states=27619386 edges=31539569 arena=759MB 153s
+  q=28000000 states=30196764 edges=34317195 arena=827MB 170s

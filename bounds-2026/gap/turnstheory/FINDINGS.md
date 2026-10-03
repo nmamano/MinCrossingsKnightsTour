@@ -1,4 +1,95 @@
-# Update to Chief Researcher — 2026-10-03: keep actual boundary crossings
+# Audit request to Chief Researcher — 2026-10-03: proposed 52n/11 bound
+
+**Full proof ready for KT Verifier: `PROOF_52_11.md`.** KT Lower Bounds
+certified request R1 at beta=4/3 in both orientations and both initial
+parities, with two implementations. I read its code and logs and reran
+the independent certificate in each orientation. The ranges are -155..0
+and -159..0 in units of 1/12. The complete reproduction runner is
+`check_52_11.py`.
+
+**PROOF SUBMITTED FOR REVIEW, not an audited result:** every closed tour
+on an even board n>=32 satisfies
+
+```
+X >= 52n/11 - 360.
+```
+
+This improves the leading coefficient by 2/33. With the retained
+boundary surplus R, the exact inequalities are
+
+```
+4n <= 4E + 2(A-R) + 156,
+(4/3)*(A-R) <= E+1208,
+4n <= (11/2)*E+1968,
+X >= 52n/11-3958/11 >= 52n/11-360.
+```
+
+The pending external review should focus on the actual boundary union
+budget, the eight half-walk sum with far-corner parity, and cancellation
+of R. The full proof defines every quantity and gives the exact corner
+overcount constants. The audited 14/3 theorem and published files remain
+unchanged. Chief Researcher has assigned Claim 26 to KT Verifier. The
+proof now includes an exact section-by-section delta against the audited
+document and every component check command.
+
+**Checks passed on 2026-10-03:** all six local checks, both freshly rerun
+independent strip certificates, and the rational constant calculation.
+`check_52_11_report.json` records the results. The aggregate run used
+`--reuse-stability-logs` to read the two successful runs from this same
+session; its default command reruns them. No check was omitted.
+
+## Request status
+
+R1 is complete at beta=4/3. No additional finite computation is requested
+until the proof audit is complete. The saturated period-one field proves
+that 4/3 is the exact limit of R1. Combining the inner-boundary lemma
+with R1 is a possible later task, but is not an input to this proof.
+
+## Route past 52/11: combine the two credits
+
+2026-10-03. **ARGUMENT for a new finite task; no larger beta is claimed.**
+The two known obstructions now have separate costs. R1 pays for the
+period-4 reversal field with its boundary surplus. The blocked-interval
+lemma below pays for the saturated field with interior crossings.
+Together they suggest a stronger certificate than either alone.
+
+Let `K` be the sum, over all sides, of `max(0,l-4)` over blocked runs of
+length l. The interval certificate below gives additional crossings
+outside each side's width-two strip, and only a constant corner
+overcount across sides. Thus `D0+K <= E+O(1)`. Seek a finite certificate
+
+```
+beta*A <= D0 + K + beta*R + O(1).                     (N1)
+```
+
+The same square budget then gives
+`X >= [4+2beta/(2beta+1)]n-O(1)`. Hence any beta>4/3 would pass 52/11.
+With `k` the zero-or-one blocked-run charge per row and `t=2a`, the new
+integer arc weight for beta=p/q would be
+
+```
+q*(4w-1) + p*(4w0-1) + 4q*k - 2p*t.                 (N2)
+```
+
+The ghost-degree history and run counter needed for k are specified in
+Section 4 of the earlier report below. This augmentation is larger than
+R1, so it should wait until Claim 26 is complete.
+
+On the saturated field, `D0/length=1`, `K/length -> 1`, `R/length=0`,
+and `A/length=3/4`; it imposes only beta<=8/3 on (N1). On the period-4
+field in its costly parity phase, the respective rates are 1, 0, 1, 1,
+so it imposes no beta limit. Cheap fields still have all four rates zero.
+Thus neither known obstruction rules out beta>4/3 for the combined task.
+
+**Unresolved:** another periodic field, or short saturated runs separated
+by low-cost transitions, can still block (N2). The interval lemma loses
+four crossings per run. No certificate beyond 4/3 follows without the
+new finite check. The existing exact interval certificate itself still
+needs the Verifier's separate review before use in a new global theorem.
+
+---
+
+# Earlier update — 2026-10-03: keep actual boundary crossings
 
 **New priority: request R1 in `REQUESTS.md`. No global improvement is
 claimed.** I read KT Lower Bounds' L1 and checked the new period-4 field.

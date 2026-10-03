@@ -1,0 +1,22 @@
+cells 1641 free edges 4968
+objective of the original tour T: 194
+pair vars 19763 built in 2 s
+  round: 13 components, obj 253.0, bound 133.0, 900s
+components 13
+{'status': 'FEASIBLE', 'rows': 64, 'X': 1238, 'X0': 1179, 'dX': 59, 'obj': 253.0, 'bound': 133.0, 'cuts': 0, 'sum_a': 64, 'changed': 98}
+exit=0
+start X 1238
+  merge 13->12: delta -4, X 1234
+  merge 12->11: delta -2, X 1232
+  merge 11->10: delta 0, X 1232
+  merge 10->9: delta 0, X 1232
+  merge 9->8: delta 0, X 1232
+  merge 8->7: delta 0, X 1232
+  merge 7->6: delta 0, X 1232
+  merge 6->5: delta 0, X 1232
+  merge 5->4: delta 0, X 1232
+  merge 4->3: delta 0, X 1232
+  merge 3->2: delta 4, X 1236
+  merge 2->1: delta 4, X 1240
+final X 1240 components 1
+exit=0

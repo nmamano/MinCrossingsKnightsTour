@@ -1,0 +1,25 @@
+kind edge A=0 W=3 OFF=0 positions/row 5: 0b(up0,dn0) 1b(up1,dn0) 2b(up1,dn0) 3g(up0,dn1) 4g(up0,dn1)
+warm-up states 1865, steady seeds 630
+states 10020 edges 11082 arena 0MB, BFS 0s
+steady states 10020 of 10020
+  current -4: core 10
+    howard: 0 iterations, cycle 10/10, 0.0s
+    certified 10/10 after 0 refinements, 0.0s
+  current -3: core 190
+    howard: 3 iterations, cycle 8/10, 0.0s
+    certified 8/10 after 0 refinements, 0.0s
+  current -2: core 896
+    howard: 6 iterations, cycle 6/10, 0.0s
+    certified 6/10 after 0 refinements, 0.0s
+  current -1: core 1444
+    howard: 3 iterations, cycle 4/10, 0.0s
+    certified 4/10 after 0 refinements, 0.0s
+  current 0: core 896
+    howard: 6 iterations, cycle 6/10, 0.0s
+    certified 6/10 after 0 refinements, 0.0s
+  current 1: core 190
+    howard: 3 iterations, cycle 8/10, 0.0s
+    certified 8/10 after 0 refinements, 0.0s
+  current 2: core 10
+    howard: 0 iterations, cycle 10/10, 0.0s
+    certified 10/10 after 0 refinements, 0.0s

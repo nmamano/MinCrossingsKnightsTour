@@ -1,0 +1,179 @@
+{
+  "date": "2026-10-03",
+  "all_boundary_overlap_types": 10,
+  "boundary_union_error": 20,
+  "width_two_union_error": 1104,
+  "endpoint_identity_cases": 152,
+  "loss_cases": 36,
+  "candidate_geometry_sizes": [
+    32,
+    100,
+    2
+  ],
+  "tour_half_scan_checks": [
+    {
+      "n": 96,
+      "X": 720,
+      "sides": [
+        {
+          "X": 136,
+          "B": 131,
+          "half_assignments": [
+            [
+              85,
+              82
+            ],
+            [
+              51,
+              49
+            ]
+          ],
+          "half_penalties": [
+            "4",
+            "2"
+          ]
+        },
+        {
+          "X": 142,
+          "B": 130,
+          "half_assignments": [
+            [
+              63,
+              55
+            ],
+            [
+              79,
+              75
+            ]
+          ],
+          "half_penalties": [
+            "5/2",
+            "9/2"
+          ]
+        },
+        {
+          "X": 147,
+          "B": 137,
+          "half_assignments": [
+            [
+              62,
+              55
+            ],
+            [
+              85,
+              82
+            ]
+          ],
+          "half_penalties": [
+            "4",
+            "6"
+          ]
+        },
+        {
+          "X": 143,
+          "B": 129,
+          "half_assignments": [
+            [
+              91,
+              82
+            ],
+            [
+              52,
+              47
+            ]
+          ],
+          "half_penalties": [
+            "13/2",
+            "3"
+          ]
+        }
+      ]
+    },
+    {
+      "n": 98,
+      "X": 752,
+      "sides": [
+        {
+          "X": 147,
+          "B": 135,
+          "half_assignments": [
+            [
+              95,
+              85
+            ],
+            [
+              52,
+              50
+            ]
+          ],
+          "half_penalties": [
+            "9",
+            "2"
+          ]
+        },
+        {
+          "X": 153,
+          "B": 138,
+          "half_assignments": [
+            [
+              65,
+              57
+            ],
+            [
+              88,
+              81
+            ]
+          ],
+          "half_penalties": [
+            "3",
+            "15/2"
+          ]
+        },
+        {
+          "X": 147,
+          "B": 135,
+          "half_assignments": [
+            [
+              61,
+              58
+            ],
+            [
+              86,
+              77
+            ]
+          ],
+          "half_penalties": [
+            "2",
+            "4"
+          ]
+        },
+        {
+          "X": 150,
+          "B": 132,
+          "half_assignments": [
+            [
+              95,
+              84
+            ],
+            [
+              55,
+              48
+            ]
+          ],
+          "half_penalties": [
+            "15/2",
+            "3/2"
+          ]
+        }
+      ]
+    }
+  ],
+  "exact_bound": {
+    "coefficient": "52/11",
+    "subtracted_constant": "3954/11",
+    "uniform_half_error_constant": "3958/11",
+    "rounded_constant": 360,
+    "even_n_at_least": 32
+  },
+  "status": "PASS"
+}

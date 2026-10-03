@@ -1,0 +1,31 @@
+kind diag A=1 W=5 OFF=-2 positions/row 7: -1g(up1,dn0) 0b(up0,dn1) 1b(up0,dn0) 2b(up0,dn0) 3b(up0,dn0) 4b(up0,dn1) 5g(up1,dn0)
+  q=1000000 states=1105991
+states 1997914
+    howard: 0 iterations, cycle 0/14, 0.2s
+    certified 0/14 after 0 refinements, 0.3s
+    howard: 1 iterations, cycle 4/42, 0.1s
+    certified 4/42 after 0 refinements, 0.1s
+    howard: 3 iterations, cycle 4/42, 0.2s
+    certified 4/42 after 0 refinements, 0.2s
+    howard: 5 iterations, cycle 0/14, 0.2s
+    certified 0/14 after 0 refinements, 0.3s
+    howard: 7 iterations, cycle 4/42, 0.5s
+    certified 4/42 after 0 refinements, 0.6s
+    howard: 200 iterations, cycle 4/42, 22.2s
+    certified 4/42 after 0 refinements, 22.3s
+    howard: 7 iterations, cycle 0/14, 1.0s
+    certified 0/14 after 0 refinements, 1.2s
+    howard: 31 iterations, cycle 4/42, 3.2s
+    certified 4/42 after 0 refinements, 3.4s
+    howard: 6 iterations, cycle 4/42, 0.4s
+    certified 4/42 after 0 refinements, 0.4s
+    howard: 6 iterations, cycle 0/14, 0.4s
+    certified 0/14 after 0 refinements, 0.4s
+    howard: 3 iterations, cycle 4/42, 0.1s
+    certified 4/42 after 0 refinements, 0.1s
+    howard: 0 iterations, cycle 4/42, 0.1s
+    certified 4/42 after 0 refinements, 0.2s
+    howard: 0 iterations, cycle 0/14, 0.0s
+    certified 0/14 after 0 refinements, 0.1s
+54.38s 674480KB
+exit=0

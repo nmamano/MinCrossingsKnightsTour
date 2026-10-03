@@ -310,7 +310,7 @@ Old 2019 files at the root (index.html, board.js, Code/, License.txt ...) stay u
    recipe (incl. /writeup/WRITER_STATE.md, /w-verifier/claim23*_clean/, /CR_STATE.md, /.venv/, /ktlean/.lake/ + .git/,
    /paper.pdf, /paper.txt, /board-patched.js, *.npy, __pycache__/, the 7 compiled C++ binaries in w-searcher, the 2 claim22
    extracts). gap/ IS included. Repo-only files bounds-2026/{.gitignore,README.md,requirements.txt} are excluded, so
-   --delete keeps them. The script replaces the office demo URL line in w-integrator/FINDINGS.md, and fails on any
+   --delete keeps them. Every ELF binary found in the research dir is excluded too (list built at run time). The script replaces the office demo URL line in w-integrator/FINDINGS.md, and fails on any
    office-domain string or any ELF binary left in bounds-2026/.
 2. bounds-2026/.gitignore re-includes *.log, *.aux, *.out, *.toc (and other LaTeX outputs) that the root .gitignore ignores.
 3. Fresh-copy run: `git ls-files bounds-2026` copy to /tmp, run all 13 appendix commands of writeup/{turns,crossings}/post.mdx
@@ -321,3 +321,4 @@ Old 2019 files at the root (index.html, board.js, Code/, License.txt ...) stay u
 commands PASS from a git-ls-files copy (tt16.py needs the user site-packages matplotlib). Pages build of 7d66633: built; old demo and
 bounds-2026/demo/ return 200 and match the repo bytes. knights-tour-bounds: local commit bbe0a89 (README "moved" note), NOT pushed;
 Nil decides archive vs keep.
+2026-10-03: f177a42 pushed (bounds-2026 README title + run folder, gap/ sync, ELF auto-exclude). CR rule: sync + push after each milestone the CR names; routine gap/ sync + push without asking, at most once every ~2 h. Do not push bbe0a89.

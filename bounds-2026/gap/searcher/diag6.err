@@ -1,0 +1,22 @@
+kind diag A=1 W=6 OFF=-3 positions/row 8: -1g(up1,dn0) 0b(up0,dn1) 1b(up0,dn0) 2b(up0,dn0) 3b(up0,dn0) 4b(up0,dn0) 5b(up0,dn1) 6g(up1,dn0)
+warm-up states 8224878, steady seeds 1072348
+  q=2000000 states=2418495 edges=1806208 arena=62MB 9s
+  q=4000000 states=5880225 edges=5994622 arena=141MB 26s
+  q=6000000 states=8370365 edges=8593269 arena=200MB 37s
+  q=8000000 states=10276951 edges=10499855 arena=248MB 52s
+  q=10000000 states=11858355 edges=12273293 arena=289MB 62s
+  q=12000000 states=12757818 edges=14357337 arena=310MB 75s
+  q=14000000 states=15578840 edges=18487391 arena=376MB 92s
+  q=16000000 states=18057231 edges=21484492 arena=434MB 115s
+  q=18000000 states=19899440 edges=23411164 arena=480MB 125s
+  q=20000000 states=21414491 edges=25152797 arena=520MB 134s
+  q=22000000 states=22151892 edges=27367768 arena=538MB 144s
+  q=24000000 states=24912566 edges=30511796 arena=606MB 156s
+  q=26000000 states=26133604 edges=32559542 arena=638MB 167s
+states 26647734 edges 33251210 arena 651MB, BFS 170s
+steady states 26647734 of 26647734
+  current -1: core 13896448
+    howard: 12 iterations, cycle 4/48, 44.3s
+    certified 4/48 after 0 refinements, 46.4s
+333.12s 4012432KB
+exit=0

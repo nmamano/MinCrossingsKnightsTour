@@ -1,0 +1,5 @@
+PASS: 36 residue/exception pairs; lost path <= sum of endpoint penalties.
+PASS: P/P-prime have penalty zero in both orientations and parities.
+PASS: critical period-one field has 2 crossings/row and penalty 3/4 per row.
+PASS: critical field saturates all three columns 0,1,2.
+No weighted strip stability certificate is claimed by this check.

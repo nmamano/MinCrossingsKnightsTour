@@ -1,0 +1,42 @@
+{
+  "date": "2026-10-03",
+  "base_states": 82516,
+  "base_arcs": 144674,
+  "augmented_states": 368012,
+  "augmented_arcs": 687262,
+  "both_initial_parities": true,
+  "retained_row_edges": 20,
+  "potentials": {
+    "up": {
+      "range": [
+        -155,
+        0
+      ],
+      "passes": 16,
+      "checked_arcs": 687262,
+      "minimum_reduced_cost": 0,
+      "C": "155/12",
+      "sha256_uncompressed": "081b2b7aee1378b098ac1e774f20deb43bb1120e3345709d4ecd9f7291e62b7b"
+    },
+    "down": {
+      "range": [
+        -159,
+        0
+      ],
+      "passes": 16,
+      "checked_arcs": 687262,
+      "minimum_reduced_cost": 0,
+      "C": "53/4",
+      "sha256_uncompressed": "5d246b350e75c53c9fee0e44929950c794cd1559da970313eb21ba0aba16f8aa"
+    }
+  },
+  "sharp_witness": {
+    "rows": 2,
+    "X": 4,
+    "boundary_crossings": 2,
+    "sum_a": "3/2",
+    "beta_limit": "4/3"
+  },
+  "elapsed_seconds": 15.462,
+  "status": "PASS"
+}

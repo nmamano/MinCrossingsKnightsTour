@@ -1,7 +1,72 @@
 # KT Lower Bounds - gap mission findings (gap/lowerbounds/)
 
-Task: the open finite task of w-turnstheory/FINDINGS.md 11.3 (spec also in w-turnstheory/QUESTIONS.md,
-"next task: fractional endpoint loss"). Coordinates: x = column (0 = side of the board), y = row.
+## L3 (2026-10-03): request R1 (boundary credit) is certified at beta = 4/3, and 4/3 is exact
+
+Answer to gap/turnstheory/REQUESTS.md R1. **PROVEN finite certificate (two implementations).**
+
+With w0 = new crossing pairs whose two edges both have an endpoint in column 0, the integer weights
+
+    q*(4w-1) + p*(4w0-1) - 2p*t        (t = 2a at row end, a from w-turnstheory FINDINGS 11.2)
+
+admit a converged potential at beta = p/q = 4/3, in both orientations, both initial parities:
+
+| orientation | potential range (units 1/(4q) = 1/12) | C |
+| --- | --- | --- |
+| up | -155..0 | 155/12 |
+| down | -159..0 | 159/12 = 53/4 |
+
+So on every oriented half walk, (X_sigma - length) + (4/3)(B_sigma - length) >= (4/3) sum a - 53/4.
+
+**beta = 4/3 is exact** (PROVEN): a Dinkelbach search started at 3/2 finds a 6-row negative cycle with
+sum(4w-1) = 24, sum(4w0-1) = 0, sum t = 9 (2 crossings, 1 boundary crossing, penalty 3/4 per row: the old
+saturated period-one field of 11.4), ratio 24/(18-0) = 4/3; the search then converges at 4/3.
+
+Consequence, IF Turns Theory's reduction U1 (gap/turnstheory/FINDINGS.md, "pending external review") holds:
+X >= [4 + 2beta/(2beta+1)] n - O(1) = 52n/11 - O(1), about 4.727n. The reduction itself is not checked by me.
+
+Checks: r1_stab.py recomputes w for every base arc from the two states and asserts equality with strip_dp's
+stored w; r1_independent.py does the same with strip2_independent.proper and its own set-of-edges augmented
+graph. Both give the ranges above.
+
+```sh
+cd gap/lowerbounds
+../../.venv/bin/python r1_stab.py crit up 4/3      # converged at 4/3, range -155..0 (r1_crit_up.log)
+../../.venv/bin/python r1_stab.py crit down 4/3    # converged at 4/3, range -159..0 (r1_crit_down.log)
+../../.venv/bin/python r1_stab.py crit up 3/2      # cycle -> 4/3, then converged (r1_crit_up_from32.log)
+python3 r1_independent.py up 4 3                   # independent: -155..0 (r1_independent.log)
+python3 r1_independent.py down 4 3                 # independent: -159..0
+```
+
+## L2 (2026-10-03): the L1 field survives in a single closed tour; connectivity does not make it expensive
+
+**Verdict: the connectivity route is dead for this field.** A closed tour that carries the field on 64 rows of
+one side (penalty a = 1 on all 64 rows) costs only 61 crossings more than the tour it came from, i.e. no more
+than the field's own strip excess (64). So a single-cycle argument cannot raise the field's ratio above 1.
+The obstruction is removed instead by the boundary credit of R1 (L3).
+
+**PROVEN (parity lemma, check_field_parity.py).** Every cut between two rows is crossed by an even number of
+tour edges. In the field, the edges with an end in column 0 or 1 that cross a cut are odd in number (3 or 5);
+in P and mirror P they are 4. So on every row of a field run, an odd number of crossing tour edges lie wholly
+in columns >= 2. The field cannot be closed near its two ends alone; the closure must cross every row of the
+run. In the tour below the crossing-free folds carry it.
+
+**VERIFIED instance (conn/FIELD_n166_92_155.json, 2026-10-03).** Start: FOLD24_n166 (X = 1179). Force the field
+(phase 0) on left-side rows 92..155. CP-SAT (2 workers, 900 s, conn/field_global.py) re-solves the left band
+(columns 0..5, rows 86..161) and bands of half-width 3 around the midline fold (row 83) and the anti-diagonal
+fold (x+y = 166), all other edges fixed: best 2-factor +59, 13 cycles. A greedy 2-swap merge with exact
+crossing deltas (conn/merge.py) joins them: 11 merges cost 0 or less, the last two cost 4 each. Result: one
+closed tour, X = 1240 (+61). verify_field_tour.py (no CP-SAT code; crossings by kt/core.py crossing_list)
+checks the Hamiltonian cycle, X = 1240, all field edges present, and sum a = 64 over rows 92..155 in the
+top-left corner frame (original tour: 0).
+
+Earlier band tests on 16 rows (conn/field_band.py): no closure inside columns 0..3 (INFEASIBLE, matches the
+parity lemma); closure inside columns 0..5 found at +49 (not optimal). The folds are the cheap carrier.
+
+```sh
+cd gap/lowerbounds && python3 check_field_parity.py
+cd conn && ../../../.venv/bin/python verify_field_tour.py FIELD_n166_92_155.json FOLD24_n166 92 155 0
+# rebuild (about 20 min, 2 workers): field_global.py 92 155 0 6 6 3 900 900 one; merge.py twofactor_92_155_0.pkl
+```
 
 ## L1 (2026-10-03): the fractional endpoint certificate has beta* = 1 exactly. No improvement on 14n/3.
 

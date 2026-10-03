@@ -1,0 +1,71 @@
+kind edge A=0 W=5 OFF=0 positions/row 7: 0b(up0,dn0) 1b(up0,dn0) 2b(up0,dn0) 3b(up1,dn0) 4b(up1,dn0) 5g(up0,dn1) 6g(up0,dn1)
+warm-up states 2158703, steady seeds 698320
+  q=2000000 states=4021210 edges=4044828 arena=88MB 18s
+  q=4000000 states=6693428 edges=7946436 arena=150MB 34s
+  q=6000000 states=7490962 edges=9441248 arena=169MB 42s
+  q=8000000 states=9148363 edges=11416583 arena=210MB 56s
+  q=10000000 states=11222816 edges=13497864 arena=255MB 65s
+  q=12000000 states=14205143 edges=17126644 arena=321MB 81s
+  q=14000000 states=18118118 edges=22454627 arena=409MB 109s
+  q=16000000 states=20608392 edges=25998037 arena=467MB 122s
+  q=18000000 states=21554223 edges=27604011 arena=490MB 131s
+  q=20000000 states=22407217 edges=29020327 arena=511MB 140s
+  q=22000000 states=23969240 edges=30997449 arena=551MB 152s
+  q=24000000 states=25955036 edges=32991428 arena=597MB 163s
+  q=26000000 states=27307011 edges=35008699 arena=626MB 175s
+  q=28000000 states=29952806 edges=38370679 arena=685MB 188s
+  q=30000000 states=33416050 edges=43355750 arena=763MB 208s
+  q=32000000 states=35957522 edges=47047158 arena=822MB 239s
+  q=34000000 states=36763686 edges=48494586 arena=842MB 252s
+  q=36000000 states=37847317 edges=50118303 arena=869MB 262s
+  q=38000000 states=39508169 edges=52030949 arena=910MB 271s
+  q=40000000 states=41508169 edges=54030949 arena=956MB 279s
+  q=42000000 states=43937168 edges=57038951 arena=1010MB 294s
+  q=44000000 states=46434674 edges=61246337 arena=1067MB 312s
+  q=46000000 states=49536874 edges=66010848 arena=1140MB 334s
+  q=48000000 states=50092947 edges=67239580 arena=1153MB 343s
+  q=50000000 states=50768207 edges=68543162 arena=1171MB 353s
+  q=52000000 states=52802413 edges=70687900 arena=1218MB 363s
+  q=54000000 states=55410692 edges=75083879 arena=1279MB 383s
+states 55550865 edges 75815604 arena 1282MB, BFS 388s
+steady states 55550865 of 55550865
+  current -7: core 290
+    howard: 2 iterations, cycle 10/14, 6.0s
+    certified 10/14 after 0 refinements, 9.2s
+  current -6: core 9805
+    howard: 12 iterations, cycle 8/14, 5.4s
+    certified 8/14 after 0 refinements, 6.4s
+  current -5: core 102987
+    howard: 11 iterations, cycle 7/14, 5.5s
+    certified 7/14 after 0 refinements, 6.5s
+  current -4: core 579337
+    howard: 11 iterations, cycle 6/14, 9.4s
+    certified 6/14 after 0 refinements, 10.7s
+  current -3: core 1946404
+    howard: 18 iterations, cycle 5/14, 25.3s
+    certified 5/14 after 0 refinements, 27.0s
+  current -2: core 4003397
+    howard: 14 iterations, cycle 8/28, 29.6s
+    certified 8/28 after 0 refinements, 31.1s
+  current -1: core 5085348
+    howard: 12 iterations, cycle 2/14, 30.3s
+    certified 2/14 after 0 refinements, 33.0s
+  current 0: core 4003397
+    howard: 15 iterations, cycle 8/28, 29.5s
+    certified 8/28 after 0 refinements, 31.1s
+  current 1: core 1946404
+    howard: 13 iterations, cycle 5/14, 18.8s
+    certified 5/14 after 0 refinements, 21.5s
+  current 2: core 579337
+    howard: 11 iterations, cycle 6/14, 11.8s
+    certified 6/14 after 0 refinements, 14.1s
+  current 3: core 102987
+    howard: 11 iterations, cycle 7/14, 6.5s
+    certified 7/14 after 0 refinements, 7.9s
+  current 4: core 9805
+    howard: 13 iterations, cycle 8/14, 6.1s
+    certified 8/14 after 0 refinements, 7.5s
+  current 5: core 290
+    howard: 2 iterations, cycle 10/14, 3.8s
+    certified 10/14 after 0 refinements, 5.6s
+737.67s 7817776KB

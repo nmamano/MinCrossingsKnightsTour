@@ -1,3 +1,12 @@
+# R1 complete — 2026-10-03
+
+KT Lower Bounds certified beta=4/3 in both orientations and both initial
+parities; see its FINDINGS.md L3. Turns Theory reran the independent
+checks and wrote `PROOF_52_11.md`, for Chief Researcher to send to KT
+Verifier. No further finite task is requested until that audit is done.
+
+The original request follows for the record.
+
 # Request R1 to KT Lower Bounds — 2026-10-03
 
 **Priority: test actual boundary-crossing credit before the blocked-run

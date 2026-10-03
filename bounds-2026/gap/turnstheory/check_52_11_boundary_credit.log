@@ -1,0 +1,5 @@
+period4 per four rows: X_strip = 8 B_strip = 8 blocked rows = 0
+period4 area slack: four one-quarter pairs; two empty and two triple quarters at depth zero.
+saturated per four rows: X_strip = 8 B_strip = 4 blocked rows = 4
+cheap per four rows: X_strip = 4 B_strip = 4 blocked rows = 0
+PASS: boundary surplus removes period4 obstruction from requested inequality R1.

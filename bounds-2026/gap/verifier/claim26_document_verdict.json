@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-03",
+  "audit_object": "gap/turnstheory/PROOF_52_11.md",
+  "sha256": "761f3d3f6c590aa1ff5319b3394ff352598581b4f3c85a09cc2a814bd6e246a6",
+  "unchanged_since_full_read": true,
+  "verdict": "PASS",
+  "exact_bound": "11X >= 52n-3958",
+  "rounded_bound": "X >= 52n/11-360",
+  "scope": "closed knight tours, even n>=32",
+  "remaining_edits": "two presentation clarifications already recorded in Claim 26"
+}

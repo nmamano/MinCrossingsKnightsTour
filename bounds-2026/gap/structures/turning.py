@@ -32,7 +32,7 @@ def required(d_start, d_end, above):
     return total - turn(d_end, seg) - turn(seg, d_start)
 
 K = int(sys.argv[1]) if len(sys.argv) > 1 else 9
-left = [d for d in CYC if d[0] < 0]
+left = [(-2, 1), (-2, -1)]   # steep left-facing ends only (Claim 24)
 print("start (2,1). Fixed rotation of a simple same-edge arc:")
 for d in left:
     for above in (True, False):
@@ -42,7 +42,7 @@ hits = {}
 for L in range(1, K + 1):
     for st in itertools.product((1, -1), repeat=L):
         d, r = walk_rot(st)
-        if d[0] >= 0: continue
+        if d not in left: continue
         for above in (True, False):
             if abs(r - required((2, 1), d, above)) < 1e-6:
                 hits.setdefault((d, above, round(r, 2), sum(st)), 0)
@@ -51,3 +51,6 @@ for k, v in sorted(hits.items(), key=str):
     print(f"  end {k[0]} {'above' if k[1] else 'below'} rot {k[2]} net steps {k[3]}: {v} walks")
 nets = sorted({k[3] for k in hits})
 print("net step values that occur:", nets)
+assert nets == [1], nets
+assert all(k[0] == (-2, 1) and k[1] for k in hits), hits
+print("OK: only net step +1, end (-2,1), B above A")

@@ -1,0 +1,41 @@
+kind edgeB A=0 W=4 OFF=0 positions/row 5: 0b(up0,dn0) 1b(up0,dn0) 2b(up0,dn0) 3b(up1,dn0) 4g(up0,dn1)
+warm-up states 84795, steady seeds 45080
+  q=2000000 states=2045374 edges=2876918 arena=40MB 11s
+states 2413811 edges 3456475 arena 47MB, BFS 13s
+steady states 2413811 of 2413811
+  current -6: core 29
+    howard: 0 iterations, cycle 8/10, 0.1s
+    certified 8/10 after 0 refinements, 0.2s
+  current -5: core 1255
+    howard: 5 iterations, cycle 38/50, 0.1s
+    certified 38/50 after 0 refinements, 0.2s
+  current -4: core 15257
+    howard: 6 iterations, cycle 7/10, 0.2s
+    certified 7/10 after 0 refinements, 0.2s
+  current -3: core 79434
+    howard: 6 iterations, cycle 6/10, 0.5s
+    certified 6/10 after 0 refinements, 0.5s
+  current -2: core 236900
+    howard: 8 iterations, cycle 5/10, 0.8s
+    certified 5/10 after 0 refinements, 0.9s
+  current -1: core 408135
+    howard: 11 iterations, cycle 11/30, 1.6s
+    certified 11/30 after 0 refinements, 1.7s
+  current 0: core 408135
+    howard: 11 iterations, cycle 11/30, 1.7s
+    certified 11/30 after 0 refinements, 1.8s
+  current 1: core 236900
+    howard: 8 iterations, cycle 5/10, 0.8s
+    certified 5/10 after 0 refinements, 0.9s
+  current 2: core 79434
+    howard: 6 iterations, cycle 6/10, 0.3s
+    certified 6/10 after 0 refinements, 0.4s
+  current 3: core 15257
+    howard: 6 iterations, cycle 7/10, 0.2s
+    certified 7/10 after 0 refinements, 0.2s
+  current 4: core 1255
+    howard: 5 iterations, cycle 38/50, 0.1s
+    certified 38/50 after 0 refinements, 0.2s
+  current 5: core 29
+    howard: 0 iterations, cycle 8/10, 0.1s
+    certified 8/10 after 0 refinements, 0.1s

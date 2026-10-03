@@ -1,0 +1,5 @@
+base 82516 144674
+augmented 368012 687262 row masks 97020
+up (-155, 0) all arc inequalities PASS
+down (-159, 0) all arc inequalities PASS
+CERTIFICATE PASS 15.462 seconds

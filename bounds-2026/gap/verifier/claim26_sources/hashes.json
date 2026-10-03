@@ -1,0 +1,16 @@
+{
+  "gap/turnstheory/FINDINGS.md": "9aea673b6939d11d49baec55ea8fc3e4e3e67e59a26c35395e5e26638569e596",
+  "gap/turnstheory/REQUESTS.md": "434c7d3041b40829f80de7a53e8d9431fa89e9a517116f73ee22601ce390261a",
+  "gap/lowerbounds/FINDINGS.md": "04bc91d357d935b5212761c001b057ebbce8e53ccba17d7641ce72e112559e63",
+  "gap/lowerbounds/r1_stab.py": "6cf4d39090cccf6cd53725a962a0ba2ea9d5593ff46ffe422b6238445d1d36f5",
+  "gap/lowerbounds/r1_independent.py": "705c945ae64e544660c0058f259de34246a3ccccef707e86233bc5b589dcc9cf",
+  "gap/lowerbounds/frac_stab.py": "6649e6e34305934b3b73238902fc4cf16425ee7f30bd9d0670ed685f240768b2",
+  "gap/lowerbounds/frac_independent.py": "3f13305b3515c0f2c64a5ac99568de0c000001c95327eeede9f99719019273db",
+  "gap/lowerbounds/strip_dp.py": "8a2dc95105dbfbfb0581cb4760f6f32302badfad72003a8b925069b78d4989a6",
+  "gap/lowerbounds/strip2_independent.py": "0f68b1538ee95e5de8faaaca0ce458028ba327297fb0aba0b764c66c9585f41a",
+  "writeup/crossings/post.mdx": "e0a384148b170768609cecce638bfbb29c23f8f745a35120fb77aef56bdaef97",
+  "w-turnstheory/FINDINGS.md": "f59b59f8a8456c5ad7095a1881a06b4842d38c099c72882078f1abfde2093646",
+  "w-turnstheory/PROOF_crossings_lower.md": "f11a4804770563f78e239f679d0e9d6990e3a6b8946656c48a88303bfb3060cf",
+  "gap/turnstheory/PROOF_52_11.md": "761f3d3f6c590aa1ff5319b3394ff352598581b4f3c85a09cc2a814bd6e246a6",
+  "gap/turnstheory/check_52_11.py": "e6f1b70176cffab9a609b770c267201eb78e55d5bcd631aaf6666783380c1df6"
+}

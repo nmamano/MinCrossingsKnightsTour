@@ -1,0 +1,4 @@
+kind edgeB A=0 W=2 OFF=0 positions/row 3: 0b(up0,dn0) 1b(up1,dn0) 2g(up0,dn1)
+warm-up states 35, steady seeds 16
+states 48 edges 36 arena 0MB, BFS 0s
+steady states 48 of 48

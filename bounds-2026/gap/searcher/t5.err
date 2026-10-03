@@ -1,0 +1,7 @@
+kind diag A=1 W=5 OFF=-2 positions/row 7: -1g(up1,dn0) 0b(up0,dn1) 1b(up0,dn0) 2b(up0,dn0) 3b(up0,dn0) 4b(up0,dn1) 5g(up1,dn0)
+warm-up states 183760, steady seeds 29351
+states 358084 edges 431222 arena 7MB, BFS 2s
+steady states 358084 of 358084
+  current -2: core 157022
+    howard: 7 iterations, cycle 4/42, 0.2s
+    certified 4/42 after 0 refinements, 0.2s

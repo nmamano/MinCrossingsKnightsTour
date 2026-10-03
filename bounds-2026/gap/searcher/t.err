@@ -1,0 +1,21 @@
+kind mid A=0 W=3 OFF=-1 positions/row 5: -1g(up1,dn0) 0b(up0,dn1) 1b(up0,dn0) 2b(up0,dn1) 3g(up1,dn0)
+states 10835
+    howard: 0 iterations, cycle 4/10, 0.0s
+    certified 4/10 after 0 refinements, 0.0s
+    howard: 0 iterations, cycle 7/20, 0.0s
+    certified 7/20 after 0 refinements, 0.0s
+    howard: 4 iterations, cycle 2/10, 0.0s
+    certified 2/10 after 0 refinements, 0.0s
+    howard: 200 iterations, cycle 3/20, 0.0s
+    certified 3/20 after 0 refinements, 0.0s
+    howard: 6 iterations, cycle 0/10, 0.0s
+    certified 0/10 after 0 refinements, 0.0s
+    howard: 200 iterations, cycle 3/20, 0.0s
+    certified 3/20 after 0 refinements, 0.0s
+    howard: 4 iterations, cycle 2/10, 0.0s
+    certified 2/10 after 0 refinements, 0.0s
+    howard: 1 iterations, cycle 7/20, 0.0s
+    certified 7/20 after 0 refinements, 0.0s
+    howard: 0 iterations, cycle 4/10, 0.0s
+    certified 4/10 after 0 refinements, 0.0s
+0.16s 7136KB

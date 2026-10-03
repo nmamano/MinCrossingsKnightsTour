@@ -1,0 +1,3 @@
+orient=up: aug arcs 2095620, used aug nodes 1112872
+  negative cycle: 6 rows, sum(4w-1)=24, sum(4w0-1)=0, sum t=9 -> beta <= 4/3 = 1.333333
+up: beta* = 4/3 = 1.333333, converged after 56 passes; potential range -155..0 (units 1/(4q))
