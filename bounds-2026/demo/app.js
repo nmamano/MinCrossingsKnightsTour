@@ -59,8 +59,8 @@
   const STEPNOTE = { X: '', T: 'Shisheng Li\'s block targets crossings only, so it is not a step here.' };
   const KNOWN = { X: { orig: [13, 1], paper: [12, 1], P40: [23, 2], H16a: [9, 1], LF4: [343, 48], FOLD: [19, 3] },
     T: { orig: [19, 2], heel21: [37, 4], T18: [17, 2], TT16: [8, 1] } };
-  const LOWER = { X: [{ name: '4n: the paper\'s lower bound', f: (n) => 4 * n }, { name: '5n: new lower bound, Oct 3', f: (n) => 5 * n }],
-    T: [{ name: '6n: the paper\'s lower bound on turns', f: (n) => 6 * n }, { name: '8n − 28: new lower bound', f: (n) => 8 * n - 28 }] };
+  const LOWER = { X: [{ name: '4n lower bound (paper)', f: (n) => 4 * n }, { name: '5n lower bound (new, Oct 3)', f: (n) => 5 * n }],
+    T: [{ name: '6n lower bound on turns (paper)', f: (n) => 6 * n }, { name: '8n − 28 lower bound (new)', f: (n) => 8 * n - 28 }] };
   // Smallest n shown when a step is selected (P40: at n = 48 no 4x40 block fits, so 50), and the n rules per step.
   const NSTART = { P40: 50 };
   const ALG1 = 'For n ≡ 2 (mod 4) and n ≡ 6 (mod 8), one corner piece uses the original heel.';
@@ -116,28 +116,39 @@
     canvas.width = Math.round(r.width * dpr); canvas.height = Math.round(r.height * dpr);
     draw();
   }
-  function setView(name) {
+  // Zoom views. Edge band and Corner cycle through the 4 sides / corners (canvas rows grow downwards).
+  const SIDES = ['bottom', 'right', 'top', 'left'], CORNERS = ['bottom-left', 'bottom-right', 'top-right', 'top-left'];
+  function viewRect(name, i, n) {
+    if (name === 'edge') return [[[-1, n - 14, 41, n + 1], 'l', 'b'], [[n - 14, n - 41, n + 1, n + 1], 'r', 'b'],
+      [[n - 41, -1, n + 1, 14], 'r', 't'], [[-1, -1, 14, 41], 'l', 't']][i];
+    if (name === 'corner') return [[[-1, n - 25, 24, n + 1], 'l', 'b'], [[n - 24, n - 25, n + 1, n + 1], 'r', 'b'],
+      [[n - 24, -1, n + 1, 24], 'r', 't'], [[-1, -1, 24, 24], 'l', 't']][i];
+    if (name === 'centre') return [[n / 2 - 14, n / 2 - 14, n / 2 + 14, n / 2 + 14], 'c', 'c'];
+    return [[-1, -1, n + 1, n + 1], 'c', 'c'];
+  }
+  function setView(name, idx) {
     const n = state.n, W = canvas.width || 1, H = canvas.height || 1, m = Math.min(W, H);
-    const [x0, y0, x1, y1, anchorBottom] = {
-      fit: [-1, -1, n + 1, n + 1, false],
-      edge: [-1, n - 14, 41, n + 1, true],       // a stretch of the bottom edge, from the left corner
-      corner: [-1, n - 25, 24, n + 1, true],     // bottom-left corner
-      centre: [n / 2 - 14, n / 2 - 14, n / 2 + 14, n / 2 + 14, false],
-    }[name];
+    if (idx === undefined) idx = name === state.viewName ? (state.viewIdx + 1) % 4 : 0;
+    if (name !== 'edge' && name !== 'corner') idx = 0;
+    state.viewName = name; state.viewIdx = idx;
+    const [[x0, y0, x1, y1], ax, ay] = viewRect(name, idx, n);
     const s = Math.max((x1 - x0) * m / W, (y1 - y0) * m / H), vw = s * W / m, vh = s * H / m;
-    state.view = { x0: name === 'fit' || name === 'centre' ? (x0 + x1 - vw) / 2 : x0,
-      y0: anchorBottom ? y1 - vh : (y0 + y1 - vh) / 2, s };
-    draw();
+    state.view = { x0: ax === 'l' ? x0 : ax === 'r' ? x1 - vw : (x0 + x1 - vw) / 2,
+      y0: ay === 't' ? y0 : ay === 'b' ? y1 - vh : (y0 + y1 - vh) / 2, s };
+    $('vEdge').textContent = name === 'edge' ? `Edge band: ${SIDES[idx]}` : 'Edge band';
+    $('vCorner').textContent = name === 'corner' ? `Corner: ${CORNERS[idx]}` : 'Corner';
+    draw(); if (state.summary) writeHash();
   }
   const unit = () => Math.min(canvas.width, canvas.height) / state.view.s;   // device px per board unit
-  function draw() {
+  function draw(whiteBg) {
     const t = state.tour; const W = canvas.width, H = canvas.height;
     ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.clearRect(0, 0, W, H);
+    if (whiteBg) { ctx.fillStyle = '#ffffff'; ctx.fillRect(0, 0, W, H); }
     if (!t || !state.view) return;
     const n = t.n, v = state.view, k = unit();
     ctx.setTransform(k, 0, 0, k, -v.x0 * k, -v.y0 * k);   // now in board units
     ctx.fillStyle = '#ffffff'; ctx.fillRect(0, 0, n, n);
-    if ($('tChecker').checked && k / (window.devicePixelRatio || 1) >= 6) {   // faint checkerboard, a1 = bottom-left dark
+    if ($('tChecker').checked && k / (canvas.width / (canvas.getBoundingClientRect().width || 1)) >= 6) {   // faint checkerboard, a1 = bottom-left dark
       ctx.fillStyle = 'rgba(40,48,58,0.045)';
       for (let r = 0; r < n; r++) for (let x = (n - 1 - r) % 2; x < n; x += 2) ctx.fillRect(x, r, 1, 1);
     }
@@ -240,6 +251,19 @@
   const endDrag = () => { drag = null; canvas.classList.remove('drag'); };
   canvas.addEventListener('pointerup', endDrag); canvas.addEventListener('pointercancel', endDrag);
   document.querySelectorAll('[data-view]').forEach((b) => b.addEventListener('click', () => setView(b.dataset.view)));
+  // Download the current view as a PNG at twice the CSS size (white background, same zoom and toggles).
+  $('dl').addEventListener('click', () => {
+    if (!state.tour) return;
+    const r = canvas.getBoundingClientRect(), oldW = canvas.width, oldH = canvas.height;
+    canvas.width = Math.round(r.width * 2); canvas.height = Math.round(r.height * 2);
+    draw(true);
+    const view = state.viewName === 'edge' ? `_edge-${SIDES[state.viewIdx]}` : state.viewName === 'corner' ? `_corner-${CORNERS[state.viewIdx]}`
+      : state.viewName === 'centre' ? '_centre' : '';
+    const a = document.createElement('a');
+    a.download = `knight-tour_${state.key}_n${state.n}${view}.png`; a.href = canvas.toDataURL('image/png');
+    document.body.appendChild(a); a.click(); a.remove();
+    canvas.width = oldW; canvas.height = oldH; draw();
+  });
 
   // ---------- panel ----------
   const stepsOf = () => STEPS[state.metric];
@@ -279,6 +303,7 @@
       return `<div class="row${state.metric === m ? ' head' : ''}"><span class="lab">${label}</span><span class="val">${val}</span></div>` +
         `<div class="sl">${sl ? `${m} = ${val} = ${fmtSlope(sl)} ${fmtConst(c, sl[1])}` : ''}</div>`;
     };
+    $('embedinfo').innerHTML = `<b>${C[k].name}</b> &middot; n = ${n} &middot; ${state.metric === 'X' ? `${t.X.length} crossings` : `${t.T.length} turns`} &middot; ${C[k].credit}`;
     $('counts').innerHTML = state.metric === 'X' ? row('X', 'Crossings', t.X.length) + row('T', 'Turns', t.T.length)
       : row('T', 'Turns', t.T.length) + row('X', 'Crossings', t.X.length);
     const py = t.rec, okCounts = py.crossings === t.X.length && py.turns === t.T.length;
@@ -341,8 +366,8 @@
     const m = state.metric;
     $('charttitle').textContent = (m === 'X' ? 'Crossings' : 'Turns') + ' as n grows: tour counts and lower-bound reference lines';
     $('chartnote').textContent = m === 'X'
-      ? 'Dashed lines: lower bounds on crossings, drawn by their leading terms. 4n is the paper\'s lower bound; 5n is the new one (Oct 3). Exact statements: X ≥ 4n − 2 and X ≥ 5n − 612 (audited, Claim 42).'
-      : 'Dashed lines: lower bounds on turns. 6n is the leading term of the paper\'s lower bound, (6 − ε)n. 8n − 28 is the new exact lower bound.';
+      ? 'Dashed lines: lower bounds on crossings, 4n (paper) and 5n (new, Oct 3). The exact bounds are X ≥ 4n − 2 and X ≥ 5n − 612 (audited, Claim 42); the lines leave out the constants.'
+      : 'Dashed lines: lower bounds on turns, 6n (paper; its exact form is (6 − ε)n) and 8n − 28 (new).';
     chart($('chart'), FIELD[m]);
   }
   function chart(svg, f) {
@@ -392,19 +417,30 @@
   // ---------- start; the URL hash keeps the state shareable ----------
   // #m=X&k=H16a&n=96&view=edge&show=cross,turns,color,layout,solver
   const SHOW = [['tCross', 'cross'], ['tTurns', 'turns'], ['tColor', 'color'], ['tLayout', 'layout'], ['tSolver', 'solver'], ['tChecker', 'checker']];
-  const hp = new URLSearchParams(location.hash.slice(1));
-  if (hp.get('m') === 'T') state.metric = 'T';
-  state.key = STEPS[state.metric].includes(hp.get('k')) ? hp.get('k') : STEPS[state.metric][STEPS[state.metric].length - 1];
+  // ?metric=crossings|turns&step=<key or number>&n=<n>&view=<fit|edge|corner|centre>[-<1..4>]&embed=1; the #hash (written as the
+  // user moves) wins over the query string.
+  const hp = new URLSearchParams(location.hash.slice(1)), qp = new URLSearchParams(location.search);
+  const qm = (qp.get('metric') || '').toLowerCase();
+  if (qm === 'turns' || qm === 't') state.metric = 'T';
+  if (hp.get('m')) state.metric = hp.get('m') === 'T' ? 'T' : 'X';
+  const stepArg = (v) => { if (!v) return null; const ks = STEPS[state.metric];
+    if (/^[0-9]+$/.test(v)) return ks[+v - 1] || null; return ks.find((k) => k.toLowerCase() === v.toLowerCase()) || null; };
+  state.key = stepArg(hp.get('k')) || stepArg(qp.get('step')) || STEPS[state.metric][STEPS[state.metric].length - 1];
+  if (!hp.get('n') && +qp.get('n')) hp.set('n', qp.get('n'));
+  if (!hp.get('view') && qp.get('view')) hp.set('view', qp.get('view'));
+  if (window.self !== window.top || qp.get('embed') === '1') document.getElementById('ktdemo').classList.add('embed');
   state.n = +hp.get('n') || NSTART[state.key] || C[state.key].nmin;
   $('tTurns').checked = state.metric === 'T'; $('tCross').checked = state.metric === 'X';
   if (hp.get('show') !== null) { const on = hp.get('show').split(','); for (const [id, nm] of SHOW) $(id).checked = on.includes(nm); }
   let firstView = hp.get('view');
+  const applyView = (v) => { const [nm, i] = v.split('-'); setView(nm, i ? Math.max(0, Math.min(3, +i - 1)) : 0); };
   function writeHash() {
     const show = SHOW.filter(([id]) => $(id).checked).map(([, nm]) => nm);
-    history.replaceState(null, '', `#m=${state.metric}&k=${state.key}&n=${state.n}&show=${show.join(',')}`);
+    const vw = state.viewName && state.viewName !== 'fit' ? `&view=${state.viewName}${state.viewName === 'edge' || state.viewName === 'corner' ? '-' + (state.viewIdx + 1) : ''}` : '';
+    history.replaceState(null, '', `${location.pathname}${location.search}#m=${state.metric}&k=${state.key}&n=${state.n}${vw}&show=${show.join(',')}`);
   }
   fetch('data/summary.json').then((r) => r.json()).then((s) => {
     state.summary = s; renderLegend(); resize();
-    load(true).then(() => { if (firstView) setView(firstView); firstView = null; });
+    load(true).then(() => { if (firstView) applyView(firstView); firstView = null; });
   });
 })();

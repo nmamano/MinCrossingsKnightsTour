@@ -62,13 +62,15 @@
     </aside>
 
     <main>
+      <div class="embedinfo" id="embedinfo"></div>
       <div class="caption" id="caption"></div>
       <div class="viewbar">
         <span>Zoom:</span>
         <button data-view="fit">Whole board</button>
-        <button data-view="edge">Edge band</button>
-        <button data-view="corner">Corner</button>
+        <button data-view="edge" id="vEdge">Edge band</button>
+        <button data-view="corner" id="vCorner">Corner</button>
         <button data-view="centre">Centre</button>
+        <button id="dl" title="Save the current view as a PNG">Download image</button>
         <span class="hint">scroll to zoom, drag to move</span>
       </div>
       <div class="board-wrap"><canvas id="board"></canvas><div id="loading" class="loading">loading...</div></div>
