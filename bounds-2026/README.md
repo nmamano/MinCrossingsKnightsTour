@@ -148,7 +148,7 @@ regenerates them.
 - [ktlean/](ktlean/) - Lean 4 + Mathlib formalization.
 - [writeup/](writeup/) - turns paper draft (main.tex, main.pdf) and blog drafts for turns and crossings.
 - [w-viz/](w-viz/), [explain/](explain/) - figures.
-- [demo/](demo/) - interactive demo of the constructions and of the progression of the bounds.
+- [demo/](demo/) - source of the interactive demo of the constructions and of the progression of the bounds, live at https://nmamano.github.io/MinCrossingsKnightsTour/.
 - [runs/](runs/) - early run logs. Root `*.py` files - early experiments.
 - [board-original.js](board-original.js) - the original demo code of the 2019 paper.
 

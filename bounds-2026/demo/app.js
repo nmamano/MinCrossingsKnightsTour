@@ -63,12 +63,12 @@
     T: [{ name: '6n lower bound on turns (paper)', f: (n) => 6 * n }, { name: '8n − 28 lower bound (new)', f: (n) => 8 * n - 28 }] };
   // Smallest n shown when a step is selected (P40: at n = 48 no 4x40 block fits, so 50), and the n rules per step.
   const NSTART = { P40: 50 };
-  const ALG1 = 'For n ≡ 2 (mod 4) and n ≡ 6 (mod 8), one corner piece uses the original heel.';
+  const ALG1NOTE = 'For n ≡ 2 (mod 4) and n ≡ 6 (mod 8), one corner piece uses the original heel.';
   const NRULE = {
     orig: 'The demo builds it with Algorithm 1 of the paper at every even n shown.',
-    paper: 'The demo builds it with Algorithm 1 at every even n shown. ' + ALG1,
-    heel21: 'The demo builds it with Algorithm 1 at every even n shown. ' + ALG1,
-    P40: 'The demo builds it with Algorithm 1 at every even n shown; 4×40 blocks are placed where they fit. At n = 48 no block fits, so the tour is the same as step 2 there. ' + ALG1,
+    paper: 'The demo builds it with Algorithm 1 at every even n shown. ' + ALG1NOTE,
+    heel21: 'The demo builds it with Algorithm 1 at every even n shown. ' + ALG1NOTE,
+    P40: 'The demo builds it with Algorithm 1 at every even n shown; 4×40 blocks are placed where they fit. At n = 48 no block fits, so the tour is the same as step 2 there. ' + ALG1NOTE,
     H16a: 'Proved for every even n ≥ 48 (one base board per residue of n mod 24, then insertion).',
     LF4: 'Proved for every even n ≥ 96 (one base board per residue of n mod 48, then insertion).',
     FOLD: 'Proved for every even n ≥ 96 (one base board per residue of n mod 24, then insertion).',
@@ -80,15 +80,16 @@
 
   const $ = (id) => document.getElementById(id);
   const canvas = $('board'), ctx = canvas.getContext('2d');
-  const state = { metric: 'X', key: 'FOLD', n: 120, tour: null, view: null, summary: null };
+  const state = { metric: 'X', key: 'FOLD', n: 120, tour: null, view: null, summary: null, mode: 'steps', aw: 30, ah: 30 };
   const cache = new Map();
 
-  const { decode, analyse } = KT;
+  const { decode, fromGrid, analyse } = KT;
+  const BASE = window.KT_BASE || '';
 
   async function getTour(key, n) {
     const id = key + n;
     if (!cache.has(id)) {
-      cache.set(id, fetch(`data/${key}_n${n}.json`).then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); })
+      cache.set(id, fetch(`${BASE}data/${key}_n${n}.json`).then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); })
         .then((rec) => { const t = decode(rec); Object.assign(t, analyse(t)); t.solver = new Set(rec.solver); return t; }));
     }
     return cache.get(id);
@@ -118,20 +119,21 @@
   }
   // Zoom views. Edge band and Corner cycle through the 4 sides / corners (canvas rows grow downwards).
   const SIDES = ['bottom', 'right', 'top', 'left'], CORNERS = ['bottom-left', 'bottom-right', 'top-right', 'top-left'];
-  function viewRect(name, i, n) {
-    if (name === 'edge') return [[[-1, n - 14, 41, n + 1], 'l', 'b'], [[n - 14, n - 41, n + 1, n + 1], 'r', 'b'],
-      [[n - 41, -1, n + 1, 14], 'r', 't'], [[-1, -1, 14, 41], 'l', 't']][i];
-    if (name === 'corner') return [[[-1, n - 25, 24, n + 1], 'l', 'b'], [[n - 24, n - 25, n + 1, n + 1], 'r', 'b'],
-      [[n - 24, -1, n + 1, 24], 'r', 't'], [[-1, -1, 24, 24], 'l', 't']][i];
-    if (name === 'centre') return [[n / 2 - 14, n / 2 - 14, n / 2 + 14, n / 2 + 14], 'c', 'c'];
-    return [[-1, -1, n + 1, n + 1], 'c', 'c'];
+  function viewRect(name, i, w, h) {
+    if (name === 'edge') return [[[-1, h - 14, 41, h + 1], 'l', 'b'], [[w - 14, h - 41, w + 1, h + 1], 'r', 'b'],
+      [[w - 41, -1, w + 1, 14], 'r', 't'], [[-1, -1, 14, 41], 'l', 't']][i];
+    if (name === 'corner') return [[[-1, h - 25, 24, h + 1], 'l', 'b'], [[w - 24, h - 25, w + 1, h + 1], 'r', 'b'],
+      [[w - 24, -1, w + 1, 24], 'r', 't'], [[-1, -1, 24, 24], 'l', 't']][i];
+    if (name === 'centre') return [[w / 2 - 14, h / 2 - 14, w / 2 + 14, h / 2 + 14], 'c', 'c'];
+    return [[-1, -1, w + 1, h + 1], 'c', 'c'];
   }
+  const dims = () => state.mode === 'any' ? [state.aw, state.ah] : [state.n, state.n];
   function setView(name, idx) {
-    const n = state.n, W = canvas.width || 1, H = canvas.height || 1, m = Math.min(W, H);
+    const [bw, bh] = dims(), W = canvas.width || 1, H = canvas.height || 1, m = Math.min(W, H);
     if (idx === undefined) idx = name === state.viewName ? (state.viewIdx + 1) % 4 : 0;
     if (name !== 'edge' && name !== 'corner') idx = 0;
     state.viewName = name; state.viewIdx = idx;
-    const [[x0, y0, x1, y1], ax, ay] = viewRect(name, idx, n);
+    const [[x0, y0, x1, y1], ax, ay] = viewRect(name, idx, bw, bh);
     const s = Math.max((x1 - x0) * m / W, (y1 - y0) * m / H), vw = s * W / m, vh = s * H / m;
     state.view = { x0: ax === 'l' ? x0 : ax === 'r' ? x1 - vw : (x0 + x1 - vw) / 2,
       y0: ay === 't' ? y0 : ay === 'b' ? y1 - vh : (y0 + y1 - vh) / 2, s };
@@ -145,24 +147,25 @@
     ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.clearRect(0, 0, W, H);
     if (whiteBg) { ctx.fillStyle = '#ffffff'; ctx.fillRect(0, 0, W, H); }
     if (!t || !state.view) return;
-    const n = t.n, v = state.view, k = unit();
+    const n = t.w || t.n, h = t.h || t.n, v = state.view, k = unit();
     ctx.setTransform(k, 0, 0, k, -v.x0 * k, -v.y0 * k);   // now in board units
-    ctx.fillStyle = '#ffffff'; ctx.fillRect(0, 0, n, n);
+    ctx.fillStyle = '#ffffff'; ctx.fillRect(0, 0, n, h);
     if ($('tChecker').checked && k / (canvas.width / (canvas.getBoundingClientRect().width || 1)) >= 6) {   // faint checkerboard, a1 = bottom-left dark
       ctx.fillStyle = 'rgba(40,48,58,0.045)';
-      for (let r = 0; r < n; r++) for (let x = (n - 1 - r) % 2; x < n; x += 2) ctx.fillRect(x, r, 1, 1);
+      for (let r = 0; r < h; r++) for (let x = (h - 1 - r) % 2; x < n; x += 2) ctx.fillRect(x, r, 1, 1);
     }
-    if ($('tLayout').checked) drawLayout(n);
+    if ($('tLayout').checked && state.mode === 'steps') drawLayout(n);
     if ($('tSolver').checked) {
       ctx.fillStyle = 'rgba(60,60,58,0.16)';
       for (const c of t.solver) ctx.fillRect(c % n, (c / n) | 0, 1, 1);
     }
     if (k > 9) {   // light grid when zoomed in
       ctx.strokeStyle = 'rgba(0,0,0,0.06)'; ctx.lineWidth = 1 / k; ctx.beginPath();
-      for (let i = 0; i <= n; i++) { ctx.moveTo(0, i); ctx.lineTo(n, i); ctx.moveTo(i, 0); ctx.lineTo(i, n); }
+      for (let i = 0; i <= h; i++) { ctx.moveTo(0, i); ctx.lineTo(n, i); }
+      for (let i = 0; i <= n; i++) { ctx.moveTo(i, 0); ctx.lineTo(i, h); }
       ctx.stroke();
     }
-    ctx.strokeStyle = '#c9c8c2'; ctx.lineWidth = 1.5 / k; ctx.strokeRect(0, 0, n, n);
+    ctx.strokeStyle = '#c9c8c2'; ctx.lineWidth = 1.5 / k; ctx.strokeRect(0, 0, n, h);
     // moves
     const colored = $('tColor').checked;
     const lw = Math.max(0.6, Math.min(2.2, k * 0.09)) / k;
@@ -239,7 +242,7 @@
     ev.preventDefault(); const v = state.view; if (!v) return;
     const r = canvas.getBoundingClientRect(), m = Math.min(r.width, r.height);
     const px = ev.clientX - r.left, py = ev.clientY - r.top, bx = v.x0 + px / m * v.s, by = v.y0 + py / m * v.s;
-    const s2 = Math.min(Math.max(v.s * Math.exp(ev.deltaY * 0.0015), 6), state.n * 1.6);
+    const s2 = Math.min(Math.max(v.s * Math.exp(ev.deltaY * 0.0015), 6), Math.max(...dims()) * 1.6);
     v.s = s2; v.x0 = bx - px / m * s2; v.y0 = by - py / m * s2; draw();
   }, { passive: false });
   canvas.addEventListener('pointerdown', (ev) => { drag = { x: ev.clientX, y: ev.clientY }; canvas.setPointerCapture(ev.pointerId); canvas.classList.add('drag'); });
@@ -260,7 +263,7 @@
     const view = state.viewName === 'edge' ? `_edge-${SIDES[state.viewIdx]}` : state.viewName === 'corner' ? `_corner-${CORNERS[state.viewIdx]}`
       : state.viewName === 'centre' ? '_centre' : '';
     const a = document.createElement('a');
-    a.download = `knight-tour_${state.key}_n${state.n}${view}.png`; a.href = canvas.toDataURL('image/png');
+    a.download = state.mode === 'any' ? `knight-tour_alg1_${state.aw}x${state.ah}${view}.png` : `knight-tour_${state.key}_n${state.n}${view}.png`; a.href = canvas.toDataURL('image/png');
     document.body.appendChild(a); a.click(); a.remove();
     canvas.width = oldW; canvas.height = oldH; draw();
   });
@@ -271,7 +274,7 @@
   function renderSteps() {
     const m = state.metric, ks = stepsOf(), i = ks.indexOf(state.key);
     document.querySelectorAll('[data-metric]').forEach((b) => b.classList.toggle('on', b.dataset.metric === m));
-    $('steps').innerHTML = ks.map((k, j) => `<button class="choice${k === state.key ? ' on' : ''}" data-k="${k}">` +
+    $('steps').innerHTML = ks.map((k, j) => `<button class="choice${k === state.key && state.mode === 'steps' ? ' on' : ''}" data-k="${k}">` +
       `<div class="ct"><b><em>${j + 1}</em> ${C[k].name}</b><span class="f">${fmtSlope(KNOWN[m][k])}${k === 'TT16' ? ' − 14' : ''}</span></div>` +
       `<span>${C[k].credit} &middot; ${C[k].date}</span></button>`).join('') +
       (STEPNOTE[m] ? `<div class="note">${STEPNOTE[m]}</div>` : '') +
@@ -281,10 +284,10 @@
     const r = $('steprange'); r.min = 1; r.max = ks.length; r.value = i + 1;
     $('stepnum').textContent = `step ${i + 1} of ${ks.length}`;
   }
-  function selectKey(k) { state.key = k; state.n = NSTART[k] || C[k].nmin; load(true); }
+  function selectKey(k) { state.mode = 'steps'; state.key = k; state.n = NSTART[k] || C[k].nmin; load(true); }
   function setStep(j) {
     const ks = stepsOf(); j = Math.max(0, Math.min(ks.length - 1, j));
-    if (ks[j] !== state.key) selectKey(ks[j]);
+    if (ks[j] !== state.key || state.mode === 'any') selectKey(ks[j]);
   }
   $('steprange').addEventListener('input', (e) => setStep(+e.target.value - 1));
   $('stepprev').addEventListener('click', () => setStep(stepsOf().indexOf(state.key) - 1));
@@ -293,6 +296,7 @@
     if (b.dataset.metric === state.metric) return;
     state.metric = b.dataset.metric;
     $('tCross').checked = state.metric === 'X'; $('tTurns').checked = state.metric === 'T';
+    if (state.mode === 'any') { renderSteps(); renderCharts(); loadAny(); return; }
     if (!stepsOf().includes(state.key)) selectKey(stepsOf()[stepsOf().length - 1]); else load(true);
   }));
   function renderCounts() {
@@ -348,8 +352,29 @@
     renderCounts(); renderCharts(); writeHash();
     for (const m of [n - 2, n + 2]) if (m >= C[key].nmin && m <= NMAX) getTour(key, m).catch(() => {});
   }
+  // ---------- any board: Algorithm 1 of the paper generated in the browser (the 2019 demo) ----------
+  function loadAny() {
+    state.mode = 'any';
+    let w = Math.round(+$('aw').value), h = Math.round(+$('ah').value);
+    w = Math.min(120, Math.max(16, w - (w % 2))); h = Math.min(120, Math.max(12, h));
+    $('aw').value = w; $('ah').value = h; state.aw = w; state.ah = h;
+    const t = fromGrid(ALG1.genTour(w, h)); Object.assign(t, analyse(t)); t.solver = new Set();
+    state.tour = t; renderSteps(); setView('fit');
+    $('caption').innerHTML = `<div class="ctitle"><strong>Algorithm 1 of the paper, ${w} &times; ${h}</strong><span>${C.orig.credit} &middot; 2019</span></div>` +
+      '<div>The 2019 demo: the original formation construction, generated in your browser for any even width from 16 and any height from 12 (up to 120), square or not.</div>';
+    $('counts').innerHTML = `<div class="row${state.metric === 'X' ? ' head' : ''}"><span class="lab">Crossings</span><span class="val">${t.X.length}</span></div>` +
+      `<div class="row${state.metric === 'T' ? ' head' : ''}"><span class="lab">Turns</span><span class="val">${t.T.length}</span></div>`;
+    const el = $('check'); el.className = t.ok ? 'check ok' : 'check bad';
+    el.textContent = t.ok ? `One closed tour through all ${w * h} squares, checked in your browser.` : 'Check failed: not one closed tour.';
+    $('embedinfo').innerHTML = `<b>Algorithm 1</b> &middot; ${w} &times; ${h} &middot; ${state.metric === 'X' ? `${t.X.length} crossings` : `${t.T.length} turns`} &middot; ${C.orig.credit}`;
+    writeHash();
+  }
+  $('anyshow').addEventListener('click', loadAny);
+  for (const id of ['aw', 'ah']) $(id).addEventListener('change', loadAny);
+
   let debounce = null;
   function setN(v) {
+    if (state.mode === 'any') { state.mode = 'steps'; renderSteps(); }
     state.n = Math.round(+v / 2) * 2; setRange();
     clearTimeout(debounce); debounce = setTimeout(() => load(false), 60);
   }
@@ -364,7 +389,7 @@
   // ---------- chart: the selected measure for every step, with the lower bounds ----------
   function renderCharts() {
     const m = state.metric;
-    $('charttitle').textContent = (m === 'X' ? 'Crossings' : 'Turns') + ' as n grows: tour counts and lower-bound reference lines';
+    $('charttitle').textContent = (m === 'X' ? 'Crossings' : 'Turns') + ' as n grows: tour counts and lower bounds';
     $('chartnote').textContent = m === 'X'
       ? 'Dashed lines: lower bounds on crossings, 4n (paper) and 5n (new, Oct 3). The exact bounds are X ≥ 4n − 2 and X ≥ 5n − 612 (audited, Claim 42); the lines leave out the constants.'
       : 'Dashed lines: lower bounds on turns, 6n (paper; its exact form is (6 − ε)n) and 8n − 28 (new).';
@@ -396,7 +421,7 @@
     labs.sort((a, b) => a.y - b.y);
     for (let i = 1; i < labs.length; i++) labs[i].y = Math.max(labs[i].y, labs[i - 1].y + 13);
     for (const l of labs) g += `<text x="${X(NMAX) + 6}" y="${l.y}" font-size="11.5" fill="${l.on ? '#1d1d1b' : '#8a8983'}" font-weight="${l.on ? 600 : 400}"${l.dim ? ' font-style="italic"' : ''}>${l.text}</text>`;
-    const cur = S[state.key][state.n];
+    const cur = state.mode === 'steps' && S[state.key][state.n];
     if (cur) g += `<circle cx="${X(state.n)}" cy="${Y(cur[f])}" r="5" fill="${ACCENT}" stroke="#fff" stroke-width="2"/>`;
     g += `<line class="xh" x1="0" x2="0" y1="${pad.t}" y2="${H - pad.b}" stroke="#52514e" stroke-dasharray="3 3" visibility="hidden"/>`;
     g += `<rect x="${pad.l}" y="${pad.t}" width="${W - pad.l - pad.r}" height="${H - pad.t - pad.b}" fill="transparent" class="hit"/>`;
@@ -437,10 +462,13 @@
   function writeHash() {
     const show = SHOW.filter(([id]) => $(id).checked).map(([, nm]) => nm);
     const vw = state.viewName && state.viewName !== 'fit' ? `&view=${state.viewName}${state.viewName === 'edge' || state.viewName === 'corner' ? '-' + (state.viewIdx + 1) : ''}` : '';
-    history.replaceState(null, '', `${location.pathname}${location.search}#m=${state.metric}&k=${state.key}&n=${state.n}${vw}&show=${show.join(',')}`);
+    const what = state.mode === 'any' ? `w=${state.aw}&h=${state.ah}` : `k=${state.key}&n=${state.n}`;
+    history.replaceState(null, '', `${location.pathname}${location.search}#m=${state.metric}&${what}${vw}&show=${show.join(',')}`);
   }
-  fetch('data/summary.json').then((r) => r.json()).then((s) => {
+  fetch(`${BASE}data/summary.json`).then((r) => r.json()).then((s) => {
     state.summary = s; renderLegend(); resize();
+    const aw = +hp.get('w') || +qp.get('w'), ah = +hp.get('h') || +qp.get('h');
+    if (aw && ah) { $('aw').value = aw; $('ah').value = ah; renderSteps(); renderCharts(); loadAny(); if (firstView) applyView(firstView); firstView = null; return; }
     load(true).then(() => { if (firstView) applyView(firstView); firstView = null; });
   });
 })();

@@ -1,148 +1,100 @@
-<!--
-Interactive visualization of our new knight's tour algorithm
-
-Made by Nil Mamano
--->
-
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-
-<title>Knight's Tour</title>
 <meta charset="utf-8">
-<meta name="author" content="Nil Mamano">
-<meta name="description" content="knightstour">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
-</script>
-<script type="text/javascript"
-  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-
-<style>
-
-body {
-  padding-top: 0px;
-}
-
-.flex-container {
-  display: flex;
-  flex-direction: row;
-  align-items: top;
-  padding-left: 20px;
-  padding-top: 20px;
-
-}
-
-.controls {
-  margin-left: 20px;
-  margin-top: 60px;
-}
-
-.control {
-  display: flex;
-  align-items: center;
-  padding: 3px;
-}
-
-.w3-top {
-  position: fixed;
-  top: 0;
-  width: 100%;
-}
-
-input{
-  &::-webkit-inner-spin-button{
-    opacity:1; // magic!
-  }
-}
-
-input[type=number]:hover::-webkit-inner-spin-button,
-input[type=number]:hover::-webkit-outer-spin-button {
-   opacity: 1;
-}
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-   opacity: 1;
-}
-</style>
-
+<title>Knight's tours with few crossings - interactive demo</title>
+<link rel="stylesheet" href="bounds-2026/demo/demo.css">
+<script>/* the demo moved to the repository root of GitHub Pages; keep old links working */
+  if (/\/bounds-2026\/demo\/(index\.html)?$/.test(location.pathname))
+    location.replace(location.pathname.replace(/bounds-2026\/demo\/(index\.html)?$/, '') + location.search + location.hash);</script>
 </head>
-
 <body>
+<div id="ktdemo">
+  <header>
+    <h1>Knight's tours with few crossings and few turns</h1>
+    <p class="sub">How the best known closed knight's tours on an n &times; n board improved, step by step. Pick a measure and a step, change n, and zoom in.
+      Every tour on this page is a real tour, checked in your browser.</p>
+  </header>
 
-<!-- Navbar (sit on top) -->
-<div class="w3-card">
-  <div class="w3-bar w3-white w3-wide w3-padding w3-card">
-    <a href="#home" class="w3-bar-item w3-button"><b>Taming the Knight's Tour</b> Minimizing Turns and Crossings</a>
-    <!-- Float links to the right. Hide them on small screens -->
-    <div class="w3-right w3-hide-small">
-      <a href="#about" class="w3-bar-item w3-button">About</a>
-    </div>
+  <div class="layout">
+    <aside class="panel">
+      <section>
+        <h2>Measure</h2>
+        <div class="tabs"><button data-metric="X">Crossings</button><button data-metric="T">Turns</button></div>
+      </section>
+
+      <section>
+        <h2>Progression</h2>
+        <div class="size-row">
+          <button id="stepprev" aria-label="previous step">&lsaquo;</button>
+          <input id="steprange" type="range" step="1">
+          <button id="stepnext" aria-label="next step">&rsaquo;</button>
+          <span id="stepnum" class="note"></span>
+        </div>
+        <div id="steps" class="choices"></div>
+      </section>
+
+      <section>
+        <h2>Board size</h2>
+        <div class="size-row">
+          <button id="nminus" aria-label="smaller board">&minus;</button>
+          <input id="nrange" type="range" step="2">
+          <button id="nplus" aria-label="larger board">+</button>
+          <span class="nval">n = <input id="nnum" type="number" step="2"></span>
+        </div>
+        <div id="nnote" class="note"></div>
+      </section>
+
+      <section>
+        <h2>Any board size (2019 demo)</h2>
+        <div class="size-row">width <input id="aw" type="number" min="16" max="120" step="2" value="30"> height <input id="ah" type="number" min="12" max="120" step="1" value="30"> <button id="anyshow">Show</button></div>
+        <div class="note">Algorithm 1 of the paper, generated in your browser: any even width from 16 and any height from 12, up to 120. This was the original 2019 demo.</div>
+      </section>
+
+      <section>
+        <h2>Counts</h2>
+        <div id="counts" class="counts"></div>
+        <div id="check" class="check"></div>
+      </section>
+
+      <section>
+        <h2>Show</h2>
+        <label><input type="checkbox" id="tCross" checked> Crossings <span class="sw dot-red"></span></label>
+        <label><input type="checkbox" id="tTurns"> Turns <span class="sw dot-dark"></span></label>
+        <label><input type="checkbox" id="tColor" checked> Color moves by direction</label>
+        <div id="dirLegend" class="legend"></div>
+        <label><input type="checkbox" id="tLayout" checked> Layout (edge bands, triangles)</label>
+        <label><input type="checkbox" id="tSolver"> Cells filled by the computer search</label>
+        <label><input type="checkbox" id="tChecker" checked> Checkerboard (when squares are large enough)</label>
+      </section>
+    </aside>
+
+    <main>
+      <div class="embedinfo" id="embedinfo"></div>
+      <div class="caption" id="caption"></div>
+      <div class="viewbar">
+        <span>Zoom:</span>
+        <button data-view="fit">Whole board</button>
+        <button data-view="edge" id="vEdge">Edge band</button>
+        <button data-view="corner" id="vCorner">Corner</button>
+        <button data-view="centre">Centre</button>
+        <button id="dl" title="Save the current view as a PNG">Download image</button>
+        <span class="hint">scroll to zoom, drag to move</span>
+      </div>
+      <div class="board-wrap"><canvas id="board"></canvas><div id="loading" class="loading">loading...</div></div>
+      <figure class="chartfig"><figcaption id="charttitle"></figcaption><svg id="chart"></svg><div id="chartnote" class="note"></div></figure>
+      <div id="tip" class="tip"></div>
+    </main>
   </div>
+  <footer>Tours and counts computed October 1-2, 2026 (Agent Team). Crossings count unordered pairs of moves whose open segments intersect properly. A shared endpoint does not count; several pairs at one point count separately.
+    Turn = a square where the tour changes direction.
+    <p>Paper: J. J. Besa, T. Johnson, N. Mamano, M. C. Osegueda, <a href="https://arxiv.org/abs/1904.02824">Taming the Knight's Tour: Minimizing Turns and Crossings</a> (arXiv:1904.02824).
+    The 2019 demo was made by Juan Jose Besa Vidal, Timothy Johnson, Nil Mamano and Martha Osegueda. Research record of the 2026 bounds: <a href="https://github.com/nmamano/MinCrossingsKnightsTour/tree/master/bounds-2026">bounds-2026</a>.</p></footer>
 </div>
-
-<div class="flex-container">
-  <div><canvas id="canvas1" style="border: none;" width="702" height="702" align="center">Your browser does not support HTML5 canvas.</canvas></div>
-  <div><div class='col-xs-2 controls'>
-
-      <div class="control">
-      <form>
-        <label>Width: </label>
-    <input type="number"
-           min="16"
-           max="120"
-           step="2"
-           value="30"
-           id="newwidth"
-           onchange="changeBoardSize()"
-           onclick="changeBoardSize()">
-  </form>
-</div>
-<div class="control">
-      <form>
-        <label>Height: </label>
-    <input type="number"
-           min="12"
-           max="120"
-           step="1"
-           value="30"
-           id="newheight"
-           onchange="changeBoardSize()"
-           onclick="changeBoardSize()">
-  </form>
-  </div>
-        <div class="control">
-      <label id='turncount'>Number of turns: </label>
-    </div>
-    <div class="control">
-      <label id='crossingcount'>Number of crossings: </label>
-    </div>
-
-  </div>
-</div>
-</div>
-
-<script src="board.js"></script>
-
-
-  <!-- About Section -->
-  <div class="w3-container w3-padding-32" id="about">
-    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">About</h3>
-    <p>The <a href="https://en.wikipedia.org/wiki/Knight%27s_tour">knight's tour problem</a> is a popular puzzle. The goal is to find a cycle going through every cell in a rectangular board using only knight moves. We propose a new method with a special property: compared to previous methods, it has a small number of <i>turns</i> and <i>crossings</i>. A turn is a triplet of consecutive squares in the tour with non-collinear coordinates. A crossing occurs when the two line segments corresponding to moves in the tour intersect. For details about the algorithm, see <a href="https://arxiv.org/pdf/1904.02824.pdf">the preprint available online</a>.
-    </p>
-
-    <p>Developed by UCI grad students Juan Jose Besa Vidal, Timothy Johnson, Nil Mamano, and Martha Osegueda. Requires HTML5. Works (at least) on latest Chrome for desktop. Maintained by/Contact: <a href="https://www.ics.uci.edu/~nmamano/">Nil Mamano.</a></p>
-
-  </div>
-
-
-<!-- End page content -->
-
-
-
+<script>window.KT_BASE = 'bounds-2026/demo/';</script>
+<script src="bounds-2026/demo/tourlib.js"></script>
+<script src="bounds-2026/demo/alg1.js"></script>
+<script src="bounds-2026/demo/app.js"></script>
 </body>
 </html>

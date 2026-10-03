@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Knight's tours with few crossings - interactive demo</title>
 <link rel="stylesheet" href="demo.css">
+<script>/* the demo moved to the repository root of GitHub Pages; keep old links working */
+  if (/\/bounds-2026\/demo\/(index\.html)?$/.test(location.pathname))
+    location.replace(location.pathname.replace(/bounds-2026\/demo\/(index\.html)?$/, '') + location.search + location.hash);</script>
 </head>
 <body>
 <div id="ktdemo">
@@ -44,6 +47,12 @@
       </section>
 
       <section>
+        <h2>Any board size (2019 demo)</h2>
+        <div class="size-row">width <input id="aw" type="number" min="16" max="120" step="2" value="30"> height <input id="ah" type="number" min="12" max="120" step="1" value="30"> <button id="anyshow">Show</button></div>
+        <div class="note">Algorithm 1 of the paper, generated in your browser: any even width from 16 and any height from 12, up to 120. This was the original 2019 demo.</div>
+      </section>
+
+      <section>
         <h2>Counts</h2>
         <div id="counts" class="counts"></div>
         <div id="check" class="check"></div>
@@ -79,9 +88,12 @@
     </main>
   </div>
   <footer>Tours and counts computed October 1-2, 2026 (Agent Team). Crossings count unordered pairs of moves whose open segments intersect properly. A shared endpoint does not count; several pairs at one point count separately.
-    Turn = a square where the tour changes direction.</footer>
+    Turn = a square where the tour changes direction.
+    <p>Paper: J. J. Besa, T. Johnson, N. Mamano, M. C. Osegueda, <a href="https://arxiv.org/abs/1904.02824">Taming the Knight's Tour: Minimizing Turns and Crossings</a> (arXiv:1904.02824).
+    The 2019 demo was made by Juan Jose Besa Vidal, Timothy Johnson, Nil Mamano and Martha Osegueda. Research record of the 2026 bounds: <a href="https://github.com/nmamano/MinCrossingsKnightsTour/tree/master/bounds-2026">bounds-2026</a>.</p></footer>
 </div>
 <script src="tourlib.js"></script>
+<script src="alg1.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

@@ -8,14 +8,20 @@
   function decode(rec) {
     const n = rec.n, N = n * n, A = new Int8Array(N), B = new Int8Array(N);
     for (let c = 0; c < N; c++) { const v = ALPHA.indexOf(rec.cells[c]); A[c] = v >> 3; B[c] = v & 7; }
-    return { n, A, B, rec };
+    return { n, w: n, h: n, A, B, rec };
+  }
+  // a w x h grid of 2-digit move-code strings (row 0 = top), e.g. from the 2019 Algorithm 1 generator
+  function fromGrid(grid) {
+    const h = grid.length, w = grid[0].length, A = new Int8Array(w * h), B = new Int8Array(w * h);
+    for (let i = 0; i < h; i++) for (let j = 0; j < w; j++) { A[i * w + j] = +grid[i][j][0]; B[i * w + j] = +grid[i][j][1]; }
+    return { n: Math.max(w, h), w, h, A, B, rec: null };
   }
 
   // independent check in the browser: two reciprocal knight moves per square, one closed cycle
   function analyse(t) {
-    const { n, A, B } = t, N = n * n;
+    const { A, B } = t, n = t.w || t.n, h = t.h || t.n, N = n * h;   // n = columns, h = rows
     const nb = (c, k) => { const i = (c / n) | 0, j = c % n, a = i + MI[k], b = j + MJ[k];
-      return (a < 0 || b < 0 || a >= n || b >= n) ? -1 : a * n + b; };
+      return (a < 0 || b < 0 || a >= h || b >= n) ? -1 : a * n + b; };
     let ok = true;
     const nbr = new Int32Array(2 * N);
     for (let c = 0; c < N && ok; c++) {
@@ -66,6 +72,6 @@
     return { ok, E, X, T };
   }
 
-  const KT = { decode, analyse };
+  const KT = { decode, fromGrid, analyse };
   if (typeof module !== 'undefined') module.exports = KT; else root.KT = KT;
 })(this);

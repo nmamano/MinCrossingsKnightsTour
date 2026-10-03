@@ -305,7 +305,8 @@ Then privacy scan (emails, tokens, agent ids, office URLs), commit with Co-Autho
 Clone: ~/nil/MinCrossingsKnightsTour (default branch master; push directly to master as Nil, no branches).
 bounds-2026/ came in by `git subtree add --prefix=bounds-2026 ~/nil/knights-tour-bounds main` (full history).
 Old 2019 files at the root (index.html, board.js, Code/, License.txt ...) stay unchanged; GitHub Pages serves master "/"
-(.nojekyll at the root, so no Jekyll build). Demo: https://nmamano.github.io/MinCrossingsKnightsTour/bounds-2026/demo/
+(.nojekyll at the root, so no Jekyll build). Demo (since 2026-10-03 the Pages landing page): https://nmamano.github.io/MinCrossingsKnightsTour/ ;
+the sync script writes the root index.html from demo/index.html; bounds-2026/demo/ redirects to the root.
 1. `sh w-integrator/sync_public.sh` (add --dry-run -i -c to preview). rsync -a --delete with the same excludes as the old
    recipe (incl. /writeup/WRITER_STATE.md, /w-verifier/claim23*_clean/, /CR_STATE.md, /.venv/, /ktlean/.lake/ + .git/,
    /paper.pdf, /paper.txt, /board-patched.js, *.npy, __pycache__/, the 7 compiled C++ binaries in w-searcher, the 2 claim22
@@ -402,3 +403,15 @@ Cross-check (KT Edge Searcher, gap/searcher/wall/wall_if.cpp, relaxed W=4 lower 
 interfaces free; vertical z|y turn 1 per row (= my wallcyl price); z0|z1 (1,2) wall NONE; its break-even argument
 (zigzag ribbon ends >= 1/3 each) also gives >= 19n/3 + n/3 for the chevron layout. Its non-(1,1) zigzag|straight
 prices are relaxed (colour may leak through free ghost cells); with exact colour balance they are infeasible.
+2026-10-03 (Oct 3 ~9:15 am PT): 5n post update prepared, NOT pushed (CR: push only after the Verifier audits the post).
+explain/progress_charts.py: 4 new crossing rows (52n/11 Oct 2 8:36 pm, 204n/43 9:21 pm, 24n/5 10:11 pm, 5n Oct 3
+2:50 am PT = times of the CR's milestone messages). SVG regenerated (turns SVG unchanged), PNG re-rendered
+(currentColor -> #22303a, white, Chrome device scale 2, 1440x1084). Root README.md of MinCrossingsKnightsTour edited in
+the working tree only (X >= 5n - 612). Routine syncs must not stage README.md, bounds-2026/writeup, bounds-2026/explain.
+knights-tour-bounds: CR pushed bbe0a89 and archived the repo (Nil approved).
+Milestone plan (CR, 2026-10-03; apply only when the CR names the post-audit milestone):
+- bounds-2026/README.md: 5n row already added above the 14n/3 row in the repo working tree (uncommitted).
+- RESULTS.md (research dir, NOT yet edited): insert above line 14 the row
+  "| X >= 5n-612 | Proved, closed tours, even n>=32 | gap/turnstheory/PROOF_5N.md; audit Claim 42 |", keep 14n/3.
+- Then sync, run the 13 appendix commands + PROOF_5N.md section 7 commands from a git-ls-files copy, privacy scan,
+  commit (README.md, bounds-2026/README.md, RESULTS.md, writeup/, explain/ included) and push.

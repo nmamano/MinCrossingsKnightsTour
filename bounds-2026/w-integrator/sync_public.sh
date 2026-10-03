@@ -32,4 +32,11 @@ sed -i 's|^URL https://knight-demo\.office\.nilmamano\.com \.|Served as the offi
 # No compiled binaries.
 BIN=$(find "$DST" -type f -size +0 -exec sh -c 'head -c4 "$1" | grep -q "ELF" && echo "$1"' _ {} \;)
 [ -z "$BIN" ] || { echo "FAIL: binaries: $BIN"; exit 1; }
+# The demo is the GitHub Pages landing page: the repository root index.html loads bounds-2026/demo/ assets.
+sed -e 's|href="demo.css"|href="bounds-2026/demo/demo.css"|' \
+    -e 's|<script src="tourlib.js"></script>|<script>window.KT_BASE = '"'"'bounds-2026/demo/'"'"';</script>\n<script src="bounds-2026/demo/tourlib.js"></script>|' \
+    -e 's|<script src="alg1.js"></script>|<script src="bounds-2026/demo/alg1.js"></script>|' \
+    -e 's|<script src="app.js"></script>|<script src="bounds-2026/demo/app.js"></script>|' \
+    "$DST/demo/index.html" > "$DST/../index.html"
+grep -q 'bounds-2026/demo/app.js' "$DST/../index.html" || { echo "FAIL: root index.html"; exit 1; }
 echo "sync OK"
