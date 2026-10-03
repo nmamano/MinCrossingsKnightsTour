@@ -1,0 +1,8 @@
+PASS: valid width-two strip field (degrees, knight moves, no cycle)
+PASS: 8 proper crossings per 4 rows, so sum(w-1/4) = 4 per 4 rows
+  up, phase 0: (F, h, a) per row = [(1, 1, 1), (0, 1, 1), (1, 1, 1), (0, 1, 1)], sum a = 4
+  up, phase 1: (F, h, a) per row = [(1, 0, 0.5), (0, 0, 0.5), (1, 0, 0.5), (0, 0, 0.5)], sum a = 2.0
+PASS: up: some parity phase gives a = 1 on every row; ratio sum(w-1/4)/sum(a) = 1
+  down, phase 0: (F, h, a) per row = [(0, 0, 0.5), (1, 0, 0.5), (0, 0, 0.5), (1, 0, 0.5)], sum a = 2.0
+  down, phase 1: (F, h, a) per row = [(0, 1, 1), (1, 1, 1), (0, 1, 1), (1, 1, 1)], sum a = 4
+PASS: down: some parity phase gives a = 1 on every row; ratio sum(w-1/4)/sum(a) = 1

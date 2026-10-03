@@ -1,0 +1,3 @@
+orient=up: base states 82516, aug arcs 2095620, used aug nodes 1112872
+  negative cycle: 16 arcs, sum(4w-1)=16, sum t=8 -> beta <= 1 = 1.000000
+up: beta* = 1 = 1.000000, converged after 43 passes; potential range -29..0 (units 1/(4q))

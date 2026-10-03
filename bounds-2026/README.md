@@ -171,4 +171,4 @@ compiled binaries and the `*.npy` arrays.
 
 ## License
 
-TODO: license (Nil)
+MIT License. See [License.txt](../License.txt) in the repository root.

@@ -289,6 +289,7 @@ The paper's 21-turn heel rebuilt by heel21.py (OPTIMAL 21 turns / 31 crossings, 
 it gives T slope 37/4 = 9.25 exactly. Details: demo/README.md.
 
 ## Public repo sync recipe (github.com/nmamano/knights-tour-bounds; staging ~/nil/knights-tour-bounds)
+SUPERSEDED 2026-10-03 by the MinCrossingsKnightsTour recipe below. knights-tour-bounds stays as is (Nil decides archive or keep).
 Pushed: 1f8817d (Nil), 120be78 (charts). Final re-sync, fresh-copy run and commit + push wait for the CR's go.
 rsync -a from ~/nil/knight-formation-research/ with --exclude= /.venv/ /ktlean/.lake/ /ktlean/.git/ /CR_STATE.md
 /paper.pdf /paper.txt /board-patched.js __pycache__/ '*.npy' /w-searcher/tm /w-searcher/cert/{certify,certify2,
@@ -299,3 +300,20 @@ Staging still holds WRITER_STATE.md and claim23*_clean/ on disk (rm blocked by h
 Fresh-copy run: rsync staging (no .git) to /tmp/ktb-fresh, run every command in the Appendix sections of
 writeup/{turns,crossings}/post.mdx with system python3 (script /tmp/ktb-run.sh; add the new margins check). 2026-10-02: 12/12 PASS.
 Then privacy scan (emails, tokens, agent ids, office URLs), commit with Co-Authored-By line, git push origin main.
+
+## Public repo sync recipe (since 2026-10-03): github.com/nmamano/MinCrossingsKnightsTour, folder bounds-2026/
+Clone: ~/nil/MinCrossingsKnightsTour (default branch master; push directly to master as Nil, no branches).
+bounds-2026/ came in by `git subtree add --prefix=bounds-2026 ~/nil/knights-tour-bounds main` (full history).
+Old 2019 files at the root (index.html, board.js, Code/, License.txt ...) stay unchanged; GitHub Pages serves master "/"
+(.nojekyll at the root, so no Jekyll build). Demo: https://nmamano.github.io/MinCrossingsKnightsTour/bounds-2026/demo/
+1. `sh w-integrator/sync_public.sh` (add --dry-run -i -c to preview). rsync -a --delete with the same excludes as the old
+   recipe (incl. /writeup/WRITER_STATE.md, /w-verifier/claim23*_clean/, /CR_STATE.md, /.venv/, /ktlean/.lake/ + .git/,
+   /paper.pdf, /paper.txt, /board-patched.js, *.npy, __pycache__/, the 7 compiled C++ binaries in w-searcher, the 2 claim22
+   extracts). gap/ IS included. Repo-only files bounds-2026/{.gitignore,README.md,requirements.txt} are excluded, so
+   --delete keeps them. The script replaces the office demo URL line in w-integrator/FINDINGS.md, and fails on any
+   office-domain string or any ELF binary left in bounds-2026/.
+2. bounds-2026/.gitignore re-includes *.log, *.aux, *.out, *.toc (and other LaTeX outputs) that the root .gitignore ignores.
+3. Fresh-copy run: `git ls-files bounds-2026` copy to /tmp, run all 13 appendix commands of writeup/{turns,crossings}/post.mdx
+   with system python3 from that bounds-2026 copy (script /tmp/ktb-run.sh).
+4. Privacy scan (emails, tokens, agent ids, office URLs, /home paths) on the staged diff; commit with the Co-Authored-By
+   line; `git push origin master`; check the Pages build (gh api repos/nmamano/MinCrossingsKnightsTour/pages/builds/latest).

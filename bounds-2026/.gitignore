@@ -9,3 +9,20 @@ w-searcher/cert/corner_charge
 w-searcher/cert/strip2
 w-searcher/carrier/band
 w-searcher/carrier/band2
+
+# The repository root .gitignore (from the 2019 project) ignores LaTeX and log outputs.
+# The research record tracks these files (audit logs, run logs, LaTeX build files), so re-include them here.
+# *.o and *.exe stay ignored (compiled binaries).
+!*.log
+!*.aux
+!*.out
+!*.toc
+!*.dvi
+!*.bbl
+!*.blg
+!*.synctex
+!*.synctex.gz
+!*.pdfsync
+!*.nav
+!*.snm
+!*-converted-to.*

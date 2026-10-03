@@ -1,0 +1,7 @@
+PASS k=2: valid S_k field, 8 crossings per 4 rows, same test edges as width two
+PASS k=3: valid S_k field, 8 crossings per 4 rows, same test edges as width two
+PASS k=4: valid S_k field, 8 crossings per 4 rows, same test edges as width two
+PASS k=5: valid S_k field, 8 crossings per 4 rows, same test edges as width two
+PASS k=6: valid S_k field, 8 crossings per 4 rows, same test edges as width two
+PASS k=7: valid S_k field, 8 crossings per 4 rows, same test edges as width two
+PASS k=8: valid S_k field, 8 crossings per 4 rows, same test edges as width two

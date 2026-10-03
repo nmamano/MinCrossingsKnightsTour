@@ -322,7 +322,7 @@ In the fold construction, the corridors add `4n/3 + O(1)` crossings and the arch
 
 ## Details
 
-[Code and certificate data](https://github.com/nmamano/knights-tour-bounds) are available in the public source repository.
+[Code and certificate data](https://github.com/nmamano/MinCrossingsKnightsTour/tree/master/bounds-2026) are available in the public source repository.
 
 The [full-proof appendix](#appendix-full-proofs) contains both arguments, including every finite certificate and its check command:
 
@@ -341,9 +341,9 @@ Possible routes to a better lower bound include more defects per path, wider sid
 
 ## Appendix: full proofs
 
-[Code and certificate data](https://github.com/nmamano/knights-tour-bounds) are available in the public source repository.
+[Code and certificate data](https://github.com/nmamano/MinCrossingsKnightsTour/tree/master/bounds-2026) are available in the public source repository.
 
-The two proofs below include their finite certificates and the commands to check them. Run every command from the research project root. The geometric arguments explain why the finite checks cover every board size; testing a list of tours alone would not suffice.
+The two proofs below include their finite certificates and the commands to check them. Run every command from the bounds-2026 folder of the repository. The geometric arguments explain why the finite checks cover every board size; testing a list of tours alone would not suffice.
 
 <details id="proof-fold">
 <summary>A. Full proof: tours with at most <code>19n/3 + 142</code> crossings</summary>
@@ -492,7 +492,7 @@ python3 w-turnstheory/check_fold_proof.py
 
 ### A.5. Reproduction and scope of the finite certificate
 
-Run from the project root:
+Run from the bounds-2026 folder of the repository:
 
 ```sh
 python3 w-turnstheory/check_fold_proof.py
@@ -684,7 +684,7 @@ python3 w-turnstheory/check_lower_stability.py
 
 ### B.7. One command checks every finite input
 
-Run from the project root:
+Run from the bounds-2026 folder of the repository:
 
 ```sh
 python3 w-turnstheory/check_crossings_lower.py
