@@ -1,5 +1,58 @@
 # KT Lower Bounds - gap mission findings (gap/lowerbounds/)
 
+## F (2026-10-03, phase 2d): F1 replaced by a width-two strip certificate - 5n route closes (pending audit)
+
+Task: R4 / F1 in gap/turnstheory/PROOF_5N_PLAN.md section 4. Result: F1 is NOT needed in its R4 form (residual
+nu' atoms, baseline marks, Hall bits). The deficient paths are paid by the endpoint RESERVE, through one
+strengthened copy of the audited width-two stability lemma. Labels below.
+
+**Claim V (PROVEN, by hand; inputs: (2), (3), endpoint lemma, overlap lemma (6), square identity, H1).**
+Strong row test at side row r (up orientation; down by reflection): g(r) = 1 if the up test fails at r
+(F != 2 mod 3 or the exception pair), or VIS(r): a crossing pair of strip edges, not both incident to column
+0 (a pair in S* minus B), has a two-quarter tile overlap with a quarter in the squares (1..3, r).
+Every lost candidate and every DEFICIENT retained candidate (d_i > 0) has an end row with g = 1.
+Proof. Lost: uncharged or exception, so an end test fails. Deficient retained: if an end test fails, done.
+Else both tests pass. Its middle squares (depth >= 4 from all sides) are good (H1), so every step of gamma_R
+that crosses x >= 5 (or y >= 5) has two good adjacent quarters and omega = 0 mod 3 by (2). Hence the charge is
+E_left + E_bottom, where E is the flux over the three steps crossing depth 2, 3, 4 at that end; gamma_R is
+charged, so some end has E != 0. By (2) that end has a bad quarter adjacent to one of these steps, in the
+squares (1..3, r) (the depth-4 square is a good middle square). If it is payable, its square has a second bad
+quarter (square identity), which is unpaid, since the path has at most one payable quarter. An unpaid quarter
+has m = 2 and one covering S* pair with a two-quarter overlap; that pair is not in B, because B overlaps reach
+depth 1 only as pair (6) at the exception row (excluded by retention) and never depth >= 2. So VIS(r) = 1.
+
+**F1-V (CERTIFIED, one implementation: f1v_stab.py).** The audited width-two strip graph (frac_stab.py /
+strip_dp.build(2): edges incident to columns 0,1; 82,516 base states; up-test accumulator, 2,095,620
+augmented arcs) with row weight 4w - 1 per cell and -4g at row end. VIS(r) is a function of the pending edges
+at the end of row r (every edge whose tile meets square row r is pending then). Critical rate (Dinkelbach,
+exact): **1**; at rate 1 Bellman-Ford converges, **potential range -29..0** (the same width as the audited
+lemma). Critical cycle: 24 arcs, 6 rows, sum(4w - 1) = 24, sum g = 6. Hence, per half side,
+    X_sigma(half) - rows >= #(rows with g = 1) - 29/4,
+exactly the audited Section 5 inequality with the failed-test count replaced by the strong count.
+Down orientation (certified directly, `f1v_stab.py crit 2 down`): the down test at row r pairs with square row
+r - 1, so VIS of the previous row is carried as one bit (4,191,240 arcs); critical rate 1, potential range
+-33..0. Constants: 4 x 29/4 + 4 x 33/4 = 62 instead of 58, so the final bound is X >= 5n - 614
+(5n - 656 with the 42 small-radius allowance).
+
+**Consequence (ARGUMENT, uses only audited constants).** As in V2: T + 1160 >= #(strong rows) >= D_loss + L_def
+(distinct candidates own distinct side rows). With (1) of PROOF_5N_PLAN.md and H0:
+    E + 580 = nu + (T + 1160)/2 >= sum_{non-def} 1/2 + sum_{def} (1/2 - d_i) + (D_loss + L_def)/2
+            >= (L + D_loss)/2 = n - 30,
+so X >= 5n - 612 with the audited constant 58; with the down constant below, X >= 5n - 614 (5n - 656 with the
+42 small-radius allowance if H1 needs it). Only the SCALAR
+inequality is used; nu' is not needed, and no Hall augmentation is needed, because f0 is private (H0) and
+the reserve enters only as a total.
+Periodic SAT cross-checks (windows/side_f1.py, deep defects and all crossings allowed): rate 1 holds for
+P = 8..14 at width 6 with the exact deficient-pass test, and for P = 8, 12 at width 2 with VIS.
+Needed audit: (a) Claim V and the final algebra; (b) independent rebuild of f1v_stab.py (VIS geometry, row
+attribution, both orientations); (c) the down-orientation row attribution (square row r - 1).
+
+```sh
+cd gap/lowerbounds
+../../.venv/bin/python f1v_stab.py crit 2 up     # CRITICAL RATE = 1, potential range -29..0 (f1v_pot_up_1_1.npy)
+../../.venv/bin/python f1v_stab.py crit 2 down   # CRITICAL RATE = 1, potential range -33..0
+```
+
 ## G (2026-10-03, phase 2c): Gap Lemma, square version - PROVEN (computer-assisted)
 
 Statement (gap/structures/GAP_LEMMA.md section 2, square version): for every set K of absorbing cuts, the gap

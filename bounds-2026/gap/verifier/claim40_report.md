@@ -77,3 +77,28 @@ Evidence: claim40_residual.py/json/log; claim40_periods.py/json/log; claim40_end
 F1 is the correct remaining allocation statement for the conditional 5n algebra. R4's all-subsets augmentation is necessary and sufficient at the endpoint-allocation level once the table, actual-state mapping and ownership are proved. The edge relaxation passes; restrict or complete halo quarter atoms before using it for a resource certificate. Baseline marks and their global interpretation remain part of the required proof.
 
 This audit adds one explicit halo-resource counterexample, seven-pair geometry, three small periodic checks and four actual-tour residual-flow screens. It adds no lower-bound coefficient and no large finite input. The mathematical F1 remains OPEN. Claim 40 is complete, and the lower-priority Claim 38 section-8 recheck is already in the audit log.
+
+
+## Claim 40 addendum: scalar F1 and the joint-test reserve — 2026-10-03
+
+**PASS for the reserve split and the conditional scalar reduction. The scalar inequality itself remains OPEN.** Sources checked: the audited PROOF_crossings_lower.md Section 5, PROOF_52_11.md endpoint retention and row intervals, Lower Bounds A1, and the newly added PROOF_5N_PLAN.md Section 9. No new finite computation is needed.
+
+The audited JOINT-test potential counts every failed row, not only failures selected by candidate paths. Its four whole-strip inequalities and the 1104 union correction give b <= s-4n+1133 = T+1131 <= T+1160. Use joint failure consistently: failure of the unused orientation may be counted and safely overpaid. Each side-row is an endpoint of at most one candidate, since the near and far row intervals are disjoint. Both passing oriented tests give e=0 and h=2 at each end, so their sum is nonzero modulo three and the candidate is retained. Thus every lost candidate has a failed joint end. Choose one failed end for each lost candidate and each deficient retained candidate with a failed joint end; these are distinct rows.
+
+Let D be the number of lost candidates, F the deficient retained paths with a failed joint end, and P the deficient retained paths whose joint tests both pass. Then
+
+    b >= D+|F|,    b/2 >= D/2+sum_F d_i,    0<=d_i<=1/2.
+
+This is one allocation of b/2. It does not first spend the entire reserve on D and then spend it again. With T'=T+1160-b and the SAME actual atomwise residual nu' after the baseline, the proposed scalar inequality implies
+
+    E+580 = sum_retained(1/2-d_i)+nu'(total)+b/2+T'/2
+          >= L/2-sum_F d_i-sum_P d_i+D/2+sum_F d_i+sum_P d_i-C
+          = (L+D)/2-C = n-30-C.
+
+Therefore X >= 5n-(612+C), in the audited range of even n>=128. C must be one total board constant; include the 42-unit small-radius allowance if those paths are omitted by the side certificate. Section 9's version that includes fully paid paths in F and P is equivalent, since their deficits are zero.
+
+**Scope repair:** Hall subset bits are unnecessary for this GLOBAL lower-bound target. This weaker scalar statement does not imply the earlier private, radius-constrained F1 allocation. Claim 40B's objection to a scalar scan concerns that stronger allocation target only. Residual atoms must still be counted once, with all baseline consumption subtracted; neither the 4n baseline nor the allocated b/2 may be credited again.
+
+A1 identifies a constant height modulo three only along a vertical dual segment whose adjacent quarters are all good. Passing end tests and separate good path middles do not by themselves make the whole interval between those rows clean. Apply A1 on actual clean stretches and account for breaks; no separate unbounded error per stretch is allowed. This caveat does not affect the scalar algebra above.
+
+**Pareto profile:** a short counting argument and ledger identity, using the already audited joint-test stability certificate. No new finite inputs. This proves a simpler sufficient target for 5n, not the missing scalar price inequality.

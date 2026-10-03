@@ -496,3 +496,126 @@ reduction. Source checks: old proof Sections 3,5,6; verifier Claims
     python3 gap/verifier/claim39_check.py
 
 These commands check the hand kernel, not the open scalar certificate.
+
+
+## 10. VIS replaces the open scalar price — 2026-10-03
+
+**Constant update:** direct DOWN potential width is 33, not 29.
+Four UP and four DOWN errors total 62. PROOF_5N.md is the current
+consolidated statement; the original UP-only audit notes below are
+historical, and both orientations now have author implementations.
+
+
+**Hand check of Lower Bounds Claim V: PASS. Finite input pending
+independent audit.** The definitions agree: deficient means s_i<=1
+payable quarter on the WHOLE retained path, equivalently d_i>0.
+H1 uses actual full-tour multiplicities; every middle square at depth
+at least four is good. The depth-three improvement is also available.
+
+### 10.1 Shorter proof of the visibility implication
+
+A retained candidate is charged modulo three. If every square on it
+were good, the flux formula on each step would give zero modulo
+three, a contradiction. Thus it has a bad square. The square identity
+forces at least two bad quarters in that square. Since a deficient
+path has at most one payable quarter in total, at least one of these
+bad quarters is unpaid. By definition its multiplicity is two and
+its covering pair is in S*, with a two-quarter overlap. Retention
+excludes B overlaps from the path. The pair therefore belongs to
+S* minus B.
+
+Each edge of a side-strip pair has depth at most three, so its overlap
+can meet only square depths zero, one or two from that side. Candidate
+squares start at depth one. In a corner frame the square coordinates
+on gamma_r are (r,j) and (j,r), for 1<=j<=r, with 12<=r<=n/2-4.
+Since r>=12, an unpaid pair on these squares can belong only to the
+side at the varying-coordinate endpoint, and j must be one or two.
+The other adjacent side is at square depth r>=12, and the opposite
+sides have depth at least n-2-r>=n/2+2. Consequently the pair is visible
+in that end's row and in one of squares (1..3,row).
+
+This proves VIS at an end for EVERY deficient retained candidate.
+It does not need passing end tests, a clean stretch between rows,
+height mismatch, or a split of the flux into end contributions. It
+also proves that the r<=32 payment omission is unnecessary for this
+new scalar route. Keep even n>=128 as the conservative size range;
+the geometry itself holds for all candidate radii already used.
+
+For a lost candidate at least one actual oriented endpoint test fails,
+since two passing tests imply retention. Assign it one such end.
+Assign each deficient retained candidate an end with VIS. These two
+classes are disjoint. The near/far row intervals are disjoint on each
+side, so all assigned side rows are distinct. Hence, with g the union
+of oriented test failure and VIS,
+
+    G_strong := sum_(eight half scans) sum_rows g
+              >= D_loss+L_def.                    (11)
+
+Here L_def counts deficient retained paths. There is no subtraction
+of failed rows and no need for the older joint-failure partition.
+
+### 10.2 Conditional conclusion and constants
+
+The new finite obligation is the claimed rate-one potential for g,
+with width 29 in quarter units for each oriented half. Once the eight
+half scans are mapped correctly to actual tour strips,
+
+    sum_sigma X_sigma-4n >= G_strong-62,
+    s >= sum_sigma X_sigma-1104,
+    T+1164 >= G_strong.
+
+The Claim 39 quarter rule gives
+
+    nu(total) >= (L-L_def)/2 + sum_def (1/2-d_i).
+
+The second sum is nonnegative. Therefore
+
+    E+582 = nu(total)+(T+1164)/2
+          >= (L-L_def)/2+(D_loss+L_def)/2
+          = n-30,
+    X >= 5n-614, for even n>=128.                  (12)
+
+No 42-unit small-radius loss occurs in the proof above. The baseline
+can omit deficient paths entirely, since the strip reserve pays their
+full half unit. No residual atoms, baseline marks or Hall bits are
+needed. This proves the sufficiency of the new finite input; it does
+not independently certify that input.
+
+### 10.3 Exact remaining audit contract
+
+Lower Bounds reports f1v_stab.py gives 82,516 base states, 2,095,620
+augmented arcs and potential range [-29,0] for the UP model. I read
+the code and the reported theorem but did not rebuild the graph.
+The code tests overlap row -1 in the shifted row-end state. A tile
+with positive-area overlap in square row r has an endpoint on each
+side of the horizontal line y=r+1/2, so its edge is still pending
+after processing row r. This explains why row-end VIS can be read
+from pending edges; the independent audit must check its precise
+state representation and all arc inequalities.
+
+The DOWN implementation must transform BOTH the endpoint test and
+the square-row convention. Under y -> -y, square row r becomes
+-r-1, not -r. A reflection statement that transforms only F is not
+sufficient. Also map the reflected half walks, their initial states
+and their crossing charges: the whole strip graph was generated from
+an empty boundary, so arbitrary reflected cut states need coverage.
+Do not reset crossings or count a crossing twice at a half boundary.
+The inherited half-scan construction supplies the intended accounting,
+but the audit must verify its use for this new g.
+
+Reproduction command supplied by Lower Bounds, from the research root:
+
+    (cd gap/lowerbounds && ../../.venv/bin/python f1v_stab.py cert 1 1)
+
+This reruns the author certificate only. Independent rebuild, VIS
+geometry and down-orientation coverage remain required. Existing
+hand-kernel check:
+
+    python3 gap/verifier/claim39_check.py
+
+Pareto profile: the new hand step is one bad square, one unpaid pair,
+and a row injection. It uses the audited tile/flux facts, the Claim 39
+quarter packing, the inherited 1104 corner bound, and ONE strengthened
+width-two finite potential. The new potential is the sole unaudited
+input to (12); no global ribbon or general local allocation theorem
+is used.

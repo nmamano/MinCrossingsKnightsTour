@@ -7,3 +7,28 @@ claim36_FOLD_n144.json n=144
 claim36_FOLD_n192.json n=192
    total {'L': 704, 'X': 458, 'W': 679, 'slack': 234, 'Rin': 344, 'Uin': 3, 'need': 22, 'BQreg': 40, 'BQbar': 0, 'area': 29586, 'Nin': 344}
    outside chambers: rows 36  need after 2 x (changed ports not on inside returns) -48  BQ outside regions 1094  (global {'rows': 740, 'N_re': 386, 'BQ': 1134} )
+FIELD_n166_92_155.json n=166
+   total {'L': 461, 'X': 318, 'W': 446, 'slack': 135, 'Rin': 228, 'Uin': 2, 'need': 9, 'BQreg': 24, 'BQbar': 0, 'area': 16802, 'Nin': 228}
+   outside chambers: rows 175  need after 2 x (changed ports not on inside returns) -121  BQ outside regions 888  (global {'rows': 636, 'N_re': 376, 'BQ': 912} )
+FOLDB1_n144.json n=144
+   total {'L': 520, 'X': 334, 'W': 476, 'slack': 186, 'Rin': 253, 'Uin': 5, 'need': 24, 'BQreg': 73, 'BQbar': 0, 'area': 15878, 'Nin': 254}
+   outside chambers: rows 28  need after 2 x (changed ports not on inside returns) -80  BQ outside regions 768  (global {'rows': 548, 'N_re': 308, 'BQ': 841} )
+FOLDP_n96.json n=96
+   total {'L': 322, 'X': 204, 'W': 294, 'slack': 106, 'Rin': 154, 'Uin': 7, 'need': 28, 'BQreg': 44, 'BQbar': 0, 'area': 5854, 'Nin': 149}
+   outside chambers: rows 34  need after 2 x (changed ports not on inside returns) -52  BQ outside regions 549  (global {'rows': 356, 'N_re': 192, 'BQ': 593} )
+FOLDX_n100.json n=100
+   total {'L': 346, 'X': 212, 'W': 302, 'slack': 130, 'Rin': 162, 'Uin': 4, 'need': 30, 'BQreg': 75, 'BQbar': 0, 'area': 6810, 'Nin': 168}
+   outside chambers: rows 26  need after 2 x (changed ports not on inside returns) -54  BQ outside regions 578  (global {'rows': 372, 'N_re': 208, 'BQ': 653} )
+FJOG_n130.json n=130
+   total {'L': 466, 'X': 288, 'W': 243, 'slack': 172, 'Rin': 209, 'Uin': 129, 'need': 306, 'BQreg': 1832, 'BQbar': 0, 'area': 12658, 'Nin': 103}
+   outside chambers: rows 26  need after 2 x (changed ports not on inside returns) -64  BQ outside regions 712  (global {'rows': 492, 'N_re': 148, 'BQ': 2544} )
+FJOG_n132.json n=132
+   total {'L': 474, 'X': 294, 'W': 259, 'slack': 150, 'Rin': 220, 'Uin': 173, 'need': 380, 'BQreg': 1228, 'BQbar': 0, 'area': 13114, 'Nin': 54}
+   outside chambers: rows 26  need after 2 x (changed ports not on inside returns) -38  BQ outside regions 709  (global {'rows': 500, 'N_re': 86, 'BQ': 1937} )
+LF4_n96.json n=96
+   total {}
+   outside chambers: rows 356  need after 2 x (changed ports not on inside returns) -368  BQ outside regions 4  (global {'rows': 356, 'N_re': 362, 'BQ': 4} )
+TT16_n72.json n=72
+   total {}
+   outside chambers: rows 260  need after 2 x (changed ports not on inside returns) -268  BQ outside regions 0  (global {'rows': 260, 'N_re': 264, 'BQ': 0} )
+exit=0

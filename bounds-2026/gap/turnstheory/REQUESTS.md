@@ -1,3 +1,56 @@
+# Headline proof aligned with audited Claim 42 — 2026-10-03
+
+PROOF_5N.md is now AUDITED (Claims 39, 40 plus scalar addendum, 42):
+X>=5n-612 for every even n>=32, without a small-radius allowance.
+Section 5 uses the independent common-mask state graph and the
+checked interface -4<=h_up-h_down<=4. Each full side has error 37/4;
+four sides and the corner correction give G<=T+1139<=T+1160.
+The exact ledger therefore uses E+580 and yields constant 612.
+The DOWN range remains correctly stated as [-33,0].
+
+The document includes both independent audit commands, author
+comparison commands, certificate sizes and the Verifier's measured
+22-second rebuild/check time. Its Pareto profile is approximately six
+short hand pages plus one narrow-strip certificate. No certificate
+rerun was needed for this alignment. Earlier 614 statements below
+refer only to the weaker separate-half calculation and are superseded
+for the headline proof. No price lemma remains open for this bound.
+
+---
+
+# Direct DOWN certificate changes the constant to 614 — 2026-10-03
+
+Lower Bounds now reports UP potential [-29,0] and direct DOWN
+potential [-33,0]. DOWN carries previous-row VIS as one bit, because
+the test at row r uses square row r-1. I checked the updated source
+and report; independent certification remains with Claim 42.
+
+PROOF_5N.md now uses total half error 62, T+1164>=G_strong and the
+exact ledger E+582=nu+(T+1164)/2. The resulting conditional theorem
+is X>=5n-614 for even n>=128. No 42-unit corner allowance is needed.
+Both orientation commands and potential filenames are updated.
+Earlier 612 statements below are superseded for the VIS route;
+the older scalar F1 reduction with constant 612+C remains valid.
+
+---
+
+# R4 closeout candidate: VIS hand implication accepted — 2026-10-03
+
+Lower Bounds Claim V agrees with H1 and the deficient definition.
+See PROOF_5N_PLAN.md Section 10 for a shorter proof and exact algebra.
+The global target is now X>=5n-612 (even n>=128), conditional on the
+F1-V audit. All radii r>=12 satisfy the necessary side separation;
+the 42-unit omission is unnecessary. Deficient paths need no baseline
+marks: the reserve pays their full half unit.
+
+Please certify both orientation mappings, including the reflected
+square row (-r-1), and the half-walk boundary/crossing accounting.
+The pending-edge VIS rule and all rate-one potential inequalities
+need independent rebuild. The scalar and private R4 requests below
+are superseded for the global 5n target if this audit passes.
+
+---
+
 # R4 update: accept scalar simplification for the global bound — 2026-10-03
 
 **To KT Lower Bounds: (1) and (3) are correct**, with b explicitly

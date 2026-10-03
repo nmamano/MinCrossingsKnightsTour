@@ -22,6 +22,11 @@ from w3_flux import edge_flux, grid_term
 from side_end import build, components, TAB
 
 
+import os
+NEEDD = os.environ.get('NEEDD') == '1'
+VIS = os.environ.get('VIS') == '1'   # width-two visible indicator: an S*-minus-B two-quarter pair overlaps squares (1..3, r)
+
+
 def main():
     P, W = int(sys.argv[1]), int(sys.argv[2]); KMAX = int(sys.argv[3]) if len(sys.argv) > 3 else 0
     cells, edges, lift, ends = build(P, W)
@@ -39,7 +44,7 @@ def main():
     t1 = lambda e: e[0][0] <= 1
     tiles = {(e, k): tile(lift(e, k)) for e in edges for k in (-1, 0, 1)}
     cover = {}
-    for x in range(W):
+    for x in range(max(W, 4)):
         for y in range(P):
             for q, pt in quarters(x, y).items():
                 cover[(x, y, q)] = [e for e in edges if any(inside(tiles[(e, k)], pt) for k in (-1, 0, 1))]
@@ -69,7 +74,7 @@ def main():
     def canon(a_, b_):
         if a_[0] > b_[0]: a_, b_ = b_, a_
         return ((a_[0], a_[1] % P), (b_[0] - a_[0], b_[1] - a_[1]))
-    g = []
+    g = []; ds = []
     for r in range(P):
         const = 0; c = {}
         for x in range(2, 5):
@@ -87,6 +92,16 @@ def main():
         ea, eb = vid[canon((0, r), (2, r + 1))], vid[canon((0, r + 1), (2, r))]
         xr = new(); cl += [[-xr, ea], [-xr, eb]]
         dr = new()                                   # deficient-pass end at r
+        if VIS:
+            t0_ = lambda e: e[0][0] == 0
+            prs = []
+            for (e, f) in spair2:
+                if e >= f or (t0_(e) and t0_(f)): continue
+                if any(k[0] in (1, 2, 3) and k[1] == r for k in (qset[e] & qset[f])):
+                    pv = new(); cl += [[-pv, vid[e]], [-pv, vid[f]]]; prs.append(pv)
+            cl.append([-dr] + prs)
+            gr = new(); cl.append([-gr, sF[0], sF[1], xr, dr]); g.append(gr); ds.append((dr, sF, xr))
+            continue
         cl.append([-dr, sE[1], sE[2]])               # E != 0
         for x in range(4, W):                        # good middle
             for q in 'brtl':
@@ -104,10 +119,13 @@ def main():
         card = CardEnc.atmost(lits=pays, bound=1, top_id=top[0], encoding=EncType.seqcounter)
         top[0] = max(top[0], card.nv)
         for cc in card.clauses: cl.append([-dr] + cc)
-        gr = new(); cl.append([-gr, sF[0], sF[1], xr, dr]); g.append(gr)
-    card = CardEnc.atleast(lits=g + [-x for x in xs], bound=KMAX + 1 + len(xs) - P, top_id=top[0],
-                           encoding=EncType.totalizer)
-    cl += card.clauses; top[0] = max(top[0], card.nv)
+        gr = new(); cl.append([-gr, sF[0], sF[1], xr, dr]); g.append(gr); ds.append((dr, sF, xr))
+    if NEEDD:   # sanity: some row is a deficient-pass end (test passes, no exception); no cost bound
+        dd = ds[0]; cl += [[dd[0]], [dd[1][2]], [-dd[2]]]
+    else:
+        card = CardEnc.atleast(lits=g + [-x for x in xs], bound=KMAX + 1 + len(xs) - P, top_id=top[0],
+                               encoding=EncType.totalizer)
+        cl += card.clauses; top[0] = max(top[0], card.nv)
     t0 = time.time(); cuts = 0
     S = Glucose4(bootstrap_with=cl, with_proof=False)
     while True:

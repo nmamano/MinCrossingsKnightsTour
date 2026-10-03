@@ -1,0 +1,9 @@
+base 82516 144674
+mask graph 184006 343631 visibility pairs [7, 7]
+up all range -29 0 row boundary range -29 0
+up {'iterations': 41, 'range': [-29, 0], 'min_arc_slack': 0, 'potential_sha256': '08e3c6f7866f3423b74aace481453966229be4e9f550bde66c16f035a08dbcb6'}
+down all range -33 0 row boundary range -33 0
+down {'iterations': 41, 'range': [-33, 0], 'min_arc_slack': 0, 'potential_sha256': 'f670678871b40d61c441c667d81896fc183cafae1915170aa1490197ad42ada5'}
+critical cycle {'arcs': 16, 'sum_4w_minus1': 16, 'strong_rows': 4}
+interface {'range': [-4, 4], 'empty_potentials': [-17, -17], 'generic_side_error_scaled4': 37}
+done 22.346364318858832

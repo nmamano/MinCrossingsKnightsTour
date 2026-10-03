@@ -1,0 +1,61 @@
+shear 1/4 WM=4 KM=1 MODE=any lambda=1/2: columns u in [-3,6], 59 slots, complete squares s in [-1,2], 2 cost squares per row
+warm-up done: 36456 strict seed states, largest warm layer 8553073, 86s
+states by warm level: strict 715323, warm1 0, warm2 0, warm3 0
+graph: states 715323 arcs 820647 (rejected: margin 35439377, psi 0) 87s
+== lambda 1/1
+ try mean 8/1 per row
+  cycle: 40 arcs, 4 rows, crossings 9, waste 16, weight 18 -> mean 18/4
+    (cycle starts at row phase 1; board x = u + floor(1*(phase+row)/4) - floor(1*phase/4))
+    row 0 u 0 (mod) X=0 waste=0: (0,0)-(-1,2)
+    row 0 u 1 (mod) X=0 waste=0: (1,0)-(0,2)
+    row 0 u 3 (mod) X=1 waste=1: (3,0)-(1,1)
+    row 0 u 4 (ghost) X=0 waste=0: (4,0)-(2,1)
+    row 0 u 5 (ghost) X=0 waste=0: (5,0)-(3,1)
+    row 0 u 6 (ghost) X=0 waste=3:
+    row 1 u 0 (mod) X=1 waste=0: (0,1)-(-2,2) (0,1)-(-1,3)
+    row 1 u 1 (mod) X=0 waste=0: (1,1)-(0,3)
+    row 1 u 3 (mod) X=0 waste=0: (3,1)-(1,2)
+    row 1 u 4 (ghost) X=0 waste=0: (4,1)-(2,2)
+    row 1 u 5 (ghost) X=0 waste=0: (5,1)-(3,2)
+    row 1 u 6 (ghost) X=0 waste=2:
+    row 2 u 0 (mod) X=1 waste=0: (0,2)-(-2,3)
+    row 2 u 1 (mod) X=0 waste=0: (1,2)-(0,4)
+    row 2 u 2 (mod) X=0 waste=0: (2,2)-(3,4)
+    row 2 u 3 (mod) X=1 waste=1: (3,2)-(1,3)
+    row 2 u 4 (ghost) X=1 waste=1: (4,2)-(2,3)
+    row 2 u 5 (ghost) X=0 waste=0: (5,2)-(3,3)
+    row 2 u 6 (ghost) X=0 waste=2: (6,2)-(4,3)
+    row 3 u 0 (mod) X=0 waste=0: (1,3)-(0,5)
+    row 3 u 1 (mod) X=0 waste=0: (2,3)-(3,5)
+    row 3 u 2 (mod) X=2 waste=2: (3,3)-(1,4)
+    row 3 u 3 (mod) X=2 waste=2: (4,3)-(2,4)
+    row 3 u 4 (ghost) X=0 waste=0: (5,3)-(3,4)
+    row 3 u 5 (ghost) X=0 waste=0: (6,3)-(4,4)
+    row 3 u 6 (ghost) X=0 waste=2:
+ try mean 9/2 per row
+RESULT A=1 WM=4 KM=1 any lambda=1/1: min mean weight per row = 9/2 (CERTIFIED: no cycle below); per level (E units) = 9/4 = 2.2500  (87s)
+total 87s
+	Command being timed: "./wifc 1/4 4 1 any 8 1 90000000"
+	User time (seconds): 82.28
+	System time (seconds): 4.07
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 1:26.93
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 582864
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 556369
+	Voluntary context switches: 1
+	Involuntary context switches: 1192
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 16
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+exit=0

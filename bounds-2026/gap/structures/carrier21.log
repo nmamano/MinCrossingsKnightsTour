@@ -1,0 +1,41 @@
+k=6 (period x-length 12) w=4 J=+3 obj=bq: FEASIBLE value 38.0 bound 34.0  per unit x 3.167 (bound 2.833)
+k=6 (period x-length 12) w=4 J=+1 obj=bq: FEASIBLE value 32.0 bound 27.0  per unit x 2.667 (bound 2.250)
+k=6 (period x-length 12) w=4 J=+2 obj=bq: FEASIBLE value 44.0 bound 29.0  per unit x 3.667 (bound 2.417)
+Traceback (most recent call last):
+  File "/home/nil/nil/knight-formation-research/gap/structures/carrier21.py", line 105, in <module>
+    st, v, bd = solve(k, w, J, obj, tl)
+                ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nil/nil/knight-formation-research/gap/structures/carrier21.py", line 41, in solve
+    for end in e: inc[canon(end)].append(v)
+                  ~~~^^^^^^^^^^^^
+KeyError: (16, 9)
+Traceback (most recent call last):
+  File "/home/nil/nil/knight-formation-research/gap/structures/carrier21.py", line 105, in <module>
+    st, v, bd = solve(k, w, J, obj, tl)
+                ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nil/nil/knight-formation-research/gap/structures/carrier21.py", line 41, in solve
+    for end in e: inc[canon(end)].append(v)
+                  ~~~^^^^^^^^^^^^
+KeyError: (22, 10)
+Traceback (most recent call last):
+  File "/home/nil/nil/knight-formation-research/gap/structures/carrier21.py", line 105, in <module>
+    st, v, bd = solve(k, w, J, obj, tl)
+                ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nil/nil/knight-formation-research/gap/structures/carrier21.py", line 41, in solve
+    for end in e: inc[canon(end)].append(v)
+                  ~~~^^^^^^^^^^^^
+KeyError: (17, 9)
+Traceback (most recent call last):
+  File "/home/nil/nil/knight-formation-research/gap/structures/carrier21.py", line 105, in <module>
+    st, v, bd = solve(k, w, J, obj, tl)
+                ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nil/nil/knight-formation-research/gap/structures/carrier21.py", line 41, in solve
+    for end in e: inc[canon(end)].append(v)
+                  ~~~^^^^^^^^^^^^
+KeyError: (22, 9)
+exit=1
+k=9 (period x-length 18) w=3 J=+3 obj=bq: INFEASIBLE value None bound None
+k=12 (period x-length 24) w=3 J=+3 obj=bq: OPTIMAL value 72.0 bound 72.0  per unit x 3.000 (bound 3.000)
+k=6 (period x-length 12) w=5 J=+3 obj=bq: FEASIBLE value 32.0 bound 22.0  per unit x 2.667 (bound 1.833)
+k=9 (period x-length 18) w=4 J=+3 obj=bq: INFEASIBLE value None bound None
+exit=0

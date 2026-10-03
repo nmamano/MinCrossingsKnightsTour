@@ -86,13 +86,14 @@ def ledger(f):
         rin = {e for e in rets if all(vin(v) for v in chord_path(min(e), adj, inside))}
         Uin = sum(1 for e in rin if not (e & changed)); Cin = len(rin) - Uin
         Nin = sum(len(e & changed) for e in rin)
+        c1 = sum(1 for e in rin if len(e & changed) == 1 and not ports[next(iter(e & changed))]['steep'])
         BQreg = sum(bq(*q) for q in reg); BQbar = sum(bq(*q) for q in bar)
         R2 = sum(1 for e in rets if e <= changed)
         Rsh = sum(1 for e in rets if any(not ports[k]['steep'] for k in e))
         N = sum(1 for k in P if k in changed); c = sum(1 for k in P if not ports[k]['steep'])
         L = hi - lo + 2
         rows.append(dict(side=si, lo=lo, hi=hi, L=L, p=len(P), c=c, N=N, R=len(rets), U=U, R2=R2, Rsh=Rsh,
-                         X=len(P) - len(R), W=r['W'], slack=2*N + 2*U - L, Rin=len(rin), Uin=Uin, need=L - 2*Cin, BQreg=BQreg, BQbar=BQbar, area=len(reg), Nin=Nin))
+                         X=len(P) - len(R), W=r['W'], slack=2*N + 2*U - L, Rin=len(rin), Uin=Uin, need=L - 2*Cin, BQreg=BQreg, BQbar=BQbar, area=len(reg), Nin=Nin, c1=c1, m12x2=2*L - len(P)))
     BQ = sum(bq(i, j) for i in range(3, n-4) for j in range(3, n-4))
     glob = dict(rows=4*(n-7), N_re=len(changed), BQ=BQ)
     return n, rows, glob

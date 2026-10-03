@@ -378,3 +378,27 @@ straight field needs |3(b - a)/2| * k <= 2 |sum_S chi| + O(w) = O(w), so k = O(w
 Checks (wallcyl.py, CP-SAT): (1,2) z0|z0 feasible (1/2 per level charged), z0|z1 INFEASIBLE, (2,1)|z and z|(2,1)
 INFEASIBLE; (1,1) (2,1)|z0, (2,1)|z1, (1,2)|z0, z0|(1,2) all FEASIBLE with 0 crossings (free interfaces);
 zigzag at a vertical board side INFEASIBLE (Q = 3/2 per row, no field on the other side).
+
+### Zigzag-zone layouts: NO-GO on paper (2026-10-03; prices from wallcyl.py, CP-SAT, W = 4 unless noted)
+Prices (charged = psi jump != 0; "free" = 0 crossings):
+- Crossing-free zigzag types: z_v (valleys +(2,1),+(1,2), ribbons along (1,-1)) and its mirror y_v (valleys
+  +(2,-1),+(1,-2)). The type with valley moves (2,1),(-1,2) is not crossing-free (best 18 per (4,8) period uncharged).
+- Interfaces: z|straight only along (1,1), free; y|straight only along (1,-1) (mirror); z0|z1 along (1,1);
+  z|y only along the axes (colour: z0|y0 vertical, z0|y1 horizontal; stub_colour.py), cost 1 per unit
+  (OPTIMAL at W = 4 and W = 6); z0|y1 vertical INFEASIBLE.
+- Zigzag at a board side: INFEASIBLE (exact, colour lemma). So zigzag zones touch the sides only in O(1) windows
+  (corner end of a zone: O(1) wide; "side end" price: infinite).
+- Walls inside z|z: (1,2) charged 1/2 per level (OPTIMAL); (1,1) charged 2/3 per level (OPTIMAL, also z0|z1);
+  (2,1) = (1,2) transposed (z is transpose-invariant): 1 per level in the region y > x.
+Paper bound (BL corner, region y > x, level = y; same for every corner): let the wall rise with a share of
+(1,2) steps. Its offset y - x grows at rate r per level (r = 1/2 for a pure (1,2) wall). The zone that holds it
+cannot use the side, so its outer boundary must keep up. Against straight fields the boundary has only (1,1)
+pieces (z) and (-1,1) pieces (y). Each y piece of size k needs a z|y separating path of L1 length >= 2k, at cost
+>= 2k. Per level this costs >= r. Wall cost per level for a (1,2)/(1,1) mixture (a steps, b steps):
+(a + 2b/3)/(2a + b), with r = a/(2a + b). Total >= (2a + 2b/3)/(2a + b) >= 2/3, with equality only for b-only
+(the diagonal carrier). A wide zone that uses the diagonal as its other boundary adds a horizontal z|y top of
+length ~n/4 (cost ~n/4 per wall). So no zigzag-zone layout beats 2/3 per level: 19n/3 stays. No tour built.
+Cross-check (KT Edge Searcher, gap/searcher/wall/wall_if.cpp, relaxed W=4 lower bounds, 2026-10-03): (1,1) zigzag
+interfaces free; vertical z|y turn 1 per row (= my wallcyl price); z0|z1 (1,2) wall NONE; its break-even argument
+(zigzag ribbon ends >= 1/3 each) also gives >= 19n/3 + n/3 for the chevron layout. Its non-(1,1) zigzag|straight
+prices are relaxed (colour may leak through free ghost cells); with exact colour balance they are infeasible.

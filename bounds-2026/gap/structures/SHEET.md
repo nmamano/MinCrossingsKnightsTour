@@ -552,3 +552,95 @@ split that leaves S toward the side. Inside S the barrier is crossed by at most 
 i.e. at most about 2 more than the good-run rate; S has >= 2 bad quarters, so the extra is paid at coefficient about 1,
 but S may also end D' runs (double use, as in 12.2). Not done: the choice of continuation when S ends runs of both
 splits, and the case where every continuation reaches the perpendicular side.
+
+## 13. Chamber ledger: the double use of bad quarters disappears (2026-10-03, KT Structures, fourth session)
+
+Script: `chamber_ledger.py` (uses `chamber_scan.py`, which now also records the barrier squares of each chamber);
+log `chamber_ledger.log` (11 tours). REGION(sigma) = interior squares reached from the boundary squares of sigma
+without entering a barrier square. A return is INSIDE if its path stays in REGION u barrier; R_out = the other
+returns with both ends on sigma; X = chords with exactly one end on sigma; C_in / U_in = inside returns with / without
+a changed end; N_in = changed ports on inside returns.
+
+**13.1 The ledger (PROOF of the reduction; (C_T') and (L4) are the open inputs).** Per maximal chamber, L = |sigma|:
+  (L1) exact (collar degrees, 9.6 (d)):  2L = 2 R_in + 2 R_out + X + 2 m12 + O(1).
+  (L2) barrier (9.6 (a)): a chord with one end on sigma crosses the barrier an odd number of times, a return that is
+       not inside crosses it at least twice, so X + 2 R_out <= L + O(1). (The zigzag stops at bad squares, so the
+       barrier pieces of a closed chamber are good runs; the 12.3 term X_bad is 0 inside chambers.)
+  (L3) C_in <= N_in (each such return owns a changed end).
+  (L4) column 2 (9.5 step (3)): 2 m12 = 2L - p <= c + G2/2 + O(1), c = shallow ports on sigma.
+Hence  L <= 2 R_in + 2 m12 + O(1) <= 2 N_in + 2 U_in + c + G2/2 + O(1).
+Rows outside chambers are 2T (frustrated), bdry_bad, D' runs and the failed-zigzag W' runs; (R2), (R3) and the R4
+excess pay them with changed ports that are not ends of inside returns and with bad quarters OUTSIDE all regions.
+Disjointness: no through run starts on sigma, and a run from a row outside sigma cannot enter REGION (9.6 (b); maximal
+regions are disjoint). So a D' run that ends at a cluster inside a chamber starts on sigma, and its row is paid by
+(L1)-(L2) like every other row of sigma: it needs NO bad quarter. The bad quarters in REGION pay only U_in. This
+answers open item (1) of the handoff: a ribbon interruption inside a chamber is charged once (12.2: 2 freed returns =
+4 units), and the D' rows it creates are free. Remaining inputs:
+  (C_T') per chamber: 2 U_in(sigma) <= BQ(REGION(sigma)) + O(1)   (the trap part, restricted to inside returns);
+  (L4') the double use of a shallow port: it is a changed end of its return (2 units) and it also enters c (1 unit).
+        A cure needs either a better m12 bound or a proof that such returns are rare; on the data c1 = inside returns
+        whose only changed end is shallow is 2 (FOLD n=96), 16 (FJOG n=130), 8 (FJOG n=132), 3 (FOLDX).
+
+**13.2 Data (CHECK, 2026-10-03, `chamber_ledger.log`).** need = L - 2 C_in per tour (all chambers):
+| tour | n | L | R_in | U_in | need | BQ(REGION) | outside rows | outside rows - 2 (N_re - N_in) |
+|---|---|---|---|---|---|---|---|---|
+| FOLD | 96 / 144 / 192 | 320 / 512 / 704 | 152 / 248 / 344 | 3 | 22 | 40 | 36 | -48 |
+| FIELD | 166 | 461 | 228 | 2 | 9 | 24 | 175 | -121 |
+| FOLDB1 | 144 | 520 | 253 | 5 | 24 | 73 | 28 | -80 |
+| FOLDP | 96 | 322 | 154 | 7 | 28 | 44 | 34 | -52 |
+| FOLDX | 100 | 346 | 162 | 4 | 30 | 75 | 26 | -54 |
+| FJOG | 130 | 466 | 209 | 129 | 306 | 1832 | 26 | -64 |
+| FJOG | 132 | 474 | 220 | 173 | 380 | 1228 | 26 | -38 |
+| LF4 / TT16 | 96 / 72 | 0 | - | - | - | - | 356 / 260 | -368 / -268 |
+So the split holds on all 11 tours: inside chambers need <= BQ(REGION) (constant 22 <= 40 on the FOLD family), and
+outside chambers the changed ports alone pay (no bad quarter is needed there on any tour).
+Correction to 11.4 / 12.1 reading of the FOLD data: FOLD has a LINEAR number of untrapped returns with no changed end
+(U = 50, 82, 178 at n = 96, 144, 288). They are not chevrons: they are short U-turns at the diagonal defect lines
+(shift +-3, rows y and y +- 2, two bad points at the turn). All but 3 leave the chamber region (R_out), so (L2) pays them
+with barrier capacity, and the diagonal lines (BQ about 5.3 n on FOLD) are not needed. Only U_in must be O(1) or paid.
+
+**13.3 (R2) localises; collar holes in (D*) (status of open item (3)).** Steps (1)-(4) of 9.5 are per-row counts
+(boundary bit vs the p24 tile, port label parity, column-2 coverage), so they hold on any row interval I with an
+O(1) error per end of I. Apply them to I = the side rows outside all chambers: F(I) <= N(I) + bdry_bad(I) + G2(I)/4
++ O(#chambers + 1), and N(I) is disjoint from N_in (which lives on sigma). So gap (a) of 9.5 closes, up to O(1) per
+chamber (the chamber count is issue (iii) of 9.6). Gap (b) stays, now in one place: both (R2) and (L4) need G2/2 in
+the (T*) units, so the target is (T*') BQ + G2/2 + 2 N_re >= 4n - O(1), and the price side must be
+(D*') E >= (BQ + G2/2)/4 + N_re/2 - O(1). Claim 39's packing pays only interior bad quarters, so (D*') needs the
+column-2 holes too. CHECK (`g2_check.py`, `g2_check.log`, 2026-10-03): (D*') holds on all 13 tours; slack 79.25 on the
+whole FOLD family (G2 = 50, constant), 109.9 on LF4 (G2 = 265), 154.4 FIELD, 82.3 FOLDX, the least.
+
+**13.4 The odd-change carrier, made precise (open item (2); ARGUMENT for the reduction, rates partly CHECKED).**
+Frame of 11.4: left side, '/'-H out-leg field below the wall at y_w, nested inside returns rho_k (lower port row
+y_w - k, apex x = 3 + 2k). A '/' V run from the side point S = (3, y_S) up-right to an interior cluster D = (x_D, y_D),
+y_D = y_S + x_D - 3. By S8 the run carries current +-3, and by G2 step 1 (J divergence-free) the current leaves D along
+a CARRIER (the support of J) that reaches the side at S'. A clean return with odd shift is crossed an odd number of
+times by the closed J-path S -> D -> S' -> (collar) -> S, and J cannot cross a clean chord, so S' lies in its side
+segment. Hence the odd-shifted inside returns are those whose segment contains S' and not S:
+    U_odd = 2 (y_S' - y_S) + O(1) = 2 [ (x_D - 3) - (y_D - y_S') ] + O(1) = 2 Delta(x - y) along the carrier D -> S'.
+(Check: a straight carrier of slope 1/2 gives x_D - 3, the 11.4 count; a horizontal carrier gives 2 (x_D - 3), half of
+them clean odd-shifted, half dirty because they cross the carrier.) The '/' ribbons are the lines x - y = const, so
+Delta(x - y) is the number of '/' ribbons the carrier crosses, and V ribbons ('/' direction) are free carriers that
+cross none. So the price (C_T') needs, in (T*) units (2 per freed return):
+    (K) an odd-current carrier pays at least 4 bad quarters per '/' ribbon it crosses (+ O(1) per carrier end).
+(K) is linear in the path, so it is enough per direction; a staircase of free ribbon pieces and horizontal pieces
+gives rate(slope 1/2) <= rate(horizontal)/2, which is consistent with (K). The square Gap Lemma prices a ribbon
+interruption at 2 bad quarters, so (K) asks for twice the plain interruption price when the cut carries odd current.
+Rates (`carrier21.py`, band of 2w+1 free lines parallel to the strands, cylinder period (2k, k), cycles allowed, so the
+values are lower bounds for 2-factors; `carrier21.log`, 2026-10-03), bad quarters per unit x (need >= 2 for (K)):
+| k | w | J = +3 | J = +1 | J = +2 |
+|---|---|---|---|---|
+| 6 | 2 | INFEASIBLE | INFEASIBLE | - |
+| 6 | 3 | 3.917 (OPTIMAL) | 2.667 (OPTIMAL) | - |
+| 6 | 4 | 3.167 (bound 2.833) | 2.667 (bound 2.250) | 3.667 (bound 2.417) |
+| 6 | 5 | 2.667 (bound 1.833) | - | - |
+| 12 | 3 | 3.000 (OPTIMAL) | - | - |
+(k = 3 and k = 9 are INFEASIBLE for every J != 0: the current needs an even number of cells per line per period.)
+The rate falls with the band width; whether it stays >= 2 (4 per ribbon) for wide bands is the open finite question,
+and the horizontal (strand-crossing) rate must be >= 4 per unit x (`horiz_carrier.py`, w-structures seam model with a
+forced odd line shift; no result yet: UNKNOWN at 200 s for p = 6, 8, 12, w = 3). A 'no' in either direction would give
+a cheap odd untrapping of an inside block and break (C_T') (not (T*) itself, which the data satisfy with a large slack).
+Two side notes. Returning the current along the run itself is not free (a second V ribbon from D makes the crossing
+count even). The carrier may reach the side at S'' below the segment and send the current up the collar to S'; then
+the collar rows between S'' and S' carry current (non-P rows, S3), and these rows hold the lower ports of the shifted
+returns. That route is paid only if (K-collar) a current-carrying collar row has 2 changed ports, so that each shifted
+return there owns a changed end. (K-collar) is a finite collar-strip question (Claim 28B pairing labels); not done.

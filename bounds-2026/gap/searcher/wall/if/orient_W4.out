@@ -1,0 +1,7 @@
+wall_z0z0 (shear 1/2 nz Z02 o1 | 02 o1): 1/2 = 0.5000  (44s)
+wall_z0z1 (shear 1/2 nz Z02 o1 | 02 o2): 8/2 = 4.0000  (45s)
+rib_z0z0 (shear 1 any Z02 o1 | 02 o1): 0/2 = 0.0000  (206s)
+rib_z0z1 (shear 1 any Z02 o1 | 02 o2): 0/2 = 0.0000  (215s)
+turn_z0z0 (shear 0 any Z02 o1 | 13 o1): 8/2 = 4.0000  (99s)
+turn_z0z1 (shear 0 any Z02 o1 | 13 o2): 2/2 = 1.0000  (108s)
+rib_z0H (shear 1 any Z02 o1 | 00 o0): 0/2 = 0.0000  (273s)

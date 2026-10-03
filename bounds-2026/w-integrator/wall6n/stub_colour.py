@@ -5,6 +5,9 @@ import sys
 from math import gcd
 def field_edges(name, p):
     x, y = p
+    if name in ('y0', 'y1'):
+        val = (x + y) % 2 == int(name[1])
+        return [(2, -1), (1, -2)] if val else [(-2, 1), (-1, 2)]
     if name in ('z0', 'z1'):
         val = (x + y) % 2 == int(name[1])
         return [(2, 1), (1, 2)] if val else [(-2, -1), (-1, -2)]
@@ -33,6 +36,6 @@ def per_step(name, a, b, c, K=400):
 if __name__ == '__main__':
     for a, b in [(0, 1), (1, 0), (1, 2), (2, 1), (1, 1), (1, -1), (1, 3), (3, 1), (5, 1), (1, 5), (2, 3)]:
         row = []
-        for name in ('z0', '21', '12', '2m1', '1m2'):
+        for name in ('z0', 'z1', 'y0', 'y1', '21'):
             row.append(f"{name}:" + '/'.join(f"{per_step(name, a, b, c):+.2f}" for c in (0, 1)))
         print(f"({a},{b})", ' '.join(row))

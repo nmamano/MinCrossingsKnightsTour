@@ -1,3 +1,11 @@
+# Claim 42 — strong-test 5n bound, 2026-10-03
+
+PASS with an orientation-join repair: X>=5n-612 for all even n>=32, and hence all positive even n by the trivial smaller range. Claim V includes radii 12..32, so no 42 allowance. Independent graph: 82,516 base states, 184,006 full-mask states, 343,631 arcs. UP potential [-29,0], DOWN [-33,0]; their row-boundary difference is [-4,4]. The joined side bound gives G<=T+1139<=T+1160, which closes the audited ledger. Both orientations and exact VIS geometry checked. Report: claim42_report.md; finite inputs: claim42_check.py/json and two potential arrays. No further F1 price lemma is needed for this global bound.
+
+# Claim 40 addendum — scalar reserve reduction, 2026-10-03
+
+PASS: distinct failed joint rows pay lost candidates and failed-end deficits without double use. The scalar residual inequality suffices for X>=5n-(612+C), even n>=128, with one total C. Hall bits are needed only for the stronger private allocation target. A1 requires an actual clean vertical stretch. The scalar price remains open. Details appended to claim40_report.md and w-verifier/FINDINGS.md.
+
 # Claim 41 — Square Gap Lemma, 2026-10-03
 
 PASS, computer-assisted: the square Hall lemma holds for all finite cut sets in knight-edge sets of maximum degree two. Uniformity passes by leaf induction. Independent geometric SAT enumeration matches all 117,612 patches across 82 types; independent DP reaches the exact 8,660-key fixed point on iteration 6 and root minimum excess 2. Half version remains false. F1 is still open. Report: claim41_report.md; certificate: claim41_check.json and claim41_values.json.

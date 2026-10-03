@@ -57,6 +57,15 @@ def main():
         pb, qb = band(p), band(q)
         if not pb and not qb and side(p) == side(q):
             FN = A.FL if side(p) == 'L' else A.FR
+            if FN.startswith('g'):             # generic zigzag g<v>_<d1x>_<d1y>_<d2x>_<d2y>: valleys send +d1, +d2
+                parts = FN[1:].split('_'); vv = int(parts[0]); d1 = (int(parts[1]), int(parts[2])); d2 = (int(parts[3]), int(parts[4]))
+                val = (p[0] + p[1]) % 2 == vv
+                if (val and d in (d1, d2)) or (not val and d in ((-d1[0], -d1[1]), (-d2[0], -d2[1]))): fixed.append(key)
+                continue
+            if FN in ('y0', 'y1'):             # (1,1) zigzag field: valleys send +(2,-1), +(1,-2)
+                val = (p[0] + p[1]) % 2 == int(FN[1])
+                if (val and d in ((2, -1), (1, -2))) or (not val and d in ((-2, 1), (-1, 2))): fixed.append(key)
+                continue
             if FN in ('z0', 'z1'):             # (1,-1) zigzag field: valleys (x+y = v mod 2) send +(2,1), +(1,2)
                 val = (p[0] + p[1]) % 2 == int(FN[1])
                 if (val and d in ((2, 1), (1, 2))) or (not val and d in ((-2, -1), (-1, -2))): fixed.append(key)

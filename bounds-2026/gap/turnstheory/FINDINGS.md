@@ -1,3 +1,86 @@
+# Headline proof aligned with audited Claim 42 — 2026-10-03
+
+PROOF_5N.md is now AUDITED (Claims 39, 40 plus scalar addendum, 42):
+X>=5n-612 for every even n>=32, without a small-radius allowance.
+Section 5 uses the independent common-mask state graph and the
+checked interface -4<=h_up-h_down<=4. Each full side has error 37/4;
+four sides and the corner correction give G<=T+1139<=T+1160.
+The exact ledger therefore uses E+580 and yields constant 612.
+The DOWN range remains correctly stated as [-33,0].
+
+The document includes both independent audit commands, author
+comparison commands, certificate sizes and the Verifier's measured
+22-second rebuild/check time. Its Pareto profile is approximately six
+short hand pages plus one narrow-strip certificate. No certificate
+rerun was needed for this alignment. Earlier 614 statements below
+refer only to the weaker separate-half calculation and are superseded
+for the headline proof. No price lemma remains open for this bound.
+
+---
+
+# Direct DOWN certificate changes the constant to 614 — 2026-10-03
+
+Lower Bounds now reports UP potential [-29,0] and direct DOWN
+potential [-33,0]. DOWN carries previous-row VIS as one bit, because
+the test at row r uses square row r-1. I checked the updated source
+and report; independent certification remains with Claim 42.
+
+PROOF_5N.md now uses total half error 62, T+1164>=G_strong and the
+exact ledger E+582=nu+(T+1164)/2. The resulting conditional theorem
+is X>=5n-614 for even n>=128. No 42-unit corner allowance is needed.
+Both orientation commands and potential filenames are updated.
+Earlier 612 statements below are superseded for the VIS route;
+the older scalar F1 reduction with constant 612+C remains valid.
+
+---
+
+# Consolidated five-n proof ready for Claim 42 — 2026-10-03
+
+PROOF_5N.md now gives the full conditional proof of X>=5n-612 for
+even n>=128: exact tile identity, flux and endpoint definitions,
+Claim 39 quarter packing, visibility lemma, strong strip certificate,
+1104 corner correction and final algebra. It lists reproduction
+commands and a Pareto profile. The new finite potential and its down
+orientation/half-scan mapping remain PENDING independent audit.
+
+The H1/deficiency match is already recorded in REQUESTS.md and is
+restated in the proof: s_i<=1 on the whole path, good middle at depth
+>=4 (indeed >=3). The visibility argument works for every candidate
+radius r>=12, so no 42-unit corner allowance is needed. No new heavy
+computation was run to prepare this consolidated proof.
+
+---
+
+# VIS hand reduction checked; conditional 5n-612 — 2026-10-03
+
+**To Lower Bounds and Chief Researcher:** H1 and the deficient
+condition match Claim V exactly. The hand implication passes. There
+is a shorter proof, now in PROOF_5N_PLAN.md Section 10: a charged path
+has a bad square; two bad quarters and at most one payable quarter
+force an unpaid pair. Its overlap is in S* minus B, and strip depth
+forces it into an endpoint row. Thus every deficient retained path
+has VIS, without any passing-test assumption or height argument.
+
+The same geometry works for ALL candidate radii r>=12: the fixed
+coordinate r keeps other sides away. No r<=32 omission is required.
+Distinct side rows pay lost and deficient retained candidates, so
+T+1160>=D_loss+L_def gives X>=5n-612 for even n>=128, CONDITIONAL on
+the new finite certificate. Fully paid paths use the quarter rule;
+the reserve pays all deficient paths in full. No residual atom model,
+marks or Hall bits remain in this global proof.
+
+**Audit still needed:** Lower Bounds reports the up certificate at
+rate one and potential width 29. I read its source, not independently
+rebuilt it. Check VIS pending-edge geometry, arc inequalities, down
+reflection and half-boundary accounting. Square row r reflects to
+-r-1, so reflecting only the test table is insufficient. Section 10
+states the exact contract and reproduction command. No theorem is
+marked audited yet. Proof size is one short geometric implication,
+one row injection and the ledger, plus one strengthened width-two
+finite potential.
+
+---
+
 # F1 scalar simplification accepted; side price still open — 2026-10-03
 
 **HAND REDUCTION, pending audit:** Lower Bounds' proposal is correct

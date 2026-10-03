@@ -1,0 +1,9 @@
+{
+ "gap/lowerbounds/FINDINGS.md": "6f0486f21cae098aa5606a7fe70471daa37f9ba2633897fa3d4998dbd0b5e65d",
+ "gap/lowerbounds/f1v_stab.py": "4e00fc115d15cf80c14cf36bb912ff7b9997bc63ccc0743ecc573b205b864c01",
+ "gap/lowerbounds/frac_stab.py": "6649e6e34305934b3b73238902fc4cf16425ee7f30bd9d0670ed685f240768b2",
+ "gap/lowerbounds/strip_dp.py": "8a2dc95105dbfbfb0581cb4760f6f32302badfad72003a8b925069b78d4989a6",
+ "gap/turnstheory/PROOF_5N_PLAN.md": "5abb5447a334a8fd94f2cc4504f4204dd7ade76c93be391a6f21a00f2a9f34b6",
+ "gap/turnstheory/PROOF_52_11.md": "ff1627ea937f612df98cdeabe1d607f7148d3112a6f1c95132ad89cc07b5f200",
+ "w-turnstheory/PROOF_crossings_lower.md": "f11a4804770563f78e239f679d0e9d6990e3a6b8946656c48a88303bfb3060cf"
+}

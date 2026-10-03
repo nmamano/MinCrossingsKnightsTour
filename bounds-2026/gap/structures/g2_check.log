@@ -1,0 +1,14 @@
+FOLD24_n96.json n=96 E=338 BQ=622 G2=50 N_re=194  E-(BQ+G2/2)/4-N_re/2 = 79.25  (T*') BQ+G2/2+2N_re-4n = 651.0
+claim36_FOLD_n144.json n=144 E=450 BQ=878 G2=50 N_re=290  E-(BQ+G2/2)/4-N_re/2 = 79.25  (T*') BQ+G2/2+2N_re-4n = 907.0
+claim36_FOLD_n192.json n=192 E=562 BQ=1134 G2=50 N_re=386  E-(BQ+G2/2)/4-N_re/2 = 79.25  (T*') BQ+G2/2+2N_re-4n = 1163.0
+claim36_FOLD_n240.json n=240 E=674 BQ=1390 G2=50 N_re=482  E-(BQ+G2/2)/4-N_re/2 = 79.25  (T*') BQ+G2/2+2N_re-4n = 1419.0
+claim36_FOLD_n288.json n=288 E=786 BQ=1646 G2=50 N_re=578  E-(BQ+G2/2)/4-N_re/2 = 79.25  (T*') BQ+G2/2+2N_re-4n = 1675.0
+FIELD_n166_92_155.json n=166 E=578 BQ=912 G2=61 N_re=376  E-(BQ+G2/2)/4-N_re/2 = 154.375  (T*') BQ+G2/2+2N_re-4n = 1030.5
+FOLDB1_n144.json n=144 E=471 BQ=841 G2=67 N_re=308  E-(BQ+G2/2)/4-N_re/2 = 98.375  (T*') BQ+G2/2+2N_re-4n = 914.5
+FOLDP_n96.json n=96 E=341 BQ=593 G2=57 N_re=192  E-(BQ+G2/2)/4-N_re/2 = 89.625  (T*') BQ+G2/2+2N_re-4n = 621.5
+FOLDX_n100.json n=100 E=358 BQ=653 G2=68 N_re=208  E-(BQ+G2/2)/4-N_re/2 = 82.25  (T*') BQ+G2/2+2N_re-4n = 703.0
+FJOG_n130.json n=130 E=1045 BQ=2544 G2=127 N_re=148  E-(BQ+G2/2)/4-N_re/2 = 319.125  (T*') BQ+G2/2+2N_re-4n = 2383.5
+FJOG_n132.json n=132 E=699 BQ=1937 G2=90 N_re=86  E-(BQ+G2/2)/4-N_re/2 = 160.5  (T*') BQ+G2/2+2N_re-4n = 1626.0
+LF4_n96.json n=96 E=325 BQ=4 G2=265 N_re=362  E-(BQ+G2/2)/4-N_re/2 = 109.875  (T*') BQ+G2/2+2N_re-4n = 476.5
+TT16_n72.json n=72 E=396 BQ=0 G2=0 N_re=264  E-(BQ+G2/2)/4-N_re/2 = 264.0  (T*') BQ+G2/2+2N_re-4n = 240.0
+exit=0
