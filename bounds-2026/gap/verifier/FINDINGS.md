@@ -1,3 +1,7 @@
+# Claim 41 — Square Gap Lemma, 2026-10-03
+
+PASS, computer-assisted: the square Hall lemma holds for all finite cut sets in knight-edge sets of maximum degree two. Uniformity passes by leaf induction. Independent geometric SAT enumeration matches all 117,612 patches across 82 types; independent DP reaches the exact 8,660-key fixed point on iteration 6 and root minimum excess 2. Half version remains false. F1 is still open. Report: claim41_report.md; certificate: claim41_check.json and claim41_values.json.
+
 # Claim 40 — F1/R4 red team, 2026-10-03
 
 PASS for F1 sufficiency, current Hall-subset certificate logic and degree relaxation. GAP for F1 and the completed finite-state mapping. Required repair: do not create hole atoms from incomplete halo squares; pure P gives two false holes per row at square depth 6. Use quarter atoms only at depths 0..5 or complete their owner edges, and retain all actual baseline consumption of represented pair atoms. Four actual-tour baseline-subtracted Hall tests found no obstruction, including the nonzero residual demand on FIELD. Report: claim40_report.md. Claim 38 section-8 follow-up is already complete.

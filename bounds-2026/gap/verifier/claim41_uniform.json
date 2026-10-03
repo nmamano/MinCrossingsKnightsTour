@@ -1,0 +1,52 @@
+[
+  {
+    "size": 1,
+    "shapes": 1,
+    "one_boundary_cycle": true
+  },
+  {
+    "size": 2,
+    "shapes": 1,
+    "one_boundary_cycle": true
+  },
+  {
+    "size": 3,
+    "shapes": 2,
+    "one_boundary_cycle": true
+  },
+  {
+    "size": 4,
+    "shapes": 4,
+    "one_boundary_cycle": true
+  },
+  {
+    "size": 5,
+    "shapes": 11,
+    "one_boundary_cycle": true
+  },
+  {
+    "size": 6,
+    "shapes": 27,
+    "one_boundary_cycle": true
+  },
+  {
+    "size": 7,
+    "shapes": 83,
+    "one_boundary_cycle": true
+  },
+  {
+    "size": 8,
+    "shapes": 255,
+    "one_boundary_cycle": true
+  },
+  {
+    "size": 9,
+    "shapes": 847,
+    "one_boundary_cycle": true
+  },
+  {
+    "size": 10,
+    "shapes": 2829,
+    "one_boundary_cycle": true
+  }
+]

@@ -1,3 +1,14 @@
+# Scalar side-price reduction — 2026-10-03
+
+Claims 39–40 passed the quarter-payment kernel and its conditional
+logic. PROOF_5N_PLAN.md Section 9 now reduces GLOBAL 5n to a weaker
+scalar side price, using the joint-test reserve to pay all failed-end
+paths. R4 in REQUESTS.md gives the current contract. Hall constraints
+remain relevant only if private L2 payments are also required. The
+universal scalar certificate remains OPEN; no 5n theorem is claimed.
+
+---
+
 # Half-price hand step — 2026-10-03
 
 See PROOF_5N_PLAN.md for the new quarter-payment hand argument and the
@@ -6,6 +17,28 @@ payments for paths with a bad middle square, using distinct payable
 quarters. The new argument awaits independent audit. Paths with
 residual demand have a good middle and bounded end zones; their joint
 residual-capacity price F1 remains open. No 5n theorem is claimed.
+
+## Deferred lead: zigzag colour balance — 2026-10-03
+
+**UNCHECKED here; low priority, behind F1.** Chief Researcher relays
+Integrator's claimed obstruction: cutting a (1,-1) zigzag field along
+direction (a,b) leaves stubs of one colour, with reported rate
+3|a-b|/2 per unit length. The claim suggests restrictions on joining
+such a region to a physical board side or to a straight field across
+a (1,2) interface. The normalization of “unit length,” the precise cut,
+and the allowed boundary repairs must be checked in the proof before
+using that formula. This note is not an assertion of the claim.
+
+Possible use: Claim 35's half-price wall uses zigzag exteriors. A
+proved cost for closing or transitioning those exteriors might restore
+a higher effective flux price in closed tours, potentially the 2/3
+route. Colour imbalance alone does not establish that price: identify
+how a whole zigzag region balances all its boundary pieces, quantify
+necessary repairs, and charge them without using capacity already paid
+to flux, endpoint restoration, or connectivity. To affect L2, locate
+that cost inside the retained paths' eligible collars. Other exterior
+phases or wall mechanisms would also need coverage before claiming a
+universal 2/3 price. F1 and the half-price v4 route remain the active work.
 
 ---
 

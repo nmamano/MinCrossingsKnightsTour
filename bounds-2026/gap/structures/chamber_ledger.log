@@ -1,0 +1,9 @@
+FOLD24_n96.json n=96
+   total {'L': 320, 'X': 202, 'W': 295, 'slack': 106, 'Rin': 152, 'Uin': 3, 'need': 22, 'BQreg': 40, 'BQbar': 0, 'area': 5778, 'Nin': 152}
+   outside chambers: rows 36  need after 2 x (changed ports not on inside returns) -48  BQ outside regions 582  (global {'rows': 356, 'N_re': 194, 'BQ': 622} )
+claim36_FOLD_n144.json n=144
+   total {'L': 512, 'X': 330, 'W': 487, 'slack': 170, 'Rin': 248, 'Uin': 3, 'need': 22, 'BQreg': 40, 'BQbar': 0, 'area': 15378, 'Nin': 248}
+   outside chambers: rows 36  need after 2 x (changed ports not on inside returns) -48  BQ outside regions 838  (global {'rows': 548, 'N_re': 290, 'BQ': 878} )
+claim36_FOLD_n192.json n=192
+   total {'L': 704, 'X': 458, 'W': 679, 'slack': 234, 'Rin': 344, 'Uin': 3, 'need': 22, 'BQreg': 40, 'BQbar': 0, 'area': 29586, 'Nin': 344}
+   outside chambers: rows 36  need after 2 x (changed ports not on inside returns) -48  BQ outside regions 1094  (global {'rows': 740, 'N_re': 386, 'BQ': 1134} )

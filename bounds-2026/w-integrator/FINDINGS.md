@@ -310,7 +310,7 @@ Old 2019 files at the root (index.html, board.js, Code/, License.txt ...) stay u
    recipe (incl. /writeup/WRITER_STATE.md, /w-verifier/claim23*_clean/, /CR_STATE.md, /.venv/, /ktlean/.lake/ + .git/,
    /paper.pdf, /paper.txt, /board-patched.js, *.npy, __pycache__/, the 7 compiled C++ binaries in w-searcher, the 2 claim22
    extracts). gap/ IS included. Repo-only files bounds-2026/{.gitignore,README.md,requirements.txt} are excluded, so
-   --delete keeps them. Every ELF binary found in the research dir is excluded too (list built at run time). *.bin and every other data file over 5 MB are excluded (CR rule 2026-10-03; the script prints them: report them to the CR). The 3 claim27_*.bin pushed in ed0de7a stay tracked (excluded = not deleted). The script replaces the office demo URL line in w-integrator/FINDINGS.md, and fails on any
+   --delete keeps them. Every ELF binary found in the research dir is excluded too (list built at run time). *.bin, *.drup, *.cnf and every other data file over 5 MB are excluded (CR rules 2026-10-03; the script prints them: report them to the CR). The 3 claim27_*.bin pushed in ed0de7a stay tracked (excluded = not deleted). The script replaces the office demo URL line in w-integrator/FINDINGS.md, and fails on any
    office-domain string or any ELF binary left in bounds-2026/.
 2. bounds-2026/.gitignore re-includes *.log, *.aux, *.out, *.toc (and other LaTeX outputs) that the root .gitignore ignores.
 3. Fresh-copy run: `git ls-files bounds-2026` copy to /tmp, run all 13 appendix commands of writeup/{turns,crossings}/post.mdx
@@ -338,8 +338,43 @@ about 1 per level (0.95..1.3). Without any carrier the fold field + windows has 
 Reason (colour balance, exact): the knight graph is bipartite, so a periodic band with equal black/white cells needs
 equal black/white stubs. A (1,-1) zigzag field (black cells send +(2,1),+(1,2)) cut along direction (a,b) leaves
 stubs of one colour, 3|a-b|/2 per unit (checked: vertical cut 12 per 8 rows, all one colour; straight fields 8/8).
-So a zigzag region can only be bounded along (1,1). A (1,2) wall over n/2 levels needs a zigzag region of width
+So a zigzag region can only be bounded along (1,1) (see the lemma below; an earlier note here also named (5,1): wrong). A (1,2) wall over n/2 levels needs a zigzag region of width
 ~n/4 whose boundary meets sides or straight fields along other directions: impossible without a colour current of
 order n. Side check: zigzag field at a vertical board side INFEASIBLE (width 4, 6); (2,1) field at a side OPTIMAL 1/row.
 Possible LOWER-side use (UNCHECKED, for Edge Searcher / Turns Theory): 1/2-walls need zigzag exteriors, and zigzag
 regions are (1,1)-bounded; straight-field walls cost >= 2/3 in every case measured.
+
+### Colour-balance lemma for ribbon fields (2026-10-03; statement + proof; numbers checked by wall6n/stub_colour.py)
+Setting. chi(x,y) = (-1)^(x+y). Every knight edge joins cells of opposite chi. A FIELD is an edge set on Z^2 with
+degree 2 at every cell. Straight field F (F one of (2,1),(1,2),(2,-1),(1,-2)): edges p -- p+F for all p.
+Zigzag field Z_v (v in {0,1}): edges p -- p+(2,1) and p -- p+(1,2) for every "valley" p with x+y = v mod 2
+(then every other cell is a "peak" with edges to p-(2,1), p-(1,2); ribbons run along (1,-1)).
+Cut. For coprime integers (a,b) let f(p) = a*y - b*x and H_c = {p : f(p) > c}. For a field E define
+Q_E(c) = average over steps (a,b) along the line of the sum of chi(p) over edges p--q of E with p in H_c, q not.
+
+(L1) Counting identity. For every finite cell set S and every edge set E,
+    sum over edges p--q of E with p in S, q not in S, of chi(p)  =  sum over p in S of chi(p) * deg_E(p).
+Proof: an edge with both ends in S contributes chi(p) + chi(q) = 0 to the right side.
+
+(L2) Values. Q_F(c) = eps(c) for every straight field, and Q_{Z_v}(c) = (-1)^v * 3(b - a)/2 + eps(c), where
+eps(c) = 0 if a + b is odd and eps(c) = (-1)^(c+1) if a and b are both odd.
+Proof: an edge p -- p+d crosses the cut with p inside iff c < f(p) <= c - delta_d, delta_d = a*d_y - b*d_x.
+Per step there is one lattice point on each level f = const. If a+b is odd, translation by (a,b) flips chi and maps
+valleys to peaks, so averages over two steps are exact: a straight field gives 0; in Z_v the (2,1)-edges give
+(-1)^v * (-(a - 2b))/2 and the (1,2)-edges give (-1)^v * (-(2a - b))/2 (valley inside when delta < 0, peak inside,
+of colour -(-1)^v, when delta > 0; both cases give the same signed term -(-1)^v delta/2), total (-1)^v * 3(b-a)/2.
+If a, b are odd, chi(p) = (-1)^f(p), and the same count level by level gives the extra (-1)^(c+1) for every field.
+Checked numerically for 11 directions, c even and odd, all 5 field types (stub_colour.py).
+
+(L3) Interface condition. Let a periodic band (period a multiple of (a,b)) separate field E_L on {f <= c1} from
+field E_R on {f > c3}, with degree 2 at every cell. Then Z-part(E_L) = Z-part(E_R), i.e.
+    3(b - a)/2 * ((-1)^{v_L} [E_L zigzag] - (-1)^{v_R} [E_R zigzag]) = 0.
+Proof: apply (L1) to S = {c1 < f <= c3} per period with deg = 2: Q_L(c1) - Q_R(c3) = 2 * sum_S chi; the right side
+equals the eps-difference eps(c1) - eps(c3) level by level (computed as in L2), so the Z-parts must agree.
+(Q_R enters with a minus sign: the inside of S at c3 is the low side, and chi(low end) = -chi(high end).)
+Consequences: zigzag | straight only along a = b, i.e. (1,1); Z_0 | Z_1 only along (1,1); Z_v | Z_v along every
+direction. Finite version: a band of width w and length k steps along (a,b), a + b odd, between a zigzag field and a
+straight field needs |3(b - a)/2| * k <= 2 |sum_S chi| + O(w) = O(w), so k = O(w).
+Checks (wallcyl.py, CP-SAT): (1,2) z0|z0 feasible (1/2 per level charged), z0|z1 INFEASIBLE, (2,1)|z and z|(2,1)
+INFEASIBLE; (1,1) (2,1)|z0, (2,1)|z1, (1,2)|z0, z0|(1,2) all FEASIBLE with 0 crossings (free interfaces);
+zigzag at a vertical board side INFEASIBLE (Q = 3/2 per row, no field on the other side).

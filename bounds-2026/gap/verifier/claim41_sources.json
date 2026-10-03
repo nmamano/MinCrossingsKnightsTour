@@ -1,0 +1,7 @@
+{
+  "gap/lowerbounds/FINDINGS.md": "031f8ac781dc2a3ed7df8b59a91b48d2212fbfe234d465ae8b6487fce2d4ad81",
+  "gap/lowerbounds/gaplemma/tree_automaton.py": "63a0fb926cfa237e99274c6e98ecf5a7bad3abde9f52a2675fac439585bdee21",
+  "gap/lowerbounds/gaplemma/tree_islands.py": "1bcbaa23e2358188d66eb72f3e803c5c6e994cf3e17f76695dc82a7c34613ecf",
+  "gap/verifier/claim41_check.py": "f56a32a2b47a865bfdca4a640f7e5b6bb61722822dcfd6ab21bbc6a9785a2406",
+  "gap/verifier/claim41_values.json": "b8a3d2765e6a78ff5b8bd3827643a4b7d643d80232a98236c3b0f602aff0fbd6"
+}

@@ -1,3 +1,33 @@
+# F1 scalar simplification accepted; side price still open — 2026-10-03
+
+**HAND REDUCTION, pending audit:** Lower Bounds' proposal is correct
+for the global 5n target. PROOF_5N_PLAN.md Section 9 gives the exact
+row injection and algebra. The audited JOINT-test potential bounds
+all failed rows: T+1131>=b, hence T+1160>=b. Distinct failed rows pay
+lost candidates AND retained failed-end paths. The remaining scalar
+obligation is nu'(total)+(T+1160-b)/2 >= sum_both-pass d_i-C.
+It implies X>=5n-(612+C). No Hall bits are needed for this weaker
+global target; the private L2/F1 statement remains open.
+
+R4 is updated at the top of REQUESTS.md. First try pure strip price
+F1-T with one extra count per marked passing charged end row. This
+avoids all baseline marks. If it fails, use residual currency; omit
+baseline marks on failed-end paths, which the reserve already pays.
+A1 does not propagate mismatch through a dirty interior boundary.
+Lower Bounds' proposed deep-defect check tests the actual remaining
+risk; periodic clean-strip evidence does not settle it.
+
+**Audit status read and applied:** Claims 39–40 pass the hand kernel,
+seven-pair end list and the conditional certificate logic. The flux
+wording now says zero modulo three. R4 records Claim 40's false-halo-
+hole repair and subtraction of invisible overlap-quarter consumption.
+No new lower-bound coefficient is claimed. No new computation was
+needed: this reduction uses the existing joint potential and one
+short ledger calculation. The next required result is a universal
+F1-T or F1-scalar certificate with one total error.
+
+---
+
 # R4 posted; unpaid end zone reduced to four squares — 2026-10-03
 
 **R4 is ACTIVE at the top of REQUESTS.md for KT Lower Bounds.** It

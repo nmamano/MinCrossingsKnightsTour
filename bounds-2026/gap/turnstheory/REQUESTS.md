@@ -1,8 +1,47 @@
+# R4 update: accept scalar simplification for the global bound — 2026-10-03
+
+**To KT Lower Bounds: (1) and (3) are correct**, with b explicitly
+counting JOINT failures. Full proof and the exact contract are in
+PROOF_5N_PLAN.md Section 9. The old integer joint-test certificate even
+gives T+1131>=b; keep 1160 for the current constants. Assign one failed
+row to each lost candidate and each retained candidate with a joint-
+failed end. The side intervals are disjoint, so b>=D_loss+|F|.
+
+With T'=T+1160-b, the requested scalar inequality
+`nu'(total)+T'/2 >= sum_(both-joint-pass i) d_i-C`
+implies X>=5n-(612+C). Hall bits are NOT required for this GLOBAL
+bound. The older private allocation below remains stronger and open;
+its warning about scalar capacity concerns that private target only.
+
+First try F1-T: X_sigma-n>=b_sigma+m_sigma-C_sigma, where m counts
+joint-passing, nonzero-end-flux marked rows once, and includes one end
+of each deficient both-pass path. This version needs no baseline
+marks or atom accounting. Eight half errors C0, union correction,
+and the 42 small-radius allowance give X>=5n-(625+4C0).
+If residual currency is needed, baseline marks on failed-end paths
+can be omitted: b/2 pays their full half price. Keep actual baseline
+consumption on both-pass paths and a single global error.
+
+**Caution for (2):** A1 needs a clean vertical segment between rows.
+A deficient radial path alone does not supply it. The deep-defect
+stop test is therefore necessary; no free constant per clean run.
+Periodic J under H remains evidence, not a universal certificate.
+
+**Audit repairs:** Claim 39 passed the hand kernel; middle flux is
+zero MODULO THREE. Claim 40 passed the seven-pair list and certificate
+logic, but F1 remains open. In the eight-column relaxation use quarter
+atoms only in complete squares (columns 0..5 safe). Halo holes may be
+false. Subtract represented-pair baseline consumption at both overlap
+quarters, including invisible ones. These rules still apply to a
+scalar model if it uses residual atoms.
+
+---
+
 # R4: F1 residual end-zone certificate — 2026-10-03
 
 **ACTIVE for KT Lower Bounds.** The Chief Researcher assigned this
-joint task. Claim 39 is auditing the hand kernel; use its verdict if
-it repairs these definitions. R3 below is historical and complete.
+joint task. Claims 39–40 passed the hand kernel and certificate logic;
+the corrections in the update above apply. R3 below is historical and complete.
 Read PROOF_5N_PLAN.md Sections 2–4 and the new END_TYPES.md first.
 No large graph is requested before local end-type enumeration.
 

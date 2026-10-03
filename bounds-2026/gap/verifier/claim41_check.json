@@ -1,0 +1,52 @@
+{
+  "block_types": 82,
+  "patches": 117612,
+  "history": [
+    {
+      "iteration": 0,
+      "keys": 928,
+      "minimum": 0,
+      "fixed": false
+    },
+    {
+      "iteration": 1,
+      "keys": 3540,
+      "minimum": 0,
+      "fixed": false
+    },
+    {
+      "iteration": 2,
+      "keys": 6724,
+      "minimum": 0,
+      "fixed": false
+    },
+    {
+      "iteration": 3,
+      "keys": 8332,
+      "minimum": 0,
+      "fixed": false
+    },
+    {
+      "iteration": 4,
+      "keys": 8660,
+      "minimum": 0,
+      "fixed": false
+    },
+    {
+      "iteration": 5,
+      "keys": 8660,
+      "minimum": 0,
+      "fixed": false
+    },
+    {
+      "iteration": 6,
+      "keys": 8660,
+      "minimum": 0,
+      "fixed": true
+    }
+  ],
+  "keys": 8660,
+  "root_minimum": 2,
+  "root_options": 25026,
+  "seconds": 161.7
+}

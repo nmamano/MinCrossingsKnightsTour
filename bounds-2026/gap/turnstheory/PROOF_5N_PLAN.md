@@ -2,8 +2,8 @@
 
 2026-10-03. **PARTIAL HAND PROOF + OPEN CERTIFICATE PLAN.** The hand
 step in Section 2 is proved below from audited tile facts. It removes
-the interior sharing problem at price 1/2. The new hand argument has
-not yet had an independent audit. The remaining side statement is
+the interior sharing problem at price 1/2. Sections 2–3 and their conditional reduction passed Claim 39.
+Claim 40 also checked the seven end-pair types and the R4 logic. The remaining side statement is
 open; this document does not claim X>=5n-O(1).
 
 ## 1. Shortest proposed lemma chain
@@ -127,7 +127,7 @@ counts. For the remaining paths, n>=128 keeps other-side interference
 away. Each path's shallow squares are exactly three near each end:
 local depths 1,2,3 at side-row r. Thus unpaid paths have only six
 possibly bad squares, all in two fixed-size side windows. The flux
-across the good middle is zero, so their charge is determined by these
+across the good middle is zero modulo three, so their charge is determined by these
 end zones, including the two transitions into depth four.
 
 Retention also excludes every B-pair overlap from all path squares.
@@ -357,3 +357,142 @@ table feasibility, before any large graph. The baseline-mark choice,
 complete-quarter requirement, both orientations/parities, and exact
 cut ownership are part of the request, not optional implementation
 details.
+
+
+## 9. Scalar F1 with the unused joint-test reserve — 2026-10-03
+
+**HAND REDUCTION; scalar price OPEN.** This accepts Lower Bounds' R4
+simplification for the GLOBAL 5n bound. It does not assert the private
+L2 allocation, or replace the Hall criterion for that stronger claim.
+Claims 39–40 audited the earlier private formulation; the following
+new reduction is submitted for review.
+
+### 9.1 Failed ends use distinct rows
+
+Use the JOINT test of w-turnstheory/PROOF_crossings_lower.md Section 3:
+both up and down tests pass. Let b count all failed joint rows over
+four sides. Section 5's audited integer potential gives
+
+    X_sigma-n >= b_sigma-29/4.
+
+The union correction is sum_sigma X_sigma <= s+1104. Hence
+
+    b <= s-4n+1133 = T+1131 <= T+1160.              (9)
+
+This uses the joint-test certificate, not the fractional a-table.
+We keep 1160 to preserve the existing ledger constants.
+
+Partition the retained paths into F (at least one joint-failed end)
+and P (both joint tests pass). Every lost candidate has a failed
+joint end: two joint-passing ends satisfy the oriented tests and
+imply retention. Every path in F also has such an end. Choose one
+failed end for each of these candidates. No row is shared: on each
+side the near rows [12,n/2-4] and far rows [n/2+3,n-13] are disjoint,
+and each radius supplies only one endpoint in its interval. Thus
+
+    b >= D_loss+|F|.                               (10)
+
+Joint failure includes failure of an unused orientation. That causes
+no problem: F is defined with the same joint test as b. If a later
+model uses only oriented failures, it must state and check that
+change; it must not silently identify the two counts.
+
+### 9.2 Exact scalar obligation and proof
+
+Keep the actual baseline f0 and deficits d_i from Section 3 for ALL
+retained paths; let nu' be its atomwise residual. Define
+
+    T' = T+1160-b >= 0.
+
+The weaker sufficient side statement is
+
+    nu'(total)+T'/2 >= sum_(i in P) d_i-C.          (F1-scalar)
+
+Only deficient paths contribute to the sum. One absolute C must
+cover the whole board, including any small-radius omissions. No
+radius restriction on the use of residual capacity is needed for
+this scalar theorem. Indeed,
+
+    E+580 = L/2-sum_F d_i-sum_P d_i
+            +nu'(total)+b/2+T'/2
+          >= (L+D_loss)/2-C + |F|/2-sum_F d_i
+          >= n-30-C.
+
+Here d_i<=1/2. Therefore F1-scalar implies
+
+    X >= 5n-(612+C), for even n>=128.
+
+The reserve pays failed-end deficits without spending nu' twice.
+This is a complete algebraic reduction, not a proof of F1-scalar.
+Hall bits are unnecessary for THIS target. The earlier private F1
+would still require them or an equivalent allocation proof.
+
+An optional further simplification is to put NO baseline marks on F.
+Let f0_P be the baseline only on P and nu_P'=nu-f0_P. The same scalar
+obligation with nu_P' is sufficient: the full half unit for F is paid
+by b/2. This enlarges residual capacity and removes irrelevant marks.
+It requires one stated choice of the baseline on P; it does not make
+all remaining baseline consumption vanish.
+
+### 9.3 First certificate to try: strip counts alone
+
+For each deficient path in P with r>32, its good middle has zero
+flux modulo three. Include the steps between the end squares and
+that middle in the two end fluxes. Their oriented sum is nonzero,
+so at least one end has nonzero end flux with a passing joint test.
+Assign the path to one such end. Distinct candidates again give
+distinct side rows. A local marked-row relaxation may include extra
+rows but must include these assigned ends.
+
+Let m_sigma count marked, JOINT-PASSING, nonzero-end-flux rows for
+that side; count each row at most once, even if both orientations
+qualify. A sufficient universal finite certificate is
+
+    X_sigma-n >= b_sigma+m_sigma-C_sigma.          (F1-T)
+
+Use actual end fluxes, with the actual orientation at candidate rows.
+A stronger model may admit arbitrary orientation flags. A periodic
+check is evidence only; a path potential must cover all actual
+boundary states. No error per clean stretch is allowed.
+
+If K=1102+sum_sigma C_sigma, summing F1-T gives T+K>=b+m.
+The baseline pays all nondeficient paths in P; m/2 pays all deficient
+ones except the at most 84 omitted small-radius paths. Thus
+
+    X >= 5n-(32+K/2+42).
+
+The 42 is omitted if those radii are also certified. For an oriented
+half-walk potential with error C0 per half, K=1102+8C0 and the displayed
+constant is 625+4C0. F1-T uses no residual-atom or baseline marks.
+It may be stronger than necessary; failure would return us to
+F1-scalar, not refute the 5n route.
+
+### 9.4 Limits and safe resource model
+
+Lower Bounds' A1 propagates height mismatch only along a side stretch
+whose entire specified interior dual boundary is good. A deficient
+radial path does not establish this condition between nearby rows.
+Deep defects may change the height. Their cost must enter one global
+certificate; each change cannot receive a free new endpoint error.
+The reported periodic J checks under H do not prove F1-T with deep
+defects allowed. This is the right next stop test.
+
+If the scalar model needs nu' atoms, retain Claim 40's safe ownership
+rules. In the eight-column model (edges touching columns 0..5), use
+quarter atoms only where all covering edges are represented; square
+columns 0..5 are safe. Columns 6 and 7 can contain false holes in the
+truncated graph. Represented pair atoms must subtract baseline use
+from BOTH overlap quarters, including a quarter outside the complete
+region. No visible mark is not evidence of no consumption.
+
+Proof size: this scalar reduction needs the row injection and one
+ledger calculation. Its only new finite input would be F1-T or
+F1-scalar. The older joint-test potential and the Claim 39 packing
+lemma are inherited inputs. No new computation was run for this
+reduction. Source checks: old proof Sections 3,5,6; verifier Claims
+39–40; Lower Bounds FINDINGS section A. Existing reproduction commands:
+
+    python3 gap/turnstheory/check_quarter_payment_support.py
+    python3 gap/verifier/claim39_check.py
+
+These commands check the hand kernel, not the open scalar certificate.

@@ -47,6 +47,12 @@ def analyse(f, verbose=False):
         for mir in (False, True):
             L0 = T[si]
             L = (lambda v, L0=L0: (L0(v)[0], n-1-L0(v)[1])) if mir else L0
+            sqmap = {}
+            for i in range(n-1):
+                for j in range(n-1):
+                    cs = [L((i+a, j+b)) for a in (0, 1) for b in (0, 1)]
+                    sqmap[min(c[0] for c in cs), min(c[1] for c in cs)] = (i, j)
+            plain_sq = lambda x, y, m=sqmap: m[x, y]
             own = defaultdict(list)
             for a, b in E:
                 a, b = sorted((L(a), L(b)))
@@ -79,8 +85,14 @@ def analyse(f, verbose=False):
                 if kind != 'W' or info[0] != '/' or info[3] != 'TL' or info[5] != info[2]+1: continue
                 # '/' run ended at the top edge of square (x, y): horizontal wall. Zigzag upward.
                 x, y = info[1], info[2] + 1; sp = '\\'; res = None; pieces = 0
+                bar = set(); sx, sy, sh = 3, j, 'TL'
+                while True:
+                    bar.add((sx, sy))
+                    if (sx, sy, sh) == (info[1], info[2], info[3]): break
+                    sx, sy, sh = (sx, sy+1, 'BR') if sh == 'TL' else (sx+1, sy, 'TL')
                 while res is None:
                     pieces += 1
+                    bar.add((x, y))
                     if sp == '\\':   # start at LB(x, y) (touches the wall below); go up-left: LB -> RT(x-1, y) -> LB(x-1, y+1)
                         h = 'LB'
                         while True:
@@ -94,6 +106,7 @@ def analyse(f, verbose=False):
                                 if nh == 'LB': x, y, sp = nx, ny, '/'; break   # crossed a top edge: higher wall
                                 res = ('VWALL', None); break
                             x, y, h = nx, ny, nh
+                            bar.add((x, y))
                     else:            # start at BR(x, y) (touches the wall below); go up-right: BR -> TL(x+1, y) -> BR(x+1, y+1)
                         h = 'BR'
                         while True:
@@ -106,15 +119,18 @@ def analyse(f, verbose=False):
                                 if nh == 'BR': x, y, sp = nx, ny, '\\'; break
                                 res = ('VWALL', None); break
                             x, y, h = nx, ny, nh
+                            bar.add((x, y))
                 if res[0] == 'OK':
                     j2 = res[1]
                     lo, hi = (j, j2) if not mir else (n-2-j2, n-2-j)
-                    out[si].append((lo, hi, pieces))
+                    out[si].append((lo, hi, pieces, {plain_sq(x, y) for x, y in bar}))
                 else:
                     excess[res[0]] += 1
     report = []
     for si in range(4):
-        iv = sorted(set((a, b) for a, b, _ in out[si]))
+        iv = sorted(set((a, b) for a, b, *_ in out[si]))
+        barq = {}
+        for a, b, _, bq in out[si]: barq.setdefault((a, b), bq)
         maxi = [I for I in iv if not any(J != I and J[0] <= I[0] and I[1] <= J[1] for J in iv)]
         for lo, hi in maxi:
             inn = lambda p: p is not None and p[0] == si and lo <= p[1] <= hi + 1
@@ -122,7 +138,7 @@ def analyse(f, verbose=False):
             rd = sum(1 for a, b, cl in chords if not cl and inn(a) and inn(b))
             pc = sum(1 for k, p in ports.items() if inn(p))
             W = sum(1 for j in wruns[si] if lo <= j <= hi)
-            report.append(dict(side=si, lo=lo, hi=hi, rows=hi-lo+1, W=W, RETc=rc, RETd=rd, ports=pc))
+            report.append(dict(side=si, lo=lo, hi=hi, rows=hi-lo+1, W=W, RETc=rc, RETd=rd, ports=pc, barrier=barq[lo, hi]))
     covered = sum(r['W'] for r in report); Wtot = sum(len(v) for v in wruns.values())
     return n, report, excess, covered, Wtot
 
@@ -133,5 +149,5 @@ if __name__ == '__main__':
         tot = Counter()
         for r in rep:
             tot.update(dict(W=r['W'], c2=2*r['RETc'], d2=2*r['RETd'], ports=r['ports'], rows=r['rows']))
-            print('   ', r, ' W-2RETc =', r['W'] - 2*r['RETc'], ' 2rows-ports =', 2*r['rows'] - r['ports'])
+            print('   ', {k: v for k, v in r.items() if k != 'barrier'}, ' W-2RETc =', r['W'] - 2*r['RETc'], ' 2rows-ports =', 2*r['rows'] - r['ports'])
         print('   totals', dict(tot))

@@ -37,3 +37,5 @@ shear 2/3 Z02 | S3: 8/1 (CERTIFIED: no cycle below); per level (E units) = 8/2 =
 awk: fatal: cannot open file `/proc/592636/status' for reading: No such file or directory
 shear 2/3 Z13 | S0: 10/3 (CERTIFIED: no cycle below); per level (E units) = 10/6 = 1.6667  (66s)
 shear 2/3 Z13 | S2: 8/1 (CERTIFIED: no cycle below); per level (E units) = 8/2 = 4.0000  (65s)
+shear 2/3 Z13 | S1: 2/1 (CERTIFIED: no cycle below); per level (E units) = 2/2 = 1.0000  (65s)
+shear 2/3 Z13 | S3: 4/3 (CERTIFIED: no cycle below); per level (E units) = 4/6 = 0.6667  (69s)

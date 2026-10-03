@@ -24,7 +24,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 typedef long long ll; typedef unsigned long long ull;
-int A, SA = 0, SB = 1, WM, KM;   /* shear SA/SB: cell (u,y) = board cell (u + floor(SA*y/SB), y) */ string MODE; int WU = 2; bool NOLAB = false; int LA = 1, LB = 2; int FLM = 15, FRM = 15; int CLL[4] = {-1,-1,-1,-1}, CLR[4] = {-1,-1,-1,-1}; int ZW = 1; bool SIDE = false;   // SIDE=1 (shear 0 only): board side at u = 0, no cells u < 0, no left margin   // CELLL/CELLR: move multiset of the ZW outermost modeled cells per side   // lambda = LA/LB: cost = 2*LA*Xc + (LB-LA)*(G+W3+X1), E share = cost/(2*LB)
+int A, SA = 0, SB = 1, WM, KM;   /* shear SA/SB: cell (u,y) = board cell (u + floor(SA*y/SB), y) */ string MODE; int WU = 2; bool NOLAB = false; int LA = 1, LB = 2; int FLM = 15, FRM = 15; int CLL[4] = {-1,-1,-1,-1}, CLR[4] = {-1,-1,-1,-1}; int ZW = 1; bool SIDE = false; int ORL = 0, ORR = 0;   // ORL/ORR=1: zigzag orientation z0 (colour-0 cells send both edges up), 2: z1; key bit 12 = floor(Y/SB) mod 2   // SIDE=1 (shear 0 only): board side at u = 0, no cells u < 0, no left margin   // CELLL/CELLR: move multiset of the ZW outermost modeled cells per side   // lambda = LA/LB: cost = 2*LA*Xc + (LB-LA)*(G+W3+X1), E share = cost/(2*LB)
 int ULO, UHI, NC;                         // scan columns u in [ULO, UHI]
 const int MDX[4] = {2, -2, 1, -1}, MDY[4] = {1, 1, 2, 2};
 static bool modeled(int u) { return u >= 0 && u < WM; }
@@ -107,6 +107,7 @@ int main(int argc, char** argv) {
 #endif
     for (int sd = 0; sd < 2; sd++) { const char* f = getenv(sd ? "CELLR" : "CELLL"); if (!f) continue; int* cl = sd ? CLR : CLL; for (int k = 0; k < 4; k++) cl[k] = 0; for (const char* c = f; *c; c++) cl[*c - '0']++; }
     if (getenv("SIDE")) SIDE = true;
+    if (getenv("ORL")) ORL = atoi(getenv("ORL")); if (getenv("ORR")) ORR = atoi(getenv("ORR"));
     if (getenv("ZW")) ZW = atoi(getenv("ZW"));
  if (getenv("WU")) WU = atoi(getenv("WU")); if (getenv("LAM")) sscanf(getenv("LAM"), "%d/%d", &LA, &LB);
     auto T0 = chrono::steady_clock::now(); auto el = [&]() { return chrono::duration<double>(chrono::steady_clock::now() - T0).count(); };
@@ -160,7 +161,7 @@ int main(int argc, char** argv) {
     vector<PE> s, in, rest, ne;
     long rejM = 0, rejPsi = 0;
     auto expand = [&](const Key kq, vector<pair<Key, uint16_t>>& outK) {
-        int x = kq.x & 255, ph = kq.x >> 8, warm = kq.warm; decode(kq, s);
+        int x = kq.x & 255, ph = (kq.x >> 8) & 15, qp = (kq.x >> 12) & 1, warm = kq.warm; decode(kq, s);
         in.clear(); rest.clear();
         for (auto& p : s) { auto& S = SL[SID[p.c][p.ly + 2][p.m]]; (S.tc[ph] == x && S.ty == 0 ? in : rest).push_back(p); }
         int din = in.size(); bool isMod = modeled(x + ULO);
@@ -181,6 +182,10 @@ int main(int argc, char** argv) {
                     int u = x + ULO; int* cl = u < ZW ? CLL : (u >= WM - ZW ? CLR : nullptr);
                     if (cl && cl[0] >= 0) { int cnt[4] = {0, 0, 0, 0}; for (auto& p : in) cnt[p.m]++; for (int m : ch) cnt[m]++;
                         if (cnt[0] != cl[0] || cnt[1] != cl[1] || cnt[2] != cl[2] || cnt[3] != cl[3]) continue; }
+                    int orr = u < ZW ? ORL : (u >= WM - ZW ? ORR : 0);
+                    if (orr) { int col = (int)(((ll)u + (ll)SA * qp + fdiv((ll)SA * ph, SB) + (ll)SB * qp + ph) & 1);   // colour of board cell (x + y) mod 2
+                        bool up = (int)ch.size() == 2, dn = din == 2; bool want0up = orr == 1;
+                        if (col == 0 ? !(want0up ? up : dn) : !(want0up ? dn : up)) continue; }
                 }
                 // crossings of new edges, X1 and margin overlap pruning
                 int x1c = 0, xc = 0;
@@ -205,7 +210,7 @@ int main(int argc, char** argv) {
                 ne.clear();
                 for (auto p : rest) { if (merge >= 0 && p.comp == merge) p.comp = label; ne.push_back(p); }
                 for (int m : ch) ne.push_back({x, 0, m, label});
-                int nx = x + 1, sh = 0, nwarm = warm, nph = ph; if (nx == NC) { nx = 0; sh = 1; if (nwarm) nwarm--; nph = (ph + 1) % SB; }
+                int nx = x + 1, sh = 0, nwarm = warm, nph = ph, nqp = qp; if (nx == NC) { nx = 0; sh = 1; if (nwarm) nwarm--; nph = (ph + 1) % SB; if ((ORL || ORR) && nph == 0) nqp ^= 1; }
                 for (auto& p : ne) p.ly -= sh;
                 int w = x1c;
                 if (sh && (WU - warm) >= 1) {   // square row of absolute row >= 1: all covering edges are represented
@@ -240,7 +245,7 @@ int main(int argc, char** argv) {
                 for (auto& p : ne) { if (NOLAB) { p.comp = 0; continue; } if (rl[p.comp] < 0) rl[p.comp] = nl++; p.comp = rl[p.comp]; }
                 if (nl > 15 || ne.size() > 32) { printf("label overflow (%zu pending edges)\n", ne.size()); exit(1); }
                 if (w > 255 || xc > 255) { printf("weight overflow\n"); exit(1); }
-                outK.push_back({encode(nx | nph << 8, nwarm, ne), (uint16_t)(xc << 8 | w)});
+                outK.push_back({encode(nx | nph << 8 | nqp << 12, nwarm, ne), (uint16_t)(xc << 8 | w)});
             }
         }
     };
@@ -311,7 +316,7 @@ int main(int argc, char** argv) {
     };
     auto printCycle = [&]() {
         size_t st = 0; for (size_t j = 0; j < cyc.size(); j++) if ((keys[src[cyc[j]]].x & 255) == 0) { st = j; break; }
-        int row = 0; int ph0 = keys[src[cyc[st]]].x >> 8;
+        int row = 0; int ph0 = (keys[src[cyc[st]]].x >> 8) & 15;
         printf("    (cycle starts at row phase %d; board x = u + floor(%d*(phase+row)/%d) - floor(%d*phase/%d))\n", ph0, SA, SB, SA, SB);
         for (size_t jj = 0; jj < cyc.size(); jj++) {
             uint32_t i = cyc[(st + jj) % cyc.size()]; int x = keys[src[i]].x & 255;

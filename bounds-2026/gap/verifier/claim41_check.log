@@ -1,0 +1,90 @@
+patch type 1 count 12 seconds 0.0
+patch type 2 count 76 seconds 0.01
+patch type 3 count 172 seconds 0.03
+patch type 4 count 76 seconds 0.03
+patch type 5 count 172 seconds 0.08
+patch type 6 count 76 seconds 0.09
+patch type 7 count 76 seconds 0.09
+patch type 8 count 172 seconds 0.11
+patch type 9 count 172 seconds 0.16
+patch type 10 count 436 seconds 0.19
+patch type 11 count 442 seconds 0.24
+patch type 12 count 442 seconds 0.28
+patch type 13 count 448 seconds 0.34
+patch type 14 count 76 seconds 0.34
+patch type 15 count 76 seconds 0.35
+patch type 16 count 172 seconds 0.38
+patch type 17 count 172 seconds 0.42
+patch type 18 count 351 seconds 0.44
+patch type 19 count 351 seconds 0.48
+patch type 20 count 733 seconds 0.62
+patch type 21 count 733 seconds 0.95
+patch type 22 count 733 seconds 1.08
+patch type 23 count 733 seconds 1.39
+patch type 24 count 1701 seconds 2.58
+patch type 25 count 1701 seconds 7.35
+patch type 26 count 351 seconds 7.4
+patch type 27 count 351 seconds 7.49
+patch type 28 count 733 seconds 7.82
+patch type 29 count 733 seconds 8.66
+patch type 30 count 733 seconds 8.95
+patch type 31 count 733 seconds 9.79
+patch type 32 count 1701 seconds 14.83
+patch type 33 count 1701 seconds 37.3
+patch type 34 count 416 seconds 37.34
+patch type 35 count 794 seconds 37.52
+patch type 36 count 794 seconds 37.67
+patch type 37 count 1644 seconds 38.92
+patch type 38 count 2340 seconds 39.15
+patch type 39 count 4968 seconds 40.88
+patch type 40 count 2390 seconds 41.33
+patch type 41 count 5078 seconds 46.18
+patch type 42 count 76 seconds 46.19
+patch type 43 count 172 seconds 46.21
+patch type 44 count 76 seconds 46.22
+patch type 45 count 172 seconds 46.26
+patch type 46 count 416 seconds 46.3
+patch type 47 count 794 seconds 46.47
+patch type 48 count 794 seconds 46.63
+patch type 49 count 1644 seconds 47.92
+patch type 50 count 351 seconds 47.96
+patch type 51 count 351 seconds 48.02
+patch type 52 count 733 seconds 48.16
+patch type 53 count 733 seconds 48.43
+patch type 54 count 733 seconds 48.57
+patch type 55 count 733 seconds 48.97
+patch type 56 count 1701 seconds 50.33
+patch type 57 count 1701 seconds 55.11
+patch type 58 count 351 seconds 55.16
+patch type 59 count 351 seconds 55.24
+patch type 60 count 733 seconds 55.52
+patch type 61 count 733 seconds 56.37
+patch type 62 count 733 seconds 56.65
+patch type 63 count 733 seconds 57.49
+patch type 64 count 1701 seconds 62.24
+patch type 65 count 1701 seconds 83.73
+patch type 66 count 2340 seconds 83.99
+patch type 67 count 2390 seconds 84.53
+patch type 68 count 4968 seconds 86.57
+patch type 69 count 5078 seconds 90.46
+patch type 70 count 436 seconds 90.5
+patch type 71 count 442 seconds 90.55
+patch type 72 count 442 seconds 90.59
+patch type 73 count 448 seconds 90.66
+patch type 74 count 2340 seconds 91.0
+patch type 75 count 2390 seconds 91.43
+patch type 76 count 4968 seconds 93.5
+patch type 77 count 5078 seconds 98.13
+patch type 78 count 2340 seconds 98.55
+patch type 79 count 4968 seconds 100.87
+patch type 80 count 2390 seconds 101.29
+patch type 81 count 5078 seconds 105.93
+patch type 82 count 17536 seconds 110.82
+{'iteration': 0, 'keys': 928, 'minimum': 0, 'fixed': False}
+{'iteration': 1, 'keys': 3540, 'minimum': 0, 'fixed': False}
+{'iteration': 2, 'keys': 6724, 'minimum': 0, 'fixed': False}
+{'iteration': 3, 'keys': 8332, 'minimum': 0, 'fixed': False}
+{'iteration': 4, 'keys': 8660, 'minimum': 0, 'fixed': False}
+{'iteration': 5, 'keys': 8660, 'minimum': 0, 'fixed': False}
+{'iteration': 6, 'keys': 8660, 'minimum': 0, 'fixed': True}
+FINAL {'block_types': 82, 'patches': 117612, 'history': [{'iteration': 0, 'keys': 928, 'minimum': 0, 'fixed': False}, {'iteration': 1, 'keys': 3540, 'minimum': 0, 'fixed': False}, {'iteration': 2, 'keys': 6724, 'minimum': 0, 'fixed': False}, {'iteration': 3, 'keys': 8332, 'minimum': 0, 'fixed': False}, {'iteration': 4, 'keys': 8660, 'minimum': 0, 'fixed': False}, {'iteration': 5, 'keys': 8660, 'minimum': 0, 'fixed': False}, {'iteration': 6, 'keys': 8660, 'minimum': 0, 'fixed': True}], 'keys': 8660, 'root_minimum': 2, 'root_options': 25026, 'seconds': 161.7}

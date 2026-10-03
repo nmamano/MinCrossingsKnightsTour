@@ -1,0 +1,97 @@
+shear 0/1 WM=4 KM=1 MODE=any lambda=1/2: columns u in [-2,5], 40 slots, complete squares s in [-1,3], 4 cost squares per row
+warm-up done: 80360 strict seed states, largest warm layer 894012, 6s
+states by warm level: strict 568412, warm1 0, warm2 0, warm3 0
+graph: states 568412 arcs 685314 (rejected: margin 3460964, psi 0) 7s
+== lambda 1/1
+ try mean 8/1 per row
+  cycle: 80 arcs, 10 rows, crossings 33, waste 86, weight 66 -> mean 66/10
+    (cycle starts at row phase 0; board x = u + floor(0*(phase+row)/1) - floor(0*phase/1))
+    row 0 u 1 (mod) X=1 waste=1: (1,0)-(0,2)
+    row 0 u 2 (mod) X=3 waste=1: (2,0)-(0,1)
+    row 0 u 4 (ghost) X=0 waste=0: (4,0)-(2,1) (4,0)-(3,2)
+    row 0 u 5 (ghost) X=0 waste=9:
+    row 1 u 2 (mod) X=0 waste=0: (2,1)-(0,2)
+    row 1 u 3 (mod) X=0 waste=0: (3,1)-(1,2) (3,1)-(2,3)
+    row 1 u 4 (ghost) X=0 waste=0: (4,1)-(3,3)
+    row 1 u 5 (ghost) X=0 waste=4:
+    row 2 u 1 (mod) X=0 waste=0: (1,2)-(0,4)
+    row 2 u 2 (mod) X=1 waste=0: (2,2)-(0,3) (2,2)-(1,4)
+    row 2 u 3 (mod) X=2 waste=0: (3,2)-(1,3)
+    row 2 u 4 (ghost) X=0 waste=0: (4,2)-(3,4)
+    row 2 u 5 (ghost) X=0 waste=8:
+    row 3 u 0 (mod) X=2 waste=2: (0,3)-(2,4)
+    row 3 u 1 (mod) X=1 waste=1: (1,3)-(0,5)
+    row 3 u 2 (mod) X=3 waste=0: (2,3)-(0,4)
+    row 3 u 3 (mod) X=1 waste=1: (3,3)-(1,4)
+    row 3 u 4 (ghost) X=0 waste=0: (4,3)-(3,5)
+    row 3 u 5 (ghost) X=0 waste=8:
+    row 4 u 2 (mod) X=0 waste=0: (2,4)-(0,5)
+    row 4 u 3 (mod) X=0 waste=0: (3,4)-(1,5)
+    row 4 u 4 (ghost) X=0 waste=0: (4,4)-(3,6)
+    row 4 u 5 (ghost) X=0 waste=6:
+    row 5 u 1 (mod) X=0 waste=0: (1,5)-(0,7)
+    row 5 u 2 (mod) X=1 waste=0: (2,5)-(0,6) (2,5)-(1,7)
+    row 5 u 3 (mod) X=1 waste=0: (3,5)-(1,6)
+    row 5 u 4 (ghost) X=0 waste=0: (4,5)-(3,7)
+    row 5 u 5 (ghost) X=0 waste=8:
+    row 6 u 0 (mod) X=2 waste=2: (0,6)-(2,7)
+    row 6 u 1 (mod) X=1 waste=1: (1,6)-(0,8)
+    row 6 u 2 (mod) X=4 waste=1: (2,6)-(0,7) (2,6)-(1,8)
+    row 6 u 3 (mod) X=2 waste=1: (3,6)-(1,7)
+    row 6 u 5 (ghost) X=0 waste=9: (5,6)-(3,7)
+    row 7 u 2 (mod) X=1 waste=0: (2,7)-(0,8)
+    row 7 u 4 (ghost) X=0 waste=0: (4,7)-(2,8) (4,7)-(3,9)
+    row 7 u 5 (ghost) X=0 waste=8:
+    row 8 u 1 (mod) X=0 waste=0: (1,8)-(0,10)
+    row 8 u 2 (mod) X=1 waste=0: (2,8)-(0,9)
+    row 8 u 3 (mod) X=0 waste=0: (3,8)-(1,9) (3,8)-(2,10)
+    row 8 u 4 (ghost) X=0 waste=0: (4,8)-(3,10)
+    row 8 u 5 (ghost) X=0 waste=6:
+    row 9 u 0 (mod) X=1 waste=1: (0,9)-(1,11)
+    row 9 u 1 (mod) X=1 waste=0: (1,9)-(0,11)
+    row 9 u 2 (mod) X=2 waste=1: (2,9)-(0,10) (2,9)-(1,11)
+    row 9 u 3 (mod) X=2 waste=0: (3,9)-(1,10)
+    row 9 u 5 (ghost) X=0 waste=7: (5,9)-(3,10)
+ try mean 33/5 per row
+  cycle: 24 arcs, 3 rows, crossings 6, waste 18, weight 12 -> mean 12/3
+    (cycle starts at row phase 0; board x = u + floor(0*(phase+row)/1) - floor(0*phase/1))
+    row 0 u 1 (mod) X=0 waste=0: (1,0)-(0,2)
+    row 0 u 2 (mod) X=1 waste=0: (2,0)-(0,1) (2,0)-(1,2)
+    row 0 u 3 (mod) X=2 waste=0: (3,0)-(1,1)
+    row 0 u 5 (ghost) X=0 waste=6: (5,0)-(3,1)
+    row 1 u 1 (mod) X=0 waste=0: (1,1)-(0,3)
+    row 1 u 2 (mod) X=2 waste=0: (2,1)-(0,2)
+    row 1 u 4 (ghost) X=0 waste=0: (4,1)-(2,2) (4,1)-(3,3)
+    row 1 u 5 (ghost) X=0 waste=8:
+    row 2 u 1 (mod) X=0 waste=0: (1,2)-(0,4)
+    row 2 u 2 (mod) X=1 waste=0: (2,2)-(0,3)
+    row 2 u 3 (mod) X=0 waste=0: (3,2)-(1,3) (3,2)-(2,4)
+    row 2 u 4 (ghost) X=0 waste=0: (4,2)-(3,4)
+    row 2 u 5 (ghost) X=0 waste=4:
+ try mean 4/1 per row
+RESULT A=0 WM=4 KM=1 any lambda=1/1: min mean weight per row = 4/1 (CERTIFIED: no cycle below); per level (E units) = 4/2 = 2.0000  (7s)
+total 7s
+	Command being timed: "./wifs 0 4 1 any 8 1 90000000"
+	User time (seconds): 6.68
+	System time (seconds): 0.21
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:06.90
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 70460
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 32379
+	Voluntary context switches: 1
+	Involuntary context switches: 51
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 16
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+exit=0
