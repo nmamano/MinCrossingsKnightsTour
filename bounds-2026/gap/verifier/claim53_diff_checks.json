@@ -1,0 +1,21 @@
+{
+  "appendix_A_byte_identical": true,
+  "old_images": 16,
+  "new_images": 18,
+  "all_old_image_blocks_preserved": true,
+  "added_image_blocks": [
+    "<BlogImage\n  src=\"/blog/knights-tour/formation_moves.png\"\n  alt=\"Formation moves\"\n  caption=\"The four knights of the formation and the moves they make together.\"\n  width=\"80%\"\n/>",
+    "<BlogImage\n  src=\"/blog/knights-tour-crossings/heel_original.png\"\n  alt=\"The original heel of the paper, with the four knight paths of the formation in four colours\"\n  caption=\"The original heel: the four knights of the formation turn around at the bottom side. Each colour is one knight path.\"\n  width=\"100%\"\n/>"
+  ],
+  "stale_612_matches": [],
+  "connectivity_mentions": [
+    [
+      382,
+      "**Proof.** Retain the boundary cells of depths zero and one, the diagonal corridors, and all thirteen finite components. Suppress paths through the remaining field cells. In one triangle such a path is straight. It can bend at an axis fold before it returns to retained cells. It cannot cross a diagonal fold without meeting the retained corridor: the corridor contains the three integer transverse positions `y-x=0,1,2`, while a knight step changes `y-x` by at most three. The finite components cover the corridor ends and the central junction. Thus each suppressed piece crosses at most one axis fold. A complete path in the reduced graph can still cross many triangles; the matchings below keep all its connections."
+    ],
+    [
+      407,
+      "The map preserves every retained move and corridor phase: `12k` is a multiple of six. It also preserves each suppressed field connection. To see this directly, solve `2y-x=c` or `2x-y=c` at the two ends of a straight arm, retaining the parity just stated. A corner arm has the same increment `12k` in its line label at both ends. For an outer side arm, `(1)` increases by `12k` at both ends: the lower end shifts `6k` and the upper end shifts `18k` while `n` shifts `24k`. For the inner side arms, both ends of `(1)` increase by `24k`. These increments preserve parity. At the fold the two formulas in `(1)` agree. The lengths of the arms can change, but their ends cannot change."
+    ]
+  ]
+}

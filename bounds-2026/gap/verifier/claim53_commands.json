@@ -1,0 +1,50 @@
+[
+  {
+    "command": "python3 w-turnstheory/check_fold_proof.py",
+    "exit": 0,
+    "seconds": 28.65779515192844,
+    "log": "gap/verifier/claim53_command_0.log"
+  },
+  {
+    "command": "python3 w-turnstheory/check_fold_margins.py",
+    "exit": 0,
+    "seconds": 0.32554441317915916,
+    "log": "gap/verifier/claim53_command_1.log"
+  },
+  {
+    "command": "python3 w-turnstheory/check_knight_tiles.py",
+    "exit": 0,
+    "seconds": 0.35927956993691623,
+    "log": "gap/verifier/claim53_command_2.log"
+  },
+  {
+    "command": "python3 w-turnstheory/check_corner_box.py",
+    "exit": 0,
+    "seconds": 0.07371020293794572,
+    "log": "gap/verifier/claim53_command_3.log"
+  },
+  {
+    "command": "python3 w-turnstheory/check_square_defects.py",
+    "exit": 0,
+    "seconds": 0.36898138001561165,
+    "log": "gap/verifier/claim53_command_4.log"
+  },
+  {
+    "command": ".venv/bin/python gap/lowerbounds/simple_strip/check_cut_certificate.py",
+    "exit": 0,
+    "seconds": 4.437476363033056,
+    "log": "gap/verifier/claim53_command_5.log"
+  },
+  {
+    "command": "python3 gap/verifier/claim50_check.py",
+    "exit": 0,
+    "seconds": 8.004295724909753,
+    "log": "gap/verifier/claim53_command_6.log"
+  },
+  {
+    "command": "python3 gap/verifier/claim52_check.py",
+    "exit": 0,
+    "seconds": 3.97221316001378,
+    "log": "gap/verifier/claim53_command_7.log"
+  }
+]

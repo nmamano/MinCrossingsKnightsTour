@@ -1,0 +1,2 @@
+PASS all 12 bases: every component cell remains on the board and outside all growing blocks for every k>=0.
+Exact affine margin inequalities: 36288

@@ -446,3 +446,27 @@ gap/turnstheory/PROOF_5N_V2.md, gap/verifier/claim50_*, claim51_* (+ FINDINGS up
 (default: hold all). simple_strip/graph.pkl (16 MB) excluded by the script, reported to the CR.
 2026-10-03 (CR answer): hold ALL simple-5n work (simple_strip/, PROOF_5N_V2.md, claim50/51, FINDINGS updates) until Claim 52
 (audit of PROOF_5N_V2.md) passes; then one push. graph.pkl stays excluded (the checker regenerates it). The CR will say when.
+2026-10-03 (CR): Claim 52 PASS (X >= 5n-597, tours + 2-factors). Simple-5n hold LIFTED; pushed 818711d (72 files: PROOF_5N_V2.md,
+PROOF_5N_SIMPLE.md, SIMPLE_STRIP.md, simple_strip/ without graph.pkl, PROOF_5N.md pointer, claims 50-52, FINDINGS).
+Post milestone (README.md, bounds-2026/README.md, RESULTS.md, writeup/, explain/) still HELD: Nil decides about 5n-597 there.
+The pending RESULTS.md row in the Milestone plan says 5n-612; re-check the constant with the CR at the milestone.
+2026-10-03 (CR): the TURNS post (writeup/turns/: post.mdx, images/, figures/) now belongs to the Personal Site Agent (Nil's
+decision; published on nilmamano.com). Research agents never edit, stage or push it: add ':!bounds-2026/writeup/turns' to EVERY
+staging command, at the milestone too. Milestone HELD set now: README.md, bounds-2026/README.md, bounds-2026/RESULTS.md,
+writeup/crossings/ (Turns Theory -> 5n-597, then Verifier Claim 53), explain/ (chart). The repo copy of writeup/turns stays at
+its last pushed version.
+2026-10-03 (Nil via CR): the 8n turns conjecture is PROVEN (8n-28) and TIGHT (8n-14); never call it false/wrong/disproved.
+Pushed 44890c5 (wording only: RESULTS.md, ktlean/README.md sources; bounds-2026/README.md repo-only, held 5n row unstaged via
+hash-object + update-index). Reported to the CR, not fixed: writeup/turns/main.tex lines 36, 81 (Corollary 2), turns post.mdx (PSA), briefs (history).
+2026-10-03 (CR): pushed 767b0a2: turns paper main.tex lines 36 + 81 (Corollary 2) reworded (conjecture holds, factor 8 tight),
+main.pdf rebuilt (pdflatex x2, 11 pages, no errors); writeup/turns/post.mdx git rm'd (images kept). sync_public.sh now
+excludes /writeup/turns/post.mdx. The paper (main.tex/pdf) stays OURS; only post.mdx + images/ are the PSA's. main.aux/.log/.out
+are rebuilt but NOT pushed (CR said tex + pdf only).
+2026-10-03 (CR): pushed 9f9c54b: turns paper abstract (line 33 'in its leading factor'; lines 36-37 -> one sentence), line-1 comment -> blog post URL; main.pdf + main.log rebuilt (aux/out unchanged).
+2026-10-03 (CR, Claim 53 PASS on the crossings post): milestone rows PREPARED in working trees, NOT staged/pushed:
+root README.md (X >= 5n-597), bounds-2026/README.md (5n-597 row: PROOF_5N_V2.md, Claims 50-52, 2-factors; plus a one-line
+5n-612 "older proof" row), RESULTS.md (two table rows, new section "Crossing lower bound: 5n-597" with the 6 PROOF_5N_V2 sec 7
+commands, coefficient "between 5 and 19/3"). Chart labels print "5n" only: no change. The 6 commands passed from the research
+root on 2026-10-03 (cut certificate 4.1 s). This REPLACES the old Milestone plan's 5n-612 RESULTS row.
+At the milestone: sync; stage everything with ':!bounds-2026/writeup/turns'; fresh-copy run of the 13 crossings/turns post
+appendix commands (turns post is gone from the repo: run only the crossings ones + PROOF_5N_V2 sec 7); privacy scan; push.

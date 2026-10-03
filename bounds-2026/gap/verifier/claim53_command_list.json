@@ -1,0 +1,10 @@
+[
+  "python3 w-turnstheory/check_fold_proof.py",
+  "python3 w-turnstheory/check_fold_margins.py",
+  "python3 w-turnstheory/check_knight_tiles.py",
+  "python3 w-turnstheory/check_corner_box.py",
+  "python3 w-turnstheory/check_square_defects.py",
+  ".venv/bin/python gap/lowerbounds/simple_strip/check_cut_certificate.py",
+  "python3 gap/verifier/claim50_check.py",
+  "python3 gap/verifier/claim52_check.py"
+]
