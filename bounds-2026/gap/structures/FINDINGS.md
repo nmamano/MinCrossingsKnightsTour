@@ -34,6 +34,10 @@ Commands: `python turning.py 11` (prints the steep-end table and asserts that on
 independent check: `python3 ../verifier/claim24_check.py`.
 
 ## G2 (2026-10-03, ARGUMENT): with chevrons, every untrapping mechanism pays at the edge; arch >= n/4 per midpoint
+Repair after Verifier Claim 28 (2026-10-03): step 3 is replaced by the certified per-end price: in a depth W <= 4
+strip with the fixed (2,1) exterior, X >= p + N_re/2 per period (N_re = changed port ends; not non-P rows).
+Fixed-chevron matching lemma (PROVEN, Claim 28C): if only edge pairings change, every strand of a P-compatible
+chevron nest has >= 1 changed end. The universal mechanism claim, the layout count and flux + arch additivity stay ARGUMENT.
 
 Setting: the left midpoint chevron nest, lower ends at rows [h/2, h), upper ends at rows (h, 3h/2], cheap patterns
 P (lower) and P' (upper). L_u = arch line u closed by the edge segment OUTSIDE the board.
@@ -135,6 +139,8 @@ Verdict: layout G and its relatives (seam corners) cannot beat 19n/3 with edge f
 Commands: `python seamnest.py`, `python seamsearch.py 6 5 5 150 20`, `python seamsearch.py 12 5 5 200 6`.
 
 ## G7 (2026-10-03, PROOF via the audited 14n/3 lower bound, Section 3): no corner type with cheap edges is neutral
+Repair after Verifier Claim 28D: read "charged" as flux NONZERO mod 3 (with the audited orientation gamma_R has
+flux 2 mod 3). The local non-neutrality is PROVEN; the consequence "only carrier rates matter" is ARGUMENT.
 
 Question (CR): is there a corner type whose colour charge is 0 mod 3 (so it drops out of the flux network)?
 Answer: NO, for every corner type whatsoever (any interior structure, folds, seams, gadgets of any size), as long
@@ -178,3 +184,57 @@ enumeration; NOT checked by Turns Theory, Lower Bounds or the Verifier.
 Pending repairs (low priority): Verifier Claim 28 (w-verifier/FINDINGS.md "## Claim 28") - G7 PROVEN with a
 flux-sign correction; G2 universal arch >= n stays ARGUMENT. Apply both to G2/G7.
 Commands: `python col0_credit.py`, `python stripenum.py 3`.
+
+## G9 (2026-10-03, PROOF + CHECK): crossing-free = ribbon fields cut by straight axis walls (structure lemma, part)
+
+Good square = its 4 quarters each covered once. (T1) a/b tiles use '/' halves, c/d tiles '\' halves, so a good
+square has a split and both its tiles are of that class. (T2) In a '/' region the half-triangles form slope +1 chains
+("ribbons"); each chain has exactly two matchings, all-H (a) or all-V (b); every H/V word is a valid crossing-free
+2-factor; every strand moves y-x by 1 per edge, so strands are monotone translates of one another. (T3) At a good
+lattice point 45 deg(v) + 135 b(v) = 360 (b = carried unit edges), so b = 2; then a split wall cannot turn, end or
+cross at a good point (hand case check; machine check pending): walls are straight axis lines, a horizontal wall
+forces H on the ribbons it meets, a vertical wall forces V. (T4) bad squares in U <= E + X - |B| (audited (1)).
+Check: `python tiling_check.py 6 6` -> 252 crossing-free 2-factors of the 6x6 torus = 128 ribbon fields (all 2 x 2^6)
++ 124 with walls, every wall a straight full axis line. Use in PLAN.md (ribbon absorption route to the arch term).
+
+## G10 (2026-10-03, CHECKS C1 + C2 of PLAN.md)
+
+C1 (T3 machine check, wall_check.py, seconds): plane, v = (0,0), all 24 knight edges whose tile meets a square at v,
+only "16 quarters covered once" and deg(v) = 2: 48 solutions = 32 single split + 8 horizontal + 8 vertical straight
+walls; no turn and no 4-wall; b(v) = 2 in all. Full hand proof in STRUCTURE.md (for Verifier Claim 30).
+C2 (side next to a ribbon field, sidecollar.py): left strip x < D free (degree 2, cycles allowed, so values are
+lower bounds in the model), exterior x >= D a fixed '/' ribbon field with periodic word w, CP-SAT exact per period.
+| word | D=3 /row | D=4 /row | D=5 /row | excess per V end (D=5) |
+|---|---|---|---|---|
+| H (= P) | 1.0 | 1.0 | 1.0 | - |
+| V | 3.0 | 2.5 | 2.5 | 1.5 |
+| HVV | 3.0 | 2.0 | 2.0 | 1.5 |
+| HHV | 2.67 | 2.5 | 2.33 | 4.0 |
+| HHVV | 2.25 | 1.75 | (running/see log) | 1.5 (D=4) |
+| HV, HHHV, HVVV | INFEASIBLE at every D and period | | | |
+All primitive words with period <= 6 at D=3 (sidecollar_D3 run in chat log): minimum excess 2.0 per V end.
+The infeasible words inject net colour charge -6 per 2q rows into the strip (integer, 0 mod 3): a side next to them
+must carry integer current along the side. The periodic model cannot express that; NOT priced (gap for R2 (iii)).
+Reading: every feasible non-H word costs >= 1.5 per V ribbon end at D <= 5, far above the 1/4 the absorption
+route needs. So absorber (iii) (non-cheap side) is not the bottleneck; walls and seams (1/4) are.
+Commands: `python wall_check.py`, `python sidecollar.py 4 4 120 1`, `python sidecollar.py 5 4 240 1` (log sidecollar_D5.log).
+
+## G11 (2026-10-03, C3 pilot, MEASURED in a periodic band model): defect-line tension per absorbed ribbon end
+
+Model (interface.py): straight line with period vector T, band |h| <= a free (degree 2, any knight move, cycles
+allowed -> lower bounds IN THIS MODEL), ribbon fields F1, F2 fixed on the two sides (STRUCTURE.md T2), all crossings
+per period by CP-SAT (OPTIMAL). Absorbed ends per period: all ribbons meeting the line if the splits differ, 2 per
+ribbon with different bits if the split is the same. Sanity: walls 0, gentle seam 1.0 per unit x, A|A' vertical
+1.0 per unit y (= w-structures S1).
+Pure fields, a = 2, 8 slopes (0, inf, +-1, +-1/2, +-2), all 96 ordered pairs, period multipliers 1-4
+(odd multiples are INFEASIBLE for most pairs: colour parity; every pair is feasible at even multiples):
+| price per absorbed end | lines |
+|---|---|
+| 0 | the two axis walls (A|A' horizontal, B|B' vertical) - priced later through chevrons (R3/R4) |
+| 1/4 | gentle seam on slope +1 ('\' H|V) and its mirror on slope -1 ('/' H|V) - ONLY these |
+| 1/2 | slope +-1/2, +-2 with the same split and H|V; A|A' vertical; B|B' horizontal |
+| 0.625 - 1.25 | all other pairs (e.g. slope 0 or inf with a bit change: 3/4) |
+So in this model R5 (>= 1/4 per absorbed end) holds for straight pure-field lines, with the bound attained only by
+the gentle seam: zero slack, as predicted. Caveats: band width a = 2 only (a wider defect may be cheaper; values
+are not monotone guarantees); straight lines only; periods <= 4 x minimal. Mixed words: run in progress
+(interface_a2mix.log). Commands: `python interface.py 2 120 pure 1,2,3,4` (log interface_a2m.log, about 6 min).

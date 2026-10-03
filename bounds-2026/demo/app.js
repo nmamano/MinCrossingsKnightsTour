@@ -59,7 +59,7 @@
   const STEPNOTE = { X: '', T: 'Shisheng Li\'s block targets crossings only, so it is not a step here.' };
   const KNOWN = { X: { orig: [13, 1], paper: [12, 1], P40: [23, 2], H16a: [9, 1], LF4: [343, 48], FOLD: [19, 3] },
     T: { orig: [19, 2], heel21: [37, 4], T18: [17, 2], TT16: [8, 1] } };
-  const LOWER = { X: [{ name: '4n reference (paper leading term)', f: (n) => 4 * n }, { name: '204n/43 reference (new leading term, Oct 3)', f: (n) => 204 * n / 43 }],
+  const LOWER = { X: [{ name: '4n reference (paper leading term)', f: (n) => 4 * n }, { name: '24n/5 reference (new leading term, Oct 3)', f: (n) => 24 * n / 5 }],
     T: [{ name: '6n reference (paper asymptotic coefficient)', f: (n) => 6 * n }, { name: '8n − 28 lower bound (new)', f: (n) => 8 * n - 28 }] };
   const FIELD = { X: 'crossings', T: 'turns' };
   const NMAX = 200;
@@ -322,7 +322,7 @@
     const m = state.metric;
     $('charttitle').textContent = (m === 'X' ? 'Crossings' : 'Turns') + ' as n grows: tour counts and lower-bound reference lines';
     $('chartnote').textContent = m === 'X'
-      ? 'Crossings: the dashed 4n and 204n/43 lines show leading terms, not finite lower bounds. Proven here: X>=4n-2 and X>=204n/43-12993 (audited, Claim 27).'
+      ? 'Crossings: the dashed 4n and 24n/5 lines show leading terms, not finite lower bounds. Proven here: X>=4n-2 and X>=24n/5-2603 (audited, Claim 31).'
       : 'Turns: 6n is an asymptotic reference, not a finite bound from the paper. The new finite lower bound is T>=8n-28.';
     chart($('chart'), FIELD[m]);
   }

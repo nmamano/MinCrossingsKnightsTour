@@ -1,0 +1,89 @@
+{
+  "acyclic_corner_patch": {
+    "core": 8,
+    "paths": [
+      3,
+      4
+    ],
+    "height_charges": [
+      1,
+      1
+    ],
+    "crossings": 46,
+    "B": 45,
+    "nonB_pair": [
+      [
+        [
+          1,
+          4
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      [
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          4
+        ]
+      ]
+    ],
+    "status": "PATCH_ONLY"
+  },
+  "alternating_folds": {
+    "crossings": 0,
+    "interior_multiplicity": 1,
+    "height_charge": 0
+  },
+  "gentle_seam": {
+    "charged_radii": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "charges": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "crossings": 9,
+    "per_level": 1
+  },
+  "endpoint_seeds": [
+    {
+      "period": 4,
+      "X": 8,
+      "B": 8,
+      "nonB": 0
+    },
+    {
+      "period": 6,
+      "X": 10,
+      "B": 6,
+      "nonB": 4
+    },
+    {
+      "period": 8,
+      "X": 16,
+      "B": 8,
+      "nonB": 8
+    }
+  ]
+}

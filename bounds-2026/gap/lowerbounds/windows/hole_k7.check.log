@@ -1,0 +1,4 @@
+PASS hole_k7_b.cnf: 606 RUP additions verified, empty clause derived (UNSAT).
+PASS hole_k7_r.cnf: 773 RUP additions verified, empty clause derived (UNSAT).
+PASS hole_k7_t.cnf: 574 RUP additions verified, empty clause derived (UNSAT).
+PASS hole_k7_l.cnf: 427 RUP additions verified, empty clause derived (UNSAT).

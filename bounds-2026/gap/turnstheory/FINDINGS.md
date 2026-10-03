@@ -1,3 +1,79 @@
+# L2/L3 corner contract corrected — 2026-10-03
+
+**No new bound.** The top of PLAN.md now incorporates W1 and W3.
+I checked the W3 witness directly: 57 crossings, zero outside S*,
+forest, core degree two, and four flux residues [2,2,2,2]. L3 accounting
+survives, but a local L2 price cannot rely on charge alone to obtain
+outside-strip pairs. The revised choices are mixed atoms inside the
+strips, a joint endpoint/flux allocation, or fixed-size corner excision
+with a separate proof for the remaining side endpoints.
+
+Two scope limits matter. W3 uses radii 3–6 and does not impose the full
+audited retention test; it is not a global asymptotic counterexample.
+W1 classifies crossing-free 3 by 3 centres, not all zero-excess-density
+regions, and does not force one fold family throughout a large region.
+The phase library must include fold stacks and zigzags. The standalone
+DRUP check also passed: 2,942 RUP additions and the empty clause.
+PLAN.md names the exact finite inputs and the small reproduction checks.
+
+---
+
+# Pareto assessment of R3 — 2026-10-03
+
+**ARGUMENT submitted for audit; coefficient 24/5 = 4.8.** The proof
+is shorter in structure than N1 because it removes the interval lemma
+and blocked-run accounting. Its finite input is large, so this is not
+a small-check proof of 4.8n.
+
+Proof size measured today: `PROOF_R3.md` has 208 lines and 1,303 words.
+It also requires Sections 1–3 of `PROOF_N1.md`: 195 lines and 1,194
+words for the inherited tile, mod-three flux, endpoint, and square-budget
+argument. Together these total 403 lines and 2,497 words, excluding
+check code. The 208-line delta alone is not the full proof size. The new graph engine
+`gap/searcher/lower/jr.cpp` has 314 lines.
+
+Finite inputs: five inherited local geometry/endpoint checks named in
+the proof; the new 21-line budget/arithmetic check; and two exact
+potential checks on graphs with 83,780,188 and 162,690,236 augmented
+states (171,579,088 and 343,695,792 arcs). The producer measured about
+3.6 and 5.3 GB of RAM. Critical-cycle searches are optional and are
+not premises of the lower bound. The proof depends on the graph
+builder's completeness as well as on all arc inequalities passing.
+
+A route to the same coefficient with hand-verifiable local inequalities
+or much smaller finite checks would improve the simplicity axis. R3's
+short final algebra does not remove its large finite dependency. Future
+result reports will state both proof size and required finite inputs.
+
+---
+
+# R3 proof ready for Claim 31 — 2026-10-03
+
+**SUBMITTED FOR AUDIT:** `PROOF_R3.md` replaces Sections 4–6 of
+`PROOF_N1.md` and gives the explicit proposed bound
+
+```
+X >= (24n-13012)/5 >= 24n/5-2603
+```
+
+for every even n>=32 and every closed Hamiltonian knight tour.
+I checked the source and both producer logs: beta=2, potential range
+[-104,0] in units 1/4, hence C=26 per oriented half. The budget is
+sum Y_sigma<=X+12640. Together these give
+2(A-R)<=E+12846 and 4n<=5E+13002.
+
+The proof states the six-column normalization, the crossing partition,
+the S-only forest relaxation, both parities, and the actual-state
+middle cut. It names all reproduction commands. The exact small check
+`python3 gap/turnstheory/check_r3_reduction.py` passed. I did not rerun
+the large graph jobs; independent Claim 31 review remains necessary.
+The period-four and period-six cycles limit the certified relaxation;
+they are not used to assert a limit for a stronger full-forest model.
+This completes the requested strip proof write-up. No result index or
+post was changed.
+
+---
+
 # R3 budget confirmed; six-cell weights corrected — 2026-10-03
 
 **R3 is written at the top of REQUESTS.md.** The joint edge set is

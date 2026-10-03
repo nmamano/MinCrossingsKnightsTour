@@ -57,3 +57,9 @@ Then I merge the plans, choose the first milestone, and assign phase 2.
 As in gap/BRIEF.md (write only in your gap/<name>/ folder; public files; one heavy job; <= 8 GB; report to the Chief
 Researcher; Astra workers write a report at the top of FINDINGS.md / PLAN.md and end the turn; Claude workers hand off at
 ~50% context). Honest labels: PROVEN / CERTIFIED / ARGUMENT / CONJECTURE.
+
+## Pareto criterion (Nil, 2026-10-03)
+Judge results on TWO axes: the lower-bound coefficient AND the simplicity of the argument. A short, clean proof of
+5n - O(1) (or even 4.8n) is valuable even if a long proof gives more. So: keep simple routes alive (e.g. Structures'
+ribbon absorption: 5n without the flux machinery), and for every result report its proof size and its finite inputs
+(what a reader must check by computer). Prefer arguments a reader can verify by hand plus small checks.

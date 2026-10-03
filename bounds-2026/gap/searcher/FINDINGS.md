@@ -10,8 +10,8 @@ All dates 2026-10-03.
   E = X - 4n + 2 = (G + X1 + W3)/2 (PLAN section 1), checked on the n = 166 tour (check_identity.py).
 - 2026-10-03 LOWER side: R2 second implementation MATCHES KT Lower Bounds: beta* = 16/11 exact, both orientations
   (section 6). New C++ engine `lower/jr.cpp` reproduces R1 exactly (beta* = 4/3). Joint model (columns 0..5,
-  inner boundary strip counted exactly): UP orientation gives beta* = 2 (section 6.3). STOPPED at the CR's
-  pivot order; down orientation and the budget review are not done. No claim.
+  inner boundary strip counted exactly, R3 weights): beta* = 2 EXACT in BOTH orientations (section 6.4).
+  Budget confirmed by Turns Theory (R3). Second implementation pending (Lower Bounds). No claim before audit.
 - 2026-10-03 HANDOFF: upper-side work closed (CR). Next role: C++ engine for the LOWER side, second implementation
   of KT Lower Bounds' combined-credit certificate N1/N2 (gap/turnstheory/FINDINGS.md "Route past 52/11").
   Binaries are not kept: build with `g++ -O2 -std=c++17 -o corr2 corr2.cpp` (same for arch.cpp).
@@ -228,3 +228,32 @@ cd gap/searcher/lower && g++ -O2 -march=native -std=c++17 -o jr jr.cpp
 Then: print the edge list of the critical cycle (printCycle shows only base ids and weights: add the decode
 of the introduced edges, as in r2.cpp); optional stronger variant with column 2 - column 4 edges
 (DEG EEEELL, PAIRS 01,02,12,13,23,24,34,35): measure the state count first (CR condition: under 8 GB).
+
+### 6.4 Joint model completed at the CR's request (2026-10-03, 06:30-06:45): beta* = 2 in both orientations
+
+Weights: exactly R3row of gap/turnstheory/REQUESTS.md R3 (q(4W-4) + p(4W0-4) + 4q*WX - 2p*t per row; the -4q-4p
+baseline is charged at the column-5 row end; w = S/S pairs only, wx = every other pair in T once). The 6.3 UP
+run already used these weights. Both initial parities are start states. Path labels on S edges only (a
+relaxation of R3.1's forest rule on T, so a valid certificate for R3; the exact R3 beta* can only be >= 2).
+
+| orientation | augmented nodes | arcs | beta* | range at 2 (units 1/4) | peak RSS | Dinkelbach |
+| --- | ---: | ---: | --- | --- | ---: | --- |
+| up | 83,780,188 | 171,579,088 | 2 | [-104, 0] | 3.6 GB | 8/3 -> 5/2 -> 2 |
+| down | 162,690,236 | 343,695,792 | 2 | [-104, 0] | 5.3 GB | 8/3 -> 5/2 -> 2 |
+
+Bellman-Ford converges at 2 in both; 0 violated arcs on re-check. Critical cycles (edges listed by lower end,
+rows relative to the cycle start; joint_up.log, joint_down.log):
+- UP, period 6: W = 10, W0 = 6, WX = 1, sum t = 5: (16 + 4)/10 = 2. Columns 0..2 as in the R2 field
+  ((1,y)-(0,y+2), (2,y)-(0,y+1), (2,y)-(1,y+2) on rows 0, 4, 5), column 3 joined by F23/S/J edges; one J crossing
+  (5,4)-(3,5) per period.
+- DOWN, period 4: W = 7, W0 = 4, WX = 0, sum t = 3: 12/6 = 2. Edges: (1,y)-(0,y+2) and (2,y)-(0,y+1) all y;
+  (2,y)-(1,y+2) for y = 0, 3; (3,0)-(2,2), (5,0)-(3,1), (5,1)-(3,2), (3,2)-(1,3), (4,2)-(3,4), (3,3)-(1,4),
+  (3,3)-(2,5), (4,3)-(3,5) (mod 4). It has NO crossing outside S: the joint credit does not touch it, so
+  beta = 2 is the limit of this model in the down orientation.
+Conditional consequence (if audited): X >= [4 + 2beta/(2beta+1)] n - O(1) = 24n/5 - O(1).
+
+```sh
+cd gap/searcher/lower && g++ -O2 -march=native -std=c++17 -o jr jr.cpp
+./run_wd.sh joint_up.log 8 ./jr EELELL 01,02,12,13,23,34,35 slab up crit 8 3     # 4 min, 3.6 GB
+./run_wd.sh joint_down.log 8 ./jr EELELL 01,02,12,13,23,34,35 slab down crit 8 3 # 5 min, 5.3 GB
+```

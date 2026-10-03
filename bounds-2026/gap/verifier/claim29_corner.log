@@ -1,0 +1,2 @@
+{'k': 8, 'radii': [3, 4], 'crossing_cap': 1, 'status': 'OPTIMAL', 'seconds': 0.07971776416525245, 'nonB': 1, 'finite_cycles': 0}
+{'k': 12, 'radii': [3, 4, 5, 6, 7, 8], 'crossing_cap': 3, 'status': 'OPTIMAL', 'seconds': 3.097443865146488, 'nonB': 3, 'finite_cycles': 2}

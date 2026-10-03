@@ -1,0 +1,128 @@
+[
+  {
+    "file": "w-integrator/tours/FOLD24_n96.json",
+    "good_squares": 8309,
+    "components_examined": 4,
+    "incompatible_domain": [
+      {
+        "split": "/",
+        "ribbon": 1,
+        "component_size": 1016,
+        "first": [
+          2,
+          2,
+          2,
+          [
+            [
+              1,
+              2
+            ],
+            [
+              3,
+              3
+            ]
+          ]
+        ],
+        "second": [
+          5,
+          6,
+          0,
+          [
+            [
+              5,
+              5
+            ],
+            [
+              6,
+              7
+            ]
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "file": "w-integrator/tours/FOLD24_n98.json",
+    "good_squares": 8664,
+    "components_examined": 6,
+    "incompatible_domain": [
+      {
+        "split": "\\",
+        "ribbon": 97,
+        "component_size": 1110,
+        "first": [
+          42,
+          53,
+          2,
+          [
+            [
+              42,
+              54
+            ],
+            [
+              44,
+              53
+            ]
+          ]
+        ],
+        "second": [
+          43,
+          52,
+          2,
+          [
+            [
+              43,
+              54
+            ],
+            [
+              44,
+              52
+            ]
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "file": "gap/lowerbounds/conn/FIELD_n166_92_155.json",
+    "good_squares": 26069,
+    "components_examined": 1,
+    "incompatible_domain": [
+      {
+        "split": "/",
+        "ribbon": 3,
+        "component_size": 5,
+        "first": [
+          0,
+          2,
+          2,
+          [
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              4
+            ]
+          ]
+        ],
+        "second": [
+          2,
+          4,
+          2,
+          [
+            [
+              1,
+              4
+            ],
+            [
+              3,
+              5
+            ]
+          ]
+        ]
+      }
+    ]
+  }
+]

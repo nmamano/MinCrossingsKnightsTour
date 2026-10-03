@@ -1,0 +1,107 @@
+DEG EELELL PAIRS 01,02,12,13,23,34,35 labels S-only: 36 slots
+  base ... 4194304/6052761 states, 10242176 arcs, 14s
+  base ... 8388608/10274947 states, 17924806 arcs, 26s
+  base ... 12582912/15010096 states, 25984282 arcs, 39s
+  base ... 16777216/19733067 states, 37352645 arcs, 60s
+  base ... 20971520/23897729 states, 45498851 arcs, 72s
+  base ... 25165824/28030461 states, 51733247 arcs, 84s
+  base ... 29360128/31030206 states, 59128425 arcs, 96s
+  base ... 33554432/34234845 states, 68047786 arcs, 118s
+base: states 35372696 arcs 71090636 (123s)
+orient down: 9 listed edges, lost-bit edges 4
+reachability: 5 sweeps
+augmented: nodes 162690236 arcs 343695792 (unreached base states 0) 133s
+ try beta = 8/3 = 2.666667
+  negative cycle after 4 passes (168s)
+  cycle: 36 arcs, 6 rows, sum(4w-1)=24 sum(4w0-1)=0 sum wx=4 sum t=8 -> ratio 40/16
+    row 0 x 0: w=0 w0=0 wx=0
+    row 0 x 1: w=0 w0=0 wx=0 (1,0)-(0,2)
+    row 0 x 2: w=2 w0=1 wx=0 (2,0)-(0,1) (2,0)-(1,2)
+    row 0 x 3: w=0 w0=0 wx=0
+    row 0 x 4: w=0 w0=0 wx=0
+    row 0 x 5: w=0 w0=0 wx=0 (5,0)-(3,1)  | row end par=1 t=0
+    row 1 x 0: w=0 w0=0 wx=0
+    row 1 x 1: w=0 w0=0 wx=0 (1,1)-(0,3)
+    row 1 x 2: w=2 w0=1 wx=0 (2,1)-(0,2) (2,1)-(1,3)
+    row 1 x 3: w=0 w0=0 wx=0
+    row 1 x 4: w=0 w0=0 wx=0 (4,1)-(3,3)
+    row 1 x 5: w=0 w0=0 wx=1 (5,1)-(3,2)  | row end par=0 t=2
+    row 2 x 0: w=0 w0=0 wx=0
+    row 2 x 1: w=0 w0=0 wx=0 (1,2)-(0,4)
+    row 2 x 2: w=2 w0=1 wx=0 (2,2)-(0,3) (2,2)-(1,4)
+    row 2 x 3: w=0 w0=0 wx=0 (3,2)-(2,4)
+    row 2 x 4: w=0 w0=0 wx=0 (4,2)-(3,4)
+    row 2 x 5: w=0 w0=0 wx=1 (5,2)-(3,3)  | row end par=1 t=1
+    row 3 x 0: w=0 w0=0 wx=0
+    row 3 x 1: w=0 w0=0 wx=0 (1,3)-(0,5)
+    row 3 x 2: w=2 w0=1 wx=0 (2,3)-(0,4) (2,3)-(1,5)
+    row 3 x 3: w=0 w0=0 wx=0
+    row 3 x 4: w=0 w0=0 wx=0
+    row 3 x 5: w=0 w0=0 wx=0 (5,3)-(3,4)  | row end par=0 t=2
+    row 4 x 0: w=0 w0=0 wx=0
+    row 4 x 1: w=0 w0=0 wx=0 (1,4)-(0,6)
+    row 4 x 2: w=2 w0=1 wx=0 (2,4)-(0,5)
+    row 4 x 3: w=0 w0=0 wx=0
+    row 4 x 4: w=0 w0=0 wx=0 (4,4)-(3,6)
+    row 4 x 5: w=0 w0=0 wx=1 (5,4)-(3,5)  | row end par=1 t=1
+    row 5 x 0: w=0 w0=0 wx=0
+    row 5 x 1: w=0 w0=0 wx=0 (1,5)-(0,7)
+    row 5 x 2: w=1 w0=1 wx=0 (2,5)-(0,6) (2,5)-(1,7)
+    row 5 x 3: w=1 w0=0 wx=0 (3,5)-(1,6)
+    row 5 x 4: w=0 w0=0 wx=0 (4,5)-(3,7)
+    row 5 x 5: w=0 w0=0 wx=1 (5,5)-(3,6)  | row end par=0 t=2
+ try beta = 5/2 = 2.500000
+  negative cycle after 8 passes (210s)
+  cycle: 24 arcs, 4 rows, sum(4w-1)=12 sum(4w0-1)=0 sum wx=0 sum t=3 -> ratio 12/6
+    row 0 x 0: w=0 w0=0 wx=0
+    row 0 x 1: w=0 w0=0 wx=0 (1,0)-(0,2)
+    row 0 x 2: w=2 w0=1 wx=0 (2,0)-(0,1) (2,0)-(1,2)
+    row 0 x 3: w=0 w0=0 wx=0 (3,0)-(2,2)
+    row 0 x 4: w=0 w0=0 wx=0
+    row 0 x 5: w=0 w0=0 wx=0 (5,0)-(3,1)  | row end par=0 t=0
+    row 1 x 0: w=0 w0=0 wx=0
+    row 1 x 1: w=0 w0=0 wx=0 (1,1)-(0,3)
+    row 1 x 2: w=2 w0=1 wx=0 (2,1)-(0,2)
+    row 1 x 3: w=0 w0=0 wx=0
+    row 1 x 4: w=0 w0=0 wx=0
+    row 1 x 5: w=0 w0=0 wx=0 (5,1)-(3,2)  | row end par=1 t=1
+    row 2 x 0: w=0 w0=0 wx=0
+    row 2 x 1: w=0 w0=0 wx=0 (1,2)-(0,4)
+    row 2 x 2: w=1 w0=1 wx=0 (2,2)-(0,3)
+    row 2 x 3: w=0 w0=0 wx=0 (3,2)-(1,3)
+    row 2 x 4: w=0 w0=0 wx=0 (4,2)-(3,4)
+    row 2 x 5: w=0 w0=0 wx=0  | row end par=0 t=2
+    row 3 x 0: w=0 w0=0 wx=0
+    row 3 x 1: w=0 w0=0 wx=0 (1,3)-(0,5)
+    row 3 x 2: w=1 w0=1 wx=0 (2,3)-(0,4) (2,3)-(1,5)
+    row 3 x 3: w=1 w0=0 wx=0 (3,3)-(1,4) (3,3)-(2,5)
+    row 3 x 4: w=0 w0=0 wx=0 (4,3)-(3,5)
+    row 3 x 5: w=0 w0=0 wx=0  | row end par=1 t=0
+ try beta = 2/1 = 2.000000
+  converged after 28 passes (361s)
+down: beta* = 2/1 = 2.000000, potential range [-104, 0] (units 1/(4q)), violated arcs 0
+total 366s
+	Command being timed: "./jr EELELL 01,02,12,13,23,34,35 slab down crit 8 3"
+	User time (seconds): 347.48
+	System time (seconds): 19.67
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 6:07.69
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 5331776
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 2237965
+	Voluntary context switches: 1
+	Involuntary context switches: 2115
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 120
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+exit=0

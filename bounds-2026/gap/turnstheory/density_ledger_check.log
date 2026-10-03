@@ -1,0 +1,15 @@
+{
+  "n": 166,
+  "X": 1240,
+  "E": 578,
+  "G": 611,
+  "X1": 466,
+  "W3": 79,
+  "side_pair_union": 973,
+  "side_pair_sum": 997,
+  "outside_pairs": 267,
+  "side_excess": 311,
+  "lambda_value": "2/3",
+  "mixed_capacity": "1112/3"
+}
+PASS: exact integer tiles; excess identity; union correction; mixed-capacity identity.

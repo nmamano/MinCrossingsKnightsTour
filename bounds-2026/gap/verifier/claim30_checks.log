@@ -1,0 +1,2 @@
+{'mode': 'plane', 'edges': 24, 'solutions': 48, 'search_nodes': 119, 'types': {'single': 32, 'horizontal': 8, 'vertical': 8}, 'ribbon_words': 0}
+{'mode': 'torus', 'edges': 144, 'solutions': 252, 'search_nodes': 3141, 'types': {'single': 128, 'horizontal': 62, 'vertical': 62}, 'ribbon_words': 128}

@@ -1,0 +1,181 @@
+{
+  "date": "2026-10-03",
+  "file": "w-integrator/tours/FOLD24_n96.json",
+  "sha256": "402b592f90cb3b2c4799e824466cdf05674a43e83fa885e8b5cc680545b92f2d",
+  "tour_valid": true,
+  "n": 96,
+  "X": 720,
+  "first_half": "TL(2,2)",
+  "first_tile": [
+    [
+      1,
+      2
+    ],
+    [
+      3,
+      3
+    ]
+  ],
+  "first_bit": "H",
+  "second_half": "BR(5,6)",
+  "second_tile": [
+    [
+      5,
+      5
+    ],
+    [
+      6,
+      7
+    ]
+  ],
+  "second_bit": "V",
+  "ribbon": 1,
+  "good_slash_square_path": [
+    [
+      2,
+      2
+    ],
+    [
+      3,
+      2
+    ],
+    [
+      3,
+      3
+    ],
+    [
+      3,
+      4
+    ],
+    [
+      3,
+      5
+    ],
+    [
+      3,
+      6
+    ],
+    [
+      4,
+      6
+    ],
+    [
+      5,
+      6
+    ]
+  ],
+  "ribbon_run": [
+    {
+      "half": [
+        2,
+        2,
+        2
+      ],
+      "quarter_multiplicities": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "good_slash": true
+    },
+    {
+      "half": [
+        2,
+        3,
+        0
+      ],
+      "quarter_multiplicities": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "good_slash": true
+    },
+    {
+      "half": [
+        3,
+        3,
+        2
+      ],
+      "quarter_multiplicities": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "good_slash": true
+    },
+    {
+      "half": [
+        3,
+        4,
+        0
+      ],
+      "quarter_multiplicities": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "good_slash": true
+    },
+    {
+      "half": [
+        4,
+        4,
+        2
+      ],
+      "quarter_multiplicities": [
+        0,
+        0,
+        2,
+        2
+      ],
+      "good_slash": false
+    },
+    {
+      "half": [
+        4,
+        5,
+        0
+      ],
+      "quarter_multiplicities": [
+        2,
+        2,
+        1,
+        1
+      ],
+      "good_slash": false
+    },
+    {
+      "half": [
+        5,
+        5,
+        2
+      ],
+      "quarter_multiplicities": [
+        1,
+        1,
+        2,
+        2
+      ],
+      "good_slash": false
+    },
+    {
+      "half": [
+        5,
+        6,
+        0
+      ],
+      "quarter_multiplicities": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "good_slash": true
+    }
+  ]
+}

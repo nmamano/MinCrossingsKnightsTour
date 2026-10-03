@@ -1,0 +1,10 @@
+D=5  word  p  status  crossings/period  per row  excess per V end
+H        p= 2 OPTIMAL    2.0 (bound 2.0) per row 1.0 excess/Vend None
+V        p= 2 OPTIMAL    5.0 (bound 5.0) per row 2.5 excess/Vend 1.5
+HV       p= 4 INFEASIBLE None (bound None) per row None excess/Vend None
+HHV      p= 6 OPTIMAL    14.0 (bound 14.0) per row 2.333 excess/Vend 4.0
+HVV      p= 6 OPTIMAL    12.0 (bound 12.0) per row 2.0 excess/Vend 1.5
+HHHV     p= 8 INFEASIBLE None (bound None) per row None excess/Vend None
+HHVV     p= 8 FEASIBLE   14.0 (bound 0.0) per row 0.0 excess/Vend -2.0
+HVVV     p= 8 INFEASIBLE None (bound None) per row None excess/Vend None
+exit=0

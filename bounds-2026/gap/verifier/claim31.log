@@ -1,0 +1,69 @@
+base processed 4000000 discovered 5751625 arcs 9689878 seconds 8.5
+base processed 8000000 discovered 9862191 arcs 17376682 seconds 15.9
+base processed 12000000 discovered 14169001 arcs 24184727 seconds 22.5
+base processed 16000000 discovered 19023945 arcs 35551109 seconds 36.2
+base processed 20000000 discovered 23045513 arcs 43872825 seconds 49.2
+base processed 24000000 discovered 26747519 arcs 50118225 seconds 57.5
+base processed 28000000 discovered 30015862 arcs 56248588 seconds 66.5
+base processed 32000000 discovered 32797329 arcs 65291066 seconds 78.5
+BASE states 35372696 arcs 71090636 seconds 89.3
+up AUGMENTED nodes 83780188 arcs 171579088 seconds 94.5
+up pass 1 changed 1 seconds 98.0
+up pass 2 changed 1 seconds 100.5
+up pass 3 changed 1 seconds 102.9
+up pass 4 changed 1 seconds 105.5
+up pass 5 changed 1 seconds 108.4
+up pass 6 changed 1 seconds 111.0
+up pass 7 changed 1 seconds 113.4
+up pass 8 changed 1 seconds 115.9
+up pass 9 changed 1 seconds 118.5
+up pass 10 changed 1 seconds 121.1
+up pass 11 changed 1 seconds 124.0
+up pass 12 changed 1 seconds 127.1
+up pass 13 changed 1 seconds 130.3
+up pass 14 changed 1 seconds 133.3
+up pass 15 changed 1 seconds 136.2
+up pass 16 changed 1 seconds 138.8
+up pass 17 changed 1 seconds 141.2
+up pass 18 changed 1 seconds 143.8
+up pass 19 changed 1 seconds 146.4
+up pass 20 changed 1 seconds 148.8
+up pass 21 changed 1 seconds 151.1
+up pass 22 changed 1 seconds 153.8
+up pass 23 changed 1 seconds 156.4
+up pass 24 changed 1 seconds 158.9
+up pass 25 changed 1 seconds 161.2
+up pass 26 changed 1 seconds 163.6
+up pass 27 changed 1 seconds 166.3
+up pass 28 changed 0 seconds 168.8
+up PASS checked 171579088 potential -104..0 row -104..0 minimum_slack 0 checksum 2034274816178642283 seconds 171.7
+down AUGMENTED nodes 162690236 arcs 343695792 seconds 177.3
+down pass 1 changed 1 seconds 182.5
+down pass 2 changed 1 seconds 187.2
+down pass 3 changed 1 seconds 192.7
+down pass 4 changed 1 seconds 198.3
+down pass 5 changed 1 seconds 203.3
+down pass 6 changed 1 seconds 208.4
+down pass 7 changed 1 seconds 212.8
+down pass 8 changed 1 seconds 217.1
+down pass 9 changed 1 seconds 222.0
+down pass 10 changed 1 seconds 227.2
+down pass 11 changed 1 seconds 231.5
+down pass 12 changed 1 seconds 235.8
+down pass 13 changed 1 seconds 240.5
+down pass 14 changed 1 seconds 245.2
+down pass 15 changed 1 seconds 250.0
+down pass 16 changed 1 seconds 255.1
+down pass 17 changed 1 seconds 260.2
+down pass 18 changed 1 seconds 265.2
+down pass 19 changed 1 seconds 270.4
+down pass 20 changed 1 seconds 275.3
+down pass 21 changed 1 seconds 279.8
+down pass 22 changed 1 seconds 284.9
+down pass 23 changed 1 seconds 289.6
+down pass 24 changed 1 seconds 294.3
+down pass 25 changed 1 seconds 298.9
+down pass 26 changed 1 seconds 303.7
+down pass 27 changed 1 seconds 308.3
+down pass 28 changed 0 seconds 313.2
+down PASS checked 343695792 potential -104..0 row -104..0 minimum_slack 0 checksum 1226456329328002223 seconds 320.1

@@ -7,7 +7,7 @@ Served as the isomux app `knight-demo` (`serve.py`: listens on `$PORT`, binds `$
 ## Progression shown (Measure: crossings | turns; a step slider and list)
 Crossings: orig 13n -> paper (Parker Williams heel) 12n -> P40 (Shisheng Li) 11.5n -> H16a 9n -> LF4 343n/48 -> FOLD 19n/3.
 Turns: orig 9.5n -> heel21 (Parker Williams turn heel) 9.25n -> T18 8.5n -> TT16 8n - 14.
-Chart lower bounds: crossings 4n (paper), 204n/43 (ours, Claim 27, 2026-10-03; was 14n/3); turns 6n (paper), 8n - 28 (ours).
+Chart lower bounds: crossings 4n (paper), 24n/5 (ours, Claim 31, 2026-10-03; was 14n/3, then 204n/43); turns 6n (paper), 8n - 28 (ours).
 
 | key | n (even) | crossings | turns | audit |
 | --- | --- | --- | --- | --- |

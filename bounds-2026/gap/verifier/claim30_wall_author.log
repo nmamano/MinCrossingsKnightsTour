@@ -1,0 +1,6 @@
+candidates 24 OPTIMAL solutions 48
+{'no wall': 32, 'vertical wall': 8, 'horizontal wall': 8}
+8 ('horizontal wall', ((2, -1), (2, 1)))
+8 ('vertical wall', ((1, -2), (1, 2)))
+T3 check passed: at a good point (4 good squares, deg 2) a wall is straight; no turn, no 4-wall, no end.
+b(v) distribution {2: 48}

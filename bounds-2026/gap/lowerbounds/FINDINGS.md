@@ -1,5 +1,79 @@
 # KT Lower Bounds - gap mission findings (gap/lowerbounds/)
 
+## W3 (2026-10-03, phase 2): bad quarters are local - holes need a nearby crossing
+
+Notation: a quarter is bad if its tile multiplicity m != 1 (audited proof, section 1); a hole has m = 0. By the
+audited flux lemma omega(s) = chi(a)(m_+ + m_- + 1) mod 3, a dual step with nonzero flux mod 3 is adjacent to a
+bad quarter, and every charged path has such a step.
+
+**PROVEN (elementary + finite check).** Fold stacks tile exactly: every quarter has m = 1
+(windows/w3_foldstack_tiling.py: random, alternating and one-switch sequences, all four families, both
+orientations, interior of a 14 x 14 region: 0 bad quarters). With W1 this explains the lemma below.
+
+**PROVEN (SAT, DRUP checked).** Interior hole lemma: if the cells of a 7 x 7 block (lower-left cell of the unit
+square at relative position (3,3)) have degree exactly 2 and a width-2 halo has degree <= 2, then a hole in any
+quarter of that square forces a crossing between two edges that touch the block (windows/hole_cert.py 7; four
+CNFs, Glucose DRUP proofs pass check_drup.py; k = 5 is SAT, k = 6 is UNSAT for two quarters only).
+
+**PROVEN (SAT, DRUP checked).** Side-anchored hole lemma, board side at x = 0: allow only the width-two strip
+crossings S* (both edges touch column 0, or both touch columns <= 1). A hole in a unit square at depth d >= 4
+(square [d, d+1] x [c, c+1]) is impossible: it forces a crossing outside S* among edges touching the 12 x 9 block
+(windows/side_hole_cert.py 12 9 d S, d = 4, 5 checked by DRUP, d = 6 UNSAT). Holes at depth <= 3 CAN be paid by
+S* crossings alone (SAT witnesses). With only the outer-column set B allowed, the threshold is depth 3 (DRUP
+checked; depth 2 is UNSAT for 2 of 4 quarters). An overlap quarter of an S* pair lies at depth <= 3 (tiles stay
+within 2 of their endpoints), so at depth >= 4 EVERY bad quarter forces a crossing outside S* within a bounded
+window. Corner regions (small depth from two sides) are an O(1) exception not covered here.
+
+**Consequence for the private price (ARGUMENT).** The "nonlocal hole" risk of the master skeleton is removed:
+every charged path either (a) has a crossing outside S* within bounded distance (about 6 cells) of one of its
+vertices, or (b) has all its nonzero-flux steps next to quarters at depth <= 3, i.e. its charge sits at its two
+ends inside the side zone. Case (a) gives a bounded-support price; case (b) is a side-local quantity that a
+(wider) strip certificate can price. This turns L2 into a finite local allocation problem. It does not yet
+give 2/3: a crossing within distance 6 of a path can be near several nested paths.
+
+**Inconclusive (MEASURED, CP-SAT).** Corner-box crossing minimisation (w3_corner.py, w3_quarters.py): with
+crossings in S* excluded, 4 nested charged corner paths in a 9 x 9 box cost 0 crossings outside S* (the
+witness puts 57 crossings inside S*); total-crossing and bad-quarter minimisation give weak bounds (objective 22,
+bound 3 at K = 8; 9 bad quarters for 4 paths with bound 0), so no price is certified this way.
+
+## W1 (2026-10-03, phase 2): zero-cost phases are exactly the fold stacks
+
+**Definition.** A fold stack (f, dA, dB): f is one of x, y, x+y, x-y, and dA, dB are the two knight moves with
+f(d) = 1 ((1,2),(1,-2) for x; (2,1),(-2,1) for y; (2,-1),(-1,2) for x+y; (2,1),(-1,-2) for x-y). Each level
+t of f chooses c[t] in {dA, dB}; cell P has the edges P - c[f(P)-1] and P + c[f(P)]. A constant sequence is a
+parallel field, one switch is a free fold (w-lowerbounds F3), alternating switches give zigzag textures in which
+every cell is a sharp turn. These four f are the only functionals in [-3,3]^2 with two knight moves at value 1.
+
+**PROVEN (elementary).** Every fold stack is a crossing-free, cycle-free 2-factor: the in-edges of level t all
+come from level t-1 with one direction; an edge from level t to t+1 lies in the slab t <= f <= t+1 and meets the
+line f = t+1 only at its endpoint; edges inside one slab are parallel. f increases along every oriented path.
+
+**PROVEN (SAT with a checked DRUP proof).** Let a 9 x 9 core have degree exactly 2 and a width-2 halo degree <= 2,
+with no crossing between two edges that touch the core (no-cycle constraints not even needed). Then the central
+3 x 3 block is a fold stack. CNF: windows/w1cert_k9_b3.cnf (424 variables, 7,144 clauses, one clause excludes
+each of the 156 fold-stack 3 x 3 maps); UNSAT with Glucose 4 and with Lingeling; both DRUP proofs pass the
+standalone checker w-lowerbounds/check_drup.py (2,942 and 2,989 RUP steps).
+
+Corollary (ARGUMENT, follows from the 3 x 3 lemma): in a crossing-free region, at distance >= 3 from its
+border, every 3 x 3 block is a fold stack; so fold lines of different families never meet (no junctions), and
+two families can coexist only across a field that belongs to both (example found by SAT in an 11 x 11 window
+with a 5 x 5 centre: vertical folds of f = x and a diagonal fold of f = x+y, separated by field (1,-2)).
+
+Data: the k = 7 window (2 rings of context) admits 164 central maps: the 156 fold stacks and 8 fold-line
+junctions; with 3 or 4 rings (k = 9, 11) only the 156 fold stacks remain (CP-SAT enumeration with lazy
+no-cycle cuts, w1_enum.py; analytic count w1_count_stacks.py: 156 for 3 x 3, 2,172 for 5 x 5).
+
+Consequence for the structure lemma (skeleton L1): the zero-cost phases are not only parallel fields and single
+free folds; dense fold stacks (zigzags) are also crossing-free. Fold junctions (as at the centre of the
+8-triangle field) are not crossing-free with exact degree 2.
+
+```sh
+cd gap/lowerbounds/windows
+../../../.venv/bin/python w1_cert.py 9 3      # writes w1cert_k9_b3.cnf/.drup, prints UNSAT
+python3 ../../../w-lowerbounds/check_drup.py w1cert_k9_b3.cnf w1cert_k9_b3.drup
+../../../.venv/bin/python w1_cert.py 11 3     # SAT: a 5 x 5 centre with two families (not a contradiction)
+```
+
 ## STATE AT THE PIVOT (2026-10-03): strip work stopped by order; nothing running
 
 Done: L1 (11.3, beta=1 exact), L2 (field survives in a closed tour), L3 (R1, beta=4/3), L4 (combined credit,

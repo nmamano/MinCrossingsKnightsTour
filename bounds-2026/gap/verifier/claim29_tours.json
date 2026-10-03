@@ -1,0 +1,494 @@
+[
+  {
+    "source": "w-integrator/tours/FOLD24_n96.json",
+    "n": 96,
+    "X": 720,
+    "E": 338,
+    "G": 400,
+    "X1": 230,
+    "W3": 46,
+    "B": 519,
+    "retained": 125,
+    "hall": [
+      {
+        "radius": 0,
+        "retained": 125,
+        "available_union": 126,
+        "scaled_flow": 214,
+        "scaled_demand": 250,
+        "hall_subset": [
+          [
+            0,
+            0,
+            13
+          ],
+          [
+            0,
+            0,
+            19
+          ],
+          [
+            0,
+            0,
+            25
+          ],
+          [
+            0,
+            0,
+            31
+          ],
+          [
+            0,
+            0,
+            37
+          ],
+          [
+            0,
+            1,
+            13
+          ],
+          [
+            0,
+            1,
+            19
+          ],
+          [
+            0,
+            1,
+            25
+          ],
+          [
+            0,
+            1,
+            31
+          ],
+          [
+            0,
+            1,
+            37
+          ],
+          [
+            1,
+            0,
+            17
+          ],
+          [
+            1,
+            0,
+            23
+          ],
+          [
+            1,
+            0,
+            29
+          ],
+          [
+            1,
+            0,
+            35
+          ],
+          [
+            1,
+            0,
+            41
+          ],
+          [
+            1,
+            1,
+            17
+          ],
+          [
+            1,
+            1,
+            23
+          ],
+          [
+            1,
+            1,
+            35
+          ]
+        ]
+      },
+      {
+        "radius": 1,
+        "retained": 125,
+        "available_union": 139,
+        "scaled_flow": 250,
+        "scaled_demand": 250,
+        "hall_subset": []
+      },
+      {
+        "radius": 2,
+        "retained": 125,
+        "available_union": 159,
+        "scaled_flow": 250,
+        "scaled_demand": 250,
+        "hall_subset": []
+      },
+      {
+        "radius": 4,
+        "retained": 125,
+        "available_union": 169,
+        "scaled_flow": 250,
+        "scaled_demand": 250,
+        "hall_subset": []
+      },
+      {
+        "radius": 8,
+        "retained": 125,
+        "available_union": 190,
+        "scaled_flow": 250,
+        "scaled_demand": 250,
+        "hall_subset": []
+      }
+    ]
+  },
+  {
+    "source": "w-integrator/tours/FOLD24_n98.json",
+    "n": 98,
+    "X": 752,
+    "E": 362,
+    "G": 429,
+    "X1": 247,
+    "W3": 48,
+    "B": 534,
+    "retained": 124,
+    "hall": [
+      {
+        "radius": 0,
+        "retained": 124,
+        "available_union": 127,
+        "scaled_flow": 216,
+        "scaled_demand": 248,
+        "hall_subset": [
+          [
+            0,
+            0,
+            13
+          ],
+          [
+            0,
+            0,
+            19
+          ],
+          [
+            0,
+            0,
+            37
+          ],
+          [
+            0,
+            1,
+            13
+          ],
+          [
+            0,
+            1,
+            19
+          ],
+          [
+            0,
+            1,
+            31
+          ],
+          [
+            0,
+            1,
+            37
+          ],
+          [
+            0,
+            1,
+            40
+          ],
+          [
+            1,
+            0,
+            17
+          ],
+          [
+            1,
+            0,
+            23
+          ],
+          [
+            1,
+            0,
+            29
+          ],
+          [
+            1,
+            0,
+            35
+          ],
+          [
+            1,
+            0,
+            41
+          ],
+          [
+            1,
+            1,
+            17
+          ],
+          [
+            1,
+            1,
+            35
+          ],
+          [
+            1,
+            1,
+            44
+          ]
+        ]
+      },
+      {
+        "radius": 1,
+        "retained": 124,
+        "available_union": 142,
+        "scaled_flow": 248,
+        "scaled_demand": 248,
+        "hall_subset": []
+      },
+      {
+        "radius": 2,
+        "retained": 124,
+        "available_union": 160,
+        "scaled_flow": 248,
+        "scaled_demand": 248,
+        "hall_subset": []
+      },
+      {
+        "radius": 4,
+        "retained": 124,
+        "available_union": 172,
+        "scaled_flow": 248,
+        "scaled_demand": 248,
+        "hall_subset": []
+      },
+      {
+        "radius": 8,
+        "retained": 124,
+        "available_union": 200,
+        "scaled_flow": 248,
+        "scaled_demand": 248,
+        "hall_subset": []
+      }
+    ]
+  },
+  {
+    "source": "gap/lowerbounds/conn/FIELD_n166_92_155.json",
+    "n": 166,
+    "X": 1240,
+    "E": 578,
+    "G": 611,
+    "X1": 466,
+    "W3": 79,
+    "B": 944,
+    "retained": 206,
+    "hall": [
+      {
+        "radius": 0,
+        "retained": 206,
+        "available_union": 172,
+        "scaled_flow": 348,
+        "scaled_demand": 412,
+        "hall_subset": [
+          [
+            0,
+            0,
+            17
+          ],
+          [
+            0,
+            0,
+            23
+          ],
+          [
+            0,
+            0,
+            29
+          ],
+          [
+            0,
+            0,
+            35
+          ],
+          [
+            0,
+            0,
+            53
+          ],
+          [
+            0,
+            0,
+            59
+          ],
+          [
+            0,
+            0,
+            65
+          ],
+          [
+            0,
+            0,
+            71
+          ],
+          [
+            0,
+            0,
+            74
+          ],
+          [
+            0,
+            0,
+            77
+          ],
+          [
+            0,
+            1,
+            43
+          ],
+          [
+            0,
+            1,
+            76
+          ],
+          [
+            1,
+            0,
+            13
+          ],
+          [
+            1,
+            0,
+            19
+          ],
+          [
+            1,
+            0,
+            25
+          ],
+          [
+            1,
+            0,
+            31
+          ],
+          [
+            1,
+            0,
+            37
+          ],
+          [
+            1,
+            0,
+            49
+          ],
+          [
+            1,
+            0,
+            55
+          ],
+          [
+            1,
+            0,
+            61
+          ],
+          [
+            1,
+            0,
+            67
+          ],
+          [
+            1,
+            0,
+            73
+          ],
+          [
+            1,
+            1,
+            13
+          ],
+          [
+            1,
+            1,
+            19
+          ],
+          [
+            1,
+            1,
+            25
+          ],
+          [
+            1,
+            1,
+            31
+          ],
+          [
+            1,
+            1,
+            37
+          ],
+          [
+            1,
+            1,
+            49
+          ],
+          [
+            1,
+            1,
+            55
+          ],
+          [
+            1,
+            1,
+            61
+          ],
+          [
+            1,
+            1,
+            67
+          ],
+          [
+            1,
+            1,
+            73
+          ]
+        ]
+      },
+      {
+        "radius": 1,
+        "retained": 206,
+        "available_union": 186,
+        "scaled_flow": 412,
+        "scaled_demand": 412,
+        "hall_subset": []
+      },
+      {
+        "radius": 2,
+        "retained": 206,
+        "available_union": 235,
+        "scaled_flow": 412,
+        "scaled_demand": 412,
+        "hall_subset": []
+      },
+      {
+        "radius": 4,
+        "retained": 206,
+        "available_union": 266,
+        "scaled_flow": 412,
+        "scaled_demand": 412,
+        "hall_subset": []
+      },
+      {
+        "radius": 8,
+        "retained": 206,
+        "available_union": 281,
+        "scaled_flow": 412,
+        "scaled_demand": 412,
+        "hall_subset": []
+      }
+    ]
+  }
+]

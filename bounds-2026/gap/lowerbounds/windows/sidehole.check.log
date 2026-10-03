@@ -1,0 +1,12 @@
+PASS sidehole_W12_H9_d4_S_b.cnf: 682 RUP additions verified, empty clause derived (UNSAT).
+PASS sidehole_W12_H9_d4_S_l.cnf: 687 RUP additions verified, empty clause derived (UNSAT).
+PASS sidehole_W12_H9_d4_S_r.cnf: 551 RUP additions verified, empty clause derived (UNSAT).
+PASS sidehole_W12_H9_d4_S_t.cnf: 563 RUP additions verified, empty clause derived (UNSAT).
+PASS sidehole_W12_H9_d5_S_b.cnf: 896 RUP additions verified, empty clause derived (UNSAT).
+PASS sidehole_W12_H9_d5_S_l.cnf: 734 RUP additions verified, empty clause derived (UNSAT).
+PASS sidehole_W12_H9_d5_S_r.cnf: 435 RUP additions verified, empty clause derived (UNSAT).
+PASS sidehole_W12_H9_d5_S_t.cnf: 1041 RUP additions verified, empty clause derived (UNSAT).
+PASS sidehole_W9_H9_d3_B_b.cnf: 642 RUP additions verified, empty clause derived (UNSAT).
+PASS sidehole_W9_H9_d3_B_l.cnf: 1200 RUP additions verified, empty clause derived (UNSAT).
+PASS sidehole_W9_H9_d3_B_r.cnf: 836 RUP additions verified, empty clause derived (UNSAT).
+PASS sidehole_W9_H9_d3_B_t.cnf: 990 RUP additions verified, empty clause derived (UNSAT).

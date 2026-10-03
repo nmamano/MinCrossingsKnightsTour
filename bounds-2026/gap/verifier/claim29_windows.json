@@ -1,0 +1,22 @@
+[
+  {
+    "k": 6,
+    "status": "INFEASIBLE",
+    "seconds": 0.7746923340018839,
+    "target": [
+      3,
+      3,
+      0
+    ]
+  },
+  {
+    "k": 8,
+    "status": "INFEASIBLE",
+    "seconds": 1.3173661539331079,
+    "target": [
+      4,
+      4,
+      0
+    ]
+  }
+]

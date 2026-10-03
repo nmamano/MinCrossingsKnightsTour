@@ -1,0 +1,4 @@
+{'W': 4, 'p': 4, 'd': (2, 1), 'status': 'INFEASIBLE', 'seconds': 0.002016184153035283}
+{'W': 4, 'p': 4, 'd': (2, -1), 'status': 'INFEASIBLE', 'seconds': 0.0012513971887528896}
+{'W': 4, 'p': 4, 'd': (1, 2), 'status': 'INFEASIBLE', 'seconds': 0.008005444891750813}
+{'W': 4, 'p': 4, 'd': (1, -2), 'status': 'INFEASIBLE', 'seconds': 0.0020824559032917023}

@@ -1,0 +1,2 @@
+PASS: 80 corner edges, seven column pairs, budget 12640;
+X >= (24/5) n - (13012/5) >= 24n/5 - 2603.

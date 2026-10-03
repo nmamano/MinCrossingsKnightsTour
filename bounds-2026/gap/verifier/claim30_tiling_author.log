@@ -1,0 +1,4 @@
+ribbon fields: 128 distinct, all degree 2 and crossing-free
+6 6 OPTIMAL solutions 252 {'both splits (has walls)': 124, 'single split (ribbon field)': 128}
+every ribbon field found by the enumeration: True
+walls: {('vertical', 'straight full lines'): 62, ('horizontal', 'straight full lines'): 62}

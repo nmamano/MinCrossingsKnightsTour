@@ -1,0 +1,94 @@
+band |h| <= 1; columns: slope, F1 (side h<0), F2, period vector, status, crossings/period, absorbed ends/period, crossings per absorbed end
+0     /H    /V    T=(1, 0) INFEASIBLE None (bound None) ends 2 per end None
+0     /H    \H    T=(1, 0) OPTIMAL    0.0 (bound 0.0) ends 2 per end 0.0
+0     /H    \V    T=(1, 0) INFEASIBLE None (bound None) ends 2 per end None
+0     /V    /H    T=(1, 0) INFEASIBLE None (bound None) ends 2 per end None
+0     /V    \H    T=(1, 0) INFEASIBLE None (bound None) ends 2 per end None
+0     /V    \V    T=(1, 0) OPTIMAL    1.0 (bound 1.0) ends 2 per end 0.5
+0     \H    /H    T=(1, 0) OPTIMAL    0.0 (bound 0.0) ends 2 per end 0.0
+0     \H    /V    T=(1, 0) INFEASIBLE None (bound None) ends 2 per end None
+0     \H    \V    T=(1, 0) INFEASIBLE None (bound None) ends 2 per end None
+0     \V    /H    T=(1, 0) INFEASIBLE None (bound None) ends 2 per end None
+0     \V    /V    T=(1, 0) OPTIMAL    1.0 (bound 1.0) ends 2 per end 0.5
+0     \V    \H    T=(1, 0) INFEASIBLE None (bound None) ends 2 per end None
+inf   /H    /V    T=(0, 1) INFEASIBLE None (bound None) ends 2 per end None
+inf   /H    \H    T=(0, 1) OPTIMAL    1.0 (bound 1.0) ends 2 per end 0.5
+inf   /H    \V    T=(0, 1) INFEASIBLE None (bound None) ends 2 per end None
+inf   /V    /H    T=(0, 1) INFEASIBLE None (bound None) ends 2 per end None
+inf   /V    \H    T=(0, 1) INFEASIBLE None (bound None) ends 2 per end None
+inf   /V    \V    T=(0, 1) OPTIMAL    0.0 (bound 0.0) ends 2 per end 0.0
+inf   \H    /H    T=(0, 1) OPTIMAL    1.0 (bound 1.0) ends 2 per end 0.5
+inf   \H    /V    T=(0, 1) INFEASIBLE None (bound None) ends 2 per end None
+inf   \H    \V    T=(0, 1) INFEASIBLE None (bound None) ends 2 per end None
+inf   \V    /H    T=(0, 1) INFEASIBLE None (bound None) ends 2 per end None
+inf   \V    /V    T=(0, 1) OPTIMAL    0.0 (bound 0.0) ends 2 per end 0.0
+inf   \V    \H    T=(0, 1) INFEASIBLE None (bound None) ends 2 per end None
++1    /H    \H    T=(1, 1) OPTIMAL    2.0 (bound 2.0) ends 2 per end 1.0
++1    /H    \V    T=(1, 1) OPTIMAL    2.0 (bound 2.0) ends 2 per end 1.0
++1    /V    \H    T=(1, 1) OPTIMAL    2.0 (bound 2.0) ends 2 per end 1.0
++1    /V    \V    T=(1, 1) OPTIMAL    2.0 (bound 2.0) ends 2 per end 1.0
++1    \H    /H    T=(1, 1) OPTIMAL    2.0 (bound 2.0) ends 2 per end 1.0
++1    \H    /V    T=(1, 1) OPTIMAL    2.0 (bound 2.0) ends 2 per end 1.0
++1    \H    \V    T=(1, 1) OPTIMAL    1.0 (bound 1.0) ends 4 per end 0.25
++1    \V    /H    T=(1, 1) OPTIMAL    2.0 (bound 2.0) ends 2 per end 1.0
++1    \V    /V    T=(1, 1) OPTIMAL    2.0 (bound 2.0) ends 2 per end 1.0
++1    \V    \H    T=(1, 1) OPTIMAL    1.0 (bound 1.0) ends 4 per end 0.25
+-1    /H    /V    T=(1, -1) OPTIMAL    1.0 (bound 1.0) ends 4 per end 0.25
+-1    /H    \H    T=(1, -1) OPTIMAL    2.0 (bound 2.0) ends 2 per end 1.0
+-1    /H    \V    T=(1, -1) OPTIMAL    2.0 (bound 2.0) ends 2 per end 1.0
+-1    /V    /H    T=(1, -1) OPTIMAL    1.0 (bound 1.0) ends 4 per end 0.25
+-1    /V    \H    T=(1, -1) OPTIMAL    2.0 (bound 2.0) ends 2 per end 1.0
+-1    /V    \V    T=(1, -1) OPTIMAL    2.0 (bound 2.0) ends 2 per end 1.0
+-1    \H    /H    T=(1, -1) OPTIMAL    2.0 (bound 2.0) ends 2 per end 1.0
+-1    \H    /V    T=(1, -1) OPTIMAL    2.0 (bound 2.0) ends 2 per end 1.0
+-1    \V    /H    T=(1, -1) OPTIMAL    2.0 (bound 2.0) ends 2 per end 1.0
+-1    \V    /V    T=(1, -1) OPTIMAL    2.0 (bound 2.0) ends 2 per end 1.0
++1/2 ('/', 'H') ('/', 'V') band too thin
++1/2 ('/', 'H') ('\\', 'H') band too thin
++1/2 ('/', 'H') ('\\', 'V') band too thin
++1/2 ('/', 'V') ('/', 'H') band too thin
++1/2 ('/', 'V') ('\\', 'H') band too thin
++1/2 ('/', 'V') ('\\', 'V') band too thin
++1/2 ('\\', 'H') ('/', 'H') band too thin
++1/2 ('\\', 'H') ('/', 'V') band too thin
++1/2 ('\\', 'H') ('\\', 'V') band too thin
++1/2 ('\\', 'V') ('/', 'H') band too thin
++1/2 ('\\', 'V') ('/', 'V') band too thin
++1/2 ('\\', 'V') ('\\', 'H') band too thin
+-1/2 ('/', 'H') ('/', 'V') band too thin
+-1/2 ('/', 'H') ('\\', 'H') band too thin
+-1/2 ('/', 'H') ('\\', 'V') band too thin
+-1/2 ('/', 'V') ('/', 'H') band too thin
+-1/2 ('/', 'V') ('\\', 'H') band too thin
+-1/2 ('/', 'V') ('\\', 'V') band too thin
+-1/2 ('\\', 'H') ('/', 'H') band too thin
+-1/2 ('\\', 'H') ('/', 'V') band too thin
+-1/2 ('\\', 'H') ('\\', 'V') band too thin
+-1/2 ('\\', 'V') ('/', 'H') band too thin
+-1/2 ('\\', 'V') ('/', 'V') band too thin
+-1/2 ('\\', 'V') ('\\', 'H') band too thin
++2 ('/', 'H') ('/', 'V') band too thin
++2 ('/', 'H') ('\\', 'H') band too thin
++2 ('/', 'H') ('\\', 'V') band too thin
++2 ('/', 'V') ('/', 'H') band too thin
++2 ('/', 'V') ('\\', 'H') band too thin
++2 ('/', 'V') ('\\', 'V') band too thin
++2 ('\\', 'H') ('/', 'H') band too thin
++2 ('\\', 'H') ('/', 'V') band too thin
++2 ('\\', 'H') ('\\', 'V') band too thin
++2 ('\\', 'V') ('/', 'H') band too thin
++2 ('\\', 'V') ('/', 'V') band too thin
++2 ('\\', 'V') ('\\', 'H') band too thin
+-2 ('/', 'H') ('/', 'V') band too thin
+-2 ('/', 'H') ('\\', 'H') band too thin
+-2 ('/', 'H') ('\\', 'V') band too thin
+-2 ('/', 'V') ('/', 'H') band too thin
+-2 ('/', 'V') ('\\', 'H') band too thin
+-2 ('/', 'V') ('\\', 'V') band too thin
+-2 ('\\', 'H') ('/', 'H') band too thin
+-2 ('\\', 'H') ('/', 'V') band too thin
+-2 ('\\', 'H') ('\\', 'V') band too thin
+-2 ('\\', 'V') ('/', 'H') band too thin
+-2 ('\\', 'V') ('/', 'V') band too thin
+-2 ('\\', 'V') ('\\', 'H') band too thin
+MINIMUM crossings per absorbed end: (0.0, '0', ('/', 'H'), ('\\', 'H'))
