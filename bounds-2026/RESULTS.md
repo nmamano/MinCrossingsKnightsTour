@@ -16,6 +16,7 @@ several cycles. Upper bounds give one Hamiltonian cycle.
 | X >= 14n/3-407 | Proved, closed tours, even n>=32 | Tile and path count; exact strip potentials |
 | X >= 4n-2 | Proved, every tour and 2-factor | Tile-area proof; exact geometry; unconditional Lean theorem |
 | T = 8n-17 (n = 2 mod 8), T = 8n-16 (n = 6 mod 8) | Constructed, even n>=48 in these classes | All-size insertion proof, period 16; exact turn count |
+| T <= 8n-15 to 8n-19 at 14 single sizes (e.g. 8n-18 at n = 48) | Constructed, 14 sizes from n = 24 to 98 (one tour each) | Explicit tours; exact cycle and turn check |
 | T = 8n-14 | Constructed, even n>=48 | All-size insertion proof; exact turn count |
 | T >= 8n-24 | Proved, tours and 2-factors, n>=20 | Ring relaxation; side potential; exact corner certificates |
 | T >= 8n-28 | Proved, tours and 2-factors, n>=8 | Four-column count; exact corner certificate; unconditional Lean theorem |
@@ -170,6 +171,23 @@ Lean: no formal construction theorem is claimed.
 
 ```sh
 python3 w-turnstheory/check_upper_proofs.py
+```
+
+## Turn upper bounds at single sizes
+
+At 14 single sizes, n = 24, 28, 34, 38, 44, 48, 54, 58, 64, 68, 74, 78,
+88 and 98, there is a closed tour with T - 8n between -15 and -19. These
+are upper bounds at single sizes, not optimal and not families. They show
+that 8n-14 is not the true minimum for n = 0, 4 mod 8: at n = 48 there is
+a tour with 8n-18 turns. The table there compares each tour with the
+general bound at its size.
+
+Tours and table: [TURNS_SINGLE_SIZES.md](TURNS_SINGLE_SIZES.md).
+Audit: Claim 58 ([report](gap/verifier/claim58_report.md)).
+Lean: no formal construction theorem is claimed.
+
+```sh
+python3 gap/verifier/claim58_check.py
 ```
 
 ## Turn lower bound: 8n-24

@@ -1,0 +1,146 @@
+{
+  "date": "2026-10-04",
+  "manifest_sha256": "1d51c280e73dc4819b11ebcd261cc5de0fb56f4624502033865fa2ea220233ed",
+  "results": [
+    {
+      "n": 24,
+      "status": "PASS",
+      "vertices": 576,
+      "cyclic_knight_edges": 576,
+      "T": 173,
+      "T_minus_8n": -19,
+      "sha256": "7b89e8d78f34e5cee611520d0356ad7b55c40a861ef7d3dec2b3651df0ea1549",
+      "file": "gap/structures/tmin/tours/tour_n24.json"
+    },
+    {
+      "n": 28,
+      "status": "PASS",
+      "vertices": 784,
+      "cyclic_knight_edges": 784,
+      "T": 206,
+      "T_minus_8n": -18,
+      "sha256": "c9ac27c281436b529807a1df2f9fd443d1e6253f7d17596a30488c1cf1429dd5",
+      "file": "gap/structures/tmin/tours/tour_n28.json"
+    },
+    {
+      "n": 34,
+      "status": "PASS",
+      "vertices": 1156,
+      "cyclic_knight_edges": 1156,
+      "T": 254,
+      "T_minus_8n": -18,
+      "sha256": "7f4eae2b0c962e0e35d4d53485a1f36869d492aa55a530767ae9220b85a21a17",
+      "file": "gap/structures/tmin/tours/tour_n34.json"
+    },
+    {
+      "n": 38,
+      "status": "PASS",
+      "vertices": 1444,
+      "cyclic_knight_edges": 1444,
+      "T": 286,
+      "T_minus_8n": -18,
+      "sha256": "9483266460a1d43ede805ee363646b6310494b97e9ed3c74230107d8bd3cc4de",
+      "file": "gap/structures/tmin/tours/tour_n38.json"
+    },
+    {
+      "n": 44,
+      "status": "PASS",
+      "vertices": 1936,
+      "cyclic_knight_edges": 1936,
+      "T": 335,
+      "T_minus_8n": -17,
+      "sha256": "0665ba8142c9b53ee5980e3f5b28a1141355aa7d7576ca63ad4411f5b4a013a5",
+      "file": "gap/structures/tmin/tours/tour_n44.json"
+    },
+    {
+      "n": 48,
+      "status": "PASS",
+      "vertices": 2304,
+      "cyclic_knight_edges": 2304,
+      "T": 366,
+      "T_minus_8n": -18,
+      "sha256": "30eede9b7b69da406be6b058cc182526cc956c74a93c0ae190289d157e4bea49",
+      "file": "gap/structures/tmin/tours/tour_n48.json"
+    },
+    {
+      "n": 54,
+      "status": "PASS",
+      "vertices": 2916,
+      "cyclic_knight_edges": 2916,
+      "T": 414,
+      "T_minus_8n": -18,
+      "sha256": "20d848a115caabc5b66c4e433bed0ba7648650e6fe354a7ff391d5419d0bc696",
+      "file": "gap/structures/tmin/tours/tour_n54.json"
+    },
+    {
+      "n": 58,
+      "status": "PASS",
+      "vertices": 3364,
+      "cyclic_knight_edges": 3364,
+      "T": 447,
+      "T_minus_8n": -17,
+      "sha256": "d257fb99eb67d1c77a8684a049ef2d45b737d923c4c258299632220eafe170ca",
+      "file": "gap/structures/tmin/tours/tour_n58.json"
+    },
+    {
+      "n": 64,
+      "status": "PASS",
+      "vertices": 4096,
+      "cyclic_knight_edges": 4096,
+      "T": 497,
+      "T_minus_8n": -15,
+      "sha256": "c5d28f21d71caa0beffab7ba269cb2584cdf536e17e2c0bc30c1edb8e8a3caae",
+      "file": "gap/structures/tmin/tours/tour_n64.json"
+    },
+    {
+      "n": 68,
+      "status": "PASS",
+      "vertices": 4624,
+      "cyclic_knight_edges": 4624,
+      "T": 528,
+      "T_minus_8n": -16,
+      "sha256": "881928bc166fd2ad4f7ddc8ef95f17f9dc9e72ab2141a9177e4e6a33916ebac7",
+      "file": "gap/structures/tmin/tours/tour_n68.json"
+    },
+    {
+      "n": 74,
+      "status": "PASS",
+      "vertices": 5476,
+      "cyclic_knight_edges": 5476,
+      "T": 574,
+      "T_minus_8n": -18,
+      "sha256": "992c286416c1dd015212e4deac24c133013e2018d86c038d5e1ffd0e715056db",
+      "file": "gap/structures/tmin/tours/tour_n74.json"
+    },
+    {
+      "n": 78,
+      "status": "PASS",
+      "vertices": 6084,
+      "cyclic_knight_edges": 6084,
+      "T": 607,
+      "T_minus_8n": -17,
+      "sha256": "53f6271e2d6325d4790e0daeaf53cfe1eaa1e5bd6aaf0859daef08ee909b1aba",
+      "file": "gap/structures/tmin/tours/tour_n78.json"
+    },
+    {
+      "n": 88,
+      "status": "PASS",
+      "vertices": 7744,
+      "cyclic_knight_edges": 7744,
+      "T": 689,
+      "T_minus_8n": -15,
+      "sha256": "f4bdca92decc63dd455fe586c89dc76db709d7a9e4827d625695a9d2bf6866ca",
+      "file": "gap/structures/tmin/tours/tour_n88.json"
+    },
+    {
+      "n": 98,
+      "status": "PASS",
+      "vertices": 9604,
+      "cyclic_knight_edges": 9604,
+      "T": 768,
+      "T_minus_8n": -16,
+      "sha256": "f1555538d34fb64662a10067537813ecdf5313def4ec057e43c6706454e7ae9a",
+      "file": "gap/structures/tmin/tours/tour_n98.json"
+    }
+  ]
+}

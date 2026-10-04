@@ -26,6 +26,7 @@ Shisheng Li (2026); turns (6 &minus; &epsilon;)n &le; T<sub>min</sub> &le; 9.25n
 | X &ge; 14n/3 &minus; 407 | Proved, closed tours, even n &ge; 32 | [PROOF_crossings_lower.md](w-turnstheory/PROOF_crossings_lower.md) | Claims 19, 20, 21(B) | conditional on strip stability: [`KT.ClosedTour.fourteen_mul_le_of_stability`](ktlean/Ktlean/TourMain.lean) | `python3 w-turnstheory/check_crossings_lower.py` |
 | X &ge; 4n &minus; 2 | Proved, every tour and 2-factor | [PROOF_crossings_lower.md &sect;1](w-turnstheory/PROOF_crossings_lower.md) | Claims 9, 20 | unconditional: [`KT.ClosedTour.four_mul_sub_two_le_numCrossings`, `KT.TwoFactor.four_mul_sub_two_le_numCrossings`](ktlean/Ktlean/Crossings.lean) | `python3 w-turnstheory/check_knight_tiles.py` |
 | T = 8n &minus; 17 (n &equiv; 2 mod 8), 8n &minus; 16 (n &equiv; 6 mod 8) | Constructed, even n &ge; 48 in these classes | [TURNS_IMPROVED.md](TURNS_IMPROVED.md) | Claims 55b, 56 | none | `python3 w-integrator/allsize_check.py w-integrator/pipeline/ES_res2 --partial` (and `ES_res6`) |
+| T &le; 8n &minus; 15 to 8n &minus; 19 at 14 single sizes (e.g. 8n &minus; 18 at n = 48) | Constructed, 14 sizes from n = 24 to 98 (one tour each; not families) | [TURNS_SINGLE_SIZES.md](TURNS_SINGLE_SIZES.md) | Claim 58 | none | `python3 gap/verifier/claim58_check.py` |
 | T = 8n &minus; 14 | Constructed, even n &ge; 48 | [turns paper](writeup/turns/main.pdf), [TURNS_PROOFS.md D-F](TURNS_PROOFS.md#d-the-tours-complete-construction), [PROOFS.md &sect;1-4](w-turnstheory/PROOFS.md) | Claims 6, 7, 16 | none | `python3 w-turnstheory/check_upper_proofs.py` |
 | T &ge; 8n &minus; 24 | Proved, tours and 2-factors, n &ge; 20 | [TURNS_LOWER24.md](TURNS_LOWER24.md), [L1.md &sect;1b](gap/lowerbounds/turns_ring/L1.md) | Claim 57 | none | [TURNS_LOWER24.md, Checks](TURNS_LOWER24.md#checks) (six exact checks, standard library only) |
 | T &ge; 8n &minus; 28 | Proved, tours and 2-factors, n &ge; 8 | [turns paper](writeup/turns/main.pdf), [TURNS_PROOFS.md C](TURNS_PROOFS.md#c-the-corner-certificate-and-8n---28) | Claims 16, 54 | unconditional: [`KT.ClosedTour.eight_mul_sub_28_le_numTurns`, `KT.TwoFactor.eight_mul_le_numTurns_add_28`](ktlean/Ktlean/Turns28.lean) | `python3 writeup/turns/check_corner.py` |
@@ -141,6 +142,7 @@ regenerates them.
 - [RESULTS.md](RESULTS.md) - entry point: every proved result, its proof, audit, Lean status and check command.
 - [TURNS_PROOFS.md](TURNS_PROOFS.md) - full proofs of the turn bounds 8n &minus; 28 and 8n &minus; 14, with every check (the appendix of the turns blog post).
 - [TURNS_LOWER24.md](TURNS_LOWER24.md) - the turn lower bound 8n &minus; 24 for n &ge; 20, with its exact checks.
+- [TURNS_SINGLE_SIZES.md](TURNS_SINGLE_SIZES.md) - closed tours below 8n &minus; 14 at 14 single sizes (n = 24 to 98).
 - [TURNS_IMPROVED.md](TURNS_IMPROVED.md) - tours with 8n &minus; 17 turns (n &equiv; 2 mod 8) and 8n &minus; 16 turns (n &equiv; 6 mod 8), with the all-size checks.
 - [BRIEF.md](BRIEF.md), [RESTART.md](RESTART.md) - shared brief and early notes.
 - [briefs/](briefs/) - the messages that directed the agents.
