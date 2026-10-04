@@ -25,6 +25,7 @@ def main():
     ap.add_argument('--defectW', type=int, default=6, help='depth of that window (free cells)')
     ap.add_argument('--mip', default=None, help='cut loop backend: SCIP / CBC / HIGHS via pywraplp (default CP-SAT)')
     ap.add_argument('--noties', action='store_true', help='free bands without periodicity (general ring)')
+    ap.add_argument('--cutfile', default=None, help='cut loop: load and append cuts (free cells of each set) here')
     ap.add_argument('--ub', type=int, default=None, help='cut loop: only look for solutions with objective <= ub')
     ap.add_argument('--final', type=float, default=0, help='after the cut loop: tour-mode solve with all cuts, '
                     'hinted by the TT16-skeleton tour, for this many seconds')
@@ -54,6 +55,9 @@ def components(full):
 def cutloop(a, nb, free, ties):
     import time
     cuts, hint, t0, LB = [], None, time.time(), -10**9
+    if a.cutfile and os.path.exists(a.cutfile):
+        cuts = [set(map(tuple, json.loads(l))) for l in open(a.cutfile)]
+        print(f'loaded {len(cuts)} cuts from {a.cutfile}', flush=True)
     for it in range(a.iters):
         if a.mip:
             full, info = solve_mip(a.n, nb, free, a.time, res=True, ties=ties, cuts=cuts, ub=a.ub, backend=a.mip)
@@ -73,7 +77,11 @@ def cutloop(a, nb, free, ties):
             print(f'budget; tour lower bound {LB}', flush=True)
             cuts += [S for S in comps]
             return final(a, nb, free, ties, cuts, LB, info)
-        cuts += [S for S in comps]
+        new = [S & free for S in comps]
+        cuts += new
+        if a.cutfile:
+            with open(a.cutfile, 'a') as f:
+                for S in new: f.write(json.dumps(sorted(S)) + '\n')
         hint = full
     print(f'iteration limit; tour lower bound {LB}', flush=True)
     return final(a, nb, free, ties, cuts, LB, info)

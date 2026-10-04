@@ -109,4 +109,32 @@ corners free, no periodicity; only the line field beyond depth 4 (outside the co
 2f floor -18 (OPTIMAL, 3 s). Cut loop bounds -18 ... -15, -15, -14 (iteration 10, OPTIMAL, 3012 s, 244 cuts).
 TT16 is in this family, so: no closed tour of n = 56 that keeps the line field x + 2y = c on every cell at
 depth >= 4 from the sides (outside the 8x8 corners) has fewer than 8n - 14 turns.
-Running: same with depth 6.
+Depth 6 (same family, depth 6): cut loop reached bound -15 at iteration 8 (2777 s); the run was stopped by the
+2 h task limit during iteration 9. Open: -15 or -14 for depth 6.
+General depth-4 ring, other residues (SCIP cut loop): n = 58: tour optimum -17 (bound at iteration 1,
+21 s; 2f floor -18). n = 62: tour optimum -16 (iteration 1, 14 s; 2f floor -18). Our periodic tours reach
+both values, so non-periodic depth-4 sides give nothing more there either.
+
+## 2026-10-04: FINAL summary of this lane (KT Edge Searcher)
+Upper bounds (closed tours, kt.core.validate + walk_check; Integrator's all-size checker passes both,
+pending Verifier audit; w-integrator/pipeline/ES_res6, ES_res2):
+- n = 2 mod 8: T <= 8n - 17 for every even n >= 50 (tours/res2/).
+- n = 6 mod 8: T <= 8n - 16 for every even n >= 54 (tours/res6/).
+- n = 0, 4 mod 8: no improvement from this lane; TT16 (8n - 14) stays the best straight-field tour.
+Scope: everything below is for tours whose bulk is the single straight line field x + 2y = c. Structures has
+single-size tours below -14 for n = 0, 4 mod 8 with a MIXED interior field (CR, 2026-10-04), so -14 is not
+the true value there.
+Straight-field family optima (cut loop; each bound is valid for all tours of the family):
+| family | n = 56 | n = 58 | n = 60 | n = 62 |
+| 8x8 corners, periodic bands P8/Q4, depth 4 | -14 | -17 | -14 | -16 |
+| same, Z = 10 | -14 | -17 | | -16 |
+| same, P16/Q8 | -14 | -17 | | -16 |
+| periodic, defect windows (8x6 / 12x8, mid-side) | -14 | | -14 | |
+| general non-periodic bands, depth 4 (SCIP) | -14 | -17 | bound -15 (stopped) | -16 |
+| general non-periodic bands, depth 6 (SCIP) | bound -15 (stopped) | | | |
+Also -14 at n = 56 for Z = 12, depth 6 periodic, P8/Q6, P12/Q4, P12/Q6; n = 64, 68: -14.
+2-factor floor of every family above: -18. Connectivity costs 4 (n = 0, 4 mod 8), 1 (n = 2), 2 (n = 6).
+Open: depth-6 general ring at n = 56 (bound -15 at iteration 8, 2777 s; run stopped by the task limit) and
+the depth-4 general ring at n = 60 (bound -15 at iteration 7; stopped on CR order).
+Tools: csolve.py, sweep.py, combine.py, mixed.py, band.py, pring.py (--noties, --defect, --mip SCIP,
+--cutfile, --ub), extend.py.

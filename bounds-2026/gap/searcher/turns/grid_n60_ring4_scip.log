@@ -1,0 +1,8 @@
+iter 0: obj -18 bound -18 OPTIMAL cycles 32 cuts 0 t=7s
+iter 1: obj -17 bound -17 OPTIMAL cycles 28 cuts 32 t=17s
+iter 2: obj -17 bound -17 OPTIMAL cycles 27 cuts 60 t=43s
+iter 3: obj -15 bound -15 OPTIMAL cycles 25 cuts 87 t=127s
+iter 4: obj -15 bound -15 OPTIMAL cycles 25 cuts 112 t=229s
+iter 5: obj -15 bound -15 OPTIMAL cycles 24 cuts 137 t=292s
+iter 6: obj -15 bound -15 OPTIMAL cycles 25 cuts 161 t=434s
+iter 7: obj -15 bound -15 OPTIMAL cycles 26 cuts 186 t=579s

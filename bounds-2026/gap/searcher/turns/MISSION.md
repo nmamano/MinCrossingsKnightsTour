@@ -30,3 +30,6 @@ gap/searcher/wall/run_wd.sh watchdog; CP-SAT num_workers <= 2; check uptime; no 
   n = 0, 4 mod 8: -14 proven optimal (SCIP cut loop) also with defect windows and with a general non-periodic
   depth-4 ring (n = 56). Running: depth-6 general ring (grid_n56_ring6_scip.log). Then: n = 58 general ring
   (can res 2 reach -18?). CR and Lower Bounds informed (3 messages to CR).
+- 2026-10-04 (end): lane closed on CR order. Final write-up: FINDINGS.md section 'FINAL summary'. No jobs
+  running. Open items (not started, need CR/Nil approval): depth-6 general ring at n = 56 (bound -15),
+  depth-4 general ring at n = 60 (bound -15). Mixed-field search belongs to Structures.

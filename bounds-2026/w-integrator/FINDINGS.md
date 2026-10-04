@@ -618,8 +618,14 @@ Never write office URLs into synced notes (sync_public.sh fails on them).
 Role: KT Integrator; manager = Chief Researcher. Repo ~/nil/MinCrossingsKnightsTour (master, push as Nil).
 Last pushes 2026-10-04: 856a7f3 TURNS_IMPROVED + rows; f64e38c demo turns step 5 (TI); 1a7d396 demo Download margins;
 944df86 5n-597 rows + chart; 7c23b9d CROSSINGS_PROOFS.md + git rm crossings post.mdx; 596ea3f routine sync.
-- HELD until the CR says the crossings post is live on nilmamano.com: gap/verifier/claim46_crossings_snapshot.mdx,
-  claim53_post_snapshot.mdx, claim53_vs46.diff, writeup/crossings/CHANGES_5N597.md (change list of the post).
+- 2026-10-04: the crossings post is live (https://nilmamano.com/blog/knights-tour-crossings); the 4 held files were
+  pushed in 6710c77. Nothing is held now.
+- Stable links (CR rule 2026-10-04): the crossings post links bounds-2026/CROSSINGS_PROOFS.md anchors A.3, B, B.1, B.3
+  and the demo with ?metric=crossings&step=6&n=96. Keep these paths, heading anchors and demo parameters unchanged.
+- 2026-10-04: pushed 448ee81 (T >= 8n - 24, Claim 57: TURNS_LOWER24.md, RESULTS/README rows, gap/verifier/claim57_run/,
+  which sync_public.sh and bounds-2026/.gitignore now include) and 848ad79 (routine sync).
+- 2026-10-04: pushed ef66967 + cd7ba3d (Claim 58): TURNS_SINGLE_SIZES.md lists 12 single-size tours (n = 24 to 88);
+  n = 58 and 98 stay only in the audited manifest (they do not beat the general bound; Nil approved only tours that do).
 - Never stage writeup/turns (PSA's post; our paper main.tex/pdf only on request). Both post.mdx files are excluded in
   sync_public.sh. Never write office URLs into synced notes (the sync fails on them).
 - Routine sync every ~2 h (self-reminder carries the staging command).
