@@ -1,0 +1,4 @@
+== 03:59:31 PER=8,10 24 tour
+it 1 OPTIMAL T-8n=-17 bound=-17 cycles=1 t=736s
+RESULT {"n": 24, "mode": "tour", "D": 4, "T": 175, "T_minus_8n": -17, "bound_minus_8n": -17, "status": "OPTIMAL", "cycles": 1, "per": [8, 10], "seconds": 735.8, "exact": false, "date": "2026-10-04"}
+== DONE

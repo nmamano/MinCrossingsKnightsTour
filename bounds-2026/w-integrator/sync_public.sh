@@ -23,7 +23,7 @@ rsync -a --delete "$@" --exclude-from="$BINX" \
   --exclude=/w-searcher/cert/corner_charge --exclude=/w-searcher/cert/strip2 \
   --exclude=/w-searcher/carrier/band --exclude=/w-searcher/carrier/band2 \
   --exclude=/w-verifier/claim22_pdf_page.txt --exclude=/w-verifier/claim22_figure11_stream.txt \
-  --exclude=/writeup/WRITER_STATE.md --exclude='/w-verifier/claim23*_clean/' --exclude='/gap/verifier/claim*_run/' --exclude=/writeup/turns/post.mdx --exclude='/gap/verifier/claim*_clean/' --exclude='/w-integrator/pipeline/selftest_[!T]*/' \
+  --exclude=/writeup/WRITER_STATE.md --exclude='/w-verifier/claim23*_clean/' --exclude='/gap/verifier/claim*_run/' --exclude=/writeup/turns/post.mdx --exclude=/writeup/crossings/post.mdx --exclude='/gap/verifier/claim*_clean/' --exclude='/w-integrator/pipeline/selftest_[!T]*/' \
   "$SRC" "$DST"
 case " $* " in *" --dry-run "*) exit 0;; esac
 # The office demo URL stays private.

@@ -8,3 +8,9 @@ RESULT {"n": 30, "mode": "2f", "D": 4, "T": 220, "T_minus_8n": -20, "bound_minus
 it 1 OPTIMAL T-8n=-20 bound=-20 cycles=7 t=128s
 RESULT {"n": 32, "mode": "2f", "D": 4, "T": 236, "T_minus_8n": -20, "bound_minus_8n": -20, "status": "OPTIMAL", "cycles": 7, "per": [8, 10], "seconds": 128.1, "exact": false, "date": "2026-10-04"}
 == 03:01:03 PER=8,10 34 2f 4 300 q34_2f_P810.json
+it 1 FEASIBLE T-8n=-20 bound=-28 cycles=2 t=301s
+RESULT {"n": 34, "mode": "2f", "D": 4, "T": 252, "T_minus_8n": -20, "bound_minus_8n": -28, "status": "FEASIBLE", "cycles": 2, "per": [8, 10], "seconds": 300.5, "exact": false, "date": "2026-10-04"}
+== 03:06:04 PER=8,10 36 2f 4 300 q36_2f_P810.json
+it 1 FEASIBLE T-8n=-19 bound=-28 cycles=8 t=301s
+RESULT {"n": 36, "mode": "2f", "D": 4, "T": 269, "T_minus_8n": -19, "bound_minus_8n": -28, "status": "FEASIBLE", "cycles": 8, "per": [8, 10], "seconds": 300.7, "exact": false, "date": "2026-10-04"}
+== DONE 03:11:06

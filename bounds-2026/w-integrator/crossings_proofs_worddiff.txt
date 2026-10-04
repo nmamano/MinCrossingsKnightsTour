@@ -1,0 +1,4 @@
+Word-level diff of the TEXT (markup stripped: <details>, <summary>, <code> vs backticks, heading #s, repo link targets), 2026-10-04.
+Source: writeup/crossings/post.mdx, from '## Appendix: full proofs' to the end  ->  CROSSINGS_PROOFS.md (bounds-2026/CROSSINGS_PROOFS.md in the repo)
+
+(no text differences)

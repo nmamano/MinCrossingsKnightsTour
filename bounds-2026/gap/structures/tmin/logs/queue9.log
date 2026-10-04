@@ -1,0 +1,26 @@
+== 03:11:09 PER=8,10 28 2f 4 300 z28_2f_P810.json
+it 1 OPTIMAL T-8n=-20 bound=-20 cycles=5 t=74s
+RESULT {"n": 28, "mode": "2f", "D": 4, "T": 204, "T_minus_8n": -20, "bound_minus_8n": -20, "status": "OPTIMAL", "cycles": 5, "per": [8, 10], "seconds": 73.6, "exact": false, "date": "2026-10-04"}
+== 03:12:24 PER=8,10 30 2f 4 300 z30_2f_P810.json
+it 1 OPTIMAL T-8n=-20 bound=-20 cycles=6 t=108s
+RESULT {"n": 30, "mode": "2f", "D": 4, "T": 220, "T_minus_8n": -20, "bound_minus_8n": -20, "status": "OPTIMAL", "cycles": 6, "per": [8, 10], "seconds": 107.7, "exact": false, "date": "2026-10-04"}
+== 03:14:13 PER=8,10 32 2f 4 300 z32_2f_P810.json
+it 1 OPTIMAL T-8n=-20 bound=-20 cycles=9 t=117s
+RESULT {"n": 32, "mode": "2f", "D": 4, "T": 236, "T_minus_8n": -20, "bound_minus_8n": -20, "status": "OPTIMAL", "cycles": 9, "per": [8, 10], "seconds": 117.1, "exact": false, "date": "2026-10-04"}
+== 03:16:11 PER=8,10 34 2f 4 300 z34_2f_P810.json
+it 1 OPTIMAL T-8n=-20 bound=-20 cycles=6 t=270s
+RESULT {"n": 34, "mode": "2f", "D": 4, "T": 252, "T_minus_8n": -20, "bound_minus_8n": -20, "status": "OPTIMAL", "cycles": 6, "per": [8, 10], "seconds": 269.5, "exact": false, "date": "2026-10-04"}
+== 03:20:42 PER=8,10 36 2f 4 300 z36_2f_P810.json
+it 1 FEASIBLE T-8n=-20 bound=-28 cycles=8 t=301s
+RESULT {"n": 36, "mode": "2f", "D": 4, "T": 268, "T_minus_8n": -20, "bound_minus_8n": -28, "status": "FEASIBLE", "cycles": 8, "per": [8, 10], "seconds": 300.9, "exact": false, "date": "2026-10-04"}
+== 03:25:46 PER=8,10 28 tourlazy 4 900 z28_tour_P810.json
+it 1 OPTIMAL T-8n=-20 bound=-20 cycles=9 t=73s
+it 2 OPTIMAL T-8n=-20 bound=-20 cycles=10 t=170s
+it 3 OPTIMAL T-8n=-20 bound=-20 cycles=8 t=364s
+it 4 OPTIMAL T-8n=-20 bound=-20 cycles=9 t=432s
+it 5 OPTIMAL T-8n=-20 bound=-20 cycles=5 t=500s
+it 6 OPTIMAL T-8n=-20 bound=-20 cycles=12 t=575s
+it 7 OPTIMAL T-8n=-20 bound=-20 cycles=11 t=678s
+it 8 OPTIMAL T-8n=-20 bound=-20 cycles=7 t=800s
+it 9 FEASIBLE T-8n=-20 bound=-22 cycles=12 t=901s
+no solution bound_minus_8n -22

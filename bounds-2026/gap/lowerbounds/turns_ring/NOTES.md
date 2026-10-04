@@ -36,3 +36,12 @@ Task: exact min of sum r over the boundary ring (TURNS, writeup/turns/main.tex),
    AB:5:0 with free 8x8 corner windows (interior turns allowed): still -21 at n=48.
    Structures (TMIN.md): D=4 (straight, free direction) n=32 -22; exact whole-board n=16 -20.
 11. Remote desktop survey of all 100 two-family mixtures at n=48: ~/nil/knight-remote/lb_turns/survey48.log.
+
+## 2026-10-04 (session 3)
+12. R_6(48) desktop 2 h, 4 workers, presolve off: FEASIBLE -23, bound -24. R_7(48) local 1 h: bound -27 only.
+13. stripz.cpp = stripw + zero-class dump + exact integer potential check (BFS mode, or STATES mode with OpenMP).
+    W=6 again 38,800,000 states, 30,476,844 zero arcs, 101 classes (same as stripw). Local BFS 50 min, 5.5 GB.
+14. corner_pot.py + potlp.py: linear slot potential h, cutting-plane LP. First strip check already valid.
+    A=10: -37/6 per corner; A=14 and A=20: -6 per corner, LP optimum also -6 (linear h can not do better).
+    h = (inward-leaning) - (outward-leaning) cut edges inside depths 3..5, scale 3. => R_6(n) >= -24 for all n >= 20.
+    verify_frames.py confirms frames, sigma, reachability and side inequality on ring solutions (n=24/28).

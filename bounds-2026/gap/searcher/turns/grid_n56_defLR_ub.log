@@ -1,0 +1,32 @@
+iter 0: obj -18 bound -18 OPTIMAL cycles 19 cuts 0 t=10s
+iter 1: obj -17 bound -17 OPTIMAL cycles 23 cuts 19 t=16s
+iter 2: obj -17 bound -17 OPTIMAL cycles 22 cuts 42 t=26s
+iter 3: obj -16 bound -16 OPTIMAL cycles 27 cuts 64 t=34s
+iter 4: obj -16 bound -16 OPTIMAL cycles 24 cuts 91 t=47s
+iter 5: obj -15 bound -15 OPTIMAL cycles 16 cuts 115 t=100s
+iter 6: UNKNOWN (ub -15) t=401s
+FAIL UNKNOWN
+	Command being timed: "../../../.venv/bin/python -u pring.py --n 56 --Z 8 --P 8 --Q 4 --defect 8 --defectW 6 --defsides LR --stop 0 --ub -15 --iters 400 --time 300 --workers 1 --budget 3000 --out grid_n56_defLR_ub.json"
+	User time (seconds): 401.41
+	System time (seconds): 0.85
+	Percent of CPU this job got: 100%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 6:42.19
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 189440
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 4
+	Minor (reclaiming a frame) page faults: 43718
+	Voluntary context switches: 328
+	Involuntary context switches: 2570
+	Swaps: 0
+	File system inputs: 11064
+	File system outputs: 56
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+exit=0

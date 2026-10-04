@@ -12,3 +12,31 @@ iter 10: obj -11 bound -16 FEASIBLE cycles 16 cuts 164 t=824s
 iter 11: obj -11 bound -16 FEASIBLE cycles 18 cuts 180 t=945s
 budget; tour lower bound -15
 hint tour (TT16 skeleton, 6x6 corners): {'status': 'OPTIMAL', 'turns': -14, 'bound': -14, 'secs': 0.9}
+final tour solve: {'status': 'FEASIBLE', 'turns': -14, 'bound': -17, 'secs': 1500.1, 'LB': -15}
+n=56 Z=8 Db=4 Dl=4 P=8 Q=4 m=0 sides=BTLR mode=2f T=434 T-8n=-14 charge=448 cycles=1 tour=True info={'status': 'FEASIBLE', 'turns': -14, 'bound': -17, 'secs': 1500.1, 'LB': -15}
+bottom period (rows top-first): ['26 26 26 26 26 26 26 26', '36 26 26 46 26 46 36 26', '25 26 25 26 26 25 26 25', '16 67 06 16 06 16 16 67']
+left period (rows top-first): ['23 27 26 26', '23 27 26 26', '23 27 26 26', '23 27 26 26']
+	Command being timed: "../../../.venv/bin/python -u pring.py --n 56 --Z 8 --P 8 --Q 4 --defect 8 --defectW 6 --iters 300 --time 120 --workers 1 --stop -14 --budget 900 --final 1500 --out grid_n56_def8.json"
+	User time (seconds): 2443.03
+	System time (seconds): 1.86
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 40:48.53
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 217744
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 48528
+	Voluntary context switches: 360
+	Involuntary context switches: 18605
+	Swaps: 0
+	File system inputs: 12424
+	File system outputs: 128
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+exit=0

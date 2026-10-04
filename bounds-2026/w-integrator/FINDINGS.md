@@ -584,3 +584,32 @@ across the seams = multiple of lcm(5, 2, P_bottom/top, Q_left/right); bands of p
 writeup/turns/appendix_from_post_2026-10-04.mdx; parts A-F as ## headings; only text change: removed "Click a part to open
 it."; text word diff in w-integrator/turns_proofs_worddiff.txt). README.md + RESULTS.md link to parts B, C, D-F (hunks only;
 held 5n rows unstaged). 5 check commands PASS from a git-ls-files copy (Lean not rebuilt). GitHub anchors verified.
+2026-10-04 (CR): Claims 55b + 56 PASS (8n-17 for n = 2 mod 8, 8n-16 for n = 6 mod 8; single straight field only).
+PREPARED, HELD until the CR relays Nil's go: TURNS_IMPROVED.md (research root; construction, bands, checks, audits),
+RESULTS.md (table row, new section, "not proved" constants), bounds-2026/README.md (row + map line), root README.md
+(Turns line). Release = sync_public.sh, then `python3 w-integrator/release_turns_improved.py` (stages only these hunks +
+TURNS_IMPROVED.md from HEAD; dry run OK, no 5n rows), privacy scan, commit, push. Routine syncs: add
+':!bounds-2026/TURNS_IMPROVED.md' to the staging exclusions. Routine sync cda5b0f pushed the ES_res2/ES_res6 certificate
+folders, Claim 55b/56 reports and gap/verifier/claim56_alln (audit evidence, 5 MB, kept on purpose).
+2026-10-04 (Nil via CR): demo step TI (turns step 5, "Periodic bands, 8x8 corners", 8n - 17 / 8n - 16) built LOCALLY, HELD
+with the improved-turns release. demo/build_data.py gen_TI (allsize_check.graph on pipeline/ES_res2|ES_res6/res<n%16>.json,
+n = 2 mod 4 only, 50..198): 38 tours valid, T - 8n = -17 (n = 2 mod 8) / -16 (n = 6 mod 8) at every n, brute crossings agree
+at n = 98, 102; node demo/check.js: 683 files, 0 problems. app.js: dataKey() shows TT16 with a note for n = 0 mod 4; chart
+labels use the last n with data. Browser test (playwright, n = 50, 54, 58, 62, 56, 60, 98, 102, 198): counts = 8n - 17 /
+8n - 16, fallback note at 56 and 60, no page errors. Preview: the knight-demo office app, ?metric=turns&step=5&n=58
+release_turns_improved.py now also stages bounds-2026/demo (dry run: 46 files, no 5n rows). Routine syncs exclude bounds-2026/demo.
+2026-10-04 (Nil's go via PSA/CR): pushed 856a7f3 = TURNS_IMPROVED.md + RESULTS/README rows (demo NOT included; 5n rows still
+held). Live URL 200: github.com/nmamano/MinCrossingsKnightsTour/blob/master/bounds-2026/TURNS_IMPROVED.md. Demo step TI still
+HELD until Nil approves the preview; then: sync, git add -A bounds-2026/demo, privacy scan, commit, push, check the Pages
+build and ?metric=turns on the public demo. New over-5MB exclusion: gap/lowerbounds/turns_ring/fstrip_1_2.pkl.
+Never write office URLs into synced notes (sync_public.sh fails on them).
+2026-10-04 (Nil approved preview): pushed f64e38c = demo turns step 5 (TI). Pages build of f64e38c: built. Real Chrome on the public site: ?metric=turns opens step 5 (n = 50, 8n - 17); &step=5&n=58 -> 447 = 8n - 17; &n=62 -> 480 = 8n - 16; &n=56 -> TT16 434 = 8n - 14 with the note; no page errors. Improved-turns hold is fully released; only the 5n crossings milestone remains held.
+2026-10-04 (Nil via CR): pushed 1a7d396: demo Download image = crop to the board (whole-board view) + white margin max(24 px, 4.5% of the longer side) on all sides (downloadCanvas() in demo/app.js). Live check in Chrome (Pages build 1a7d396): TI n=50 1578 px, margins 67 px all sides; FOLD n=200 1624 px, 68 px; edge view and any-board 30x20 also margined; no page errors. Sample: w-integrator/demo_download_sample.png.
+2026-10-04 (CR: crossings post handed to the Personal Site Agent; milestone GO except the post):
+- 944df86: 5n - 597 rows in README.md, bounds-2026/README.md, RESULTS.md + chart (explain/) + writeup/crossings/figures
+  (lb figures at 5n, progress PNG, heel_original.png). PROOF_5N_V2 sec 7: 6/6 PASS from a git-ls-files copy.
+- 7c23b9d: bounds-2026/CROSSINGS_PROOFS.md (research-root source, from post.mdx appendices A, B; text unchanged, word diff in
+  w-integrator/crossings_proofs_worddiff.txt; 4 repo links made relative); git rm writeup/crossings/post.mdx; sync_public.sh
+  excludes /writeup/crossings/post.mdx. 8/8 listed checks PASS from a git-ls-files copy. Anchors tested (GitHub HTML).
+- Still HELD until the CR says the post is live: gap/verifier/claim46_crossings_snapshot.mdx, claim53_post_snapshot.mdx,
+  claim53_vs46.diff. Only these + writeup/turns stay out of routine syncs now.

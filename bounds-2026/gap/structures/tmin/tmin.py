@@ -14,6 +14,9 @@ from kt.core import validate, num_turns, num_cycles
 
 PER = tuple(map(int, os.environ['PER'].split(','))) if os.environ.get('PER') else None  # env PER=a,k
 
+COPIES = int(os.environ.get('COPIES', 0))  # env COPIES=c: also force tours on the boards with 1..c band copies
+FIELD = os.environ.get('FIELD', '').split(',') if os.environ.get('FIELD') else None
+
 MI = [-2, -1, 1, 2, 2, 1, -1, -2]
 MJ = [1, 2, 2, 1, -1, -2, -2, -1]
 
@@ -40,6 +43,7 @@ def build(n, mode, D, hint=None, cuts=()):
             ks = [k for k in range(8) if on(i + MI[k], j + MJ[k])]
             depth = min(i, j, n - 1 - i, n - 1 - j)
             prs = [p for p in combinations(ks, 2) if not (D and depth >= D and (p[1] - p[0]) != 4)]
+            if FIELD and D and depth >= D: prs = [p for p in prs if '%d%d' % p in FIELD]  # env FIELD=15 or 15,37
             vs = {}
             for p in prs:
                 vs[p] = m.NewBoolVar('')
@@ -52,6 +56,8 @@ def build(n, mode, D, hint=None, cuts=()):
                 di = [MI[k] for k in p]; dj = [MJ[k] for k in p]
                 r = t - lower(j, dj) - lower(n - 1 - j, [-d for d in dj]) - lower(i, di) - lower(n - 1 - i, [-d for d in di])
                 res[(i, j), p] = (r, v)
+                if PER and r > 0 and (PER[0] <= i < PER[0] + PER[1] or PER[0] <= j < PER[0] + PER[1]):
+                    m.Add(v == 0)  # band cells have r = 0, so copies of the band keep T - 8n
             P[i, j] = vs
     for ci in (0, n - 4):
         for cj in (0, n - 4):
@@ -81,6 +87,23 @@ def build(n, mode, D, hint=None, cuts=()):
                     assert set(P[c1]) == set(P[c2])
                     for p, v in P[c1].items():
                         m.Add(v == P[c2][p])
+    if PER and COPIES and mode == 'tour':  # the boards with t = 1..COPIES band copies must be single cycles too
+        a, k = PER
+        for t in range(1, COPIES + 1):
+            N = n + k * t
+            back = lambda v: v if v < a + k else (a + (v - a - k) % k if v < a + k + k * t else v - k * t)
+            arcs = []; seen = set()
+            for i in range(N):
+                for j in range(N):
+                    for kk in range(8):
+                        x, y = i + MI[kk], j + MJ[kk]
+                        if not (0 <= x < N and 0 <= y < N) or (x, y, i, j) in seen: continue
+                        seen.add((i, j, x, y))
+                        v = E[(back(i), back(j)), kk]
+                        f, g = m.NewBoolVar(''), m.NewBoolVar('')
+                        arcs += [(i * N + j, x * N + y, f), (x * N + y, i * N + j, g)]
+                        m.Add(f + g == v)
+            m.AddCircuit(arcs)
     if hint:
         for (i, j), vs in P.items():
             c = hint[i][j]; p = tuple(sorted(int(ch) for ch in c))
@@ -117,7 +140,7 @@ def main():
         left = tl - (time.time() - t0)
         if left < 5: break
         m, P, T = build(n, 'tour' if mode == 'tour' else '2f', D, hint, cuts)
-        s = cp_model.CpSolver(); s.parameters.num_workers = 2; s.parameters.max_time_in_seconds = left; s.parameters.cp_model_presolve = False
+        s = cp_model.CpSolver(); s.parameters.num_workers = int(os.environ.get('WORKERS', 2)); s.parameters.random_seed = int(os.environ.get('SEED', 0)); s.parameters.max_time_in_seconds = left; s.parameters.cp_model_presolve = False
         st = s.Solve(m); name = s.StatusName(st)
         lb = int(round(s.BestObjectiveBound())) if st in (cp_model.OPTIMAL, cp_model.FEASIBLE) else lb
         if st not in (cp_model.OPTIMAL, cp_model.FEASIBLE):
@@ -133,7 +156,7 @@ def main():
     assert num_turns(g) == Tv
     if mode != '2f': assert validate(g)
     rec = dict(n=n, mode=mode, D=D, T=Tv, T_minus_8n=Tv - 8 * n, bound_minus_8n=lb - 8 * n, status=name,
-               cycles=nc, per=PER, seconds=round(time.time() - t0, 1), exact=(D == 0), date='2026-10-04', grid=g)
+               cycles=nc, per=PER, field=FIELD, copies=COPIES, seconds=round(time.time() - t0, 1), exact=(D == 0), date='2026-10-04', grid=g)
     Path(out).write_text(json.dumps(rec))
     print('RESULT', json.dumps({k: v for k, v in rec.items() if k != 'grid'}), flush=True)
 

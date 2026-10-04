@@ -1,0 +1,5 @@
+start 2026-10-04 05:09:50 W 4 A 10 K 16 zero-arc rows 14629
+it 0 LP z 50.0000 scale 1 corner OPTIMAL value -7.0000 bound -7.0000 sols 6
+it 1 LP z -7.0000 scale 1 corner OPTIMAL value -7.0000 bound -7.0000 sols 12
+  strip check: scale 1 min reduced cost 0 violated arcs 0
+VALID potential, corner OPTIMAL -7.0: R_W(n) >= -28.0 for n >= 20; w = 1 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]

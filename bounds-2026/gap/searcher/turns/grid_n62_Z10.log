@@ -1,0 +1,52 @@
+iter 0: obj -18 bound -18 OPTIMAL cycles 22 cuts 0 t=6s
+iter 1: obj -16 bound -16 OPTIMAL cycles 25 cuts 22 t=28s
+iter 2: obj -16 bound -16 OPTIMAL cycles 22 cuts 47 t=52s
+iter 3: obj -16 bound -16 OPTIMAL cycles 29 cuts 69 t=65s
+iter 4: obj -16 bound -16 OPTIMAL cycles 25 cuts 98 t=104s
+iter 5: obj -16 bound -16 OPTIMAL cycles 26 cuts 123 t=124s
+iter 6: obj -16 bound -16 OPTIMAL cycles 9 cuts 149 t=180s
+iter 7: obj -16 bound -16 OPTIMAL cycles 17 cuts 158 t=203s
+iter 8: obj -16 bound -16 OPTIMAL cycles 7 cuts 175 t=235s
+iter 9: obj -16 bound -16 OPTIMAL cycles 8 cuts 182 t=254s
+iter 10: obj -16 bound -17 FEASIBLE cycles 14 cuts 190 t=375s
+iter 11: obj -16 bound -16 OPTIMAL cycles 9 cuts 204 t=392s
+iter 12: obj -16 bound -16 OPTIMAL cycles 10 cuts 213 t=423s
+iter 13: obj -16 bound -16 OPTIMAL cycles 12 cuts 223 t=461s
+iter 14: obj -16 bound -16 OPTIMAL cycles 8 cuts 235 t=484s
+iter 15: obj -16 bound -16 OPTIMAL cycles 8 cuts 243 t=518s
+iter 16: obj -16 bound -16 OPTIMAL cycles 9 cuts 251 t=545s
+iter 17: obj -16 bound -16 OPTIMAL cycles 8 cuts 260 t=581s
+iter 18: obj -16 bound -16 OPTIMAL cycles 9 cuts 268 t=656s
+iter 19: obj -16 bound -16 OPTIMAL cycles 9 cuts 277 t=694s
+iter 20: obj -16 bound -16 OPTIMAL cycles 9 cuts 286 t=715s
+iter 21: obj -16 bound -16 OPTIMAL cycles 2 cuts 295 t=742s
+iter 22: obj -16 bound -16 OPTIMAL cycles 3 cuts 297 t=767s
+iter 23: obj -16 bound -16 OPTIMAL cycles 7 cuts 300 t=841s
+iter 24: obj -16 bound -16 OPTIMAL cycles 1 cuts 307 t=875s
+n=62 Z=10 Db=4 Dl=4 P=8 Q=4 m=0 sides=BTLR mode=2f T=480 T-8n=-16 charge=496 cycles=1 tour=True info={'status': 'OPTIMAL', 'turns': -16, 'bound': -16, 'secs': 32.8, 'LB': -16}
+bottom period (rows top-first): ['26 26 26 26 26 26 26 26', '46 26 46 26 46 36 26 26', '26 26 25 26 25 26 25 25', '16 06 16 06 16 16 67 06']
+left period (rows top-first): ['23 27 26 26', '02 27 26 26', '23 27 26 26', '23 24 26 26']
+	Command being timed: "../../../.venv/bin/python -u pring.py --n 62 --Z 10 --P 8 --Q 4 --stop -16 --iters 300 --time 120 --workers 1 --stop -14 --budget 1800 --out grid_n62_Z10.json"
+	User time (seconds): 849.19
+	System time (seconds): 2.72
+	Percent of CPU this job got: 97%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 14:36.34
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 194220
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 47815
+	Voluntary context switches: 10
+	Involuntary context switches: 53918
+	Swaps: 0
+	File system inputs: 8
+	File system outputs: 232
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+exit=0

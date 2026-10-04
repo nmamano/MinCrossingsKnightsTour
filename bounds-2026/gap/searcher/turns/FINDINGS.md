@@ -72,3 +72,25 @@ Coverage (every even n >= 48, T - 8n):
 - n = 0, 4 mod 8: -14 (TT16), unchanged.
 For larger n than checked, the extension inserts whole 8-periods into every band and the line field, so each
 extended grid is a 2-factor with the same T; connectivity is the only open point there (same status as TT16).
+
+## 2026-10-04: n = 0, 4 mod 8 stays at -14 in every periodic variant tried
+Cut loop, family optimum -14 (bound reached, TT16 in family): n = 56 with P12/Q4, P12/Q6, P8/Q6;
+n = 60 with P12/Q6 (plus the earlier Z = 10, 12, P16/Q8, depth 6). n = 62 with Z = 10: -16 OPTIMAL (no gain).
+Mid-side defect windows (n = 56, 8 long x 6 deep, non-periodic, on all four sides; ties broken there):
+cut loop 900 s gave family bound -15; final AddCircuit solve with all 180 cuts, hinted by TT16, 1500 s:
+best -14, bound -17. So -15 is open for that family.
+
+## 2026-10-04: one mid-side defect window (n = 56, 8 long x 6 deep, ties broken there)
+Defect only on L, B or T: family optimum -14 (proven by the cut loop). Only on R: best tour -14, bound -15
+(cut loop 900 s + hinted AddCircuit 900 s). Running: feasibility of objective <= -15 (cut loop with that
+upper bound) for the R window and for L + R windows.
+Reading of the 2f optima (n = 56..62): most extra cycles are pairs of middle lines (right edge -> left edge)
+closed by the left and right gadgets at both ends. Middle lines meet the left side in its upper half and the
+right side in its lower half; the lower-left half meets bottom->left lines, the upper-right half meets
+right->top lines. So a mid-height window on a side separates two line regions.
+
+## 2026-10-04: res 2 and res 6 values are stable under larger families
+n = 62: P16/Q8 and P8/Q8 (Z = 8), Z = 10 (P8/Q4): family optimum -16. n = 58: P16/Q8, Z = 10: -17.
+P12/Q6 (period not dividing 8 on the T16 base) gives only -14 (2f floor -14) at n = 58 and n = 62.
+Feasibility runs "objective <= -15" for the n = 56 R and L+R defect families: CP-SAT UNKNOWN after 300 s
+at iteration 6. Added an LP-based backend (csolve.solve_mip, SCIP via pywraplp; pring.py --mip SCIP).

@@ -1,0 +1,41 @@
+source c21a0b maxlayer 1 pre -1 per -1 targets hit 0
+source c22a0b maxlayer 1 pre -1 per -1 targets hit 0
+source c22a0d maxlayer 1 pre -1 per -1 targets hit 0
+source c2420c maxlayer 2 pre -1 per -1 targets hit 0
+source c24a0b maxlayer 1 pre -1 per -1 targets hit 0
+source c24a0d maxlayer 27 pre -1 per -1 targets hit 0
+source c26a0a maxlayer 1 pre -1 per -1 targets hit 0
+source 110a10c maxlayer 1 pre -1 per -1 targets hit 0
+source 111210c maxlayer 1 pre -1 per -1 targets hit 0
+source 112210c maxlayer 1 pre -1 per -1 targets hit 0
+source 1122208 maxlayer 1 pre -1 per -1 targets hit 0
+source 1122a09 maxlayer 1 pre -1 per -1 targets hit 0
+source 1124208 maxlayer 4 pre -1 per -1 targets hit 0
+source 1124a09 maxlayer 1 pre -1 per -1 targets hit 0
+source 112a10d maxlayer 1 pre -1 per -1 targets hit 0
+source 122200c maxlayer 1 pre -1 per -1 targets hit 0
+source 122280d maxlayer 1 pre -1 per -1 targets hit 0
+source 122400c maxlayer 4 pre -1 per -1 targets hit 0
+source 142120c maxlayer 2 pre -1 per -1 targets hit 0
+source 142200c maxlayer 1 pre -1 per -1 targets hit 0
+source 142420c maxlayer 3 pre -1 per -1 targets hit 0
+source 142680c maxlayer 1 pre -1 per -1 targets hit 0
+source 20a1803 maxlayer 1 pre -1 per -1 targets hit 0
+source 20a2403 maxlayer 6574 pre 44 per 2 targets hit 9 | 114900: 11 15 17 19 21 23 25 27 29 31 33 35 37 39 41 43 45 | 114d01: 17 21 25 27 29 31 33 35 37 39 41 43 45 | 142a01: 15 19 23 25 27 29 31 33 35 37 39 41 43 45 | 416c05: 13 17 21 23 25 27 29 31 33 35 37 39 41 43 45 | 4114441: 19 23 27 29 31 33 35 37 39 41 43 45 | 5114401: 13 17 21 23 25 27 29 31 33 35 37 39 41 43 45 | 890c64d: 34 38 42 44 | 890ce49: 24 26 28 30 32 34 36 38 40 42 44 | 8c2c6cd: 16 20 24 26 28 30 32 34 36 38 40 42 44
+source 20a624c maxlayer 1 pre -1 per -1 targets hit 0
+source 20a6803 maxlayer 1 pre -1 per -1 targets hit 0
+source 20a6805 maxlayer 15 pre -1 per -1 targets hit 0
+source 2122805 maxlayer 9 pre -1 per -1 targets hit 0
+source 2126805 maxlayer 10 pre -1 per -1 targets hit 0
+source 2126904 maxlayer 1 pre -1 per -1 targets hit 0
+source 44148c4 maxlayer 6574 pre 43 per 2 targets hit 9 | 114900: 13 15 17 19 21 23 25 27 29 31 33 35 37 39 41 43 | 114d01: 21 23 25 27 29 31 33 35 37 39 41 43 | 142a01: 19 21 23 25 27 29 31 33 35 37 39 41 43 | 416c05: 17 19 21 23 25 27 29 31 33 35 37 39 41 43 | 4114441: 23 25 27 29 31 33 35 37 39 41 43 | 5114401: 17 19 21 23 25 27 29 31 33 35 37 39 41 43 | 890c64d: 38 40 42 44 | 890ce49: 28 30 32 34 36 38 40 42 44 | 8c2c6cd: 20 24 28 30 32 34 36 38 40 42 44
+source 442e4c4 maxlayer 1 pre -1 per -1 targets hit 0
+source 4924a41 maxlayer 24 pre -1 per -1 targets hit 0
+source 4926645 maxlayer 1 pre -1 per -1 targets hit 0
+source 4a21044 maxlayer 12 pre -1 per -1 targets hit 0
+source 4a21445 maxlayer 6 pre -1 per -1 targets hit 0
+source 4a21845 maxlayer 2 pre -1 per -1 targets hit 0
+source 4a22044 maxlayer 1 pre -1 per -1 targets hit 0
+source 4a22445 maxlayer 1 pre -1 per -1 targets hit 0
+source 4a22845 maxlayer 1 pre -1 per -1 targets hit 0
+source 4a24044 maxlayer 6574 pre 50 per 2 targets hit 9 | 114900: 17 21 25 27 29 31 33 35 37 39 41 43 45 47 49 51 | 114d01: 27 31 33 35 37 39 41 43 45 47 49 51 | 142a01: 25 29 31 33 35 37 39 41 43 45 47 49 51 | 416c05: 23 27 29 31 33 35 37 39 41 43 45 47 49 51 | 4114441: 29 33 35 37 39 41 43 45 47 49 51 | 5114401: 23 27 29 31 33 35 37 39 41 43 45 47 49 51 | 890c64d: 44 48 50 | 890ce49: 34 38 40 42 44 46 48 50 | 8c2c6cd: 32 34 36 38 40 42 44 46 48 50

@@ -1,0 +1,45 @@
+expanded 0 states 3025
+expanded 2000000 states 16119878
+expanded 4000000 states 28001336
+expanded 6000000 states 28981676
+expanded 8000000 states 30453522
+expanded 10000000 states 31694056
+expanded 12000000 states 31771008
+expanded 14000000 states 32920302
+expanded 16000000 states 33151596
+expanded 18000000 states 36449680
+expanded 20000000 states 37652458
+expanded 22000000 states 38122852
+expanded 24000000 states 38531558
+expanded 26000000 states 38755778
+expanded 28000000 states 38756818
+expanded 30000000 states 38757784
+expanded 32000000 states 38760400
+expanded 34000000 states 38789470
+expanded 36000000 states 38800000
+expanded 38000000 states 38800000
+W 6 states 38800000 zero arcs 30476844
+zero recurrent classes 101
+	Command being timed: "./stripzi 6 /home/nil/nil/knight-formation-research/gap/lowerbounds/turns_ring/z6/z6"
+	User time (seconds): 2824.30
+	System time (seconds): 34.90
+	Percent of CPU this job got: 95%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 49:42.46
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 5461108
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 1647616
+	Voluntary context switches: 1
+	Involuntary context switches: 326667
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 606536
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

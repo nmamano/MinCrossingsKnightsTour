@@ -1,0 +1,27 @@
+iter 0: obj -14 bound -14 OPTIMAL cycles 21 cuts 0 t=14s
+STOP: tour lower bound -14 >= -14 for this family
+FAIL {'status': 'OPTIMAL', 'turns': -14, 'bound': -14, 'secs': 12.7, 'LB': -14}
+	Command being timed: "../../../.venv/bin/python -u pring.py --n 56 --Z 8 --P 12 --Q 6 --iters 300 --time 120 --workers 1 --stop -14 --budget 1800 --out grid_n56_P12Q6.json"
+	User time (seconds): 14.48
+	System time (seconds): 0.39
+	Percent of CPU this job got: 101%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:14.66
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 152816
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 29482
+	Voluntary context switches: 11
+	Involuntary context switches: 1302
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 8
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+exit=0

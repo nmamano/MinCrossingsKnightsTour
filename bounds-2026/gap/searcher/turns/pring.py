@@ -7,7 +7,7 @@ Usage: pring.py --n 56 --Z 8 --Db 4 --Dl 4 --P 8 --Q 4 --sides BTLR --mode 2f
   --m: margin (cells) between a corner zone and the first tied cell."""
 import argparse, json, os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from csolve import solve, region, ls, ncycles, to_grid, validate, num_turns
+from csolve import solve, solve_mip, region, ls, ncycles, to_grid, validate, num_turns
 from mixed import skeleton
 
 def main():
@@ -21,7 +21,11 @@ def main():
     ap.add_argument('--out')
     ap.add_argument('--iters', type=int, default=0, help='2f + subtour cut loop: max iterations (0 = off)')
     ap.add_argument('--defect', type=int, default=0, help='length of a non-periodic window in the middle of each side')
+    ap.add_argument('--defsides', default=None, help='sides that get the defect window (default: all free sides)')
     ap.add_argument('--defectW', type=int, default=6, help='depth of that window (free cells)')
+    ap.add_argument('--mip', default=None, help='cut loop backend: SCIP / CBC / HIGHS via pywraplp (default CP-SAT)')
+    ap.add_argument('--noties', action='store_true', help='free bands without periodicity (general ring)')
+    ap.add_argument('--ub', type=int, default=None, help='cut loop: only look for solutions with objective <= ub')
     ap.add_argument('--final', type=float, default=0, help='after the cut loop: tour-mode solve with all cuts, '
                     'hinted by the TT16-skeleton tour, for this many seconds')
     ap.add_argument('--budget', type=float, default=2700, help='cut loop: wall-clock seconds')
@@ -51,8 +55,12 @@ def cutloop(a, nb, free, ties):
     import time
     cuts, hint, t0, LB = [], None, time.time(), -10**9
     for it in range(a.iters):
-        full, info = solve(a.n, nb, free, '2f', a.time, a.workers, res=True, ties=ties, cuts=cuts, hint=hint)
-        if full is None: return None, info
+        if a.mip:
+            full, info = solve_mip(a.n, nb, free, a.time, res=True, ties=ties, cuts=cuts, ub=a.ub, backend=a.mip)
+        else:
+            full, info = solve(a.n, nb, free, '2f', a.time, a.workers, res=True, ties=ties, cuts=cuts, hint=hint, ub=a.ub)
+        if full is None:
+            print(f'iter {it}: {info} (ub {a.ub}) t={time.time() - t0:.0f}s', flush=True); return None, info
         comps = components(full)
         print(f'iter {it}: obj {info["turns"]} bound {info["bound"]} {info["status"]} cycles {len(comps)} '
               f'cuts {len(cuts)} t={time.time() - t0:.0f}s', flush=True)
@@ -98,6 +106,7 @@ def setup(a):
     if 'R' in a.sides:
         free |= {(n - 1 - x, y) for x in range(a.Dl) for y in range(n)}
         ties += [((n - 1 - x, y), (n - 1 - x, y + Q)) for x in range(a.Dl) for y in range(lo, hi - Q)]
+    if getattr(a, 'noties', False): ties = []
     if a.defect:
         h0, h1 = n // 2 - a.defect // 2, n // 2 - a.defect // 2 + a.defect
         W = a.defectW
@@ -105,7 +114,7 @@ def setup(a):
                'T': {(x, n - 1 - y) for x in range(h0, h1) for y in range(W)},
                'L': {(x, y) for x in range(W) for y in range(h0, h1)},
                'R': {(n - 1 - x, y) for x in range(W) for y in range(h0, h1)}}
-        D = set().union(*(win[k] for k in a.sides))
+        D = set().union(*(win[k] for k in (a.defsides or a.sides)))
         free |= D
         # break every tie chain at the window: a tie may not jump over or touch it
         def crosses(c1, c2):

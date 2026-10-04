@@ -1,0 +1,43 @@
+iter 0: obj -18 bound -18 OPTIMAL cycles 14 cuts 0 t=6s
+iter 1: obj -17 bound -17 OPTIMAL cycles 26 cuts 14 t=11s
+iter 2: obj -17 bound -17 OPTIMAL cycles 23 cuts 40 t=19s
+iter 3: obj -16 bound -16 OPTIMAL cycles 26 cuts 63 t=31s
+iter 4: obj -16 bound -16 OPTIMAL cycles 21 cuts 89 t=66s
+iter 5: obj -15 bound -15 OPTIMAL cycles 18 cuts 110 t=168s
+iter 6: obj -14 bound -16 FEASIBLE cycles 6 cuts 128 t=289s
+iter 7: obj -14 bound -16 FEASIBLE cycles 9 cuts 134 t=409s
+iter 8: obj -14 bound -16 FEASIBLE cycles 5 cuts 143 t=530s
+iter 9: obj -14 bound -16 FEASIBLE cycles 5 cuts 148 t=651s
+iter 10: obj -13 bound -16 FEASIBLE cycles 12 cuts 153 t=772s
+iter 11: obj -12 bound -16 FEASIBLE cycles 10 cuts 165 t=893s
+iter 12: obj -12 bound -16 FEASIBLE cycles 11 cuts 175 t=1014s
+budget; tour lower bound -15
+hint tour (TT16 skeleton, 6x6 corners): {'status': 'OPTIMAL', 'turns': -14, 'bound': -14, 'secs': 1.9}
+final tour solve: {'status': 'FEASIBLE', 'turns': -14, 'bound': -17, 'secs': 899.9, 'LB': -15}
+n=56 Z=8 Db=4 Dl=4 P=8 Q=4 m=0 sides=BTLR mode=2f T=434 T-8n=-14 charge=448 cycles=1 tour=True info={'status': 'FEASIBLE', 'turns': -14, 'bound': -17, 'secs': 899.9, 'LB': -15}
+bottom period (rows top-first): ['26 26 26 26 26 26 26 26', '36 26 26 46 26 46 36 26', '25 26 25 26 26 25 26 25', '16 67 06 16 06 16 16 67']
+left period (rows top-first): ['23 27 26 26', '23 27 26 26', '23 27 26 26', '23 27 26 26']
+	Command being timed: "../../../.venv/bin/python -u pring.py --n 56 --Z 8 --P 8 --Q 4 --defect 8 --defectW 6 --defsides R --stop -14 --iters 300 --time 120 --workers 1 --budget 900 --final 900 --out grid_n56_defR.json"
+	User time (seconds): 1900.74
+	System time (seconds): 2.89
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 31:58.62
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 209360
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 1
+	Minor (reclaiming a frame) page faults: 48579
+	Voluntary context switches: 10
+	Involuntary context switches: 40564
+	Swaps: 0
+	File system inputs: 256
+	File system outputs: 144
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+exit=0

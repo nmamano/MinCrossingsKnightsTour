@@ -7,7 +7,7 @@ Mode '2f'   : degree 2 only (2-factor floor); corners are independent, so each c
 Objective: number of turns (all cells; fixed cells are constant).
 Usage: csolve.py --combo w-integrator/corners/TT16_res00.json --n 56 --A 10 --B 10 --mode 2f
 """
-import argparse, json, os, sys, time
+import argparse, json, math, os, sys, time
 from collections import defaultdict
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..'))
 sys.path.insert(0, ROOT); sys.path.insert(0, os.path.join(ROOT, 'w-integrator'))
@@ -54,7 +54,7 @@ def two_factor_exists(free, forced):
     tot = sum(2 - len(forced[c]) for c in free if (c[0] + c[1]) % 2)
     return tot == need and nx.maximum_flow_value(G, 's', 't') == need
 
-def solve(n, nb, free, mode='tour', time_limit=120, workers=2, hint=None, log=False, res=False, ties=(), cuts=()):
+def solve(n, nb, free, mode='tour', time_limit=120, workers=2, hint=None, log=False, res=False, ties=(), cuts=(), ub=None):
     forced = defaultdict(set)
     for c, s in nb.items():
         if c in free: continue
@@ -117,6 +117,7 @@ def solve(n, nb, free, mode='tour', time_limit=120, workers=2, hint=None, log=Fa
             arcs += [(node[u], d, l1), (d, node[v], l2), (node[v], d, l3), (d, node[u], l4)]
             m.Add(l1 + l3 == 1); m.Add(l1 == l2); m.Add(l3 == l4)
         m.AddCircuit(arcs)
+    if ub is not None: m.Add(sum(tt) <= ub)
     m.Minimize(sum(tt))
     if hint:
         for i, (a, b) in enumerate(var): m.AddHint(xv[i], int(b in hint.get(a, ())))
@@ -180,3 +181,62 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+def solve_mip(n, nb, free, time_limit=600, res=True, ties=(), cuts=(), ub=None, backend='SCIP', log=False):
+    """Same 2f model as solve(mode='2f') on an LP-based MIP solver (pywraplp); for bound proofs."""
+    from ortools.linear_solver import pywraplp
+    forced = defaultdict(set)
+    for c, s in nb.items():
+        if c in free: continue
+        for v in s:
+            if v in free: forced[v].add(c)
+    if any(len(forced[c]) > 2 for c in free): return None, 'overforced'
+    var = []
+    for c in sorted(free):
+        for d in MOV8:
+            v = (c[0] + d[0], c[1] + d[1])
+            if v in free and c < v: var.append((c, v))
+    m = pywraplp.Solver.CreateSolver(backend)
+    opt = defaultdict(list); optd = defaultdict(dict); obj = []
+    for c in sorted(free):
+        cand = [w for w in ((c[0] + d[0], c[1] + d[1]) for d in MOV8) if w in free or w in forced[c]]
+        lits = []
+        for i in range(len(cand)):
+            for j in range(i + 1, len(cand)):
+                a, b = cand[i], cand[j]
+                if any(f not in (a, b) for f in forced[c]): continue
+                z = m.BoolVar(''); lits.append(z)
+                opt[c, a].append(z); opt[c, b].append(z)
+                optd[c][tuple(sorted([(a[0] - c[0], a[1] - c[1]), (b[0] - c[0], b[1] - c[1])]))] = z
+                t = int(a[0] + b[0] != 2 * c[0] or a[1] + b[1] != 2 * c[1])
+                k = t - ls(n, c, a, b) if res else t
+                if k: obj.append(k * z)
+        if not lits: return None, f'no option at {c}'
+        m.Add(sum(lits) == 1)
+    for c1, c2 in ties:
+        if c1 not in free or c2 not in free: continue
+        for k in set(optd[c1]) | set(optd[c2]):
+            z1, z2 = optd[c1].get(k), optd[c2].get(k)
+            if z1 is None: m.Add(z2 == 0)
+            elif z2 is None: m.Add(z1 == 0)
+            else: m.Add(z1 == z2)
+    xv = []
+    for (a, b) in var:
+        x = m.BoolVar(''); xv.append(x)
+        m.Add(sum(opt[a, b]) == x); m.Add(sum(opt[b, a]) == x)
+    for S in cuts:
+        m.Add(sum(xv[i] for i, (a, b) in enumerate(var) if (a in S) != (b in S)) >= 2)
+    if ub is not None: m.Add(sum(obj) <= ub)
+    m.Minimize(sum(obj))
+    m.SetTimeLimit(int(time_limit * 1000))
+    if log: m.EnableOutput()
+    t0 = time.time(); r = m.Solve()
+    names = {m.OPTIMAL: 'OPTIMAL', m.FEASIBLE: 'FEASIBLE', m.INFEASIBLE: 'INFEASIBLE', m.NOT_SOLVED: 'UNKNOWN'}
+    st = names.get(r, str(r))
+    if r not in (m.OPTIMAL, m.FEASIBLE): return None, st
+    full = {c: set(v) for c, v in nb.items()}
+    for c in free: full[c] = set(forced[c])
+    for i, (a, b) in enumerate(var):
+        if xv[i].solution_value() > 0.5: full[a].add(b); full[b].add(a)
+    return full, dict(status=st, turns=int(round(m.Objective().Value())), bound=int(math.ceil(m.Objective().BestBound() - 1e-6)),
+                      secs=round(time.time() - t0, 1))
