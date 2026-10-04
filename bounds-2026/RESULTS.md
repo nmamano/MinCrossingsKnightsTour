@@ -114,6 +114,8 @@ the construction is optimal. With the lower bound 8n-28, this proves the
 paper's conjecture (a leading factor of 8) and shows that it is tight.
 
 Proof: [turns paper, Theorem 1(b) and construction](writeup/turns/main.pdf),
+or [TURNS_PROOFS.md, parts D-F](TURNS_PROOFS.md#d-the-tours-complete-construction)
+(construction, turn count, [block insertion](TURNS_PROOFS.md#f-one-closed-tour-for-every-n-block-insertion)),
 with the all-size connectivity argument in
 [PROOFS.md, Sections 1-4](w-turnstheory/PROOFS.md).
 Audit: Claims 6, 7, and 16 in [FINDINGS.md](w-verifier/FINDINGS.md).
@@ -132,7 +134,8 @@ T>=8n-28. Therefore, for every even n>=48,
 
 In particular T_min(n)/n tends to 8 through even n.
 
-Proof: [turns paper, lower bound and corner certificate](writeup/turns/main.pdf).
+Proof: [turns paper, lower bound and corner certificate](writeup/turns/main.pdf),
+or [TURNS_PROOFS.md, part C](TURNS_PROOFS.md#c-the-corner-certificate-and-8n---28).
 Audit: Claim 16 in [FINDINGS.md](w-verifier/FINDINGS.md); the Lean proof: Claim 54.
 Lean: [KT.ClosedTour.eight_mul_sub_28_le_numTurns](ktlean/Ktlean/Turns28.lean)
 and `KT.TwoFactor.eight_mul_le_numTurns_add_28` are unconditional, with only
@@ -150,6 +153,7 @@ T>=8n-64. Each four-column side strip has at least 2n turns; subtracting
 the four corner overlaps proves the bound.
 
 Proof: [turns paper, four-column lemma and its first theorem](writeup/turns/main.pdf),
+[TURNS_PROOFS.md, part B](TURNS_PROOFS.md#b-the-four-column-lemma-and-8n---64),
 or the [one-page argument in FINDINGS, Section 1](w-turnstheory/FINDINGS.md).
 Audit: Claim 2 in [FINDINGS.md](w-verifier/FINDINGS.md).
 Lean: [KT.ClosedTour.eight_mul_sub_64_le_numTurns](ktlean/Ktlean/Tour.lean)

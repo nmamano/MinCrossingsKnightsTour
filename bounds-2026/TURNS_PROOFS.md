@@ -1,0 +1,265 @@
+# Appendix: full proofs
+
+This appendix has the complete proofs, with every definition and every finite check. The appendix numbers columns from 0, so column 1 of the post is column 0 here. Paths of check scripts are relative to the bounds-2026 folder of the repository. The repository is [github.com/nmamano/MinCrossingsKnightsTour/tree/master/bounds-2026](https://github.com/nmamano/MinCrossingsKnightsTour/tree/master/bounds-2026).
+
+## A. Definitions
+
+**Board.** The cells are `(x, y)` with `0 <= x, y < n`. Here `x` increases to the right and `y` increases upwards; row zero is the bottom row. A knight move changes one coordinate by 1 and the other by 2.
+
+**Closed tour.** A cyclic sequence `v_0, ..., v_(n^2 - 1)` that contains every cell once, where consecutive cells (also the last and the first) are a knight move apart. The construction below proves existence for every even `n >= 48`. We use `T_min(n)` only when at least one closed tour exists.
+
+**Turn.** Position `i` is a turn if `v_(i-1), v_i, v_(i+1)` are not collinear (Definition 1 of the paper). With `a = v_(i-1) - v_i` and `b = v_(i+1) - v_i`, the three cells are collinear if and only if `b = -a`: collinear cells give parallel vectors, two parallel knight vectors are equal or opposite, and `b != a` because `v_(i-1) != v_(i+1)`. So a cell is a turn exactly when its two moves are not opposite. `T(tour)` is the number of turns, and `T_min(n)` is the minimum over closed tours.
+
+**2-factor.** A choice of exactly two knight neighbours for every cell, made symmetrically (if `u` chooses `w`, then `w` chooses `u`). A closed tour is a 2-factor with one cycle. Turns are defined the same way. The lower bound below holds for every 2-factor.
+
+**Theorem.** (a) For `n >= 8`, every 2-factor of the `n x n` knight graph, so every closed tour, has at least `8n - 28` turns. (b) For every even `n >= 48`, there is a closed tour with exactly `8n - 14` turns. So `8n - 28 <= T_min(n) <= 8n - 14` for every even `n >= 48`.
+
+## B. The four-column lemma and 8n - 64
+
+Fix a 2-factor `F`, `n >= 8`. Let `t(v) = 1` if `v` is a turn and 0 otherwise.
+
+**Lemma 1.** Columns 0, 1, 2, 3 contain at least `2n` turns.
+
+_Proof._ Let `T_i` count the turns in column `i`, and let `B` count the edges of `F` between column 3 and columns 1-2.
+
+- Column 0: both moves of a cell go right, so they are not opposite. `T_0 = n`.
+- Columns 1-2: for a cell `v`, let `p(v)` count its edges to column 0 or column 3. Then `t(v) >= p(v) - 1`. This is clear for `p(v) <= 1`. For `p(v) = 2`, the horizontal steps are in `{-1, +2}` (column 1) or `{-2, +1}` (column 2), and two of them never sum to 0. Column 0 has `2n` edge ends, all going to columns 1-2, and column 3 sends `B` edges there. Each such edge has exactly one end in columns 1-2. So `sum p(v) = 2n + B` over the `2n` cells, and `T_1 + T_2 >= B`.
+- Column 3: for a cell `v`, let `q(v)` count its edges to columns 1-2. Then `t(v) >= 1 - q(v)`: if `q(v) = 0`, both moves go right (column 0 is 3 steps away). Since `sum q(v) = B`, `T_3 >= n - B`.
+
+Adding: `T_0 + T_1 + T_2 + T_3 >= n + B + (n - B) = 2n`. ∎
+
+**Theorem 2.** `T >= 8n - 64`.
+
+_Proof._ Reflections map knight moves to knight moves and keep opposite moves opposite, so Lemma 1 holds at all four sides. The four strip counts add up to at least `8n`. For `n >= 8`, opposite strips are disjoint, and adjacent strips share a `4 x 4` corner square. Only the 64 corner cells are counted twice. ∎
+
+The local rate of 2 per row is attained on the infinite half-plane `x >= 0`, `y in Z`. Give column 0 the moves `(2,-1), (1,-2)`, column 1 the moves `(2,-1), (-1,2)`, and every cell with `x >= 2` the moves `(2,-1), (-2,1)`. These choices are reciprocal, and only columns 0 and 1 turn. This is a periodic side pattern, not a full finite-board tour. Away from its corners, the left side of the construction in part D uses this pattern.
+
+Check: `python3 w-turnstheory/check_proof.py` checks all 77 local cases of the lemma (cell, pair of moves) at one side.
+
+**Lean.** Theorem 2 is verified in Lean 4 with Mathlib (project `ktlean/`, Lean 4.35.0-rc3):
+
+```
+theorem KT.ClosedTour.eight_mul_sub_64_le_numTurns (T : ClosedTour n)
+    (hn : 8 <= n) : 8 * n - 64 <= T.numTurns
+```
+
+`ClosedTour n` is a bijection from positions `0 .. n^2 - 1` to cells, with cyclically consecutive positions a knight move apart. `numTurns` counts positions `i` where the cells at `i - 1, i, i + 1` are not collinear, equivalently where their cross product is nonzero. This is Definition 1 of the paper. `#print axioms` reports only `propext`, `Classical.choice` and `Quot.sound`. The project also proves the bound for every 2-factor (`KT.TwoFactor.eight_mul_le_numTurns_add`) and contains an explicit `8 x 8` tour. Check: in `ktlean/`, run `lake build`, and then `lake env lean Axioms.lean`.
+
+## C. The corner certificate and 8n - 28
+
+For a cell `v` at distance `i` from one side, define `L_i(v)` from the two neighbours of `v`, with distances from the same side:
+
+- `L_0(v) = 1`,
+- `L_1(v) = L_2(v) =` (number of neighbours at distance 0 or 3) `- 1`,
+- `L_3(v) = 1 -` (number of neighbours at distance 1 or 2),
+- `L_i(v) = 0` for `i >= 4`.
+
+The proof of Lemma 1 shows `t(v) >= L_i(v)` for every cell, and that the sum of `L_i` over one strip is exactly `2n` (the three sums are `n`, `(2n + B) - 2n = B` and `n - B`).
+
+Let `L(v)` be the sum of the four side contributions at `v`. Then `sum L(v) = 8n`, so `T - 8n = sum (t(v) - L(v))`. For `n >= 8`, a cell outside the four `4 x 4` corner squares has at most one nonzero side contribution, so `t(v) - L(v) >= 0` there.
+
+In one corner, use coordinates `0 <= x, y <= 3` measured inward from its two sides, and put `r(v) = t(v) - L_x(v) - L_y(v)`.
+
+**Lemma 3.** In every corner, `sum r(v) >= -7` over the 16 cells.
+
+_Proof._ Define `alpha(x, y)` by this table (rows `y`, columns `x`; the sum is `-7`):
+
+| | x = 0 | x = 1 | x = 2 | x = 3 |
+|---|---:|---:|---:|---:|
+| y = 0 | -1 | 0 | 0 | -1 |
+| y = 1 | 0 | 1 | 0 | -1 |
+| y = 2 | 0 | 0 | 0 | -1 |
+| y = 3 | -1 | -1 | -1 | -1 |
+
+Define `beta` on nine edges inside the corner, with endpoints in lexicographic order, and `beta = 0` on every other edge:
+
+| edge | beta | edge | beta |
+|---|---:|---|---:|
+| (0,1)-(1,3) | -1 | (1,2)-(3,3) | -1 |
+| (0,2)-(2,3) | -1 | (2,0)-(3,2) | -1 |
+| (0,3)-(1,1) | +1 | (2,1)-(3,3) | -1 |
+| (1,0)-(3,1) | -1 | (2,2)-(3,0) | -1 |
+| (1,1)-(3,0) | -1 | | |
+
+For a cell `v`, let `D(v)` be the sum over its two edges `e` of `+beta(e)` if `v` is the first endpoint of `e` and `-beta(e)` if it is the second. The claim is the local inequality `r(v) >= alpha(v) + D(v)` for every cell and every choice of its two moves. It depends only on the cell and its two moves, which must stay at nonnegative coordinates (for `n >= 8` the far sides of the board are too far to matter). That is 209 cases (cell, unordered pair of distinct moves). All 209 hold, and every cell has a case with equality.
+
+Summing over the 16 cells: each edge with `beta != 0` has both ends in the corner, so it adds `+beta` at one end and `-beta` at the other, and `sum D(v) = 0`. So `sum r(v) >= sum alpha = -7`. ∎
+
+Summing over the four corners: `T - 8n >= -28`. This proves part (a) of the theorem.
+
+The bound `-7` is sharp for a single corner with the outgoing edges left free: a choice of moves for the 16 cells with reciprocal internal edges and no internal cycle has `sum r = -7`. Summing four independent bounds of this form cannot improve the constant 28. A stronger global bound could use further constraints between corners or charge slack outside the corners.
+
+Checks: `python3 writeup/turns/check_corner.py` (the 209 cases, with the tables exactly as printed here); `python3 w-turnstheory/check_corner_certificate.py` (the same certificate from its own data, the sharp corner witness in `w-turnstheory/corner_witness.txt`, and tests on generated tours).
+
+**Lean.** Part (a) is verified in Lean 4 with Mathlib (project `ktlean/`, commit `e55bc59`), for closed tours and for 2-factors:
+
+```
+theorem KT.ClosedTour.eight_mul_sub_28_le_numTurns (T : ClosedTour n)
+    (hn : 8 <= n) : 8 * n - 28 <= T.numTurns
+
+theorem KT.TwoFactor.eight_mul_le_numTurns_add_28 (F : TwoFactor n)
+    (hn : 8 <= n) : 8 * n <= F.numTurns + 28
+```
+
+The definitions are the same as in part B. `#print axioms` reports only the standard axioms. Check: in `ktlean/`, run `lake build`, and then `lake env lean Axioms.lean`.
+
+## D. The tours: complete construction
+
+Each cell gets two moves, written as two digits with these move codes:
+
+| code | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
+|---|---|---|---|---|---|---|---|---|
+| move | (1,2) | (2,1) | (2,-1) | (1,-2) | (-1,-2) | (-2,-1) | (-2,1) | (-1,2) |
+
+Codes `k` and `k + 4 (mod 8)` are opposite, so a cell is straight exactly when its two digits differ by 4. Rules, from lowest to highest priority (a later rule overrides an earlier one):
+
+1. **Interior.** Every cell gets code `26`: the moves `(2,-1)` and `(-2,1)`. These cells lie on straight lines `x + 2y = c`.
+2. **Bottom.** Rows `y = 0..3`. Cell `(x, y)` uses column `k = x mod 8` of row `y` of this template:
+
+```
+y\k   0  1  2  3  4  5  6  7
+ 3   26 26 26 26 26 26 26 26
+ 2   36 26 26 46 26 46 36 26
+ 1   25 26 25 26 26 25 26 25
+ 0   16 67 06 16 06 16 16 67
+```
+
+3. **Top.** Cell `(x, n - 1 - y)`, `y = 0..3`, uses the template entry of row `y` and column `k = (1 - x) mod 8`, with both moves negated (the bottom turned by 180 degrees, shifted by one column).
+4. **Left and right.** Column 0: code `23`, the moves `(2,-1), (1,-2)`. Column 1: code `27`, the moves `(2,-1), (-1,2)`. Column `n - 1`: code `46`, the moves `(-1,-2), (-2,1)`. Column `n - 2`: code `06`, the moves `(-2,1), (1,2)`.
+5. **Corners.** Each `6 x 6` corner square gets fixed moves that depend only on `n mod 8`. They are listed below. TL is `0 <= x <= 5, n - 6 <= y <= n - 1`; TR is `n - 6 <= x <= n - 1, n - 6 <= y <= n - 1`; BL is `0 <= x, y <= 5`; BR is `n - 6 <= x <= n - 1, 0 <= y <= 5`. Each grid lists rows from top to bottom and columns from left to right.
+
+**Corners for `n mod 8 = 0`.**
+
+```
+TL                   TR
+23 23 25 25 23 25  23 25 23 23 35 45
+13 12 26 16 16 26  26 26 16 16 36 46
+23 27 27 26 26 27  26 27 26 67 07 47
+23 27 26 26 26 26  26 26 26 26 06 47
+23 27 26 26 26 26  26 26 26 26 06 46
+23 27 26 26 26 26  26 26 26 26 06 46
+
+BL                   BR
+23 27 26 26 26 26  26 26 26 26 06 46
+23 27 26 26 26 26  26 26 26 26 06 46
+23 47 26 26 26 26  26 26 56 26 06 46
+23 47 26 34 26 46  16 26 46 26 03 46
+02 27 56 25 26 25  25 26 25 26 05 56
+01 17 06 16 07 16  16 06 16 16 06 67
+```
+
+**Corners for `n mod 8 = 2`.**
+
+```
+TL                   TR
+23 23 25 25 23 25  25 24 23 23 35 45
+13 12 26 16 16 26  26 26 16 16 36 46
+23 27 27 26 26 27  02 26 26 67 07 47
+23 27 26 26 26 26  26 26 26 26 06 47
+23 27 26 26 26 26  26 26 26 26 06 46
+23 27 26 26 26 26  26 26 26 26 06 46
+
+BL                   BR
+23 27 26 26 26 26  26 26 26 26 06 46
+23 27 26 26 26 26  26 26 26 26 06 46
+23 47 26 26 26 26  26 26 36 26 06 46
+23 47 26 34 26 46  26 46 46 26 03 46
+02 27 56 25 26 25  26 25 26 27 05 56
+01 17 06 16 07 16  06 06 16 16 06 67
+```
+
+**Corners for `n mod 8 = 4`.**
+
+```
+TL                   TR
+23 23 25 25 23 25  25 24 23 25 34 45
+13 12 26 16 16 26  26 16 26 16 36 46
+23 27 27 26 26 27  02 26 26 07 06 47
+23 27 26 26 26 26  26 26 26 26 06 47
+23 27 26 26 26 26  26 26 26 26 06 46
+23 27 26 26 26 26  26 26 26 26 06 46
+
+BL                   BR
+23 27 26 26 26 26  26 26 26 26 06 46
+23 27 26 26 26 26  26 26 26 26 06 46
+23 47 26 26 26 26  26 26 36 26 06 46
+23 47 26 34 26 46  26 46 46 26 03 46
+02 27 56 25 26 25  26 25 26 27 05 56
+01 17 06 16 07 16  06 06 16 16 06 67
+```
+
+**Corners for `n mod 8 = 6`.**
+
+```
+TL                   TR
+23 23 25 25 23 25  23 25 24 23 35 45
+13 12 26 16 16 26  26 26 16 16 36 46
+23 27 27 26 26 27  26 07 26 26 07 47
+23 27 26 26 26 26  26 26 26 23 06 67
+23 27 26 26 26 26  26 26 26 26 06 46
+23 27 26 26 26 26  26 26 26 26 67 46
+
+BL                   BR
+23 27 26 26 26 26  26 26 26 26 06 46
+23 27 26 26 26 26  26 26 26 26 06 46
+23 47 26 26 26 26  26 26 56 26 06 46
+23 47 26 34 26 46  16 26 46 26 03 46
+02 27 56 25 26 25  25 26 25 26 05 56
+01 17 06 16 07 16  16 06 16 16 06 67
+```
+
+**Check C3 (construction and turn count):** `python3 writeup/turns/figures/tt16.py` (this one script needs numpy and matplotlib; all other checks use the standard library only) builds the tour for every even `n` from 48 to 102 from the corner files `w-integrator/corners/TT16_res{00,02,04,06}.json` (the same data as the grids above), checks that the moves are symmetric and form one closed tour, and checks the turn count of part E, including 82 corner turns. An independent program also rebuilt and checked the tours for every even `n` from 48 through 134, and for `n = 312, 314, 316, 318`.
+
+## E. The turn count: exactly 8n - 14
+
+A cell is a turn or not by its own two moves, so we count cell by cell.
+
+- Interior cells (code `26`) are straight.
+- Bottom and top: let `c_k` be the number of turns in column `k` of the bottom template. Row 0 turns everywhere, row 3 nowhere, row 1 at `k = 0, 2, 5, 7`, row 2 at `k = 0, 3, 5, 6`. So `(c_0, ..., c_7) = (3, 1, 2, 2, 1, 3, 2, 2)`, and `c_k + c_((1 - k) mod 8) = 4` for every `k`. Board column `x` uses template column `x mod 8` at the bottom and `(1 - x) mod 8` at the top. So every column `6 <= x <= n - 7` has exactly 4 turns in its bottom and top rows.
+- Left and right: every cell of columns 0, 1, `n - 2`, `n - 1` turns, so every row `6 <= y <= n - 7` has exactly 4 turns there.
+- Corners: for each residue of `n mod 8`, the four corner squares of part D contain 82 turns (BL 21, BR 21, TL 20, TR 20).
+
+Total: `82 + 4(n - 12) + 4(n - 12) = 8n - 14`. This proves the count in part (b) of the theorem, for every even `n >= 48`.
+
+## F. One closed tour for every n: block insertion
+
+The rules give every cell two moves. Check C3 (`tt16.py`, part D) confirms, for every even `n` from 48 to 102, that the moves are symmetric and form a single cycle through all `n^2` cells. We now show that the step from `n` to `n + 8` keeps a single cycle when `n >= 96`. With the bases `n = 96, 98, 100, 102`, this covers every even `n >= 48`.
+
+**Line labels and the reduced graph.** Retain every cell in the bottom and top bands of depth four, the left and right bands of depth two, and all four `6 x 6` corner squares. Every other cell has code `26`. Give each cell the label `c=x+2y`; those straight moves preserve `c`, and any knight move changes `c` by at most five. Suppress every maximal path whose internal vertices are not retained, replacing it by an edge between its retained endpoints. Keep parallel edges if they occur. No component can consist only of suppressed vertices: its moves follow a straight line monotonically and cannot close. This operation preserves the number of cycles. "Block cells" below means retained vertices of this reduced graph.
+
+Away from the corners, the two ends of an interior line lie in two side bands:
+
+| range of `c` | bands at the two ends |
+|---|---|
+| `24 < c < n - 24` | bottom and left |
+| `n + 24 < c < 2n - 24` | left and right |
+| `2n + 24 < c < 3n - 24` | right and top |
+
+The corner squares have label ranges `[0, 15]`, `[n - 6, n + 9]`, `[2n - 12, 2n + 3]` and `[3n - 18, 3n - 3]`. The margin 24 keeps the three ranges away from the corners and from the places where a line changes its band pair.
+
+**Blocks and ports.** A block is the set of (non-suppressed) cells with labels in `[a, a + 8)`, for a cut `a` with `[a, a + 8)` inside one of the three ranges. No edge jumps over a block, because `8 > 5`. A port is an edge with one end in the block and one outside. Within one range, increasing `c` by eight translates bottom and top band cells by `(8,0)` and left and right band cells by `(0,4)`. These shifts preserve the side templates. They also preserve the parity needed to solve `x+2y=c` at a fixed band depth. Thus the repeated blocks have the same named ports and the same reduced connections. They need not be translates by one vector in the original board. Orient each cut edge from its lower-label endpoint `u` to its higher-label endpoint `v`. Its description is `(band, depth(u), depth(v), c(u)-cut, c(v)-cut)`, where the band names are `B,L,R,T` in that lexicographic order and depth is distance from the corresponding board side. Sort these descriptions lexicographically and number them from zero. The checked lower and upper cuts have identical description lists. `L_i` and `R_i` denote the corresponding ports at cuts `a` and `a+8`.
+
+Inside a block, the cells form paths whose ends are ports. The complete matching `M` pairs the two ends of each path, including paths that come back to the same cut. Check C4 traces the blocks of the tours for `n = 96..102` at the cuts `a = 35`, `a` = the first multiple of 8 that is at least `n + 32`, and `a = 2n + 32`. It confirms that every cell of the block lies on one of these paths (so the block holds no separate cycle), and that the matchings are:
+
+| range | complete matching `M` |
+|---|---|
+| bottom-left | `L0-R3, L1-L3, L2-R2, R0-R1` |
+| left-right | `L0-R0, L1-R1, L2-R2, L3-R3` |
+| right-top | `L0-L2, L1-R3, L3-L5, L4-R0, R1-R5, R2-R4` |
+
+For every even `n >= 96`, use the same cut formulas: `a_0=35`, `a_1=8 ceil((n+32)/8)`, and `a_2=2n+32`. They satisfy `a_0+8=43<n-24`, `n+32<=a_1<=n+39` and `a_1+8<=n+47<2n-24`, and `a_2+8=2n+40<3n-24`. Thus every chosen block stays strictly within its band-pair range. The residue of each cut modulo eight depends only on `n mod 8`. The four checked base sizes therefore cover every template phase used by this induction.
+
+**Two copies act like one.** Glue two copies of a block (the right port `R_i` of the first copy is the left port `L_i` of the second). For each of the three matchings, the glued system pairs its outer ports exactly as `M` does, and the gluing closes no cycle: `M^2 = M`. For example, in the bottom-left block, the path from `L0` of the first copy reaches `R3`, continues in the second copy along the return path `L3-L1`, comes back to the first copy at `R1`, follows `R1-R0`, and enters the second copy at `L0`, where it continues to `R3`. So the glued system again pairs the outer `L0` with the outer `R3`.
+
+**The step from n to n + 8.** Choose one block in each of the three ranges and replace each by two copies, so that the labels after the first, second and third insertion shift by 8, 16 and 24. For a retained cell outside the three old blocks, put `r = #{j : c >= a_j+8}`. Move each such side-band cell by the vector below. Fill each doubled block with two consecutive copies of its periodic reduced pattern.
+
+| band | bottom | left | right | top |
+|---|---|---|---|---|
+| shift | `(8r, 0)` | `(0, 4r)` | `(8, 4(r - 1))` | `(8(r - 2), 8)` |
+
+Each shift changes `c` by `8r` and keeps the distance to the side. The bottom and top shifts are multiples of 8 in `x`, and the left and right shifts are multiples of 4 in `y`, so every template phase is kept. The BL, BR, TL, and TR corner squares move by `(0,0)`, `(8,0)`, `(0,8)`, and `(8,8)`, respectively. On cells shared with a side band, these corner shifts agree with the side-band table. The same corner codes apply because `n mod 8` is unchanged. The two ends of each suppressed straight path have the same label. Outside the inserted intervals, both endpoint shifts add the same `8r` to that label. At fixed band depth, the equation `x+2y=c`, with its parity, fixes the line endpoint. The shifts preserve both depth and parity, so the endpoint pairing is unchanged. The cut margins keep every block away from the corners and from a change of band pair. Non-suppressed cut edges keep their move and port description because the adjacent template phases agree. The remaining new interior cells lie on the extended straight paths; such a path cannot contain a separate cycle. Together with the repeated blocks, these cells account for the whole enlarged board. Hence the constructed graph is exactly the reduced graph specified by part D at size `n+8`, with reciprocal legal edges and degree two.
+
+**Conclusion.** By `M^2 = M`, the inserted material connects the outside ports exactly as the old block did, and contains no separate cycle. Everything else is unchanged up to translation and the length of straight paths. So if the tour for `n` is one cycle, the tour for `n + 8` is one cycle. With the bases 96 to 102 this gives every even `n >= 96`, and C3 covers 48 to 94 directly. With part E, this proves part (b) of the theorem.
+
+Check C4: `python3 w-turnstheory/check_upper_proofs.py` rebuilds the tours, traces the blocks, checks the complete matchings and `M^2 = M` with no closed component, compares the actual 16-label block of the tour for `n + 8` with two glued copies, and checks the turn increment 64 per step. It writes the ports and matchings to `w-turnstheory/upper_proof_checks.json`. An independent review also compared the whole reduced graph outside the inserted blocks for the four residues.
+

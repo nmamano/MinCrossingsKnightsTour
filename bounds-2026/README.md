@@ -23,9 +23,9 @@ Shisheng Li (2026); turns (6 &minus; &epsilon;)n &le; T<sub>min</sub> &le; 9.25n
 | X &le; 9n + 7 | Proved, even n &ge; 48 | [PROOFS.md &sect;1-4](w-turnstheory/PROOFS.md) | Claims 1, 4, 7 | none | `python3 w-turnstheory/check_upper_proofs.py` |
 | X &ge; 14n/3 &minus; 407 | Proved, closed tours, even n &ge; 32 | [PROOF_crossings_lower.md](w-turnstheory/PROOF_crossings_lower.md) | Claims 19, 20, 21(B) | conditional on strip stability: [`KT.ClosedTour.fourteen_mul_le_of_stability`](ktlean/Ktlean/TourMain.lean) | `python3 w-turnstheory/check_crossings_lower.py` |
 | X &ge; 4n &minus; 2 | Proved, every tour and 2-factor | [PROOF_crossings_lower.md &sect;1](w-turnstheory/PROOF_crossings_lower.md) | Claims 9, 20 | unconditional: [`KT.ClosedTour.four_mul_sub_two_le_numCrossings`, `KT.TwoFactor.four_mul_sub_two_le_numCrossings`](ktlean/Ktlean/Crossings.lean) | `python3 w-turnstheory/check_knight_tiles.py` |
-| T = 8n &minus; 14 | Constructed, even n &ge; 48 | [turns paper](writeup/turns/main.pdf), [PROOFS.md &sect;1-4](w-turnstheory/PROOFS.md) | Claims 6, 7, 16 | none | `python3 w-turnstheory/check_upper_proofs.py` |
-| T &ge; 8n &minus; 28 | Proved, tours and 2-factors, n &ge; 8 | [turns paper](writeup/turns/main.pdf) | Claims 16, 54 | unconditional: [`KT.ClosedTour.eight_mul_sub_28_le_numTurns`, `KT.TwoFactor.eight_mul_le_numTurns_add_28`](ktlean/Ktlean/Turns28.lean) | `python3 writeup/turns/check_corner.py` |
-| T &ge; 8n &minus; 64 | Proved, tours and 2-factors, n &ge; 8 | [turns paper](writeup/turns/main.pdf), [FINDINGS &sect;1](w-turnstheory/FINDINGS.md) | Claim 2 | unconditional: [`KT.ClosedTour.eight_mul_sub_64_le_numTurns`](ktlean/Ktlean/Tour.lean) | `python3 w-turnstheory/check_proof.py` |
+| T = 8n &minus; 14 | Constructed, even n &ge; 48 | [turns paper](writeup/turns/main.pdf), [TURNS_PROOFS.md D-F](TURNS_PROOFS.md#d-the-tours-complete-construction), [PROOFS.md &sect;1-4](w-turnstheory/PROOFS.md) | Claims 6, 7, 16 | none | `python3 w-turnstheory/check_upper_proofs.py` |
+| T &ge; 8n &minus; 28 | Proved, tours and 2-factors, n &ge; 8 | [turns paper](writeup/turns/main.pdf), [TURNS_PROOFS.md C](TURNS_PROOFS.md#c-the-corner-certificate-and-8n---28) | Claims 16, 54 | unconditional: [`KT.ClosedTour.eight_mul_sub_28_le_numTurns`, `KT.TwoFactor.eight_mul_le_numTurns_add_28`](ktlean/Ktlean/Turns28.lean) | `python3 writeup/turns/check_corner.py` |
+| T &ge; 8n &minus; 64 | Proved, tours and 2-factors, n &ge; 8 | [turns paper](writeup/turns/main.pdf), [TURNS_PROOFS.md B](TURNS_PROOFS.md#b-the-four-column-lemma-and-8n---64), [FINDINGS &sect;1](w-turnstheory/FINDINGS.md) | Claim 2 | unconditional: [`KT.ClosedTour.eight_mul_sub_64_le_numTurns`](ktlean/Ktlean/Tour.lean) | `python3 w-turnstheory/check_proof.py` |
 
 Claims refer to the audit log [w-verifier/FINDINGS.md](w-verifier/FINDINGS.md). For every even n &ge; 48 the turn
 results give 8n &minus; 28 &le; T<sub>min</sub>(n) &le; 8n &minus; 14, so T<sub>min</sub>(n)/n &rarr; 8. This proves the paper's
@@ -135,6 +135,7 @@ regenerates them.
 ## Directory map
 
 - [RESULTS.md](RESULTS.md) - entry point: every proved result, its proof, audit, Lean status and check command.
+- [TURNS_PROOFS.md](TURNS_PROOFS.md) - full proofs of the turn bounds 8n &minus; 28 and 8n &minus; 14, with every check (the appendix of the turns blog post).
 - [BRIEF.md](BRIEF.md), [RESTART.md](RESTART.md) - shared brief and early notes.
 - [briefs/](briefs/) - the messages that directed the agents.
 - [kt/](kt/) - shared core: tour validation and counts, a port of the paper's Algorithm 1, periodic strip model, CP-SAT gadget search.
@@ -146,7 +147,7 @@ regenerates them.
 - [w-turnstheory/](w-turnstheory/) - proofs and their check scripts.
 - [w-verifier/](w-verifier/) - independent audits (Claims 1-22) and the audit code.
 - [ktlean/](ktlean/) - Lean 4 + Mathlib formalization.
-- [writeup/](writeup/) - turns paper draft (main.tex, main.pdf) and blog drafts for turns and crossings.
+- [writeup/](writeup/) - turns paper draft (main.tex, main.pdf) and the crossings blog draft.
 - [w-viz/](w-viz/), [explain/](explain/) - figures.
 - [demo/](demo/) - source of the interactive demo of the constructions and of the progression of the bounds, live at https://nmamano.github.io/MinCrossingsKnightsTour/.
 - [runs/](runs/) - early run logs. Root `*.py` files - early experiments.
