@@ -212,7 +212,7 @@ def fig_corner_box():
     ax.text(R + .9, R + .9, 'charged path', color=CORR, fontsize=9)
     ax.text(1.8, R + .05, 'end row', color=TEAL, fontsize=8, va='top')
     ax.text(R + .7, .5, 'end row', color=TEAL, fontsize=8, va='center')
-    ax.text(R / 2, R / 2, f'box [0,R]²\n(R = {R})', ha='center', va='center', color=DIM, fontsize=9)
+    ax.text(R / 2, R / 2, f'box [0,R]²\n(R = {R})', ha='center', va='center', color=INK, fontsize=9)
     save(fig, 'lb_corner_box')
 
 
@@ -244,13 +244,13 @@ def fig_numberline():
     ax.set_xlim(3.6, 12.6); ax.set_ylim(-1.3, 1.3); ax.axis('off')
     ax.plot([3.8, 12.3], [0, 0], color=INK, lw=1)
     for x in range(4, 13):
-        ax.plot([x, x], [-.08, .08], color=INK, lw=1); ax.text(x, -.38, f'{x}n', ha='center', fontsize=8, color=DIM)
-    ax.add_patch(mp.Rectangle((14 / 3, -.06), 19 / 3 - 14 / 3, .12, fc='#f3d9d4', ec='none', zorder=1))
-    pts = [(4, 'paper (lower)', GREY, -.85), (14 / 3, 'lower now', TEAL, .45), (19 / 3, 'upper now', RED, .45),
+        ax.plot([x, x], [-.08, .08], color=INK, lw=1); ax.text(x, -.38, f'{x}n', ha='center', fontsize=8, color=INK)
+    ax.add_patch(mp.Rectangle((5, -.06), 19 / 3 - 5, .12, fc='#f3d9d4', ec='none', zorder=1))
+    pts = [(4, 'paper (lower)', GREY, -.85), (5, 'lower now', TEAL, .45), (19 / 3, 'upper now', RED, .45),
            (9, 'new heel', GREY, .45), (11.5, 'Shisheng', GREY, .85), (12, 'paper (upper)', GREY, .45)]
     for x, lab, c, yy in pts:
         ax.plot(x, 0, 'o', color=c, ms=7, zorder=3)
-        ax.text(x, yy, lab, ha='center', va='center', fontsize=8, color=c if c != GREY else DIM)
+        ax.text(x, yy, lab, ha='center', va='center', fontsize=8, color=c if c != GREY else INK)
     save(fig, 'lb_numberline')
 
 

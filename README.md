@@ -2,7 +2,7 @@
 
 New results for closed knight's tours on n &times; n boards (X = crossings, T = turns):
 
-- Crossings: X &le; 19n/3 + 142 for even n &ge; 96, and X &ge; 14n/3 &minus; 407 for even n &ge; 32.
+- Crossings: X &le; 19n/3 + 142 for even n &ge; 96, and X &ge; 5n &minus; 597 for even n &ge; 32.
 - Turns: a tour with T = 8n &minus; 14 for even n &ge; 48 (8n &minus; 17 for n &equiv; 2 mod 8, 8n &minus; 16 for n &equiv; 6 mod 8), and T &ge; 8n &minus; 28 for n &ge; 8.
 
 The code, proofs, checks and audits are in **[bounds-2026/](bounds-2026/)**. Its README is the entry point.

@@ -11,6 +11,8 @@ several cycles. Upper bounds give one Hamiltonian cycle.
 | X <= 19n/3+142 | Proved, even n>=96 | All-size insertion proof; complete path matchings and local counts |
 | X <= 9n+7 | Proved, even n>=48 | All-size insertion proof; finite base tours and band counts |
 | X <= 343n/48+671/24 | Proved, even n>=96 | All-size insertion proof; all 24 residue classes |
+| X >= 5n-597 | Proved, closed tours and 2-factors, even n>=32 | Tile count; 3,136-state cut-state certificate |
+| X >= 5n-612 | Proved, closed tours, even n>=32 (older proof) | Quarter payments; strip stability certificate |
 | X >= 14n/3-407 | Proved, closed tours, even n>=32 | Tile and path count; exact strip potentials |
 | X >= 4n-2 | Proved, every tour and 2-factor | Tile-area proof; exact geometry; unconditional Lean theorem |
 | T = 8n-17 (n = 2 mod 8), T = 8n-16 (n = 6 mod 8) | Constructed, even n>=48 in these classes | All-size insertion proof, period 16; exact turn count |
@@ -63,6 +65,31 @@ Lean: no formal construction theorem is claimed.
 
 ```sh
 python3 w-turnstheory/check_lf_proof.py
+```
+
+## Crossing lower bound: 5n-597
+
+Every closed tour on an even board n>=32 has X>=5n-597. The same bound
+holds for every spanning simple knight 2-factor, where crossing pairs
+from different cycles count as well as pairs from the same cycle.
+
+Proof: [PROOF_5N_V2.md](gap/turnstheory/PROOF_5N_V2.md).
+Audit: Claims 50, 51 and 52 in [FINDINGS.md](w-verifier/FINDINGS.md).
+The two text corrections from Claim 52 have been applied.
+The computer input is the cut-state strip certificate with 3,136 states
+(about 4 s; it needs NumPy). Claim 50 checks it again with the Python
+standard library only.
+
+An older proof of X>=5n-612 for closed tours,
+[PROOF_5N.md](gap/turnstheory/PROOF_5N.md) (Claim 42), stays in the repository.
+
+```sh
+python3 w-turnstheory/check_knight_tiles.py
+python3 w-turnstheory/check_corner_box.py
+python3 w-turnstheory/check_square_defects.py
+.venv/bin/python gap/lowerbounds/simple_strip/check_cut_certificate.py
+python3 gap/verifier/claim50_check.py
+python3 gap/verifier/claim52_check.py
 ```
 
 ## Crossing lower bound: 14n/3-O(1)
@@ -188,7 +215,7 @@ python3 w-turnstheory/check_proof.py
 
 - The exact minimum turn count: the sharp constant c in T_min(n) = 8n - c lies between
   17 and 28 for n = 2 mod 8, 16 and 28 for n = 6 mod 8, and 14 and 28 for n = 0, 4 mod 8.
-- The exact minimum crossing coefficient between 14/3 and 19/3.
+- The exact minimum crossing coefficient between 5 and 19/3.
 - A lower bound of 19n/3 for every construction in the fold family.
 - The general carrier lower bound and its fold-family consequence in
   [Claim 17](w-verifier/FINDINGS.md). The audited conditional counting
