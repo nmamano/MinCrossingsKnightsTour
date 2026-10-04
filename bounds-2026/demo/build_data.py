@@ -35,6 +35,8 @@ SPEC = {
     'P40': dict(nmin=48, period=40, bandB=4, bandL=2, Z=6),
     'LF4': dict(nmin=96, period=48, bandB=4, bandL=2, Z=6),
     'T18': dict(nmin=48, period=24, bandB=4, bandL=2, Z=6),
+    # 8n - 17 (n = 2 mod 8) / 8n - 16 (n = 6 mod 8); only n = 2 mod 4 (Claims 55b, 56; TURNS_IMPROVED.md)
+    'TI': dict(nmin=50, period=16, bandB=4, bandL=4, Z=8, only=lambda n: n % 4 == 2),
 }
 
 
@@ -166,8 +168,17 @@ def gen_FOLD(n):
     return to_grid(n, full), sorted(free)
 
 
+def gen_TI(n):          # Edge Searcher bands + 8x8 corners, rebuilt by the audited checker's graph() (allsize_check.py)
+    from allsize_check import graph
+    from kt.board import to_grid
+    tag = 'ES_res2' if n % 8 == 2 else 'ES_res6'
+    d = json.load(open(os.path.join(WI, 'pipeline', tag, f'res{n % 16:02d}.json')))
+    g = graph(d, n)
+    return to_grid(n, {c: set(v) for c, v in g.items()}), corner_cells(n, 8)
+
+
 GEN = dict(paper=gen_paper, H16a=gen_H16a, TT16=gen_TT16, FOLD=gen_FOLD, orig=gen_orig, heel21=gen_heel21,
-           P40=gen_P40, LF4=gen_LF4, T18=gen_T18)
+           P40=gen_P40, LF4=gen_LF4, T18=gen_T18, TI=gen_TI)
 
 
 def encode(g):
@@ -213,7 +224,8 @@ def main():
     os.makedirs(OUT, exist_ok=True)
     keys = a.keys.split(',')
     brute = {int(v) for v in a.brute.split(',') if v}
-    tasks = [(k, n, n in brute) for k in keys for n in range(max(a.nmin, SPEC[k]['nmin']), a.nmax + 1, 2)]
+    tasks = [(k, n, n in brute) for k in keys for n in range(max(a.nmin, SPEC[k]['nmin']), a.nmax + 1, 2)
+             if SPEC[k].get('only', lambda n: True)(n)]
     idx_path = os.path.join(OUT, 'summary.json')
     summary = json.load(open(idx_path)) if os.path.exists(idx_path) else {}
     with Pool(a.jobs) as pool:

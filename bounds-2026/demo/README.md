@@ -11,7 +11,7 @@ Old links to .../bounds-2026/demo/ redirect to the root with the same query and 
 
 ## Progression shown (Measure: crossings | turns; a step slider and list)
 Crossings: orig 13n -> paper (Parker Williams heel) 12n -> P40 (Shisheng Li) 11.5n -> H16a 9n -> LF4 343n/48 -> FOLD 19n/3.
-Turns: orig 9.5n -> heel21 (Parker Williams turn heel) 9.25n -> T18 8.5n -> TT16 8n - 14.
+Turns: orig 9.5n -> heel21 (Parker Williams turn heel) 9.25n -> T18 8.5n -> TT16 8n - 14 -> TI 8n - 17 (n = 2 mod 8) / 8n - 16 (n = 6 mod 8).
 Chart lower bounds: crossings 4n (paper), 5n (ours, Claim 42, 2026-10-03; was 14n/3, then 204n/43, 24n/5); turns 6n (paper), 8n - 28 (ours).
 
 | key | n (even) | crossings | turns | audit |
@@ -25,6 +25,7 @@ Chart lower bounds: crossings 4n (paper), 5n (ours, Claim 42, 2026-10-03; was 14
 | FOLD | 96..200 | 19n/3 + c | 38n/3 + c | Verifier Claim 12 |
 | T18 | 48..200 | 51n/4 + c | 17n/2 + c | Verifier Claims 3, 4 |
 | TT16 | 48..200 | 19n/2 + c | 8n - 14 | Verifier Claims 6, 7 |
+| TI | 50..198, n = 2 mod 4 only | slope 43/4 or 89/8 by class | 8n - 17 (n = 2 mod 8), 8n - 16 (n = 6 mod 8) | Verifier Claims 55b, 56 |
 Slopes are exact over the data (one value for every n -> n + period; build logs 2026-10-02).
 
 ## The paper's 21-turn heel (heel21)
@@ -40,7 +41,8 @@ rule the same search finds 20 turns / 24 crossings per period, but that heel is 
   corners/H16a_VE_res*.json; TT16 = periodic.Combo with corners/TT16_res*.json (n = 48..54 from
   w-integrator/tours/TT16_n*.json); FOLD = the fold_period.py transplant from corners/FOLD24_base_n{96..118}.json;
   orig/paper/heel21/P40 = kt.gentour.gen_tour with that heel or block; LF4 = periodic.Combo with
-  w-turnstheory/lf-corners/LF4_res*.json; T18 = period24.apply_zone with corners/T18_res*.json. Each tour: kt.core.validate + assemble.walk_check, counts by kt.core,
+  w-turnstheory/lf-corners/LF4_res*.json; T18 = period24.apply_zone with corners/T18_res*.json; TI = allsize_check.graph with
+  w-integrator/pipeline/ES_res2|ES_res6/res<n mod 16>.json (n = 2 mod 4 only; for other n the page shows TT16 and says so). Each tour: kt.core.validate + assemble.walk_check, counts by kt.core,
   and assemble.brute_crossings (all pairs) at n = 96, 98, 120. About 9 minutes with 2 processes.
 - `node demo/check.js`: an independent JS check (tourlib.js) of every data file: one closed tour, and
   the JS crossing and turn counts equal the Python counts. The page runs the same check on every tour it shows.

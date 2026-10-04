@@ -5176,5 +5176,311 @@
    "turns": 1683,
    "brute_crossings": null
   }
+ },
+ "TI": {
+  "54": {
+   "key": "TI",
+   "n": 54,
+   "valid": true,
+   "crossings": 580,
+   "turns": 416,
+   "brute_crossings": null
+  },
+  "50": {
+   "key": "TI",
+   "n": 50,
+   "valid": true,
+   "crossings": 551,
+   "turns": 383,
+   "brute_crossings": null
+  },
+  "58": {
+   "key": "TI",
+   "n": 58,
+   "valid": true,
+   "crossings": 640,
+   "turns": 447,
+   "brute_crossings": null
+  },
+  "62": {
+   "key": "TI",
+   "n": 62,
+   "valid": true,
+   "crossings": 666,
+   "turns": 480,
+   "brute_crossings": null
+  },
+  "66": {
+   "key": "TI",
+   "n": 66,
+   "valid": true,
+   "crossings": 729,
+   "turns": 511,
+   "brute_crossings": null
+  },
+  "70": {
+   "key": "TI",
+   "n": 70,
+   "valid": true,
+   "crossings": 752,
+   "turns": 544,
+   "brute_crossings": null
+  },
+  "74": {
+   "key": "TI",
+   "n": 74,
+   "valid": true,
+   "crossings": 818,
+   "turns": 575,
+   "brute_crossings": null
+  },
+  "78": {
+   "key": "TI",
+   "n": 78,
+   "valid": true,
+   "crossings": 838,
+   "turns": 608,
+   "brute_crossings": null
+  },
+  "82": {
+   "key": "TI",
+   "n": 82,
+   "valid": true,
+   "crossings": 907,
+   "turns": 639,
+   "brute_crossings": null
+  },
+  "86": {
+   "key": "TI",
+   "n": 86,
+   "valid": true,
+   "crossings": 924,
+   "turns": 672,
+   "brute_crossings": null
+  },
+  "90": {
+   "key": "TI",
+   "n": 90,
+   "valid": true,
+   "crossings": 996,
+   "turns": 703,
+   "brute_crossings": null
+  },
+  "94": {
+   "key": "TI",
+   "n": 94,
+   "valid": true,
+   "crossings": 1010,
+   "turns": 736,
+   "brute_crossings": null
+  },
+  "98": {
+   "key": "TI",
+   "n": 98,
+   "valid": true,
+   "crossings": 1085,
+   "turns": 767,
+   "brute_crossings": 1085
+  },
+  "106": {
+   "key": "TI",
+   "n": 106,
+   "valid": true,
+   "crossings": 1174,
+   "turns": 831,
+   "brute_crossings": null
+  },
+  "110": {
+   "key": "TI",
+   "n": 110,
+   "valid": true,
+   "crossings": 1182,
+   "turns": 864,
+   "brute_crossings": null
+  },
+  "102": {
+   "key": "TI",
+   "n": 102,
+   "valid": true,
+   "crossings": 1096,
+   "turns": 800,
+   "brute_crossings": 1096
+  },
+  "114": {
+   "key": "TI",
+   "n": 114,
+   "valid": true,
+   "crossings": 1263,
+   "turns": 895,
+   "brute_crossings": null
+  },
+  "118": {
+   "key": "TI",
+   "n": 118,
+   "valid": true,
+   "crossings": 1268,
+   "turns": 928,
+   "brute_crossings": null
+  },
+  "122": {
+   "key": "TI",
+   "n": 122,
+   "valid": true,
+   "crossings": 1352,
+   "turns": 959,
+   "brute_crossings": null
+  },
+  "126": {
+   "key": "TI",
+   "n": 126,
+   "valid": true,
+   "crossings": 1354,
+   "turns": 992,
+   "brute_crossings": null
+  },
+  "130": {
+   "key": "TI",
+   "n": 130,
+   "valid": true,
+   "crossings": 1441,
+   "turns": 1023,
+   "brute_crossings": null
+  },
+  "134": {
+   "key": "TI",
+   "n": 134,
+   "valid": true,
+   "crossings": 1440,
+   "turns": 1056,
+   "brute_crossings": null
+  },
+  "138": {
+   "key": "TI",
+   "n": 138,
+   "valid": true,
+   "crossings": 1530,
+   "turns": 1087,
+   "brute_crossings": null
+  },
+  "142": {
+   "key": "TI",
+   "n": 142,
+   "valid": true,
+   "crossings": 1526,
+   "turns": 1120,
+   "brute_crossings": null
+  },
+  "146": {
+   "key": "TI",
+   "n": 146,
+   "valid": true,
+   "crossings": 1619,
+   "turns": 1151,
+   "brute_crossings": null
+  },
+  "150": {
+   "key": "TI",
+   "n": 150,
+   "valid": true,
+   "crossings": 1612,
+   "turns": 1184,
+   "brute_crossings": null
+  },
+  "154": {
+   "key": "TI",
+   "n": 154,
+   "valid": true,
+   "crossings": 1708,
+   "turns": 1215,
+   "brute_crossings": null
+  },
+  "158": {
+   "key": "TI",
+   "n": 158,
+   "valid": true,
+   "crossings": 1698,
+   "turns": 1248,
+   "brute_crossings": null
+  },
+  "162": {
+   "key": "TI",
+   "n": 162,
+   "valid": true,
+   "crossings": 1797,
+   "turns": 1279,
+   "brute_crossings": null
+  },
+  "166": {
+   "key": "TI",
+   "n": 166,
+   "valid": true,
+   "crossings": 1784,
+   "turns": 1312,
+   "brute_crossings": null
+  },
+  "170": {
+   "key": "TI",
+   "n": 170,
+   "valid": true,
+   "crossings": 1886,
+   "turns": 1343,
+   "brute_crossings": null
+  },
+  "174": {
+   "key": "TI",
+   "n": 174,
+   "valid": true,
+   "crossings": 1870,
+   "turns": 1376,
+   "brute_crossings": null
+  },
+  "178": {
+   "key": "TI",
+   "n": 178,
+   "valid": true,
+   "crossings": 1975,
+   "turns": 1407,
+   "brute_crossings": null
+  },
+  "182": {
+   "key": "TI",
+   "n": 182,
+   "valid": true,
+   "crossings": 1956,
+   "turns": 1440,
+   "brute_crossings": null
+  },
+  "186": {
+   "key": "TI",
+   "n": 186,
+   "valid": true,
+   "crossings": 2064,
+   "turns": 1471,
+   "brute_crossings": null
+  },
+  "190": {
+   "key": "TI",
+   "n": 190,
+   "valid": true,
+   "crossings": 2042,
+   "turns": 1504,
+   "brute_crossings": null
+  },
+  "194": {
+   "key": "TI",
+   "n": 194,
+   "valid": true,
+   "crossings": 2153,
+   "turns": 1535,
+   "brute_crossings": null
+  },
+  "198": {
+   "key": "TI",
+   "n": 198,
+   "valid": true,
+   "crossings": 2128,
+   "turns": 1568,
+   "brute_crossings": null
+  }
  }
 }

@@ -54,15 +54,22 @@
       nmin: 48, period: 8, audit: 'Audited: KT Verifier Claims 6, 7 (all even n &ge; 48).',
       caption: { T: 'New pieces on all four edges. <b>T16</b> makes 16 turns per 8 columns on the top and bottom, and new side pieces (2 turns per row) fit its line pairing: ' +
         '<b>8n &minus; 14</b>. Our lower bound is 8n &minus; 28, so the leading term 8n is exact.' } }, LANE),
+    TI: Object.assign({ name: 'Periodic bands, 8&times;8 corners', credit: 'Agent Team', date: 'October 4, 2026',
+      nmin: 48, period: 16, audit: 'Audited: KT Verifier Claims 55b and 56 (every even n &ge; 48 with n &equiv; 2 or 6 mod 8).',
+      caption: { T: 'New side pieces found by a search over periodic bands (top and bottom repeat every 8 columns, the sides every 4 rows), ' +
+        'joined by searched 8&times;8 corners: <b>8n &minus; 17</b> for n &equiv; 2 (mod 8) and <b>8n &minus; 16</b> for n &equiv; 6 (mod 8). ' +
+        'For n &equiv; 0 or 4 (mod 8) no such tour is known; there TT16 (8n &minus; 14) is still the best.' } }, LANE),
   };
-  const STEPS = { X: ['orig', 'paper', 'P40', 'H16a', 'LF4', 'FOLD'], T: ['orig', 'heel21', 'T18', 'TT16'] };
+  // TI exists only for n = 2 mod 4; for other n the demo shows TT16 and says so.
+  const dataKey = (k, n) => (k === 'TI' && n % 4 === 0 ? 'TT16' : k);
+  const STEPS = { X: ['orig', 'paper', 'P40', 'H16a', 'LF4', 'FOLD'], T: ['orig', 'heel21', 'T18', 'TT16', 'TI'] };
   const STEPNOTE = { X: '', T: 'Shisheng Li\'s block targets crossings only, so it is not a step here.' };
   const KNOWN = { X: { orig: [13, 1], paper: [12, 1], P40: [23, 2], H16a: [9, 1], LF4: [343, 48], FOLD: [19, 3] },
-    T: { orig: [19, 2], heel21: [37, 4], T18: [17, 2], TT16: [8, 1] } };
+    T: { orig: [19, 2], heel21: [37, 4], T18: [17, 2], TT16: [8, 1], TI: [8, 1] } };
   const LOWER = { X: [{ name: '4n lower bound (paper)', f: (n) => 4 * n }, { name: '5n lower bound (new, Oct 3)', f: (n) => 5 * n }],
     T: [{ name: '6n lower bound on turns (paper)', f: (n) => 6 * n }, { name: '8n − 28 lower bound (new)', f: (n) => 8 * n - 28 }] };
   // Smallest n shown when a step is selected (P40: at n = 48 no 4x40 block fits, so 50), and the n rules per step.
-  const NSTART = { P40: 50 };
+  const NSTART = { P40: 50, TI: 50 };
   const ALG1NOTE = 'For n ≡ 2 (mod 4) and n ≡ 6 (mod 8), one corner piece uses the original heel.';
   const NRULE = {
     orig: 'The demo builds it with Algorithm 1 of the paper at every even n shown.',
@@ -74,6 +81,7 @@
     FOLD: 'Proved for every even n ≥ 96 (one base board per residue of n mod 24, then insertion).',
     T18: 'Proved for every even n ≥ 48 (one base board per residue of n mod 24, then insertion).',
     TT16: 'Proved for every even n ≥ 48 (base boards per residue of n mod 8, then insertion).',
+    TI: 'Proved for every even n ≥ 48 with n ≡ 2 or 6 (mod 8) (base boards per residue of n mod 16, then insertion). For n ≡ 0 or 4 (mod 8) the board shows TT16.',
   };
   const FIELD = { X: 'crossings', T: 'turns' };
   const NMAX = 200;
@@ -275,10 +283,10 @@
     const m = state.metric, ks = stepsOf(), i = ks.indexOf(state.key);
     document.querySelectorAll('[data-metric]').forEach((b) => b.classList.toggle('on', b.dataset.metric === m));
     $('steps').innerHTML = ks.map((k, j) => `<button class="choice${k === state.key && state.mode === 'steps' ? ' on' : ''}" data-k="${k}">` +
-      `<div class="ct"><b><em>${j + 1}</em> ${C[k].name}</b><span class="f">${fmtSlope(KNOWN[m][k])}${k === 'TT16' ? ' − 14' : ''}</span></div>` +
+      `<div class="ct"><b><em>${j + 1}</em> ${C[k].name}</b><span class="f">${fmtSlope(KNOWN[m][k])}${k === 'TT16' ? ' − 14' : k === 'TI' ? ' − 17 / − 16' : ''}</span></div>` +
       `<span>${C[k].credit} &middot; ${C[k].date}</span></button>`).join('') +
       (STEPNOTE[m] ? `<div class="note">${STEPNOTE[m]}</div>` : '') +
-      '<div class="note">Step labels show leading terms; exact counts include size-dependent constants. TT16\'s turn count is exactly 8n-14. ' +
+      '<div class="note">Step labels show leading terms; exact counts include size-dependent constants. TT16\'s turn count is exactly 8n-14; step 5 has exactly 8n-17 (n ≡ 2 mod 8) and 8n-16 (n ≡ 6 mod 8). ' +
       'The demo\'s board-size range is narrower than some constructions\' full range.</div>';
     $('steps').querySelectorAll('.choice').forEach((b) => b.addEventListener('click', () => selectKey(b.dataset.k)));
     const r = $('steprange'); r.min = 1; r.max = ks.length; r.value = i + 1;
@@ -300,7 +308,7 @@
     if (!stepsOf().includes(state.key)) selectKey(stepsOf()[stepsOf().length - 1]); else load(true);
   }));
   function renderCounts() {
-    const t = state.tour, k = state.key, n = t.n;
+    const t = state.tour, n = t.n, k = dataKey(state.key, n);
     const row = (m, label, val) => {
       const sl = slopeFor(k, m);
       const c = sl ? val - sl[0] * n / sl[1] : null;
@@ -330,7 +338,8 @@
     state.n = Math.min(NMAX, Math.max(spec.nmin, state.n - (state.n % 2)));
     for (const el of [$('nrange'), $('nnum')]) { el.min = spec.nmin; el.max = NMAX; el.value = state.n; }
     $('nnote').innerHTML = `<b>n: even, ${spec.nmin} to ${NMAX} here.</b> Odd n has no closed tour (an odd number of squares). ${NRULE[state.key]}` +
-      (state.key === 'P40' && state.n === 48 ? ' <b>At this n the count equals step 2.</b>' : '');
+      (state.key === 'P40' && state.n === 48 ? ' <b>At this n the count equals step 2.</b>' : '') +
+      (dataKey(state.key, state.n) !== state.key ? ` <b>Not available for n = ${state.n} (n ≡ ${state.n % 8} mod 8): the board shows TT16 (8n − 14).</b>` : '');
   }
 
   let loadSeq = 0;
@@ -343,14 +352,14 @@
     const seq = ++loadSeq, key = state.key, n = state.n;
     $('loading').style.display = 'block';
     let t;
-    try { t = await getTour(key, n); } catch (e) { $('loading').textContent = 'could not load data'; return; }
+    try { t = await getTour(dataKey(key, n), n); } catch (e) { $('loading').textContent = 'could not load data'; return; }
     if (seq !== loadSeq) return;
     $('loading').style.display = 'none';
     const keepView = state.tour && state.tour.n === n && state.view;
     state.tour = t;
     if (!keepView) setView('fit'); else draw();
     renderCounts(); renderCharts(); writeHash();
-    for (const m of [n - 2, n + 2]) if (m >= C[key].nmin && m <= NMAX) getTour(key, m).catch(() => {});
+    for (const m of [n - 2, n + 2]) if (m >= C[key].nmin && m <= NMAX) getTour(dataKey(key, m), m).catch(() => {});
   }
   // ---------- any board: Algorithm 1 of the paper generated in the browser (the 2019 demo) ----------
   function loadAny() {
@@ -417,7 +426,7 @@
       const pts = Object.keys(S[k]).map(Number).sort((a, b) => a - b), on = k === state.key;
       g += `<polyline fill="none" stroke="${on ? ACCENT : '#b9b8b2'}" stroke-width="2" stroke-linejoin="round" points="${pts.map((n) => `${X(n)},${Y(S[k][n][f])}`).join(' ')}"/>`;
     }
-    ks.forEach((k, j) => labs.push({ y: Y(S[k][NMAX][f]) + 4, text: `${j + 1}. ${C[k].name.replace('&times;', '×').replace(/ \(.*\)$/, '')}`, on: k === state.key }));
+    ks.forEach((k, j) => labs.push({ y: Y(S[k][Math.max(...Object.keys(S[k]).map(Number))][f]) + 4, text: `${j + 1}. ${C[k].name.replace('&times;', '×').replace(/ \(.*\)$/, '')}`, on: k === state.key }));
     labs.sort((a, b) => a.y - b.y);
     for (let i = 1; i < labs.length; i++) labs[i].y = Math.max(labs[i].y, labs[i - 1].y + 13);
     for (const l of labs) g += `<text x="${X(NMAX) + 6}" y="${l.y}" font-size="11.5" fill="${l.on ? '#1d1d1b' : '#8a8983'}" font-weight="${l.on ? 600 : 400}"${l.dim ? ' font-style="italic"' : ''}>${l.text}</text>`;
