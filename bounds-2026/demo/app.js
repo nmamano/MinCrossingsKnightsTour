@@ -262,18 +262,33 @@
   const endDrag = () => { drag = null; canvas.classList.remove('drag'); };
   canvas.addEventListener('pointerup', endDrag); canvas.addEventListener('pointercancel', endDrag);
   document.querySelectorAll('[data-view]').forEach((b) => b.addEventListener('click', () => setView(b.dataset.view)));
-  // Download the current view as a PNG at twice the CSS size (white background, same zoom and toggles).
-  $('dl').addEventListener('click', () => {
-    if (!state.tour) return;
+  // Download the current view as a PNG at twice the CSS size (same zoom and toggles), on white with a margin of
+  // max(24 px, 4.5% of the longer side) on all four sides. The whole-board view is first cropped to the board.
+  function downloadCanvas() {
     const r = canvas.getBoundingClientRect(), oldW = canvas.width, oldH = canvas.height;
     canvas.width = Math.round(r.width * 2); canvas.height = Math.round(r.height * 2);
     draw(true);
+    let sx = 0, sy = 0, cw = canvas.width, ch = canvas.height;
+    if (!state.viewName || state.viewName === 'fit') {   // crop to the board (+2 px for the border stroke)
+      const t = state.tour, n = t.w || t.n, h = t.h || t.n, v = state.view, k = unit(), pad = 2;
+      sx = Math.max(0, Math.floor(-v.x0 * k) - pad); sy = Math.max(0, Math.floor(-v.y0 * k) - pad);
+      cw = Math.min(canvas.width, Math.ceil((n - v.x0) * k) + pad) - sx; ch = Math.min(canvas.height, Math.ceil((h - v.y0) * k) + pad) - sy;
+    }
+    const M = Math.max(24, Math.round(0.045 * Math.max(cw, ch)));
+    const out = document.createElement('canvas'); out.width = cw + 2 * M; out.height = ch + 2 * M;
+    const o = out.getContext('2d'); o.fillStyle = '#ffffff'; o.fillRect(0, 0, out.width, out.height);
+    o.drawImage(canvas, sx, sy, cw, ch, M, M, cw, ch);
+    canvas.width = oldW; canvas.height = oldH; draw();
+    return out;
+  }
+  $('dl').addEventListener('click', () => {
+    if (!state.tour) return;
+    const out = downloadCanvas();
     const view = state.viewName === 'edge' ? `_edge-${SIDES[state.viewIdx]}` : state.viewName === 'corner' ? `_corner-${CORNERS[state.viewIdx]}`
       : state.viewName === 'centre' ? '_centre' : '';
     const a = document.createElement('a');
-    a.download = state.mode === 'any' ? `knight-tour_alg1_${state.aw}x${state.ah}${view}.png` : `knight-tour_${state.key}_n${state.n}${view}.png`; a.href = canvas.toDataURL('image/png');
+    a.download = state.mode === 'any' ? `knight-tour_alg1_${state.aw}x${state.ah}${view}.png` : `knight-tour_${state.key}_n${state.n}${view}.png`; a.href = out.toDataURL('image/png');
     document.body.appendChild(a); a.click(); a.remove();
-    canvas.width = oldW; canvas.height = oldH; draw();
   });
 
   // ---------- panel ----------
