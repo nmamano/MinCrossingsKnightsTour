@@ -1,0 +1,480 @@
+--- gap/verifier/claim46_crossings_snapshot.mdx	2026-10-03 16:45:56.784663981 +0200
++++ gap/verifier/claim53_post_snapshot.mdx	2026-10-03 22:05:45.662117167 +0200
+@@ -1,7 +1,7 @@
+ ---
+ title: "TODO: pick a title"
+ date: "2026-10-02"
+-excerpt: "Closed knight's tours on an n x n board need at least 5n - 612 crossings, and some have only 19n/3 + 142. The paper had 4n and 12n."
++excerpt: "Closed knight's tours on an n x n board need at least 5n - 597 crossings, and some have only 19n/3 + 142. The paper had 4n and 12n."
+ coverImage: "/blog/knights-tour-crossings/tour96.png"
+ categories: ["research"]
+ ---
+@@ -33,7 +33,7 @@
+ <Callout>
+   For every even `n >= 96`, there is a closed knight's tour on an `n x n` board
+   with at most `19n/3 + 142` crossings. For every even `n >= 32`, every closed
+-  tour has at least `5n - 612` crossings.
++  tour has at least `5n - 597` crossings.
+ </Callout>
+ 
+ <BlogImage
+@@ -48,18 +48,18 @@
+ One idea shows up on both sides: cheap side patterns force a charge around each corner. The new tours carry this charge to the centre. The lower bound adds the quarter payments along charged paths to the side-strip payments for the remaining paths.
+ 
+ <DemoEmbed
+-  src="https://nmamano.github.io/MinCrossingsKnightsTour/bounds-2026/demo/?metric=crossings"
+-  href="https://nmamano.github.io/MinCrossingsKnightsTour/bounds-2026/demo/?metric=crossings"
++  src="https://nmamano.github.io/MinCrossingsKnightsTour/?metric=crossings"
++  href="https://nmamano.github.io/MinCrossingsKnightsTour/?metric=crossings"
+   title="Interactive demo: knight tours with few crossings"
+ />
+ 
+-Explore the tours in the [interactive demo](https://nmamano.github.io/MinCrossingsKnightsTour/bounds-2026/demo/?metric=crossings).
++Explore the tours in the [interactive demo](https://nmamano.github.io/MinCrossingsKnightsTour/?metric=crossings).
+ 
+ ## Part 1: tours with fewer crossings
+ 
+ ### All the crossings are at the sides
+ 
+-In the paper's tours, the inside of the board is covered by long parallel lines. Parallel lines never cross.
++In the [paper](https://arxiv.org/abs/1904.02824)'s tours, the inside of the board is covered by long parallel lines. Parallel lines never cross.
+ 
+ All the crossings are at the sides, where the lines turn around. So the cost of a tour is basically "crossings per row or column, at each side".
+ 
+@@ -70,6 +70,20 @@
+ A computer search found a heel with 16 crossings per 8 columns by allowing a different order of the strands within each paired lane group. Checked corner pieces then close the construction into one tour:
+ 
+ <BlogImage
++  src="/blog/knights-tour/formation_moves.png"
++  alt="Formation moves"
++  caption="The four knights of the formation and the moves they make together."
++  width="80%"
++/>
++
++<BlogImage
++  src="/blog/knights-tour-crossings/heel_original.png"
++  alt="The original heel of the paper, with the four knight paths of the formation in four colours"
++  caption="The original heel: the four knights of the formation turn around at the bottom side. Each colour is one knight path."
++  width="100%"
++/>
++
++<BlogImage
+   src="/blog/knights-tour-crossings/heels.png"
+   alt="The paper's heel and the new heel, with crossings in red"
+   caption="The bottom side of two real tours. Red dots are crossings."
+@@ -181,8 +195,8 @@
+ 1. Each knight move owns a small tile. Their total area gives the tile bound `4n - 2`.
+ 2. Colour the board like a chess board. The colours define a charge that only a badly tiled spot can change.
+ 3. At each corner, a nested path is charged when its end rows pass a local test. There are about `2n` candidate paths across the four corners.
+-4. A charged path needs two bad quarters. If they are in its middle, they pay for half an extra crossing. Different paths use different quarters.
+-5. The side strips pay for paths that lose their charge, and for charged paths whose bad quarters stay near an end. Together, the paths add about `n` crossings to the tile bound.
++4. Each path we keep needs two usable bad quarters. Together, they pay for half an extra crossing. Different paths use different quarters.
++5. We discard paths with a failed endpoint test or a visible two-quarter strip overlap at an end. The side strips pay for those paths. Together, the paths add about `n` crossings to the tile bound.
+ 
+ ### Step 1: knight tiles
+ 
+@@ -209,7 +223,7 @@
+ 
+ A tour has `n^2` moves, so its tiles have total area `n^2`. The unit squares between the cells only have area `(n - 1)^2`. The extra area has to go into overlaps. Each crossing creates at most `1/2` of overlap, which gives at least `4n - 2` crossings.
+ 
+-This tile bound is also checked in Lean, a proof assistant. The stronger `5n - 612` bound below uses a Python certificate.
++This tile bound is also checked in Lean, a proof assistant. The stronger `5n - 597` bound below uses a Python certificate.
+ 
+ ### Step 2: gaps cost too
+ 
+@@ -250,7 +264,7 @@
+   width="60%"
+ />
+ 
+-The paths don't touch. There are `2n - 60` candidates. We keep those whose charge and endpoint conditions let us use the count below. Each discarded path has a failed test at an end.
++The paths don't touch. There are `2n - 60` candidates. We discard a path if either end fails the endpoint test or has a visible two-quarter strip overlap. We call those end rows _strong_. Every path we keep is charged.
+ 
+ ### Step 4: half a crossing per path
+ 
+@@ -262,19 +276,19 @@
+   width="60%"
+ />
+ 
+-A charged path therefore has two bad quarters in one of its squares. The exact area identity lets us pay `1/4` for each of them, using gaps and overlap counts. A crossing can pay for at most two quarters. Different paths use different quarters, so these payments don't exceed the available count.
++Each path we keep therefore has two bad quarters in one of its squares. The exact area identity bounds their number using gaps and overlap counts. A crossing accounts for at most two quarters. Different paths use different quarters, so we can add their counts.
+ 
+-There is one exception: two quarters covered by the same crossing pair in a side strip. That pair belongs to the side count instead. Away from the sides, this exception can't occur. A bad square in a path's middle therefore pays the full half crossing.
++There is one exception: a quarter covered exactly twice by a pair in a side strip whose tiles share two quarters. Such an overlap can only meet a path near an end, where it makes the row strong. We already discarded those paths. All bad quarters on the paths we kept are therefore _usable_.
+ 
+ ### Step 5: the side strips pay the rest
+ 
+-The remaining paths either lost their charge or have too few quarters paid by Step 4. In the second case, a bad quarter must come from the side-strip exception, near one of the path's ends.
++Every discarded path has a strong end row: a failed endpoint test or a visible two-quarter strip overlap.
+ 
+ A finite check scans the four columns next to each side. It counts both kinds of end row: a failed endpoint test, or a visible two-quarter overlap. The side has at least one crossing per row, plus one extra for each counted row, up to a fixed allowance for the ends of the scan.
+ 
+-Each remaining path can choose a different counted row. The exact area identity combines the quarter payments with half of this extra side count. Thus every candidate path pays half a crossing, either through its quarters or through a side row.
++Each discarded path can choose a different counted row. The exact area identity combines the usable-quarter count with half of this extra side count. Thus every candidate path pays half a crossing, either through its quarters or through a side row.
+ 
+-The `2n - 60` paths add `n - O(1)` to the tile bound. Keeping the constants gives `X >= 5n - 612`.
++The `2n - 60` paths add `n - O(1)` to the tile bound. Keeping the constants gives `X >= 5n - 597`.
+ 
+ 
+ ## The gap
+@@ -286,7 +300,7 @@
+   width="100%"
+ />
+ 
+-For every even `n >= 96`, the minimum lies between `5n - 612` and `19n/3 + 142`.
++For every even `n >= 96`, the minimum lies between `5n - 597` and `19n/3 + 142`.
+ 
+ On the lower side, we don't know how far this method can go. It checks short windows next to the sides and pays half a crossing per candidate path.
+ 
+@@ -299,7 +313,7 @@
+ The [full-proof appendix](#appendix-full-proofs) contains both arguments, including every finite certificate and its check command:
+ 
+ - [A. The fold construction](#proof-fold): exact placement, insertion for every even `n >= 96`, complete path matchings, and the count `X <= 19n/3 + 142`.
+-- [B. The lower bound](#proof-crossings-lower): the tile bound `4n - 2`, the corner charge, the exact endpoint test, strip stability, and `X >= 5n - 612` for every closed tour with even `n >= 32`.
++- [B. The lower bound](#proof-crossings-lower): the tile bound `4n - 2`, the corner charge, the exact endpoint test, the cut-state certificate, and `X >= 5n - 597` for every closed tour with even `n >= 32`.
+ 
+ The appendices are collapsed by default. Open the relevant proof to read its definitions, finite checks, and all-size argument.
+ 
+@@ -475,93 +489,62 @@
+ </details>
+ 
+ <details id="proof-crossings-lower">
+-<summary>B. Full proof: every tour has at least <code>5n - 612</code> crossings, including the <code>4n - 2</code> tile bound</summary>
+-
+-For every even `n >= 32`, every closed knight's tour on an `n x n` board has at least `5n - 612` proper crossing pairs. The proof uses exact tile geometry and a finite strip certificate. An independent program rebuilds the strip graph and checks every integer potential inequality, including the join between its two orientations.
+-
+-The tile bound `4n - 2` is also proved in Lean as `KT.ClosedTour.four_mul_sub_two_le_numCrossings`. The `5n - 612` bound here is computer-assisted, not a Lean theorem. With the project's Lean toolchain and dependencies installed, its existing theorem statements and axioms can be checked with:
++<summary>B. Full proof: every tour has at least <code>5n - 597</code> crossings, including the <code>4n - 2</code> tile bound</summary>
+ 
+-```sh
+-(cd ktlean && lake env lean Axioms.lean)
+-```
+-
+-Run the commands below from the repository's `bounds-2026` folder. Commands using `.venv/bin/python` use the research virtual environment. The independent strip checker needs NumPy. The author checker `f1v_stab.py` needs NumPy and OR-Tools: it imports `ortools.sat.python.cp_model` through its geometry helpers, although this certificate does not run a SAT solver. Other imports are Python standard-library or repository modules.
+-
+-### B.1. Tiles and the exact excess identity
+-
+-Put the cell centres at `V={0,...,n-1}^2`. The tour `H` is a connected simple degree-two graph on `V`. Each edge has coordinate differences of absolute values 1 and 2, and there are `n^2` edges. Let `X` count unordered pairs whose relative interiors cross properly. Shared endpoints do not count.
++For every even `n >= 32`, every closed knight's tour on an `n x n` board has at least `5n - 597` proper crossing pairs.
+ 
+-The tile of an edge is the parallelogram whose long diagonal is that edge and whose short diagonal is the unit grid edge with the same midpoint. For `(0,0)--(2,1)`, its vertices are `(0,0),(1,0),(2,1),(1,1)`. Its area is one. It stays in the endpoint box, hence inside `D=[0,n-1]^2`.
++The same bound holds for every spanning simple knight 2-factor: a set of disjoint cycles that together visit every cell. Count all crossing pairs, including pairs whose moves belong to different cycles.
+ 
+-Divide each unit square into four open quarter triangles along its diagonals. Every tile consists of four quarters. Two tiles overlap in positive area exactly when their edges cross properly; their overlap then has one or two quarters. Tiles sharing an edge endpoint have no area overlap.
++The proof uses exact tile geometry and a finite strip certificate. The [cut-state checker](https://github.com/nmamano/MinCrossingsKnightsTour/blob/master/bounds-2026/gap/lowerbounds/simple_strip/check_cut_certificate.py) has 3,136 states and 48,510 arcs. An [independent checker](https://github.com/nmamano/MinCrossingsKnightsTour/blob/master/bounds-2026/gap/verifier/claim50_check.py) rebuilds the graph and checks every potential inequality. The tile bound `4n - 2` is also proved in Lean; the stronger bound here is computer-assisted, not a Lean theorem.
+ 
+-This finite geometric fact is checked for four unoriented moves and the second edge's endpoint in `[-4,4]^2`. Each tile has coordinate span at most two, so the box includes every possible overlap:
++### B.1. Tiles and one scalar count
+ 
+-```sh
+-python3 w-turnstheory/check_knight_tiles.py
+-```
++Put the cells at `V={0,...,n-1}^2`. The graph `H` has degree two at every cell, so it has `n^2` edges. Let `X` count proper unordered crossing pairs; shared endpoints do not count. Put `E=X-4n+2`.
+ 
+-Let `m(q)` be the multiplicity of quarter `q`. A quarter is bad if `m(q) != 1`. Let `G` count holes, `X1` count crossing pairs with one-quarter overlap, and define:
++The tile of an edge is the parallelogram with that edge as its long diagonal and the unit grid edge of the same midpoint as its short diagonal. For `(0,0)--(2,1)`, its vertices are `(0,0),(1,0),(2,1),(1,1)`. It lies in the endpoint box and consists of four quarter triangles obtained by cutting unit squares along both diagonals.
+ 
+-```text
+-W3 = sum_q W3(q)
+-W3(q) = binom(m(q)-1,2) if m(q)>=1, and 0 if m(q)=0.
+-```
++Two tiles overlap exactly when their edges cross properly, in one or two quarters. The tile checker in B.7 checks four unoriented moves and the second edge's endpoint in `[-4,4]^2` relative to the first. Tile spans are at most two, so that box includes every possible overlap.
+ 
+-There are `4n^2` tile incidences and `4(n-1)^2` quarters in the board. Therefore:
++All quarter sums are over the `4(n-1)^2` quarters of board squares. Let `m(q)` be the full graph's tile multiplicity and `X1` count pairs with one-quarter overlap. Define:
+ 
+ ```text
+-sum_q (m(q)-1)_+ = 8n-4+G.
++D = sum_q [binom(m(q),2)-m(q)+1].
+ ```
+ 
+-At each covered quarter, `binom(m,2)=(m-1)+binom(m-1,2)`. Counting pair incidences in two ways gives:
++The summand is 1 at `m=0`, zero at `m=1,2`, and at least 1 at `m>=3`. Counting tile and pair incidences gives:
+ 
+ ```text
+-2X-X1 = sum_q binom(m(q),2) = 8n-4+G+W3.
+-E := X-4n+2 = (G+X1+W3)/2.                         (1)
++D = (2X-X1)-4n^2+4(n-1)^2 = 2E-X1,
++D+X1=2E.                                           (1)
+ ```
+ 
+-All terms on the right are nonnegative, so `X >= 4n - 2`. This area argument also holds for a spanning 2-factor; it does not use connectivity. Identity (1) has no omitted boundary term.
++In particular, `E>=0`, which proves `X>=4n-2`.
+ 
+-### B.2. Colour flux forces a bad square
++For each side `sigma`, let `S_sigma` be the graph edges touching vertex depth zero or one. Let `S` be the union of crossing-pair sets within the four strips, `s=|S|`, and `T=s-4n+2`. A quarter is bad if `m!=1`. Call it _usable_ unless `m=2` and its unique covering pair belongs to `S` with a two-quarter overlap.
+ 
+-Put `chi(x,y)=(-1)^(x+y)`. Orient tour edges and unit grid edges from `chi=1` to `chi=-1`. The internal dual grid has the unit-square centres as vertices. For a directed dual step, let `omega` be the total signed flux of these oriented edges from the step's left to its right.
+-
+-Let `a` be the endpoint of the crossed unit grid edge on the left of the step. Let `m_+,m_-` be the two adjacent quarter multiplicities, and let `g` count tiles whose short diagonal is that grid edge. The tour contribution is `chi(a)*(m_++m_--3g)`. Adding the unit grid contribution gives:
++For any set `Q` of usable bad quarters, those with `m=0` or `m>=3` number at most `D`. At `m=2`, a pair outside `S` accounts for at most two quarters; a pair in `S` must have one-quarter overlap. Thus:
+ 
+ ```text
+-omega = chi(a)*(m_++m_-+1) modulo three.             (2)
++|Q| <= D+2(X-s)+X1 = 4E-2T.                        (2)
+ ```
+ 
+-The formula is linear in selected knight edges. The tile checker above verifies it one edge at a time, in both dual directions.
+-
+-For a finite set of board vertices `A`, orient its dual boundary with `A` on the left. Replace each knight edge by its three unit lattice steps in the same crossing order. For displacement `(2,1)`, these steps are horizontal, vertical, horizontal; signs and transposition handle the other moves. Their signed boundary crossings telescope to the difference of the endpoint indicators of `A`. Summing tour and grid edges gives:
+-
+-```text
+-integral_(boundary A) omega
+-  = sum_(v in A) chi(v)*(deg_H(v)+4)
+-  = 6 sum_(v in A) chi(v).
+-```
++### B.2. Charge and bad squares
+ 
+-Thus internal dual loops have zero flux modulo three. A path is charged if its flux is nonzero modulo three. By (2), a charged path has a bad adjacent quarter in a square centred on one of its vertices.
++Set `chi(x,y)=(-1)^(x+y)`. Orient the graph edges and all unit edges of the infinite square lattice from `chi=1` to `chi=-1`. On a directed step between square centres, let `omega` be their signed flux from its left to its right.
+ 
+-Every tile occupies two adjacent quarters in each square it meets. Consequently the four multiplicities satisfy `m_B-m_R+m_T-m_L=0`. A bad square has at least two bad quarters. The finite square check is:
++Let `a` be the endpoint of the crossed grid edge on the left, `m_+,m_-` the adjacent quarter multiplicities, and `k` the number of tiles having that edge as short diagonal. The graph contribution is `chi(a)*(m_++m_--3k)`. Adding the grid contribution gives:
+ 
+-```sh
+-python3 w-turnstheory/check_square_defects.py
++```text
++omega = chi(a)*(m_++m_-+1) modulo three.             (3)
+ ```
+ 
+-### B.3. Corner candidates and endpoint tests
++The tile checker verifies this linear identity one edge at a time. For a finite vertex set `A` contained in the board, the total boundary flux is `sum_(v in A) chi(v)*(deg_H(v)+4)=6 sum_(v in A) chi(v)`, hence zero modulo three. Replace each knight edge by its three unit lattice steps in crossing order and telescope the endpoint indicators of `A` to obtain the boundary formula. All corner vertex sets below are contained in the board.
+ 
+-At each corner use coordinates increasing into the board. For every integer radius `12<=r<=n/2-4`, take the dual path:
++A path with nonzero flux modulo three is charged. Equation (3) forces a bad quarter in a square centred on that path. Each tile occupies two adjacent quarters in every square it meets, so the four multiplicities obey `m_B-m_R+m_T-m_L=0`. A bad square therefore has at least two bad quarters.
+ 
+-```text
+-gamma_r: (r+1/2,3/2) -> (r+1/2,r+1/2) -> (3/2,r+1/2).
+-```
++### B.3. The endpoint test and strong rows
+ 
+-Its square coordinates are `(r,j)` and `(j,r)` for `1<=j<=r`. Different radii have different maximum coordinates, and the four corner boxes are separated. Thus all candidates are vertex-disjoint. Their total number is `N=2n-60`.
+-
+-For a side, use coordinates `(inward depth, scan row)`. Translate a tested row to zero. The up endpoint quantity `F` is the sum of these coefficients on selected edges:
++Use side coordinates `(inward depth x, scan row y)`. Translate the tested vertex row to zero. Let `F` be the sum of these coefficients on selected edges:
+ 
+ | Edge | Coefficient |
+ | --- | ---: |
+@@ -574,177 +557,103 @@
+ | `(1,0)--(2,2)` | `-1` |
+ | `(1,1)--(2,-1)` | `-1` |
+ 
+-The exception is the simultaneous presence of `(0,0)--(2,1)` and `(0,1)--(2,0)`. The up test passes if the exception is absent and `F=2 mod 3`. Reflect the entire definition by `y -> -y` for the down test. This sends square row zero to square row minus one. The test and the square row must both be reflected.
+-
+-With `c=(-1)^r`, the endpoint residue in the corner frame is:
+-
+-```text
+-h = (1+c)/2+c*(F+2) modulo three.                   (3)
+-```
++The up test passes if `F=2 mod 3` and the edges `(0,0)--(2,1)` and `(0,1)--(2,0)` are not both present. This pair is the endpoint exception.
+ 
+-To obtain (3), enclose the corner cells `[0,r]^2` by their dual boundary. The tour flux through the two omitted steps at an end is `c*(F+deg_H(0,r))=c*(F+2)`. Their grid contributions cancel. The outer side contributes `sum_(j=0)^r (-1)^j=(1+c)/2`. Transposition gives the other end. The full boundary has zero flux modulo three, so a nonzero sum of the two endpoint residues forces the internal path to be charged.
++`VIS` holds if two strip edges, not both touching depth zero, have a two-quarter overlap meeting a square `(x,0)` with `x` in `{1,2,3}`. A row is _strong_ if the test fails or `VIS` holds. Reflect the whole definition by `y -> -y` for the down test. Thus down at vertex row `r` uses square row `r-1`. Let `b` count strong rows using up in the first half of each physical side and down in the second half.
+ 
+-Retain a candidate if both exceptions are absent and its two residues have nonzero sum. Write `L` for the retained count and `D_loss=N-L`. A passing endpoint test gives `h=2` for either parity. Hence two passing tests imply retention, and every lost candidate has a failed test at an end.
+-
+-The endpoint coefficient identity is checked by:
+-
+-```sh
+-python3 w-turnstheory/check_corner_box.py
+-```
++The graph flux through the two omitted end steps of a corner box, divided by `c=(-1)^r`, equals `F+deg_H(0,r)=F+2`. Subtracting the eight displayed coefficients from the edge flux coefficients leaves exactly the degree at `(0,r)`. The endpoint checker in B.7 verifies this identity in both directions.
+ 
+-Let `B` be the union, over the four sides, of crossing pairs whose two edges both touch depth zero of that side. There is just one such pair whose overlap reaches positive square depth at up row `r`:
++The unit-grid contributions on those two steps cancel. Along each outer side the grid contribution is `(1+c)/2`, and no graph edge crosses the boundary outside the board. When both endpoint values equal two modulo three, the complementary boundary flux is:
+ 
+ ```text
+-(0,r)--(2,r+1), (0,r+1)--(2,r).
+-```
+-
+-It is the excluded exception pair. Its overlap reaches square depth one, but not two. Reflect for the down end. Thus overlaps from `B` avoid all retained path squares. The exact enumeration checks this fact:
+-
+-```sh
+-.venv/bin/python gap/verifier/claim42_geometry.py
++1+c*(F_left+F_bottom+5) = 1 modulo three.            (4)
+ ```
+ 
+-The same check verifies the side-depth argument and candidate geometry for every even `n` from 32 through 258. The coordinate argument above proves disjointness and the count for every even `n>=32`; the finite size checks are additional checks of the implementation.
++The internal corner path is therefore charged.
+ 
+-### B.4. Quarter payments
++### B.4. Keep only paths with two non-strong ends
+ 
+-For each side `sigma`, let `S_sigma` contain all tour edges with an endpoint at depth zero or one. Let `S*` be the union of the crossing-pair sets within these four edge sets. Put `s=|S*|` and `T=s-4n+2`.
+-
+-Define a nonnegative capacity `nu` with separate items:
+-
+-- `1/2` for each crossing pair outside `S*`;
+-- `1/4` for each hole;
+-- `1/4` for each one-quarter crossing pair;
+-- `1/4` for each unit of `W3(q)` at its quarter.
+-
+-These are distinct terms even when they refer to the same physical crossing. By (1):
++At each corner, take all radii `12<=r<=n/2-4` and the paths:
+ 
+ ```text
+-nu(total) = (X-s)/2+E/2 = E-T/2,
+-E+580 = nu(total)+(T+1160)/2.                       (4)
++(r+1/2,3/2) -> (r+1/2,r+1/2) -> (3/2,r+1/2).
+ ```
+ 
+-A bad quarter is _payable_ except when it has multiplicity exactly two and its unique covering pair is in `S*` with a two-quarter overlap. Any set of distinct payable quarters can receive `1/4` each:
++Their square coordinates are `(r,j)` and `(j,r)`, with `1<=j<=r`. Different radii have different maximum coordinates, and the four corner boxes are disjoint. There are `N=2n-60` candidates.
+ 
+-- A hole uses its own quarter unit.
+-- A quarter with multiplicity at least three uses one of its `W3` units.
+-- At multiplicity two with the pair outside `S*`, use `1/4` of the pair's half unit. The pair covers at most two quarters, so it receives at most two requests.
+-- At multiplicity two with the pair in `S*`, the payable case has one-quarter overlap. Use that pair's one-quarter unit, which receives only this request.
++Keep those with neither end strong. Write `M=N-z`, where `z` is the discarded count. Each discarded path chooses one strong end. On each side the near and far vertex-row intervals are `[12,n/2-4]` and `[n/2+3,n-13]`. Each row belongs to at most one candidate, so `z<=b`.
+ 
+-No capacity is exceeded. The rule holds simultaneously for any distinct quarters, including quarters on different candidate paths. If locality is needed, every covering edge endpoint is within distance `3/2` of the square centre. The support check and independent payment check are:
++Each kept path is charged by (4) and supplies two bad quarters in one square. These quarters are usable. A strip tile reaches vertex depth at most three, so its open quarters have square depth at most two. A candidate with `r>=12` can be this close only to its own endpoint side, at the endpoint row. Opposite-side depths are at least `n-2-r>=n/2+2`.
+ 
+-```sh
+-python3 gap/turnstheory/check_quarter_payment_support.py
+-python3 gap/verifier/claim39_check.py
+-```
++A two-quarter strip pair meeting the path is either `VIS` or, if both edges touch depth zero, the endpoint exception. The exception is the only outer-column pair whose overlap reaches square depth one, and it does not reach depth two. Either case would make the end strong. The exception check in B.7 verifies this enumeration; the independent strip checker derives both `VIS` lists from tile geometry.
+ 
+-Let `s_i` count payable quarters on retained path `i`. Call it _deficient_ when `s_i<=1`, and write `L_def` for the deficient count. Every other retained path has two payable quarters. Since candidate squares are distinct, the payment rule gives:
++Different kept paths have distinct squares. Apply (2) to their `2M` usable quarters:
+ 
+ ```text
+-nu(total) >= (L-L_def)/2.                           (5)
++4E >= 2M+2T.                                      (5)
+ ```
+ 
+-A strip edge's tile reaches depth at most three, so its open quarters have square depth at most two. A bad square at depth at least three from every side is therefore fully payable and pays its path in full. Deficient paths have a good middle; their bad squares lie near their ends.
++### B.5. The cut-state strip certificate
+ 
+-### B.5. A visible side overlap pays a deficient path
++For a side, `S_sigma` has degree two in columns 0 and 1 and degree at most two in columns 2 and 3. Cycles are allowed. Scan whole rows. A cut state is the selected edges with lower endpoint below the current row and upper endpoint in or above it. There are twelve possible pending edges.
+ 
+-In an up side frame, `VIS(r)` holds if two edges of `S_sigma`, not both touching depth zero, form a crossing pair with two-quarter overlap and a common quarter in a square `(x,r)` with `x` in `{1,2,3}`. For the down test at row `r`, use square row `r-1`. Let `g=1` when the oriented endpoint test fails or `VIS` holds, and `g=0` otherwise.
++A row arc selects all edges starting in that row, subject to those degree constraints and future endpoint loads at most two. Remove edges ending at the row and translate coordinates by one. The actual board begins and ends with the empty cut. Following its rows maps the strip to the graph reachable from the empty state, including its middle state.
+ 
+-Every deficient retained path has a visible end. The path is charged, so it has a bad square. That square has two bad quarters, but the entire path has at most one payable quarter. At least one quarter is therefore unpayable. Its multiplicity is two, and its covering pair belongs to `S*` with a two-quarter overlap. The pair is outside `B`, by retention.
++The incoming set together with new edges contains all edges meeting the row, so both strong flags are functions of a row arc. No parity or component labels are needed. An arc weight `w` counts new/pending crossings and unordered new/new crossings. An older edge that crosses a new one is still pending; otherwise it ends below the new edge. Each crossing is counted once, and the `n` weights sum to `X_sigma`. The same state and crossing ownership are kept at the orientation change.
+ 
+-That overlap has square depth at most two from its side. A candidate square is `(r,j)` or `(j,r)`, with `r>=12`. The side must therefore be the one at that arm's endpoint, with `j` equal to one or two. Opposite-side depths are at least `n-2-r>=n/2+2`. The pair belongs to that side's `S_sigma` and witnesses `VIS` in the endpoint row.
+-
+-This works for every candidate radius, including 12 through 32. There is no small-radius error. The exact geometry check in B.3 finds seven possible visible pairs per orientation, verifies their reflection and checks that their edges are pending at the required row boundary.
+-
+-Choose one failed end for each lost candidate and one visible end for each deficient retained candidate. The two classes are disjoint. In a fixed side scan, near and far endpoint rows lie in the disjoint intervals `[12,n/2-4]` and `[n/2+3,n-13]`. Each row belongs to at most one candidate. If `G_strong` counts strong rows over the four sides with their proper half orientations, then:
++The reachable graph has 3,136 states and 48,510 arcs. Integer potentials `h_up` in `[-24,0]` and `h_down` in `[-28,0]` satisfy:
+ 
+ ```text
+-G_strong >= D_loss+L_def.                          (6)
++4w-4-4g+h(u)-h(v) >= 0 on every row arc,
++0 <= h_up-h_down <= 4 on every state.              (6)
+ ```
+ 
+-### B.6. The strong strip certificate and the orientation join
+-
+-Each `S_sigma` is a proper subgraph of the connected tour, so it is a forest. Columns zero and one have degree two; columns two and three have degree at most two.
+-
+-Scan cells in increasing `(row,column)` order. A state records pending selected edges and the partition of their ends into paths. At each cell choose forward edges to meet the degree requirements. Reject degree overflow and any closed cycle. Shift the row coordinates after column three. Knight edges span at most two rows, so the state space is finite.
+-
+-Each transition weight `w` counts crossings introduced when the later of the two edges' lower endpoints is processed. Each crossing is counted once. A full side walk has `4n` transitions and total weight `X_sigma`.
++Here `g` is the strong-row indicator in the chosen orientation. Exact relaxation from zero at all states stabilizes in eight passes per orientation. A final pass checks every inequality. The independent checker derives the seven `VIS` pairs per orientation and reproduces the graph, both potentials and their interface.
+ 
+-The independent checker augments the state with the full selected-edge mask for the current row. There are 20 possible strip edges meeting that row. The mask keeps edges removed during processing and includes new edges. At row end it evaluates the endpoint test and `VIS`, then resets the mask. Both orientations use the same graph. All base row-boundary states are admitted as starts, so actual half-side states are covered. No parity bit is needed: the strong test is independent of row parity.
+-
+-The base graph has 82,516 states and 144,674 arcs. The augmented graph has 184,006 states and 343,631 arcs. Exact integer relaxation produces potentials `h_up` in `[-29,0]` and `h_down` in `[-33,0]`. Each stabilizes after 41 passes. A final pass checks every arc inequality:
++Split at row `n/2`. For start, middle and end states `a,m,z`, sum (6):
+ 
+ ```text
+-4w-1-4g+h(u)-h(v) >= 0.                            (7)
++4(X_sigma-n-b_sigma)
++ >= h_up(m)-h_up(a)+h_down(z)-h_down(m) >= -28.
+ ```
+ 
+-The penalty `g` is charged only at row end. The checker also verifies, at every row boundary:
++Thus `b<=sum_sigma X_sigma-4n+28`. A pair counted in two adjacent strips has both edges in their `4 x 4` corner square, which has 24 possible knight edges. Opposite strips share no edges for `n>=32`. The total overcount is therefore at most `4*binom(24,2)=1104`, giving:
+ 
+ ```text
+--4 <= h_up-h_down <= 4.                            (8)
++b <= s-4n+1132 = T+1130,
++T >= b-C,                    C=1130.               (7)
+ ```
+ 
+-The down test at row `r` uses square row `r-1`, because reflection sends square row zero to minus one. The full row mask keeps the required edges. Reflection alone would not justify copying the up potential range; the down range is 33. The interface check (8) is a separate part of the certificate.
++### B.6. Add the counts
+ 
+-Split a physical side at row `n/2`. Use up tests on the first half and down tests on the second. Keep the same state and crossing ownership at the cut. Let `a,m,z` be the start, middle and end states. Summing (7) across both halves gives:
++Combine (5), (7), `M=N-z` and `z<=b`:
+ 
+ ```text
+-4(X_sigma-n-G_sigma)
+-  >= h_up(m)-h_up(a)+h_down(z)-h_down(m)
+-  >= -4-33 = -37.
++4E >= 2(N-z)+2T >= 2N-2C.
++X = E+4n-2 >= 5n-(32+C/2) = 5n-597.
+ ```
+ 
+-Here (8) bounds the middle difference, `h_up(a)<=0`, and `h_down(z)>=-33`. This permits arbitrary boundary states. Summing over four sides gives:
++The constant is `C=28+1104-2=1130`. For smaller positive even `n`, the same numerical bound follows from `X>=0`.
+ 
+-```text
+-G_strong <= sum_sigma X_sigma-4n+37.                (9)
+-```
++Every hand step uses degree two, and the strip certificate allows cycles. The proof therefore applies to spanning simple knight 2-factors as well. The tile and flux sums must include all edges, and `X` must include crossings between different cycles.
+ 
+-A crossing pair counted in two adjacent strips has both edges in their `4 x 4` corner square. That square has 24 possible knight edges. Opposite strips share no edges in the stated size range. Hence:
++### B.7. Reproduction
+ 
+-```text
+-sum_sigma X_sigma-s <= 4*binom(24,2)=1104,
+-G_strong <= s-4n+1141 = T+1139 <= T+1160.           (10)
+-```
+-
+-The final inequality keeps a looser constant to match the stated bound. Connectivity is used in the forest condition. This certificate does not assert the same result for disconnected 2-factors.
+-
+-The independent reconstruction, both potential checks and their interface check run with:
+-
+-```sh
+-OPENBLAS_NUM_THREADS=1 .venv/bin/python gap/verifier/claim42_check.py
+-```
+-
+-This took about 22 seconds on the research machine on 2026-10-03, in one process. The program imports prior verifier transition and exact polygon routines, not the author's graph or potential code. The potential arrays, hashes and report are saved under `gap/verifier/` as `claim42_potential_up.npy`, `claim42_potential_down.npy`, `claim42_check.json`, `claim42_check.log` and `claim42_sources.json`.
+-
+-The separate author implementation uses endpoint accumulators and carries previous-row visibility as a bit for down scans. Its commands are:
++Run from the repository's `bounds-2026` folder:
+ 
+ ```sh
+-(cd gap/lowerbounds && ../../.venv/bin/python f1v_stab.py cert 1 1 up)
+-(cd gap/lowerbounds && ../../.venv/bin/python f1v_stab.py cert 1 1 down)
+-```
+-
+-The measured author run times were 31 seconds up and 42 seconds down on 2026-10-03. These programs require both NumPy and OR-Tools, as noted above. Their separate half-side ranges alone give the weaker constant 614. Use the independent common-state interface check for the constant 612 proved here. No periodic SAT result or critical-rate optimality claim is needed.
+-
+-### B.7. Add the payments
+-
+-Combine (4), (5), (6) and (10):
+-
+-```text
+-E+580 = nu(total)+(T+1160)/2
+-      >= (L-L_def)/2+(D_loss+L_def)/2
+-       = (L+D_loss)/2
+-       = (2n-60)/2 = n-30.
++python3 w-turnstheory/check_knight_tiles.py
++python3 w-turnstheory/check_corner_box.py
++python3 w-turnstheory/check_square_defects.py
++.venv/bin/python gap/lowerbounds/simple_strip/check_cut_certificate.py
++python3 gap/verifier/claim50_check.py
++python3 gap/verifier/claim52_check.py
+ ```
+ 
+-Since `X=E+4n-2`, this gives:
+-
+-```text
+-X >= 5n-612, for every even n>=32.
+-```
++The small checks cover tile overlap, local flux, endpoint coefficients and the square identity. The author cut-state checker needs NumPy and writes its two potential arrays under `gap/lowerbounds/simple_strip/`. It uses no solver or component labels.
+ 
+-The quarter payments and the strip reserve are distinct terms of the exact identity (4). The reserve pays lost and deficient retained paths once, as disjoint classes. No further payment or error is needed for individual paths or stretches of a side. For smaller positive even `n`, the same numerical inequality follows from `X>=0`.
++The independent Claim 50 checker uses only the Python standard library and repository fixtures. It checks the graph and derives both `VIS` lists without importing the author's code. The Claim 52 checker rechecks the outer-column exception and the 2-factor case. On 2026-10-03, the author certificate took 5.38 seconds and the independent certificate took 8.51 seconds in the audit run.
+ 
+-The proof needs the local tile, flux and endpoint checks, the quarter-payment rule, and one narrow-strip certificate with two potentials and their interface. It uses no wider strip model, local matching certificate or classification of all interior patterns. The full proof and audit records are in `gap/turnstheory/PROOF_5N.md` and Claims 39, 40 and 42 of `w-verifier/FINDINGS.md`.
++The [standalone proof](https://github.com/nmamano/MinCrossingsKnightsTour/blob/master/bounds-2026/gap/turnstheory/PROOF_5N_V2.md) and [audit report](https://github.com/nmamano/MinCrossingsKnightsTour/blob/master/bounds-2026/gap/verifier/claim52_report.md) give the same argument and its checks.
+ 
+ </details>
