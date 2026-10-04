@@ -495,3 +495,92 @@ Role (CR): any improved corner set -> verified tours for every even n = 48..110 
   l_d5lowm20/l_free, 8x8, no base -> 8n-13 (~8 min), PASS. Untested: band periods 16 (s > p).
 2026-10-03T23:39Z: routine sync pushed a66eac2. New excludes (script + bounds-2026/.gitignore): gap/verifier/claim*_clean/ (claim54_clean = ktlean audit build copy), w-integrator/pipeline/selftest_[!T]*/. New over-5MB exclusion reported: gap/lowerbounds/turns_ring/fstrip_1_-2.pkl (6.5 MB).
 2026-10-04 (CR): pushed 7e46a77: Lean 8n-28 (Claim 54) in main.tex (line 91, sec:lean, audit status; pdf rebuilt), README.md + RESULTS.md 8n-28 rows (hunks only; held 5n rows stay unstaged).
+2026-10-04: routine sync pushed 02fe48e. New over-5MB exclusion: gap/lowerbounds/turns_ring/strip_W4.pkl (42 MB).
+Claim 55 (Verifier): allsize_check FAIL as a general checker (fallback tour size not checked; geometric preconditions
+not enforced); the 3 self-test families PASS under extra checks. FIXED the same day: fallback needs td n == n, n x n
+rows, legal codes, exact board vertex set (validate(g, n)); templates rectangular + legal; corner_radius(): inward
+coords >= 0, shapes cover band-overlap rectangles, R; base N >= max(96, 2R+6); w >= 5; cuts also clear the 4
+band-overlap spans; PASS only if dT == 8s (integer), else exit 1; refuses python -O. allpipe labels its period
+EMPIRICAL and SUMMARY as candidate data. Regression: python3 w-integrator/allsize_regress.py (Claim 55 adversarial
+cases + bad overlap + genuine fallback + period-16; 9/9 OK). SHA-256: allsize_check.py 2a792b3a..., allpipe.py a147c022...
+2026-10-04 (CR: Claim 55b prep): mixed interiors (move pairs 15/37, period 5; TMIN.md) and side gadgets that change
+along a side (gap/searcher/turns/mixed.py) are NOT supported, and both tools reject them cleanly: allpipe exits REJECT if
+a base differs from the skeleton at corner distance >= --max-corner (16) and names the moves; allsize_check rejects a
+residue file with "interior" other than x+2y. Regression 10/10 OK (adds bad_interior). Hashes:
+dcd96d11caef7b818df0688590dd11d5f0cf4cddcab9f5ad434a88e0cca24c44 w-integrator/allsize_check.py
+bc5ae0a06ca13c129ee624603884c460caac4ca58a9a7ff22f4c58f168ebfdfd w-integrator/allpipe.py
+a86d08dcd60ac716d0cf04de1d1cb8a2b2f1bebb3458c271faf51af2d57b8708 w-integrator/allsize_regress.py
+
+## 2026-10-04: all-size checks of the Edge Searcher's tours below 8n - 14 (PENDING AUDIT, checker changed after Claim 55b)
+Inputs: gap/searcher/turns/tours/res6/n{62,70}.json, res2/n{66,74}.json (only n + tour). New allpipe options:
+--extract Db,Dl,P,Q (read the 4 periodic bands from the tour; the skeleton then matched every cell outside the 8x8
+corners), --A/--B defaults, --period, --residues. allsize_check: --partial (residue subset; the PASS line names the classes).
+Outside matching has period 16 in n (not 8) (why: UNCHECKED; M^2 = M was not tested); checker step s = 16, M^3 = M.
+- pipeline/ES_res6 (period 16, residues 6, 14): PASS T(n) <= 8n - 16 for every even n >= 48, n = 6 mod 8
+  (direct checks n = 54..126; bases N = 102, 110; dT = 128 = 8s; R = 8).
+- pipeline/ES_res2 (period 16, residues 2, 10): PASS T(n) <= 8n - 17 for every even n >= 48, n = 2 mod 8
+  (direct checks n = 50..122; bases N = 98, 106).
+Commands: .venv/bin/python w-integrator/allpipe.py --tag ES_res6 gap/searcher/turns/tours/res6/n62.json
+  gap/searcher/turns/tours/res6/n70.json --extract 4,4,8,4 --A 8 --B 8 --period 16 --residues 6,14 --nmax 126
+  python3 w-integrator/allsize_check.py w-integrator/pipeline/ES_res6 --partial   (same for res2 with residues 2,10)
+Hashes after these changes:
+f3925853ab20f57416678ee81aa2b4322c7e5074fe4065ff3ef29730353bc5d6 w-integrator/allsize_check.py
+2dfc8f14657e04ef2315d3cafa609d691ae59d7223675a00466a5c7f644316d8 w-integrator/allpipe.py
+a86d08dcd60ac716d0cf04de1d1cb8a2b2f1bebb3458c271faf51af2d57b8708 w-integrator/allsize_regress.py
+
+## 2026-10-04: DESIGN - all-n argument for a MIXED interior (not built; for CR review)
+Geometry (checked on gap/structures/tmin/r18_tour_D4.json, r32_2f_D4.json): interior cells are straight in direction
+A = (2,1) [pair 15] or B = (1,-2) [pair 37]; the class is q = (x - 2y) mod 5 (equivalently (2x + y) mod 5); a set
+S_A of classes uses A, the rest B (r18: 4 A + 1 B; r32: 1 A + 4 B). lam_A = x - 2y is constant on A chords,
+lam_B = 2x + y on B chords. The field is invariant under the lattice L = <(2,1),(1,-2)> (index 5, contains 5Z^2).
+Chord families by lam order of the corners: A: TL(-2n) < TR(-n) < BL(0) < BR(n) -> gaps L-T, L-R, B-R;
+B: BL(0) < TL(n) < BR(2n) < TR(3n) -> gaps B-L, T-B, T-R. Each gap grows by s in lam when n grows by s.
+Reduced graph: tour = ring (depth-D bands + corners) + chords (each chord = one edge between two ring ports).
+Turns are only in the ring, so T(n0 + ks) = T(n0) + k*dT is exact by local counting once the ring is periodic
+(no connectivity needed). That part transfers from allsize_check unchanged.
+
+NEGATIVE RESULT (why the TT16 proof does not transfer). TT16 inserts whole chords (slabs parallel to the chords);
+nothing crosses a slab, so the rest of the graph is unchanged and M^(1+s/w) = M is a finite check. With two chord
+families, an A-slab is crossed by O(n) B chords. Keeping those B chords straight forces the translation across the
+A-slab to be along B (t = (w/5)(1,-2)), which is not a square-board growth. With the square growth (corners move by
+(s,0), (0,s), (s,s)), the three A-slab insertions do grow every side by s (as in TT16), but in that identification of
+ring ports the B pairing is re-wired: B chords between an A-insertion point and the B-insertion point on the same side
+shift by s/2 to 2s ports. That is a global change of O(n) chords. So connectivity is NOT preserved by a local check,
+and the cycle count can depend on n arithmetically (rotation-like, e.g. gcd(an + b, K)); Structures' r32 2-factor
+(6 cycles) shows the mixed field does not connect by itself. Two cut families or a cross insertion do not fix this:
+any region closed under both chord directions is the whole board.
+
+PROPOSED PROOF (build only after CR agreement): exact parametric connectivity.
+ 1. Port model: contract every ring-local path; each ring port then has one ring partner (R, bounded offset,
+    periodic along each side, fixed near corners) and one chord partner (C, affine in position with constants
+    affine in n). Cycles of the tour = orbits of phi = C o R on ports.
+ 2. Parametric tracing: for n = n0 + k*S, ports form finitely many families (side, residue mod band period) with
+    index ranges [lo(k), hi(k)), lo/hi affine in k. phi is piecewise affine on these families. Trace pieces
+    symbolically; when a return map on a piece is a translation by a constant t, accelerate (number of rounds =
+    floor division, which splits k by residue mod t). Output: the number of cycles as a function of k on each
+    residue class of k, for all k >= k0, plus direct checks for the n below n0 + k0*S.
+ 3. Certificate checker (standard library): replays the symbolic trace step by step (each step = an exact identity
+    between affine maps on integer intervals), so the Verifier audits a finite list of exact steps.
+ Expected outcome: the mixed family is a single tour only on some classes of n mod K (K from the gcd structure);
+ the tool reports these classes exactly. Effort: data generator 1-2 h; parametric engine + checker 4-8 h; risk:
+ the trace may need many splits if the band patterns are irregular.
+Preconditions the checker will enforce: interior = mixed field exactly (S_A given, every interior cell straight);
+four periodic bands, depth D, periods P (bottom/top), Q (left/right); growth step S = multiple of lcm(5, P, Q)
+(and of 2Q for the line period); corner zones within radius R with N0 >= 2R + 6; no closed ring cycles; every
+chord ends in a band port (no chord ends inside a corner zone beyond the fixed corner data).
+Data generator first (cheap, no proof): cross insertion (S columns at the board centre and S rows), fill with the
+periodic bands and field, validate each n directly up to n ~ 300, and print cycle counts per n. This shows K fast.
+Input format (proposed to Edge Searcher 2026-10-04, not yet confirmed): a JSON with n and tour (board.js grid);
+optional S_A, D, P, Q; I extract bands and the class rule from the tour, as with --extract.
+2026-10-04: data generator built (CR agreed): w-integrator/mixgen.py (stdlib, not a proof). Cross insertion of S columns at
+x = X and S rows at y = Y (k times), valid when the base is S-periodic across both seams; every board checked directly;
+prints T - 8n and cycle count per n, writes single-cycle tours with --out. Tests: TT16 n56, S = 8 -> one cycle,
+8n - 14 for n = 56..136. ES res6 n62, S = 8 at the centre -> one cycle, 8n - 16 for n = 62..158 (centre insertion has
+period 8; the corner-anchored transplant in allpipe needs 16; both valid). Structures' mixed boards: NOT growable:
+r18 (n = 18 < room for S = 10) and r32 2-factor (interior exactly 5-periodic, 0 mismatches; ring breaks period 10 at
+4 cells on the vertical seam, 5 on the horizontal). So no K yet. Requirement for mixed inputs: S = common period
+across the seams = multiple of lcm(5, 2, P_bottom/top, Q_left/right); bands of period 2, 5 or 10 give S = 10.
+2026-10-04 (Nil via PSA/CR): pushed 3b06214: bounds-2026/TURNS_PROOFS.md (source: research-root TURNS_PROOFS.md, made from
+writeup/turns/appendix_from_post_2026-10-04.mdx; parts A-F as ## headings; only text change: removed "Click a part to open
+it."; text word diff in w-integrator/turns_proofs_worddiff.txt). README.md + RESULTS.md link to parts B, C, D-F (hunks only;
+held 5n rows unstaged). 5 check commands PASS from a git-ls-files copy (Lean not rebuilt). GitHub anchors verified.

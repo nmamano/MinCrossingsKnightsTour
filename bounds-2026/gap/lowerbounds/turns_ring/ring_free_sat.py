@@ -29,6 +29,6 @@ for p in cells:
         if q in cs and p < q:
             m.Add(sum(v for a, b, v in byp[p] if d in (a, b)) == sum(v for a, b, v in byp[q] if (-d[0], -d[1]) in (a, b)))
 m.Minimize(sum(obj))
-s = cp_model.CpSolver(); s.parameters.num_workers = 2; s.parameters.max_time_in_seconds = TL
+s = cp_model.CpSolver(); s.parameters.num_workers = int(sys.argv[4]) if len(sys.argv) > 4 else 2; s.parameters.max_time_in_seconds = TL; s.parameters.cp_model_presolve = False
 st = s.Solve(m)
 print('free-interior ring n', n, 'W', W, s.StatusName(st), 'min sum r =', s.ObjectiveValue(), 'bound', s.BestObjectiveBound(), flush=True)

@@ -1,0 +1,24 @@
+== allpipe ES_res6 2026-10-04 03:54:38 bases=['gap/searcher/turns/tours/res6/n62.json']
+base n=62: T=480 (T-8n=-16) X=666 file=gap/searcher/turns/tours/res6/n62.json
+shape cells per corner: {'BL': 64, 'BR': 64, 'TL': 64, 'TR': 64} bounding boxes: {'BL': (8, 8), 'BR': (8, 8), 'TL': (8, 8), 'TR': (8, 8)}
+== allpipe ES_res6 2026-10-04 03:55:24 bases=['gap/searcher/turns/tours/res6/n62.json']
+base n=62: T=480 (T-8n=-16) X=666 file=gap/searcher/turns/tours/res6/n62.json
+shape cells per corner: {'BL': 64, 'BR': 64, 'TL': 64, 'TR': 64} bounding boxes: {'BL': (8, 8), 'BR': (8, 8), 'TL': (8, 8), 'TR': (8, 8)}
+bad n (overlap/closed fixed cycles) in the wanted classes: []
+== allpipe ES_res6 2026-10-04 03:57:25 bases=['gap/searcher/turns/tours/res6/n62.json', 'gap/searcher/turns/tours/res6/n70.json']
+base n=62: T=480 (T-8n=-16) X=666 file=gap/searcher/turns/tours/res6/n62.json
+base n=70: T=544 (T-8n=-16) X=752 file=gap/searcher/turns/tours/res6/n70.json
+shape cells per corner: {'BL': 64, 'BR': 64, 'TL': 64, 'TR': 64} bounding boxes: {'BL': (8, 8), 'BR': (8, 8), 'TL': (8, 8), 'TR': (8, 8)}
+bad n (overlap/closed fixed cycles) in the wanted classes: []
+outside matching: EMPIRICAL period p=16 in n from n_s=48 (finite check to n=300, not a proof); n with overlap/closed fixed cycles: [48, 50, 52, 56, 58, 60, 64, 66, 68, 72, 74, 76, 80, 82, 84, 88, 90, 92, 96, 98, 100, 104, 106, 108, 112, 114, 116, 120, 122, 124, 128, 130, 132, 136, 138, 140, 144, 146, 148, 152, 154, 156, 160, 162, 164, 168, 170, 172, 176, 178, 180, 184, 186, 188, 192, 194, 196, 200, 202, 204, 208, 210, 212, 216, 218, 220, 224, 226, 228, 232, 234, 236, 240, 242, 244, 248, 250, 252, 256, 258, 260, 264, 266, 268, 272, 274, 276, 280, 282, 284, 288, 290, 292, 296, 298, 300]
+n=54: T=416 T-8n=-16 X=580 transplant res06 (n0=70)
+n=62: T=480 T-8n=-16 X=666 transplant res14 (n0=62)
+n=70: T=544 T-8n=-16 X=752 transplant res06 (n0=70)
+n=78: T=608 T-8n=-16 X=838 transplant res14 (n0=62)
+n=86: T=672 T-8n=-16 X=924 transplant res06 (n0=70)
+n=94: T=736 T-8n=-16 X=1010 transplant res14 (n0=62)
+n=102: T=800 T-8n=-16 X=1096 transplant res06 (n0=70)
+n=110: T=864 T-8n=-16 X=1182 transplant res14 (n0=62)
+n=118: T=928 T-8n=-16 X=1268 transplant res06 (n0=70)
+n=126: T=992 T-8n=-16 X=1354 transplant res14 (n0=62)
+DONE (candidate; failed n: []): T-8n per residue {6: [-16], 14: [-16]}; worst -16; next: python3 w-integrator/allsize_check.py w-integrator/pipeline/ES_res6

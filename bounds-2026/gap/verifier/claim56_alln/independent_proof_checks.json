@@ -1,0 +1,372 @@
+{
+  "ES_res2": {
+    "supplied": [
+      {
+        "file": "gap/verifier/claim56_alln/ES_res2/tours/ES_res2_n106.json",
+        "n": 106,
+        "turns": 831,
+        "sha256": "25bcb6b76aaed8930bb2f815043db22a92ca72c8c227a37664ed85eb8951a0ee"
+      },
+      {
+        "file": "gap/verifier/claim56_alln/ES_res2/tours/ES_res2_n114.json",
+        "n": 114,
+        "turns": 895,
+        "sha256": "8c17df62e5c624e98985b711328aae95d9b505e77fe15bd1b79437a193496cbb"
+      },
+      {
+        "file": "gap/verifier/claim56_alln/ES_res2/tours/ES_res2_n122.json",
+        "n": 122,
+        "turns": 959,
+        "sha256": "0a8e53f67229306e6da0c2c1c716161c9c52dc089ed4ff9aec9f2e23f688f577"
+      },
+      {
+        "file": "gap/verifier/claim56_alln/ES_res2/tours/ES_res2_n50.json",
+        "n": 50,
+        "turns": 383,
+        "sha256": "6e9f25efec9e8d9e5bd22fb80308b63c77258534c5af947e6f0e552151c98063"
+      },
+      {
+        "file": "gap/verifier/claim56_alln/ES_res2/tours/ES_res2_n58.json",
+        "n": 58,
+        "turns": 447,
+        "sha256": "e3dbc1b99377dfa2b474f73d1a568c3f1727eb39d7013651e4d4e6c021dc908a"
+      },
+      {
+        "file": "gap/verifier/claim56_alln/ES_res2/tours/ES_res2_n66.json",
+        "n": 66,
+        "turns": 511,
+        "sha256": "06ae20b8913384ff1b2d7987bcd8c5c313773008643029b3bd4b69d9a66ebc4f"
+      },
+      {
+        "file": "gap/verifier/claim56_alln/ES_res2/tours/ES_res2_n74.json",
+        "n": 74,
+        "turns": 575,
+        "sha256": "f137dbbbbadb53e694ba0f57f009b797e9171c69c9280516bdd501ed704f311a"
+      },
+      {
+        "file": "gap/verifier/claim56_alln/ES_res2/tours/ES_res2_n82.json",
+        "n": 82,
+        "turns": 639,
+        "sha256": "9ca1f13a1f227319bb3607c1d8f6b0235e9824756fa426a6d9f165c2159414eb"
+      },
+      {
+        "file": "gap/verifier/claim56_alln/ES_res2/tours/ES_res2_n90.json",
+        "n": 90,
+        "turns": 703,
+        "sha256": "66fc847f0be745babf954028689ecec07d97c328e5f34b5d64a38071c20575d7"
+      },
+      {
+        "file": "gap/verifier/claim56_alln/ES_res2/tours/ES_res2_n98.json",
+        "n": 98,
+        "turns": 767,
+        "sha256": "fc819fc869cd57dcd925516a481de018bef61c335e28c8110e1e56d6924fe4db"
+      }
+    ],
+    "counts": [
+      [
+        50,
+        383
+      ],
+      [
+        58,
+        447
+      ],
+      [
+        66,
+        511
+      ],
+      [
+        74,
+        575
+      ],
+      [
+        82,
+        639
+      ],
+      [
+        90,
+        703
+      ],
+      [
+        98,
+        767
+      ],
+      [
+        106,
+        831
+      ],
+      [
+        114,
+        895
+      ],
+      [
+        122,
+        959
+      ]
+    ],
+    "bands": [
+      [
+        "bottom",
+        8,
+        16
+      ],
+      [
+        "top",
+        8,
+        16
+      ],
+      [
+        "left",
+        4,
+        8
+      ],
+      [
+        "right",
+        4,
+        8
+      ]
+    ],
+    "transfers": [
+      {
+        "N": 98,
+        "gap": 0,
+        "cut": 27,
+        "ports": 4,
+        "M_cubed_equals_M": true,
+        "no_new_cycle": true
+      },
+      {
+        "N": 98,
+        "gap": 1,
+        "cut": 117,
+        "ports": 4,
+        "M_cubed_equals_M": true,
+        "no_new_cycle": true
+      },
+      {
+        "N": 98,
+        "gap": 2,
+        "cut": 207,
+        "ports": 6,
+        "M_cubed_equals_M": true,
+        "no_new_cycle": true
+      },
+      {
+        "N": 106,
+        "gap": 0,
+        "cut": 27,
+        "ports": 4,
+        "M_cubed_equals_M": true,
+        "no_new_cycle": true
+      },
+      {
+        "N": 106,
+        "gap": 1,
+        "cut": 125,
+        "ports": 4,
+        "M_cubed_equals_M": true,
+        "no_new_cycle": true
+      },
+      {
+        "N": 106,
+        "gap": 2,
+        "cut": 223,
+        "ports": 6,
+        "M_cubed_equals_M": true,
+        "no_new_cycle": true
+      }
+    ],
+    "classes": [
+      2,
+      10
+    ],
+    "step": 16,
+    "dT": 128,
+    "constant": -17
+  },
+  "ES_res6": {
+    "supplied": [
+      {
+        "file": "gap/verifier/claim56_alln/ES_res6/tours/ES_res6_n102.json",
+        "n": 102,
+        "turns": 800,
+        "sha256": "2ba79025b911e4f08f53d550213b829bc66e61bda3cb90e166608a12d9b5245c"
+      },
+      {
+        "file": "gap/verifier/claim56_alln/ES_res6/tours/ES_res6_n110.json",
+        "n": 110,
+        "turns": 864,
+        "sha256": "86b3ad049b0b4c50cf13ae3cd26d53c024e8bccad2259d3db9e45a29b79c70d1"
+      },
+      {
+        "file": "gap/verifier/claim56_alln/ES_res6/tours/ES_res6_n118.json",
+        "n": 118,
+        "turns": 928,
+        "sha256": "70c602bd381baa60acc173c8c689477678eeb0d91ab8ebe5c20d24f103687964"
+      },
+      {
+        "file": "gap/verifier/claim56_alln/ES_res6/tours/ES_res6_n126.json",
+        "n": 126,
+        "turns": 992,
+        "sha256": "da15c42ac012ae9188c5fbc595ad39e62d9628234ff90af96d611e5c9d3de730"
+      },
+      {
+        "file": "gap/verifier/claim56_alln/ES_res6/tours/ES_res6_n54.json",
+        "n": 54,
+        "turns": 416,
+        "sha256": "b3c9e2f8a8c4206fc72862da11c06ed5075b2b222dfc7f9208661d48234f5b25"
+      },
+      {
+        "file": "gap/verifier/claim56_alln/ES_res6/tours/ES_res6_n62.json",
+        "n": 62,
+        "turns": 480,
+        "sha256": "c7b56ae5074a989cc77df441cf752b09dfd197ae250fa992c3471fb0522cf7ad"
+      },
+      {
+        "file": "gap/verifier/claim56_alln/ES_res6/tours/ES_res6_n70.json",
+        "n": 70,
+        "turns": 544,
+        "sha256": "68661dfede1ebe8b43847e4a1c413531c0f5cf4d0b407d8c097ff09502e1030e"
+      },
+      {
+        "file": "gap/verifier/claim56_alln/ES_res6/tours/ES_res6_n78.json",
+        "n": 78,
+        "turns": 608,
+        "sha256": "919f1f81377690d1c417d6d4a3f7e088628d6e381b6a1b895827a5b87512526b"
+      },
+      {
+        "file": "gap/verifier/claim56_alln/ES_res6/tours/ES_res6_n86.json",
+        "n": 86,
+        "turns": 672,
+        "sha256": "c42b8a1468ff18fdf4e433dd77f5c7d81d7c0d3a95226c96b15047e7ea596d6f"
+      },
+      {
+        "file": "gap/verifier/claim56_alln/ES_res6/tours/ES_res6_n94.json",
+        "n": 94,
+        "turns": 736,
+        "sha256": "0ba04bdda0e02fe352b4d39ebf9846ccd0fa3de823d92c61eb477b987661965c"
+      }
+    ],
+    "counts": [
+      [
+        54,
+        416
+      ],
+      [
+        62,
+        480
+      ],
+      [
+        70,
+        544
+      ],
+      [
+        78,
+        608
+      ],
+      [
+        86,
+        672
+      ],
+      [
+        94,
+        736
+      ],
+      [
+        102,
+        800
+      ],
+      [
+        110,
+        864
+      ],
+      [
+        118,
+        928
+      ],
+      [
+        126,
+        992
+      ]
+    ],
+    "bands": [
+      [
+        "bottom",
+        8,
+        16
+      ],
+      [
+        "top",
+        8,
+        16
+      ],
+      [
+        "left",
+        4,
+        8
+      ],
+      [
+        "right",
+        4,
+        8
+      ]
+    ],
+    "transfers": [
+      {
+        "N": 102,
+        "gap": 0,
+        "cut": 27,
+        "ports": 6,
+        "M_cubed_equals_M": true,
+        "no_new_cycle": true
+      },
+      {
+        "N": 102,
+        "gap": 1,
+        "cut": 121,
+        "ports": 4,
+        "M_cubed_equals_M": true,
+        "no_new_cycle": true
+      },
+      {
+        "N": 102,
+        "gap": 2,
+        "cut": 215,
+        "ports": 8,
+        "M_cubed_equals_M": true,
+        "no_new_cycle": true
+      },
+      {
+        "N": 110,
+        "gap": 0,
+        "cut": 27,
+        "ports": 6,
+        "M_cubed_equals_M": true,
+        "no_new_cycle": true
+      },
+      {
+        "N": 110,
+        "gap": 1,
+        "cut": 129,
+        "ports": 4,
+        "M_cubed_equals_M": true,
+        "no_new_cycle": true
+      },
+      {
+        "N": 110,
+        "gap": 2,
+        "cut": 231,
+        "ports": 8,
+        "M_cubed_equals_M": true,
+        "no_new_cycle": true
+      }
+    ],
+    "classes": [
+      6,
+      14
+    ],
+    "step": 16,
+    "dT": 128,
+    "constant": -16
+  }
+}

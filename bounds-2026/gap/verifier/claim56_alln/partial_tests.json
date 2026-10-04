@@ -1,0 +1,42 @@
+[
+  {
+    "name": "no_partial",
+    "exit": 1,
+    "scope": null
+  },
+  {
+    "name": "only_res02",
+    "exit": 0,
+    "scope": "every even n >= 48 with n mod 16 in [2] (PARTIAL: other classes not covered)"
+  },
+  {
+    "name": "duplicate_residue",
+    "exit": 1,
+    "scope": null
+  },
+  {
+    "name": "odd_residue",
+    "exit": 1,
+    "scope": null
+  },
+  {
+    "name": "out_of_range_residue",
+    "exit": 1,
+    "scope": null
+  },
+  {
+    "name": "bad_residue_base",
+    "exit": 1,
+    "scope": null
+  },
+  {
+    "name": "renamed_file",
+    "exit": 0,
+    "scope": "every even n >= 48 with n mod 16 in [2, 10] (PARTIAL: other classes not covered)"
+  },
+  {
+    "name": "lifted_classes",
+    "exit": 0,
+    "scope": "every even n >= 48 with n mod 8 in [2] (PARTIAL: other classes not covered)"
+  }
+]

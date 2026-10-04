@@ -1,0 +1,14 @@
+iter 0: obj -18 bound -18 OPTIMAL cycles 18 cuts 0 t=6s
+iter 1: obj -17 bound -17 OPTIMAL cycles 23 cuts 18 t=10s
+iter 2: obj -17 bound -17 OPTIMAL cycles 24 cuts 41 t=19s
+iter 3: obj -16 bound -16 OPTIMAL cycles 22 cuts 65 t=25s
+iter 4: obj -16 bound -16 OPTIMAL cycles 22 cuts 87 t=108s
+iter 5: obj -15 bound -15 OPTIMAL cycles 16 cuts 109 t=219s
+iter 6: obj -11 bound -16 FEASIBLE cycles 11 cuts 125 t=340s
+iter 7: obj -10 bound -16 FEASIBLE cycles 13 cuts 136 t=461s
+iter 8: obj -12 bound -16 FEASIBLE cycles 6 cuts 149 t=582s
+iter 9: obj -14 bound -16 FEASIBLE cycles 9 cuts 155 t=703s
+iter 10: obj -11 bound -16 FEASIBLE cycles 16 cuts 164 t=824s
+iter 11: obj -11 bound -16 FEASIBLE cycles 18 cuts 180 t=945s
+budget; tour lower bound -15
+hint tour (TT16 skeleton, 6x6 corners): {'status': 'OPTIMAL', 'turns': -14, 'bound': -14, 'secs': 0.9}

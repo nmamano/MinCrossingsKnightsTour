@@ -26,3 +26,13 @@ Task: exact min of sum r over the boundary ring (TURNS, writeup/turns/main.tex),
    R=02: open (feasible -5, bound -21 after 600 s); rerun 1800 s -> mix02_n48.log.
    Turn-free fields: lines of one residue class mod 4 for the pair (2,-1)/(2,1) must be all one family
    (connected intersection graph), so turn-free fields = single families or residue mixtures (ARGUMENT).
+
+## 2026-10-04 (cont.)
+8. Free-interior ring W=4, n=48: CP-SAT OPTIMAL -28 (ring_free_sat.py). L1 as posed gives nothing.
+9. mixstrip.py: zero-cost periodic side exists on all 4 sides for AD mod 4 R in {01,03,12,23}, all AC mod 3, AB mod 5
+   for 9 of the first 15 subsets (n=48). Note: zero-cycle test is asymptotic; finite n can still do well without one.
+10. board_sat.py fixed fields, n=48/50, OPTIMAL (presolve ON; Structures warns CP-SAT 9.15 presolve can report a wrong
+   best_bound - rerun key claims with presolve off): AB:5:0 -> -21 (n=48 and 50); other AB subsets -17..-20.
+   AB:5:0 with free 8x8 corner windows (interior turns allowed): still -21 at n=48.
+   Structures (TMIN.md): D=4 (straight, free direction) n=32 -22; exact whole-board n=16 -20.
+11. Remote desktop survey of all 100 two-family mixtures at n=48: ~/nil/knight-remote/lb_turns/survey48.log.

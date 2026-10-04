@@ -1,0 +1,9 @@
+no_partial REJECT
+only_res02 PASS every even n >= 48 with n mod 16 in [2] (PARTIAL: other classes not covered)
+duplicate_residue REJECT
+odd_residue REJECT
+out_of_range_residue REJECT
+bad_residue_base REJECT
+renamed_file PASS every even n >= 48 with n mod 16 in [2, 10] (PARTIAL: other classes not covered)
+lifted_classes PASS every even n >= 48 with n mod 8 in [2] (PARTIAL: other classes not covered)
+ALL 8 PARTIAL-MODE TESTS PASS

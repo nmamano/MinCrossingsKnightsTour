@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/home/nil/nil/knight-formation-research/gap/verifier/claim56_alln/allsize_check.py", line 283, in <module>
+    main()
+  File "/home/nil/nil/knight-formation-research/gap/verifier/claim56_alln/allsize_check.py", line 203, in main
+    assert len(set(have)) == len(have) and all(r % 2 == 0 and 0 <= r < p for r in have), ('bad residue set', have)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ('bad residue set', [2, 2, 10])

@@ -39,3 +39,36 @@ Cut loop (2f + subtour cuts "a closed cycle on S needs 2 free edges leaving S", 
 lower bound for all tours of the family): n = 56, Z = 8, P8/Q4/D4: bound -18, -17, -17, -16, -16, -15, -14
 (OPTIMAL at iteration 6, 69 s). TT16 is in this family, so the family optimum is exactly -14.
 Note: CP-SAT with num_workers = 2 does not close these 2f models (bound -52); num_workers = 1 closes them.
+
+## 2026-10-04: NEW TOURS below 8n - 14: T = 8n - 16 (n = 6 mod 8) and T = 8n - 17 (n = 2 mod 8)
+Family: pring.py, Z = 8 corners, free periodic bands (bottom/top period 8, left/right period 4, depth 4),
+interior lines x + 2y = c fixed; cut loop (2f + subtour cuts), num_workers = 1. Each result is OPTIMAL
+in its family (the final iteration is a single cycle at the proven bound).
+| n | T - 8n | family bound | file |
+| 56 | -14 | -14 (TT16 is in the family) | (none; TT16) |
+| 58 | -17 | -17 | grid_n58_Z8.json |
+| 60 | -14 | -14 | - |
+| 62 | -16 | -16 | grid_n62_Z8.json |
+| 64 | -14 | -14 | - |
+| 66 | -17 | -17 | grid_n66_Z8.json |
+| 68 | -14 | -14 | - |
+Extension (extend.py): copy the tour, repeat one 8-wide period of every band and of the line field at the
+centre lines; each grid checked by kt.core.validate + assemble.walk_check, turns by kt.core.num_turns.
+- n62 base: valid for all n = 62, 70, ..., 206 (19 sizes), T = 8n - 16. Period 8 in n.
+- n66 base: valid for all n = 66, 74, ..., 210 (19 sizes), T = 8n - 17. Period 8 in n.
+- n58 base: valid only for n = 58 + 16j (58..202, 10 sizes); n = 66 + 16j give 2+ cycles. Use n66 base there.
+Certificates: tours/res6/n{62,70,78}.json, tours/res2/n{58,66,74}.json. Logs: ext_n{58,62,66}.txt.
+n = 6 mod 8 bottom gadget (period 2): rows top-first '26 26' / '26 36' / '26 25' / '67 16';
+left period 4: '23 27' / '23 24' / '23 27' / '02 27'.
+For n = 0, 4 mod 8 this family gives exactly -14 (n = 56, 60, 64, 68); also -14 with Z = 10, Z = 12,
+P16/Q8, depth 6 (n = 56). 2-factor floor is -18 for all of them: connectivity costs 4.
+
+## 2026-10-04: small sizes n = 50, 54 (same family, cut loop, OPTIMAL in family)
+n = 50: T - 8n = -17 (tours/res2/n50.json); n = 54: T - 8n = -16 (tours/res6/n54.json). Both checked by
+kt.core.validate + walk_check.
+Coverage (every even n >= 48, T - 8n):
+- n = 2 mod 8: -17 for every n >= 50 (bases n = 50, 58 single; n66 base extends to n = 66 + 8k, checked to 402).
+- n = 6 mod 8: -16 for every n >= 54 (base n = 54 single; n62 base extends to n = 62 + 8k, checked to 398).
+- n = 0, 4 mod 8: -14 (TT16), unchanged.
+For larger n than checked, the extension inserts whole 8-periods into every band and the line field, so each
+extended grid is a 2-factor with the same T; connectivity is the only open point there (same status as TT16).

@@ -1,0 +1,4 @@
+slots 28
+W 6 states 38800000 stored arcs 30476844 (positive arcs not stored 5349196562)
+min arc cost 0
+zero recurrent classes 101: (378,p2) (141,p2) (141,p2) (137,p2) (107,p2) (107,p2) (86,p1) (86,p1) (67,p8) (67,p8) (41,p1) (41,p1) (21,p2) (18,p4) (18,p4) (12,p4) (12,p4) (12,p2) (9,p6) (9,p6)

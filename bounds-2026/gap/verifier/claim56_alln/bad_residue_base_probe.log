@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/home/nil/nil/knight-formation-research/gap/verifier/claim56_alln/allsize_check.py", line 283, in <module>
+    main()
+  File "/home/nil/nil/knight-formation-research/gap/verifier/claim56_alln/allsize_check.py", line 205, in main
+    for d in ds: assert d['n0'] % p == d['residue']
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/home/nil/nil/knight-formation-research/gap/verifier/claim56_alln/allsize_check.py", line 283, in <module>
+    main()
+  File "/home/nil/nil/knight-formation-research/gap/verifier/claim56_alln/allsize_check.py", line 204, in main
+    if not a.partial: assert have == list(range(0, p, 2)), 'need one file per even residue mod p (or --partial)'
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: need one file per even residue mod p (or --partial)

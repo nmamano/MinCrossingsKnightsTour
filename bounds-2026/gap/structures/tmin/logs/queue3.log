@@ -33,3 +33,7 @@ it 1 OPTIMAL T-8n=-21 bound=-21 cycles=6 t=140s
 it 2 OPTIMAL T-8n=-21 bound=-21 cycles=6 t=216s
 it 3 OPTIMAL T-8n=-21 bound=-21 cycles=7 t=302s
 it 4 OPTIMAL T-8n=-21 bound=-21 cycles=5 t=564s
+it 5 OPTIMAL T-8n=-20 bound=-20 cycles=8 t=660s
+it 6 OPTIMAL T-8n=-20 bound=-20 cycles=11 t=803s
+it 7 FEASIBLE T-8n=-20 bound=-28 cycles=9 t=901s
+no solution

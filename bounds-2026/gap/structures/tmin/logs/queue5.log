@@ -1,0 +1,19 @@
+== 02:18:56 PER=4,2 26 2f 4 200 p26_2f_D4_k2.json
+it 1 FEASIBLE T-8n=-12 bound=-18 cycles=4 t=200s
+RESULT {"n": 26, "mode": "2f", "D": 4, "T": 196, "T_minus_8n": -12, "bound_minus_8n": -18, "status": "FEASIBLE", "cycles": 4, "per": [4, 2], "seconds": 200.4, "exact": false, "date": "2026-10-04"}
+== 02:22:19 PER=4,4 26 2f 4 200 p26_2f_D4_k4.json
+it 1 OPTIMAL T-8n=-18 bound=-18 cycles=8 t=94s
+RESULT {"n": 26, "mode": "2f", "D": 4, "T": 190, "T_minus_8n": -18, "bound_minus_8n": -18, "status": "OPTIMAL", "cycles": 8, "per": [4, 4], "seconds": 94.1, "exact": false, "date": "2026-10-04"}
+== 02:23:54 PER=4,6 26 2f 4 200 p26_2f_D4_k6.json
+it 1 OPTIMAL T-8n=-18 bound=-18 cycles=3 t=89s
+RESULT {"n": 26, "mode": "2f", "D": 4, "T": 190, "T_minus_8n": -18, "bound_minus_8n": -18, "status": "OPTIMAL", "cycles": 3, "per": [4, 6], "seconds": 88.6, "exact": false, "date": "2026-10-04"}
+== 02:25:24 PER=4,8 26 2f 4 200 p26_2f_D4_k8.json
+it 1 OPTIMAL T-8n=-18 bound=-18 cycles=9 t=41s
+RESULT {"n": 26, "mode": "2f", "D": 4, "T": 190, "T_minus_8n": -18, "bound_minus_8n": -18, "status": "OPTIMAL", "cycles": 9, "per": [4, 8], "seconds": 40.5, "exact": false, "date": "2026-10-04"}
+== 02:26:05 PER=4,12 26 2f 4 200 p26_2f_D4_k12.json
+it 1 OPTIMAL T-8n=-19 bound=-19 cycles=7 t=75s
+RESULT {"n": 26, "mode": "2f", "D": 4, "T": 189, "T_minus_8n": -19, "bound_minus_8n": -19, "status": "OPTIMAL", "cycles": 7, "per": [4, 12], "seconds": 75.0, "exact": false, "date": "2026-10-04"}
+== 02:27:21 PER=6,10 26 2f 4 200 p26_2f_D4_a6k10.json
+it 1 OPTIMAL T-8n=-20 bound=-20 cycles=3 t=66s
+RESULT {"n": 26, "mode": "2f", "D": 4, "T": 188, "T_minus_8n": -20, "bound_minus_8n": -20, "status": "OPTIMAL", "cycles": 3, "per": [6, 10], "seconds": 66.2, "exact": false, "date": "2026-10-04"}
+== DONE 02:28:29

@@ -22,6 +22,8 @@ def main():
     ap.add_argument('--iters', type=int, default=0, help='2f + subtour cut loop: max iterations (0 = off)')
     ap.add_argument('--defect', type=int, default=0, help='length of a non-periodic window in the middle of each side')
     ap.add_argument('--defectW', type=int, default=6, help='depth of that window (free cells)')
+    ap.add_argument('--final', type=float, default=0, help='after the cut loop: tour-mode solve with all cuts, '
+                    'hinted by the TT16-skeleton tour, for this many seconds')
     ap.add_argument('--budget', type=float, default=2700, help='cut loop: wall-clock seconds')
     ap.add_argument('--stop', type=int, default=-14, help='cut loop: stop once the proven bound is >= this value')
     a = ap.parse_args()
@@ -60,11 +62,23 @@ def cutloop(a, nb, free, ties):
         if LB >= a.stop:
             print(f'STOP: tour lower bound {LB} >= {a.stop} for this family', flush=True); return None, info
         if time.time() - t0 > a.budget:
-            print(f'budget; tour lower bound {LB}', flush=True); return None, info
+            print(f'budget; tour lower bound {LB}', flush=True)
+            cuts += [S for S in comps]
+            return final(a, nb, free, ties, cuts, LB, info)
         cuts += [S for S in comps]
         hint = full
     print(f'iteration limit; tour lower bound {LB}', flush=True)
-    return None, info
+    return final(a, nb, free, ties, cuts, LB, info)
+
+def final(a, nb, free, ties, cuts, LB, info):
+    if not a.final: return None, info
+    base, binfo = solve(a.n, nb, set().union(*region(a.n, 6, 6).values()), 'tour', 120, 1, res=True)
+    print(f'hint tour (TT16 skeleton, 6x6 corners): {binfo}', flush=True)
+    full, inf2 = solve(a.n, nb, free, 'tour', a.final, a.workers, res=True, ties=ties, cuts=cuts, hint=base)
+    if full is None: return None, inf2
+    inf2['LB'] = max(LB, inf2['bound'])
+    print(f'final tour solve: {inf2}', flush=True)
+    return full, inf2
 
 def setup(a):
     n, Z, P, Q = a.n, a.Z, a.P, a.Q

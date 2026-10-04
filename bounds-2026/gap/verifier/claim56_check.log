@@ -1,0 +1,12 @@
+SUPPLIED 58 447 -17 one cycle
+SUPPLIED 66 511 -17 one cycle
+SUPPLIED 74 575 -17 one cycle
+SUPPLIED 62 480 -16 one cycle
+SUPPLIED 70 544 -16 one cycle
+SUPPLIED 78 608 -16 one cycle
+GENERATED 62 .. 206 step 8: all 19 PASS
+GENERATED 66 .. 210 step 8: all 19 PASS
+n58 -> n66 extension has cycles [3062, 1294] (not used as witness)
+PASS: 6 supplied files and 38 finite generated cases
+Late-added supplied file PASS: {"n": 50, "vertices": 2500, "cycle_lengths": [2500], "turns": 383, "T_minus_8n": -17, "file": "gap/searcher/turns/tours/res2/n50.json", "sha256": "db4b587ecc8a6357353ac887f3b401f0b1988c99a26a2d4b011558b2b01a21b1"}
+Late-added supplied file PASS: {"n": 54, "vertices": 2916, "cycle_lengths": [2916], "turns": 416, "T_minus_8n": -16, "file": "gap/searcher/turns/tours/res6/n54.json", "sha256": "868e691e0f548e4f4b45c9345b0cc0bdcb6bd5d8f937f5b8d6cfbd014513af46"}

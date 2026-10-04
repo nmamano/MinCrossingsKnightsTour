@@ -1,10 +1,12 @@
-# selftest_TT16: all-n pipeline (2026-10-04 01:09 UTC+2 box clock)
+# selftest_TT16: all-n pipeline (2026-10-04 03:49 UTC+2 box clock)
+
+Candidate data, not a theorem: the all-n statement needs a PASS of allsize_check.py and its audit.
 
 Bases: ['/tmp/ap/TT16_n56.json', '/tmp/ap/TT16_n58.json', '/tmp/ap/TT16_n60.json', '/tmp/ap/TT16_n62.json']
-Period p = 8, periodic from n_s = 48. Residue sources: {0: (56, '/tmp/ap/TT16_n56.json'), 2: (58, '/tmp/ap/TT16_n58.json'), 4: (60, '/tmp/ap/TT16_n60.json'), 6: (62, '/tmp/ap/TT16_n62.json')}
+Empirical period p = 8 from n_s = 48 (finite check to n = 300). Residue sources: {0: (56, '/tmp/ap/TT16_n56.json'), 2: (58, '/tmp/ap/TT16_n58.json'), 4: (60, '/tmp/ap/TT16_n60.json'), 6: (62, '/tmp/ap/TT16_n62.json')}
 
 T - 8n per residue class mod 8 (n = 48..110): {0: [-14], 2: [-14], 4: [-14], 6: [-14]}
-Worst T - 8n over all n: -14  (TT16: -14). Failed n: []
+Worst T - 8n over the n that succeeded: -14  (TT16: -14). FAILED n: []
 
 | n | T | T-8n | X | method |
 |---|---|---|---|---|

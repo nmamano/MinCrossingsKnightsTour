@@ -1,0 +1,37 @@
+iter 0: obj -18 bound -18 OPTIMAL cycles 20 cuts 0 t=4s
+iter 1: obj -17 bound -17 OPTIMAL cycles 4 cuts 20 t=8s
+iter 2: obj -17 bound -17 OPTIMAL cycles 7 cuts 24 t=12s
+iter 3: obj -17 bound -17 OPTIMAL cycles 6 cuts 31 t=15s
+iter 4: obj -17 bound -17 OPTIMAL cycles 8 cuts 37 t=18s
+iter 5: obj -17 bound -17 OPTIMAL cycles 7 cuts 45 t=22s
+iter 6: obj -17 bound -17 OPTIMAL cycles 5 cuts 52 t=25s
+iter 7: obj -17 bound -17 OPTIMAL cycles 3 cuts 57 t=28s
+iter 8: obj -17 bound -17 OPTIMAL cycles 5 cuts 60 t=32s
+iter 9: obj -17 bound -17 OPTIMAL cycles 1 cuts 65 t=35s
+n=50 Z=8 Db=4 Dl=4 P=8 Q=4 m=0 sides=BTLR mode=2f T=383 T-8n=-17 charge=400 cycles=1 tour=True info={'status': 'OPTIMAL', 'turns': -17, 'bound': -17, 'secs': 2.1, 'LB': -17}
+bottom period (rows top-first): ['26 26 26 26 26 26 26 26', '26 26 46 26 46 36 26 36', '26 25 26 26 25 26 25 25', '67 06 16 06 16 16 67 16']
+left period (rows top-first): ['02 27 26 26', '02 24 26 26', '23 24 26 26', '02 24 26 26']
+	Command being timed: "../../../.venv/bin/python -u pring.py --n 50 --Z 8 --P 8 --Q 4 --iters 300 --time 120 --workers 1 --stop -14 --out grid_n50_Z8.json"
+	User time (seconds): 35.45
+	System time (seconds): 0.50
+	Percent of CPU this job got: 100%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:35.89
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 155324
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 30882
+	Voluntary context switches: 10
+	Involuntary context switches: 1159
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 48
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+exit=0

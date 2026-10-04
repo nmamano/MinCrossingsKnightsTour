@@ -1,0 +1,11 @@
+OK   bad_fallback_size: exit 1, REJECT | AssertionError: ('tour must have n rows', 48)
+OK   bad_no_fallback: exit 1, REJECT | AssertionError: n=48: transplant fails and no tour file
+OK   good_genuine_fallback: exit 0, PASS | PASS: T(n) <= 8n + (-14) for every even n >= 48 (dT = 8s = 64, corner radius R = 49); details /tmp/allsize_regress_9rb3gzbs/good_genuine_fallback/alls
+OK   bad_missing_residue: exit 1, REJECT | AssertionError: need one file per even residue mod p (or --partial)
+OK   bad_phase: exit 1, REJECT | AssertionError
+OK   bad_move: exit 1, REJECT | AssertionError: n=96 >= N=96 must come from the transplant
+OK   bad_overlap: exit 1, REJECT | AssertionError: ('corner shape misses its band overlap', 'BL')
+OK   bad_interior: exit 1, REJECT | AssertionError: ('only the single straight interior field on lines x + 2y = c is supported (no mixed fields)', 'mixed 15/37 period 5')
+OK   good_TT16: exit 0, PASS | PASS: T(n) <= 8n + (-14) for every even n >= 48 (dT = 8s = 64, corner radius R = 6); details /tmp/allsize_regress_9rb3gzbs/good_TT16/allsize_checks.js
+OK   good_period16: exit 0, PASS | PASS: T(n) <= 8n + (-14) for every even n >= 48 (dT = 8s = 128, corner radius R = 6); details /tmp/allsize_regress_9rb3gzbs/good_period16/allsize_chec
+ALL REGRESSION TESTS OK

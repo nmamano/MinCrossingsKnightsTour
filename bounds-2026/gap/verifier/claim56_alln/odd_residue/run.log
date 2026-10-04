@@ -1,0 +1,17 @@
+== allpipe ES_res2 2026-10-04 03:58:44 bases=['gap/searcher/turns/tours/res2/n66.json', 'gap/searcher/turns/tours/res2/n74.json']
+base n=66: T=511 (T-8n=-17) X=729 file=gap/searcher/turns/tours/res2/n66.json
+base n=74: T=575 (T-8n=-17) X=818 file=gap/searcher/turns/tours/res2/n74.json
+shape cells per corner: {'BL': 64, 'BR': 64, 'TL': 64, 'TR': 64} bounding boxes: {'BL': (8, 8), 'BR': (8, 8), 'TL': (8, 8), 'TR': (8, 8)}
+bad n (overlap/closed fixed cycles) in the wanted classes: []
+outside matching: EMPIRICAL period p=16 in n from n_s=48 (finite check to n=300, not a proof); n with overlap/closed fixed cycles: [48, 52, 54, 56, 60, 62, 64, 68, 70, 72, 76, 78, 80, 84, 86, 88, 92, 94, 96, 100, 102, 104, 108, 110, 112, 116, 118, 120, 124, 126, 128, 132, 134, 136, 140, 142, 144, 148, 150, 152, 156, 158, 160, 164, 166, 168, 172, 174, 176, 180, 182, 184, 188, 190, 192, 196, 198, 200, 204, 206, 208, 212, 214, 216, 220, 222, 224, 228, 230, 232, 236, 238, 240, 244, 246, 248, 252, 254, 256, 260, 262, 264, 268, 270, 272, 276, 278, 280, 284, 286, 288, 292, 294, 296, 300]
+n=50: T=383 T-8n=-17 X=551 transplant res02 (n0=66)
+n=58: T=447 T-8n=-17 X=640 transplant res10 (n0=74)
+n=66: T=511 T-8n=-17 X=729 transplant res02 (n0=66)
+n=74: T=575 T-8n=-17 X=818 transplant res10 (n0=74)
+n=82: T=639 T-8n=-17 X=907 transplant res02 (n0=66)
+n=90: T=703 T-8n=-17 X=996 transplant res10 (n0=74)
+n=98: T=767 T-8n=-17 X=1085 transplant res02 (n0=66)
+n=106: T=831 T-8n=-17 X=1174 transplant res10 (n0=74)
+n=114: T=895 T-8n=-17 X=1263 transplant res02 (n0=66)
+n=122: T=959 T-8n=-17 X=1352 transplant res10 (n0=74)
+DONE (candidate; failed n: []): T-8n per residue {2: [-17], 10: [-17]}; worst -17; next: python3 w-integrator/allsize_check.py w-integrator/pipeline/ES_res2

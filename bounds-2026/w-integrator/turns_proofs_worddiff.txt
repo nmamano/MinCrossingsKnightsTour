@@ -1,0 +1,4 @@
+Word-level diff of the TEXT (markup stripped: <details>, <summary>, heading #s), 2026-10-04.
+Source: writeup/turns/appendix_from_post_2026-10-04.mdx  ->  TURNS_PROOFS.md (bounds-2026/TURNS_PROOFS.md in the repo)
+
+This appendix has the complete proofs, with every definition and every finite check.[-Click a part to open it.-] The appendix numbers columns from 0, so column 1 of the post is column 0 here. Paths of check scripts are relative to the bounds-2026 folder of the repository. The repository is [github.com/nmamano/MinCrossingsKnightsTour/tree/master/bounds-2026](https://github.com/nmamano/MinCrossingsKnightsTour/tree/master/bounds-2026).

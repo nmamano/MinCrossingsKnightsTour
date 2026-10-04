@@ -1,0 +1,4 @@
+ES_res6: period p=16, line period w=8, step s=16, band turns per period {'bottom': (8, 16), 'top': (8, 16), 'left': (4, 8), 'right': (4, 8)}, dT per +16 = 128
+class n = 6 mod 16: base N=102; T - 8n at checked n: {54: -16, 70: -16, 86: -16, 102: -16, 118: -16}; 3 gaps PASS
+class n = 14 mod 16: base N=110; T - 8n at checked n: {62: -16, 78: -16, 94: -16, 110: -16, 126: -16}; 3 gaps PASS
+PASS: T(n) <= 8n + (-16) for every even n >= 48 with n mod 16 in [6, 14] (PARTIAL: other classes not covered) (dT = 8s = 128, corner radius R = 8); details gap/verifier/claim56_alln/ES_res6/allsize_checks.json

@@ -1,0 +1,13 @@
+== 01:45:50 PER=4,10 22 2f 4 300 p22_2f_D4.json
+it 1 OPTIMAL T-8n=-19 bound=-19 cycles=2 t=86s
+RESULT {"n": 22, "mode": "2f", "D": 4, "T": 157, "T_minus_8n": -19, "bound_minus_8n": -19, "status": "OPTIMAL", "cycles": 2, "per": [4, 10], "seconds": 85.6, "exact": false, "date": "2026-10-04"}
+== 01:47:16 PER=4,10 22 tour 4 900 p22_tour_D4.json r22_tour_D4.json
+it 1 FEASIBLE T-8n=-18 bound=-28 cycles=1 t=900s
+RESULT {"n": 22, "mode": "tour", "D": 4, "T": 158, "T_minus_8n": -18, "bound_minus_8n": -28, "status": "FEASIBLE", "cycles": 1, "per": [4, 10], "seconds": 900.5, "exact": false, "date": "2026-10-04"}
+== 02:02:18 PER=4,10 24 2f 4 300 p24_2f_D4.json
+it 1 OPTIMAL T-8n=-20 bound=-20 cycles=8 t=87s
+RESULT {"n": 24, "mode": "2f", "D": 4, "T": 172, "T_minus_8n": -20, "bound_minus_8n": -20, "status": "OPTIMAL", "cycles": 8, "per": [4, 10], "seconds": 87.5, "exact": false, "date": "2026-10-04"}
+== 02:03:47 PER=4,10 24 tour 4 900 p24_tour_D4.json
+it 1 FEASIBLE T-8n=-11 bound=-28 cycles=1 t=900s
+RESULT {"n": 24, "mode": "tour", "D": 4, "T": 181, "T_minus_8n": -11, "bound_minus_8n": -28, "status": "FEASIBLE", "cycles": 1, "per": [4, 10], "seconds": 900.5, "exact": false, "date": "2026-10-04"}
+== DONE 02:18:49
