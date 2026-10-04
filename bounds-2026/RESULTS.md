@@ -13,6 +13,7 @@ several cycles. Upper bounds give one Hamiltonian cycle.
 | X <= 343n/48+671/24 | Proved, even n>=96 | All-size insertion proof; all 24 residue classes |
 | X >= 14n/3-407 | Proved, closed tours, even n>=32 | Tile and path count; exact strip potentials |
 | X >= 4n-2 | Proved, every tour and 2-factor | Tile-area proof; exact geometry; unconditional Lean theorem |
+| T = 8n-17 (n = 2 mod 8), T = 8n-16 (n = 6 mod 8) | Constructed, even n>=48 in these classes | All-size insertion proof, period 16; exact turn count |
 | T = 8n-14 | Constructed, even n>=48 | All-size insertion proof; exact turn count |
 | T >= 8n-28 | Proved, tours and 2-factors, n>=8 | Four-column count; exact corner certificate; unconditional Lean theorem |
 | T >= 8n-64 | Proved, tours and 2-factors, n>=8 | Four-column count; unconditional Lean theorem |
@@ -106,6 +107,24 @@ used by the area proof.
 python3 w-turnstheory/check_knight_tiles.py
 ```
 
+## Turn upper bound: 8n-17 and 8n-16 for n = 2, 6 mod 8
+
+For every even n>=48 with n = 2 mod 8 there is a closed tour with exactly
+T=8n-17, and for every even n>=48 with n = 6 mod 8 one with exactly T=8n-16.
+For n = 0, 4 mod 8 the best known value is still 8n-14 (next section).
+
+Proof: [TURNS_IMPROVED.md](TURNS_IMPROVED.md) (construction; the block insertion of
+[TURNS_PROOFS.md, part F](TURNS_PROOFS.md#f-one-closed-tour-for-every-n-block-insertion)
+with period 16, done by a general checker).
+Audit: Claim 55b ([report](gap/verifier/claim55b_report.md), the checker) and
+Claim 56 ([report](gap/verifier/claim56_report.md), both bounds).
+Lean: no formal construction theorem is claimed.
+
+```sh
+python3 w-integrator/allsize_check.py w-integrator/pipeline/ES_res2 --partial
+python3 w-integrator/allsize_check.py w-integrator/pipeline/ES_res6 --partial
+```
+
 ## Turn upper bound: 8n-14
 
 For every even n>=48, the TT16 construction gives a closed tour with
@@ -167,7 +186,8 @@ python3 w-turnstheory/check_proof.py
 
 ## What is not proved
 
-- The exact minimum turn count, or which constant between 14 and 28 is sharp.
+- The exact minimum turn count: the sharp constant c in T_min(n) = 8n - c lies between
+  17 and 28 for n = 2 mod 8, 16 and 28 for n = 6 mod 8, and 14 and 28 for n = 0, 4 mod 8.
 - The exact minimum crossing coefficient between 14/3 and 19/3.
 - A lower bound of 19n/3 for every construction in the fold family.
 - The general carrier lower bound and its fold-family consequence in
