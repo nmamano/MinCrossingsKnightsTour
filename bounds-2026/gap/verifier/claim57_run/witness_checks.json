@@ -1,0 +1,29 @@
+[
+  {
+    "A": 10,
+    "scale": 6,
+    "cells": 84,
+    "raw_cost": -7,
+    "h_vertical": -2,
+    "h_mirrored_horizontal": 3,
+    "scaled_reduced_cost": -37
+  },
+  {
+    "A": 14,
+    "scale": 3,
+    "cells": 132,
+    "raw_cost": -5,
+    "h_vertical": 1,
+    "h_mirrored_horizontal": -2,
+    "scaled_reduced_cost": -18
+  },
+  {
+    "A": 20,
+    "scale": 3,
+    "cells": 204,
+    "raw_cost": -5,
+    "h_vertical": 0,
+    "h_mirrored_horizontal": -3,
+    "scaled_reduced_cost": -18
+  }
+]

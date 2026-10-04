@@ -1,0 +1,29 @@
+[
+  {
+    "scale": 3,
+    "per_depth_minima": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      -1
+    ],
+    "row_lower_bound": 0
+  },
+  {
+    "scale": 6,
+    "per_depth_minima": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      -1
+    ],
+    "row_lower_bound": 0
+  }
+]
+A 20 scale 3 variables 4353 rows 792 status Optimization terminated successfully. (HiGHS Status 7: Optimal) opt -19.0
+Exact candidate dual: -19 / 3 violations 0 denominators [1]
+WITNESS 20 3 Optimization terminated successfully. (HiGHS Status 7: Optimal) -18.0

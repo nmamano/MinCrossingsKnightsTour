@@ -1,0 +1,11 @@
+{
+  "A": 20,
+  "scale": 3,
+  "dual_bound": "-19",
+  "checked_local_inequalities": 4353,
+  "equality_face_feasible": false,
+  "search_nodes": 33,
+  "contradiction_leaves": 17,
+  "proved_integer_lower_bound": -18,
+  "seconds": 0.04212695499882102
+}

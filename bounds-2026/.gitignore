@@ -29,5 +29,7 @@ w-searcher/carrier/band2
 
 # fresh-copy audit runs (duplicates of the repo)
 gap/verifier/claim*_run/
+# Claim 57 certificate data (inputs of the claim57_*.py checkers)
+!gap/verifier/claim57_run/
 gap/verifier/claim*_clean/
 w-integrator/pipeline/selftest_[!T]*/

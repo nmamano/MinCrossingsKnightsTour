@@ -1,0 +1,2 @@
+A 10 bound -38 exact inequalities 1693 domain counts {1: 1, 2: 5, 3: 9, 4: 28, 5: 10, 6: 16, 7: 3, 8: 4, 9: 2, 10: 6}
+PASS {'A': 10, 'scale': 6, 'dual_bound': '-38', 'checked_local_inequalities': 1693, 'equality_face_feasible': False, 'search_nodes': 15, 'contradiction_leaves': 8, 'proved_integer_lower_bound': -37, 'seconds': 0.01010774914175272}

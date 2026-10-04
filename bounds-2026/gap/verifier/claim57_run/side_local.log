@@ -1,0 +1,26 @@
+[
+  {
+    "scale": 3,
+    "per_depth_minima": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      -1
+    ],
+    "row_lower_bound": 0
+  },
+  {
+    "scale": 6,
+    "per_depth_minima": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      -1
+    ],
+    "row_lower_bound": 0
+  }
+]

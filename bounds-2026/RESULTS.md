@@ -17,6 +17,7 @@ several cycles. Upper bounds give one Hamiltonian cycle.
 | X >= 4n-2 | Proved, every tour and 2-factor | Tile-area proof; exact geometry; unconditional Lean theorem |
 | T = 8n-17 (n = 2 mod 8), T = 8n-16 (n = 6 mod 8) | Constructed, even n>=48 in these classes | All-size insertion proof, period 16; exact turn count |
 | T = 8n-14 | Constructed, even n>=48 | All-size insertion proof; exact turn count |
+| T >= 8n-24 | Proved, tours and 2-factors, n>=20 | Ring relaxation; side potential; exact corner certificates |
 | T >= 8n-28 | Proved, tours and 2-factors, n>=8 | Four-column count; exact corner certificate; unconditional Lean theorem |
 | T >= 8n-64 | Proved, tours and 2-factors, n>=8 | Four-column count; unconditional Lean theorem |
 
@@ -171,14 +172,36 @@ Lean: no formal construction theorem is claimed.
 python3 w-turnstheory/check_upper_proofs.py
 ```
 
+## Turn lower bound: 8n-24
+
+For every n>=20, every spanning 2-factor has T>=8n-24; so does every
+closed tour. Therefore, for every even n>=48,
+
+    8n-24 <= T_min(n) <= 8n-14,
+
+with the upper bound 8n-17 for n = 2 mod 8 and 8n-16 for n = 6 mod 8.
+In particular T_min(n)/n tends to 8 through even n.
+
+Proof: [TURNS_LOWER24.md](TURNS_LOWER24.md) (width-6 ring relaxation, a
+side potential with a 133-pair row inequality, exact corner certificates),
+from [L1.md, section 1b](gap/lowerbounds/turns_ring/L1.md).
+Audit: Claim 57 ([report](gap/verifier/claim57_report.md)).
+Lean: no formal proof of this bound is claimed; 8n-28 (next section) is
+the strongest turn lower bound proved in Lean.
+
+```sh
+python3 gap/verifier/claim57_local.py
+python3 gap/verifier/claim57_frames.py
+python3 gap/verifier/claim57_corner_exact.py 10 6
+python3 gap/verifier/claim57_corner_exact.py 14 3
+python3 gap/verifier/claim57_corner_exact.py 20 3
+python3 gap/verifier/claim57_witness_check.py
+```
+
 ## Turn lower bound: 8n-28
 
 For every n>=8, every closed tour and every spanning 2-factor has
-T>=8n-28. Therefore, for every even n>=48,
-
-    8n-28 <= T_min(n) <= 8n-14.
-
-In particular T_min(n)/n tends to 8 through even n.
+T>=8n-28. This was the first bound with the leading factor 8.
 
 Proof: [turns paper, lower bound and corner certificate](writeup/turns/main.pdf),
 or [TURNS_PROOFS.md, part C](TURNS_PROOFS.md#c-the-corner-certificate-and-8n---28).
@@ -214,7 +237,7 @@ python3 w-turnstheory/check_proof.py
 ## What is not proved
 
 - The exact minimum turn count: the sharp constant c in T_min(n) = 8n - c lies between
-  17 and 28 for n = 2 mod 8, 16 and 28 for n = 6 mod 8, and 14 and 28 for n = 0, 4 mod 8.
+  17 and 24 for n = 2 mod 8, 16 and 24 for n = 6 mod 8, and 14 and 24 for n = 0, 4 mod 8.
 - The exact minimum crossing coefficient between 5 and 19/3.
 - A lower bound of 19n/3 for every construction in the fold family.
 - The general carrier lower bound and its fold-family consequence in
@@ -232,3 +255,5 @@ text log per command. The shared TT16/H16a command is listed under both
 results and needs only one run. **All seven distinct commands passed on
 2026-10-02**, run sequentially with one process at a time. Every recorded
 exit code is zero. No new Lean build was run for this entry point.
+The six exact commands of the 8n-24 section passed on 2026-10-04 from
+a fresh copy of the repository (system Python, standard library only).

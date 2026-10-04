@@ -1,0 +1,10 @@
+{
+  "gap/lowerbounds/turns_ring/L1.md": "8ec606fc63f17e922d37c4b63b24307f30f8aaf32bd64b8bc877417ce4cae5df",
+  "gap/lowerbounds/turns_ring/stripz.cpp": "9600a59d6e6213d638d019d7b8204e72307bf8b7e819873b2a6fc2d307473356",
+  "gap/lowerbounds/turns_ring/corner_pot.py": "05fe4b64b68ab1ac882544cc888f15f10991887474b90fc1df2fdff92aca81bc",
+  "gap/lowerbounds/turns_ring/certcheck.py": "11f53bcbb8f556fa66e3f9959f85847cf6ff8842b571bc4982c01ddf7f6ebe60",
+  "gap/lowerbounds/turns_ring/verify_frames.py": "399d05d47dd566b42e2b21fdf8ea1ca36d7ddbffd48a438bcff6730fef34861d",
+  "gap/lowerbounds/turns_ring/z6/cert_A14_w.txt": "f58beaaeb747cbeeebf2dd3790cd71d12d26c7e102b0e4af1fe989667ecc8f92",
+  "gap/lowerbounds/turns_ring/z6/cert_A10_w.txt": "35e532a7e06e63023d659a4695564d17f530bf76ccf90997d416d6e284fd9735",
+  "gap/lowerbounds/turns_ring/z6/z6_slots.txt": "8f3622f99a2876af5abdb6210f8757c323f2020bb6e7a4d85ecc1aee85c2b8b1"
+}

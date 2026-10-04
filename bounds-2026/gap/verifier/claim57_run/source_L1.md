@@ -1,0 +1,107 @@
+# L1: turns lower side - ring interaction (KT Lower Bounds, 2026-10-04)
+
+Labels: PROVEN, CERTIFIED, MEASURED, ARGUMENT, CONJECTURE. Nothing here is audited.
+Notation: r(v) = t(v) - L(v) (writeup/turns/main.tex, section 3). T - 8n = sum_v r(v); r >= 0 outside the four 4x4
+corner squares; each corner square sums to >= -7. All runs are 2-factors (no connectivity) unless stated.
+
+## 1. The ring relaxation R_W(n)
+
+R_W(n) = min of sum r over the cells at depth < W, over all choices of two moves per ring cell that are consistent
+between ring cells. Moves into cells at depth >= W are free (not modelled).
+
+**Lemma (PROVEN).** For every 2-factor of the n x n board, T - 8n >= R_W(n).
+Proof: restrict the 2-factor to the ring. Cells at depth >= W have r = t >= 0 (L = 0 at depth >= 4 when W >= 4).
+
+| W | n | R_W(n) | how (CP-SAT, presolve off) |
+| --- | --- | --- | --- |
+| 4 | 48 | -28 | OPTIMAL (ring_free_sat.py) |
+| 5 | 48 | -28 | OPTIMAL |
+| 6 | 48 | -24 or -23: a ring with -23 found, bound -24 | 2 h, 4 workers, desktop (lb_turns/ring48_W6.log, 2026-10-04) |
+| 7 | 48 | >= -27 only (1 h, 2 workers; a ring with -5 found) | ring48_W7_local.log; weaker than R_7 >= R_6 >= -24 |
+
+Free strip graphs (stripw.cpp, C++, MEASURED 2026-10-04; W=4 matches the Python build exactly):
+
+| W | cut states | row arcs | zero-cost recurrent classes |
+| --- | --- | --- | --- |
+| 4 | 36,064 | 856,330 | 2,657 (period 1), two fixed points |
+| 5 | 1,135,464 | 62,629,168 | 6,666 (period 1), 13 small classes of period 2, two fixed points |
+| 6 | 38,800,000 (exact: no cap in the code, the count levels off by itself; stripz.cpp gives the same) | about 5.38e9 (only the 30,476,844 zero arcs stored) | 101 classes; largest 378 (p2), 141, 141, 137 (p2), 107, 107 (p2), 86, 86 (p1), 67, 67 (p8), 41, 41 (p1), ... periods 1, 2, 4, 6, 8 |
+
+So the task as first posed (width 4, free interior) gives nothing: the width-4 strip has a zero-cost class of
+period 1 (2,657 of 36,064 cut states, strip.py / zero.py), so there is no phase constraint.
+At W = 6 the bound moves (MEASURED). Reason (ARGUMENT): a straight cell at depth 4 now needs a straight partner at
+depth 5 or 6, so the line families that leave the side strip are visible inside the ring.
+One corner alone is still -7 at W = 6 (quadrant, arms of length 24 with free ends: OPTIMAL -7, quad_free_sat.py).
+So at W = 6 the gain is the interaction of the corners through the four sides, as the CR expected.
+
+## 1b. Certificate: R_6(n) >= -24 for every n >= 20, so T >= 8n - 24 (CERTIFIED 2026-10-04, not audited)
+
+**Theorem (CERTIFIED by computation).** For every n >= 20 and every 2-factor (so every closed tour) of the n x n
+board, T - 8n >= R_6(n) >= -24.
+
+Potential. Cut states of the side strip (W = 6) are sets of the 28 slots (edges between strip cells that cross a row
+cut). Let h(s) = (number of cut edges with both ends at depth 3..5 that lean inward going up, i.e. the upper end is
+nearer the side) - (number that lean outward). In slot order (z6/z6_slots.txt) w = +1 on slots 8, 9, 25, 26, 27 and
+-1 on slots 5, 7, 19, 20, 23, else 0.
+
+1. Validity (stripz.cpp, exact integers). For every arc u -> v of the free strip graph G (all 38,800,000 states
+   reachable from the empty cut, all ~5.4e9 row transitions, each with its minimum row cost c):
+   3c + h(u) - h(v) >= 0. Checked twice: check mode on the desktop (4 threads) and a full BFS-mode run (local).
+2. Corner (corner_pot.py, CP-SAT OPTIMAL with presolve off, re-solved with presolve on and two seeds):
+   with arms A, min over the corner region of [cost - h(s)/3 + h(sigma(t))/3] = -6 for A = 14 and A = 20;
+   = -37/6 for A = 10 with the same h at scale 6 (certcheck.py).
+3. Telescoping. Split the ring of the n x n board (n >= 2A) into 4 corner regions and 4 sides. Each side is a path
+   in G from the source corner's vertical-cut state s to sigma(t), t = the next corner's horizontal-cut state in its
+   own frame, sigma = row mirror (slot (x0,y0,x1,y1) -> (x1,-1-y1,x0,-1-y0)). The states on the side are reachable
+   in G: the x < 6 part of the corner below is itself a G-path from the empty cut (G allows every move into x >= 6).
+   So side cost >= (h(sigma t) - h(s))/3, and the h terms move to the corners. The four corners are rotations of
+   one another (rho(x,y) = (y, n-1-x)), so R_6(n) >= 4 * (corner value) = -24 for n >= 28 (A = 14), and
+   >= -74/3, so >= -24 as R is an integer, for 20 <= n < 28 (A = 10).
+   verify_frames.py checks the frames on real ring solutions (n = 24, 28): ring = corners + sides exactly,
+   G-state at the far cut == sigma(t), all cut states in G, and the side inequality.
+4. The Lemma of section 1 gives T - 8n >= R_6(n).
+
+Linear potentials can not give more: the LP over all w reaches exactly -6 per corner for A = 14 and A = 20 (potlp.py).
+At n = 48 the ring optimum is -24 or -23 (table above), so a better all-n bound needs W >= 7 or a non-linear h.
+Files: stripz.cpp (strip graph, zero classes, validity check), corner_pot.py, potlp.py (cutting-plane LP), certcheck.py,
+verify_frames.py; z6/cert_A14_w.txt ("3" then w), z6/cert_A10_w.txt ("6" then w), logs z6/z6_potlp_A*.log.
+
+## 2. What the real minimum looks like (upper side of the gap, for comparison)
+
+With T - 8n = -28 + delta there are at most delta interior turns, so the interior is a field of straight lines.
+Fixed-field boards (board_sat.py: every cell at depth >= 4 straight in a prescribed field, 2-factor, CP-SAT OPTIMAL,
+witness re-checked directly):
+
+* One family, (2,-1): n = 48: -18 (corners -3, -6, -3, -6). Ring assembly (assemble.py, sides in zero classes):
+  -18 for n = 0 mod 4, -16 for n = 2 mod 4 (n = 48..64). Free 8x8 corner windows do not improve it.
+  Each family is good (-6) at two opposite corners and bad (-3) at the other two.
+* Two-family residue mixtures (lines of family F1 when inv_F1(x,y) mod m is in R, else family F2; m = |det|):
+  all 100 types at n = 48 (survey48_remote.log): best -21 (AB mod 5 and CD mod 5, several R);
+  4 types unresolved (feasible -7, bound -21). AB:5:0 gives -21 at n = 48 and n = 50, also with free 8x8 corner windows.
+* Structures (gap/structures/tmin/TMIN.md): exact whole-board 2-factor minima -20 at n = 8, 12, 14, 16; D=4 model
+  (straight, free direction) -22 at n = 32.
+
+CONJECTURE: the 2-factor floor for large n is about -22. Tours: Structures found -21 at n = 18; no tour data at n >= 48 below -14.
+
+## 3. Proof architecture for a certified bound above -28
+
+A bound T >= 8n - c with c < 28 for all n >= 48 needs a certificate of R_6(n) >= -c (or W = 7, 8) for all n:
+
+1. Side strip graph, width W, free beyond W: row-level arcs between cut states (edges between ring cells that cross
+   a row cut), cost sum r of the row. Needs C++ (W = 5 in Python passed 5 GB before it finished; W = 4 has 36,064
+   states). Compute an integer potential h with cost + h(u) - h(v) >= 0 (min cycle mean is 0).
+2. Corner DP over the corner region (two arms of length D beyond the 6x6 square), with the side potentials added
+   at the two cut states: c_corner = min (corner cost - h_out(a) + h_in(b)). No table over pairs is needed.
+   regiondp.cpp (bitmask frontier, up to 128 live edge slots) is the engine; gen.py builds instances.
+3. Telescoping: sum over the ring >= sum of the four c_corner. This gives one bound valid for every n. Phase effects
+   (n mod period) need the zero classes and their periods in addition; the potential bound alone ignores them.
+Risks: the W = 6 strip graph may have millions of states; the corner DP frontier with all boundary states may be
+large (width-4 corner DP peaked at 6.6 million states in C++). The desktop (25 GB, 4 threads for us) can carry it.
+
+## 4. Files (gap/lowerbounds/turns_ring/)
+
+strip.py, zero.py (free strip); fstrip.py (forced-field strip, zero classes); cornerseg.py, cornertab.py,
+regiondp.cpp + gen.py (C++ frontier DP), cwsat.py (CP-SAT corner tables); assemble.py (ring assembly);
+board_sat.py (full board, fixed field); ring_free_sat.py, quad_free_sat.py (relaxation R_W);
+mixstrip.py (side test for mixtures); NOTES.md (working log); survey48_remote.log.
+Witnesses: board_n48_W4_K0.json (-18, single family, 14 cycles), board_n48_W4_K0_M*.json (mixtures, local runs).
