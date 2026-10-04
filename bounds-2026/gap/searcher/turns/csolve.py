@@ -54,7 +54,7 @@ def two_factor_exists(free, forced):
     tot = sum(2 - len(forced[c]) for c in free if (c[0] + c[1]) % 2)
     return tot == need and nx.maximum_flow_value(G, 's', 't') == need
 
-def solve(n, nb, free, mode='tour', time_limit=120, workers=2, hint=None, log=False, res=False):
+def solve(n, nb, free, mode='tour', time_limit=120, workers=2, hint=None, log=False, res=False, ties=(), cuts=()):
     forced = defaultdict(set)
     for c, s in nb.items():
         if c in free: continue
@@ -72,6 +72,7 @@ def solve(n, nb, free, mode='tour', time_limit=120, workers=2, hint=None, log=Fa
     m = cp_model.CpModel()
     # pair formulation: each free cell picks one pair of neighbours (forced ones included)
     opt = defaultdict(list)      # (c, w) -> option literals at c that use neighbour w
+    optd = defaultdict(dict)     # c -> {(da, db): literal}, directions relative to c
     tt = []
     for c in sorted(free):
         nbrs = [(c[0] + d[0], c[1] + d[1]) for d in MOV8]
@@ -83,15 +84,26 @@ def solve(n, nb, free, mode='tour', time_limit=120, workers=2, hint=None, log=Fa
                 if any(f not in (a, b) for f in forced[c]): continue
                 z = m.NewBoolVar(''); lits.append(z)
                 opt[c, a].append(z); opt[c, b].append(z)
+                optd[c][tuple(sorted([(a[0] - c[0], a[1] - c[1]), (b[0] - c[0], b[1] - c[1])]))] = z
                 t = int(a[0] + b[0] != 2 * c[0] or a[1] + b[1] != 2 * c[1])
                 k = t - ls(n, c, a, b) if res else t
                 if k: tt.append(k * z)
         if not lits: return None, f'no option at {c}'
         m.AddExactlyOne(lits)
+    for c1, c2 in ties:          # periodicity: c2 copies the move pair of c1
+        if c1 not in free or c2 not in free: continue
+        for k in set(optd[c1]) | set(optd[c2]):
+            z1, z2 = optd[c1].get(k), optd[c2].get(k)
+            if z1 is None: m.Add(z2 == 0)
+            elif z2 is None: m.Add(z1 == 0)
+            else: m.Add(z1 == z2)
     xv = []
     for (a, b) in var:
         x = m.NewBoolVar(''); xv.append(x)
         m.Add(sum(opt[a, b]) == x); m.Add(sum(opt[b, a]) == x)
+    for S in cuts:               # subtour cut: a closed cycle on cell set S needs 2 free edges leaving S
+        lv = [xv[i] for i, (a, b) in enumerate(var) if (a in S) != (b in S)]
+        m.Add(sum(lv) >= 2)
     if mode == 'tour':
         paths, closed = fixed_paths(n, nb, free)
         if closed: return None, 'closed fixed cycles'

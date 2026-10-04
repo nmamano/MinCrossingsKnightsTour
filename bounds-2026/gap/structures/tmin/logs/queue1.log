@@ -5,3 +5,36 @@ RESULT {"n": 16, "mode": "2f", "D": 0, "T": 108, "T_minus_8n": -20, "bound_minus
 it 1 OPTIMAL T-8n=-20 bound=-20 cycles=3 t=176s
 RESULT {"n": 14, "mode": "2f", "D": 0, "T": 92, "T_minus_8n": -20, "bound_minus_8n": -20, "status": "OPTIMAL", "cycles": 3, "seconds": 175.7, "exact": true, "date": "2026-10-04"}
 == 23:29:48 14 tour 0 600 r14_tour_D0.json
+it 1 FEASIBLE T-8n=-18 bound=-25 cycles=1 t=600s
+RESULT {"n": 14, "mode": "tour", "D": 0, "T": 94, "T_minus_8n": -18, "bound_minus_8n": -25, "status": "FEASIBLE", "cycles": 1, "seconds": 600.2, "exact": true, "date": "2026-10-04"}
+== 23:39:49 18 tour 4 600 r18_tour_D4.json
+it 1 OPTIMAL T-8n=-21 bound=-21 cycles=1 t=427s
+RESULT {"n": 18, "mode": "tour", "D": 4, "T": 123, "T_minus_8n": -21, "bound_minus_8n": -21, "status": "OPTIMAL", "cycles": 1, "seconds": 427.3, "exact": false, "date": "2026-10-04"}
+== 23:46:58 18 2f 4 300 r18_2f_D4.json
+it 1 OPTIMAL T-8n=-21 bound=-21 cycles=4 t=27s
+RESULT {"n": 18, "mode": "2f", "D": 4, "T": 123, "T_minus_8n": -21, "bound_minus_8n": -21, "status": "OPTIMAL", "cycles": 4, "seconds": 27.0, "exact": false, "date": "2026-10-04"}
+== 23:47:26 20 tour 4 600 r20_tour_D4.json
+it 1 FEASIBLE T-8n=-19 bound=-28 cycles=1 t=600s
+RESULT {"n": 20, "mode": "tour", "D": 4, "T": 141, "T_minus_8n": -19, "bound_minus_8n": -28, "status": "FEASIBLE", "cycles": 1, "seconds": 600.3, "exact": false, "date": "2026-10-04"}
+== 23:57:27 20 2f 4 300 r20_2f_D4.json
+it 1 OPTIMAL T-8n=-21 bound=-21 cycles=3 t=19s
+RESULT {"n": 20, "mode": "2f", "D": 4, "T": 139, "T_minus_8n": -21, "bound_minus_8n": -21, "status": "OPTIMAL", "cycles": 3, "seconds": 19.2, "exact": false, "date": "2026-10-04"}
+== 23:57:47 24 tour 4 600 r24_tour_D4.json
+it 1 FEASIBLE T-8n=-17 bound=-28 cycles=1 t=601s
+RESULT {"n": 24, "mode": "tour", "D": 4, "T": 175, "T_minus_8n": -17, "bound_minus_8n": -28, "status": "FEASIBLE", "cycles": 1, "seconds": 600.6, "exact": false, "date": "2026-10-04"}
+== 00:07:49 24 2f 4 300 r24_2f_D4.json
+it 1 OPTIMAL T-8n=-21 bound=-21 cycles=2 t=44s
+RESULT {"n": 24, "mode": "2f", "D": 4, "T": 171, "T_minus_8n": -21, "bound_minus_8n": -21, "status": "OPTIMAL", "cycles": 2, "seconds": 44.0, "exact": false, "date": "2026-10-04"}
+== 00:08:34 28 tour 4 600 r28_tour_D4.json
+it 1 FEASIBLE T-8n=-16 bound=-28 cycles=1 t=601s
+RESULT {"n": 28, "mode": "tour", "D": 4, "T": 208, "T_minus_8n": -16, "bound_minus_8n": -28, "status": "FEASIBLE", "cycles": 1, "seconds": 600.5, "exact": false, "date": "2026-10-04"}
+== 00:18:36 28 2f 4 300 r28_2f_D4.json
+it 1 OPTIMAL T-8n=-21 bound=-21 cycles=7 t=80s
+RESULT {"n": 28, "mode": "2f", "D": 4, "T": 203, "T_minus_8n": -21, "bound_minus_8n": -21, "status": "OPTIMAL", "cycles": 7, "seconds": 80.2, "exact": false, "date": "2026-10-04"}
+== 00:19:58 32 tour 4 600 r32_tour_D4.json
+it 1 FEASIBLE T-8n=-17 bound=-28 cycles=1 t=601s
+RESULT {"n": 32, "mode": "tour", "D": 4, "T": 239, "T_minus_8n": -17, "bound_minus_8n": -28, "status": "FEASIBLE", "cycles": 1, "seconds": 600.6, "exact": false, "date": "2026-10-04"}
+== 00:30:00 32 2f 4 300 r32_2f_D4.json
+it 1 OPTIMAL T-8n=-22 bound=-22 cycles=6 t=127s
+RESULT {"n": 32, "mode": "2f", "D": 4, "T": 234, "T_minus_8n": -22, "bound_minus_8n": -22, "status": "OPTIMAL", "cycles": 6, "seconds": 127.0, "exact": false, "date": "2026-10-04"}
+== DONE 00:32:08

@@ -493,3 +493,5 @@ Role (CR): any improved corner set -> verified tours for every even n = 48..110 
 - Self-tests 2026-10-04 (pipeline/selftest_*): TT16 bases -> 8n-14 all even n >= 48, PASS (transplant works down
   to n = 48; seconds). L-shape 10x6+6x10 from 1 base -> 8n-13 (3 classes solved, 120 s each), PASS. Combo
   l_d5lowm20/l_free, 8x8, no base -> 8n-13 (~8 min), PASS. Untested: band periods 16 (s > p).
+2026-10-03T23:39Z: routine sync pushed a66eac2. New excludes (script + bounds-2026/.gitignore): gap/verifier/claim*_clean/ (claim54_clean = ktlean audit build copy), w-integrator/pipeline/selftest_[!T]*/. New over-5MB exclusion reported: gap/lowerbounds/turns_ring/fstrip_1_-2.pkl (6.5 MB).
+2026-10-04 (CR): pushed 7e46a77: Lean 8n-28 (Claim 54) in main.tex (line 91, sec:lean, audit status; pdf rebuilt), README.md + RESULTS.md 8n-28 rows (hunks only; held 5n rows stay unstaged).

@@ -1,0 +1,35 @@
+== 01:04:55 20 tourlazy 4 900 r20_tourlazy_D4.json
+it 1 OPTIMAL T-8n=-21 bound=-21 cycles=3 t=21s
+it 2 OPTIMAL T-8n=-21 bound=-21 cycles=5 t=45s
+it 3 OPTIMAL T-8n=-21 bound=-21 cycles=4 t=92s
+it 4 OPTIMAL T-8n=-21 bound=-21 cycles=5 t=123s
+it 5 OPTIMAL T-8n=-21 bound=-21 cycles=6 t=150s
+it 6 OPTIMAL T-8n=-21 bound=-21 cycles=6 t=195s
+it 7 OPTIMAL T-8n=-21 bound=-21 cycles=3 t=230s
+it 8 OPTIMAL T-8n=-21 bound=-21 cycles=5 t=279s
+it 9 OPTIMAL T-8n=-19 bound=-19 cycles=6 t=344s
+it 10 OPTIMAL T-8n=-19 bound=-19 cycles=2 t=419s
+it 11 OPTIMAL T-8n=-19 bound=-19 cycles=2 t=507s
+it 12 OPTIMAL T-8n=-19 bound=-19 cycles=3 t=575s
+it 13 OPTIMAL T-8n=-19 bound=-19 cycles=1 t=643s
+RESULT {"n": 20, "mode": "tourlazy", "D": 4, "T": 141, "T_minus_8n": -19, "bound_minus_8n": -19, "status": "OPTIMAL", "cycles": 1, "seconds": 642.7, "exact": false, "date": "2026-10-04"}
+== 01:15:38 24 tourlazy 4 900 r24_tourlazy_D4.json
+it 1 OPTIMAL T-8n=-21 bound=-21 cycles=2 t=37s
+it 2 OPTIMAL T-8n=-21 bound=-21 cycles=3 t=102s
+it 3 OPTIMAL T-8n=-21 bound=-21 cycles=2 t=205s
+it 4 OPTIMAL T-8n=-21 bound=-21 cycles=5 t=249s
+it 5 OPTIMAL T-8n=-20 bound=-20 cycles=5 t=317s
+it 6 OPTIMAL T-8n=-20 bound=-20 cycles=6 t=365s
+it 7 OPTIMAL T-8n=-20 bound=-20 cycles=3 t=407s
+it 8 OPTIMAL T-8n=-20 bound=-20 cycles=5 t=505s
+it 9 OPTIMAL T-8n=-20 bound=-20 cycles=4 t=603s
+it 10 OPTIMAL T-8n=-20 bound=-20 cycles=3 t=665s
+it 11 OPTIMAL T-8n=-20 bound=-20 cycles=2 t=754s
+it 12 OPTIMAL T-8n=-20 bound=-20 cycles=2 t=829s
+it 13 FEASIBLE T-8n=-20 bound=-24 cycles=5 t=901s
+no solution
+== 01:30:41 28 tourlazy 4 900 r28_tourlazy_D4.json
+it 1 OPTIMAL T-8n=-21 bound=-21 cycles=6 t=140s
+it 2 OPTIMAL T-8n=-21 bound=-21 cycles=6 t=216s
+it 3 OPTIMAL T-8n=-21 bound=-21 cycles=7 t=302s
+it 4 OPTIMAL T-8n=-21 bound=-21 cycles=5 t=564s

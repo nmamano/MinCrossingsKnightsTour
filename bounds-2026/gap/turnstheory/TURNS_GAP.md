@@ -213,3 +213,73 @@ python3 gap/turnstheory/turns_hand_check.py
 The two corner-pool commands, the side-graph check, and the ring-witness command read the saved Lower Bounds graph. The hand check uses only the standard library and independently enumerates all eight invariant patterns at widths 8 and 12. To regenerate that input, Lower Bounds can run `.venv/bin/python gap/lowerbounds/turns_ring/strip.py 4`; coordinate with that worker before overwriting its file. The graph-generation completeness is separate from our row-label check. Sample counts can change with time limits or solver versions. The saved coordinate witnesses are the objects checked here.
 
 Measured on 2026-10-04: unrestricted corner pools used 35 seconds of solve time in total; continuation pools used about two minutes. Complete periodic enumerations took about 0.07, 1.14, 1.23, and 0.42 seconds respectively. These are discovery/check runs, not proof-producing SAT certificates.
+
+## 9. CHECK / PROOF: integer windows through K=24 still attain -7
+
+Date: 2026-10-04. **The integer minimum stays -7 at K=16, 20, and 24, with no internal cycle.** Thus these window sizes do not give the proposed `8n-24` lower bound. This is a checked local optimum, not a claim about a completed board.
+
+### 9.1. Integer models and exact lower bound
+
+`turns_large_corner.py` reruns the move-pair integer model of `w-turnstheory/corner_integer_large.py`, with two CP-SAT workers, 120 seconds per solve, and lazy cuts for any internal cycle. It adds the already audited redundant inequality `residual >= -7`. At K=16 and K=20 it optimizes the full integer model. At K=24 the `--tight` option keeps only equality cases of the audited local certificate: corner pairs have `r=alpha+D`, and all other pairs have `r=0`. Edge consistency is imposed on the union of possible edges at both endpoints, including edges whose opposite incidence was removed by this filtering.
+
+The equality filtering is exact for deciding whether residual -7 is feasible. All local certificate gaps are nonnegative, and their sum is residual plus 7. Hence a -7 solution must use only these pairs. Conversely, consistent equality pairs sum to -7. The saved K=24 witness is also feasible for the original unfiltered integer model.
+
+| K | Model | Solver status | Residual | Solver bound | Solve time | Internal cycles | Internal path components |
+|---:|---|---|---:|---:|---:|---:|---:|
+| 16 | Full integer optimization | OPTIMAL | -7 | -7 | 4.77 s | 0 | 24 |
+| 20 | Full integer optimization | OPTIMAL | -7 | -7 | 114.74 s | 0 | 30 |
+| 24 | Exact -7 equality model | OPTIMAL | -7 | -7 | 0.62 s | 0 | 38 |
+
+All three final runs found an acyclic solution on their first trial, so no cycle cuts were needed. Solver: OR-Tools 9.15.6755. Times are measured on this machine on the date above. The saved JSON records the version and raw trial status.
+
+**PROOF of local optimality, independent of trusting the solver bound.** The audited corner certificate plus the nonnegative residual outside the 4x4 corner gives a lower bound of -7 for every such window. The independently checked integer witnesses attain -7. Therefore the integer minimum is exactly -7, both with and without the internal-cycle restriction.
+
+For each witness the residual split is exactly
+
+```
+4x4 corner residual = -7; side-only slack = 0; interior turns = 0.
+```
+
+### 9.2. What the K=20 boundary forces
+
+The saved K=20 solution has 30 internal path components and 60 outgoing edges. Of these, 24 leave through the top only, 34 through the right only, and two leave through both coordinate bounds. They meet 58 exterior cells: 56 with one prescribed edge and two with two prescribed edges. No exterior cell is immediately overloaded, and the two prescribed pairs do not force a new interior turn.
+
+Its entire 16x16 straight interior has the simple period-three rule
+
+```
+(x+y) mod 3 = 2:  moves +/-(1,2), at 86 cells;
+(x+y) mod 3 = 0:  moves +/-(2,1), at 85 cells;
+(x+y) mod 3 = 1:  moves +/-(2,1), at 85 cells.
+```
+
+This is a period-three mixture of two directions, distinct from the period-five fields reported in the whole-board data. Each direction changes x+y by 3, so the rule defines consistent straight lines in the bulk.
+
+**CHECK.** This bulk rule agrees across the whole window boundary with both selected and unselected incidences at every exterior cell with x,y>=4. Thus it extends the straight bulk of this particular witness without changing any old window edge. The rows at depth 0..3 are not all periodic; the JSON records their exact choices and outgoing demands. Completing those two infinite side strips, and joining four corners on a finite board, remain separate requirements.
+
+A zero-slack extension must propagate each deep outgoing edge straight until it reaches a side strip. The independent checker intersects every pair of the prescribed rays using exact rational arithmetic. For K=20 it finds no meeting that requires two distinct straight directions at one exterior lattice cell. This is a compatibility check of forced rays, not a proof of a full quadrant extension.
+
+For comparison, the K=16 witness fails immediately outside the window: at `(16,5)` it prescribes edges from `(14,4)` and `(15,3)`. These moves are nonopposite, so extending that particular witness requires an interior turn. Its forced rays have 12 conflicting pairs in total. Larger windows can change the old witness, as the valid K=20 solution demonstrates.
+
+The K=24 witness has 38 paths and 76 outgoing edges. Its straight interior uses `(1,2)` on residues 1 and 2 of x+y modulo 3, and `(2,1)` on residue 0. Its outgoing rays have no pairwise conflict, but extending that periodic bulk *unchanged* would add two edges absent from the old window: `(23,2)--(24,4)` and `(23,3)--(25,4)`. Thus absence of forced-ray conflicts alone is not an extension certificate. This distinction is included in the checker output.
+
+### 9.3. Scope and independent checks
+
+**OPEN.** These results neither establish tightness of `8n-28` on whole boards nor explain why the currently observed whole-board corners avoid -7. They rule out an improvement obtained merely by replacing the free 4x4 corner with these larger free integer windows.
+
+There is also a logical distinction for any later positive result: a lower bound obtained *after forbidding internal cycles* applies to a corner of a sufficiently large single tour, but does not automatically apply to a general 2-factor, which may contain an entire cycle in that corner. A candidate `8n-24` theorem for all 2-factors would need the unrestricted window minimum to be at least -6, or a separate argument paying for excluded cycles. That issue does not affect the negative result here, since the sharp witnesses are acyclic.
+
+`check_turns_large_corner.py` uses only the Python standard library. It checks every coordinate, knight move, degree-two pair, reciprocal internal edge, component, local corner certificate, exact residual, exterior load, and forced-ray intersection. It also checks the candidate period-three bulk against all possible boundary incidences, not only the selected outgoing edges. No solver result is needed for witness feasibility or for the matching -7 lower bound.
+
+Reproduce the final runs and checks from the research root:
+
+```sh
+.venv/bin/python gap/turnstheory/turns_large_corner.py 16 --workers 2 --seconds 120
+.venv/bin/python gap/turnstheory/turns_large_corner.py 20 --workers 2 --seconds 120
+.venv/bin/python gap/turnstheory/turns_large_corner.py 24 --workers 2 --seconds 120 --tight
+python3 gap/turnstheory/check_turns_large_corner.py \
+  gap/turnstheory/turns_corner_integer_K16.json \
+  gap/turnstheory/turns_corner_integer_K20.json \
+  gap/turnstheory/turns_corner_integer_K24_tight.json
+```
+
+The witness files contain every selected move pair. Their `_check.json` companions contain the boundary ports, component counts, and extension tests. `turns_large_corner_checks.log` records the successful independent checks. Two-worker search may choose different witnesses on rerun; the files cited above are the checked objects. An audit can check those files first, then rebuild the integer model independently if it also wants to reproduce the search.

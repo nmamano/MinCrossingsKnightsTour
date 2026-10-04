@@ -31,6 +31,9 @@ def bottom_edges(s, D):   # grazing frame (X, YY, dX, dY) at next column D -> ab
     return out
 
 
+BOUND = 10 ** 9
+
+
 def segment(f, D, sL, sB, witness=False):
     fm = [f, (-f[0], -f[1])]
     interior = lambda q: q[0] >= 4 and q[1] >= 4
@@ -42,34 +45,59 @@ def segment(f, D, sL, sB, witness=False):
     fint = {p: [d for d in M if interior((p[0] + d[0], p[1] + d[1])) and (-d[0], -d[1]) in fm] for p in order}
     ext = left_edges(sL, D) + bottom_edges(sB, D)          # (outside, block) pairs, all forced
     for o, b in ext: assert inblock(b) and not inblock(o), (o, b)
-    front = {frozenset((o, b) for o, b in ext): (0, ())}
+    # edge index for bitmask frontier: (from, to) ordered pairs that can be pending
+    eidx = {}
+    def bit(a, b):
+        k = (a, b)
+        if k not in eidx: eidx[k] = len(eidx)
+        return 1 << eidx[k]
+    def cellmin(p):
+        ds = [d for d in M if p[0] + d[0] >= 0 and p[1] + d[1] >= 0]
+        return min(rq(p, a, b) for a, b in combinations(ds, 2))
+    rem = [0] * (len(order) + 1)
+    for i in range(len(order) - 1, -1, -1): rem[i] = rem[i + 1] + min(0, cellmin(order[i]))
+    incoming = {}          # cell -> list of (bit, move from cell to source)
+    def reg(a, b):
+        bb = bit(a, b); incoming.setdefault(b, []).append((bb, (a[0] - b[0], a[1] - b[1]))); return bb
+    m0 = 0
+    for o, b in ext: m0 |= reg(o, b)
     for i, p in enumerate(order):
-        cands = []
         for d in M:
             q = (p[0] + d[0], p[1] + d[1])
-            if inblock(q) and pos[q] > i: cands.append(d)
+            if inblock(q) and pos[q] > i: reg(p, q)
+    loadlist = {q: incoming.get(q, []) for q in order}
+    front = {m0: 0}
+    for i, p in enumerate(order):
+        cands = [d for d in M if inblock((p[0] + d[0], p[1] + d[1])) and pos[(p[0] + d[0], p[1] + d[1])] > i]
+        inbits = incoming.get(p, [])
+        clear = 0
+        for bb, mv in inbits: clear |= bb
+        outbit = {d: bit(p, (p[0] + d[0], p[1] + d[1])) for d in cands}
         nf = {}
-        for fs, (c0, wit) in front.items():
-            inc = [(a[0] - p[0], a[1] - p[1]) for a, b in fs if b == p]
-            base = inc + fint[p]
+        for fs, c0 in front.items():
+            if c0 + rem[i] > BOUND: continue
+            base = [mv for bb, mv in inbits if fs & bb] + fint[p]
             if len(base) > 2: continue
-            rest = frozenset(e for e in fs if e[1] != p)
+            rest = fs & ~clear
             for extra in combinations([d for d in cands if d not in base], 2 - len(base)):
                 mv = base + list(extra)
-                fs2 = rest | frozenset((p, (p[0] + d[0], p[1] + d[1])) for d in extra)
-                load = {}
-                for a, b in fs2: load[b] = load.get(b, 0) + 1
-                if any(v + len(fint[b]) > 2 for b, v in load.items()): continue
+                fs2 = rest
+                for d in extra: fs2 |= outbit[d]
+                bad = False
+                for d in extra:
+                    q = (p[0] + d[0], p[1] + d[1])
+                    if sum(1 for bb, mv2 in loadlist[q] if fs2 & bb) + len(fint[q]) > 2: bad = True; break
+                if bad: continue
                 c = c0 + rq(p, mv[0], mv[1])
-                if fs2 not in nf or c < nf[fs2][0]: nf[fs2] = (c, wit + ((p, tuple(mv)),) if witness else ())
+                if c < nf.get(fs2, 10 ** 9): nf[fs2] = c
         front = nf
+        if len(front) > 300000: print('   frontier', i, p, len(front), flush=True)
         if not front: return None
-    r = front.get(frozenset())
-    return r if witness else (None if r is None else r[0])
+    return front.get(0)
 
 
 if __name__ == '__main__':
-    f = (int(sys.argv[1]), int(sys.argv[2])); D = int(sys.argv[3])
+    f = (int(sys.argv[1]), int(sys.argv[2])); D = int(sys.argv[3]); BOUND = int(sys.argv[4]) if len(sys.argv) > 4 else 10 ** 9
     sst, sarc, szc = pickle.load(open(R + f'fstrip_{f[0]}_{f[1]}.pkl', 'rb'))
     g = (f[1], f[0]) if f[1] > 0 else (-f[1], -f[0])
     gst, garc, gzc = pickle.load(open(R + f'fstrip_{g[0]}_{g[1]}.pkl', 'rb'))

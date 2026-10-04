@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/home/nil/nil/knight-formation-research/gap/lowerbounds/turns_ring/gen.py", line 129, in <module>
+    tab[(a, b)] = None if r == 'NONE' else int(r)
+                                           ^^^^^^
+ValueError: invalid literal for int() with base 10: ''

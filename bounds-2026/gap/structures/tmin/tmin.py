@@ -5,12 +5,14 @@
 # Restriction (optional, NOT exact): cells at depth >= D from every side must be straight.
 # Tours: AddCircuit (mode tour) or lazy subtour cuts (mode tourlazy). 2-factors: mode 2f.
 # usage: tmin.py n mode D time_s out.json [hint.json]
-import sys, json, time
+import sys, json, time, os
 from itertools import combinations
 from pathlib import Path
 from ortools.sat.python import cp_model
 sys.path.insert(0, str(Path(__file__).resolve().parents[3]))
 from kt.core import validate, num_turns, num_cycles
+
+PER = tuple(map(int, os.environ['PER'].split(','))) if os.environ.get('PER') else None  # env PER=a,k
 
 MI = [-2, -1, 1, 2, 2, 1, -1, -2]
 MJ = [1, 2, 2, 1, -1, -2, -2, -1]
@@ -71,6 +73,14 @@ def build(n, mode, D, hint=None, cuts=()):
     for S in cuts:
         Sset = set(S)
         m.Add(sum(v for ((i, j), k), v in E.items() if (i, j) in Sset and (i + MI[k], j + MJ[k]) not in Sset) >= 2)
+    if PER:  # rows a+k, a+k+1 equal rows a, a+1 (and the same for columns): the band a..a+k-1 can be repeated
+        a, k = PER
+        for t in (0, 1):
+            for j in range(n):
+                for (c1, c2) in (((a + t, j), (a + k + t, j)), ((j, a + t), (j, a + k + t))):
+                    assert set(P[c1]) == set(P[c2])
+                    for p, v in P[c1].items():
+                        m.Add(v == P[c2][p])
     if hint:
         for (i, j), vs in P.items():
             c = hint[i][j]; p = tuple(sorted(int(ch) for ch in c))
@@ -118,12 +128,12 @@ def main():
             best = (g, Tv, name, len(comps)); break
         cuts += [C for C in comps]; hint = None
     if best is None:
-        print('no solution'); return
+        print('no solution', 'bound_minus_8n', None if lb is None else lb - 8 * n); return
     g, Tv, name, nc = best
     assert num_turns(g) == Tv
     if mode != '2f': assert validate(g)
     rec = dict(n=n, mode=mode, D=D, T=Tv, T_minus_8n=Tv - 8 * n, bound_minus_8n=lb - 8 * n, status=name,
-               cycles=nc, seconds=round(time.time() - t0, 1), exact=(D == 0), date='2026-10-04', grid=g)
+               cycles=nc, per=PER, seconds=round(time.time() - t0, 1), exact=(D == 0), date='2026-10-04', grid=g)
     Path(out).write_text(json.dumps(rec))
     print('RESULT', json.dumps({k: v for k, v in rec.items() if k != 'grid'}), flush=True)
 

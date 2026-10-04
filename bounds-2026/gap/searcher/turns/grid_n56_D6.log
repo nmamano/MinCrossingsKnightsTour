@@ -1,0 +1,33 @@
+iter 0: obj -18 bound -18 OPTIMAL cycles 14 cuts 0 t=5s
+iter 1: obj -17 bound -17 OPTIMAL cycles 26 cuts 14 t=10s
+iter 2: obj -17 bound -17 OPTIMAL cycles 23 cuts 40 t=17s
+iter 3: obj -16 bound -16 OPTIMAL cycles 24 cuts 63 t=23s
+iter 4: obj -16 bound -16 OPTIMAL cycles 22 cuts 87 t=38s
+iter 5: obj -15 bound -15 OPTIMAL cycles 20 cuts 109 t=72s
+iter 6: obj -14 bound -14 OPTIMAL cycles 2 cuts 129 t=88s
+STOP: tour lower bound -14 >= -14 for this family
+FAIL {'status': 'OPTIMAL', 'turns': -14, 'bound': -14, 'secs': 15.2, 'LB': -14}
+	Command being timed: "../../../.venv/bin/python -u pring.py --n 56 --Z 8 --P 8 --Q 4 --Db 6 --Dl 6 --iters 300 --time 120 --workers 1 --stop -14 --out grid_n56_D6.json"
+	User time (seconds): 88.32
+	System time (seconds): 0.54
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 1:29.18
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 190052
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 45138
+	Voluntary context switches: 12
+	Involuntary context switches: 2625
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 56
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+exit=0

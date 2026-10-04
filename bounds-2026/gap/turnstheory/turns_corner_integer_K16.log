@@ -1,0 +1,2 @@
+{"trial": 0, "status": "OPTIMAL", "objective": -7.0, "bound": -7.0, "seconds": 4.772860717, "internal_cycle_lengths": []}
+SAVED /home/nil/nil/knight-formation-research/gap/turnstheory/turns_corner_integer_K16.json elapsed 4.792497465154156
