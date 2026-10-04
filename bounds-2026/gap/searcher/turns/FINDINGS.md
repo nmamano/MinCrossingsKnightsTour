@@ -94,3 +94,19 @@ n = 62: P16/Q8 and P8/Q8 (Z = 8), Z = 10 (P8/Q4): family optimum -16. n = 58: P1
 P12/Q6 (period not dividing 8 on the T16 base) gives only -14 (2f floor -14) at n = 58 and n = 62.
 Feasibility runs "objective <= -15" for the n = 56 R and L+R defect families: CP-SAT UNKNOWN after 300 s
 at iteration 6. Added an LP-based backend (csolve.solve_mip, SCIP via pywraplp; pring.py --mip SCIP).
+
+## 2026-10-04: SCIP cut loop settles the defect families: -14 for n = 0, 4 mod 8
+SCIP (pywraplp, 1 thread) closes the cut-loop iterations that CP-SAT does not. Family optimum -14 (each
+final iteration has objective = bound = -14, TT16 in family):
+n = 56 defect 8x6 on R only (312 s), on L + R (367 s); n = 60 defect 8x6 on all four sides (295 s);
+n = 56 defect 12x8 on all four sides (573 s); n = 56 defect 8x6 on all four sides (rerun after a bound-rounding
+fix in solve_mip: -14, iteration 6).
+So mid-side switches of the side pattern do not help n = 0, 4 mod 8 in these families.
+
+## 2026-10-04: general (non-periodic) depth-4 ring, n = 56: tour optimum exactly -14
+pring.py --noties --Db 4 --Dl 4 --Z 8 --mip SCIP: every side band (depth 4, whole length) and the four 8x8
+corners free, no periodicity; only the line field beyond depth 4 (outside the corners) is fixed.
+2f floor -18 (OPTIMAL, 3 s). Cut loop bounds -18 ... -15, -15, -14 (iteration 10, OPTIMAL, 3012 s, 244 cuts).
+TT16 is in this family, so: no closed tour of n = 56 that keeps the line field x + 2y = c on every cell at
+depth >= 4 from the sides (outside the 8x8 corners) has fewer than 8n - 14 turns.
+Running: same with depth 6.

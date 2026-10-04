@@ -2,3 +2,22 @@ expanded 0 states 3025
 expanded 2000000 states 16119878
 expanded 4000000 states 28001336
 expanded 6000000 states 28981676
+expanded 8000000 states 30453522
+expanded 10000000 states 31694056
+expanded 12000000 states 31771008
+expanded 14000000 states 32920302
+expanded 16000000 states 33151596
+expanded 18000000 states 36449680
+expanded 20000000 states 37652458
+expanded 22000000 states 38122852
+expanded 24000000 states 38531558
+expanded 26000000 states 38755778
+expanded 28000000 states 38756818
+expanded 30000000 states 38757784
+expanded 32000000 states 38760400
+expanded 34000000 states 38789470
+expanded 36000000 states 38800000
+expanded 38000000 states 38800000
+W 6 states 38800000 zero arcs 30476844
+scale 3 min reduced cost 0 violated arcs 0
+zero recurrent classes 101

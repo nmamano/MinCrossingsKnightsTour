@@ -45,3 +45,4 @@ Task: exact min of sum r over the boundary ring (TURNS, writeup/turns/main.tex),
     A=10: -37/6 per corner; A=14 and A=20: -6 per corner, LP optimum also -6 (linear h can not do better).
     h = (inward-leaning) - (outward-leaning) cut edges inside depths 3..5, scale 3. => R_6(n) >= -24 for all n >= 20.
     verify_frames.py confirms frames, sigma, reachability and side inequality on ring solutions (n=24/28).
+15. 2026-10-04: lane stopped by Nil's ruling at 8n - 24 (audit PASS, claim57_report.md). Parity note for -23: L1.md 1d. Nothing running.

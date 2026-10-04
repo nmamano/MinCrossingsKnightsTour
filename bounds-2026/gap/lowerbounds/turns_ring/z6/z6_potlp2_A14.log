@@ -1,0 +1,14 @@
+start 2026-10-04 08:30:27 W 6 A 14 K 28 zero-arc rows 4736
+it 0 LP z 50.0000 scale 1 corner OPTIMAL value -7.0000 bound -7.0000 sols 7 arcs 4736
+it 1 LP z 34.0000 scale 1 corner OPTIMAL value -60.0000 bound -60.0000 sols 15 arcs 4736
+it 2 LP z 2.1875 scale 118864 corner OPTIMAL value -51.3785 bound -51.3785 sols 20 arcs 4736
+it 3 LP z -1.2821 scale 50232 corner OPTIMAL value -42.9766 bound -42.9766 sols 24 arcs 4736
+it 4 LP z -1.9584 scale 3461040 corner OPTIMAL value -30.2076 bound -30.2076 sols 29 arcs 4736
+it 5 LP z -2.8690 scale 50992656 corner OPTIMAL value -9.8590 bound -9.8590 sols 38 arcs 4736
+it 6 LP z -3.3451 scale 556920 corner OPTIMAL value -7.7908 bound -7.7908 sols 48 arcs 4736
+it 7 LP z -3.7423 scale 17160990 corner OPTIMAL value -7.6562 bound -7.6562 sols 61 arcs 4736
+it 8 LP z -5.6097 scale 2674440 corner OPTIMAL value -6.8627 bound -6.8627 sols 66 arcs 4736
+it 9 LP z -5.6134 scale 27457584 corner OPTIMAL value -6.5329 bound -6.5329 sols 74 arcs 4736
+it 10 LP z -5.6250 scale 16 corner OPTIMAL value -7.3125 bound -7.3125 sols 78 arcs 4736
+it 11 LP z -5.6753 scale 602140 corner OPTIMAL value -6.3012 bound -6.3012 sols 90 arcs 4736
+it 12 LP z -6.0000 scale 3 corner OPTIMAL value -6.0000 bound -6.0000 sols 96 arcs 4736

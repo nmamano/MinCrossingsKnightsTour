@@ -64,3 +64,42 @@ n >= 28 has a 2-factor with T = 8n - 20 (files z{28..36}_2f_P810.json + extend.d
 - Greedy 2-opt merge (merge.py): cost 1-2 per cycle; good only with few cycles (n=24: -19; p22 family: -17, -16).
 - Window repair (repair.py; free rectangles, rest fixed, lazy cuts): z30 (6 cycles) -> -13 with 3 cycles left after
   600 s. Merging the cycles of these 2-factors is expensive.
+
+## Lane (a): band-periodic TOUR families for n = 0, 4 mod 8 (2026-10-04, CR order; desktop runs 4 workers per job)
+New model options (tmin.py): FIELD=15 or 15,37 (allowed straight pairs at depth >= D), COPIES=c (the boards with
+t = 1..c band copies must also be single cycles: they reuse the base variables, one AddCircuit per board), WORKERS,
+SEED. Tools: cyc.py (T - 8n and cycles of the copies, no merge), cyc2.py (row-only / column-only copies), family.py
+(copies + greedy merge).
+1. Mixed field (15/37 period 5), band k = 10, free seeds (n0 = 24, 28, 32): base tours -18, but the copy cycle count
+   is bounded only in the parity with n = 2 mod 4 (n0 = 24: odd t; p22: even t); in the n = 0 mod 4 parity it grows
+   about linearly. Best merged tours: n = 44 -17, n = 64 -15 (t24_P6_10_s1/s3 + merge).
+2. Single-family field (FIELD=15): sides become periodic gadgets (left/right period 1, top/bottom period 8). Free
+   seeds: n = 24 -14, n = 28 -15 (OPTIMAL inside the restriction), copies mostly grow; seed s5 at n = 24 is
+   transparent (one cycle for all t <= 8): tours with -14 for all n = 24 + 8t. With COPIES=2 the optimum is -14 for
+   n0 = 28 (k = 4, 8; a = 6, 8) and n0 = 32 (k = 8), every one transparent to t >= 6: single-family band tours give
+   -14 for both n = 0 and 4 mod 8, not better. (PER=6,16 COPIES=1 at n0 = 28 and mixed PER=6,20 COPIES=1 at n0 = 32:
+   INFEASIBLE.)
+3. Mixed field with COPIES=2 (n0 = 24, PER=6,10): base -16 (OPTIMAL inside the restriction), one cycle at n = 24,
+   34, 44; t = 3, 4, 5: 3, 3, 2 cycles; merged: n = 54 -17, n = 64 -14, n = 74 -18.
+4. Mixed field, n0 = 28, PER=6,10, copies forced for t = 1..c (desktop, 4 workers, OPTIMAL inside the restriction):
+   c = 2: -18, one cycle at n = 28, 38, 48; c = 3: -17, one cycle at n = 28..58; c = 4: -14, one cycle for every
+   t <= 8 (n up to 108). n0 = 32, PER=8,10, c = 2: -14 FEASIBLE (bound -24, 3600 s), copies 1-2 cycles.
+   Merged copies of the c = 3 base: n = 68 -16, 78 -16, 88 -15, 98 -16.
+
+### Lane (a) verdict (2026-10-04): no all-n family below -14 found
+Every base that stayed one cycle for all tested copies (t <= 8) has T - 8n = -14 (single-family field, k = 4 or 8;
+mixed field n0 = 28 with c = 4) or -13 (mixed n0 = 24, c = 4). Forcing more copies to be tours costs turns:
+-18 (c = 2), -17 (c = 3), -14 (c = 4) at n0 = 28. So inside these band-periodic classes (D = 4, band at a = 6 or 8,
+k = 4, 8, 10), I found no transparent family below -14. This is evidence, not an impossibility proof: wider bands,
+other band positions, D > 4, or other fields are untested.
+Best single-size tours (all pass kt.core.validate; fam/ and desk/ files):
+| n mod 8 | n : T - 8n |
+|---|---|
+| 0 | 24: -18, 48: -18, 64: -15, 88: -15 |
+| 4 | 28: -18, 44: -17, 68: -16 |
+| 2 | 34: -18, 58: -17, 74: -18, 98: -16 |
+| 6 | 38: -18, 54: -18, 78: -17 |
+Sources: n=48: fam/c28_P6_10_F15_37_c2_t2.json; n=64: fam/t24_P6_10_s1_t4.json; n=88: fam/c28_P6_10_F15_37_c3_t6.json;
+n=28: fam/c28_P6_10_F15_37_c2_t0.json; n=44: fam/t24_P6_10_s1_t2.json; n=68: fam/c28_P6_10_F15_37_c2_t4.json.
+Transparent -14 families (for the Integrator if wanted): desk/c28_P6_10_F15_37_c4.json (n = 28 + 10t),
+desk/c28_P6_4_F15_c2.json (n = 28 + 4t), desk/c32_P6_8_F15_c2.json (n = 32 + 8t).

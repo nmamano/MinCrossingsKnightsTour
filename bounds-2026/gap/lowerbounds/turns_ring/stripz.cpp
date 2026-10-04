@@ -79,8 +79,10 @@ int main(int argc, char** argv) {
     }
     { FILE* f = fopen((pre + "_slots.txt").c_str(), "w"); for (auto& e : slots) fprintf(f, "%d %d %d %d\n", e.x0, e.y0, e.x1, e.y1); fclose(f); }
     vector<long long> w; long long SC = 1; const char* wf = getenv("WFILE");
-    if (wf) { FILE* f = fopen(wf, "r"); long long d; if (fscanf(f, "%lld", &SC) != 1) return 1; while (fscanf(f, "%lld", &d) == 1) w.push_back(d); fclose(f); if (w.size() != slots.size()) { fprintf(stderr, "bad w size\n"); return 1; } }
-    auto h = [&](uint64_t s) { long long t = 0; for (size_t k = 0; k < slots.size(); k++) if (s >> k & 1) t += w[k]; return t; };
+    if (wf) { FILE* f = fopen(wf, "r"); long long d; if (fscanf(f, "%lld", &SC) != 1) return 1; while (fscanf(f, "%lld", &d) == 1) w.push_back(d); fclose(f); if (w.size() != slots.size() && w.size() != 2 * slots.size()) { fprintf(stderr, "bad w size\n"); return 1; } }
+    const bool PAR = w.size() == 2 * slots.size();   // parity mode: h0 = w[0..K), h1 = w[K..2K)
+    auto hp = [&](uint64_t s, int p) { long long t = 0; size_t K = slots.size(); for (size_t k = 0; k < K; k++) if (s >> k & 1) t += w[p * K + k]; return t; };
+    auto h = [&](uint64_t s) { return hp(s, 0); };
     if (getenv("STATES")) {   // fast parallel check mode: states from a previous run, no BFS, no classes
         if (!wf) return 1;
         FILE* f = fopen(getenv("STATES"), "rb"); vector<uint64_t> st; uint64_t x; while (fread(&x, 8, 1, f) == 1) st.push_back(x); fclose(f);
@@ -90,9 +92,10 @@ int main(int argc, char** argv) {
             unordered_map<uint64_t,int> b; long long mr = LLONG_MAX, nv = 0; vector<tuple<long long,uint64_t,uint64_t,int>> vl;
             #pragma omp for schedule(dynamic, 4096)
             for (size_t i = 0; i < st.size(); i++) {
-                expand(st[i], b); long long hs = h(st[i]);
-                for (auto& kv : b) { long long red = SC * kv.second + hs - h(kv.first); mr = min(mr, red);
-                    if (red < 0) { nv++; vl.push_back({red, st[i], kv.first, kv.second}); if (vl.size() > 200000) { sort(vl.begin(), vl.end()); vl.resize(20000); } } }
+                expand(st[i], b);
+                for (int p = 0; p < (PAR ? 2 : 1); p++) { long long hs = hp(st[i], p);
+                for (auto& kv : b) { long long red = SC * kv.second + hs - hp(kv.first, PAR ? 1 - p : 0); mr = min(mr, red);
+                    if (red < 0) { nv++; vl.push_back({red, st[i], kv.first, kv.second + 1000 * p}); if (vl.size() > 200000) { sort(vl.begin(), vl.end()); vl.resize(20000); } } } }
             }
             #pragma omp critical
             { minred = min(minred, mr); nviol += nv; viol.insert(viol.end(), vl.begin(), vl.end()); }

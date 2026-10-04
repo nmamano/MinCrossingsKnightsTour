@@ -249,7 +249,7 @@ n = 104, 156, 208, 260: X = 757, 1121, 1486, 1853 (all valid, brute-force agrees
 (Superseded on crossings by the fold design, 19n/3.)
 
 ## STATE FOR A FRESH SESSION (2026-10-02, written at handoff)
-Role: KT Integrator (Research Lab), manager = Chief Researcher (agent-1790895858902-etft). Rules: CP-SAT
+Role: KT Integrator (Research Lab), manager = Chief Researcher. Rules: CP-SAT
 num_workers <= 3, one heavy job at a time, work only in w-integrator/ (and demo/ for the new mission),
 report via POST /api/agents/<CR>/messages, hand off at ~50% context.
 Key code (all in w-integrator unless noted):
@@ -417,7 +417,7 @@ Milestone plan (CR, 2026-10-03; apply only when the CR names the post-audit mile
   commit (README.md, bounds-2026/README.md, RESULTS.md, writeup/, explain/ included) and push.
 
 ## STATE FOR A FRESH SESSION (2026-10-03 ~17:30 UTC, handoff at ~55% context)
-Role: KT Integrator; manager = Chief Researcher (agent-1790895858902-etft). Mission now: public repo + demo + post figures.
+Role: KT Integrator; manager = Chief Researcher. Mission now: public repo + demo + post figures.
 - Repo ~/nil/MinCrossingsKnightsTour (master, push as Nil; no branches). Last push 39e6b0e (demo = Pages landing page).
   Sync: `sh w-integrator/sync_public.sh` (excludes in the script; also writes the root index.html from demo/index.html).
 - HELD until the CR names the post-audit milestone (do NOT stage/push): README.md (5n line), bounds-2026/README.md
@@ -433,7 +433,7 @@ Role: KT Integrator; manager = Chief Researcher (agent-1790895858902-etft). Miss
   writeup/crossings/figures/lower_figs.py (text INK, lower now = 5n); explain/progress_charts.py (5n rows).
   blocks.png is made but NOT inserted (Nil decides the text).
 - Demo: demo/ (office app knight-demo, restart after changes: POST /api/apps/knight-demo/restart); check with
-  `node demo/check.js`; browser tests with playwright-core from ~/nil/isomux/node_modules + /usr/bin/google-chrome
+  `node demo/check.js`; browser tests with playwright-core from a local node_modules + /usr/bin/google-chrome
   (scripts in /tmp/demotest may be gone; rewrite as needed). Pages: https://nmamano.github.io/MinCrossingsKnightsTour/
 - Upper-bound wall study closed (no-go), see sections above. knights-tour-bounds archived (CR).
 2026-10-03 16:10 UTC: routine sync pushed 0696598 (191 files, gap/ claims 46-48, wall, beyond5). New rule: fresh-copy audit runs
@@ -613,3 +613,20 @@ Never write office URLs into synced notes (sync_public.sh fails on them).
   excludes /writeup/crossings/post.mdx. 8/8 listed checks PASS from a git-ls-files copy. Anchors tested (GitHub HTML).
 - Still HELD until the CR says the post is live: gap/verifier/claim46_crossings_snapshot.mdx, claim53_post_snapshot.mdx,
   claim53_vs46.diff. Only these + writeup/turns stay out of routine syncs now.
+
+## STATE FOR A FRESH SESSION (2026-10-04 ~05:20 UTC, handoff at ~52% context)
+Role: KT Integrator; manager = Chief Researcher. Repo ~/nil/MinCrossingsKnightsTour (master, push as Nil).
+Last pushes 2026-10-04: 856a7f3 TURNS_IMPROVED + rows; f64e38c demo turns step 5 (TI); 1a7d396 demo Download margins;
+944df86 5n-597 rows + chart; 7c23b9d CROSSINGS_PROOFS.md + git rm crossings post.mdx; 596ea3f routine sync.
+- HELD until the CR says the crossings post is live on nilmamano.com: gap/verifier/claim46_crossings_snapshot.mdx,
+  claim53_post_snapshot.mdx, claim53_vs46.diff, writeup/crossings/CHANGES_5N597.md (change list of the post).
+- Never stage writeup/turns (PSA's post; our paper main.tex/pdf only on request). Both post.mdx files are excluded in
+  sync_public.sh. Never write office URLs into synced notes (the sync fails on them).
+- Routine sync every ~2 h (self-reminder carries the staging command).
+- Turns mission tools (all audited where noted): allpipe.py / allsize_check.py / allsize_regress.py (Claims 55b, 56 PASS;
+  single straight field only), pipeline/ES_res2, ES_res6 (8n-17 / 8n-16, public). mixgen.py = cross-insertion data
+  generator for mixed interiors (not a proof); waits for an Edge Searcher mixed tour with periodic bands (S = multiple of
+  lcm(5, 2, band periods)). Mixed-field all-n design: section "DESIGN - all-n argument for a MIXED interior"; the parametric
+  engine is built only if mixgen shows a usable K (CR agreed).
+- Demo: demo/ (office app knight-demo; restart after changes); browser tests: /tmp/demotest/*.js style (playwright-core from
+  a local node_modules + /usr/bin/google-chrome); build_data.py has gen_TI.

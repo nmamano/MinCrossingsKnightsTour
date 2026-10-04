@@ -25,5 +25,8 @@ gap/searcher/wall/run_wd.sh watchdog; CP-SAT num_workers <= 2; check uptime; no 
 - 2026-10-04: mission received. Previous mission (beyond-5n flux) is stopped; see BEYOND5_FLUX.md.
 - 2026-10-04 (later): tools csolve.py / sweep.py / pring.py (periodic free bands + subtour cut loop) / extend.py.
   NEW: 8n-16 for n = 6 mod 8 (n >= 62), 8n-17 for n = 2 mod 8 (n >= 58), verified to n ~ 206. n = 0, 4 mod 8:
-  -14 is optimal in the periodic family (2f floor -18). See FINDINGS.md. Next: n = 50, 54 directly;
-  defect windows (non-periodic mid-side) for n = 0, 4 mod 8.
+  -14 is optimal in the periodic family (2f floor -18). See FINDINGS.md.
+- 2026-10-04 (later): n = 50 (-17), 54 (-16) done -> res 2: 8n-17 all n >= 50; res 6: 8n-16 all n >= 54.
+  n = 0, 4 mod 8: -14 proven optimal (SCIP cut loop) also with defect windows and with a general non-periodic
+  depth-4 ring (n = 56). Running: depth-6 general ring (grid_n56_ring6_scip.log). Then: n = 58 general ring
+  (can res 2 reach -18?). CR and Lower Bounds informed (3 messages to CR).

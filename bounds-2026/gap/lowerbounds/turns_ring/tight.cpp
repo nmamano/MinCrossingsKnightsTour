@@ -12,7 +12,8 @@ int main(int argc, char** argv) {
     auto h = [&](uint64_t s) { long long t = 0; for (size_t k = 0; k < slots.size(); k++) if (s >> k & 1) t += w[k]; return t; };
     ifstream in(argv[2]); string a, b, c; set<uint64_t> src; set<uint64_t> tgt;
     while (in >> a >> b >> c) { src.insert(stoull(a, 0, 16)); tgt.insert(stoull(c, 0, 16)); }
-    unordered_map<uint64_t,int> best; long long hits = 0;
+    unordered_map<uint64_t,int> best; long long hits = 0; FILE* dumpf = getenv("DUMP") ? fopen(getenv("DUMP"), "w") : nullptr;
+    set<pair<uint64_t,uint64_t>> tarcs;
     for (uint64_t s : src) {
         unordered_set<uint64_t> cur{s}; map<uint64_t, vector<int>> hit; size_t maxlayer = 1;
         map<vector<uint64_t>, int> seenLayer; int pre = -1, per = -1;
@@ -24,7 +25,7 @@ int main(int argc, char** argv) {
             if (L == LMAX) break;
             unordered_set<uint64_t> nxt;
             for (uint64_t u : cur) { expand(u, best); long long hu = h(u);
-                for (auto& kv : best) if (SC * kv.second + hu - h(kv.first) == 0) nxt.insert(kv.first); }
+                for (auto& kv : best) if (SC * kv.second + hu - h(kv.first) == 0) { nxt.insert(kv.first); if (dumpf) tarcs.insert({u, kv.first}); } }
             cur.swap(nxt); maxlayer = max(maxlayer, cur.size());
             if (cur.size() > 3000000) { printf("source %llx: layer too big at L=%d\n", (unsigned long long)s, L); break; }
         }
@@ -33,4 +34,5 @@ int main(int argc, char** argv) {
         printf("\n"); fflush(stdout);
     }
     printf("total source-target hits %lld\n", hits);
+    if (dumpf) { for (auto& a : tarcs) fprintf(dumpf, "%llx %llx\n", (unsigned long long)a.first, (unsigned long long)a.second); fclose(dumpf); }
 }

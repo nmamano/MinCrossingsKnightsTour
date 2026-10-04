@@ -13,6 +13,9 @@ m.Add(sc * c + sum(wk * f for wk, f in zip(w, phi)) == target)
 bits = []   # expressions are 0/1 sums (a cell uses a move at most once) -> make bool vars
 for e in list(ev) + list(eh):
     b = m.NewBoolVar(''); m.Add(e == b); bits.append(b)
+import os
+for item in filter(None, os.environ.get('FIX', '').split(',')):   # partition: FIX="bit:val,..." (bits 0..2K-1 of s|t)
+    k, val = map(int, item.split(':')); m.Add(bits[k] == val)
 f = open(out, 'w'); cnt = 0; t0 = time.time()
 while True:
     s = cp_model.CpSolver(); s.parameters.num_workers = NW; s.parameters.max_time_in_seconds = TL; s.parameters.cp_model_presolve = False

@@ -1,0 +1,37 @@
+iter 0: obj -18 bound -18 OPTIMAL cycles 16 cuts 0 t=3s
+iter 1: obj -17 bound -17 OPTIMAL cycles 26 cuts 16 t=9s
+iter 2: obj -17 bound -17 OPTIMAL cycles 24 cuts 42 t=16s
+iter 3: obj -16 bound -16 OPTIMAL cycles 35 cuts 66 t=32s
+iter 4: obj -16 bound -16 OPTIMAL cycles 35 cuts 101 t=57s
+iter 5: obj -16 bound -16 OPTIMAL cycles 21 cuts 136 t=76s
+iter 6: obj -16 bound -16 OPTIMAL cycles 21 cuts 157 t=123s
+iter 7: obj -16 bound -16 OPTIMAL cycles 24 cuts 178 t=249s
+iter 8: obj -15 bound -15 OPTIMAL cycles 20 cuts 202 t=436s
+iter 9: obj -13 bound -15 FEASIBLE cycles 22 cuts 222 t=2237s
+iter 10: obj -14 bound -14 OPTIMAL cycles 6 cuts 244 t=3012s
+STOP: tour lower bound -14 >= -14 for this family
+FAIL {'status': 'OPTIMAL', 'turns': -14, 'bound': -14, 'secs': 774.1, 'LB': -14}
+	Command being timed: "../../../.venv/bin/python -u pring.py --n 56 --Z 8 --Db 4 --Dl 4 --noties --stop -14 --mip SCIP --iters 500 --time 1800 --budget 5400 --out grid_n56_ring4_scip.json"
+	User time (seconds): 2990.71
+	System time (seconds): 3.85
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 50:13.35
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 618036
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 6
+	Minor (reclaiming a frame) page faults: 165810
+	Voluntary context switches: 17
+	Involuntary context switches: 53786
+	Swaps: 0
+	File system inputs: 816
+	File system outputs: 88
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+exit=0
