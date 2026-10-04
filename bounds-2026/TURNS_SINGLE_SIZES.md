@@ -16,13 +16,13 @@ They show that `8n - 14` is not the true minimum for `n = 0, 4 (mod 8)`: for exa
 | 44 | 4 | 335 | -17 | [tour_n44.json](gap/structures/tmin/tours/tour_n44.json) | no general bound below 48 | - |
 | 48 | 0 | 366 | -18 | [tour_n48.json](gap/structures/tmin/tours/tour_n48.json) | 8n - 14 | yes |
 | 54 | 6 | 414 | -18 | [tour_n54.json](gap/structures/tmin/tours/tour_n54.json) | 8n - 16 | yes |
-| 58 | 2 | 447 | -17 | [tour_n58.json](gap/structures/tmin/tours/tour_n58.json) | 8n - 17 | no, equal |
 | 64 | 0 | 497 | -15 | [tour_n64.json](gap/structures/tmin/tours/tour_n64.json) | 8n - 14 | yes |
 | 68 | 4 | 528 | -16 | [tour_n68.json](gap/structures/tmin/tours/tour_n68.json) | 8n - 14 | yes |
 | 74 | 2 | 574 | -18 | [tour_n74.json](gap/structures/tmin/tours/tour_n74.json) | 8n - 17 | yes |
 | 78 | 6 | 607 | -17 | [tour_n78.json](gap/structures/tmin/tours/tour_n78.json) | 8n - 16 | yes |
 | 88 | 0 | 689 | -15 | [tour_n88.json](gap/structures/tmin/tours/tour_n88.json) | 8n - 14 | yes |
-| 98 | 2 | 768 | -16 | [tour_n98.json](gap/structures/tmin/tours/tour_n98.json) | 8n - 17 | no, 8n - 17 is lower |
+
+The audit set also contains tours for n = 58 (8n - 17) and n = 98 (8n - 16); they do not improve on the general bound and are kept only so that the checker runs on the full manifest.
 
 The general bounds are the all-size constructions for even `n >= 48`: `8n - 14` (TT16, [TURNS_PROOFS.md](TURNS_PROOFS.md))
 and `8n - 17` (`n = 2 mod 8`), `8n - 16` (`n = 6 mod 8`) ([TURNS_IMPROVED.md](TURNS_IMPROVED.md)). The lower bound at
@@ -34,7 +34,7 @@ Manifest: [gap/structures/tmin/single_tours.json](gap/structures/tmin/single_tou
 Each tour file is JSON with `n`, `T`, `T_minus_8n` and `order`, the list of the `n^2` cells `[row, col]` (0-based) in
 cyclic order. A cell is a turn unless its two tour moves are opposite vectors.
 
-Audit: Claim 58 ([report](gap/verifier/claim58_report.md)), PASS for all 14 tours. The checker uses the Python standard
+Audit: Claim 58 ([report](gap/verifier/claim58_report.md)), PASS for all 14 tours of the manifest (the 12 above and n = 58, 98). The checker uses the Python standard
 library only and imports no project code. For each tour it checks the hash, that every cell is visited exactly once,
 that all `n^2` moves (with the closing move) are knight moves, and it counts the turns twice (equal consecutive moves;
 nonzero determinant). From the bounds-2026 folder:
