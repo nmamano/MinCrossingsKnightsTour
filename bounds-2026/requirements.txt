@@ -8,4 +8,4 @@ networkx==3.7
 # Figures and some audit scripts only:
 matplotlib==3.11.2
 pillow==13.0.0
-pypdf==6.19.0
+pypdf==6.21.2
